@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete diagonal Fourier pencil formula, exact projective trace, and generic cubic character-sum bound",
+  "checkpoint": "Complete Chinese remainder multiplicativity and unit-frequency invariance of the source local sums",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -63,8 +63,20 @@
       "scope_note": "Complete Lemma 2.7 for the actual projective trace under the literal geometric rank-two condition. Quadric smoothness, geometric polynomial irreducibility, nonvanishing, the exact Chern coefficient, and the scalar norm estimate are proved internally. The registered composite input combines Katz spectral data with the separately attributed general hypersurface geometry, adjunction, and degree formulas."
     },
     "lem:crt": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_mixedCompleteSum_crt",
+        "QuaternaryQuadraticForms.source_mixedCompleteSum_unit_frequency",
+        "QuaternaryQuadraticForms.complete_sum_crt",
+        "QuaternaryQuadraticForms.source_complete_sum_crt"
+      ],
+      "correspondence_record": "certification/correspondence/complete_sum_crt.md",
+      "completed_clauses": [
+        "The literal mixedCompleteSum factors over coprime blocks q1*c1 and q2*c2, with the actual integral quadratic form, prime-product weight, constrained residue vectors and unit parameters. The source-domain wrapper uses only the supplied prime functions at p not dividing N.",
+        "The same mixedCompleteSum is invariant under multiplication of the integral frequency by every integer t with gcd(t,q*c)=1, including modulus one and t=0 when permitted by that gcd condition."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.1 for the actual source sums. Integer-lift independence, all scaled CRT substitutions and phase coefficients, the two local unit permutations, and the source prime-weight domain are proved explicitly. No coprimality between q and c is imposed. Modulus-one identities, multiplicativity of S_c, the squarefree prime-factor formula for C_q, and the bridge to the existing prime Fourier sum are separately checked supporting exports. Squarefreeness is unnecessary for the two main identities of the product-defined extension; it is retained for the prime-factor corollary. All 66 new exports use only standard foundations; no literature premise is used. Full Lemma 3.2 and the main analytic theorems remain Pending."
     },
     "lem:gauss": {
       "status": "Pending",
@@ -6650,6 +6662,1072 @@
         "eq:exactpencil"
       ],
       "scope": "The reciprocal phase in a singular pencil member gives exactly the same Ramanujan value, including when its argument vanishes.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainder_fst",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "The first reduction of the source CRT coordinates.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainder_snd",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "The second reduction of the source CRT coordinates.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainder_intCast",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "Integer representatives give exactly `n a + m b` modulo the product.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainder_apply",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "Canonical representatives realize the source's literal scaled sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainderUnits_coe",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "The units bijection has exactly the same underlying residue as the source's scaled CRT bijection.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainderUnits_apply",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "Explicit integer-lift formula for the reduced-residue CRT bijection.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledChineseRemainderVector_apply",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "The vector bijection is the actual scalar bijection in each coordinate.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_scaledChineseRemainder",
+      "file": "QuaternaryQuadraticForms/CRTArithmetic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt"
+      ],
+      "scope": "The standard additive character factors in the actual scaled CRT coordinates.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_mul_modulus",
+      "file": "QuaternaryQuadraticForms/CRTCharacters.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "Cancelling one factor of the modulus in the numerator of the actual standard additive character.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_crt_split",
+      "file": "QuaternaryQuadraticForms/CRTCharacters.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "The source's scaled CRT coordinates split the standard additive phase. The identity itself holds even when the two moduli are not coprime.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_modulus_one",
+      "file": "QuaternaryQuadraticForms/CRTCharacters.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "Modulus one contributes the trivial phase, as in the source conventions.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueLift_cast",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "Reduction recovers the residue vector, including modulus one.",
+      "allowed_axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticValue_eq_eval",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "The integral quadratic value is evaluation of the existing formal polynomial.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticValue_map",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "A coefficient homomorphism commutes with the matrix quadratic value.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticValue_mul",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "Quadratic homogeneity holds over every commutative coefficient ring.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticValue_mul",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "Scalar multiplication of an integral vector multiplies its form by the square.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticValue_congr_mod",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "Congruent vectors have congruent quadratic values.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticValue_dvd_congr",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "Congruence of vectors preserves the source divisibility constraint.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dotProduct_intCast",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "The bilinear Fourier pairing respects reduction of both vectors.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dotProduct_congr_mod",
+      "file": "QuaternaryQuadraticForms/CompleteSumAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:forms",
+        "eq:Snewdef"
+      ],
+      "scope": "Congruent vectors have the same Fourier pairing modulo the modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedIntegerSummand_crt",
+      "file": "QuaternaryQuadraticForms/CompleteSumCRT.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt",
+        "eq:Snewdef"
+      ],
+      "scope": "The source mixed summand factors in the actual scaled CRT coordinates. The local unit parameters still carry the source factors `c₂ n₂` and `c₁ n₁`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_crt",
+      "file": "QuaternaryQuadraticForms/CompleteSumCRT.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt",
+        "eq:Snewdef"
+      ],
+      "scope": "Full CRT multiplicativity of the actual mixed complete sum. Only scalar invariance at primes dividing `q₁*q₂` is assumed.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_mul",
+      "file": "QuaternaryQuadraticForms/CompleteSumFactorization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef"
+      ],
+      "scope": "The source's unweighted complete sum is multiplicative in coprime positive moduli, including a factor equal to one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_mul",
+      "file": "QuaternaryQuadraticForms/CompleteSumFactorization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef"
+      ],
+      "scope": "The actual constrained Fourier sum is multiplicative in coprime positive moduli under the source's local scalar invariance.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_primeFactors",
+      "file": "QuaternaryQuadraticForms/CompleteSumFactorization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef"
+      ],
+      "scope": "For a positive squarefree modulus, the actual constrained sum is the product of its prime sums. The subtype indexes exactly the prime divisors and supplies their positivity; at modulus one it is the empty product.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedIntegerSummand_inverse_scale",
+      "file": "QuaternaryQuadraticForms/CompleteSumInvariance.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:weightproperties",
+        "eq:Snewdef"
+      ],
+      "scope": "Inverse scalar representatives give the exact source change of variables in the complete-sum summand.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_isUnit_frequency",
+      "file": "QuaternaryQuadraticForms/CompleteSumInvariance.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:weightproperties",
+        "eq:Snewdef"
+      ],
+      "scope": "Invariance under any integer scalar that is a unit modulo `q*c`. The proof uses bijections of the literal unit and vector summation sets.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_unit_frequency",
+      "file": "QuaternaryQuadraticForms/CompleteSumInvariance.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:weightproperties",
+        "eq:Snewdef"
+      ],
+      "scope": "The second assertion of Lemma 3.1, under the literal integer gcd condition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_one_left",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "With cone modulus one, the mixed sum is the source's unweighted sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_one_right",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "With unit modulus one, its singleton unit contributes exactly the constrained Fourier sum, including when the cone modulus is also one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_one",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "The ordinary sum at modulus one has its source value one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_one",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "The constrained sum at modulus one has empty-prime-product weight one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_one_one",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "Both modulus-one conventions give the same actual mixed sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_prime",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "At a prime, the source prime-product weight is the given local function on the actual finite-field quadratic cone.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_eq_integralFourierSum",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "Any local polynomial-character weight gives exactly the previously defined integral Fourier sum, for arbitrary characters and polynomials.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_polynomial_character",
+      "file": "QuaternaryQuadraticForms/CompleteSumSpecializations.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:Cpsi"
+      ],
+      "scope": "The literal family of polynomial-character weights specializes to the existing Fourier sum, with no matching-function assumption left over.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complete_sum_crt",
+      "file": "QuaternaryQuadraticForms/CompleteSumTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt",
+        "eq:weightproperties"
+      ],
+      "scope": "Both assertions of Lemma 3.1 for the literal mixed sums and their actual prime-product weights.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_mixedCompleteSum_crt",
+      "file": "QuaternaryQuadraticForms/CompleteSumTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt",
+        "eq:weightproperties"
+      ],
+      "scope": "Source-domain CRT multiplicativity: only local functions at primes not dividing `N` are supplied or assumed invariant.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_mixedCompleteSum_unit_frequency",
+      "file": "QuaternaryQuadraticForms/CompleteSumTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt",
+        "eq:weightproperties"
+      ],
+      "scope": "Source-domain unit-frequency invariance for every integer scalar with the manuscript's exact gcd condition, including modulus one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_complete_sum_crt",
+      "file": "QuaternaryQuadraticForms/CompleteSumTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:crt",
+        "eq:weightproperties"
+      ],
+      "scope": "Every clause of Lemma 3.1 for precisely the source's supplied prime functions and integral quadratic form and frequency.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedIntegerSummand_a_congr",
+      "file": "QuaternaryQuadraticForms/CompleteSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef"
+      ],
+      "scope": "Changing the lift of the unit parameter modulo `c` preserves the full summand.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedIntegerSummand_x_congr",
+      "file": "QuaternaryQuadraticForms/CompleteSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef"
+      ],
+      "scope": "Changing integer representatives of the vector modulo `q*c` preserves the summand.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedIntegerSummand_congr",
+      "file": "QuaternaryQuadraticForms/CompleteSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:Sdef",
+        "eq:Snewdef"
+      ],
+      "scope": "All choices of integer representatives in the mixed sum are immaterial.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_one",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "The empty prime product is the constant weight one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_prime",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "At a prime, the product is the prescribed local function.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_congr",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Coordinatewise congruence modulo `q` preserves the composite weight.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_congr_of_dvd_sub",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Divisibility of every coordinate difference gives weight invariance.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_add_modulus",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "The source weight is periodic modulo `q` in every coordinate.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_congr_mod",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Congruence modulo any multiple of `q` is enough for the weight.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mul",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Coprime moduli have disjoint prime supports, giving the literal product identity. This also includes a factor equal to one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_smul_of_nonzero",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Only the local invariance at primes dividing `q` is used in scaling the integer vector by a scalar nonzero at those primes.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_smul",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "An integer coprime to `q` preserves the composite weight.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_smul_of_isUnit",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "The unit formulation of integer-scalar invariance modulo `q`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mod_one",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "The residue-vector weight at modulus one remains the constant one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mod_eq_of_lift",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Any integer lift of a residue vector gives the same weight as the canonical lift, provided `q` divides the residue modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mod_intCast",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Reducing an integer vector and then taking its weight recovers the original integer-vector weight.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mod_prime",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "On prime residue vectors the construction is exactly the given local function, without any choice of representative.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mod_cast",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Reduction between ambient residue moduli preserves the weight when both moduli contain its prime support through divisibility by `q`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_mod_units_smul",
+      "file": "QuaternaryQuadraticForms/CompositeWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Cdef",
+        "eq:weightproperties"
+      ],
+      "scope": "Every unit of the ambient residue ring acts trivially on the weight whose modulus divides that ring's modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedPhase_intCast_lift_independent",
+      "file": "QuaternaryQuadraticForms/MixedPhase.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "The cone condition kills the change in phase caused by replacing the parameter by another integer in the same residue class modulo `c`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedPhase_lift_independent",
+      "file": "QuaternaryQuadraticForms/MixedPhase.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "Lift independence for the actual standard additive-character phase.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedPhase_crt_intCast",
+      "file": "QuaternaryQuadraticForms/MixedPhase.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "The source CRT phase congruence for arbitrary integral representatives. Only the two cone conditions are needed; coprimality is needed later for the CRT bijections, not for this polynomial congruence.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedPhase_crt",
+      "file": "QuaternaryQuadraticForms/MixedPhase.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:Snewdef",
+        "eq:crt"
+      ],
+      "scope": "The two source CRT factors of the actual standard additive phase. The unit parameters are arbitrary integer representatives at this stage.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendPrimeWeights_apply",
+      "file": "QuaternaryQuadraticForms/SourceWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:weightproperties",
+        "eq:Cdef"
+      ],
+      "scope": "At every supplied prime, extension agrees with the original function.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightsInvariant_extend",
+      "file": "QuaternaryQuadraticForms/SourceWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:weightproperties",
+        "eq:Cdef"
+      ],
+      "scope": "The source invariance at good primes supplies exactly the invariance needed at the primes of a modulus coprime to `N`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_extend",
+      "file": "QuaternaryQuadraticForms/SourceWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:crt",
+        "eq:weightproperties",
+        "eq:Cdef"
+      ],
+      "scope": "The extended family's composite weight is exactly the product of the original supplied local functions; no excluded-prime value enters it.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",

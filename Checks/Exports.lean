@@ -419,7 +419,73 @@ run_cmd do
     `QuaternaryQuadraticForms.primeRamanujan_eq,
     `QuaternaryQuadraticForms.primeRamanujan_mul,
     `QuaternaryQuadraticForms.primeRamanujan_inverse_sum,
-    `QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase]
+    `QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase,
+    `QuaternaryQuadraticForms.scaledChineseRemainder_fst,
+    `QuaternaryQuadraticForms.scaledChineseRemainder_snd,
+    `QuaternaryQuadraticForms.scaledChineseRemainder_intCast,
+    `QuaternaryQuadraticForms.scaledChineseRemainder_apply,
+    `QuaternaryQuadraticForms.scaledChineseRemainderUnits_coe,
+    `QuaternaryQuadraticForms.scaledChineseRemainderUnits_apply,
+    `QuaternaryQuadraticForms.scaledChineseRemainderVector_apply,
+    `QuaternaryQuadraticForms.stdAddChar_scaledChineseRemainder,
+    `QuaternaryQuadraticForms.stdAddChar_mul_modulus,
+    `QuaternaryQuadraticForms.stdAddChar_crt_split,
+    `QuaternaryQuadraticForms.stdAddChar_modulus_one,
+    `QuaternaryQuadraticForms.residueLift_cast,
+    `QuaternaryQuadraticForms.integralQuadraticValue_eq_eval,
+    `QuaternaryQuadraticForms.matrixQuadraticValue_map,
+    `QuaternaryQuadraticForms.matrixQuadraticValue_mul,
+    `QuaternaryQuadraticForms.integralQuadraticValue_mul,
+    `QuaternaryQuadraticForms.integralQuadraticValue_congr_mod,
+    `QuaternaryQuadraticForms.integralQuadraticValue_dvd_congr,
+    `QuaternaryQuadraticForms.dotProduct_intCast,
+    `QuaternaryQuadraticForms.dotProduct_congr_mod,
+    `QuaternaryQuadraticForms.mixedIntegerSummand_crt,
+    `QuaternaryQuadraticForms.mixedCompleteSum_crt,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_mul,
+    `QuaternaryQuadraticForms.constrainedFourierSum_mul,
+    `QuaternaryQuadraticForms.constrainedFourierSum_primeFactors,
+    `QuaternaryQuadraticForms.mixedIntegerSummand_inverse_scale,
+    `QuaternaryQuadraticForms.mixedCompleteSum_isUnit_frequency,
+    `QuaternaryQuadraticForms.mixedCompleteSum_unit_frequency,
+    `QuaternaryQuadraticForms.mixedCompleteSum_one_left,
+    `QuaternaryQuadraticForms.mixedCompleteSum_one_right,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_one,
+    `QuaternaryQuadraticForms.constrainedFourierSum_one,
+    `QuaternaryQuadraticForms.mixedCompleteSum_one_one,
+    `QuaternaryQuadraticForms.constrainedFourierSum_prime,
+    `QuaternaryQuadraticForms.constrainedFourierSum_eq_integralFourierSum,
+    `QuaternaryQuadraticForms.constrainedFourierSum_polynomial_character,
+    `QuaternaryQuadraticForms.complete_sum_crt,
+    `QuaternaryQuadraticForms.source_mixedCompleteSum_crt,
+    `QuaternaryQuadraticForms.source_mixedCompleteSum_unit_frequency,
+    `QuaternaryQuadraticForms.source_complete_sum_crt,
+    `QuaternaryQuadraticForms.mixedIntegerSummand_a_congr,
+    `QuaternaryQuadraticForms.mixedIntegerSummand_x_congr,
+    `QuaternaryQuadraticForms.mixedIntegerSummand_congr,
+    `QuaternaryQuadraticForms.compositeWeight_one,
+    `QuaternaryQuadraticForms.compositeWeight_prime,
+    `QuaternaryQuadraticForms.compositeWeight_congr,
+    `QuaternaryQuadraticForms.compositeWeight_congr_of_dvd_sub,
+    `QuaternaryQuadraticForms.compositeWeight_add_modulus,
+    `QuaternaryQuadraticForms.compositeWeight_congr_mod,
+    `QuaternaryQuadraticForms.compositeWeight_mul,
+    `QuaternaryQuadraticForms.compositeWeight_smul_of_nonzero,
+    `QuaternaryQuadraticForms.compositeWeight_smul,
+    `QuaternaryQuadraticForms.compositeWeight_smul_of_isUnit,
+    `QuaternaryQuadraticForms.compositeWeight_mod_one,
+    `QuaternaryQuadraticForms.compositeWeight_mod_eq_of_lift,
+    `QuaternaryQuadraticForms.compositeWeight_mod_intCast,
+    `QuaternaryQuadraticForms.compositeWeight_mod_prime,
+    `QuaternaryQuadraticForms.compositeWeight_mod_cast,
+    `QuaternaryQuadraticForms.compositeWeight_mod_units_smul,
+    `QuaternaryQuadraticForms.mixedPhase_intCast_lift_independent,
+    `QuaternaryQuadraticForms.mixedPhase_lift_independent,
+    `QuaternaryQuadraticForms.mixedPhase_crt_intCast,
+    `QuaternaryQuadraticForms.mixedPhase_crt,
+    `QuaternaryQuadraticForms.extendPrimeWeights_apply,
+    `QuaternaryQuadraticForms.primeWeightsInvariant_extend,
+    `QuaternaryQuadraticForms.compositeWeight_extend]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -1703,3 +1769,201 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase
 #print axioms QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainder_fst
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainder_fst
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainder_snd
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainder_snd
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainder_intCast
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainder_intCast
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainder_apply
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainder_apply
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainderUnits_coe
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainderUnits_coe
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainderUnits_apply
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainderUnits_apply
+
+#check @QuaternaryQuadraticForms.scaledChineseRemainderVector_apply
+#print axioms QuaternaryQuadraticForms.scaledChineseRemainderVector_apply
+
+#check @QuaternaryQuadraticForms.stdAddChar_scaledChineseRemainder
+#print axioms QuaternaryQuadraticForms.stdAddChar_scaledChineseRemainder
+
+#check @QuaternaryQuadraticForms.stdAddChar_mul_modulus
+#print axioms QuaternaryQuadraticForms.stdAddChar_mul_modulus
+
+#check @QuaternaryQuadraticForms.stdAddChar_crt_split
+#print axioms QuaternaryQuadraticForms.stdAddChar_crt_split
+
+#check @QuaternaryQuadraticForms.stdAddChar_modulus_one
+#print axioms QuaternaryQuadraticForms.stdAddChar_modulus_one
+
+#check @QuaternaryQuadraticForms.residueLift_cast
+#print axioms QuaternaryQuadraticForms.residueLift_cast
+
+#check @QuaternaryQuadraticForms.integralQuadraticValue_eq_eval
+#print axioms QuaternaryQuadraticForms.integralQuadraticValue_eq_eval
+
+#check @QuaternaryQuadraticForms.matrixQuadraticValue_map
+#print axioms QuaternaryQuadraticForms.matrixQuadraticValue_map
+
+#check @QuaternaryQuadraticForms.matrixQuadraticValue_mul
+#print axioms QuaternaryQuadraticForms.matrixQuadraticValue_mul
+
+#check @QuaternaryQuadraticForms.integralQuadraticValue_mul
+#print axioms QuaternaryQuadraticForms.integralQuadraticValue_mul
+
+#check @QuaternaryQuadraticForms.integralQuadraticValue_congr_mod
+#print axioms QuaternaryQuadraticForms.integralQuadraticValue_congr_mod
+
+#check @QuaternaryQuadraticForms.integralQuadraticValue_dvd_congr
+#print axioms QuaternaryQuadraticForms.integralQuadraticValue_dvd_congr
+
+#check @QuaternaryQuadraticForms.dotProduct_intCast
+#print axioms QuaternaryQuadraticForms.dotProduct_intCast
+
+#check @QuaternaryQuadraticForms.dotProduct_congr_mod
+#print axioms QuaternaryQuadraticForms.dotProduct_congr_mod
+
+#check @QuaternaryQuadraticForms.mixedIntegerSummand_crt
+#print axioms QuaternaryQuadraticForms.mixedIntegerSummand_crt
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_crt
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_crt
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_mul
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_mul
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_mul
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_mul
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_primeFactors
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_primeFactors
+
+#check @QuaternaryQuadraticForms.mixedIntegerSummand_inverse_scale
+#print axioms QuaternaryQuadraticForms.mixedIntegerSummand_inverse_scale
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_isUnit_frequency
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_isUnit_frequency
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_unit_frequency
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_unit_frequency
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_one_left
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_one_left
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_one_right
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_one_right
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_one
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_one
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_one
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_one
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_one_one
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_one_one
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_prime
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_prime
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_eq_integralFourierSum
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_eq_integralFourierSum
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_polynomial_character
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_polynomial_character
+
+#check @QuaternaryQuadraticForms.complete_sum_crt
+#print axioms QuaternaryQuadraticForms.complete_sum_crt
+
+#check @QuaternaryQuadraticForms.source_mixedCompleteSum_crt
+#print axioms QuaternaryQuadraticForms.source_mixedCompleteSum_crt
+
+#check @QuaternaryQuadraticForms.source_mixedCompleteSum_unit_frequency
+#print axioms QuaternaryQuadraticForms.source_mixedCompleteSum_unit_frequency
+
+#check @QuaternaryQuadraticForms.source_complete_sum_crt
+#print axioms QuaternaryQuadraticForms.source_complete_sum_crt
+
+#check @QuaternaryQuadraticForms.mixedIntegerSummand_a_congr
+#print axioms QuaternaryQuadraticForms.mixedIntegerSummand_a_congr
+
+#check @QuaternaryQuadraticForms.mixedIntegerSummand_x_congr
+#print axioms QuaternaryQuadraticForms.mixedIntegerSummand_x_congr
+
+#check @QuaternaryQuadraticForms.mixedIntegerSummand_congr
+#print axioms QuaternaryQuadraticForms.mixedIntegerSummand_congr
+
+#check @QuaternaryQuadraticForms.compositeWeight_one
+#print axioms QuaternaryQuadraticForms.compositeWeight_one
+
+#check @QuaternaryQuadraticForms.compositeWeight_prime
+#print axioms QuaternaryQuadraticForms.compositeWeight_prime
+
+#check @QuaternaryQuadraticForms.compositeWeight_congr
+#print axioms QuaternaryQuadraticForms.compositeWeight_congr
+
+#check @QuaternaryQuadraticForms.compositeWeight_congr_of_dvd_sub
+#print axioms QuaternaryQuadraticForms.compositeWeight_congr_of_dvd_sub
+
+#check @QuaternaryQuadraticForms.compositeWeight_add_modulus
+#print axioms QuaternaryQuadraticForms.compositeWeight_add_modulus
+
+#check @QuaternaryQuadraticForms.compositeWeight_congr_mod
+#print axioms QuaternaryQuadraticForms.compositeWeight_congr_mod
+
+#check @QuaternaryQuadraticForms.compositeWeight_mul
+#print axioms QuaternaryQuadraticForms.compositeWeight_mul
+
+#check @QuaternaryQuadraticForms.compositeWeight_smul_of_nonzero
+#print axioms QuaternaryQuadraticForms.compositeWeight_smul_of_nonzero
+
+#check @QuaternaryQuadraticForms.compositeWeight_smul
+#print axioms QuaternaryQuadraticForms.compositeWeight_smul
+
+#check @QuaternaryQuadraticForms.compositeWeight_smul_of_isUnit
+#print axioms QuaternaryQuadraticForms.compositeWeight_smul_of_isUnit
+
+#check @QuaternaryQuadraticForms.compositeWeight_mod_one
+#print axioms QuaternaryQuadraticForms.compositeWeight_mod_one
+
+#check @QuaternaryQuadraticForms.compositeWeight_mod_eq_of_lift
+#print axioms QuaternaryQuadraticForms.compositeWeight_mod_eq_of_lift
+
+#check @QuaternaryQuadraticForms.compositeWeight_mod_intCast
+#print axioms QuaternaryQuadraticForms.compositeWeight_mod_intCast
+
+#check @QuaternaryQuadraticForms.compositeWeight_mod_prime
+#print axioms QuaternaryQuadraticForms.compositeWeight_mod_prime
+
+#check @QuaternaryQuadraticForms.compositeWeight_mod_cast
+#print axioms QuaternaryQuadraticForms.compositeWeight_mod_cast
+
+#check @QuaternaryQuadraticForms.compositeWeight_mod_units_smul
+#print axioms QuaternaryQuadraticForms.compositeWeight_mod_units_smul
+
+#check @QuaternaryQuadraticForms.mixedPhase_intCast_lift_independent
+#print axioms QuaternaryQuadraticForms.mixedPhase_intCast_lift_independent
+
+#check @QuaternaryQuadraticForms.mixedPhase_lift_independent
+#print axioms QuaternaryQuadraticForms.mixedPhase_lift_independent
+
+#check @QuaternaryQuadraticForms.mixedPhase_crt_intCast
+#print axioms QuaternaryQuadraticForms.mixedPhase_crt_intCast
+
+#check @QuaternaryQuadraticForms.mixedPhase_crt
+#print axioms QuaternaryQuadraticForms.mixedPhase_crt
+
+#check @QuaternaryQuadraticForms.extendPrimeWeights_apply
+#print axioms QuaternaryQuadraticForms.extendPrimeWeights_apply
+
+#check @QuaternaryQuadraticForms.primeWeightsInvariant_extend
+#print axioms QuaternaryQuadraticForms.primeWeightsInvariant_extend
+
+#check @QuaternaryQuadraticForms.compositeWeight_extend
+#print axioms QuaternaryQuadraticForms.compositeWeight_extend

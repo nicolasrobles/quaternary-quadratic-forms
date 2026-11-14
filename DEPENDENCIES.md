@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 10 · Partial: 0 · Active: 0 · Pending:
-32**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 11 · Partial: 0 · Active: 0 · Pending:
+31**. Lemmas 2.5, 2.7 and 3.1, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -101,12 +101,23 @@ bound uses only the existing Weil premise, with repeated-root cubics
 handled internally. Theorem 1.3 remains Pending because its asymptotic
 clause still depends on Theorem 1.1.
 
+Lemma 3.1 is complete for the literal prime-product weights and mixed
+complete sums: both CRT multiplicativity and invariance under every
+integer frequency scalar coprime to `qc` are checked. The final source
+wrapper accepts local functions only at primes not dividing `N`, with
+no assumptions on excluded primes. Lift independence, modulus one,
+the direct `C_q` prime-factor product and `S_c` multiplicativity, and the
+bridge to the existing prime Fourier sum are proved. The 66 new exports
+have passed strict builds and actual type and axiom inspection; all use
+only standard logical foundations. Aggregate verification and CI
+execution evidence are recorded separately in the checkpoint.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 416 theorem exports across 84 Lean modules are
+numbered-result count. The 482 theorem exports across 96 Lean modules are
 also counted separately from the four external Lean premises. The current
-verification scope includes 107 hashed inputs and nine pinned dependency
+expected verification scope includes 120 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
 
@@ -175,6 +186,11 @@ The source's Gauss-sum citation does not introduce a fifth Lean premise.
 The exact pencil formula and trace use no literature premise, and the
 generic bound uses the already registered affine Weil estimate only in
 the separable cubic case.
+
+The complete-sum definitions, source-domain weight extension, scaled CRT,
+phase calculations, unit-frequency invariance and factorization corollaries
+for Lemma 3.1 likewise use only proved library results and standard logical
+foundations. No literature premise is added for this arithmetic branch.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -531,22 +547,83 @@ proved library results. The final bound and combined theorem add only
 the existing Weil premise. No separability assumption is imposed on
 `Φ_u`, and neither `ν_i(u)=0` nor a vanishing coefficient `b_i` is excluded.
 
+## Completed CRT factorization and frequency invariance
+
+Both clauses of Lemma 3.1 are proved for the source's actual integral
+quadratic form, frequency, prime-product weights and mixed complete sums:
+
+1. [CompositeWeights](QuaternaryQuadraticForms/CompositeWeights.lean)
+   defines `ξ_q(x)` as the product over `q.primeFactors`, proves `ξ_1=1`
+   and prime specialization, and checks congruence, periodicity, coprime
+   products and scalar invariance. Its residue-ring version agrees with
+   every integer lift when `q` divides the ambient modulus.
+   [SourceWeights](QuaternaryQuadraticForms/SourceWeights.lean) accepts
+   functions only at primes `p ∤ N` and extends the family by zero outside
+   that domain. When `(q,N)=1`, every factor equals the supplied local
+   function; no property at an excluded prime enters the argument.
+2. [CompleteSumAlgebra](QuaternaryQuadraticForms/CompleteSumAlgebra.lean)
+   proves the quadratic-value reduction and homogeneity identities for
+   the actual matrix polynomial.
+   [CompleteSums](QuaternaryQuadraticForms/CompleteSums.lean) defines
+   `C_q`, `S_c` and `𝒮_{q,c}` using the standard additive character and
+   proves independence of the representatives of both `x mod qc` and
+   `a mod c`. The latter uses precisely the constraint `q ∣ F(x)`.
+3. [CRTCharacters](QuaternaryQuadraticForms/CRTCharacters.lean) proves
+   the exact additive-character identities, including modulus one.
+   [CRTArithmetic](QuaternaryQuadraticForms/CRTArithmetic.lean) constructs
+   the scaled CRT bijections for residues, units and four-dimensional
+   vectors. With `n_i=q_i c_i`, the vector is `x=n_2 x_1+n_1 x_2`,
+   and the unit parameter is `a=c_2 a_1+c_1 a_2`.
+4. [MixedPhase](QuaternaryQuadraticForms/MixedPhase.lean) checks the
+   source phase factors `c_2 n_2` and `c_1 n_1` using the two local cone
+   conditions. [CompleteSumCRT](QuaternaryQuadraticForms/CompleteSumCRT.lean)
+   proves the equivalence of the global and local cone conditions,
+   splits the actual weight and phase, reindexes the finite sums, and
+   absorbs those factors by unit permutations. Its only coprimality
+   condition is `(q_1 c_1,q_2 c_2)=1`; shared prime divisors of `q_i`
+   and `c_i` within a block are allowed. The product-defined extension
+   satisfies this theorem even without the source's squarefreeness
+   restriction.
+5. [CompleteSumInvariance](QuaternaryQuadraticForms/CompleteSumInvariance.lean)
+   proves `𝒮_{q,c}(tu)=𝒮_{q,c}(u)` under the literal integer condition
+   `(t,qc)=1`, through inverse scaling of `x` and square scaling of the
+   unit parameter. Modulus one is included throughout. The allowed case
+   `t=0` is retained: its gcd hypothesis forces `qc=1`.
+6. [CompleteSumSpecializations](QuaternaryQuadraticForms/CompleteSumSpecializations.lean)
+   proves `𝒮_{1,c}=S_c`, `𝒮_{q,1}=C_q`, their modulus-one values, and
+   the equality of the prime polynomial-character specialization with
+   the existing `integralFourierSum`.
+   [CompleteSumFactorization](QuaternaryQuadraticForms/CompleteSumFactorization.lean)
+   deduces multiplicativity of `S_c` and the actual squarefree product
+   `C_q(u)=∏_{p∣q} C_p(u)`, including the empty product at `q=1`.
+   [CompleteSumTheorem](QuaternaryQuadraticForms/CompleteSumTheorem.lean)
+   supplies the combined theorem and its final source-domain wrapper.
+
+The [source correspondence review](certification/correspondence/complete_sum_crt.md)
+records both numbered clauses, the supplied-prime domain, the exact
+normalizations and the direct supporting corollaries. All 66 exports in
+these 12 modules use only standard logical foundations and proved library
+results. The separate auxiliary-group ledger is unchanged; the new
+supporting exports do not automatically certify an entire auxiliary group.
+
 ## Next proof branch
 
-Lemma 3.1 remains Pending and is the next bounded target. Define the
-literal composite weights and complete sums `C_q`, `S_c`, and
-`𝒮_{q,c}`, then prove both CRT multiplicativity and invariance under unit
-scaling of the frequency, including the modulus-one cases. The phase in
-`𝒮_{q,c}` must be proved independent of the lift of `a mod c`, using the
-constraint `F(x)=0 mod q`. The direct prime-factor corollaries and the
-bridge to the existing prime Fourier sum connect the checked local
-estimates to the later composite-modulus arguments.
+All three clauses of Lemma 3.2 remain Pending and form the next target.
+For a good prime `p ∤ N_F` and `k ≥ 1`, they require the actual general
+matrix shifted Gauss evaluation
+`∑_x e_{p^k}(aF(x)+u·x) = χ(p)^k p^(2k) e_{p^k}(-(4aα)⁻¹F*(u))`,
+for `p ∤ a`, the formula
+`S_{p^k}(u)=χ(p)^k p^(2k) R_{p^k}(F*(u))`, and the exact
+projective quadric count `p²+(1+χ(p))p+1`.
 
-The next step after that is all three clauses of Lemma 3.2. Its shared
-one-dimensional prime-field Gauss identities are now available, but
-general-matrix diagonalization, the prime-power recurrence and shifted
-evaluation, the Ramanujan formula, and the projective point count remain
-to be proved. Lemma 3.2 and the main analytic theorems remain Pending.
+The one-dimensional prime-field Gauss identities and the actual complete
+sum and CRT interfaces are now available. The remaining work is to
+diagonalize the general nonsingular symmetric matrix over the prime
+field, prove the prime-power digit recurrence `V_k=p⁴ V_{k-2}`, complete
+the square using the adjugate inverse, sum over units, and convert the
+affine zero count to the actual projective count. The digit decomposition
+at powers of a single prime is a separate argument from coprime CRT.
+The main analytic theorems remain Pending.
 In particular, the first two assertions of Theorem 1.3 now have checked
 inputs from Lemmas 4.5 and 4.6, while its asymptotic and explicit global
 factor clause still require Theorem 1.1; Theorem 1.3 remains Pending.

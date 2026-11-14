@@ -761,8 +761,11 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "The scalar-invariance assumptions on xi remove the CRT twists.",
-        "Include the unit-frequency invariance, not just factorization."
+        "Complete Lean proof of both source clauses for the actual mixed sums, integral quadratic form and generic prime-product weights. The source family is supplied only at primes not dividing N, and its extension is proved to reproduce every factor when q is coprime to N.",
+        "The q-divisibility constraint proves independence of the lift of a modulo c. Scaled Chinese remainder bijections for both vectors and units, the exact factors c2*n2 and c1*n1 in the phase, and their removal by local unit permutations are checked.",
+        "Unit-frequency invariance uses the literal integer gcd(t,q*c)=1 condition. Modulus one and t=0 when q*c=1 are included; no coprimality between q and c is assumed.",
+        "The two main identities need no squarefreeness or size hypothesis beyond the source scalar invariance; the prime-product formula for C_q retains squarefreeness. The S_c multiplicativity, modulus-one specializations and exact bridge to the existing prime Fourier sum are separately checked supporting exports.",
+        "All new exports use only standard logical foundations; no literature premise is introduced or used. The full prime-power evaluation and counting clauses of Lemma 3.2 remain Pending."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

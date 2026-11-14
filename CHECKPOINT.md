@@ -1,9 +1,9 @@
-# Complete diagonal pencil checkpoint
+# Complete local-sum CRT checkpoint
 
 ## Numbered-result status
 
-Complete: **10**. Partial: **0**. Active numbered targets: **0**.
-Pending: **32**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **11**. Partial: **0**. Active numbered targets: **0**.
+Pending: **31**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -54,9 +54,103 @@ generic condition is precisely `p ∤ F*(u)u₁u₂u₃u₄`. The exact formula
 and trace use only the standard foundations; the bound additionally uses
 the existing Weil premise. All Section 4 lemmas are now complete.
 Theorem 1.3 remains Pending because its global asymptotic is not proved.
-The next target is complete Lemma 3.1; the full Lemma 3.2 remains Pending.
+
+**Lemma 3.1 is Certified.** The actual mixed complete sum satisfies both
+the CRT factorization and integer unit-frequency invariance. Integer
+lift independence, the source's prime-product weights, and the extension
+of functions supplied only at primes outside `N` are proved internally.
+The identities include modulus one and shared prime factors between `q`
+and `c`; the literal gcd condition also permits `t=0` when `qc=1`.
+The supporting prime-factor formula for `C_q`, multiplicativity of
+`S_c`, and exact prime Fourier bridge are proved. No literature premise
+is used. The next target is complete Lemma 3.2.
 
 ## Mathematical scope
+
+### Complete Lemma 3.1
+
+`CompleteSumTheorem.lean` proves `complete_sum_crt` and the final source
+wrapper `source_complete_sum_crt`. They concern the existing actual
+mixed sum, with the source's integral matrix and frequency and the
+literal coprimality condition `(q₁c₁,q₂c₂)=1`. The source wrapper
+accepts a local function only for each prime `p ∤ N`, and assumes
+`(q₁q₂,N)=1`. Both conclusions are included:
+
+$$\mathcal S_{q_1q_2,c_1c_2}(u)=
+\mathcal S_{q_1,c_1}(u)\mathcal S_{q_2,c_2}(u),$$
+
+$$\mathcal S_{q,c}(tu)=\mathcal S_{q,c}(u)
+\qquad\text{for every integer }t\text{ with }\gcd(t,qc)=1.$$
+
+`CompositeWeights.lean` defines the actual product
+`ξ_q(x)=∏_{p∣q} ξ_p(x mod p)`, with `ξ_1=1`. It proves periodicity,
+compatibility with residue lifts and coefficient reduction, factorization
+on coprime moduli, and invariance under a unit scalar. The invariant
+predicate only concerns primes dividing the specified `q`.
+`SourceWeights.lean` extends the supplied good-prime family by zero at
+other indices and proves that this extension agrees with every factor
+used when `(q,N)=1`. No property at an excluded prime is assumed.
+
+`CompleteSums.lean` defines `mixedCompleteSum`,
+`unweightedCompleteSum`, and `constrainedFourierSum` as their literal
+finite sums. The mixed sum is over units modulo `c` and vectors modulo
+`qc`, constrained by `q ∣ F(x)`, with phase `e_{qc}(aF(x)+u·x)`.
+The quadratic value is `dotProduct x (A.mulVec x)`, proved equal to
+evaluation of the actual matrix quadratic polynomial.
+
+The canonical representatives in the definition introduce no extra
+choice hypothesis. Changing a vector lift modulo `qc` preserves the
+weight, congruence condition, and phase. Changing the representative
+of `a mod c` changes `aF(x)` by a multiple of `qc`, because the summation
+condition is `q ∣ F(x)`. The mixed-phase proof checks this divisibility
+before applying the actual standard additive character.
+
+`CRTArithmetic.lean` builds actual residue, unit, and vector bijections
+from mathlib's Chinese remainder equivalence. Their forward maps are
+the source's scaled coordinates `x=n₂x₁+n₁x₂` and
+`a=c₂a₁+c₁a₂`, where `n_i=q_i c_i`. `CRTCharacters.lean` proves
+`e_{mn}(nz)=e_m(z)` and
+`e_{mn}(na+mb)=e_m(a)e_n(b)` for positive arbitrary moduli, including
+one. `MixedPhase.lean` proves the exact source quadratic phase split.
+`CompleteSumCRT.lean` combines these with the prime-product weight and
+the quadratic-congruence split, then reindexes the local units by
+`c₂n₂` and `c₁n₁` to prove the actual double-sum product.
+
+The required coprimality is between the two complete CRT blocks.
+There is no assumption `(q,c)=1`; a prime may divide both `q_i` and
+`c_i` within a block. The argument in fact needs neither squarefreeness
+nor nonsingularity for the two main identities. The source's additional
+hypotheses therefore specialize the proved theorem without adding an
+unproved implication.
+
+`CompleteSumInvariance.lean` proves the second clause by reindexing
+vectors with an inverse of `t` modulo `qc` and units with multiplication
+by `t²` modulo `c`. Its final hypothesis is exactly
+`t.gcd ((q*c : ℕ) : ℤ)=1`. Negative scalars are included. At modulus
+`qc=1`, the residue and unit types are singletons, the sum equals one,
+and the same gcd condition permits `t=0`. No global assumption
+`t ≠ 0` is introduced.
+
+`CompleteSumSpecializations.lean` proves
+`𝒮_{1,c}=S_c`, `𝒮_{q,1}=C_q`, and
+`C_1=S_1=𝒮_{1,1}=1`. Its prime theorem identifies `C_p` with the
+actual sum on the finite-field quadratic cone. For a polynomial-character
+weight, this is exactly the already checked `integralFourierSum`, with
+matching coefficients, frequency, and standard additive character. The
+bridge itself needs no homogeneity or character-order hypothesis.
+
+`CompleteSumFactorization.lean` proves multiplicativity of `S_c` in
+coprime moduli and the squarefree formula
+
+$$C_q(u)=\prod_{p\mid q}C_p(u).$$
+
+The finite-product induction uses invariance only at primes dividing
+`q`, and the empty product handles `q=1`. These remain supporting
+exports; the separate auxiliary groups are not thereby certified.
+The [source correspondence review](certification/correspondence/complete_sum_crt.md)
+records both source clauses, the representative choices, modulus-one
+cases, source-family extension, and exact connection to the earlier
+Fourier branch. All 66 new exports use only standard Lean foundations.
 
 ### Complete Lemma 4.6
 
@@ -538,6 +632,14 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete Lemma 3.1 and its source-family wrapper](QuaternaryQuadraticForms/CompleteSumTheorem.lean).
+- [Actual complete sums and lift independence](QuaternaryQuadraticForms/CompleteSums.lean).
+- [Mixed CRT factorization](QuaternaryQuadraticForms/CompleteSumCRT.lean).
+- [Literal unit-frequency invariance](QuaternaryQuadraticForms/CompleteSumInvariance.lean).
+- [Source weight family outside the excluded primes](QuaternaryQuadraticForms/SourceWeights.lean).
+- [Modulus-one identities and exact prime Fourier bridge](QuaternaryQuadraticForms/CompleteSumSpecializations.lean).
+- [Prime factorization and unweighted multiplicativity](QuaternaryQuadraticForms/CompleteSumFactorization.lean).
+- [Complete local-sum CRT correspondence review](certification/correspondence/complete_sum_crt.md).
 - [Complete integral Lemma 4.6](QuaternaryQuadraticForms/DiagonalPencilTheorem.lean).
 - [Exact finite-field pencil formula](QuaternaryQuadraticForms/DiagonalPencilFormula.lean).
 - [Trace and generic Fourier bound](QuaternaryQuadraticForms/DiagonalPencilConsequences.lean).
@@ -586,17 +688,63 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current pencil milestone contains 416 theorem exports across 84
+The current CRT milestone contains 482 theorem exports across 96 project
+Lean modules and 20 mapped source groups: 66 new exports in 12 new
+modules. The four registered literature premises and all nine pinned
+dependency revisions are unchanged. Source groups and Lean premise
+declarations remain separate counts. The completed aggregate report
+records 120 input hashes, including the new correspondence review.
+
+All 12 new modules have passed strict builds under official Lean 4.24.0
+and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 66 new actual theorem types and axiom lists
+have been inspected. Exactly 65 use `Classical.choice`, `Quot.sound`,
+and `propext`; `residueLift_cast` uses only `Quot.sound` and `propext`.
+No new theorem uses a registered literature premise. The frozen
+manuscript, PDF, and dependency pins remain unchanged.
+
+**The full aggregate local verifier passed for all 96 modules and 482
+theorem exports.** All 120 input hashes match the checked files. The
+independent baseline comparison confirms that all 416 preceding complete
+theorem records are identical, including actual types, axiom dependencies,
+source hashes, and scopes. All four registered premise records and all
+nine dependency revisions match the preceding report exactly. The 66
+new actual theorem types and axiom dependencies match their prior
+individual inspections, with no literature premise in any new export.
+
+All 33 changed-file hashes matched the frozen snapshot throughout the
+verification run. The 13 added inspected inputs are the 12 new Lean
+modules and the source correspondence review. The frozen manuscript
+and PDF remain byte-for-byte unchanged. The subsequent README and
+checkpoint edits record the successful execution; the inspected proof
+inputs remain those checked by the aggregate verifier.
+
+The [local verification report](certification/verification_report.json)
+contains 708,765 bytes and has SHA-256
+`ec46cb57a7912faf2116faed95bc6021ed68a9ed78cfb28a05133c0df4515f0f`.
+It records 11 Certified and 31 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+**GitHub CI at the exact proof commit for this 482-export scope is still
+pending.** The preserved 416-export reports below retain their preceding
+scope and do not establish CI verification of this CRT milestone.
+
+## Earlier checked checkpoints
+
+### Pencil local execution
+
+The preceding pencil milestone contained 416 theorem exports across 84
 project Lean modules and 20 mapped source groups: 67 new exports in 13
 new modules. The four registered literature premises are unchanged,
 as are all nine pinned dependency revisions. Source groups and Lean
 premise declarations remain separate counts. The completed aggregate
 report records 107 input hashes, including the new correspondence review.
 
-All 13 new modules have passed strict builds under official Lean 4.24.0
+All 13 new modules passed strict builds under official Lean 4.24.0
 and the pinned mathlib revision, with `warningAsError=true` and
 `autoImplicit=false`. All 67 new actual theorem types and axiom
-dependencies have been inspected. Of these, 59 use exactly
+dependencies were inspected. Of these, 59 use exactly
 `Classical.choice`, `Quot.sound`, and `propext`; one uses only `propext`;
 and seven additionally use the existing registered Weil premise.
 The exact pencil formula and both complex and integer trace identities
@@ -656,13 +804,13 @@ actual types and axiom dependencies, four registered-premise records,
 export-inspection output, the Lean version, and every verification flag
 and scope count. Only `generated_at_utc` and `lake_build_output` differ.
 
-Every recorded input hash matches both the current inspected files and
-the exact proof tree. The proof sources, registries, source reviews,
-and local report remain byte-identical to that checked proof commit.
-This evidence covers the complete 416-export pencil milestone. The
-preserved local and CI reports below retain their earlier scopes.
+Every recorded input hash matched both the inspected files at that
+checkpoint and the exact proof tree. Its proof sources, registries, source
+reviews, and local report were byte-identical to the checked proof commit.
+This evidence covers the complete preceding 416-export pencil milestone;
+it does not cover the new 482-export CRT scope. The older local and CI
+reports below retain their original scopes.
 
-## Earlier checked checkpoints
 
 ### Diagonal bad-prime local execution
 
@@ -1091,32 +1239,34 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Complete Lemma 3.1, the source CRT lemma, is the next target. Work with
-the generic functions `ξ_p` of Section 3 and their squarefree product
-`ξ_q`, with the source's invariance under nonzero prime-field scalars.
-Define the actual constrained Fourier sum `C_q`, the unweighted sum
-`S_c`, and the mixed sum `𝒮_{q,c}`. Their residue-class definitions must
-include modulus one and prove `ξ_1=1`, `𝒮_{1,c}=S_c`, and
-`𝒮_{q,1}=C_q` with the source normalizations. Use `F(x) ≡ 0 mod q`
-to prove that the mixed summand is independent of the lift of its
-residue `a mod c` into the phase modulo `qc`.
+Complete Lemma 3.2 is the next target. It has three separate conclusions
+for the actual nonsingular symmetric integral quadratic form, a prime
+`p ∤ N_F`, and `k ≥ 1`:
 
-The two required clauses are the actual CRT factorization
-`𝒮_{q,c}(u)=𝒮_{q′,c′}(u)𝒮_{q″,c″}(u)` when
-`q=q′q″`, `c=c′c″`, and `(q′c′,q″c″)=1`, and unit-frequency
-invariance `𝒮_{q,c}(tu)=𝒮_{q,c}(u)` for `(t,qc)=1`. The source
-weight invariance must justify the changes of variables. The prime
-specialization must be identified with the existing Fourier sum so the
-already checked Section 4 estimates can be applied to the literal
-local sums. The consequences include the prime factorization of `C_q`
-and multiplicativity of `S_c`.
+1. Evaluate the actual sum over `(ZMod (p^k))⁴` for every integer `a`
+   with `p ∤ a`, including the phase
+   `e_{p^k}(−(4aα)⁻¹ F*(u))` and coefficient `χ(p)^k p^(2k)`.
+2. Deduce the exact formula
+   `S_{p^k}(u)=χ(p)^k p^(2k) R_{p^k}(F*(u))` for the existing
+   unweighted complete sum and the actual Ramanujan unit sum.
+3. Prove the projective-quadric cardinality
+   `p²+(1+χ(p))p+1` over the prime field.
 
-The full Lemma 3.2 remains Pending. The scalar prime-field Gauss
-identities established for Lemma 4.6 supply one ingredient only. Its
-remaining clauses concern the actual general quaternary prime-power
-exponential sum, the recurrence `V_k=p⁴V_{k−2}`, the full Ramanujan
-formula for `S_{p^k}`, and the exact projective-quadric point count.
+First carry out square completion with the actual adjugate matrix over
+`ZMod (p^k)`, using the good-prime hypothesis to construct the necessary
+units. Prove the recurrence `V_k=p⁴V_{k−2}` with `V_0=1` by the
+literal residue decomposition and additive orthogonality. The prime
+base case must cover a general matrix, with diagonalization preserving
+the determinant up to a nonzero square. The scalar prime Gauss identities
+proved for Lemma 4.6 supply the one-dimensional calculation.
 
-All Section 4 lemmas are complete. Theorem 1.3 remains Pending because
-the global asymptotic has not been proved. The analytic assembly and
-Theorems 1.1 and 1.4 also remain Pending.
+Summing over the unit parameter and its inverse gives the Ramanujan
+formula. At `k=1`, orthogonality gives the affine zero count; removing
+the origin and using the checked projective-ray correspondence gives
+the exact projective count. None of these remaining full prime-power
+or general-matrix clauses is yet recorded as Certified.
+
+Lemma 3.1 and all Section 4 lemmas are complete. Theorem 1.3 remains
+Pending because its global asymptotic is not proved. The analytic
+assembly, Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups
+remain Pending.

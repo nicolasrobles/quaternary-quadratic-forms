@@ -73,11 +73,11 @@ Other citations used only for attribution, background, or a description of relat
 
 ## Dependencies of proved exports
 
-The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, finite-product arithmetic, prime-field Gauss calculations and exact diagonal pencil evaluations use only the standard logical foundations. The ledger records 18 exports with the exact Weil premise, 16 with the general Katz surface premise, 20 with the Lang resultant premise, and 4 with the general composite Bertini premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
+The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, finite-product arithmetic, prime-field Gauss calculations, exact diagonal pencil evaluations, composite weights, scaled CRT and complete-sum factorizations use only the standard logical foundations. The ledger records 18 exports with the exact Weil premise, 16 with the general Katz surface premise, 20 with the Lang resultant premise, and 4 with the general composite Bertini premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 369 |
+| None (standard logical foundations only) | 435 |
 | Bertini with general projective geometry | 1 |
 | Katz with general hypersurface geometry | 10 |
 | Lang | 14 |
@@ -97,5 +97,7 @@ The complete uniform Fourier theorem in Lemma 4.4 uses all four existing premise
 The complete diagonal bad-prime lemma, Lemma 4.5, uses none of the registered literature premises. The actual gradient-minor calculation, geometric singular witness, coefficient reduction, direct finiteness from M and exact radical product are proved using standard logical foundations and proved library results.
 
 The complete diagonal pencil lemma, Lemma 4.6, retains every regular and singular member of the actual Fourier sum. Its Gauss identities, reciprocal phases, Ramanujan factors and exact integer projective trace are proved internally with official mathlib results and no registered literature premise. The generic bound uses only the existing affine Weil premise in the separable cubic case. A nonseparable cubic is factored over the perfect prime field, and its character sum is evaluated exactly, so no separability assumption survives in the final bound. The needed Gauss specialization does not introduce a new premise or certify all three clauses of the prime-power Lemma 3.2.
+
+The complete CRT lemma, Lemma 3.1, uses none of the registered literature premises. Its actual prime-product weights, good-prime source-domain extension, representative independence, scaled residue and unit bijections, exact mixed phases, and frequency invariance are proved internally. Only invariance at primes dividing q is used; (q,N)=1 makes each factor one of the supplied good-prime functions. The direct C_q and S_c factorization corollaries and the prime polynomial-character Fourier bridge likewise use only standard logical foundations. No coprimality between q and c within a CRT block is imposed, and modulus-one cases are retained.
 
 The Katz premise explicitly combines its spectral theorem and trace formula with Fulton/Stacks general hypersurface geometry, adjunction, and degree formulas. The matrix-quadric geometry, the numerical coefficient 2n²−4n+4, and the final scalar norm estimate are proved internally. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.
