@@ -63,10 +63,26 @@ completed and remaining clauses of both Partial numbered results.
 
 ## GitHub execution
 
-Publication of this checkpoint triggers the same verifier in GitHub Actions.
-The exact checked commit, successful run, and preserved artifact will be
-recorded here after the run succeeds. The preceding successful ray-identity
-run does not itself verify these new trace-divisibility declarations.
+The same verifier passed in GitHub Actions at the exact proof commit
+[ee274f6752d5a28e875919349821518b297e3115](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ee274f6752d5a28e875919349821518b297e3115).
+
+- [Successful run 43550688913, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43550688913).
+- Verification job: 132312192673.
+- Artifact: 14095862449.
+- [Preserved CI report](certification/ci/run_43550688913_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43550688913_attempt_1.zip).
+- ZIP SHA-256: 182154b8c40d97d9f25aef44b4884d0575fd998c840ff477816fc6dd957f1ec1.
+- Report SHA-256: 5857644248cb0e950e22ff317e8cc918b8cd3199de407af7e6b0f954f9375002.
+
+The downloaded artifact was inspected. All 21 recorded input hashes match
+the checked files, including both correspondence records. All 40 theorem
+records match the locally inspected actual types and axiom dependencies.
+The CI report records two Partial numbered results, 40 Pending numbered
+results, and zero external Lean premises.
+
+The later commit preserving this evidence changes documentation and records
+only. The proof sources, checker, status ledger, and correspondence records
+remain those of the checked proof commit linked above.
 
 ## Earlier checked checkpoints
 

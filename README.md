@@ -17,7 +17,8 @@ included. The source SHA-256 is
 Lemma 4.4 is **Partial**: its three weight properties, exact zero-frequency
 formula, and intermediate ray identity (4.5) are checked; its pointwise Fourier
 bound remains pending. Lemma 5.9 is now **Partial**: integrality and divisibility
-of the actual quadratic projective trace are checked locally, while the bound
+of the actual quadratic projective trace are checked locally and in
+[GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43550688913), while the bound
 `|a_p(G)| ≤ 4p` remains pending.
 
 The ledger registers 40 checked exports across nine proof modules. All 33
