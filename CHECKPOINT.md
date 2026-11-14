@@ -31,9 +31,22 @@ propext, Classical.choice, and Quot.sound. It has no external literature premise
 
 ## GitHub execution
 
-The initial workflow is configured to run the same verifier. Its successful
-commit, run, and artifact will be recorded here after remote execution is
-observed. Local success is not a claim that a GitHub run has already passed.
+The same verifier passed in GitHub Actions on 13 November 2026
+(America/Chicago), at the exact proof commit
+[9e11229de99522eb324970953e91b38af275fddf](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/9e11229de99522eb324970953e91b38af275fddf).
+
+- [Successful run 43545694187, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43545694187).
+- Verification job: 132296365707.
+- Artifact: 14093338686.
+- [Preserved report](certification/ci/run_43545694187_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43545694187_attempt_1.zip).
+- ZIP SHA-256: 6e96f1d27c1aa312e2555e4a2f8ddf4e9d6a46b198a770b6f7e8972ec6fc2409.
+
+The downloaded artifact was inspected. Its source, dependency, metadata, and
+proof-file hashes all match the files at the checked checkpoint. It records
+one kernel-checked supporting theorem and 42 Pending numbered results.
+The later commit preserving this evidence changes documentation and records
+only; the checked Lean source remains the commit linked above.
 
 ## Next target
 

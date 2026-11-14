@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-14T02:20:46.637798+00:00",
+  "scope": "Listed Lean exports plus frozen-source/dependency/status checks",
+  "manuscript_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "numbered_results": {
+    "Pending": 42
+  },
+  "numbered_total": 42,
+  "auxiliary_supplementary_groups": 33,
+  "internal_dependency_edges": 136,
+  "trusted_reference_groups_mapped": 18,
+  "registered_external_lean_inputs": 0,
+  "whole_paper_certified": false,
+  "metadata_checks_passed": true,
+  "lean_executed": true,
+  "input_sha256": {
+    "QuaternaryQuadraticForms/RayAlgebra.lean": "7804a24cc6beb1de1a56d9f7ce305f128bcfae4fca376caef10cd0d853214480",
+    "QuaternaryQuadraticForms.lean": "8676441090fa6ca20f34fed41ce5b01a8692da539a013b691df81308fcf86565",
+    "Checks/Exports.lean": "72150ff77532788a9ab9e9a1d0e7716c0fddf373dd3ed9ebf1c0c91c64d51aa3",
+    "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
+    "lakefile.lean": "585908579f9b0db0ad91e3a96240aded5e34ce61eecaab7d6d11534727dab3bf",
+    "lake-manifest.json": "08645a4980232706e7e92fcde4cbab1a9003d623f9c9fefb086de9eebbb4a937",
+    "certification/source.json": "cce0558891817aeabd0db3f028dbce910f13784741524fc71600edd7f84d13d3",
+    "certification/dependency_inventory.json": "f6bf4a64bffca4db5573391c5fc9abcf1a20c8ae13de044a9b9d3784d367785f",
+    "certification/status.json": "2e0baf22cc5f973ec5f2a8a99b94988fa51001f65207d68416782f3b17e56ec8",
+    "certification/reference_inputs.json": "5cc654fddad2e892fcb6128e19c6938e82927183bcd73650a54665d3ba1920e7",
+    "scripts/verify_certificate.py": "75c0e5166908e70f755b2a89c13b093871d7a439c91418cd8276504a66efb9a5"
+  },
+  "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "dependency_revisions": {
+    "mathlib": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "plausible": "dfd06ebfe8d0e8fa7faba9cb5e5a2e74e7bd2805",
+    "LeanSearchClient": "99657ad92e23804e279f77ea6dbdeebaa1317b98",
+    "importGraph": "d768126816be17600904726ca7976b185786e6b9",
+    "proofwidgets": "556caed0eadb7901e068131d1be208dd907d07a2",
+    "aesop": "725ac8cd67acd70a7beaf47c3725e23484c1ef50",
+    "Qq": "dea6a3361fa36d5a13f87333dc506ada582e025c",
+    "batteries": "8da40b72fece29b7d3fe3d768bac4c8910ce9bee",
+    "Cli": "91c18fa62838ad0ab7384c03c9684d99d306e1da"
+  },
+  "lake_build_output": "✔ [836/838] Built QuaternaryQuadraticForms.RayAlgebra (844ms)\n✔ [837/838] Built QuaternaryQuadraticForms (774ms)\nBuild completed successfully (838 jobs).",
+  "checked_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.weighted_ray_sum",
+      "kind": "theorem",
+      "actual_type": "∀ {ι : Type u_1} {R : Type u_2} [inst : CommRing R] (s : Finset ι)\n  (weight : ι → R) (hit : ι → Prop) [inst_1 : DecidablePred hit] (p : R),\n  (∑ i ∈ s, weight i * if hit i then p - 1 else -1) = p * ∑ i ∈ s with hit i, weight i - ∑ i ∈ s, weight i",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/RayAlgebra.lean",
+      "source_sha256": "7804a24cc6beb1de1a56d9f7ce305f128bcfae4fca376caef10cd0d853214480",
+      "scope": "Only the finite weighted-sum algebra after evaluating each nonzero ray. Does not formalize the finite-field/projective sum or certify Lemma 4.4."
+    }
+  ],
+  "lean_export_inspection_output": "@QuaternaryQuadraticForms.weighted_ray_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : CommRing R] (s : Finset ι)\n  (weight : ι → R) (hit : ι → Prop) [inst_1 : DecidablePred hit] (p : R),\n  (∑ i ∈ s, weight i * if hit i then p - 1 else -1) = p * ∑ i ∈ s with hit i, weight i - ∑ i ∈ s, weight i\n'QuaternaryQuadraticForms.weighted_ray_sum' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}
