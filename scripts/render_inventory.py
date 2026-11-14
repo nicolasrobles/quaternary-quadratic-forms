@@ -34,9 +34,11 @@ lines = [
     f'**{counts["Certified"]} of 42 numbered results are certified.** '
     f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint proves the literal finite-field ray identity (4.5), "
-    "the three weight properties (3.1), and the exact zero-frequency clause of "
-    "Lemma 4.4. Its pointwise estimate remains pending, so the lemma is Partial. "
+    "The current checkpoint proves the integrality and divisibility clauses of "
+    "Lemma 5.9, using an actual integer-valued projective quadratic trace. Its "
+    "size bound remains pending. The earlier weight properties, ray identity (4.5), "
+    "and zero-frequency clause of Lemma 4.4 remain checked; that lemma's "
+    "pointwise estimate remains pending. Both numbered lemmas are Partial. "
     "The 33 auxiliary and supplementary groups are tracked separately; these are "
     "groups of assertions, not 33 additional numbered results.", "",
     "[Manuscript source](manuscript/quadratic_character_sums_github.tex) · "
@@ -115,6 +117,7 @@ lines += [
     "Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality "
     "Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds "
     "Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul "
+    "Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic "
     "Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
     "python3 scripts/verify_certificate.py",
     BT * 3, "",
@@ -124,11 +127,12 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "The polynomial power-sum argument for the divisibility clause of Lemma 5.9 "
-    "is the next local branch. Its size bound remains a separate clause. To finish "
-    "Lemma 4.4, formalize the geometric and character-sum estimates on which its "
-    "pointwise bound depends. Trusted literature interfaces must retain their exact "
-    "hypotheses, and manuscript-specific deductions remain to be proved.", "",
+    "Proceed to the finite-field estimate branch: register the precise Weil and "
+    "Katz source interfaces and prove their manuscript-specific specializations. "
+    "Corollary 2.6 is the first projective-line estimate in that branch. The Katz "
+    "specialization is needed for the remaining size clause of Lemma 5.9 and for "
+    "Lemma 4.4. Retain the checked exact identities and divisibility result as inputs; "
+    "the internal geometric arguments remain proof obligations.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 

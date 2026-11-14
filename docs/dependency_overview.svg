@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-793.16 892.16,-793.16 892.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="436" y="-750.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="436" y="-725.6" font-family="DejaVu Serif" font-size="23.00">Frozen v35 | 1 partial; 41 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="436" y="-725.6" font-family="DejaVu Serif" font-size="23.00">Frozen v35 | 2 partial; 40 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -204,11 +204,11 @@
 <!-- consequences -->
 <g id="node9" class="node">
 <title>consequences</title>
-<g id="a_node9"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Further consequences&lt;/B&gt;&lt;BR/&gt;Corollaries 5.7, 5.11; Lemmas 5.9, 5.10&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;4 pending&lt;/FONT&gt;" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M482.5,-146C482.5,-146 205.5,-146 205.5,-146 199.5,-146 193.5,-140 193.5,-134 193.5,-134 193.5,-106 193.5,-106 193.5,-100 199.5,-94 205.5,-94 205.5,-94 482.5,-94 482.5,-94 488.5,-94 494.5,-100 494.5,-106 494.5,-106 494.5,-134 494.5,-134 494.5,-140 488.5,-146 482.5,-146"/>
+<g id="a_node9"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Further consequences&lt;/B&gt;&lt;BR/&gt;Corollaries 5.7, 5.11; Lemmas 5.9, 5.10&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#3676aa&quot;&gt;1 partial; 3 pending&lt;/FONT&gt;" target="_blank">
+<path fill="#e4f1ff" stroke="#3676aa" stroke-width="1.15" d="M482.5,-146C482.5,-146 205.5,-146 205.5,-146 199.5,-146 193.5,-140 193.5,-134 193.5,-134 193.5,-106 193.5,-106 193.5,-100 199.5,-94 205.5,-94 205.5,-94 482.5,-94 482.5,-94 488.5,-94 494.5,-100 494.5,-106 494.5,-106 494.5,-134 494.5,-134 494.5,-140 488.5,-146 482.5,-146"/>
 <text text-anchor="start" x="255.5" y="-129.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Further consequences</text>
 <text text-anchor="start" x="202.5" y="-115.8" font-family="DejaVu Serif" font-size="14.00">Corollaries 5.7, 5.11; Lemmas 5.9, 5.10</text>
-<text text-anchor="start" x="314" y="-103.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">4 pending</text>
+<text text-anchor="start" x="284.5" y="-103.4" font-family="DejaVu Serif" font-size="12.00" fill="#3676aa">1 partial; 3 pending</text>
 </a>
 </g>
 </g>

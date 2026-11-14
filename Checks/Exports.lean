@@ -22,7 +22,28 @@ run_cmd do
     `QuaternaryQuadraticForms.fourierSum_zero,
     `QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff,
     `QuaternaryQuadraticForms.integralFourierSum_ray_identity,
-    `QuaternaryQuadraticForms.integralFourierSum_of_dvd]
+    `QuaternaryQuadraticForms.integralFourierSum_of_dvd,
+    `QuaternaryQuadraticForms.complexQuadraticChar_apply,
+    `QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic,
+    `QuaternaryQuadraticForms.complexQuadraticChar_sq,
+    `QuaternaryQuadraticForms.complexQuadraticChar_ne_one,
+    `QuaternaryQuadraticForms.complexQuadraticChar_intCast,
+    `QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le,
+    `QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue,
+    `QuaternaryQuadraticForms.quadraticZeroIndicator_eval,
+    `QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero,
+    `QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd,
+    `QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk,
+    `QuaternaryQuadraticForms.affineQuadraticTrace_complex,
+    `QuaternaryQuadraticForms.projectiveQuadraticTrace_complex,
+    `QuaternaryQuadraticForms.affineQuadraticTrace_eq,
+    `QuaternaryQuadraticForms.affineQuadraticTrace_dvd,
+    `QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd,
+    `QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd,
+    `QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd,
+    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -84,3 +105,66 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.integralFourierSum_of_dvd
 #print axioms QuaternaryQuadraticForms.integralFourierSum_of_dvd
+
+#check @QuaternaryQuadraticForms.complexQuadraticChar_apply
+#print axioms QuaternaryQuadraticForms.complexQuadraticChar_apply
+
+#check @QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic
+#print axioms QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic
+
+#check @QuaternaryQuadraticForms.complexQuadraticChar_sq
+#print axioms QuaternaryQuadraticForms.complexQuadraticChar_sq
+
+#check @QuaternaryQuadraticForms.complexQuadraticChar_ne_one
+#print axioms QuaternaryQuadraticForms.complexQuadraticChar_ne_one
+
+#check @QuaternaryQuadraticForms.complexQuadraticChar_intCast
+#print axioms QuaternaryQuadraticForms.complexQuadraticChar_intCast
+
+#check @QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial
+#print axioms QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le
+
+#check @QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue
+#print axioms QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue
+
+#check @QuaternaryQuadraticForms.quadraticZeroIndicator_eval
+#print axioms QuaternaryQuadraticForms.quadraticZeroIndicator_eval
+
+#check @QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero
+#print axioms QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero
+
+#check @QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd
+#print axioms QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd
+
+#check @QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk
+#print axioms QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk
+
+#check @QuaternaryQuadraticForms.affineQuadraticTrace_complex
+#print axioms QuaternaryQuadraticForms.affineQuadraticTrace_complex
+
+#check @QuaternaryQuadraticForms.projectiveQuadraticTrace_complex
+#print axioms QuaternaryQuadraticForms.projectiveQuadraticTrace_complex
+
+#check @QuaternaryQuadraticForms.affineQuadraticTrace_eq
+#print axioms QuaternaryQuadraticForms.affineQuadraticTrace_eq
+
+#check @QuaternaryQuadraticForms.affineQuadraticTrace_dvd
+#print axioms QuaternaryQuadraticForms.affineQuadraticTrace_dvd
+
+#check @QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd
+#print axioms QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd
+
+#check @QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd
+#print axioms QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd
+
+#check @QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd
+#print axioms QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd
+
+#check @QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd
+#print axioms QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd

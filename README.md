@@ -12,15 +12,18 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 0 · Partial: 1 · Active: 0 · Pending: 41** — 42 numbered results.
+**Complete: 0 · Partial: 2 · Active: 0 · Pending: 40** — 42 numbered results.
 
-Lemma 4.4 is **Partial**. Its three weight properties, exact zero-frequency
-formula, and intermediate ray identity (4.5) are checked for the actual
-finite-field and projective sums, both locally and in
-[GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43547207971).
-Its pointwise Fourier bound remains pending. The ledger registers 19 checked supporting exports; all 33 separate
-auxiliary/supplementary groups remain Pending. This repository does not yet
-provide a certificate for the whole paper.
+Lemma 4.4 is **Partial**: its three weight properties, exact zero-frequency
+formula, and intermediate ray identity (4.5) are checked; its pointwise Fourier
+bound remains pending. Lemma 5.9 is now **Partial**: integrality and divisibility
+of the actual quadratic projective trace are checked locally, while the bound
+`|a_p(G)| ≤ 4p` remains pending.
+
+The ledger registers 40 checked exports across nine proof modules. All 33
+separate auxiliary/supplementary groups remain Pending. This repository does
+not yet provide a certificate for the whole paper. The execution checkpoint
+records the exact scope and evidence for each verification run.
 
 - [Certification inventory, with links to checked exports](INVENTORY.md)
 - [Dependency graphs and the proof structure](DEPENDENCIES.md)
@@ -28,6 +31,7 @@ provide a certificate for the whole paper.
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
 - [Correspondence review for the Fourier ray identity](certification/correspondence/fourier_rays.md)
+- [Correspondence review for quadratic-trace divisibility](certification/correspondence/quadratic_trace.md)
 - [Latest execution checkpoint](CHECKPOINT.md)
 
 ![Principal proof dependencies](docs/dependency_overview.png)
@@ -67,6 +71,10 @@ chosen representative.
 | [ProjectiveRays](QuaternaryQuadraticForms/ProjectiveRays.lean) | A proved parametrization of nonzero vectors by projective points and field units, and the resulting sum decomposition |
 | [RayAlgebra](QuaternaryQuadraticForms/RayAlgebra.lean) | Finite algebra combining the ray contributions |
 | [FourierRays](QuaternaryQuadraticForms/FourierRays.lean) | The literal identity (4.5), its zero-frequency case, and specialization to integral input data |
+| [MatrixPolynomial](QuaternaryQuadraticForms/MatrixPolynomial.lean) | A homogeneous polynomial representing `xᵀ A x`, with its degree bound proved |
+| [QuadraticCharacter](QuaternaryQuadraticForms/QuadraticCharacter.lean) | Identification of the integer quadratic character, its complex cast, and the Legendre symbol |
+| [AffineDivisibility](QuaternaryQuadraticForms/AffineDivisibility.lean) | Divisibility of the integer affine character sum, using polynomial-sum vanishing over the prime field |
+| [QuadraticTrace](QuaternaryQuadraticForms/QuadraticTrace.lean) | Integrality and divisibility of the actual projective trace, including integral input coefficients |
 
 Writing `a` for the projective trace and `a_u` for the hyperplane-section trace,
 the checked identity is
@@ -83,6 +91,24 @@ remaining clause of Lemma 4.4 is the bound involving the exceptional polynomial
 `D_p`, including its generic and exceptional frequency cases. The
 [correspondence record](certification/correspondence/fourier_rays.md) separates
 the completed clauses from those obligations.
+
+## Quadratic-trace divisibility
+
+For an odd prime and a quadratic homogeneous `G`, the new branch proves
+
+$$a_p(G)\in\mathbb Z,\qquad p\mid a_p(G).$$
+
+The trace is first constructed as an integer sum of quadratic-character
+values, then its complex cast is identified with the projective trace already
+used in the Fourier identities. Euler's criterion and mathlib's polynomial-sum
+vanishing theorem show that the affine trace is zero modulo `p`. The checked
+identity `C_p(0) = (p-1)a_p(G)` then gives projective divisibility.
+
+This argument needs neither nonsingularity nor smoothness. Those hypotheses
+belong to the separate size estimate in Lemma 5.9, which is still pending.
+The [correspondence review](certification/correspondence/quadratic_trace.md)
+records the exact integer and complex statements and their specialization to
+the manuscript.
 
 ## Reproduce the checks
 
@@ -101,7 +127,9 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Analysis.Complex.Basic \
       Mathlib.NumberTheory.DirichletCharacter.Bounds \
       Mathlib.RingTheory.MvPolynomial.Homogeneous \
-      Mathlib.Data.Matrix.Mul
+      Mathlib.Data.Matrix.Mul \
+      Mathlib.FieldTheory.ChevalleyWarning \
+      Mathlib.NumberTheory.LegendreSymbol.Basic
     python3 scripts/verify_certificate.py
 
 The verifier checks the frozen source, every inventory entry, the dependency
@@ -118,7 +146,10 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next target is the polynomial power-sum argument proving the divisibility
-assertion in Lemma 5.9. Its separate size bound and the remaining geometric
-clauses of Lemma 4.4 remain tracked obligations. The full dependency inventory
-determines the other proof branches.
+The next branch concerns the finite-field estimates: register the precise
+Weil and Katz input interfaces and prove the manuscript's specializations.
+Corollary 2.6, the projective-line estimate, is a practical first target.
+The Katz specialization in Lemma 2.7 and the remaining geometric clauses of
+Lemma 4.4 require their own hypothesis checks and deductions. Once the relevant
+trace bound is available, it also supplies the remaining size clause of
+Lemma 5.9.

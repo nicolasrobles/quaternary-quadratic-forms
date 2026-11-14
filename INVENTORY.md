@@ -2,9 +2,9 @@
 
 Frozen manuscript: v35, renamed without content changes for this repository.
 
-**0 of 42 numbered results are certified.** 1 are partial, 0 are active numbered targets, and 41 are pending.
+**0 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 40 are pending.
 
-The current checkpoint proves the literal finite-field ray identity (4.5), the three weight properties (3.1), and the exact zero-frequency clause of Lemma 4.4. Its pointwise estimate remains pending, so the lemma is Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
+The current checkpoint proves the integrality and divisibility clauses of Lemma 5.9, using an actual integer-valued projective quadratic trace. Its size bound remains pending. The earlier weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas are Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
 
 [Manuscript source](manuscript/quadratic_character_sums_github.tex) · [PDF](manuscript/quadratic_character_sums_github.pdf) · [Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · [Live proof ledger](certification/status.json)
 
@@ -79,7 +79,7 @@ A successful build does not change these statuses. Imported literature theorems 
 | [Lemma 5.6](manuscript/quadratic_character_sums_github.tex#L2429-L2453) | Uniform general character-sum asymptotic and explicit local factors | Pending | Pending |
 | [Corollary 5.7](manuscript/quadratic_character_sums_github.tex#L2543-L2552) | Centered quadratic-character product has no main term | Pending | Pending |
 | [Lemma 5.8](manuscript/quadratic_character_sums_github.tex#L2582-L2591) | Square and power sieve with coefficient height retained | Pending | Pending |
-| [Lemma 5.9](manuscript/quadratic_character_sums_github.tex#L2686-L2690) | Quadratic local trace is integral, divisible by p, and bounded by4p | Pending | Pending |
+| [Lemma 5.9](manuscript/quadratic_character_sums_github.tex#L2686-L2690) | Quadratic local trace is integral, divisible by p, and bounded by4p | Partial | [`QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) |
 | [Lemma 5.10](manuscript/quadratic_character_sums_github.tex#L2710-L2722) | Lower bounds for nonzero local factors using integrality and cyclotomic norms | Pending | Pending |
 | [Corollary 5.11](manuscript/quadratic_character_sums_github.tex#L2753-L2768) | Relative asymptotics in quadratic/general/cyclic cases | Pending | Pending |
 
@@ -107,6 +107,21 @@ Remaining clauses:
 
 The geometric bounds from Lemmas 2.7, 4.1 and 4.3, and the plane-section counting step, have not been imported as assumptions or certified by this checkpoint.
 
+### Lemma 5.9
+
+[Statement correspondence review](certification/correspondence/quadratic_trace.md)
+
+Checked clauses:
+
+- The projective quadratic-character trace a_p(G) is an integer, identified explicitly with the existing complex-valued trace.
+- The odd prime p divides that actual integer trace, for both finite-field forms and reductions of the manuscript's integral coefficients.
+
+Remaining clauses:
+
+- The bound |a_p(G)| ≤ 4p, requiring the n=2 specialization of Lemma 2.7 and its geometric hypotheses.
+
+The checked divisibility statement only needs an odd prime and a homogeneous quadratic G. Nonsingularity and smoothness are not assumed for this clause. The pending size bound and Lemma 2.7 have not been imported as replacement axioms.
+
 ## Checked exports and supporting declarations
 
 | Export | Precise scope | Status |
@@ -130,6 +145,27 @@ The geometric bounds from Lemmas 2.7, 4.1 and 4.3, and the plane-section countin
 | [`QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff`](QuaternaryQuadraticForms/FourierRays.lean) | An integral frequency reduces to zero exactly when p divides each of its four coordinates. | Checked locally |
 | [`QuaternaryQuadraticForms.integralFourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean) | Equation (4.5) for integral matrix and polynomial coefficients and integral frequencies, after proved homogeneous reduction. | Checked locally |
 | [`QuaternaryQuadraticForms.integralFourierSum_of_dvd`](QuaternaryQuadraticForms/FourierRays.lean) | The p-divides-u clause of (4.5), with explicit coordinatewise integer divisibility. | Checked locally |
+| [`QuaternaryQuadraticForms.complexQuadraticChar_apply`](QuaternaryQuadraticForms/QuadraticCharacter.lean) | The complex quadratic character is the cast of the actual integer-valued character. | Checked locally |
+| [`QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic`](QuaternaryQuadraticForms/QuadraticCharacter.lean) | The complex quadratic character has values in 0, 1 and -1. | Checked locally |
+| [`QuaternaryQuadraticForms.complexQuadraticChar_sq`](QuaternaryQuadraticForms/QuadraticCharacter.lean) | The square of the complex quadratic character is principal, with the correct zero-extension. | Checked locally |
+| [`QuaternaryQuadraticForms.complexQuadraticChar_ne_one`](QuaternaryQuadraticForms/QuadraticCharacter.lean) | Nonprincipality of the actual complex quadratic character for odd primes. | Checked locally |
+| [`QuaternaryQuadraticForms.complexQuadraticChar_intCast`](QuaternaryQuadraticForms/QuadraticCharacter.lean) | Agreement with the Legendre symbol on integer arguments. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial`](QuaternaryQuadraticForms/MatrixPolynomial.lean) | Evaluation of the explicit polynomial sum A_ij X_i X_j is x dot A*x. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous`](QuaternaryQuadraticForms/MatrixPolynomial.lean) | The explicit matrix quadratic polynomial is homogeneous of degree two. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le`](QuaternaryQuadraticForms/MatrixPolynomial.lean) | The matrix quadratic polynomial has total degree at most two, including degenerate reductions. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue`](QuaternaryQuadraticForms/MatrixPolynomial.lean) | Exact identification with the existing quaternary quadraticValue definition. | Checked locally |
+| [`QuaternaryQuadraticForms.quadraticZeroIndicator_eval`](QuaternaryQuadraticForms/AffineDivisibility.lean) | The polynomial 1-F^(p-1) evaluates to the indicator of F=0 on the prime field. | Checked locally |
+| [`QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero`](QuaternaryQuadraticForms/AffineDivisibility.lean) | The actual polynomial (1-F^(p-1))*G^(p/2) has zero sum over the four-dimensional prime field, by a proved strict degree bound. | Checked locally |
+| [`QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd`](QuaternaryQuadraticForms/AffineDivisibility.lean) | The odd prime divides the integer quadratic-character sum on the affine zero set of a polynomial of degree at most two. | Checked locally |
+| [`QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk`](QuaternaryQuadraticForms/QuadraticTrace.lean) | The integer-valued quadratic weight is independent of projective representative for homogeneous quadratic G. | Checked locally |
+| [`QuaternaryQuadraticForms.affineQuadraticTrace_complex`](QuaternaryQuadraticForms/QuadraticTrace.lean) | The complex cast of the actual integer affine trace equals the existing zero-frequency Fourier sum. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveQuadraticTrace_complex`](QuaternaryQuadraticForms/QuadraticTrace.lean) | The complex projective trace equals the cast of the actual integer projective sum. | Checked locally |
+| [`QuaternaryQuadraticForms.affineQuadraticTrace_eq`](QuaternaryQuadraticForms/QuadraticTrace.lean) | The exact integer identity C=(p-1)*a, obtained from the checked Fourier ray identity and injective complex cast. | Checked locally |
+| [`QuaternaryQuadraticForms.affineQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | Affine divisibility for the literal matrix expression x^T A x. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | The odd prime divides the actual integer-valued projective quadratic trace. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | An explicit integer witness identifies the complex trace and proves divisibility; these are the completed clauses of Lemma 5.9. | Checked locally |
+| [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | Divisibility of the actual integer projective trace after reducing integral matrix and quadratic-form coefficients. | Checked locally |
+| [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | Source-level integrality and divisibility of the complex trace for the manuscript's integral coefficient data, with an explicit integer witness. | Checked locally |
 
 These declarations use only the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). There are no registered external Lean premises at this checkpoint.
 
@@ -182,7 +218,7 @@ d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.
 
 ```sh
-lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
 python3 scripts/verify_certificate.py
 ```
 
@@ -190,4 +226,4 @@ The verifier checks source identities, all 42 statement locations, the dependenc
 
 ## Next proof target
 
-The polynomial power-sum argument for the divisibility clause of Lemma 5.9 is the next local branch. Its size bound remains a separate clause. To finish Lemma 4.4, formalize the geometric and character-sum estimates on which its pointwise bound depends. Trusted literature interfaces must retain their exact hypotheses, and manuscript-specific deductions remain to be proved.
+Proceed to the finite-field estimate branch: register the precise Weil and Katz source interfaces and prove their manuscript-specific specializations. Corollary 2.6 is the first projective-line estimate in that branch. The Katz specialization is needed for the remaining size clause of Lemma 5.9 and for Lemma 4.4. Retain the checked exact identities and divisibility result as inputs; the internal geometric arguments remain proof obligations.

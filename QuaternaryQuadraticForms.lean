@@ -3,3 +3,7 @@ import QuaternaryQuadraticForms.FiniteCharacters
 import QuaternaryQuadraticForms.PolynomialWeights
 import QuaternaryQuadraticForms.ProjectiveRays
 import QuaternaryQuadraticForms.FourierRays
+import QuaternaryQuadraticForms.QuadraticCharacter
+import QuaternaryQuadraticForms.MatrixPolynomial
+import QuaternaryQuadraticForms.AffineDivisibility
+import QuaternaryQuadraticForms.QuadraticTrace

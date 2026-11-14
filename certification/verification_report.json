@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-11-14T02:34:17.087065+00:00",
+  "generated_at_utc": "2026-11-14T03:13:46.398070+00:00",
   "scope": "Listed Lean exports plus frozen-source/dependency/status checks",
   "manuscript_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
   "numbered_results": {
-    "Partial": 1,
-    "Pending": 41
+    "Partial": 2,
+    "Pending": 40
   },
   "numbered_total": 42,
   "auxiliary_supplementary_groups": 33,
@@ -16,20 +16,25 @@
   "metadata_checks_passed": true,
   "lean_executed": true,
   "input_sha256": {
+    "QuaternaryQuadraticForms/AffineDivisibility.lean": "cfb89863ebbaa3a266701e002eabd6c843a9cb5fdb9ec7d46f2ec23b7e303375",
     "QuaternaryQuadraticForms/FiniteCharacters.lean": "12c1c4b0f33b1f756368de029de4cb403caa180731d78f4971b7ea1e3b2dbb4a",
     "QuaternaryQuadraticForms/FourierRays.lean": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+    "QuaternaryQuadraticForms/MatrixPolynomial.lean": "29eed06d730bb92eac13483c610fba32c780844caa591df312d0c45464cbc1e0",
     "QuaternaryQuadraticForms/PolynomialWeights.lean": "19aef69dbb2f5e14031486464183afb77938c5b195687269f85e1f8f364b1e02",
     "QuaternaryQuadraticForms/ProjectiveRays.lean": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+    "QuaternaryQuadraticForms/QuadraticCharacter.lean": "dac20c06395e4c052dfbc083467a4e6b1ec68e47d56bf4c0fa008c8289965d6b",
+    "QuaternaryQuadraticForms/QuadraticTrace.lean": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
     "QuaternaryQuadraticForms/RayAlgebra.lean": "7804a24cc6beb1de1a56d9f7ce305f128bcfae4fca376caef10cd0d853214480",
-    "QuaternaryQuadraticForms.lean": "11eb2286c484afdc702c48254422f8ec3894453c15bccde11ff45d7f5a69cd24",
-    "Checks/Exports.lean": "6e68d87db2f76a50f92d015283a8e3000812875a79a51566bbad730e039d595d",
+    "QuaternaryQuadraticForms.lean": "41a16fb4582b1939d73eb9622a6511e0d060c1bb506a66c44e49604454760d9d",
+    "Checks/Exports.lean": "37e8dc6e4e8e1fc6fb357fd7e2244b57a5a3c90fb39d0084fc995138ce4f20fa",
     "certification/correspondence/fourier_rays.md": "8881bf029d89ffa2601d82582f9671cbae16f290507e00771e97a4a4612d1c81",
+    "certification/correspondence/quadratic_trace.md": "d2b67892b796f45e2cdef45e5f39ca31ac76c3a91db326193ae2eccdcc01bda1",
     "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
     "lakefile.lean": "585908579f9b0db0ad91e3a96240aded5e34ce61eecaab7d6d11534727dab3bf",
     "lake-manifest.json": "08645a4980232706e7e92fcde4cbab1a9003d623f9c9fefb086de9eebbb4a937",
     "certification/source.json": "cce0558891817aeabd0db3f028dbce910f13784741524fc71600edd7f84d13d3",
     "certification/dependency_inventory.json": "f6bf4a64bffca4db5573391c5fc9abcf1a20c8ae13de044a9b9d3784d367785f",
-    "certification/status.json": "00f4314cf31c0eee4175baa99f3b52b9244b0e1acc1b99fcc8ddd8c65adfd980",
+    "certification/status.json": "d1d15b586cb6e90d5f3d2ab1a186b2d5498f191c31af52183d13c26e072e5d48",
     "certification/reference_inputs.json": "5cc654fddad2e892fcb6128e19c6938e82927183bcd73650a54665d3ba1920e7",
     "scripts/verify_certificate.py": "0f2dcd03a3b3c67257dc232b952d9c79c6472c289657fe9a49335fe96448c2f0"
   },
@@ -45,7 +50,7 @@
     "batteries": "8da40b72fece29b7d3fe3d768bac4c8910ce9bee",
     "Cli": "91c18fa62838ad0ab7384c03c9684d99d306e1da"
   },
-  "lake_build_output": "Build completed successfully (2999 jobs).",
+  "lake_build_output": "Build completed successfully (3009 jobs).",
   "checked_exports": [
     {
       "declaration": "QuaternaryQuadraticForms.weighted_ray_sum",
@@ -293,7 +298,280 @@
       "file": "QuaternaryQuadraticForms/FourierRays.lean",
       "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
       "scope": "The p-divides-u clause of (4.5), with explicit coordinatewise integer divisibility."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_apply",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (x : ZMod p),\n  (QuaternaryQuadraticForms.complexQuadraticChar p) x = ↑((quadraticChar (ZMod p)) x)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "source_sha256": "dac20c06395e4c052dfbc083467a4e6b1ec68e47d56bf4c0fa008c8289965d6b",
+      "scope": "The complex quadratic character is the cast of the actual integer-valued character."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  (QuaternaryQuadraticForms.complexQuadraticChar p).IsQuadratic",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "source_sha256": "dac20c06395e4c052dfbc083467a4e6b1ec68e47d56bf4c0fa008c8289965d6b",
+      "scope": "The complex quadratic character has values in 0, 1 and -1."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_sq",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  QuaternaryQuadraticForms.complexQuadraticChar p ^ 2 = 1",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "source_sha256": "dac20c06395e4c052dfbc083467a4e6b1ec68e47d56bf4c0fa008c8289965d6b",
+      "scope": "The square of the complex quadratic character is principal, with the correct zero-extension."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_ne_one",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 → QuaternaryQuadraticForms.complexQuadraticChar p ≠ 1",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "source_sha256": "dac20c06395e4c052dfbc083467a4e6b1ec68e47d56bf4c0fa008c8289965d6b",
+      "scope": "Nonprincipality of the actual complex quadratic character for odd primes."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_intCast",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (a : ℤ),\n  (QuaternaryQuadraticForms.complexQuadraticChar p) ↑a = ↑(legendreSym p a)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "source_sha256": "dac20c06395e4c052dfbc083467a4e6b1ec68e47d56bf4c0fa008c8289965d6b",
+      "scope": "Agreement with the Legendre symbol on integer arguments."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial",
+      "kind": "theorem",
+      "actual_type": "∀ {ι : Type u_1} {R : Type u_2} [inst : Fintype ι]\n  [inst_1 : CommSemiring R] (A : Matrix ι ι R) (x : ι → R),\n  (MvPolynomial.eval x) (QuaternaryQuadraticForms.matrixQuadraticPolynomial A) = x ⬝ᵥ A.mulVec x",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "source_sha256": "29eed06d730bb92eac13483c610fba32c780844caa591df312d0c45464cbc1e0",
+      "scope": "Evaluation of the explicit polynomial sum A_ij X_i X_j is x dot A*x."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous",
+      "kind": "theorem",
+      "actual_type": "∀ {ι : Type u_1} {R : Type u_2} [inst : Fintype ι]\n  [inst_1 : CommSemiring R] (A : Matrix ι ι R), (QuaternaryQuadraticForms.matrixQuadraticPolynomial A).IsHomogeneous 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "source_sha256": "29eed06d730bb92eac13483c610fba32c780844caa591df312d0c45464cbc1e0",
+      "scope": "The explicit matrix quadratic polynomial is homogeneous of degree two."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le",
+      "kind": "theorem",
+      "actual_type": "∀ {ι : Type u_1} {R : Type u_2} [inst : Fintype ι]\n  [inst_1 : CommSemiring R] (A : Matrix ι ι R), (QuaternaryQuadraticForms.matrixQuadraticPolynomial A).totalDegree ≤ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "source_sha256": "29eed06d730bb92eac13483c610fba32c780844caa591df312d0c45464cbc1e0",
+      "scope": "The matrix quadratic polynomial has total degree at most two, including degenerate reductions."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (x : QuaternaryQuadraticForms.PrimeVector p),\n  (MvPolynomial.eval x) (QuaternaryQuadraticForms.matrixQuadraticPolynomial A) =\n    QuaternaryQuadraticForms.quadraticValue A x",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "source_sha256": "29eed06d730bb92eac13483c610fba32c780844caa591df312d0c45464cbc1e0",
+      "scope": "Exact identification with the existing quaternary quadraticValue definition."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticZeroIndicator_eval",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F : MvPolynomial (Fin 4) (ZMod p)) (x : Fin 4 → ZMod p),\n  (MvPolynomial.eval x) (1 - F ^ (p - 1)) = if (MvPolynomial.eval x) F = 0 then 1 else 0",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/AffineDivisibility.lean",
+      "source_sha256": "cfb89863ebbaa3a266701e002eabd6c843a9cb5fdb9ec7d46f2ec23b7e303375",
+      "scope": "The polynomial 1-F^(p-1) evaluates to the indicator of F=0 on the prime field."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (F G : MvPolynomial (Fin 4) (ZMod p)),\n      F.totalDegree ≤ 2 → G.totalDegree ≤ 2 → ∑ x, (MvPolynomial.eval x) ((1 - F ^ (p - 1)) * G ^ (p / 2)) = 0",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/AffineDivisibility.lean",
+      "source_sha256": "cfb89863ebbaa3a266701e002eabd6c843a9cb5fdb9ec7d46f2ec23b7e303375",
+      "scope": "The actual polynomial (1-F^(p-1))*G^(p/2) has zero sum over the four-dimensional prime field, by a proved strict degree bound."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (F G : MvPolynomial (Fin 4) (ZMod p)),\n      F.totalDegree ≤ 2 →\n        G.totalDegree ≤ 2 →\n          ↑p ∣ ∑ x with (MvPolynomial.eval x) F = 0, (quadraticChar (ZMod p)) ((MvPolynomial.eval x) G)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/AffineDivisibility.lean",
+      "source_sha256": "cfb89863ebbaa3a266701e002eabd6c843a9cb5fdb9ec7d46f2ec23b7e303375",
+      "scope": "The odd prime divides the integer quadratic-character sum on the affine zero set of a polynomial of degree at most two."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  {G : MvPolynomial (Fin 4) (ZMod p)},\n  G.IsHomogeneous 2 →\n    ∀ (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n      (quadraticChar (ZMod p)) ((MvPolynomial.eval (Projectivization.mk (ZMod p) x hx).rep) G) =\n        (quadraticChar (ZMod p)) ((MvPolynomial.eval x) G)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "The integer-valued quadratic weight is independent of projective representative for homogeneous quadratic G."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticTrace_complex",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (G : MvPolynomial (Fin 4) (ZMod p)),\n  ↑(QuaternaryQuadraticForms.affineQuadraticTrace A G) =\n    QuaternaryQuadraticForms.fourierSum A (QuaternaryQuadraticForms.complexQuadraticChar p) G 0",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "The complex cast of the actual integer affine trace equals the existing zero-frequency Fourier sum."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadraticTrace_complex",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (G : MvPolynomial (Fin 4) (ZMod p)),\n  ↑(QuaternaryQuadraticForms.projectiveQuadraticTrace A G) =\n    QuaternaryQuadraticForms.projectiveTrace A (QuaternaryQuadraticForms.complexQuadraticChar p) G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "The complex projective trace equals the cast of the actual integer projective sum."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticTrace_eq",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) {G : MvPolynomial (Fin 4) (ZMod p)},\n  G.IsHomogeneous 2 →\n    QuaternaryQuadraticForms.affineQuadraticTrace A G = (↑p - 1) * QuaternaryQuadraticForms.projectiveQuadraticTrace A G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "The exact integer identity C=(p-1)*a, obtained from the checked Fourier ray identity and injective complex cast."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticTrace_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (G : MvPolynomial (Fin 4) (ZMod p)),\n      G.totalDegree ≤ 2 → ↑p ∣ QuaternaryQuadraticForms.affineQuadraticTrace A G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "Affine divisibility for the literal matrix expression x^T A x."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) (ZMod p)) {G : MvPolynomial (Fin 4) (ZMod p)},\n      G.IsHomogeneous 2 → ↑p ∣ QuaternaryQuadraticForms.projectiveQuadraticTrace A G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "The odd prime divides the actual integer-valued projective quadratic trace."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) (ZMod p)) {G : MvPolynomial (Fin 4) (ZMod p)},\n      G.IsHomogeneous 2 →\n        ∃ a,\n          QuaternaryQuadraticForms.projectiveTrace A (QuaternaryQuadraticForms.complexQuadraticChar p) G = ↑a ∧ ↑p ∣ a",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "An explicit integer witness identifies the complex trace and proves divisibility; these are the completed clauses of Lemma 5.9."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ) {G : MvPolynomial (Fin 4) ℤ},\n      G.IsHomogeneous 2 → ↑p ∣ QuaternaryQuadraticForms.integralProjectiveQuadraticTrace p A G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "Divisibility of the actual integer projective trace after reducing integral matrix and quadratic-form coefficients."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ) {G : MvPolynomial (Fin 4) ℤ},\n      G.IsHomogeneous 2 →\n        ∃ a,\n          QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p)))\n                (QuaternaryQuadraticForms.complexQuadraticChar p) ((MvPolynomial.map (Int.castRingHom (ZMod p))) G) =\n              ↑a ∧\n            ↑p ∣ a",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "source_sha256": "8fb115c75879d0b950fd26a4410c7fc2fbd0c55bc08acaef5f19c8f12016aa98",
+      "scope": "Source-level integrality and divisibility of the complex trace for the manuscript's integral coefficient data, with an explicit integer witness."
     }
   ],
-  "lean_export_inspection_output": "@QuaternaryQuadraticForms.weighted_ray_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : CommRing R] (s : Finset ι)\n  (weight : ι → R) (hit : ι → Prop) [inst_1 : DecidablePred hit] (p : R),\n  (∑ i ∈ s, weight i * if hit i then p - 1 else -1) = p * ∑ i ∈ s with hit i, weight i - ∑ i ∈ s, weight i\n'QuaternaryQuadraticForms.weighted_ray_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.primitiveAddChar_units_sum : ∀ {K : Type u_1} [inst : Field K] [inst_1 : Fintype K]\n  [inst_2 : DecidableEq K] {R : Type u_2} [inst_3 : CommRing R] [IsDomain R] (ψ : AddChar K R),\n  ψ.IsPrimitive → ∀ (c : K), ∑ t, ψ (↑t * c) = if c = 0 then ↑(Fintype.card K) - 1 else -1\n'QuaternaryQuadraticForms.primitiveAddChar_units_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.stdAddChar_units_sum : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (c : ZMod p),\n  ∑ t, ZMod.stdAddChar (↑t * c) = if c = 0 then ↑p - 1 else -1\n'QuaternaryQuadraticForms.stdAddChar_units_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveRayVector_injective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Injective QuaternaryQuadraticForms.projectiveRayVector\n'QuaternaryQuadraticForms.projectiveRayVector_injective' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveRayVector_surjective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Surjective QuaternaryQuadraticForms.projectiveRayVector\n'QuaternaryQuadraticForms.projectiveRayVector_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.invariant_rep_mk : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] {A : Type u_3} (f : V → A),\n  (∀ (a : Kˣ) (x : V), f (a • x) = f x) → ∀ (x : V) (hx : x ≠ 0), f (Projectivization.mk K x hx).rep = f x\n'QuaternaryQuadraticForms.invariant_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.cone_rep_mk : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] (C : V → Prop),\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) → ∀ (x : V) (hx : x ≠ 0), C (Projectivization.mk K x hx).rep ↔ C x\n'QuaternaryQuadraticForms.cone_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] [inst_3 : Fintype V] [DecidableEq V] [inst_5 : Fintype Kˣ]\n  [inst_6 : Fintype (Projectivization K V)] {R : Type u_3} [inst_7 : Semiring R] (C : V → Prop)\n  [inst_8 : DecidablePred C],\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) →\n    ∀ (weight phase : V → R),\n      weight 0 = 0 →\n        (∀ (a : Kˣ) (x : V), weight (a • x) = weight x) →\n          ∑ x with C x, weight x * phase x = ∑ P with C P.rep, weight P.rep * ∑ a, phase (a • P.rep)\n'QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.homogeneous_eval_smul : ∀ {σ : Type u_1} {R : Type u_2} [inst : CommSemiring R]\n  {G : MvPolynomial σ R} {n : ℕ},\n  G.IsHomogeneous n → ∀ (t : R) (x : σ → R), (MvPolynomial.eval (t • x)) G = t ^ n * (MvPolynomial.eval x) G\n'QuaternaryQuadraticForms.homogeneous_eval_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.homogeneous_reduce_mod : ∀ {σ : Type u_1} {G : MvPolynomial σ ℤ} {n : ℕ},\n  G.IsHomogeneous n → ∀ (p : ℕ), ((MvPolynomial.map (Int.castRingHom (ZMod p))) G).IsHomogeneous n\n'QuaternaryQuadraticForms.homogeneous_reduce_mod' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.polynomialCharacterWeight_properties : ∀ {σ : Type u_1} {p n : ℕ} [inst : Fact (Nat.Prime p)]\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial σ (ZMod p)},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G 0 = 0 ∧\n          (∀ (x : σ → ZMod p), ‖QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x‖ ≤ 1) ∧\n            ∀ (t : ZMod p),\n              t ≠ 0 →\n                ∀ (x : σ → ZMod p),\n                  QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (t • x) =\n                    QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x\n'QuaternaryQuadraticForms.polynomialCharacterWeight_properties' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.mem_projectiveQuadric_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  Projectivization.mk (ZMod p) x hx ∈ QuaternaryQuadraticForms.projectiveQuadric A ↔\n    QuaternaryQuadraticForms.quadraticValue A x = 0\n'QuaternaryQuadraticForms.mem_projectiveQuadric_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveWeight_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ)\n  {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    ψ ^ n = 1 →\n      ∀ (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (Projectivization.mk (ZMod p) x hx).rep =\n          QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x\n'QuaternaryQuadraticForms.projectiveWeight_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.hyperplane_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (u x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  u ⬝ᵥ (Projectivization.mk (ZMod p) x hx).rep = 0 ↔ u ⬝ᵥ x = 0\n'QuaternaryQuadraticForms.hyperplane_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.fourierSum_ray_identity : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : QuaternaryQuadraticForms.PrimeVector p),\n          QuaternaryQuadraticForms.fourierSum A ψ G u =\n            ↑p * QuaternaryQuadraticForms.projectiveSectionTrace A ψ G u -\n              QuaternaryQuadraticForms.projectiveTrace A ψ G\n'QuaternaryQuadraticForms.fourierSum_ray_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.fourierSum_zero : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) (ZMod p))\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.fourierSum A ψ G 0 = (↑p - 1) * QuaternaryQuadraticForms.projectiveTrace A ψ G\n'QuaternaryQuadraticForms.fourierSum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.reduceFrequency_eq_zero_iff : ∀ (p : ℕ) (u : Fin 4 → ℤ),\n  QuaternaryQuadraticForms.reduceFrequency p u = 0 ↔ ∀ (i : Fin 4), ↑p ∣ u i\n'QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.integralFourierSum_ray_identity : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n            ↑p *\n                QuaternaryQuadraticForms.projectiveSectionTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G) (QuaternaryQuadraticForms.reduceFrequency p u) -\n              QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)\n'QuaternaryQuadraticForms.integralFourierSum_ray_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.integralFourierSum_of_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          (∀ (i : Fin 4), ↑p ∣ u i) →\n            QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n              (↑p - 1) *\n                QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)\n'QuaternaryQuadraticForms.integralFourierSum_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  "lean_export_inspection_output": "@QuaternaryQuadraticForms.weighted_ray_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : CommRing R] (s : Finset ι)\n  (weight : ι → R) (hit : ι → Prop) [inst_1 : DecidablePred hit] (p : R),\n  (∑ i ∈ s, weight i * if hit i then p - 1 else -1) = p * ∑ i ∈ s with hit i, weight i - ∑ i ∈ s, weight i\n'QuaternaryQuadraticForms.weighted_ray_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.primitiveAddChar_units_sum : ∀ {K : Type u_1} [inst : Field K] [inst_1 : Fintype K]\n  [inst_2 : DecidableEq K] {R : Type u_2} [inst_3 : CommRing R] [IsDomain R] (ψ : AddChar K R),\n  ψ.IsPrimitive → ∀ (c : K), ∑ t, ψ (↑t * c) = if c = 0 then ↑(Fintype.card K) - 1 else -1\n'QuaternaryQuadraticForms.primitiveAddChar_units_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.stdAddChar_units_sum : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (c : ZMod p),\n  ∑ t, ZMod.stdAddChar (↑t * c) = if c = 0 then ↑p - 1 else -1\n'QuaternaryQuadraticForms.stdAddChar_units_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveRayVector_injective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Injective QuaternaryQuadraticForms.projectiveRayVector\n'QuaternaryQuadraticForms.projectiveRayVector_injective' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveRayVector_surjective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Surjective QuaternaryQuadraticForms.projectiveRayVector\n'QuaternaryQuadraticForms.projectiveRayVector_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.invariant_rep_mk : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] {A : Type u_3} (f : V → A),\n  (∀ (a : Kˣ) (x : V), f (a • x) = f x) → ∀ (x : V) (hx : x ≠ 0), f (Projectivization.mk K x hx).rep = f x\n'QuaternaryQuadraticForms.invariant_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.cone_rep_mk : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] (C : V → Prop),\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) → ∀ (x : V) (hx : x ≠ 0), C (Projectivization.mk K x hx).rep ↔ C x\n'QuaternaryQuadraticForms.cone_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] [inst_3 : Fintype V] [DecidableEq V] [inst_5 : Fintype Kˣ]\n  [inst_6 : Fintype (Projectivization K V)] {R : Type u_3} [inst_7 : Semiring R] (C : V → Prop)\n  [inst_8 : DecidablePred C],\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) →\n    ∀ (weight phase : V → R),\n      weight 0 = 0 →\n        (∀ (a : Kˣ) (x : V), weight (a • x) = weight x) →\n          ∑ x with C x, weight x * phase x = ∑ P with C P.rep, weight P.rep * ∑ a, phase (a • P.rep)\n'QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.homogeneous_eval_smul : ∀ {σ : Type u_1} {R : Type u_2} [inst : CommSemiring R]\n  {G : MvPolynomial σ R} {n : ℕ},\n  G.IsHomogeneous n → ∀ (t : R) (x : σ → R), (MvPolynomial.eval (t • x)) G = t ^ n * (MvPolynomial.eval x) G\n'QuaternaryQuadraticForms.homogeneous_eval_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.homogeneous_reduce_mod : ∀ {σ : Type u_1} {G : MvPolynomial σ ℤ} {n : ℕ},\n  G.IsHomogeneous n → ∀ (p : ℕ), ((MvPolynomial.map (Int.castRingHom (ZMod p))) G).IsHomogeneous n\n'QuaternaryQuadraticForms.homogeneous_reduce_mod' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.polynomialCharacterWeight_properties : ∀ {σ : Type u_1} {p n : ℕ} [inst : Fact (Nat.Prime p)]\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial σ (ZMod p)},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G 0 = 0 ∧\n          (∀ (x : σ → ZMod p), ‖QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x‖ ≤ 1) ∧\n            ∀ (t : ZMod p),\n              t ≠ 0 →\n                ∀ (x : σ → ZMod p),\n                  QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (t • x) =\n                    QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x\n'QuaternaryQuadraticForms.polynomialCharacterWeight_properties' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.mem_projectiveQuadric_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  Projectivization.mk (ZMod p) x hx ∈ QuaternaryQuadraticForms.projectiveQuadric A ↔\n    QuaternaryQuadraticForms.quadraticValue A x = 0\n'QuaternaryQuadraticForms.mem_projectiveQuadric_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveWeight_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ)\n  {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    ψ ^ n = 1 →\n      ∀ (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (Projectivization.mk (ZMod p) x hx).rep =\n          QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x\n'QuaternaryQuadraticForms.projectiveWeight_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.hyperplane_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (u x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  u ⬝ᵥ (Projectivization.mk (ZMod p) x hx).rep = 0 ↔ u ⬝ᵥ x = 0\n'QuaternaryQuadraticForms.hyperplane_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.fourierSum_ray_identity : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : QuaternaryQuadraticForms.PrimeVector p),\n          QuaternaryQuadraticForms.fourierSum A ψ G u =\n            ↑p * QuaternaryQuadraticForms.projectiveSectionTrace A ψ G u -\n              QuaternaryQuadraticForms.projectiveTrace A ψ G\n'QuaternaryQuadraticForms.fourierSum_ray_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.fourierSum_zero : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) (ZMod p))\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.fourierSum A ψ G 0 = (↑p - 1) * QuaternaryQuadraticForms.projectiveTrace A ψ G\n'QuaternaryQuadraticForms.fourierSum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.reduceFrequency_eq_zero_iff : ∀ (p : ℕ) (u : Fin 4 → ℤ),\n  QuaternaryQuadraticForms.reduceFrequency p u = 0 ↔ ∀ (i : Fin 4), ↑p ∣ u i\n'QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.integralFourierSum_ray_identity : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n            ↑p *\n                QuaternaryQuadraticForms.projectiveSectionTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G) (QuaternaryQuadraticForms.reduceFrequency p u) -\n              QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)\n'QuaternaryQuadraticForms.integralFourierSum_ray_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.integralFourierSum_of_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          (∀ (i : Fin 4), ↑p ∣ u i) →\n            QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n              (↑p - 1) *\n                QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)\n'QuaternaryQuadraticForms.integralFourierSum_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.complexQuadraticChar_apply : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (x : ZMod p),\n  (QuaternaryQuadraticForms.complexQuadraticChar p) x = ↑((quadraticChar (ZMod p)) x)\n'QuaternaryQuadraticForms.complexQuadraticChar_apply' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.complexQuadraticChar_isQuadratic : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  (QuaternaryQuadraticForms.complexQuadraticChar p).IsQuadratic\n'QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.complexQuadraticChar_sq : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  QuaternaryQuadraticForms.complexQuadraticChar p ^ 2 = 1\n'QuaternaryQuadraticForms.complexQuadraticChar_sq' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.complexQuadraticChar_ne_one : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 → QuaternaryQuadraticForms.complexQuadraticChar p ≠ 1\n'QuaternaryQuadraticForms.complexQuadraticChar_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.complexQuadraticChar_intCast : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (a : ℤ),\n  (QuaternaryQuadraticForms.complexQuadraticChar p) ↑a = ↑(legendreSym p a)\n'QuaternaryQuadraticForms.complexQuadraticChar_intCast' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial : ∀ {ι : Type u_1} {R : Type u_2} [inst : Fintype ι]\n  [inst_1 : CommSemiring R] (A : Matrix ι ι R) (x : ι → R),\n  (MvPolynomial.eval x) (QuaternaryQuadraticForms.matrixQuadraticPolynomial A) = x ⬝ᵥ A.mulVec x\n'QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous : ∀ {ι : Type u_1} {R : Type u_2} [inst : Fintype ι]\n  [inst_1 : CommSemiring R] (A : Matrix ι ι R), (QuaternaryQuadraticForms.matrixQuadraticPolynomial A).IsHomogeneous 2\n'QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le : ∀ {ι : Type u_1} {R : Type u_2} [inst : Fintype ι]\n  [inst_1 : CommSemiring R] (A : Matrix ι ι R), (QuaternaryQuadraticForms.matrixQuadraticPolynomial A).totalDegree ≤ 2\n'QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (x : QuaternaryQuadraticForms.PrimeVector p),\n  (MvPolynomial.eval x) (QuaternaryQuadraticForms.matrixQuadraticPolynomial A) =\n    QuaternaryQuadraticForms.quadraticValue A x\n'QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nQuaternaryQuadraticForms.quadraticZeroIndicator_eval : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F : MvPolynomial (Fin 4) (ZMod p)) (x : Fin 4 → ZMod p),\n  (MvPolynomial.eval x) (1 - F ^ (p - 1)) = if (MvPolynomial.eval x) F = 0 then 1 else 0\n'QuaternaryQuadraticForms.quadraticZeroIndicator_eval' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (F G : MvPolynomial (Fin 4) (ZMod p)),\n      F.totalDegree ≤ 2 → G.totalDegree ≤ 2 → ∑ x, (MvPolynomial.eval x) ((1 - F ^ (p - 1)) * G ^ (p / 2)) = 0\n'QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nQuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (F G : MvPolynomial (Fin 4) (ZMod p)),\n      F.totalDegree ≤ 2 →\n        G.totalDegree ≤ 2 →\n          ↑p ∣ ∑ x with (MvPolynomial.eval x) F = 0, (quadraticChar (ZMod p)) ((MvPolynomial.eval x) G)\n'QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  {G : MvPolynomial (Fin 4) (ZMod p)},\n  G.IsHomogeneous 2 →\n    ∀ (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n      (quadraticChar (ZMod p)) ((MvPolynomial.eval (Projectivization.mk (ZMod p) x hx).rep) G) =\n        (quadraticChar (ZMod p)) ((MvPolynomial.eval x) G)\n'QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.affineQuadraticTrace_complex : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (G : MvPolynomial (Fin 4) (ZMod p)),\n  ↑(QuaternaryQuadraticForms.affineQuadraticTrace A G) =\n    QuaternaryQuadraticForms.fourierSum A (QuaternaryQuadraticForms.complexQuadraticChar p) G 0\n'QuaternaryQuadraticForms.affineQuadraticTrace_complex' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveQuadraticTrace_complex : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (G : MvPolynomial (Fin 4) (ZMod p)),\n  ↑(QuaternaryQuadraticForms.projectiveQuadraticTrace A G) =\n    QuaternaryQuadraticForms.projectiveTrace A (QuaternaryQuadraticForms.complexQuadraticChar p) G\n'QuaternaryQuadraticForms.projectiveQuadraticTrace_complex' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.affineQuadraticTrace_eq : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) {G : MvPolynomial (Fin 4) (ZMod p)},\n  G.IsHomogeneous 2 →\n    QuaternaryQuadraticForms.affineQuadraticTrace A G = (↑p - 1) * QuaternaryQuadraticForms.projectiveQuadraticTrace A G\n'QuaternaryQuadraticForms.affineQuadraticTrace_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.affineQuadraticTrace_dvd : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (G : MvPolynomial (Fin 4) (ZMod p)),\n      G.totalDegree ≤ 2 → ↑p ∣ QuaternaryQuadraticForms.affineQuadraticTrace A G\n'QuaternaryQuadraticForms.affineQuadraticTrace_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) (ZMod p)) {G : MvPolynomial (Fin 4) (ZMod p)},\n      G.IsHomogeneous 2 → ↑p ∣ QuaternaryQuadraticForms.projectiveQuadraticTrace A G\n'QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) (ZMod p)) {G : MvPolynomial (Fin 4) (ZMod p)},\n      G.IsHomogeneous 2 →\n        ∃ a,\n          QuaternaryQuadraticForms.projectiveTrace A (QuaternaryQuadraticForms.complexQuadraticChar p) G = ↑a ∧ ↑p ∣ a\n'QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nQuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ) {G : MvPolynomial (Fin 4) ℤ},\n      G.IsHomogeneous 2 → ↑p ∣ QuaternaryQuadraticForms.integralProjectiveQuadraticTrace p A G\n'QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nQuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n  p ≠ 2 →\n    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ) {G : MvPolynomial (Fin 4) ℤ},\n      G.IsHomogeneous 2 →\n        ∃ a,\n          QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p)))\n                (QuaternaryQuadraticForms.complexQuadraticChar p) ((MvPolynomial.map (Int.castRingHom (ZMod p))) G) =\n              ↑a ∧\n            ↑p ∣ a\n'QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]"
 }

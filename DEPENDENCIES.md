@@ -71,16 +71,18 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 0 · Partial: 1 · Active: 0 · Pending:
-41**. Lemma 4.4 is Partial: all three weight properties (3.1), the exact
+The numbered-result counts are **Complete: 0 · Partial: 2 · Active: 0 · Pending:
+40**. Lemma 4.4 is Partial: all three weight properties (3.1), the exact
 zero-frequency clause of (4.4), and the full intermediate ray identity (4.5)
-have been checked locally. Its pointwise Fourier estimate remains pending.
+are checked. Its pointwise Fourier estimate remains pending. Lemma 5.9 is
+Partial: integrality and divisibility of the actual projective trace are
+checked locally; its separate bound `|a_p(G)| ≤ 4p` remains pending.
 
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 19 registered checked supporting exports are also
-counted separately.
+numbered-result count. The 40 registered checked exports across nine proof
+modules are also counted separately.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -105,7 +107,7 @@ bound in [M, Proposition 2.1]. Their exclusion is recorded in the same registry.
 Trusting a reference does not require assuming an assertion that the paper
 itself disproves.
 
-## Completed ray identity and next branch
+## Completed ray identity
 
 The first branch now proves (4.5) for the actual sums. Its dependencies are:
 
@@ -133,9 +135,43 @@ the precise clauses checked. The `D_p`-dependent bound in Lemma 4.4 still needs
 the geometric estimates of Lemmas 2.7, 4.1 and 4.3 and the exceptional
 plane-section count. Those steps have not been assumed as additional premises.
 
-The next target is the polynomial power-sum divisibility argument in Lemma 5.9.
-Its separate size estimate remains an obligation; proving divisibility alone
-will not complete that lemma.
+## Integrality and divisibility in Lemma 5.9
+
+This branch uses the checked zero-frequency identity and the following four
+modules:
+
+1. [Matrix polynomial](QuaternaryQuadraticForms/MatrixPolynomial.lean): the
+   polynomial representing `xᵀ A x` is homogeneous of degree two, and evaluation
+   agrees with the matrix expression.
+2. [Quadratic character](QuaternaryQuadraticForms/QuadraticCharacter.lean): the
+   integer-valued character, its complex cast, and the usual Legendre symbol
+   are identified; its square is the principal character.
+3. [Affine divisibility](QuaternaryQuadraticForms/AffineDivisibility.lean):
+   Euler's criterion converts the affine character sum modulo `p` into a
+   polynomial sum. Mathlib's existing polynomial-grid vanishing theorem applies
+   because the total degree is less than `4(p-1)`.
+4. [Projective trace](QuaternaryQuadraticForms/QuadraticTrace.lean): the trace is
+   constructed as an integer sum and its complex cast is identified with the
+   earlier projective trace. The zero-frequency identity becomes an equality
+   over the integers. Reducing it modulo `p` transfers divisibility from the
+   affine trace to the projective trace.
+
+The resulting statements include integral input coefficients and an explicit
+integer witness for the paper's complex-valued trace. Independence of the
+integer summand from its projective representative is also proved. The
+[correspondence review](certification/correspondence/quadratic_trace.md)
+records the exact scope. Odd primality and quadratic homogeneity suffice for
+these clauses; the geometric assumptions enter the unfinished size bound.
+
+## Next estimate branch
+
+The next work is to register precise Weil and Katz interfaces and prove the
+manuscript's specializations. Corollary 2.6, the projective-line estimate, is a
+practical first target. The Katz specialization of Lemma 2.7 still requires
+the geometric hypotheses and the explicit constant to be handled. It supports
+both the remaining bound in Lemma 5.9 and the Fourier estimate in Lemma 4.4;
+the latter also needs the exceptional-polynomial and plane-section arguments.
+The exact identities already checked remain completed inputs to that work.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

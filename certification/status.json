@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Literal finite-field Fourier ray identity and weight properties",
+  "checkpoint": "Integrality and divisibility of the projective quadratic trace",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -171,8 +171,22 @@
       "checked_exports": []
     },
     "lem:divisible": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Partial",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd",
+        "QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd",
+        "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd",
+        "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd"
+      ],
+      "correspondence_record": "certification/correspondence/quadratic_trace.md",
+      "completed_clauses": [
+        "The projective quadratic-character trace a_p(G) is an integer, identified explicitly with the existing complex-valued trace.",
+        "The odd prime p divides that actual integer trace, for both finite-field forms and reductions of the manuscript's integral coefficients."
+      ],
+      "remaining_clauses": [
+        "The bound |a_p(G)| ≤ 4p, requiring the n=2 specialization of Lemma 2.7 and its geometric hypotheses."
+      ],
+      "scope_note": "The checked divisibility statement only needs an odd prime and a homogeneous quadratic G. Nonsingularity and smoothness are not assumed for this clause. The pending size bound and Lemma 2.7 have not been imported as replacement axioms."
     },
     "lem:lowerbeta": {
       "status": "Pending",
@@ -587,6 +601,313 @@
         "eq:rays"
       ],
       "scope": "The p-divides-u clause of (4.5), with explicit coordinatewise integer divisibility.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_apply",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "The complex quadratic character is the cast of the actual integer-valued character.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_isQuadratic",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "The complex quadratic character has values in 0, 1 and -1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_sq",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "The square of the complex quadratic character is principal, with the correct zero-extension.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_ne_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "Nonprincipality of the actual complex quadratic character for odd primes.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_intCast",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "Agreement with the Legendre symbol on integer arguments.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial",
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:forms",
+        "lem:divisible"
+      ],
+      "scope": "Evaluation of the explicit polynomial sum A_ij X_i X_j is x dot A*x.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_homogeneous",
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:forms",
+        "lem:divisible"
+      ],
+      "scope": "The explicit matrix quadratic polynomial is homogeneous of degree two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree_le",
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:forms",
+        "lem:divisible"
+      ],
+      "scope": "The matrix quadratic polynomial has total degree at most two, including degenerate reductions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_matrixQuadraticPolynomial_quadraticValue",
+      "file": "QuaternaryQuadraticForms/MatrixPolynomial.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:forms",
+        "lem:divisible"
+      ],
+      "scope": "Exact identification with the existing quaternary quadraticValue definition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticZeroIndicator_eval",
+      "file": "QuaternaryQuadraticForms/AffineDivisibility.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The polynomial 1-F^(p-1) evaluates to the indicator of F=0 on the prime field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticCharacterPolynomial_sum_zero",
+      "file": "QuaternaryQuadraticForms/AffineDivisibility.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The actual polynomial (1-F^(p-1))*G^(p/2) has zero sum over the four-dimensional prime field, by a proved strict degree bound.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticCharacterSum_dvd",
+      "file": "QuaternaryQuadraticForms/AffineDivisibility.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The odd prime divides the integer quadratic-character sum on the affine zero set of a polynomial of degree at most two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticTraceWeight_rep_mk",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "The integer-valued quadratic weight is independent of projective representative for homogeneous quadratic G.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticTrace_complex",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:Cpsi",
+        "lem:divisible"
+      ],
+      "scope": "The complex cast of the actual integer affine trace equals the existing zero-frequency Fourier sum.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadraticTrace_complex",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:apdef",
+        "lem:divisible"
+      ],
+      "scope": "The complex projective trace equals the cast of the actual integer projective sum.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticTrace_eq",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays",
+        "lem:divisible"
+      ],
+      "scope": "The exact integer identity C=(p-1)*a, obtained from the checked Fourier ray identity and injective complex cast.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadraticTrace_dvd",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "Affine divisibility for the literal matrix expression x^T A x.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The odd prime divides the actual integer-valued projective quadratic trace.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "An explicit integer witness identifies the complex trace and proves divisibility; these are the completed clauses of Lemma 5.9.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "Divisibility of the actual integer projective trace after reducing integral matrix and quadratic-form coefficients.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd",
+      "file": "QuaternaryQuadraticForms/QuadraticTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "Source-level integrality and divisibility of the complex trace for the manuscript's integral coefficient data, with an explicit integer witness.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
