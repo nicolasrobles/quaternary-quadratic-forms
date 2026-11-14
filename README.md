@@ -90,7 +90,7 @@ four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-**The full aggregate local verifier passed for the 482-export CRT
+**The full local and GitHub verifiers passed for the 482-export CRT
 milestone.** All 96 modules passed the pinned strict checks, and all
 120 recorded input hashes match the checked files. All 416 preceding
 complete theorem records are identical, including their actual types,
@@ -108,9 +108,21 @@ contains 708,765 bytes and has SHA-256
 `ec46cb57a7912faf2116faed95bc6021ed68a9ed78cfb28a05133c0df4515f0f`.
 It records 11 Certified, zero Partial or Active, and 31 Pending numbered
 results; all 33 auxiliary/supplementary groups remain Pending.
-**GitHub CI at the exact proof commit for this 482-export scope is still
-pending.** The preserved 416-export evidence below retains its preceding
-scope.
+
+[GitHub Actions run 43626335642, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43626335642)
+succeeded at [proof commit 0224dae](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0224dae194b48080f8af732dbf78580ffaab0c24).
+Its [downloaded report](certification/ci/run_43626335642_attempt_1.json)
+and [original artifact ZIP](certification/ci/run_43626335642_attempt_1.zip)
+are preserved. The ZIP digest matches GitHub's advertised digest, and
+its sole report member is byte-identical to the archived JSON. All 18
+verification-content fields exactly match the local report, including
+all 482 complete theorem records, four premise records, 120 input hashes,
+nine dependency revisions, and the complete Lean inspection output.
+Only `generated_at_utc` and `lake_build_output` differ. All 120 hashes
+also match the current inspected files and exact proof tree. The
+[execution checkpoint](CHECKPOINT.md) records the job, artifact, digests,
+and full current scope. The older evidence below retains its original
+scopes.
 
 **The full local and GitHub verifiers passed for the preceding 416-export
 pencil milestone.** All 84 modules

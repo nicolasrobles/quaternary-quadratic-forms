@@ -726,9 +726,42 @@ It records 11 Certified and 31 Pending numbered results, with zero
 Partial or Active results. All 33 auxiliary/supplementary groups remain
 Pending, and whole-paper certification remains false.
 
-**GitHub CI at the exact proof commit for this 482-export scope is still
-pending.** The preserved 416-export reports below retain their preceding
-scope and do not establish CI verification of this CRT milestone.
+### CRT GitHub execution
+
+**The full local and GitHub verifiers passed for all 96 modules, 482 theorem
+exports, four registered premise records, and nine pinned dependency
+revisions.** The published proof commit is
+[`0224dae194b48080f8af732dbf78580ffaab0c24`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0224dae194b48080f8af732dbf78580ffaab0c24),
+whose tree is `62ac309aaa1aec3563b46f87e4a881d17a9bc474`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43626335642, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43626335642).
+- Verification job: `132542869983`; every step succeeded.
+- Verification completed `2026-11-14T18:31:45Z`; the job completed `2026-11-14T18:31:47Z`.
+- Artifact: `14127140616`, 82,657 bytes, created `2026-11-14T18:31:46Z`.
+- [Preserved CI report](certification/ci/run_43626335642_attempt_1.json), 715,749 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43626335642_attempt_1.zip).
+- ZIP SHA-256: `7f343e481201ecbd5d9759d0c97392d0a9104db7894c05226b0dd1d19c8344e3`.
+- CI report SHA-256: `72cb4961d00501e3e98a17a1871169548b7d8d70a7f479e9304bd0887a75b56b`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON. The local and CI reports agree exactly on all 18
+verification-content fields: all 482 complete theorem records and their
+actual types and axiom dependencies, four registered-premise records,
+120 input hashes, nine pinned dependency revisions, the complete Lean
+export-inspection output, the Lean version, and every verification flag
+and scope count. Only `generated_at_utc` and `lake_build_output` differ.
+
+Every recorded input hash matches both the current inspected files and
+the exact proof tree. The local report remains the 708,765-byte report
+identified above, byte-identical to the report in that proof commit.
+The frozen manuscript and PDF are unchanged. This evidence covers the
+complete current 482-export CRT milestone; the earlier local and CI
+reports below retain their original scopes. The numbered-result status
+remains 11 Certified, zero Partial or Active, and 31 Pending, with all
+33 auxiliary/supplementary groups Pending and whole-paper certification
+false.
 
 ## Earlier checked checkpoints
 
