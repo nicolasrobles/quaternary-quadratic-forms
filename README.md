@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 11 · Partial: 0 · Active: 0 · Pending: 31** — 42 numbered results.
+**Complete: 12 · Partial: 0 · Active: 0 · Pending: 30** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -85,13 +85,51 @@ formula for squarefree `C_q`, multiplicativity of `S_c`, and the exact
 bridge to the earlier prime Fourier sum are also proved. This branch
 uses no literature premise.
 
-The current scope covers 482 theorem exports across 96 Lean modules,
+**Lemma 3.2 is Certified.** For every prime outside the literal
+`N_F = 2|det A|`, all three conclusions hold for the actual symmetric
+integral matrix: the shifted Gauss evaluation modulo `p^k`, the exact
+Ramanujan formula for the existing `S_{p^k}`, and the cardinality of
+the actual projective quadric. The final theorem covers every `k ≥ 1`,
+every integral frequency, and every integer scalar not divisible by
+`p`. The general-matrix prime base case, residue-digit recurrence,
+modular inverses, and unit permutation are proved internally. This
+branch uses no literature premise.
+
+The current scope covers 536 theorem exports across 112 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-**The full local and GitHub verifiers passed for the 482-export CRT
-milestone.** All 96 modules passed the pinned strict checks, and all
+The Lemma 3.2 milestone adds 54 public theorem exports in 16 new
+modules, with 137 recorded input hashes including the new
+correspondence review.
+
+**The full local aggregate verifier passed for all 536 theorem exports
+and 112 Lean modules.** All 137 input hashes match the checked files.
+All 54 new actual types and axiom lists match their prior inspections;
+every new export uses exactly `Classical.choice`, `Quot.sound`, and
+`propext`. All 482 preceding actual types, axiom lists, and Lean source
+hashes remain unchanged. Of those records, 472 are identical in full;
+the ten export scope descriptions for `PrimeQuadraticGauss.lean` only
+replace the obsolete statement that full Lemma 3.2 remains Pending.
+The four registered literature premise records and nine pinned
+dependency revisions are unchanged. All 37
+frozen changed-file hashes were preserved through verification, and
+the frozen manuscript and PDF remain unchanged.
+
+The [local verification report](certification/verification_report.json)
+contains 780,870 bytes and has SHA-256
+`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
+It records 12 Certified, zero Partial or Active, and 30 Pending numbered
+results; all 33 auxiliary/supplementary groups remain Pending.
+
+**GitHub CI for this 536-export scope is pending.** The successful
+GitHub runs below cover their stated earlier scopes. The
+[execution checkpoint](CHECKPOINT.md) records the new local result
+and its exact comparison with the preceding 482-export report.
+
+**The full local and GitHub verifiers passed for the preceding 482-export
+CRT milestone.** All 96 modules passed the pinned strict checks, and all
 120 recorded input hashes match the checked files. All 416 preceding
 complete theorem records are identical, including their actual types,
 axiom dependencies, source hashes, and scopes. The four registered
@@ -103,7 +141,7 @@ No new export uses a literature premise. All 33 changed-file hashes
 were preserved through the verification run, and the frozen manuscript
 and PDF remain unchanged.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/0224dae194b48080f8af732dbf78580ffaab0c24/certification/verification_report.json)
 contains 708,765 bytes and has SHA-256
 `ec46cb57a7912faf2116faed95bc6021ed68a9ed78cfb28a05133c0df4515f0f`.
 It records 11 Certified, zero Partial or Active, and 31 Pending numbered
@@ -119,10 +157,11 @@ verification-content fields exactly match the local report, including
 all 482 complete theorem records, four premise records, 120 input hashes,
 nine dependency revisions, and the complete Lean inspection output.
 Only `generated_at_utc` and `lake_build_output` differ. All 120 hashes
-also match the current inspected files and exact proof tree. The
-[execution checkpoint](CHECKPOINT.md) records the job, artifact, digests,
-and full current scope. The older evidence below retains its original
-scopes.
+also match the inspected files at that checkpoint and its exact proof
+tree. The [execution checkpoint](CHECKPOINT.md) records the job,
+artifact, digests, and full 482-export scope. This evidence does not
+cover the new 536-export Gauss milestone. The older evidence below
+retains its original scopes.
 
 **The full local and GitHub verifiers passed for the preceding 416-export
 pencil milestone.** All 84 modules
@@ -241,6 +280,7 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
+- [Correspondence review for complete Lemma 3.2 and the actual prime-power Gauss sums](certification/correspondence/prime_power_gauss.md)
 - [Correspondence review for complete Lemma 3.1 and the literal complete sums](certification/correspondence/complete_sum_crt.md)
 - [Correspondence review for complete Lemma 4.6 and the diagonal pencil](certification/correspondence/diagonal_pencil.md)
 - [Correspondence review for complete Lemma 4.5 and the exact diagonal modulus](certification/correspondence/diagonal_bad_primes.md)
@@ -464,6 +504,67 @@ is proved to be zero exactly when `p` divides each coordinate.
 These identities require only positive degree and `ψ ^ n = 1`; nonsingularity,
 smoothness, and nonprincipality are unnecessary for this part of the proof.
 The manuscript's hypotheses therefore specialize the checked results.
+
+## Complete prime-power Gauss evaluation
+
+The single theorem
+[prime_power_gauss](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean)
+contains every clause of Lemma 3.2. Let `A` be the source's symmetric
+integral matrix, write $\alpha=\det A$ and
+$F^*(u)=u^{\mathsf T}\operatorname{adj}(A)u$, and let
+$\chi(p)=(\alpha/p)$ be the actual Legendre symbol. Under the literal
+condition $p\nmid N_F=2|\alpha|$, for every $k\ge1$ and integral
+frequency $u$, it proves
+
+$$\sum_{x\bmod p^k}e_{p^k}(aF(x)+u\cdot x)
+=\chi(p)^k p^{2k}
+ e_{p^k}\!\left(-\overline{4a\alpha}\,F^*(u)\right)
+\qquad(p\nmid a),$$
+
+$$S_{p^k}(u)=\chi(p)^k p^{2k}R_{p^k}(F^*(u)),$$
+
+$$\#\mathcal Q(\mathbb F_p)=p^2+(1+\chi(p))p+1.$$
+
+The Gauss sum is the literal sum over `(ZMod (p^k))⁴` with the standard
+positive additive character. The integer coefficient, matrix, and
+frequency reductions agree with the source's representative sum.
+`S_{p^k}` is the existing unweighted complete sum, `R_{p^k}` is the
+actual sum over residue units, and the point count concerns the
+existing projective quadric.
+
+| Modules | Checked contribution |
+|---|---|
+| [GeneralPrimeGauss](QuaternaryQuadraticForms/GeneralPrimeGauss.lean) | The prime base case for every nonsingular symmetric matrix, via an actual orthogonal basis and the determinant-square identity |
+| [PrimePowerResidues](QuaternaryQuadraticForms/PrimePowerResidues.lean), [PrimePowerGaussRecurrence](QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean) | Actual residue-digit bijections and additive orthogonality proving the two-step recurrence |
+| [MatrixSquareCompletion](QuaternaryQuadraticForms/MatrixSquareCompletion.lean), [IntegralGaussShift](QuaternaryQuadraticForms/IntegralGaussShift.lean) | Square completion with the actual adjugate and the exact modular inverse in the source phase |
+| [PrimePowerGauss](QuaternaryQuadraticForms/PrimePowerGauss.lean) | The closed pure and shifted formulas and the pure value for every actual residue unit |
+| [RamanujanSums](QuaternaryQuadraticForms/RamanujanSums.lean), [UnramifiedCompleteSum](QuaternaryQuadraticForms/UnramifiedCompleteSum.lean) | The reciprocal unit permutation and the exact formula for the existing `S_{p^k}` |
+| [QuadricCounting](QuaternaryQuadraticForms/QuadricCounting.lean), [QuadricPointCount](QuaternaryQuadraticForms/QuadricPointCount.lean) | Additive orthogonality, the affine zero count, and the cardinality of the actual projective quadric |
+
+For the prime base case, the constructed change of basis `P` gives
+$P^{\mathsf T}AP=\operatorname{diag}(d_i)$ and
+$\prod_i d_i=(\det P)^2\det A$, with every $d_i$ and $\det P$ nonzero.
+The quadratic character removes that square, and the previously checked
+scalar Gauss identities give $V_1(a)=\chi(p)p^2$. No diagonalization
+hypothesis remains in the endpoint.
+
+The digit decomposition proves $V_{k+2}(a)=p^4V_k(a)$ for every
+$k\ge0$, including the actual modulus-one value $V_0(a)=1$.
+Together with the prime base case this gives
+$V_k(a)=\chi(p)^k p^{2k}$. The source good-prime condition supplies
+the units needed for square completion. The pure and shifted integral
+formulas extend to $k=0$; the canonical unit lift and the final
+Ramanujan theorem use the source range $k\ge1$.
+
+The map $a\mapsto-\overline{4a\alpha}$ is proved to permute the actual
+units, so summing the shifted formula gives the Ramanujan identity.
+For the last clause, the zero scalar is retained in additive
+orthogonality, giving the affine count
+$p^3+\chi(p)(p^2-p)$. Removing the actual origin and using the proved
+partition into projective rays gives the displayed projective count.
+The complete [source correspondence review](certification/correspondence/prime_power_gauss.md)
+checks all three clauses and their arithmetic hypotheses. No new
+literature premise is used.
 
 ## Complete CRT factorization of the local sums
 
@@ -710,8 +811,8 @@ The [source correspondence review](certification/correspondence/diagonal_pencil.
 tracks signs, normalization, singular terms, the zero-frequency trace,
 coefficient reduction, and the generic divisibility condition. The
 exact formula and trace introduce no external premise; the generic
-bound adds only the already registered Weil premise. The full Lemma 3.2
-and the global asymptotic in Theorem 1.3 remain Pending.
+bound adds only the already registered Weil premise. The global
+asymptotic in Theorem 1.3 remains Pending.
 
 | Module | Checked contribution |
 |---|---|
@@ -882,6 +983,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.LinearAlgebra.Matrix.BilinearForm \
       Mathlib.LinearAlgebra.Matrix.Dual \
       Mathlib.LinearAlgebra.Matrix.Rank \
+      Mathlib.LinearAlgebra.QuadraticForm.Basic \
       Mathlib.RingTheory.MvPolynomial.EulerIdentity \
       Mathlib.Tactic.FieldSimp \
       Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
@@ -891,6 +993,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Data.ZMod.Coprime \
       Mathlib.Algebra.Group.Units.Equiv \
       Mathlib.Logic.Equiv.Prod \
+      Mathlib.Logic.Equiv.Fin.Basic \
       Mathlib.Algebra.Polynomial.Coeff \
       Mathlib.Algebra.MvPolynomial.Eval \
       Mathlib.Algebra.MvPolynomial.Degrees \
@@ -921,20 +1024,23 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next target is complete Lemma 3.2. For the actual nonsingular
-symmetric integral quadratic form and a prime `p ∤ N_F`, prove all
-three clauses: the quaternary exponential-sum evaluation modulo `p^k`,
-the Ramanujan formula for the existing `S_{p^k}`, and the exact
-projective-quadric point count over `ZMod p`.
+The next bounded target is complete Lemma 3.3, source lines 1156–1178.
+For the source's nonsingular symmetric integral matrix, every integer
+modulus $c\ge1$, and every integral frequency $u$, it asserts
 
-The proof needs square completion using the adjugate matrix over
-`ZMod (p^k)`, the recurrence `V_k=p⁴V_{k−2}` with `V_0=1`, and the
-prime base case for a general matrix. The already proved scalar prime
-Gauss identities provide the one-dimensional input. Summing over units
-then gives the actual Ramanujan sum, and additive orthogonality followed
-by projective-ray counting gives the point count. These full prime-power
-and general-matrix conclusions remain Pending.
+$$|S_c(u)|\le4\sqrt{|\det A|}\,c^3.$$
 
-Lemma 3.1 and all Section 4 lemmas are complete. The global asymptotic
-in Theorem 1.3, the analytic assembly, and Theorems 1.1 and 1.4 remain
-Pending. All 33 auxiliary/supplementary groups remain Pending.
+The proof must start with the squared norm of the actual Gauss sum,
+use additive orthogonality to bound it by $c^4$ times the number of
+solutions to $2Az=0\pmod c$, and prove that this kernel has at most
+$16|\det A|$ elements. The source's Smith normal-form argument gives
+the exact kernel count $\prod_i\gcd(d_i,c)$, where the invariant
+factors of `2A` have product $16|\det A|$. Taking square roots and
+summing over the actual unit parameters then gives the full bound.
+This target includes modulus one and all bad-prime factors; it remains
+Pending.
+
+Lemmas 3.1 and 3.2 and all Section 4 lemmas are complete. The global
+asymptotic in Theorem 1.3, the analytic assembly, and Theorems 1.1 and
+1.4 remain Pending. All 33 auxiliary/supplementary groups remain
+Pending.

@@ -1,9 +1,9 @@
-# Complete local-sum CRT checkpoint
+# Complete prime-power Gauss checkpoint
 
 ## Numbered-result status
 
-Complete: **11**. Partial: **0**. Active numbered targets: **0**.
-Pending: **31**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **12**. Partial: **0**. Active numbered targets: **0**.
+Pending: **30**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -63,9 +63,133 @@ The identities include modulus one and shared prime factors between `q`
 and `c`; the literal gcd condition also permits `t=0` when `qc=1`.
 The supporting prime-factor formula for `C_q`, multiplicativity of
 `S_c`, and exact prime Fourier bridge are proved. No literature premise
-is used. The next target is complete Lemma 3.2.
+is used.
+
+**Lemma 3.2 is Certified.** For every prime outside the literal
+`N_F = 2|det A|`, all three conclusions hold for the actual symmetric
+integral matrix: the shifted Gauss evaluation modulo `p^k`, the exact
+Ramanujan formula for the existing `S_{p^k}`, and the cardinality of
+the actual projective quadric. The final theorem covers every `k ≥ 1`,
+every integral frequency, and every integer scalar not divisible by
+`p`. The general-matrix prime base case, residue-digit recurrence,
+modular inverses, and unit permutation are proved internally. This
+branch uses no literature premise.
+
+The next bounded target is complete Lemma 3.3.
 
 ## Mathematical scope
+
+### Complete Lemma 3.2
+
+[PrimePowerGaussTheorem.lean](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean)
+proves the single source endpoint `prime_power_gauss`. Its hypotheses
+are a prime `p`, an exponent `k ≥ 1`, the actual integral symmetric
+matrix `A`, the literal condition `p ∤ quadraticBadPrimeModulus A`,
+and an arbitrary integral frequency `u`. The existing modulus is
+exactly `2 * A.det.natAbs`, so this is $p\nmid N_F=2|\det A|$.
+There is no extra diagonalization, recurrence, unit-permutation, or
+point-count hypothesis.
+
+Write $\alpha=\det A$, $\chi(p)=(\alpha/p)$, and
+$F^*(u)=u^{\mathsf T}\operatorname{adj}(A)u$. The theorem includes
+all three source conclusions:
+
+1. For every integer $a$ with $p\nmid a$,
+
+   $$\sum_{x\bmod p^k}e_{p^k}(aF(x)+u\cdot x)
+   =\chi(p)^k p^{2k}
+   e_{p^k}\!\left(-\overline{4a\alpha}\,F^*(u)\right).$$
+
+2. For the existing unweighted complete sum,
+
+   $$S_{p^k}(u)=\chi(p)^k p^{2k}R_{p^k}(F^*(u)).$$
+
+3. For the actual projective quadric over `ZMod p`,
+
+   $$\#\mathcal Q(\mathbb F_p)=p^2+(1+\chi(p))p+1.$$
+
+The complex coefficient is the cast of `legendreSym p A.det`, raised
+to `k`. The phase uses the native inverse in `ZMod (p^k)` of the
+reduced integer `4 * a * A.det`, multiplied by the reduction of
+`dotProduct u (A.adjugate.mulVec u)`. The cardinality identity is
+written in the integers so that the actual Legendre symbol can take
+either sign. These are the source's determinant, adjugate dual, and
+prime character.
+
+`QuadraticGaussSums.lean` defines the literal residue-vector sums.
+`IntegralGaussSums.lean` identifies reduction of the integral data with
+the canonical-lift representative formula and the actual inner sum
+in the existing `unweightedCompleteSum`. It also proves the
+modulus-one Gauss value for every matrix, scalar, and frequency.
+`PrimePowerUnits.lean` derives the required units for two, the
+determinant, and the scalar from the source divisibility conditions,
+without treating `ZMod (p^k)` as a field.
+
+`GeneralPrimeGauss.lean` constructs an actual orthogonal basis over
+`ZMod p` for the symmetric matrix. Its change-of-basis matrix `P`
+satisfies
+
+$$P^{\mathsf T}AP=\operatorname{diag}(d_i),\qquad
+\prod_i d_i=(\det P)^2\det A.$$
+
+Invertibility of the basis matrix and nonsingularity of `A` prove
+that every diagonal coefficient is nonzero. Reindexing the finite
+sum by this basis and applying the previously checked scalar Gauss
+identities gives $V_1(a)=\chi(p)p^2$ for every nonzero scalar. The
+zero-scalar value $p^4$ is retained for the later affine count. The
+prime theorem applies to a general matrix, with the basis and
+determinant-square relation proved internally.
+
+`PrimePowerResidues.lean` constructs actual digit bijections for
+positive product moduli, without a coprimality assumption. In
+`PrimePowerGaussRecurrence.lean`, the decomposition
+$x=r+p(w+mz)$, with $r,z\bmod p$ and $w\bmod m$, gives the exact
+phase expansion. Vector additive orthogonality forces the low digit
+$r$ to be zero, and the remaining character becomes $e_m(aF(w))$.
+For every positive `m`, including one, this proves the actual identity
+
+$$\sum_{x\bmod p^2m}e_{p^2m}(aF(x))
+=p^4\sum_{w\bmod m}e_m(aF(w)).$$
+
+Writing $V_k(a)$ for the pure sum at modulus $p^k$, specialization gives
+
+$$V_{k+2}(a)=p^4V_k(a)\qquad(k\ge0).$$
+
+`PrimePowerGauss.lean` combines this recurrence, $V_0(a)=1$, and the
+prime base case, using $\chi(p)^2=1$, to obtain
+$V_k(a)=\chi(p)^k p^{2k}$. `MatrixSquareCompletion.lean`,
+`QuadraticGaussShift.lean`, and `IntegralGaussShift.lean` supply the
+actual translation and exact adjugate phase. Both the pure and
+shifted integral formulas hold for every $k\ge0$; the final source
+endpoint states the requested range $k\ge1$.
+
+The pure formula also holds for every actual residue unit. Its
+canonical integral lift is proved nondivisible by `p` by reducing the
+unit to `ZMod p`; this step uses `k ≥ 1`.
+`RamanujanSums.lean` proves that the reciprocal coefficient map
+$a\mapsto-\overline{4a\alpha}$ permutes the actual units.
+`GaussRamanujan.lean` and `UnramifiedCompleteSum.lean` then identify
+the sum of the shifted phases with the literal Ramanujan unit sum.
+No formula for a substitute complete sum is used.
+
+Finally, `QuadricCounting.lean` proves additive orthogonality for the
+affine zero set and its relation to the existing projective quadric.
+`QuadricPointCount.lean` includes the zero scalar in the Gauss sum,
+obtaining
+
+$$\#\{x\in\mathbb F_p^4:F(x)=0\}
+=p^3+\chi(p)(p^2-p).$$
+
+Removing the actual origin and counting each projective ray by its
+$p-1$ nonzero representatives gives the source's exact projective
+count. The final integral wrapper derives symmetry and nonsingularity
+of the reduced matrix from the original source assumptions.
+
+The [correspondence review](certification/correspondence/prime_power_gauss.md)
+covers every clause of Lemma 3.2 and the source's arithmetic and
+geometric objects. This milestone adds no literature premise. It
+uses the already checked scalar Gauss identities and does not claim
+the separate global analytic conclusions or Lemma 3.3.
 
 ### Complete Lemma 3.1
 
@@ -632,6 +756,15 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete three-clause Lemma 3.2](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean).
+- [Closed pure and shifted prime-power Gauss formulas](QuaternaryQuadraticForms/PrimePowerGauss.lean).
+- [General-matrix prime base case](QuaternaryQuadraticForms/GeneralPrimeGauss.lean).
+- [Actual residue digits](QuaternaryQuadraticForms/PrimePowerResidues.lean).
+- [Prime-power Gauss recurrence](QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean).
+- [Exact integral adjugate phase](QuaternaryQuadraticForms/IntegralGaussShift.lean).
+- [Actual prime-power complete-sum formula](QuaternaryQuadraticForms/UnramifiedCompleteSum.lean).
+- [Exact affine and projective quadric counts](QuaternaryQuadraticForms/QuadricPointCount.lean).
+- [Complete prime-power Gauss correspondence review](certification/correspondence/prime_power_gauss.md).
 - [Complete Lemma 3.1 and its source-family wrapper](QuaternaryQuadraticForms/CompleteSumTheorem.lean).
 - [Actual complete sums and lift independence](QuaternaryQuadraticForms/CompleteSums.lean).
 - [Mixed CRT factorization](QuaternaryQuadraticForms/CompleteSumCRT.lean).
@@ -688,7 +821,71 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current CRT milestone contains 482 theorem exports across 96 project
+The current Gauss milestone contains 536 theorem exports across 112
+project Lean modules and 20 mapped source groups: 54 new public theorem
+exports in 16 new modules. The four registered literature premises and
+all nine pinned dependency revisions are unchanged. Source groups and
+Lean premise declarations remain separate counts. The completed
+aggregate report records 137 input hashes; its 17 added inputs are
+the 16 new Lean modules and the source correspondence review.
+
+All 16 new modules passed strict targeted builds under official Lean
+4.24.0 and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 54 actual theorem types and axiom lists were
+inspected before the aggregate run. Each new export uses exactly
+`Classical.choice`, `Quot.sound`, and `propext`; no new theorem uses a
+literature premise.
+
+### Gauss local execution
+
+**The full local aggregate verifier passed for all 112 modules and
+536 theorem exports.** All 137 recorded input hashes match the checked
+files. The actual types and axiom lists of all 54 new exports match
+their prior individual inspections, with only the three standard
+foundations in every new export.
+
+The independent comparison preserves every mathematical field of all
+482 preceding exports, including their actual types, axiom lists, and
+Lean source hashes. Exactly 472 complete records remain identical.
+The other ten are the exports in `PrimeQuadraticGauss.lean`; only their
+scope strings change. Each replaces the obsolete sentence that full
+prime-power Lemma 3.2 remains Pending with the statement that its
+complete prime-power and counting clauses are proved separately.
+The comparator checks that exact suffix replacement and permits no
+other change to those ten records. All four registered literature
+premise records and all nine dependency revisions remain identical
+to the preceding report.
+
+The exact 17 added inspected inputs are the 16 new Lean modules and
+`certification/correspondence/prime_power_gauss.md`. The only changes
+to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 37 frozen
+changed-file hashes was preserved through the verification run.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier.
+
+The [local verification report](certification/verification_report.json)
+contains 780,870 bytes and has SHA-256
+`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
+It records 12 Certified and 30 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Gauss GitHub execution
+
+**GitHub CI for the 536-export scope is pending.** No successful
+GitHub run or CI report is yet recorded for this milestone. The local
+result above covers the new scope; the preceding 482-export local and
+CI reports retain their exact historical scope below.
+
+## Earlier checked checkpoints
+
+### CRT local execution
+
+The preceding CRT milestone contained 482 theorem exports across 96 project
 Lean modules and 20 mapped source groups: 66 new exports in 12 new
 modules. The four registered literature premises and all nine pinned
 dependency revisions are unchanged. Source groups and Lean premise
@@ -719,7 +916,7 @@ and PDF remain byte-for-byte unchanged. The subsequent README and
 checkpoint edits record the successful execution; the inspected proof
 inputs remain those checked by the aggregate verifier.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/0224dae194b48080f8af732dbf78580ffaab0c24/certification/verification_report.json)
 contains 708,765 bytes and has SHA-256
 `ec46cb57a7912faf2116faed95bc6021ed68a9ed78cfb28a05133c0df4515f0f`.
 It records 11 Certified and 31 Pending numbered results, with zero
@@ -753,17 +950,16 @@ actual types and axiom dependencies, four registered-premise records,
 export-inspection output, the Lean version, and every verification flag
 and scope count. Only `generated_at_utc` and `lake_build_output` differ.
 
-Every recorded input hash matches both the current inspected files and
-the exact proof tree. The local report remains the 708,765-byte report
+Every recorded input hash matches the inspected files at that checkpoint
+and the exact proof tree. The local report is the 708,765-byte report
 identified above, byte-identical to the report in that proof commit.
 The frozen manuscript and PDF are unchanged. This evidence covers the
-complete current 482-export CRT milestone; the earlier local and CI
-reports below retain their original scopes. The numbered-result status
-remains 11 Certified, zero Partial or Active, and 31 Pending, with all
-33 auxiliary/supplementary groups Pending and whole-paper certification
-false.
-
-## Earlier checked checkpoints
+preceding 482-export CRT milestone; it does not cover the new
+536-export Gauss milestone. The earlier local and CI reports below
+retain their original scopes. At the CRT checkpoint, the numbered
+status was 11 Certified, zero Partial or Active, and 31 Pending, with
+all 33 auxiliary/supplementary groups Pending and whole-paper
+certification false.
 
 ### Pencil local execution
 
@@ -1272,34 +1468,36 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Complete Lemma 3.2 is the next target. It has three separate conclusions
-for the actual nonsingular symmetric integral quadratic form, a prime
-`p ∤ N_F`, and `k ≥ 1`:
+The next bounded target is complete Lemma 3.3, source lines 1156–1178.
+For the source's nonsingular symmetric integral matrix, it asserts
 
-1. Evaluate the actual sum over `(ZMod (p^k))⁴` for every integer `a`
-   with `p ∤ a`, including the phase
-   `e_{p^k}(−(4aα)⁻¹ F*(u))` and coefficient `χ(p)^k p^(2k)`.
-2. Deduce the exact formula
-   `S_{p^k}(u)=χ(p)^k p^(2k) R_{p^k}(F*(u))` for the existing
-   unweighted complete sum and the actual Ramanujan unit sum.
-3. Prove the projective-quadric cardinality
-   `p²+(1+χ(p))p+1` over the prime field.
+$$|S_c(u)|\le4\sqrt{|\det A|}\,c^3$$
 
-First carry out square completion with the actual adjugate matrix over
-`ZMod (p^k)`, using the good-prime hypothesis to construct the necessary
-units. Prove the recurrence `V_k=p⁴V_{k−2}` with `V_0=1` by the
-literal residue decomposition and additive orthogonality. The prime
-base case must cover a general matrix, with diagonalization preserving
-the determinant up to a nonzero square. The scalar prime Gauss identities
-proved for Lemma 4.6 supply the one-dimensional calculation.
+for every integer modulus $c\ge1$ and every $u\in\mathbb Z^4$.
+This includes modulus one, bad primes, and arbitrary composite moduli.
+The proof must concern the existing actual complete sum.
 
-Summing over the unit parameter and its inverse gives the Ramanujan
-formula. At `k=1`, orthogonality gives the affine zero count; removing
-the origin and using the checked projective-ray correspondence gives
-the exact projective count. None of these remaining full prime-power
-or general-matrix clauses is yet recorded as Certified.
+For each actual unit parameter $a$, write
+$V=\sum_{x\bmod c}e_c(aF(x)+u\cdot x)$. The proposed proof follows
+the source in three steps:
 
-Lemma 3.1 and all Section 4 lemmas are complete. Theorem 1.3 remains
-Pending because its global asymptotic is not proved. The analytic
-assembly, Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups
-remain Pending.
+1. Expand the squared norm using pairs $x,x+z$. Additive orthogonality
+   and invertibility of $a$ should give
+
+   $$|V|^2\le c^4\#\{z\bmod c:2Az=0\pmod c\}.$$
+
+2. Use a proved integer Smith normal form of `2A` and the corresponding
+   invertible changes of variables modulo `c` to establish the actual
+   kernel count $\prod_i\gcd(d_i,c)$. The invariant factors satisfy
+   $\prod_i d_i=|\det(2A)|=16|\det A|$, so the kernel has at most
+   $16|\det A|$ elements.
+
+3. Take square roots to get $|V|\le4\sqrt{|\det A|}\,c^2$ and sum
+   over the actual unit parameters, using $\varphi(c)\le c$.
+
+The full estimate, including its kernel count and every modulus, remains
+Pending. No proof of this next target is included in the Gauss milestone.
+Lemmas 3.1 and 3.2 and all Section 4 lemmas are complete. Theorem 1.3
+remains Pending because its global asymptotic is not proved. The
+analytic assembly, Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary
+groups remain Pending.

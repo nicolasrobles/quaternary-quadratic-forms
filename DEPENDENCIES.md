@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 11 · Partial: 0 · Active: 0 · Pending:
-31**. Lemmas 2.5, 2.7 and 3.1, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 12 · Partial: 0 · Active: 0 · Pending:
+30**. Lemmas 2.5, 2.7 and 3.1–3.2, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -107,17 +107,28 @@ integer frequency scalar coprime to `qc` are checked. The final source
 wrapper accepts local functions only at primes not dividing `N`, with
 no assumptions on excluded primes. Lift independence, modulus one,
 the direct `C_q` prime-factor product and `S_c` multiplicativity, and the
-bridge to the existing prime Fourier sum are proved. The 66 new exports
+bridge to the existing prime Fourier sum are proved. Its 66 exports
 have passed strict builds and actual type and axiom inspection; all use
 only standard logical foundations. Aggregate verification and CI
 execution evidence are recorded separately in the checkpoint.
 
+Lemma 3.2 is complete for the source's general symmetric integral matrix:
+the full shifted Gauss evaluation at every good prime power, the exact
+Ramanujan formula for `S_{p^k}`, and the cardinality of the actual
+projective quadric. The good-prime condition uses precisely
+`N_F=2|det A|`, and the coefficient is the stated Legendre symbol
+`χ(p)=(det A/p)`. The prime base case, digit recurrence, square completion,
+unit permutations and affine/projective count are proved internally.
+The 54 supporting exports in 16 new modules introduce no literature
+premise. Actual type and dependency inspection, aggregate verification
+and CI execution evidence are recorded separately in the checkpoint.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 482 theorem exports across 96 Lean modules are
+numbered-result count. The 536 theorem exports across 112 Lean modules are
 also counted separately from the four external Lean premises. The current
-expected verification scope includes 120 hashed inputs and nine pinned dependency
+expected verification scope includes 137 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
 
@@ -191,6 +202,15 @@ The complete-sum definitions, source-domain weight extension, scaled CRT,
 phase calculations, unit-frequency invariance and factorization corollaries
 for Lemma 3.1 likewise use only proved library results and standard logical
 foundations. No literature premise is added for this arithmetic branch.
+
+The full prime-power evaluation and point count in Lemma 3.2 likewise
+use only proved library results and standard logical foundations. The
+orthogonal-basis theorem and the existing prime-field Gauss identities
+provide the general matrix base case. All residue-digit calculations,
+the recurrence, adjugate square completion, Ramanujan reindexing and
+actual point counts are internal deductions. No source-specific Gauss
+evaluation, diagonalization conclusion, recurrence or count is accepted
+as a premise in the final statements.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -606,24 +626,103 @@ these 12 modules use only standard logical foundations and proved library
 results. The separate auxiliary-group ledger is unchanged; the new
 supporting exports do not automatically certify an entire auxiliary group.
 
+## Completed prime-power Gauss evaluation and point count
+
+All three clauses of Lemma 3.2 are proved for the actual source objects.
+For a prime `p ∤ N_F`, where `N_F=2|det A|`, write `α=det A` and
+`χ(p)=(α/p)`. The integral frequency is arbitrary. For `k≥1` the
+checked statements are
+
+- `∑_x e_{p^k}(aF(x)+u·x) = χ(p)^k p^(2k) e_{p^k}(-(4aα)⁻¹F*(u))`
+  whenever `p ∤ a`;
+- `S_{p^k}(u)=χ(p)^k p^(2k) R_{p^k}(F*(u))` for the literal
+  unweighted complete sum and Ramanujan unit sum;
+- `#Q(F_p)=p²+(1+χ(p))p+1` for the actual projective zero set of
+  the reduced matrix quadratic form.
+
+The complete proof chain is:
+
+1. [QuadraticGaussSums](QuaternaryQuadraticForms/QuadraticGaussSums.lean)
+   defines the literal finite Gauss sum and its integral specialization.
+   [IntegralGaussSums](QuaternaryQuadraticForms/IntegralGaussSums.lean)
+   identifies it with the canonical-lift expression, proves the zero
+   coefficient and modulus-one values, and identifies `S_c` with its
+   actual outer sum over the unit group.
+2. [PrimePowerUnits](QuaternaryQuadraticForms/PrimePowerUnits.lean)
+   derives the unit hypotheses at `p^k` from `p ∤ N_F` and `p ∤ a`.
+   The source good-prime condition supplies oddness and invertibility
+   of the actual reduced determinant; these are not extra assumptions.
+3. [MatrixSquareCompletion](QuaternaryQuadraticForms/MatrixSquareCompletion.lean)
+   proves the adjugate translation identity over any commutative ring.
+   [QuadraticGaussShift](QuaternaryQuadraticForms/QuadraticGaussShift.lean)
+   implements it as a bijection on the residue vectors, using the native
+   modular inverse. [IntegralGaussShift](QuaternaryQuadraticForms/IntegralGaussShift.lean)
+   checks reduction of the actual adjugate dual form and gives exactly
+   the source phase `-(4aα)⁻¹F*(u)`.
+4. [GeneralPrimeGauss](QuaternaryQuadraticForms/GeneralPrimeGauss.lean)
+   constructs an orthogonal basis for the general symmetric matrix over
+   the prime field. It proves that every diagonal coefficient is nonzero
+   and that their product is `det A` times the square of the actual
+   change-of-basis determinant. The existing one-dimensional Gauss
+   identities then give the prime base case with character `χ(p)`.
+5. [PrimePowerResidues](QuaternaryQuadraticForms/PrimePowerResidues.lean)
+   constructs digit bijections without any coprimality hypothesis.
+   [PrimePowerGaussRecurrence](QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean)
+   splits the two outer base-`p` digits, checks the quadratic phase,
+   and uses additive orthogonality to retain exactly the zero low digit.
+   This proves `V_{k+2}(a)=p⁴V_k(a)` for the actual Gauss sum, including
+   the base modulus `p^0=1`.
+6. [PrimePowerGauss](QuaternaryQuadraticForms/PrimePowerGauss.lean)
+   proves the closed pure and shifted formulas for all `k≥0`, using
+   `V_0=1`, the general prime base case, and `χ(p)²=1` at good primes.
+   Its pure-value theorem for a residue unit retains `k≥1`: this is
+   needed to deduce `p ∤ a` for the unit's canonical integer lift. At
+   `k=0`, the unique residue unit has lift zero, and the separate
+   modulus-one identity supplies the base value.
+7. [RamanujanSums](QuaternaryQuadraticForms/RamanujanSums.lean)
+   defines the actual unit sums, their integral and prime bridges, and
+   their multiplication and inversion permutations, including modulus
+   one. [GaussRamanujan](QuaternaryQuadraticForms/GaussRamanujan.lean)
+   proves the exact negative reciprocal-phase sum. Its intermediate
+   constant-Gauss hypothesis is discharged in
+   [UnramifiedCompleteSum](QuaternaryQuadraticForms/UnramifiedCompleteSum.lean),
+   giving the final source formula for `S_{p^k}` with no unevaluated
+   Gauss identity left as an assumption.
+8. [QuadricCounting](QuaternaryQuadraticForms/QuadricCounting.lean)
+   expresses the actual affine zero count through additive orthogonality
+   and relates its nonzero vectors to the existing projective rays.
+   [QuadricPointCount](QuaternaryQuadraticForms/QuadricPointCount.lean)
+   proves the affine count `p³+χ(p)(p²-p)` and the exact projective
+   count, including its integer-valued source statement. The origin
+   and the `p-1` nonzero representatives of each ray are accounted for.
+9. [PrimePowerGaussTheorem](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean)
+   combines all three conclusions in `prime_power_gauss` under the
+   source symmetry, good-prime and positive-exponent hypotheses.
+
+The [source correspondence review](certification/correspondence/prime_power_gauss.md)
+records the literal matrix, sums, inverse phase, character, and actual
+point sets. No diagonalization, recurrence, Gauss evaluation, unit-sum
+identity or point count remains an internal assumption of the final
+theorem. The 54 new public exports and 16 modules remain separate
+counts from the single numbered lemma and the auxiliary-group ledger.
+
 ## Next proof branch
 
-All three clauses of Lemma 3.2 remain Pending and form the next target.
-For a good prime `p ∤ N_F` and `k ≥ 1`, they require the actual general
-matrix shifted Gauss evaluation
-`∑_x e_{p^k}(aF(x)+u·x) = χ(p)^k p^(2k) e_{p^k}(-(4aα)⁻¹F*(u))`,
-for `p ∤ a`, the formula
-`S_{p^k}(u)=χ(p)^k p^(2k) R_{p^k}(F*(u))`, and the exact
-projective quadric count `p²+(1+χ(p))p+1`.
+Complete Lemma 3.3 remains Pending and is the next target. Under the
+manuscript's standing nonsingularity hypothesis, prove the literal bound
+`|S_c(u)| ≤ 4√|det A| c³` for every `c≥1` and every integral frequency,
+including moduli containing bad primes.
 
-The one-dimensional prime-field Gauss identities and the actual complete
-sum and CRT interfaces are now available. The remaining work is to
-diagonalize the general nonsingular symmetric matrix over the prime
-field, prove the prime-power digit recurrence `V_k=p⁴ V_{k-2}`, complete
-the square using the adjugate inverse, sum over units, and convert the
-affine zero count to the actual projective count. The digit decomposition
-at powers of a single prime is a separate argument from coprime CRT.
-The main analytic theorems remain Pending.
+The proof must square the norm of the actual inner Gauss sum, reindex
+the two vectors, and use additive orthogonality to obtain
+`|V|² ≤ c⁴ #ker(2A mod c)`. The kernel is the actual set of residue
+vectors satisfying `2Az=0 mod c`. Smith normal form of the integer
+matrix `2A` should give its cardinality as `∏_i gcd(d_i,c)`, bounded by
+`∏_i d_i=|det(2A)|=16|det A|`. This yields
+`|V|≤4√|det A| c²`; summing over the actual unit parameter, whose
+cardinality is at most `c`, gives the required complete-sum bound.
+These kernel and norm arguments are still to be proved. The main
+analytic theorems remain Pending.
 In particular, the first two assertions of Theorem 1.3 now have checked
 inputs from Lemmas 4.5 and 4.6, while its asymptotic and explicit global
 factor clause still require Theorem 1.1; Theorem 1.3 remains Pending.

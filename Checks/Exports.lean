@@ -485,7 +485,61 @@ run_cmd do
     `QuaternaryQuadraticForms.mixedPhase_crt,
     `QuaternaryQuadraticForms.extendPrimeWeights_apply,
     `QuaternaryQuadraticForms.primeWeightsInvariant_extend,
-    `QuaternaryQuadraticForms.compositeWeight_extend]
+    `QuaternaryQuadraticForms.compositeWeight_extend,
+    `QuaternaryQuadraticForms.quadraticGaussSum_reciprocal_phase_sum,
+    `QuaternaryQuadraticForms.sum_quadraticGaussSum_of_constant,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_of_constant_gauss,
+    `QuaternaryQuadraticForms.quadraticGaussSum_prime_zero_frequency,
+    `QuaternaryQuadraticForms.quadraticGaussSum_prime_all_scalars,
+    `QuaternaryQuadraticForms.adjugateQuadraticValue_intCast,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_shift,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_shift_prime_power,
+    `QuaternaryQuadraticForms.integralQuadraticValue_residueLift,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_eq_lift_sum,
+    `QuaternaryQuadraticForms.quadraticGaussSum_zero,
+    `QuaternaryQuadraticForms.quadraticGaussSum_modulus_one,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_modulus_one,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_quadraticGaussSum,
+    `QuaternaryQuadraticForms.matrix_quadratic_square_completion,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power_pure,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power,
+    `QuaternaryQuadraticForms.quadraticGaussSum_prime_power_units_pure,
+    `QuaternaryQuadraticForms.stdAddChar_vector_orthogonality,
+    `QuaternaryQuadraticForms.matrix_bilinear_character_sum,
+    `QuaternaryQuadraticForms.primeSquare_digit_phase_intCast,
+    `QuaternaryQuadraticForms.primeSquare_digit_phase,
+    `QuaternaryQuadraticForms.primeSquare_digit_orthogonality,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_primeSquare_mul,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_primePower_recurrence,
+    `QuaternaryQuadraticForms.prime_power_gauss,
+    `QuaternaryQuadraticForms.residueDigitsEquiv_val,
+    `QuaternaryQuadraticForms.residueDigitsEquiv_apply,
+    `QuaternaryQuadraticForms.residueDigitsVectorEquiv_apply,
+    `QuaternaryQuadraticForms.sum_residueLift_digits,
+    `QuaternaryQuadraticForms.sum_residueLift_three_digits,
+    `QuaternaryQuadraticForms.intCast_isUnit_prime_pow,
+    `QuaternaryQuadraticForms.goodPrime_not_dvd_det,
+    `QuaternaryQuadraticForms.goodPrime_two_isUnit_prime_pow,
+    `QuaternaryQuadraticForms.goodPrime_det_isUnit_prime_pow,
+    `QuaternaryQuadraticForms.quadraticGaussSum_shift_of_inverse,
+    `QuaternaryQuadraticForms.quadraticGaussSum_shift,
+    `QuaternaryQuadraticForms.quadraticGaussSum_shift_of_units,
+    `QuaternaryQuadraticForms.affineQuadric_card_additive,
+    `QuaternaryQuadraticForms.affineQuadric_card_projective,
+    `QuaternaryQuadraticForms.affineQuadric_card_complex,
+    `QuaternaryQuadraticForms.affineQuadric_card,
+    `QuaternaryQuadraticForms.projectiveQuadric_card_complex,
+    `QuaternaryQuadraticForms.projectiveQuadric_card,
+    `QuaternaryQuadraticForms.integral_projectiveQuadric_card,
+    `QuaternaryQuadraticForms.integralRamanujanSum_eq_lift_sum,
+    `QuaternaryQuadraticForms.residueRamanujanSum_prime,
+    `QuaternaryQuadraticForms.residueRamanujanSum_modulus_one,
+    `QuaternaryQuadraticForms.integralRamanujanSum_modulus_one,
+    `QuaternaryQuadraticForms.residueRamanujanSum_units_mul,
+    `QuaternaryQuadraticForms.residueRamanujanSum_mul,
+    `QuaternaryQuadraticForms.residueRamanujanSum_inverse_sum,
+    `QuaternaryQuadraticForms.residueRamanujanSum_reciprocal_phase,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_prime_power]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -1967,3 +2021,165 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.compositeWeight_extend
 #print axioms QuaternaryQuadraticForms.compositeWeight_extend
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_reciprocal_phase_sum
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_reciprocal_phase_sum
+
+#check @QuaternaryQuadraticForms.sum_quadraticGaussSum_of_constant
+#print axioms QuaternaryQuadraticForms.sum_quadraticGaussSum_of_constant
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_of_constant_gauss
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_of_constant_gauss
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_prime_zero_frequency
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_prime_zero_frequency
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_prime_all_scalars
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_prime_all_scalars
+
+#check @QuaternaryQuadraticForms.adjugateQuadraticValue_intCast
+#print axioms QuaternaryQuadraticForms.adjugateQuadraticValue_intCast
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_shift
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_shift
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_shift_prime_power
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_shift_prime_power
+
+#check @QuaternaryQuadraticForms.integralQuadraticValue_residueLift
+#print axioms QuaternaryQuadraticForms.integralQuadraticValue_residueLift
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_eq_lift_sum
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_eq_lift_sum
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_zero
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_zero
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_modulus_one
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_modulus_one
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_modulus_one
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_modulus_one
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_quadraticGaussSum
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_quadraticGaussSum
+
+#check @QuaternaryQuadraticForms.matrix_quadratic_square_completion
+#print axioms QuaternaryQuadraticForms.matrix_quadratic_square_completion
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power_pure
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power_pure
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_prime_power_units_pure
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_prime_power_units_pure
+
+#check @QuaternaryQuadraticForms.stdAddChar_vector_orthogonality
+#print axioms QuaternaryQuadraticForms.stdAddChar_vector_orthogonality
+
+#check @QuaternaryQuadraticForms.matrix_bilinear_character_sum
+#print axioms QuaternaryQuadraticForms.matrix_bilinear_character_sum
+
+#check @QuaternaryQuadraticForms.primeSquare_digit_phase_intCast
+#print axioms QuaternaryQuadraticForms.primeSquare_digit_phase_intCast
+
+#check @QuaternaryQuadraticForms.primeSquare_digit_phase
+#print axioms QuaternaryQuadraticForms.primeSquare_digit_phase
+
+#check @QuaternaryQuadraticForms.primeSquare_digit_orthogonality
+#print axioms QuaternaryQuadraticForms.primeSquare_digit_orthogonality
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_primeSquare_mul
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_primeSquare_mul
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_primePower_recurrence
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_primePower_recurrence
+
+#check @QuaternaryQuadraticForms.prime_power_gauss
+#print axioms QuaternaryQuadraticForms.prime_power_gauss
+
+#check @QuaternaryQuadraticForms.residueDigitsEquiv_val
+#print axioms QuaternaryQuadraticForms.residueDigitsEquiv_val
+
+#check @QuaternaryQuadraticForms.residueDigitsEquiv_apply
+#print axioms QuaternaryQuadraticForms.residueDigitsEquiv_apply
+
+#check @QuaternaryQuadraticForms.residueDigitsVectorEquiv_apply
+#print axioms QuaternaryQuadraticForms.residueDigitsVectorEquiv_apply
+
+#check @QuaternaryQuadraticForms.sum_residueLift_digits
+#print axioms QuaternaryQuadraticForms.sum_residueLift_digits
+
+#check @QuaternaryQuadraticForms.sum_residueLift_three_digits
+#print axioms QuaternaryQuadraticForms.sum_residueLift_three_digits
+
+#check @QuaternaryQuadraticForms.intCast_isUnit_prime_pow
+#print axioms QuaternaryQuadraticForms.intCast_isUnit_prime_pow
+
+#check @QuaternaryQuadraticForms.goodPrime_not_dvd_det
+#print axioms QuaternaryQuadraticForms.goodPrime_not_dvd_det
+
+#check @QuaternaryQuadraticForms.goodPrime_two_isUnit_prime_pow
+#print axioms QuaternaryQuadraticForms.goodPrime_two_isUnit_prime_pow
+
+#check @QuaternaryQuadraticForms.goodPrime_det_isUnit_prime_pow
+#print axioms QuaternaryQuadraticForms.goodPrime_det_isUnit_prime_pow
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_shift_of_inverse
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_shift_of_inverse
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_shift
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_shift
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_shift_of_units
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_shift_of_units
+
+#check @QuaternaryQuadraticForms.affineQuadric_card_additive
+#print axioms QuaternaryQuadraticForms.affineQuadric_card_additive
+
+#check @QuaternaryQuadraticForms.affineQuadric_card_projective
+#print axioms QuaternaryQuadraticForms.affineQuadric_card_projective
+
+#check @QuaternaryQuadraticForms.affineQuadric_card_complex
+#print axioms QuaternaryQuadraticForms.affineQuadric_card_complex
+
+#check @QuaternaryQuadraticForms.affineQuadric_card
+#print axioms QuaternaryQuadraticForms.affineQuadric_card
+
+#check @QuaternaryQuadraticForms.projectiveQuadric_card_complex
+#print axioms QuaternaryQuadraticForms.projectiveQuadric_card_complex
+
+#check @QuaternaryQuadraticForms.projectiveQuadric_card
+#print axioms QuaternaryQuadraticForms.projectiveQuadric_card
+
+#check @QuaternaryQuadraticForms.integral_projectiveQuadric_card
+#print axioms QuaternaryQuadraticForms.integral_projectiveQuadric_card
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_eq_lift_sum
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_eq_lift_sum
+
+#check @QuaternaryQuadraticForms.residueRamanujanSum_prime
+#print axioms QuaternaryQuadraticForms.residueRamanujanSum_prime
+
+#check @QuaternaryQuadraticForms.residueRamanujanSum_modulus_one
+#print axioms QuaternaryQuadraticForms.residueRamanujanSum_modulus_one
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_modulus_one
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_modulus_one
+
+#check @QuaternaryQuadraticForms.residueRamanujanSum_units_mul
+#print axioms QuaternaryQuadraticForms.residueRamanujanSum_units_mul
+
+#check @QuaternaryQuadraticForms.residueRamanujanSum_mul
+#print axioms QuaternaryQuadraticForms.residueRamanujanSum_mul
+
+#check @QuaternaryQuadraticForms.residueRamanujanSum_inverse_sum
+#print axioms QuaternaryQuadraticForms.residueRamanujanSum_inverse_sum
+
+#check @QuaternaryQuadraticForms.residueRamanujanSum_reciprocal_phase
+#print axioms QuaternaryQuadraticForms.residueRamanujanSum_reciprocal_phase
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_prime_power
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_prime_power

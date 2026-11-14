@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete Chinese remainder multiplicativity and unit-frequency invariance of the source local sums",
+  "checkpoint": "Complete prime-power Gauss evaluation, unramified complete sum, and projective quadric point count",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -76,11 +76,24 @@
         "The same mixedCompleteSum is invariant under multiplication of the integral frequency by every integer t with gcd(t,q*c)=1, including modulus one and t=0 when permitted by that gcd condition."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.1 for the actual source sums. Integer-lift independence, all scaled CRT substitutions and phase coefficients, the two local unit permutations, and the source prime-weight domain are proved explicitly. No coprimality between q and c is imposed. Modulus-one identities, multiplicativity of S_c, the squarefree prime-factor formula for C_q, and the bridge to the existing prime Fourier sum are separately checked supporting exports. Squarefreeness is unnecessary for the two main identities of the product-defined extension; it is retained for the prime-factor corollary. All 66 new exports use only standard foundations; no literature premise is used. Full Lemma 3.2 and the main analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.1 for the actual source sums. Integer-lift independence, all scaled CRT substitutions and phase coefficients, the two local unit permutations, and the source prime-weight domain are proved explicitly. No coprimality between q and c is imposed. Modulus-one identities, multiplicativity of S_c, the squarefree prime-factor formula for C_q, and the bridge to the existing prime Fourier sum are separately checked supporting exports. Squarefreeness is unnecessary for the two main identities of the product-defined extension; it is retained for the prime-factor corollary. All 66 new exports use only standard foundations; no literature premise is used. The main analytic theorems remain Pending."
     },
     "lem:gauss": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power",
+        "QuaternaryQuadraticForms.unweightedCompleteSum_prime_power",
+        "QuaternaryQuadraticForms.integral_projectiveQuadric_card",
+        "QuaternaryQuadraticForms.prime_power_gauss"
+      ],
+      "correspondence_record": "certification/correspondence/prime_power_gauss.md",
+      "completed_clauses": [
+        "The actual shifted Gauss sum modulo every good prime power p^k equals the stated Legendre-symbol power times p^(2*k) and the exact negative inverse phase of 4*a*det(A) times the integral adjugate dual value.",
+        "The existing unweightedCompleteSum at p^k equals that same coefficient times the actual Ramanujan unit sum at the integral adjugate dual value.",
+        "The actual projective quadric over the prime field has integer cardinality p^2+(1+legendreSym p det(A))*p+1."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.2 for a general symmetric integral matrix, every prime outside the literal N_F=2*abs(det A), every k>=1, and every integral frequency. The scalar condition p not dividing a is the source condition. The good-prime hypothesis supplies oddness, determinant nonsingularity, and all required prime-power units. The prime calculation constructs its orthogonal basis and determinant-square identity; actual residue-digit bijections and additive orthogonality prove V_(k+2)=p^4*V_k, including V_0=1. Square completion uses the actual adjugate and native residue-ring inverse. Unit reindexing gives the Ramanujan formula; affine orthogonality and the existing projective-ray equivalence give the point count. The pure and shifted integral formulas extend to k=0, while the unit-lift and final source conjunction retain k>=1. No diagonalization, Gauss-value, recurrence, or counting assumption survives in the endpoint. All 54 new exports use only standard logical foundations and no literature premise. Lemma 3.3 and the global analytic theorems remain Pending."
     },
     "lem:badprime": {
       "status": "Pending",
@@ -205,7 +218,7 @@
         "The norm of the actual integralFourierSum is at most 2*p^(3/2)+4*p under the literal nondivisibility of F*(u)*u_1*u_2*u_3*u_4, with F* evaluated by the adjugate and both separable and repeated-root cubic cases covered."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 4.6 under primality and the literal integer restriction p not dividing 2*alpha*M. The prime-field hypotheses and p>=5 follow internally. The exact formula and trace use only standard logical foundations; the generic bound and final conjunction use only the existing Weil premise in addition. Positive Fourier phase, zero b_i, all four singular members, nu_i=0, the actual dual leading coefficient, and repeated-root descent over the perfect prime field are included. No new premise, separability assumption, or source-level nonvanishing hypothesis is introduced. Theorem 1.3 and the full prime-power Lemma 3.2 remain Pending."
+      "scope_note": "Complete Lemma 4.6 under primality and the literal integer restriction p not dividing 2*alpha*M. The prime-field hypotheses and p>=5 follow internally. The exact formula and trace use only standard logical foundations; the generic bound and final conjunction use only the existing Weil premise in addition. Positive Fourier phase, zero b_i, all four singular members, nu_i=0, the actual dual leading coefficient, and repeated-root descent over the perfect prime field are included. No new premise, separability assumption, or source-level nonvanishing hypothesis is introduced. Theorem 1.3 remains Pending."
     },
     "prop:analytic": {
       "status": "Pending",
@@ -6444,7 +6457,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "A nonzero argument has quadratic-character square equal to one. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "A nonzero argument has quadratic-character square equal to one. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6461,7 +6474,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "The actual quadratic Gauss sum is nonzero at every odd prime. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "The actual quadratic Gauss sum is nonzero at every odd prime. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6478,7 +6491,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "The square identity for the actual quadratic Gauss sum. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "The square identity for the actual quadratic Gauss sum. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6495,7 +6508,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "The fourth power is `p²`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "The fourth power is `p²`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6512,7 +6525,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "Quadratic Gauss inversion at every frequency, including zero. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "Quadratic Gauss inversion at every frequency, including zero. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6529,7 +6542,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "Removing the zero term gives the same inversion identity over units. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "Removing the zero term gives the same inversion identity over units. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6546,7 +6559,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "Inversion permutes the nonzero scalars and leaves the quadratic character unchanged, giving the reciprocal phase used in the pencil sum. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "Inversion permutes the nonzero scalars and leaves the quadratic character unchanged, giving the reciprocal phase used in the pencil sum. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6563,7 +6576,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "The zero-quadratic-coefficient case is exact additive orthogonality. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "The zero-quadratic-coefficient case is exact additive orthogonality. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6580,7 +6593,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "Counting the square roots of each field element gives the exact unshifted quadratic exponential sum for a nonzero quadratic coefficient. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "Counting the square roots of each field element gives the exact unshifted quadratic exponential sum for a nonzero quadratic coefficient. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6597,7 +6610,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "Completing the square in the actual finite sum gives the exact formula for every nonzero quadratic coefficient and every linear coefficient. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "scope": "Completing the square in the actual finite sum gives the exact formula for every nonzero quadratic coefficient and every linear coefficient. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -7728,6 +7741,878 @@
         "eq:Cdef"
       ],
       "scope": "The extended family's composite weight is exactly the product of the original supplied local functions; no excluded-prime value enters it.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_reciprocal_phase_sum",
+      "file": "QuaternaryQuadraticForms/GaussRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:unram",
+        "eq:ramanujan",
+        "eq:Sdef",
+        "eq:dualform"
+      ],
+      "scope": "Summing the exact adjugate phase over the actual unit parameter gives the original Ramanujan sum at the dual quadratic value.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_quadraticGaussSum_of_constant",
+      "file": "QuaternaryQuadraticForms/GaussRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:unram",
+        "eq:ramanujan",
+        "eq:Sdef",
+        "eq:dualform"
+      ],
+      "scope": "A constant pure Gauss value at every unit gives the exact Ramanujan factor after the proved square completion and unit reindexing.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_of_constant_gauss",
+      "file": "QuaternaryQuadraticForms/GaussRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:unram",
+        "eq:ramanujan",
+        "eq:Sdef",
+        "eq:dualform"
+      ],
+      "scope": "The same assembly for the manuscript's literal unweighted complete sum and integral adjugate dual form. The pure-Gauss evaluation is explicit.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_prime_zero_frequency",
+      "file": "QuaternaryQuadraticForms/GeneralPrimeGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The exact pure Gauss evaluation for every nonsingular symmetric quaternary matrix over an odd prime field and every nonzero scalar.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_prime_all_scalars",
+      "file": "QuaternaryQuadraticForms/GeneralPrimeGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The same exact prime-field evaluation with the zero scalar retained; this is the scalar sum required for the affine quadric point count.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.adjugateQuadraticValue_intCast",
+      "file": "QuaternaryQuadraticForms/IntegralGaussShift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform",
+        "eq:forms"
+      ],
+      "scope": "The source adjugate dual value commutes with coefficient reduction.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_shift",
+      "file": "QuaternaryQuadraticForms/IntegralGaussShift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform",
+        "eq:forms"
+      ],
+      "scope": "Integral square completion with the exact modular inverse and dual quadratic form occurring in the source.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_shift_prime_power",
+      "file": "QuaternaryQuadraticForms/IntegralGaussShift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform",
+        "eq:forms"
+      ],
+      "scope": "The good-prime and scalar nondivisibility hypotheses supply every unit needed by integral square completion at each prime power.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticValue_residueLift",
+      "file": "QuaternaryQuadraticForms/IntegralGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The quadratic value of a canonical lift reduces to the actual residue value.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_eq_lift_sum",
+      "file": "QuaternaryQuadraticForms/IntegralGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The integral Gauss sum is the literal sum on canonical integer representatives.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_zero",
+      "file": "QuaternaryQuadraticForms/IntegralGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "At zero quadratic and linear coefficient the sum is the number of vectors.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_modulus_one",
+      "file": "QuaternaryQuadraticForms/IntegralGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "Modulus one contributes its single term, including in the recurrence base case.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_modulus_one",
+      "file": "QuaternaryQuadraticForms/IntegralGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The integral form of the exact modulus-one base case.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_quadraticGaussSum",
+      "file": "QuaternaryQuadraticForms/IntegralGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The source's unweighted complete sum is the sum of the actual Gauss sums over the residue-ring unit group.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrix_quadratic_square_completion",
+      "file": "QuaternaryQuadraticForms/MatrixSquareCompletion.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform"
+      ],
+      "scope": "The source square-completion substitution over any commutative ring, with an actual inverse of `4*a*det A`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power_pure",
+      "file": "QuaternaryQuadraticForms/PrimePowerGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:forms",
+        "eq:dualform"
+      ],
+      "scope": "The source's pure quaternary Gauss value at every good prime power, including the recurrence's exact modulus-one base case.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_prime_power",
+      "file": "QuaternaryQuadraticForms/PrimePowerGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:forms",
+        "eq:dualform"
+      ],
+      "scope": "The complete shifted evaluation in Lemma 3.2(i), with the literal integral scalar, frequency, determinant and adjugate dual form.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_prime_power_units_pure",
+      "file": "QuaternaryQuadraticForms/PrimePowerGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:gauss0",
+        "eq:forms",
+        "eq:dualform"
+      ],
+      "scope": "The same pure value for every actual unit modulo a positive prime power, providing the constant coefficient for the Ramanujan unit sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_vector_orthogonality",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "Orthogonality of the standard character in all four coordinates.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrix_bilinear_character_sum",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "Nonsingularity makes the bilinear digit sum select precisely the zero vector.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeSquare_digit_phase_intCast",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The three-digit quadratic phase retains exactly its linear outer-digit term.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeSquare_digit_phase",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The actual standard character splits into a middle phase and a prime-field digit phase.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeSquare_digit_orthogonality",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The outer digit vanishes by orthogonality unless the low digit is zero.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_primeSquare_mul",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "Removing two good-prime factors gives the actual quadratic Gauss recurrence. The middle modulus is arbitrary and positive, and may itself be divisible by `p`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_primePower_recurrence",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The manuscript's recurrence `V_(k+2)=p^4 V_k`, including the base modulus `p^0=1`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.prime_power_gauss",
+      "file": "QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:unram",
+        "eq:forms",
+        "eq:dualform"
+      ],
+      "scope": "Every clause of Lemma 3.2 for the literal source form: the full shifted Gauss evaluation, the exact Ramanujan formula, and the projective quadric count.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueDigitsEquiv_val",
+      "file": "QuaternaryQuadraticForms/PrimePowerResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The digit map has the canonical representative predicted by division with remainder.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueDigitsEquiv_apply",
+      "file": "QuaternaryQuadraticForms/PrimePowerResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "Integer-lift formula for the non-coprime digit bijection.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueDigitsVectorEquiv_apply",
+      "file": "QuaternaryQuadraticForms/PrimePowerResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "Each coordinate has the same explicit two-digit formula.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_residueLift_digits",
+      "file": "QuaternaryQuadraticForms/PrimePowerResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "Splitting a vector sum into actual low and high digits needs no coprimality.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_residueLift_three_digits",
+      "file": "QuaternaryQuadraticForms/PrimePowerResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss0"
+      ],
+      "scope": "The two outer base-`p` digits leave an arbitrary positive middle modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.intCast_isUnit_prime_pow",
+      "file": "QuaternaryQuadraticForms/PrimePowerUnits.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms"
+      ],
+      "scope": "An integer not divisible by a prime is a unit modulo every power of that prime.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodPrime_not_dvd_det",
+      "file": "QuaternaryQuadraticForms/PrimePowerUnits.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms"
+      ],
+      "scope": "At a source good prime, the determinant is not divisible by that prime.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodPrime_two_isUnit_prime_pow",
+      "file": "QuaternaryQuadraticForms/PrimePowerUnits.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms"
+      ],
+      "scope": "The source good-prime condition makes two a unit at every prime power.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodPrime_det_isUnit_prime_pow",
+      "file": "QuaternaryQuadraticForms/PrimePowerUnits.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms"
+      ],
+      "scope": "The reduced determinant is a unit modulo every power of a source good prime.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_shift_of_inverse",
+      "file": "QuaternaryQuadraticForms/QuadraticGaussShift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform"
+      ],
+      "scope": "Translation by the adjugate vector removes the linear term, with any actual inverse of `4*a*det A` and the manuscript's exact phase.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_shift",
+      "file": "QuaternaryQuadraticForms/QuadraticGaussShift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform"
+      ],
+      "scope": "The exact shifted Gauss sum with the literal modular inverse in the source phase; no field structure is required on the residue ring.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_shift_of_units",
+      "file": "QuaternaryQuadraticForms/QuadraticGaussShift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:gauss",
+        "eq:dualform"
+      ],
+      "scope": "Separate unit hypotheses on `2`, the scalar, and the determinant supply exactly the modular inverse needed for square completion.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadric_card_additive",
+      "file": "QuaternaryQuadraticForms/QuadricCounting.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "The affine count is the additive-character average of the actual Gauss sums.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadric_card_projective",
+      "file": "QuaternaryQuadraticForms/QuadricCounting.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "The origin contributes one and every projective zero contributes exactly `p-1` nonzero affine vectors.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadric_card_complex",
+      "file": "QuaternaryQuadraticForms/QuadricPointCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "The exact affine zero count for a nonsingular symmetric quaternary form over an odd prime field, including the origin.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.affineQuadric_card",
+      "file": "QuaternaryQuadraticForms/QuadricPointCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "The affine point count as an equality of integers with the actual integer-valued quadratic character.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadric_card_complex",
+      "file": "QuaternaryQuadraticForms/QuadricPointCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "The actual projective quadric has exactly the source cardinality.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadric_card",
+      "file": "QuaternaryQuadraticForms/QuadricPointCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "The exact projective cardinality with its integer-valued quadratic character.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integral_projectiveQuadric_card",
+      "file": "QuaternaryQuadraticForms/QuadricPointCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:forms",
+        "eq:gauss0"
+      ],
+      "scope": "Lemma 3.2(iii) for the source integral matrix at every prime outside the exact modulus `N_F = 2 |det A|`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_eq_lift_sum",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "Reduction of the actual integer phase gives the same unit sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueRamanujanSum_prime",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "At a prime this definition is exactly the previously checked prime sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueRamanujanSum_modulus_one",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "The unit sum at modulus one has its single term.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_modulus_one",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "The integral Ramanujan sum at modulus one is one at every frequency.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueRamanujanSum_units_mul",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "Multiplication of the frequency by an actual unit preserves the sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueRamanujanSum_mul",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "The unit criterion alone suffices for frequency-scaling invariance.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueRamanujanSum_inverse_sum",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "Inversion permutes the actual unit summation set at every positive modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueRamanujanSum_reciprocal_phase",
+      "file": "QuaternaryQuadraticForms/RamanujanSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:ramanujan"
+      ],
+      "scope": "Negative reciprocal unit phases give the original Ramanujan sum, including zero frequency and modulus one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_prime_power",
+      "file": "QuaternaryQuadraticForms/UnramifiedCompleteSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:gauss",
+        "eq:unram",
+        "eq:Sdef",
+        "eq:ramanujan",
+        "eq:dualform"
+      ],
+      "scope": "Lemma 3.2(ii), with the actual complete sum, actual Ramanujan unit sum, and the manuscript's integral determinant and adjugate dual form.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",

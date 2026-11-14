@@ -765,7 +765,7 @@
         "The q-divisibility constraint proves independence of the lift of a modulo c. Scaled Chinese remainder bijections for both vectors and units, the exact factors c2*n2 and c1*n1 in the phase, and their removal by local unit permutations are checked.",
         "Unit-frequency invariance uses the literal integer gcd(t,q*c)=1 condition. Modulus one and t=0 when q*c=1 are included; no coprimality between q and c is assumed.",
         "The two main identities need no squarefreeness or size hypothesis beyond the source scalar invariance; the prime-product formula for C_q retains squarefreeness. The S_c multiplicativity, modulus-one specializations and exact bridge to the existing prime Fourier sum are separately checked supporting exports.",
-        "All new exports use only standard logical foundations; no literature premise is introduced or used. The full prime-power evaluation and counting clauses of Lemma 3.2 remain Pending."
+        "All new exports use only standard logical foundations; no literature premise is introduced or used."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [
@@ -821,9 +821,9 @@
       ],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "Three clauses: shifted Gauss sum; Ramanujan-sum expression for S_(p^k); projective point count.",
-        "The prime-power recurrence V_k = p^4 V_(k-2), including V_0=1, is proved internally.",
-        "The scalar one-dimensional Gauss calculation occurs inside this proof and should be extracted as a reusable helper for Lemma4.6."
+        "All three source clauses are proved for the actual general symmetric integral matrix, the literal good-prime modulus N_F=2*abs(det A), every k>=1, and every integral frequency: the shifted Gauss evaluation, the exact S_(p^k) Ramanujan identity, and the actual projective quadric count.",
+        "The general prime-field calculation constructs an orthogonal basis and proves the determinant changes by a nonzero square. Actual residue-digit bijections and additive orthogonality prove V_(k+2)=p^4*V_k, including the literal V_0=1 base. The previously checked scalar prime Gauss identities supply the one-dimensional factors.",
+        "Adjugate square completion and the exact reciprocal permutation of the actual unit group produce the stated phase and Ramanujan factor. Affine additive orthogonality and the existing projective-ray equivalence give the projective cardinality. The integral formulas extend to k=0; the unit lift and final source conjunction retain k>=1. No internal evaluation or counting hypothesis survives, and no literature premise is introduced or used."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

@@ -89,6 +89,8 @@ jobs:
             Mathlib.Data.ZMod.Coprime \
             Mathlib.Data.Nat.Squarefree \
             Mathlib.Algebra.Group.Units.Equiv \
+            Mathlib.LinearAlgebra.QuadraticForm.Basic \
+            Mathlib.Logic.Equiv.Fin.Basic \
             Mathlib.Logic.Equiv.Prod
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
