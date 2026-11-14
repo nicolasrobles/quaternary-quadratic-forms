@@ -1,0 +1,3093 @@
+\documentclass[11pt]{amsart}
+\usepackage[lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+\usepackage[ps,all,arc,rotate]{xy}
+\usepackage{graphicx, float, epstopdf}
+\usepackage{bbm}
+\usepackage{color}
+\usepackage[unicode,bookmarks=false]{hyperref}
+\hypersetup{hidelinks}
+\usepackage{centernot}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,mathrsfs}
+\usepackage{graphics, setspace}
+\usepackage{braket}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{upgreek}
+\usepackage{xcolor}
+\usepackage{array,esint}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\newcommand{\skipline}{\vspace{11pt}}  % might have to be preceeded by \\ in the previous line (clarity)
+\allowdisplaybreaks[4]         %allows breaking multiline environments in amsmath commands
+\newcommand{\blankline}{\quad\pagebreak[2]}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{claim}[lemma]{Claim}
+\newtheorem{conjecture}[lemma]{Conjecture}
+\newtheorem{corollary}[lemma]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{vcell}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Nset}{\mathcal{N}}
+\newcommand{\Mset}{\mathcal{M}}
+\newcommand{\Oset}{\mathcal{O}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Hset}{\mathcal{H}}
+\newcommand{\Pri}{\mathbb{P}}
+\newcommand{\partition}{p}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\ID}{\mathbf{1}}
+\newcommand{\id}{\textrm{id}}
+\newcommand{\Ha}{{\hat H}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\vt}{{\vec \theta }}
+\newcommand{\I}{\textnormal{i}}
+\newcommand{\e}{\operatorname{e}}
+\newcommand{\Li}{\operatorname{Li}}
+\newcommand{\real}{\operatorname{Re}}
+\newcommand{\imag}{\operatorname{Im}}
+\newcommand{\BS}{\operatorname{BS}}
+\newcommand{\SV}{\operatorname{SV}}
+\newcommand{\SVH}{\operatorname{SVH}}
+\newcommand{\SVA}{\operatorname{SVA}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\sumtwo}{\operatorname*{\sum\sum}}
+\newcommand{\sumthree}{\operatorname*{\sum\sum\sum}}
+\newcommand{\sumdots}{\operatorname*{\sum\cdots\sum}}
+\newcommand{\sumdotss}{\operatorname*{\sum\sum\cdots\sum}}
+\newcommand{\ointdots}{\operatorname*{\oint\cdots\oint}}
+\newcommand{\intdots}{\operatorname*{\int_2^\infty \cdots \int_2^\infty}}
+\newcommand{\modu}{\operatorname{mod}}
+\def\sumstar{\operatornamewithlimits{\sum\nolimits^*}}
+\newcommand{\quadand}{\quad \textnormal{and} \quad}
+\newcommand{\distinct}{\operatorname{distinct}}
+\newcommand{\barg}{{\bar g}}
+\newcommand{\barr}{{\bar r}}
+\newcommand{\barK}{{\bar K}}
+\newcommand{\barq}{{\bar q}}
+\newcommand{\bark}{{\bar k}}
+\newcommand{\barh}{{\bar h}}
+\newcommand{\barrr}{{\bar r}}
+\newcommand{\barL}{{\bar L}}
+\newcommand{\barl}{{\bar l}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\threeprimes}{p_1^{k_1}p_2^{k_2} \cdots p_r^{k_r}}
+\newcommand{\threeells}{\ell_1^{k_1}\ell_2^{k_2} \cdots \ell_r^{k_r}}
+\newcommand{\imod}[1]{\ (\mathrm{mod}\ #1)}
+
+\renewcommand{\S}{\mathfrak{S}}
+\renewcommand{\M}{\mathfrak{M}}
+\newcommand{\m}{\mathfrak{m}}
+
+
+\newcommand{\AGK}{A_{\mathrm{GK}}}
+\newcommand{\Aarc}{A_{\mathrm{arc}}}
+\newcommand{\AIng}{A_{\mathrm{Ing}}}
+\newcommand{\Res}{\operatorname*{Res}}
+
+\newcommand{\ttriple}[3]{\textcolor{#3}{(#1,#2)}}
+
+% Manuscript-specific macros.
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\Fp}{\mathbb F_p}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Qc}{\mathcal Q}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\adj}{\operatorname{adj}}
+\emergencystretch=2em
+
+
+\title[Character sums over zeros of quadratic forms]{Character sums over zeros of quaternary quadratic forms}
+\author[H.~Nath]{Hemjyoti Nath}
+\address{Department of Mathematics, University of Florida, Gainesville, FL 32611, USA}
+\email{h.nath@ufl.edu}
+\author[N.~Robles]{Nicolas Robles}
+\address{Quantum Sky, Project 137, 11950 Democracy Drive, Suite 650, Reston, VA 20190, USA}
+\email{robles.nicolas.m@gmail.com}
+\author[A.~Zaharescu]{Alexandru Zaharescu}
+\address{Department of Mathematics, University of Illinois Urbana-Champaign, Altgeld Hall, 1409 W. Green Street, Urbana, IL 61801, USA}
+\email{zaharesc@illinois.edu}
+\subjclass[2020]{Primary 11D09; Secondary 11L40, 11N36, 11P55, 14G05}
+\keywords{Quaternary quadratic forms, character sums, circle method, delta symbol, square sieve, power sieve}
+
+\begin{document}
+
+\begin{abstract}
+Let $F(x)=x^{\mathsf T}Ax$ be a quadratic form in four variables,
+where $A$ is a symmetric integral matrix whose determinant is neither
+zero nor a square, and let $G$ be a form of even degree with integer
+coefficients such that the curve $F=G=0$ is smooth. We
+prove an asymptotic formula for the sum of the Jacobi symbols
+$(G(x)/q)$ over the integral zeros $x$ of $F$, with a smooth weight
+$W(x/B)$, for squarefree $q$ coprime to $2\det A$ and to the primes of
+bad reduction of the curve. The error term is
+$(Bq)^{1+\varepsilon}$, uniformly in $q$ and in the coefficients of
+$G$, and the local factors of the main term are character sums over
+the quadric modulo the primes dividing $q$. The same is proved for
+products of characters of order $r$ modulo the primes dividing $q$,
+when $r$ divides the degree of $G$. As an
+application, the number of zeros $x$ of $F$ with $\lvert x_i\rvert\le B$
+at which $G$ is a nonzero square or $r$th power, for such $r$, is $O(B^{5/3+\varepsilon}+B^{1+\varepsilon}\log^2H)$, where
+$H\ge2$ bounds the coefficients of $G$.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{Previous results in the literature}\label{sec:literature}
+
+Let $A$ be a nonsingular symmetric $4\times4$ matrix with integer
+entries, and set
+\begin{equation}\label{eq:forms}
+ F(x)=x^{\mathsf T}Ax,\qquad \alpha=\det A,\qquad N_F=2\abs{\alpha}.
+\end{equation}
+We assume throughout that $\alpha$ is not a square. Every quadratic
+form in four variables with integer coefficients is of this shape
+after multiplication by $2$, which does not change its zeros. Let
+$\chi$ be the primitive quadratic character attached to the field
+$\Q(\sqrt\alpha)$, so that $\chi(p)=(\alpha/p)$ for every prime
+$p\nmid N_F$, where $(\cdot/p)$ is the Legendre symbol.
+
+The zeros of $F$ in a region of size $B$ are counted, with a weight
+$W\in C_c^\infty(\R^4)$, by the sum of $W(x/B)$ over the $x\in\Z^4$
+with $F(x)=0$. Heath-Brown \cite[Theorem~6]{HB} proved, for a class
+of weights and by means of a form of the delta symbol of Duke,
+Friedlander and Iwaniec \cite{DFI}, that
+\begin{equation}\label{eq:HB}
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)
+ =B^2\sigma_\infty(W,F)\,\S_F+O_{F,W,\eps}(B^{3/2+\eps}).
+\end{equation}
+Here the singular integral and the local densities of $F$ are
+\begin{equation}\label{eq:singint}
+ \sigma_\infty(W,F)=\int_{F(y)=0}\frac{W(y)}{\abs{\nabla F(y)}}\,dS(y),
+ \qquad
+ \sigma_p=\lim_{k\to\infty}p^{-3k}\#\{x\bmod p^k:F(x)\equiv0\imod{p^k}\},
+\end{equation}
+where $dS$ is the surface measure on the cone $F(y)=0$ in $\R^4$, and
+the singular series is
+\begin{equation}\label{eq:SF}
+ \S_F=L(1,\chi)\prod_p\Big(1-\frac{\chi(p)}p\Big)\sigma_p.
+\end{equation}
+The integral and the product converge absolutely, and the limits
+exist; see Sections~\ref{sec:delta} and~\ref{sec:moduli}. Getz
+\cite[Theorem~1.1]{G} improved the error term in \eqref{eq:HB} to
+$O(B^{1+\eps})$.
+
+The present paper concerns the sums over the zeros of $F$ in which
+the summand carries a character. For an odd squarefree integer
+$q\ge1$ we write $\chi_q(n)=(n/q)$ for the Jacobi symbol. Thus
+$\chi_q=\prod_{p\mid q}\chi_p$, $\chi_q(n)=0$ when $(n,q)>1$, and
+$\chi_1(n)=1$ for every $n$. For a form $G$ of even degree with
+integer coefficients, and $B\ge2$, set
+\begin{equation}\label{eq:Tdef}
+ T_{q,G}(B)=\sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\chi_q(G(x)).
+\end{equation}
+These sums were studied by Iwaniec and Munshi \cite{IM} for the
+diagonal quadratic forms
+\begin{equation}\label{eq:diagonal}
+ F(x)=\sum_{i=1}^4a_ix_i^2,\qquad G(x)=\sum_{i=1}^4b_ix_i^2,
+ \qquad a_ib_j-a_jb_i\ne0\quad(1\le i<j\le4),
+\end{equation}
+for which $\alpha=a_1a_2a_3a_4$. Their aim was a bound for
+\begin{equation}\label{eq:MG}
+ M_G(B)=\#\{x\in\Z^4:\lVert x\rVert_\infty\le B,\ F(x)=0,\
+ G(x)\text{ is a nonzero square}\},
+\end{equation}
+where $\lVert x\rVert_\infty=\max_i\abs{x_i}$; as explained in
+\cite{IM}, it controls the number of rational points of height at
+most $B$, outside the lines, on the quartic del Pezzo surface
+$F(x)=0$, $y^2=G(x)$. By the square
+sieve of Heath-Brown \cite{HB2}, $M_G(B)$ is bounded in terms of the
+sums $T_{pp',G}(B)$ for pairs of primes $p\ne p'$, and
+\cite[Proposition~2.1]{IM} is the bound
+\begin{equation}\label{eq:IM}
+ T_{q,G}(B)\ll\Big(\frac{B^2}q+B^{3/2}+Bq^2\Big)(Bq)^\eps
+\end{equation}
+for squarefree $q$, from which $M_G(B)\ll B^{9/5+\eps}$ follows
+\cite[Theorem~1.1]{IM}. Mallesham \cite{M} applied the delta symbol
+to the equation $F(x)/q=0$ on the vectors $x$ with
+$F(x)\equiv0\imod q$, as in the work of Browning and Munshi
+\cite{BM}, and obtained $M_G(B)\ll B^{5/3+\eps}$
+\cite[Theorem~1.3]{M}.
+
+Both proofs use bounds for sums over the zeros of $F$ modulo a
+prime, namely \cite[Lemma~4.6]{IM} and \cite[Lemmas~5.3 and~5.4]{M},
+which do not hold at all frequencies; see
+Remark~\ref{rem:literature}. The bound \eqref{eq:IM} is nevertheless
+correct when $q$ is prime to $2\alpha$ and to the numbers
+$a_ib_j-a_jb_i$: it follows from Theorem~\ref{thm:polynomial} below,
+since $Bq\le Bq^2$. The corresponding bound
+\cite[Proposition~2.1]{M} has the term $B^2q^{-3/2}$ in place of
+$B^2/q$, whereas $T_{q,G}(B)$ has exact order $B^2/q$ for the primes
+$q$ satisfying the same condition, with $\chi(q)=-1$ and
+$B^\eta\le q\le B^{1/2-\eta}$, when
+$\sigma_\infty(W,F)\S_F\ne0$ and $\eta>0$ is fixed; this follows from
+Theorem~\ref{thm:diagonal} and Corollary~\ref{cor:relative}. The two
+bounds for $M_G(B)$ are contained in
+Theorem~\ref{thm:uniformcount}.
+
+For a fixed modulus $q$ the sums \eqref{eq:Tdef} are covered by a
+theorem of Getz \cite[Theorem~3.3]{G}, on the zeros of quadratic forms
+weighted by an arbitrary function at the finite places, which gives
+an asymptotic formula with error term $O(B^{1+\eps})$ and an implied
+constant that depends on $q$ in an unspecified way. Lindqvist
+\cite{L} studied the zeros of $F$ in a residue class to a fixed
+modulus, where a further term of order $B^2$ can occur, and Huang,
+Schindler and Shute \cite{HSS} obtained asymptotic formulas for a
+residue class to a modulus that grows with $B$. The error term of
+\cite[Theorem~4.1]{HSS} is for one residue class; when it is added
+over the residue classes modulo $q$ on which $F$ vanishes, the result
+is larger than the error term of Theorem~\ref{thm:polynomial} below
+by a power of $q$. Sums over the zeros
+of $F$ with arbitrary coefficients attached to one of the
+coordinates are considered in \cite{GSS}.
+
+The number $M_G(B)$ can also be approached by the determinant
+method: for a quadratic form $G$, a theorem of Salberger
+\cite[Theorem~0.6]{S} on intersections of two quadrics gives the
+exponent $3/2$, with a power of the size of the coefficients of $G$;
+see Section~\ref{sec:fixed}. Heath-Brown and Pierce \cite{HBP} used
+the sieve with characters of order $r$ to count rational points on
+cyclic covers of projective space, and Bucur, Cojocaru, Lal\'in and
+Pierce \cite{BCLP} gave geometric generalizations of the square
+sieve. Polynomial sieves were applied by Bonolis and Pierce \cite{BP}
+and by Bonolis, Pierce and Woo \cite{BPW} to thin sets of type II in
+affine space, in \cite{BPW} with explicit dependence on the
+coefficients, through the uniform stratification of Bonolis,
+Kowalski and Woo \cite{BKW}. Browning and Loughran \cite{BL}
+developed sieves for rational points on quadrics.
+
+\subsection{New results}\label{sec:results}
+
+Let $G\in\Z[x_1,x_2,x_3,x_4]$ be a form of degree $2d$, where $d\ge1$,
+and let $H_G$ be the maximum of $2$ and of the absolute values of the
+coefficients of $G$. We assume that
+\begin{equation}\label{eq:smooth}
+ \operatorname{rank}\big(\nabla F(x),\nabla G(x)\big)=2
+ \qquad\text{for every }x\in\overline{\Q}^4\setminus\{0\}
+ \text{ with }F(x)=G(x)=0.
+\end{equation}
+Equivalently, the equations $F=G=0$ define a smooth complete
+intersection curve in $\PP^3$, the intersection of the quadric
+surface $F=0$ with the hypersurface $G=0$. For a prime $p\nmid N_F$,
+we say that $G$ has good reduction at $p$ if \eqref{eq:smooth} holds
+for the reductions of $F$ and $G$ modulo $p$, with $\overline{\Fp}$ in
+place of $\overline{\Q}$, and that it has bad reduction at $p$
+otherwise. Set
+\begin{equation}\label{eq:NG}
+ N_G=\rad(N_F)\prod_{\mathclap{\substack{p\nmid N_F\\G\text{ has bad reduction at }p}}}\;p,
+\end{equation}
+where $\rad(n)$ is the product of the primes dividing $n$. It is part
+of Theorem~\ref{thm:polynomial} that this product is finite. The
+primes dividing $N_G$ are those excluded from the modulus $q$.
+
+We study the sums \eqref{eq:Tdef} for such forms $G$ and for
+squarefree $q$ prime to $N_G$. Their main term involves the
+quantities \eqref{eq:singint} and \eqref{eq:SF} and the following
+local factors.
+
+For a prime $p\nmid N_F$, let $\Qc(\Fp)$ be the set of points of
+$\PP^3(\Fp)$ at which $F$ vanishes. It has $p^2+(1+\chi(p))p+1$
+elements, by Lemma~\ref{lem:gauss}. For $p\nmid N_G$ set
+\begin{equation}\label{eq:apdef}
+ a_p(G)=\sum_{P\in\Qc(\Fp)}\chi_p(G(P)).
+\end{equation}
+The summand does not depend on the coordinates chosen for $P$, because
+$G$ has even degree. A point $P$ lies below $1+\chi_p(G(P))$ points of
+the double cover $y^2=G(x)$ of the quadric, in which $y$ has weight
+$d$, so that $a_p(G)$ is the
+difference between the numbers of points over $\Fp$ of the cover and
+of the quadric.
+
+\begin{theorem}\label{thm:polynomial}
+Let $d\ge1$. There is a constant $C_{F,d}>0$ such that
+\begin{equation}\label{eq:badheight}
+ N_G\ll_{F,d}H_G^{C_{F,d}}
+\end{equation}
+for every form $G$ of degree $2d$ satisfying \eqref{eq:smooth}. For
+every such $G$, every squarefree $q\ge1$ with $(q,N_G)=1$, and
+$B\ge2$,
+\begin{equation}\label{eq:mainthm}
+ T_{q,G}(B)=B^2\sigma_\infty(W,F)\S_G(q)
+ +O_{F,d,W,\eps}\big((Bq)^{1+\eps}\big),
+\end{equation}
+where
+\begin{equation}\label{eq:Sgeneral}
+ \S_G(q)=\S_F\prod_{p\mid q}\frac{a_p(G)(p^2-1)}{p^2\,\#\Qc(\Fp)}
+ =\S_F\prod_{p\mid q}\frac{a_p(G)(p-1)(p-\chi(p))}{p^2(p^2-\chi(p))}.
+\end{equation}
+Moreover $\abs{a_p(G)}\le(8d^2-8d+4)p$ for every prime $p\nmid N_G$,
+so that
+\begin{equation}\label{eq:mainbound}
+ \abs{\S_G(q)}\ll_{F,d,\eps}q^{-1+\eps},
+ \qquad
+ T_{q,G}(B)\ll_{F,d,W,\eps}\Big(\frac{B^2}q+Bq\Big)(Bq)^\eps.
+\end{equation}
+The implied constants do not depend on the coefficients of $G$.
+\end{theorem}
+
+The factor at $p$ in \eqref{eq:Sgeneral} is $1-p^{-2}$ times the mean
+value of $\chi_p(G(P))$ over $\Qc(\Fp)$; the factor $1-p^{-2}$ comes
+from the vectors $x$ divisible by $p$, at which the character
+vanishes. The bound for $T_{q,G}(B)$ in \eqref{eq:mainbound} is
+smaller than the trivial bound $O(B^2)$ by a power of $B$ when
+$B^\eta\le q\le B^{1-\eta}$ for a fixed $\eta>0$. For $q=1$ the
+formula \eqref{eq:mainthm} is \eqref{eq:HB} with the error term of
+\cite[Theorem~1.1]{G}. For a fixed $q$, an asymptotic formula with
+error term $O_q(B^{1+\eps})$ follows from \cite[Theorem~3.3]{G}; what
+\eqref{eq:mainthm} adds is the error term uniform in $q$ and in the
+coefficients of $G$ together, and the evaluation of the local
+factors.
+
+As an application we bound the number $M_G(B)$ of \eqref{eq:MG}, of
+zeros of $F$ at which $G$ is a nonzero square.
+
+\begin{theorem}\label{thm:uniformcount}
+Let $d\ge1$, and let $G$ be a form of degree $2d$ satisfying
+\eqref{eq:smooth}. For $B\ge2$,
+\begin{equation}\label{eq:uniformcount}
+ M_G(B)\ll_{F,d,\eps}B^{5/3+\eps}+B^{1+\eps}\log^2(2H_GB).
+\end{equation}
+The implied constant does not depend on the coefficients of $G$.
+\end{theorem}
+
+In particular, for every fixed $K_0>0$, one has
+$M_G(B)\ll_{F,d,K_0,\eps}B^{5/3+\eps}$ uniformly for $H_G\le B^{K_0}$. The
+proof applies the square sieve of Heath-Brown \cite{HB2}, with
+Theorem~\ref{thm:polynomial} at the moduli $q=pp'$. For a quadratic
+form $G$, a theorem of Salberger \cite{S} gives the bound
+$M_G(B)\ll_\eps(H_G^{1/2}B)^{3/2+\eps}$, which is at least as strong
+as \eqref{eq:uniformcount} when $H_G\le B^{2/9}$; see
+Section~\ref{sec:fixed}.
+
+When $F$ and $G$ are the diagonal quadratic forms of
+\eqref{eq:diagonal}, the local factors can be evaluated. Set
+\begin{equation}\label{eq:kappadef}
+ \kappa_i=-a_i\prod_{j\ne i}(a_ib_j-a_jb_i)\quad(1\le i\le4),
+ \qquad M=\prod_{1\le i<j\le4}(a_ib_j-a_jb_i).
+\end{equation}
+
+\begin{theorem}\label{thm:diagonal}
+Let $F$ and $G$ be as in \eqref{eq:diagonal}. Then
+$N_G=\rad(2\alpha M)$, and for every prime $p\nmid2\alpha M$,
+\begin{equation}\label{eq:diagtrace}
+ a_p(G)=p\sum_{i=1}^4\chi_p(\kappa_i).
+\end{equation}
+Consequently, for every squarefree $q\ge1$ with $(q,2\alpha M)=1$,
+the formula \eqref{eq:mainthm} holds with
+\begin{equation}\label{eq:diagmain}
+ \S_G(q)=\S_F\prod_{p\mid q}\bigg(\frac{(p-1)(p-\chi(p))}{p(p^2-\chi(p))}
+ \sum_{i=1}^4\chi_p(\kappa_i)\bigg).
+\end{equation}
+\end{theorem}
+
+Since $\kappa_1\kappa_2\kappa_3\kappa_4=\alpha M^2$, the sum in
+\eqref{eq:diagtrace} is $\pm2$ when $\chi(p)=-1$, and is $0$ or
+$\pm4$ when $\chi(p)=1$.
+
+The method applies to characters of higher order. Let $r\ge3$ and
+$d\ge1$, and let $G$ now be a form of degree $rd$ satisfying
+\eqref{eq:smooth}; the quantities $H_G$ and $N_G$ are defined as
+before. For each prime $p\equiv1\imod r$ with $p\nmid N_G$, let
+$\psi_p$ be a character modulo $p$ of exact order $r$. For a
+squarefree $q\ge1$ all of whose prime divisors are of this kind, set
+$\psi_q=\prod_{p\mid q}\psi_p$, with $\psi_1(n)=1$ for every $n$.
+Since $r$ divides the degree of $G$, the value $\psi_p(G(P))$ does not
+depend on the coordinates chosen for a point $P\in\Qc(\Fp)$, and we
+set
+\begin{equation}\label{eq:apsidef}
+ a_{p,\psi}(G)=\sum_{P\in\Qc(\Fp)}\psi_p(G(P)).
+\end{equation}
+
+\begin{theorem}\label{thm:cyclic}
+Let $r\ge3$ and $d\ge1$. There is a constant $C_{F,r,d}>0$ such that
+$N_G\ll_{F,r,d}H_G^{C_{F,r,d}}$ for every form $G$ of degree $rd$
+satisfying \eqref{eq:smooth}. For every such $G$, every $q$ and
+$\psi_q$ as above, and $B\ge2$,
+\begin{equation}\label{eq:cyclicmain}
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\psi_q(G(x))
+ =B^2\sigma_\infty(W,F)\S_{G,\psi}(q)
+ +O_{F,r,d,W,\eps}\big((Bq)^{1+\eps}\big),
+\end{equation}
+where
+\begin{equation}\label{eq:cyclicfactor}
+ \S_{G,\psi}(q)=\S_F\prod_{p\mid q}
+ \frac{a_{p,\psi}(G)(p^2-1)}{p^2\,\#\Qc(\Fp)}.
+\end{equation}
+Moreover
+$\abs{a_{p,\psi}(G)}\le2\big(1+(rd-1)^2\big)p$. The implied
+constants do not depend on the coefficients of $G$ or on the choice
+of the characters $\psi_p$.
+\end{theorem}
+
+\begin{corollary}\label{cor:powercount}
+Let $r\ge3$ and $d\ge1$, let $G$ be a form of degree $rd$ satisfying
+\eqref{eq:smooth}, and let
+\[
+ M_{G,r}(B)=\#\{x\in\Z^4:\lVert x\rVert_\infty\le B,\ F(x)=0,\
+ G(x)=k^r\text{ for some integer }k\ne0\}.
+\]
+For $B\ge2$,
+\begin{equation}\label{eq:powercount}
+ M_{G,r}(B)\ll_{F,r,d,\eps}B^{5/3+\eps}+B^{1+\eps}\log^2(2H_GB).
+\end{equation}
+The implied constant does not depend on the coefficients of $G$.
+\end{corollary}
+
+For even $r$ this follows from Theorem~\ref{thm:uniformcount}, since
+an $r$th power is a square. The new cases are those of odd $r$, for
+instance the cube values of a cubic form on the zeros of $F$. When
+$G$ has degree $r$, the determinant method gives
+$M_{G,r}(B)\ll_{r,\eps}(H_G^{1/r}B)^{m_r+\eps}$ with
+$m_r=\max\{1,3/\sqrt{2r}\}$, which has a smaller power of $B$ than
+\eqref{eq:powercount} unless $H_G$ exceeds a fixed power of $B$; see
+Section~\ref{sec:fixed}.
+
+Finally, suppose that $\sigma_\infty(W,F)\S_F\ne0$ and that
+$a_p(G)\ne0$ for every $p\mid q$. Then \eqref{eq:mainthm} is an
+asymptotic formula uniformly for $q\le B^{1/2-\eta}$ when $G$ is
+quadratic, and for $q\le B^{1/3-\eta}$ in general, for every fixed
+$\eta>0$. For the characters of Theorem~\ref{thm:cyclic}, if
+$\sigma_\infty(W,F)\S_F\ne0$ and $a_{p,\psi}(G)\ne0$ for every
+$p\mid q$, the corresponding range is
+$q\le B^{2/(\varphi(r)+4)-\eta}$, where $\varphi$ is Euler's
+function. These statements are proved in
+Section~\ref{sec:relative}. Section~\ref{sec:character-sums} also
+contains an estimate for the sum \eqref{eq:Tdef} with $\chi_q(G(x))$
+replaced by $\prod_{p\mid q}(\chi_p(G(x))-\beta_p)$, where $\beta_p$
+is the factor at $p$ in \eqref{eq:Sgeneral}.
+
+\subsection{Outline of the proofs}\label{sec:outline}
+
+The theorems of Section~\ref{sec:results} are deduced from an
+asymptotic formula for the sums of $W(x/B)\xi_q(x)$ over the zeros
+$x$ of $F$, where $q$ is squarefree and $\xi_q$ is the product over
+the primes $p\mid q$ of
+functions $\xi_p$ on $\Fp^4$ that vanish at the origin, are bounded
+by $1$ and are invariant under multiplication of $x$ by nonzero
+scalars (Proposition~\ref{prop:analytic}). The formula is proved
+under one hypothesis on the functions $\xi_p$, which concerns the
+sums $C_p(u)$ of \eqref{eq:Cdef}, the Fourier transform of $\xi_p$
+on the zeros of $F$ modulo $p$: they are $O(p^{3/2})$, except at the
+zeros $u$ of a
+nonzero polynomial $D_p$ of bounded degree, where they are $O(p^2)$.
+The polynomial $D_p$ may depend on $p$.
+
+As in \cite{M}, the condition $F(x)\equiv0\imod q$ is imposed first,
+and the delta symbol is applied to the integer $F(x)/q$, with the
+parameter $Q=B/\sqrt q$. The Poisson summation formula modulo $qc$
+then expresses the sum as a sum over the moduli $c\ll Q$ and the
+frequencies $u\in\Z^4$ of the products of the complete sums
+$\mathcal S_{q,c}(u)$ of \eqref{eq:Snewdef} and of the integrals of
+\cite{HB}; the
+frequencies that matter have length about $\sqrt q$
+(Lemma~\ref{lem:poisson}). The sums $\mathcal S_{q,c}(u)$ factor
+over the primes dividing $qc$. At a prime dividing both $q$ and $c$
+they are
+evaluated in closed form, in terms of the value of $\xi_p$ at
+$\adj(A)u$ and of a Ramanujan sum of $F^*(u)$; here $\adj(A)$ is the
+adjugate of $A$ and $F^*(u)=u^{\mathsf T}\adj(A)u$
+(Lemmas~\ref{lem:ramified} and~\ref{lem:goodglobal}).
+
+The frequencies are of three kinds. The frequency $u=0$ gives the
+main term; the singular series converges by means of the character
+$\chi$, and the factor at $p\mid q$ is
+$C_p(0)p^{-3}$ divided by the density $\sigma_p$
+(Lemmas~\ref{lem:singseries} and~\ref{lem:zerofreq}). For the
+frequencies with $F^*(u)\ne0$ absolute values are taken. The sum over
+$c$ then costs a factor $(Bq)^\eps$, and there remains an average of
+$\abs{C_{q_2}(u)}$ over the $u$ with $q_1\mid F^*(u)$, for the
+factorizations $q=q_1q_2$. In this average the larger bound for
+$C_p(u)$ on the zeros of $D_p$ is harmless, because these $u$ are
+counted by a lemma on polynomial congruences in a box that is
+uniform in the polynomials (Lemmas~\ref{lem:polynomialbox},
+\ref{lem:genericmod} and~\ref{lem:average}). For the frequencies
+$u\ne0$ with $F^*(u)=0$ the sum over $c$ is carried out first. It
+has cancellation because $\chi$ is not principal, that is, because
+$\alpha$ is not a square, and the number of these frequencies is
+bounded by Lemma~\ref{lem:quadriccount}
+(Lemmas~\ref{lem:conemod} and~\ref{lem:oncone}). The three
+contributions give the error term $(Bq)^{1+\eps}$.
+
+In Section~\ref{sec:fourier} the hypothesis is verified for
+$\xi_p(x)=\psi(G(x))$, where $\psi$ is a nonprincipal character
+modulo $p$ whose order divides the degree of $G$. The sum $C_p(0)$ is $p-1$ times the
+sum of $\psi(G(P))$ over the points $P$ of the quadric $F=0$ over
+$\Fp$, which is bounded by a theorem of Katz \cite{K}
+(Lemma~\ref{lem:katz}). For $p\nmid u$, the sum $C_p(u)$ is
+expressed by this sum and by the sum over the plane section
+$u\cdot x=0$ of the quadric. When $F^*(u)\ne0$ this section is a conic, which is
+parametrized by the projective line, and the bound of Weil applies
+if the plane is transversal to the curve $F=G=0$
+(Lemmas~\ref{lem:conic} and~\ref{lem:section}). The planes that are
+not transversal are among the zeros of a polynomial obtained by
+elimination, whose degree is bounded in terms of $F$ and of the
+degree of $G$ only; the same elimination bounds $N_G$ by a power of
+$H_G$ (Lemma~\ref{lem:exceptional}). For
+diagonal quadratic forms the sums $C_p(u)$ are computed for every
+$u$ (Lemma~\ref{lem:pencil}).
+
+Theorem~\ref{thm:uniformcount} and Corollary~\ref{cor:powercount}
+follow from the square sieve and its analogue for $r$th powers, with
+the bound for the character sums at the moduli $q=pp'$
+(Lemma~\ref{lem:sieve}). The ranges of $q$ at the end of
+Section~\ref{sec:results} come from lower bounds for the local
+factors that do not vanish: a nonzero $a_p(G)$ is an integer, which
+is divisible by $p$ when $G$ is a quadratic form, and for characters
+of order $r\ge3$ the norm of a nonzero $a_{p,\psi}(G)$ from the field
+of $r$th roots of unity is a nonzero integer
+(Lemmas~\ref{lem:divisible} and~\ref{lem:lowerbeta}).
+
+\subsection{Notation}\label{sec:notation}
+
+Vectors $x$, $y$ and $u$ have four components; $x\cdot u$ is the
+standard inner product, $\lVert x\rVert$ the Euclidean norm, and
+$\lVert x\rVert_\infty=\max_i\abs{x_i}$. We write
+$\e(t)=\exp(2\pi it)$ and $\e_c(t)=\e(t/c)$ for an integer $c\ge1$.
+The letter $p$ denotes a prime, $v_p(n)$ is the exponent of $p$ in
+$n$, and $(m,n)$ is the greatest common divisor. As usual, $\varphi$,
+$\mu$, $\tau$ and $\omega$ denote Euler's function, the M\"obius
+function, the number of divisors and the number of distinct prime
+divisors, and $\rad(n)$ is the product of the primes dividing $n$. A
+star on a sum over $a\bmod c$ restricts it to $(a,c)=1$, and
+$\overline a$ denotes an inverse of $a$ to a modulus that is clear
+from the context. For a prime $p$, $\Fp$ is the field with $p$
+elements and $\overline{\Fp}$ an algebraic closure of it; a character
+modulo $p$ is extended to $\Fp$ by the value $0$ at $0$. The symbol
+$\mathbf 1_{\mathcal E}$ is $1$ when the condition $\mathcal E$ holds
+and $0$ otherwise. The letter $\eps$ denotes an arbitrarily small
+positive number, not necessarily the same at each occurrence. Implied
+constants depend only on the parameters shown as subscripts; in
+particular they do not depend on the coefficients of $G$ unless $G$
+is a subscript.
+
+\subsection{Organization of the paper}\label{sec:organization}
+
+Section~\ref{sec:lemmas} contains the lemmas that are used
+throughout: the delta symbol and the estimates of \cite{HB} for its
+integrals, a bound for the number of zeros of a quaternary quadratic
+form and a lemma on polynomial congruences, and the bounds of Weil and Katz
+for character sums over finite fields. Section~\ref{sec:local}
+studies the complete sums $\mathcal S_{q,c}(u)$, their sums over the
+modulus $c$, the singular series, and the averages over the
+exceptional frequencies. In Section~\ref{sec:fourier} the
+hypotheses of Section~\ref{sec:local} are verified for the
+functions $\psi(G(x))$, and the sums $C_p(u)$ are evaluated for
+diagonal quadratic forms.
+Section~\ref{sec:proofs} contains the proofs: the asymptotic formula
+for general weights in Section~\ref{sec:analytic},
+Theorems~\ref{thm:polynomial}, \ref{thm:diagonal}
+and~\ref{thm:cyclic} in Section~\ref{sec:character-sums},
+Theorem~\ref{thm:uniformcount} and Corollary~\ref{cor:powercount} in
+Section~\ref{sec:sieve}, and the ranges of $q$ in which
+\eqref{eq:mainthm} is an asymptotic formula in
+Section~\ref{sec:relative}. Section~\ref{sec:fixed} compares
+Theorem~\ref{thm:uniformcount} and Corollary~\ref{cor:powercount}
+with the determinant method, and Section~\ref{sec:conclusion}
+contains some remarks and questions for future work.
+
+\section{Preliminary lemmas}\label{sec:lemmas}
+
+\subsection{The delta method and its integrals}\label{sec:delta}
+
+We detect the equation $F(x)=0$ by the delta symbol of Duke,
+Friedlander and Iwaniec \cite{DFI}, in the form given by Heath-Brown
+\cite{HB}.
+
+\begin{lemma}\label{lem:delta}
+There are an infinitely differentiable function $h$ on
+$(0,\infty)\times\R$ and, for every $Q\ge3$, a constant $c_Q>0$, such
+that for every integer $n$
+\begin{equation}\label{eq:delta}
+ \mathbf 1_{n=0}=\frac{c_Q}{Q^2}\sum_{c\ge1}\ \sum_{a\bmod c}^{*}
+ \e_c(an)\,h\Big(\frac cQ,\frac n{Q^2}\Big).
+\end{equation}
+Moreover $c_Q=1+O_j(Q^{-j})$ for every $j\ge1$, one has
+$h(x,y)\ll x^{-1}$ for all $x$ and $y$, and $h(x,y)=0$ unless
+$x\le\max\{1,2\abs y\}$.
+\end{lemma}
+
+\begin{proof}
+This is \cite[Theorem~1]{HB}, where it is stated for $Q>1$. The
+function $h$ is defined in \cite[Section~3]{HB} and does not depend
+on $Q$. The constant $c_Q$ is defined by \cite[(3.3)]{HB}, which
+requires an integer strictly between $Q/2$ and $Q$; there is one for
+$Q>2$, but not for $Q=2$.
+\end{proof}
+
+By the last assertion of the lemma, the sum over $c$ in
+\eqref{eq:delta} is finite.
+
+We turn to the integrals that arise when \eqref{eq:delta} is combined
+with the Poisson summation formula, and to the estimates of \cite{HB}
+for them. By a weight we mean an infinitely differentiable function
+on $\R^4$ with compact support. For a weight $w$, a real number
+$r>0$ and $v\in\R^4$ set
+\begin{equation}\label{eq:Istar}
+ I_r^*(v;w)=\int_{\R^4}w(x)\,h(r,F(x))\,
+ \e\Big(-\frac{v\cdot x}r\Big)\,dx.
+\end{equation}
+This is the integral $I_r^*(v)$ of \cite[Section~7]{HB}. The
+estimates of \cite{HB} are proved for weights of small support, and
+a general weight is decomposed as follows. Let
+\[
+ \theta(x)=c_0^{-4}\prod_{i=1}^4w_0(x_i),\qquad
+ w_0(t)=\begin{cases}\exp\big(-(1-t^2)^{-1}\big),&\abs t<1,\\
+ 0,&\abs t\ge1,\end{cases}
+\]
+where $c_0$ is the integral of $w_0$ over $\R$. Thus $\theta$ is a
+nonnegative weight supported in $[-1,1]^4$, with integral $1$. For a
+weight $W$, a number $0<\delta\le1$ and $y\in\R^4$ set
+\begin{equation}\label{eq:pieces}
+ W_y(x)=W(x)\,\theta\Big(\frac{x-y}\delta\Big),
+ \qquad\text{so that}\qquad
+ W(x)=\delta^{-4}\int_{\R^4}W_y(x)\,dy.
+\end{equation}
+The weight $W_y$ vanishes identically unless $y$ lies within distance
+$2\delta$ of the support of $W$.
+
+\begin{lemma}\label{lem:integrals}
+Let $0<\rho_1<\rho_2$, and let $\mathcal W$ be a set of weights
+supported in $\rho_1\le\lVert x\rVert\le\rho_2$, whose partial
+derivatives of each order are bounded on $\R^4$ uniformly in
+$\mathcal W$. There are numbers $\delta\in(0,1]$ and $r_0\ge1$,
+depending only on $F$ and $\mathcal W$, with the following
+properties. Let $W\in\mathcal W$ and $y\in\R^4$, and let $w=W_y$ be
+as in \eqref{eq:pieces}. Then $I_r^*(v;w)=0$ for $r\ge r_0$ and every
+$v\in\R^4$. Moreover, either $F(x)\ne0$ for every $x$ in the support
+of $w$, or, for $r>0$,
+\begin{align}
+ I_r^*(0;w)&=\sigma_\infty(w,F)+O_j(r^j),
+ \qquad\frac{\partial I_r^*(0;w)}{\partial r}\ll r^{-1},\label{eq:Izero}\\
+ I_r^*(v;w)&\ll_jr^{-1}\lVert v\rVert^{-j},\label{eq:Irapid}\\
+ \abs{I_r^*(v;w)}+r\,\bigg|\frac{\partial I_r^*(v;w)}{\partial r}\bigg|
+ &\ll_\eps r^{1-2\eps}\lVert v\rVert^{-1+\eps},\label{eq:Idecay}
+\end{align}
+for every integer $j\ge1$, every $0<\eps<1/2$, and, in
+\eqref{eq:Irapid} and \eqref{eq:Idecay}, every $v\ne0$. The
+derivatives are taken with $v$ fixed, and the implied constants
+depend only on $F$, $\mathcal W$ and the parameters shown.
+\end{lemma}
+
+\begin{proof}
+Let $r_0=1+2\max\abs{F(x)}$, the maximum being over
+$\lVert x\rVert\le\rho_2$. For $r\ge r_0$ the function $h(r,F(x))$
+vanishes on the support of $w$, by Lemma~\ref{lem:delta}, and
+$I_r^*(v;w)=0$.
+
+The other assertions restate results of \cite{HB}, which are proved
+there for the classes of weights $\mathcal C(S)$ and $\mathcal C_0(S)$
+of \cite[Sections~2 and~6]{HB}; here $S$ is a set of parameters, on
+which the implied constants may depend. We apply them with four
+variables and with the form $F$, and let $S$ consist of $F$,
+$\mathcal W$ and the number
+\[
+ \lambda=\min\{\abs{\nabla F(x)}:\rho_1\le\lVert x\rVert\le\rho_2\},
+\]
+which is positive because $\nabla F(x)=2Ax$ and $A$ is nonsingular.
+Then $\mathcal W\subseteq\mathcal C(S)$, and $\abs{\nabla F}\ge\lambda$
+on the support of every $W\in\mathcal W$, as is required in
+\cite[Section~1]{HB}. The functions $W_y$ are those attached to $W$
+in \cite[Lemma~2]{HB}. By \cite[Lemma~12]{HB} there is a $\delta$,
+bounded below in terms of $S$, such that for each $y$ either
+$\abs{F(x)}\gg_S1$ on the support of $W_y$, or $W_y$ belongs to
+$\mathcal C_0(S)$ after a suitable permutation of the variables. As
+the proof of that lemma shows, one of the variables may also have to
+be replaced by its negative. In the second case there is therefore a
+linear map $\iota$ of $\R^4$, which permutes the coordinates and
+changes the sign of at most one of them, such that $W_y\circ\iota$
+belongs to the class $\mathcal C_0(S)$ formed with the form
+$F\circ\iota$. Since $\iota$ is orthogonal, the substitution
+$x\mapsto\iota x$ in \eqref{eq:Istar} and in \eqref{eq:singint} shows
+that $I_r^*(v;W_y)$ and $\sigma_\infty(W_y,F)$ are equal to the
+corresponding quantities for the weight $W_y\circ\iota$, the form
+$F\circ\iota$ and the vector $\iota^{-1}v$, which has the same norm
+as $v$. There are finitely many maps $\iota$, and each $F\circ\iota$
+is a nonsingular quadratic form. Hence it suffices to prove
+\eqref{eq:Izero}, \eqref{eq:Irapid} and \eqref{eq:Idecay} for a
+weight $w\in\mathcal C_0(S)$.
+
+For such a weight the surface $F=0$ is, on the support of $w$, the
+graph of a function $x_1=x_1(x_2,x_3,x_4)$, on which
+$dS=\abs{\nabla F}(\partial F/\partial x_1)^{-1}dx_2\,dx_3\,dx_4$.
+Thus $\sigma_\infty(w,F)$ is the singular integral of
+\cite[Theorem~3]{HB}. The first part of \eqref{eq:Izero} is
+\cite[Lemma~13]{HB} for $r\ll_S1$; for the other values of $r$ it
+holds because both terms are $O_S(1)$: the integral $I_r^*(0;w)$ by
+the bound $h(x,y)\ll x^{-1}$, and $\sigma_\infty(w,F)$ by the formula
+just given. By \cite[Lemma~14]{HB},
+\[
+ I_r^*(v;w)\ll r^{-1}\abs{I(r;r^{-1}v)},\qquad
+ \frac{\partial I_r^*(v;w)}{\partial r}\ll r^{-2}\abs{I(r;r^{-1}v)},
+\]
+where $I(r;u)$ stands for integrals of the kind defined there, not
+necessarily the same in the two bounds; the second bound uses that
+$F$ is homogeneous. For these integrals,
+\cite[Lemmas~15, 18 and~22]{HB} give
+\[
+ I(r;u)\ll_Sr,\qquad
+ I(r;u)\ll_{S,j}r^{-j}\lVert u\rVert^{-j},\qquad
+ I(r;u)\ll_{S,\eps}(r^{-1}\lVert u\rVert)^\eps r\lVert u\rVert^{-1},
+\]
+the last because $F$ is a nonsingular quadratic form in four
+variables. With $u=r^{-1}v$ these are the second part of
+\eqref{eq:Izero}, then \eqref{eq:Irapid}, and \eqref{eq:Idecay}.
+\end{proof}
+
+A weight $W$ whose support does not contain the origin is covered by
+Lemma~\ref{lem:integrals} with $\mathcal W=\{W\}$. We also record
+that the integral defining $\sigma_\infty(W,F)$ in
+\eqref{eq:singint} converges absolutely for every weight $W$: the
+cone $F=0$ is smooth away from the origin, on it
+$\abs{\nabla F(y)}=2\abs{Ay}\gg_F\lVert y\rVert$, and by homogeneity
+its part with $\rho<\lVert y\rVert\le2\rho$ has surface measure
+$O_F(\rho^3)$.
+
+\subsection{Zeros of quaternary forms and polynomial congruences}\label{sec:congruences}
+
+The first lemma bounds the number of zeros of a quaternary quadratic
+form in a box.
+
+\begin{lemma}\label{lem:quadriccount}
+Let $J(z)=z^{\mathsf T}Sz$, where $S$ is a nonsingular symmetric
+$4\times4$ matrix with rational entries whose determinant is not the
+square of a rational number. Then, for $U\ge1$,
+\begin{equation}\label{eq:quadriccount}
+ \#\{z\in\Z^4:\lVert z\rVert\le U,\ J(z)=0\}\ll_{J,\eps}U^{2+\eps}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If $J$ has no zero in $\Q^4$ other than the origin, there is nothing
+to prove. Otherwise let $v\in\Q^4\setminus\{0\}$ with $J(v)=0$, and
+write $b(x,y)=x^{\mathsf T}Sy$, so that
+$J(x+y)=J(x)+2b(x,y)+J(y)$. Since $S$ is nonsingular, there is
+$w\in\Q^4$ with $b(v,w)\ne0$. Replacing $w$ by $w+tv$ with
+$t=-J(w)/(2b(v,w))$, and then by a multiple of itself, we may assume
+that $J(w)=0$ and $b(v,w)=1/2$. The vectors $y\in\Q^4$ with
+$b(v,y)=b(w,y)=0$ form a subspace of dimension $2$, which meets the
+span of $v$ and $w$ only in the origin. Let $v_3,v_4$ be a basis of
+it, and let $T$ be the matrix with columns $v,w,v_3,v_4$. Then $T$ is
+invertible and
+\[
+ J(Ty)=y_1y_2+H_0(y_3,y_4)\qquad(y\in\Q^4),
+\]
+where $H_0$ is a binary quadratic form with rational coefficients.
+Comparing determinants gives $\det(S)\det(T)^2=D/16$, where $D$ is the
+discriminant of $H_0$. If $H_0$ had a zero in $\Q^2$ other than the
+origin, then $D$ would be the square of a rational number, and so
+would $\det S$. Hence $H_0(y_3,y_4)\ne0$ unless $y_3=y_4=0$.
+
+Choose an integer $k\ge1$ such that $kT^{-1}$ has integer entries and
+$H=kH_0$ has integer coefficients. For $z\in\Z^4$ with
+$\lVert z\rVert\le U$ and $J(z)=0$, the vector $y=kT^{-1}z$ has
+integer components, determines $z$, and satisfies
+$\lVert y\rVert\ll_JU$ and
+\[
+ ky_1y_2+H(y_3,y_4)=0.
+\]
+If $(y_3,y_4)\ne(0,0)$, then $n=H(y_3,y_4)$ is a nonzero integer with
+$\abs n\ll_JU^2$, and $y_1$ divides $n$. By the divisor bound there
+are $O_{J,\eps}(U^\eps)$ possibilities for $y_1$, each of which
+determines $y_2$. These $y$ number $O_{J,\eps}(U^{2+\eps})$. If
+$y_3=y_4=0$, then $y_1y_2=0$, and there are $O_J(U)$ such $y$.
+\end{proof}
+
+Let $\adj(A)$ be the adjugate of $A$, so that $A\adj(A)=\alpha I$,
+and set
+\begin{equation}\label{eq:dualform}
+ F^*(u)=u^{\mathsf T}\adj(A)u.
+\end{equation}
+The determinant of $\adj(A)$ is $\alpha^3$, which is not a square, so
+that Lemma~\ref{lem:quadriccount} applies to $F$ and to $F^*$. By a
+dyadic decomposition it gives, for $U\ge1$,
+\begin{equation}\label{eq:conecount}
+ \sum_{\substack{0<\lVert u\rVert\le U\\F^*(u)=0}}\frac1{\lVert u\rVert}
+ \ll_{F,\eps}U^{1+\eps}.
+\end{equation}
+
+The second lemma counts the solutions of polynomial congruences to a
+squarefree modulus in a box. The bound does not depend on the
+coefficients of the polynomials, which may be different at each
+prime.
+
+\begin{lemma}\label{lem:polynomialbox}
+Let $n,E\ge1$ be integers and let $m\ge1$ be squarefree. For every
+prime $p\mid m$ let $P_p\in\Fp[z_1,\ldots,z_n]$ be a nonzero
+polynomial of total degree at most $E$. Let $I_1,\ldots,I_n$ be
+intervals, each containing at most $Y$ integers, where $Y\ge1$. Then
+\begin{equation}\label{eq:polynomialbox}
+ \#\{z\in\Z^n:z_i\in I_i\ (1\le i\le n),\ P_p(z)=0\text{ in }\Fp
+ \text{ for every }p\mid m\}
+ \le C_{n,E}^{\omega(m)}\Big(\frac{Y^n}m+Y^{n-1}\Big),
+\end{equation}
+where $C_{n,E}=E+E^2+\cdots+E^n$.
+\end{lemma}
+
+\begin{proof}
+For $m=1$ the count is at most $Y^n$. Let $m>1$ and $k=\omega(m)$. We
+argue by induction on $n$.
+
+Let $n=1$. A nonzero polynomial in $\Fp[z_1]$ of degree at most $E$
+has at most $E$ zeros in $\Fp$. By the Chinese remainder theorem, the
+integers counted lie in at most $E^k$ residue classes modulo $m$, and
+each class contains at most $Y/m+1$ integers of $I_1$. This gives the
+bound $E^k(Y/m+1)$.
+
+Let $n\ge2$, and write $z=(t,y)$ with $t\in\Z$ and $y\in\Z^{n-1}$.
+For each $p\mid m$ write
+\[
+ P_p(t,y)=\sum_{j=0}^EP_{p,j}(y)t^j,\qquad P_{p,j}\in\Fp[z_2,\ldots,z_n].
+\]
+For $y\in\Z^{n-1}$, let $g(y)$ be the product of the primes $p\mid m$
+for which $P_{p,j}(y)=0$ in $\Fp$ for every $j$. At a prime dividing
+$m/g(y)$ the polynomial $P_p(t,y)$ in $t$ is nonzero. By the case
+$n=1$ with the modulus $m/g(y)$, the number of $t\in I_1$ for which
+$(t,y)$ is counted in \eqref{eq:polynomialbox} is at most
+\[
+ E^k\Big(\frac{Yg(y)}m+1\Big).
+\]
+We sum this over the $y$ with $y_i\in I_{i+1}$ for $1\le i\le n-1$.
+Since $g(y)$ is the sum of $\varphi(h)$ over the divisors $h$ of
+$g(y)$,
+\[
+ \sum_yg(y)=\sum_{h\mid m}\varphi(h)\#\{y:h\mid g(y)\}.
+\]
+Let $h\mid m$. For each $p\mid h$ choose an index $j(p)$ such that
+$P_{p,j(p)}$ is not the zero polynomial; there is one, because
+$P_p\ne0$. If $h\mid g(y)$, then $P_{p,j(p)}(y)=0$ in $\Fp$ for
+every $p\mid h$. With $C=C_{n-1,E}$, the induction hypothesis for the
+modulus $h$ and the polynomials $P_{p,j(p)}$ gives
+\[
+ \#\{y:h\mid g(y)\}\le C^{\omega(h)}\Big(\frac{Y^{n-1}}h+Y^{n-2}\Big).
+\]
+The number of $y$ is at most $Y^{n-1}$. Hence the count in
+\eqref{eq:polynomialbox} is at most
+\[
+ E^k\bigg(\frac{Y^n}m\sum_{h\mid m}\frac{\varphi(h)}hC^{\omega(h)}
+ +\frac{Y^{n-1}}m\sum_{h\mid m}\varphi(h)C^{\omega(h)}+Y^{n-1}\bigg).
+\]
+Here
+\[
+ \sum_{h\mid m}\frac{\varphi(h)}hC^{\omega(h)}
+ =\prod_{p\mid m}\Big(1+C\,\frac{p-1}p\Big)\le(1+C)^k,
+ \qquad
+ \sum_{h\mid m}\varphi(h)C^{\omega(h)}
+ =\prod_{p\mid m}\big(1+C(p-1)\big)\le C^km,
+\]
+and $C^k+1\le(1+C)^k$ because $k\ge1$. The count is therefore at
+most $(E(1+C))^k(Y^n/m+Y^{n-1})$, and $E(1+C_{n-1,E})=C_{n,E}$.
+\end{proof}
+
+Since $C_{n,E}^{\omega(m)}\ll_{n,E,\eps}m^\eps$, the right side of
+\eqref{eq:polynomialbox} is $\ll_{n,E,\eps}m^\eps(Y^n/m+Y^{n-1})$.
+
+\subsection{Bounds over finite fields}\label{sec:finite-fields}
+
+We use two bounds for sums of a character modulo $p$. The first is
+Weil's bound for polynomials in one variable.
+
+\begin{lemma}\label{lem:weil}
+Let $\psi$ be a nonprincipal character modulo $p$, and let
+$g\in\Fp[z]$ be a polynomial of degree $m\ge1$ with $m$ distinct
+zeros in $\overline{\Fp}$. Then
+\begin{equation}\label{eq:weil}
+ \bigg|\sum_{z\in\Fp}\psi(g(z))\bigg|\le(m-1)\sqrt p.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+This is \cite[(1.2)]{K}. It is also a case of
+\cite[Theorem~11.23]{IK}, since a polynomial of positive degree whose
+zeros are simple is not a constant multiple of a perfect power.
+\end{proof}
+
+We shall apply it to sums over the projective line, in the following
+form.
+
+\begin{corollary}\label{cor:weilline}
+Let $n\ge2$, let $\psi$ be a nonprincipal character modulo $p$ such
+that $\psi^n$ is principal, and let $g\in\Fp[s,t]$ be a form of
+degree $n$ with $n$ distinct zeros in $\PP^1(\overline{\Fp})$. Then
+\begin{equation}\label{eq:weilline}
+ \bigg|\sum_{(s:t)\in\PP^1(\Fp)}\psi(g(s,t))\bigg|\le(n-1)\sqrt p+1.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The summand does not depend on the coordinates chosen for the point,
+because $\psi(\lambda^n)=1$ for $\lambda\in\Fp\setminus\{0\}$. The
+points of $\PP^1(\Fp)$ are $(1:0)$ and the points $(z:1)$ with
+$z\in\Fp$. The zeros of the polynomial $g(z,1)$ in $\overline{\Fp}$
+are simple, since they correspond to zeros of $g$. Its degree is $n$
+if $g(1,0)\ne0$. Otherwise $t$ divides $g$ and $t^2$ does not, so
+that the degree is $n-1\ge1$. By Lemma~\ref{lem:weil} the sum over
+the points $(z:1)$ is at most $(n-1)\sqrt p$ in absolute value, and
+the point $(1:0)$ contributes at most $1$.
+\end{proof}
+
+The second bound is for sums over the quadric $F=0$. For a prime
+$p\nmid N_F$ let $\Qc(\Fp)$ be the set of points of $\PP^3(\Fp)$ at
+which $F$ vanishes, as in Section~\ref{sec:results}.
+
+\begin{lemma}\label{lem:katz}
+Let $p\nmid N_F$ be a prime and $n\ge2$. Let $\psi$ be a nonprincipal
+character modulo $p$ such that $\psi^n$ is principal, and let
+$G\in\Fp[x_1,x_2,x_3,x_4]$ be a form of degree $n$ such that
+\begin{equation}\label{eq:smoothp}
+ \operatorname{rank}\big(\nabla F(x),\nabla G(x)\big)=2
+ \qquad\text{for every }x\in\overline{\Fp}^4\setminus\{0\}
+ \text{ with }F(x)=G(x)=0.
+\end{equation}
+Then
+\begin{equation}\label{eq:katz}
+ \bigg|\sum_{P\in\Qc(\Fp)}\psi(G(P))\bigg|\le(2n^2-4n+4)p.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $\Qc$ be the surface $F=0$ in $\PP^3$ over $\Fp$. Since
+$p\nmid N_F$, it is smooth. It is therefore geometrically
+irreducible, since two components of a surface in $\PP^3$ meet, and
+the surface is singular where they meet. By \eqref{eq:smoothp} the
+hypersurface $G=0$ is transverse to $\Qc$. By
+\cite[Theorem~8.1(1)]{K}, the cohomology groups with compact supports of
+the complement of $G=0$ in $\Qc$ over $\overline{\Fp}$, with
+coefficients in the sheaf attached to $\psi(G)$, vanish in every
+degree other than $2$. In degree $2$ the group has dimension
+\[
+ C_0=\int_{\Qc}\frac{c(\Qc)}{1+nL},
+\]
+where $c(\Qc)$ is the total Chern class of $\Qc$ and $L$ is the class
+of a plane section, and the eigenvalues of the Frobenius of $\Fp$ on
+it have absolute value $p$. By the Lefschetz trace formula, as in
+\cite[(5.3)]{K}, the sum in \eqref{eq:katz} is the trace of this
+Frobenius. Hence it is at
+most $C_0p$ in absolute value. For a quadric surface,
+$c(\Qc)=(1+L)^4(1+2L)^{-1}=1+2L+2L^2$ and $\int_{\Qc}L^2=2$, so that
+\[
+ C_0=\int_{\Qc}(1+2L+2L^2)(1-nL+n^2L^2)=2(n^2-2n+2).\qedhere
+\]
+\end{proof}
+
+With $n=2d$ and $\psi=\chi_p$ the right side of \eqref{eq:katz} is
+$(8d^2-8d+4)p$, as in Theorem~\ref{thm:polynomial}, and with $n=rd$
+it is the bound for $a_{p,\psi}(G)$ in Theorem~\ref{thm:cyclic}.
+
+\section{Local sums}\label{sec:local}
+
+Throughout this section, $N\ge1$ is an integer divisible by
+$\rad(N_F)$, and $E,K\ge1$ are fixed. For every prime $p\nmid N$ we
+are given a function $\xi_p:\Fp^4\to\C$ and a nonzero polynomial
+$D_p\in\Fp[u_1,u_2,u_3,u_4]$ of total degree at most $E$. We assume
+that
+\begin{equation}\label{eq:weightproperties}
+ \xi_p(0)=0,\qquad\abs{\xi_p(x)}\le1,\qquad\xi_p(tx)=\xi_p(x)
+ \qquad(x\in\Fp^4,\ t\in\Fp\setminus\{0\}).
+\end{equation}
+For $x\in\Z^4$ we write $\xi_p(x)$ for the value of $\xi_p$ at the
+reduction of $x$ modulo $p$. For a squarefree integer $q\ge1$ with
+$(q,N)=1$ we set $\xi_q(x)=\prod_{p\mid q}\xi_p(x)$, with
+$\xi_1(x)=1$, and
+\begin{equation}\label{eq:Cdef}
+ C_q(u)=\sum_{\substack{x\bmod q\\F(x)\equiv0\imod q}}\xi_q(x)\e_q(u\cdot x)
+ \qquad(u\in\Z^4).
+\end{equation}
+We assume further that, for every prime $p\nmid N$ and every
+$u\in\Z^4$,
+\begin{equation}\label{eq:Cstrata}
+ \abs{C_p(u)}\le K(p^{3/2}+p^2\,\mathbf 1_{D_p(u)=0}),
+\end{equation}
+where $D_p(u)=0$ is understood in $\Fp$. The results of this section
+are applied in Section~\ref{sec:proofs} with $\xi_p(x)=\chi_p(G(x))$
+and with $\xi_p(x)=\psi_p(G(x))$, and with $N=N_G$; the hypothesis
+\eqref{eq:Cstrata} is verified for these functions in
+Section~\ref{sec:fourier}. It is used only for the bound
+\eqref{eq:Sxibound}, in Section~\ref{sec:average} and in
+Section~\ref{sec:analytic}.
+
+\subsection{Factorization and Gauss sums}\label{sec:gauss}
+
+For integers $c\ge1$, squarefree $q\ge1$ with $(q,N)=1$, and
+$u\in\Z^4$, set
+\begin{align}
+ S_c(u)&=\sum_{a\bmod c}^{*}\ \sum_{x\bmod c}\e_c(aF(x)+u\cdot x),\label{eq:Sdef}\\
+ \mathcal S_{q,c}(u)&=\sum_{a\bmod c}^{*}\
+ \sum_{\substack{x\bmod qc\\F(x)\equiv0\imod q}}
+ \xi_q(x)\e_{qc}(aF(x)+u\cdot x).\label{eq:Snewdef}
+\end{align}
+The condition $F(x)\equiv0\imod q$ makes the summand in
+\eqref{eq:Snewdef} a function of $a$ modulo $c$. Thus
+$\mathcal S_{1,c}=S_c$ and $\mathcal S_{q,1}=C_q$. The sums
+$\mathcal S_{q,c}(u)$ arise in Section~\ref{sec:analytic}, where the
+delta method is applied to the equation $F(x)/q=0$ on the vectors
+$x$ with $F(x)\equiv0\imod q$. We also write
+\begin{equation}\label{eq:ramanujan}
+ R_n(t)=\sum_{a\bmod n}^{*}\e_n(at)=\sum_{h\mid(n,t)}h\mu(n/h)
+\end{equation}
+for the Ramanujan sum; see \cite[Theorem~4.1]{MV}.
+
+\begin{lemma}\label{lem:crt}
+Let $q=q'q''$ be squarefree with $(q,N)=1$, and let $c=c'c''$ with
+$(q'c',q''c'')=1$. Then
+\begin{equation}\label{eq:crt}
+ \mathcal S_{q,c}(u)=\mathcal S_{q',c'}(u)\mathcal S_{q'',c''}(u).
+\end{equation}
+Moreover $\mathcal S_{q,c}(tu)=\mathcal S_{q,c}(u)$ for every integer
+$t$ with $(t,qc)=1$.
+\end{lemma}
+
+\begin{proof}
+Set $n'=q'c'$ and $n''=q''c''$. As $x'$ runs over $(\Z/n'\Z)^4$ and
+$x''$ over $(\Z/n''\Z)^4$, the vector $x=n''x'+n'x''$ runs over
+$(\Z/qc\Z)^4$. Since $n''$ is invertible modulo $q'$ and $n'$ modulo
+$q''$, the invariance in \eqref{eq:weightproperties} gives
+$\xi_q(x)=\xi_{q'}(x')\xi_{q''}(x'')$, and the condition
+$F(x)\equiv0\imod q$ is equivalent to $F(x')\equiv0\imod{q'}$ and
+$F(x'')\equiv0\imod{q''}$. Moreover
+\[
+ F(x)\equiv n''^2F(x')+n'^2F(x'')\imod{n'n''},
+ \qquad
+ \frac{u\cdot x}{n'n''}=\frac{u\cdot x'}{n'}+\frac{u\cdot x''}{n''}.
+\]
+Similarly $a=c''a'+c'a''$ runs over the reduced residues modulo $c$
+as $a'$ and $a''$ run over those modulo $c'$ and $c''$. Since
+$F(x')/q'$ and $F(x'')/q''$ are integers, it follows that
+\[
+ \e_{qc}(aF(x)+u\cdot x)
+ =\e_{n'}(c''n''a'F(x')+u\cdot x')\,\e_{n''}(c'n'a''F(x'')+u\cdot x'').
+\]
+Since $c''n''$ is invertible modulo $c'$ and $c'n'$ modulo $c''$, we
+may replace $c''n''a'$ by $a'$ and $c'n'a''$ by $a''$. This proves
+\eqref{eq:crt}.
+
+For the last assertion, let $\overline t$ be an inverse of $t$ modulo
+$qc$. In $\mathcal S_{q,c}(tu)$ replace $x$ by $\overline tx$ and
+then $a$ by $t^2a$. By \eqref{eq:weightproperties} the weight and the
+condition $F(x)\equiv0\imod q$ are unchanged, and the phase becomes
+$aF(x)+u\cdot x$.
+\end{proof}
+
+In particular $C_q(u)=\prod_{p\mid q}C_p(u)$, and $S_c(u)$ is
+multiplicative in $c$.
+
+\begin{lemma}\label{lem:gauss}
+Let $p\nmid N_F$ be a prime and $k\ge1$.
+\begin{enumerate}
+\item[\textup{(i)}] For every integer $a$ with $p\nmid a$,
+\begin{equation}\label{eq:gauss}
+ \sum_{x\bmod p^k}\e_{p^k}(aF(x)+u\cdot x)
+ =\chi(p)^kp^{2k}\e_{p^k}\big(-\overline{4a\alpha}\,F^*(u)\big),
+\end{equation}
+where the inverse is taken modulo $p^k$.
+\item[\textup{(ii)}] One has
+\begin{equation}\label{eq:unram}
+ S_{p^k}(u)=\chi(p)^kp^{2k}R_{p^k}(F^*(u)).
+\end{equation}
+\item[\textup{(iii)}] The number of points of $\PP^3(\Fp)$ at which
+$F$ vanishes is $\#\Qc(\Fp)=p^2+(1+\chi(p))p+1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Since $p\nmid2a\alpha$, the matrix $A$ is invertible modulo $p^k$,
+with inverse $\overline\alpha\adj(A)$. Replacing $x$ by
+$x-\overline{2a\alpha}\adj(A)u$ changes $aF(x)+u\cdot x$ into
+$aF(x)-\overline{4a\alpha}F^*(u)$ modulo $p^k$. It remains to show
+that
+\begin{equation}\label{eq:gauss0}
+ V_k(a)=\sum_{x\bmod p^k}\e_{p^k}(aF(x))=\chi(p)^kp^{2k}.
+\end{equation}
+Let $k\ge2$, and write $x=y+p^{k-1}z$ with $y$ modulo $p^{k-1}$ and
+$z$ modulo $p$. Then
+$F(x)\equiv F(y)+2p^{k-1}y^{\mathsf T}Az\imod{p^k}$, and the sum over
+$z$ of $\e_p(2ay^{\mathsf T}Az)$ is $p^4$ if $p\mid y$ and is $0$
+otherwise. Writing $y=pw$ with $w$ modulo $p^{k-2}$, we obtain
+$V_k(a)=p^4V_{k-2}(a)$, where $V_0(a)=1$. For $k=1$, a linear change
+of variables over $\Fp$ brings $F$ to a diagonal form
+$\alpha_1y_1^2+\cdots+\alpha_4y_4^2$, where
+$\alpha_1\alpha_2\alpha_3\alpha_4$ is the product of $\alpha$ and a
+nonzero square. For $b\in\Fp\setminus\{0\}$,
+\[
+ \sum_{y\in\Fp}\e_p(by^2)=\sum_{n\in\Fp}\big(1+\chi_p(n)\big)\e_p(bn)
+ =\chi_p(b)\tau_p,\qquad\tau_p=\sum_{n\in\Fp}\chi_p(n)\e_p(n).
+\]
+Here $\overline{\tau_p}=\chi_p(-1)\tau_p$ and $\abs{\tau_p}^2=p$ by
+\cite[Theorems~9.5 and~9.7]{MV}, so that $\tau_p^4=p^2$. Hence
+\[
+ V_1(a)=\chi_p(a^4\alpha_1\alpha_2\alpha_3\alpha_4)\tau_p^4=\chi(p)p^2.
+\]
+Together with the recursion this proves \eqref{eq:gauss0} for every
+$k\ge1$.
+
+(ii) Sum \eqref{eq:gauss} over the reduced residues $a$ modulo $p^k$,
+and note that $-\overline{4a\alpha}$ runs over the reduced residues
+with $a$.
+
+(iii) By \eqref{eq:gauss0} with $k=1$, the number of $x\in\Fp^4$ with
+$F(x)=0$ is
+\[
+ \frac1p\sum_{a\bmod p}V_1(a)=\frac1p\big(p^4+(p-1)\chi(p)p^2\big)
+ =p^3+\chi(p)(p^2-p).
+\]
+Removing the origin and dividing by $p-1$ gives the assertion.
+\end{proof}
+
+At the primes dividing $N_F$ we use the following bound.
+
+\begin{lemma}\label{lem:badprime}
+For every integer $c\ge1$ and every $u\in\Z^4$,
+\begin{equation}\label{eq:badbound}
+ \abs{S_c(u)}\le4\abs\alpha^{1/2}c^3.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $(a,c)=1$ and
+$V=\sum_{x\bmod c}\e_c(aF(x)+u\cdot x)$. Writing $\abs V^2$ as a sum
+over $x$ and $x+z$, we get
+\[
+ \abs V^2=\sum_{z\bmod c}\e_c(aF(z)+u\cdot z)
+ \sum_{x\bmod c}\e_c(2ax^{\mathsf T}Az)
+ \le c^4\#\{z\bmod c:2Az\equiv0\imod c\}.
+\]
+Let $d_1,\ldots,d_4$ be the invariant factors of the integer matrix
+$2A$, so that $d_1d_2d_3d_4=\abs{\det(2A)}=16\abs\alpha$. The number
+of $z$ modulo $c$ with $2Az\equiv0\imod c$ is
+$\prod_i(d_i,c)\le16\abs\alpha$. Hence $\abs V\le4\abs\alpha^{1/2}c^2$,
+and \eqref{eq:badbound} follows on summing over $a$.
+\end{proof}
+
+\subsection{Moduli not coprime to \texorpdfstring{$q$}{q}}\label{sec:ramified}
+
+We now evaluate $\mathcal S_{q,c}(u)$ when $c$ is divisible by primes
+dividing $q$.
+
+\begin{lemma}\label{lem:ramified}
+Let $p\nmid N$ be a prime and $k\ge1$. Then
+\begin{equation}\label{eq:ramified}
+ \mathcal S_{p,p^k}(u)
+ =\chi(p)^{k+1}p^{2k+1}\,\xi_p(\adj(A)u)\,R_{p^{k+1}}(F^*(u)).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $j\ge2$ let
+\[
+ \mathcal U_j(u)=\sum_{a\bmod p^j}^{*}\ \sum_{x\bmod p^j}
+ \xi_p(x)\e_{p^j}(aF(x)+u\cdot x).
+\]
+We first show that
+\begin{equation}\label{eq:Uj}
+ \mathcal U_j(u)=\chi(p)^jp^{2j}\,\xi_p(\adj(A)u)\,R_{p^j}(F^*(u)).
+\end{equation}
+Fix $a$ with $p\nmid a$, and write $x=y+p^{j-1}z$ with $y$ modulo
+$p^{j-1}$ and $z$ modulo $p$. Then $\xi_p(x)=\xi_p(y)$, and
+\[
+ aF(x)+u\cdot x\equiv aF(y)+u\cdot y+p^{j-1}(2aAy+u)\cdot z\imod{p^j},
+\]
+because $2j-2\ge j$. The sum over $z$ is $p^4$ if
+$2aAy+u\equiv0\imod p$, and is $0$ otherwise. The congruence means
+that $y\equiv-\overline{2a\alpha}\adj(A)u\imod p$, and for these $y$
+we have $\xi_p(y)=\xi_p(\adj(A)u)$ by \eqref{eq:weightproperties}.
+The inner sum in $\mathcal U_j(u)$ is therefore
+\[
+ \xi_p(\adj(A)u)\,p^4
+ \sum_{\substack{y\bmod p^{j-1}\\2aAy+u\equiv0\imod p}}
+ \e_{p^j}(aF(y)+u\cdot y).
+\]
+The same computation without the weight shows that $p^4$ times the
+last sum is the left side of \eqref{eq:gauss} with $k=j$. Summing
+\eqref{eq:gauss} over $a$ as in Lemma~\ref{lem:gauss}(ii) gives
+\eqref{eq:Uj}.
+
+Now let $k\ge1$. The reduced residues modulo $p^{k+1}$ are the
+numbers $a+tp^k$, where $a$ runs over the reduced residues modulo
+$p^k$ and $t$ over the residues modulo $p$. The sum over $t$ of
+$\e_p(tF(x))$ is $p$ if $p\mid F(x)$, and is $0$ otherwise. Hence
+\[
+ \mathcal U_{k+1}(u)=p\sum_{a\bmod p^k}^{*}\
+ \sum_{\substack{x\bmod p^{k+1}\\F(x)\equiv0\imod p}}
+ \xi_p(x)\e_{p^{k+1}}(aF(x)+u\cdot x)=p\,\mathcal S_{p,p^k}(u),
+\]
+and \eqref{eq:ramified} follows from \eqref{eq:Uj} with $j=k+1$.
+\end{proof}
+
+For a squarefree $q$ with $(q,N)=1$ and an integer $c\ge1$ we write
+\begin{equation}\label{eq:q1q2}
+ q_1=(q,c),\qquad q_2=q/q_1,
+\end{equation}
+as in \cite{IM}.
+
+\begin{lemma}\label{lem:goodglobal}
+Let $q\ge1$ be squarefree with $(q,N)=1$, let $c\ge1$, and let $q_1$
+and $q_2$ be as in \eqref{eq:q1q2}. If $(c,N_F)=1$, then
+\begin{equation}\label{eq:goodglobal}
+ \mathcal S_{q,c}(u)
+ =C_{q_2}(u)\,q_1c^2\chi(q_1c)\,\xi_{q_1}(\adj(A)u)\,R_{q_1c}(F^*(u)).
+\end{equation}
+If $F^*(u)=0$, then, for every $c\ge1$,
+\begin{equation}\label{eq:coneratio}
+ \mathcal S_{q,c}(u)
+ =C_{q_2}(u)\,q_1^2\chi(q_1)\,\xi_{q_1}(\adj(A)u)\,S_c(u).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $(c,N_F)=1$, and write $c=c_0\prod_{p\mid q_1}p^{k_p}$ with
+$(c_0,q)=1$ and $k_p\ge1$. By Lemma~\ref{lem:crt},
+\[
+ \mathcal S_{q,c}(u)=C_{q_2}(u)\,S_{c_0}(u)
+ \prod_{p\mid q_1}\mathcal S_{p,p^{k_p}}(u).
+\]
+We insert \eqref{eq:unram} for the prime powers dividing $c_0$ and
+\eqref{eq:ramified} for the primes dividing $q_1$. The powers of the
+primes have product $q_1c^2$, the values of $\chi$ have product
+$\chi(q_1c)$, and the weights have product $\xi_{q_1}(\adj(A)u)$.
+The Ramanujan sums have product $R_{q_1c}(F^*(u))$, because
+$R_n(t)$ is multiplicative in $n$ and
+$q_1c=c_0\prod_{p\mid q_1}p^{k_p+1}$. This proves
+\eqref{eq:goodglobal}.
+
+Let $F^*(u)=0$, and suppose first that $(c,N_F)=1$. Then
+$R_{q_1c}(0)=\varphi(q_1c)=q_1\varphi(c)$, since every prime dividing
+$q_1$ divides $c$, and $S_c(u)=\chi(c)c^2\varphi(c)$ by
+\eqref{eq:unram}. Thus \eqref{eq:coneratio} follows from
+\eqref{eq:goodglobal}. In general, write $c=c_1c_2$, where every
+prime dividing $c_1$ divides $N_F$ and $(c_2,N_F)=1$. Then
+$(q,c)=(q,c_2)$, and Lemma~\ref{lem:crt} gives
+$\mathcal S_{q,c}(u)=S_{c_1}(u)\mathcal S_{q,c_2}(u)$ and
+$S_c(u)=S_{c_1}(u)S_{c_2}(u)$, so that \eqref{eq:coneratio} for $c$
+follows from the case of $c_2$.
+\end{proof}
+
+\subsection{Sums over the modulus and the singular series}\label{sec:moduli}
+
+We now sum $\mathcal S_{q,c}(u)$ over $c$, separately for the
+frequencies with $F^*(u)\ne0$ and for those with $F^*(u)=0$. In both
+cases $q=q_1q_2$ is a factorization of $q$, and $c$ runs over the
+integers with $(c,q)=q_1$, in accordance with \eqref{eq:q1q2}. We
+write $c=c_1c_2$, where every prime dividing $c_1$ divides $N_F$ and
+$(c_2,N_F)=1$. For $X\ge1$, the number of integers $c_1\le X$ of
+this kind is at most $(1+\log X/\log2)^{\omega(N_F)}$.
+
+\begin{lemma}\label{lem:genericmod}
+Let $q=q_1q_2$ be squarefree with $(q,N)=1$, let $u\in\Z^4$ with
+$F^*(u)\ne0$, and let $X\ge1$. Then
+\begin{equation}\label{eq:genericmod}
+ \sum_{\substack{c\le X\\(c,q)=q_1}}\frac{\abs{\mathcal S_{q,c}(u)}}{c^3}
+ \ll_{F,\eps}\abs{C_{q_2}(u)}\,q_1^2\,\mathbf 1_{q_1\mid F^*(u)}
+ \,(X\abs{F^*(u)})^\eps.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write $m=F^*(u)$. By Lemma~\ref{lem:crt} and
+Lemma~\ref{lem:badprime},
+\[
+ \abs{\mathcal S_{q,c}(u)}=\abs{S_{c_1}(u)}\abs{\mathcal S_{q,c_2}(u)}
+ \le4\abs\alpha^{1/2}c_1^3\abs{\mathcal S_{q,c_2}(u)},
+\]
+and $(c_2,q)=q_1$. By \eqref{eq:goodglobal} and
+\eqref{eq:weightproperties},
+\[
+ \abs{\mathcal S_{q,c_2}(u)}\le\abs{C_{q_2}(u)}\,q_1c_2^2\abs{R_{q_1c_2}(m)}.
+\]
+Write $c_2=c_0\prod_{p\mid q_1}p^{k_p}$ with $(c_0,q)=1$ and
+$k_p\ge1$. Since $R_n(m)$ is multiplicative in $n$,
+\begin{equation}\label{eq:ramsplit}
+ q_1\sum_{\substack{c_2\le X\\(c_2,q)=q_1}}\frac{\abs{R_{q_1c_2}(m)}}{c_2}
+ \le\sum_{c_0\le X}\frac{\abs{R_{c_0}(m)}}{c_0}
+ \prod_{p\mid q_1}\bigg(p\sum_{k\ge1}\frac{\abs{R_{p^{k+1}}(m)}}{p^k}\bigg).
+\end{equation}
+By \eqref{eq:ramanujan}, $R_{p^j}(m)$ is $\varphi(p^j)$ if
+$p^j\mid m$, is $-p^{j-1}$ if $p^{j-1}$ is the exact power of $p$
+dividing $m$, and is $0$ otherwise. Hence, with $v=v_p(m)$,
+\[
+ p\sum_{k\ge1}\frac{\abs{R_{p^{k+1}}(m)}}{p^k}
+ =\begin{cases}0,&v=0,\\p\big((v-1)(p-1)+1\big),&v\ge1,\end{cases}
+\]
+which is at most $p^2v$. The product in \eqref{eq:ramsplit} therefore
+vanishes unless $q_1\mid m$, and is at most $q_1^2\tau(\abs m)$. By
+\eqref{eq:ramanujan} again,
+\[
+ \sum_{n\le X}\frac{\abs{R_n(m)}}n
+ \le\sum_{h\mid m}\sum_{j\le X/h}\frac1j\le\tau(\abs m)(1+\log X).
+\]
+Collecting these bounds and summing over $c_1$, we find that the left
+side of \eqref{eq:genericmod} is
+\[
+ \ll_F\abs{C_{q_2}(u)}\,q_1^2\,\mathbf 1_{q_1\mid m}\,
+ \tau(\abs m)^2(1+\log X)^{1+\omega(N_F)},
+\]
+and the divisor bound completes the proof.
+\end{proof}
+
+When $F^*(u)=0$ we need the cancellation in the sum over $c$. It
+comes from the character $\chi$, which is not principal because
+$\alpha$ is not a square.
+
+\begin{lemma}\label{lem:conemod}
+Let $q=q_1q_2$ be squarefree with $(q,N_F)=1$, let $u\in\Z^4$ with
+$F^*(u)=0$, and let $X\ge1$. Then
+\begin{equation}\label{eq:conemod}
+ \sum_{\substack{c\le X\\(c,q)=q_1}}S_c(u)\ll_{F,\eps}X^3(Xq)^\eps.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $f$ be the conductor of $\chi$. Since $\chi$ has period $f$ and
+its sum over a period vanishes, the sums of $\chi$ over intervals are
+at most $f$ in absolute value. Partial summation gives, for $V>0$,
+\begin{equation}\label{eq:chicube}
+ \bigg|\sum_{j\le V}\chi(j)j^3\bigg|\le2fV^3.
+\end{equation}
+Let $M\ge1$ be an integer. Detecting the condition $(k,M)=1$ by the
+M\"obius function and applying \eqref{eq:chicube}, we obtain, for
+$Z>0$,
+\begin{equation}\label{eq:chicoprime}
+ \bigg|\sum_{\substack{k\le Z\\(k,M)=1}}\chi(k)k^3\bigg|
+ =\bigg|\sum_{e\mid M}\mu(e)\chi(e)e^3\sum_{j\le Z/e}\chi(j)j^3\bigg|
+ \le2^{\omega(M)+1}fZ^3.
+\end{equation}
+
+Consider first the integers $c$ with $(c,N_F)=1$. For these
+$S_c(u)=\chi(c)c^2\varphi(c)$, by \eqref{eq:unram} and
+Lemma~\ref{lem:crt}. The integers $c$ with $(c,q)=q_1$ are the
+numbers $c=q_1n$ with $(n,q_2)=1$, and for them
+\[
+ \varphi(q_1n)=\varphi(q_1)\,n\sum_{\substack{h\mid n\\(h,q_1)=1}}\frac{\mu(h)}h.
+\]
+Writing $n=hk$, we get, for $Y\ge1$,
+\[
+ \sum_{\substack{c\le Y\\(c,q)=q_1\\(c,N_F)=1}}\chi(c)c^2\varphi(c)
+ =\chi(q_1)q_1^2\varphi(q_1)
+ \sum_{\substack{h\le Y/q_1\\(h,qN_F)=1}}\mu(h)\chi(h)h^2
+ \sum_{\substack{k\le Y/(q_1h)\\(k,q_2N_F)=1}}\chi(k)k^3.
+\]
+By \eqref{eq:chicoprime} with $M=q_2N_F$, the inner sum is at most
+$2^{\omega(q_2N_F)+1}f(Y/(q_1h))^3$ in absolute value. Hence
+\begin{equation}\label{eq:conegood}
+ \bigg|\sum_{\substack{c\le Y\\(c,q)=q_1\\(c,N_F)=1}}\chi(c)c^2\varphi(c)\bigg|
+ \le2^{\omega(q_2N_F)+1}f\,Y^3\sum_{h\le Y}\frac1h
+ \le2^{\omega(q_2N_F)+1}f\,Y^3(1+\log Y).
+\end{equation}
+
+In general write $c=c_1c_2$ as above. Then
+$S_c(u)=S_{c_1}(u)S_{c_2}(u)$ and $(c,q)=(c_2,q)$. By
+Lemma~\ref{lem:badprime} and \eqref{eq:conegood} with $Y=X/c_1$,
+\[
+ \bigg|\sum_{\substack{c\le X\\(c,q)=q_1}}S_c(u)\bigg|
+ \le\sum_{c_1\le X}2^{\omega(q_2N_F)+3}\abs\alpha^{1/2}f\,c_1^3
+ \Big(\frac X{c_1}\Big)^3(1+\log X).
+\]
+The number of $c_1$ is at most $(1+\log X/\log2)^{\omega(N_F)}$, and
+$2^{\omega(q_2)}\ll_\eps q^\eps$. This proves \eqref{eq:conemod}.
+\end{proof}
+
+We turn to the singular series. Recall the local densities
+$\sigma_p$ and the series $\S_F$ of \eqref{eq:singint} and
+\eqref{eq:SF}.
+
+\begin{lemma}\label{lem:density}
+For every prime $p$ the limit defining $\sigma_p$ exists, and
+\begin{equation}\label{eq:densityseries}
+ \sigma_p=\sum_{k\ge0}\frac{S_{p^k}(0)}{p^{4k}},
+\end{equation}
+where the series converges absolutely. If $p\nmid N_F$, then
+\begin{equation}\label{eq:sigmagood}
+ \sigma_p=\frac{1-\chi(p)p^{-2}}{1-\chi(p)p^{-1}}.
+\end{equation}
+In particular the product in \eqref{eq:SF} converges absolutely.
+\end{lemma}
+
+\begin{proof}
+Let $N_{p,k}$ be the number of $x$ modulo $p^k$ with
+$F(x)\equiv0\imod{p^k}$. By orthogonality,
+\[
+ p^kN_{p,k}=\sum_{a\bmod p^k}\ \sum_{x\bmod p^k}\e_{p^k}(aF(x)).
+\]
+We sort the residues $a$ according to the power $p^{k-j}$ of $p$
+dividing them, where $0\le j\le k$. The residues with a given $j$
+contribute $p^{4(k-j)}S_{p^j}(0)$. Hence
+\[
+ p^{-3k}N_{p,k}=\sum_{j=0}^k\frac{S_{p^j}(0)}{p^{4j}}.
+\]
+By Lemma~\ref{lem:badprime} the terms on the right are
+$O_F(p^{-j})$, so that the series in \eqref{eq:densityseries}
+converges absolutely and equals $\sigma_p$. If $p\nmid N_F$, then
+$S_{p^k}(0)=\chi(p)^kp^{2k}\varphi(p^k)$ by \eqref{eq:unram}, and
+\[
+ \sigma_p=1+\Big(1-\frac1p\Big)\sum_{k\ge1}\frac{\chi(p)^k}{p^k}
+ =\frac{1-\chi(p)p^{-2}}{1-\chi(p)p^{-1}}.
+\]
+The factor of \eqref{eq:SF} at such a prime is $1-\chi(p)p^{-2}$,
+which gives the last assertion.
+\end{proof}
+
+\begin{lemma}\label{lem:singseries}
+Let $q\ge1$ be squarefree with $(q,N_F)=1$. The series
+$\sum_{(c,q)=1}S_c(0)c^{-4}$ converges, and
+\begin{equation}\label{eq:seriesfactor}
+ \sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^4}
+ =\S_F\prod_{p\mid q}\sigma_p^{-1}.
+\end{equation}
+Moreover, for $X\ge1$,
+\begin{equation}\label{eq:seriestail}
+ \sum_{\substack{c>X\\(c,q)=1}}\frac{S_c(0)}{c^4}\ll_{F,\eps}q^\eps X^{-1+\eps}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $T(v)$ be the sum of $S_c(0)$ over the integers $c\le v$ with
+$(c,q)=1$. By Lemma~\ref{lem:conemod} with $u=0$ and $q_1=1$ we have
+$T(v)\ll_{F,\eps}v^{3+\eps}q^\eps$. For real $z\ge0$ and $X\ge1$,
+partial summation gives
+\[
+ \sum_{\substack{c\le X\\(c,q)=1}}\frac{S_c(0)}{c^{4+z}}
+ =\frac{T(X)}{X^{4+z}}+(4+z)\int_1^X\frac{T(v)}{v^{5+z}}\,dv.
+\]
+Letting $X\to\infty$, we see that the series
+\[
+ \mathcal D_q(z)=\sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^{4+z}}
+ =(4+z)\int_1^\infty\frac{T(v)}{v^{5+z}}\,dv
+\]
+converges for every $z\ge0$, and that it is continuous on $z\ge0$ by
+dominated convergence. For $z=0$ the two formulas give
+\[
+ \sum_{\substack{c>X\\(c,q)=1}}\frac{S_c(0)}{c^4}
+ =4\int_X^\infty\frac{T(v)}{v^5}\,dv-\frac{T(X)}{X^4},
+\]
+which proves \eqref{eq:seriestail}.
+
+Let $z>0$. By Lemma~\ref{lem:badprime} the series
+$\mathcal D_q(z)$ converges absolutely, and by Lemma~\ref{lem:crt}
+it has the Euler product
+\[
+ \mathcal D_q(z)=\prod_{p\nmid q}\sigma_p(z),
+ \qquad\sigma_p(z)=\sum_{k\ge0}\frac{S_{p^k}(0)}{p^{k(4+z)}}.
+\]
+The computation in the proof of Lemma~\ref{lem:density} gives
+$\sigma_p(z)=(1-\chi(p)p^{-2-z})/(1-\chi(p)p^{-1-z})$ for
+$p\nmid N_F$. Comparing with the Euler products of $L(1+z,\chi)$ and
+$L(2+z,\chi)$, we obtain
+\[
+ \mathcal D_q(z)=\frac{L(1+z,\chi)}{L(2+z,\chi)}
+ \prod_{p\mid q}\sigma_p(z)^{-1}
+ \prod_{p\mid N_F}\frac{1-\chi(p)p^{-1-z}}{1-\chi(p)p^{-2-z}}\,\sigma_p(z).
+\]
+As $z\to0^+$, each of the finitely many local factors tends to its
+value at $z=0$, where $\sigma_p(0)=\sigma_p$ by
+\eqref{eq:densityseries}; for $p\mid N_F$ the series $\sigma_p(z)$
+converges uniformly on $z\ge0$, by Lemma~\ref{lem:badprime}. The
+quotient of $L$-functions tends to $L(1,\chi)/L(2,\chi)$: the series
+$\sum_n\chi(n)n^{-s}$ converges uniformly for $s\ge1$, because the
+partial sums of $\chi$ are bounded, so that $L(s,\chi)$ is continuous
+there; see \cite[Section~4.3]{MV}. Since
+$L(2,\chi)^{-1}=\prod_p(1-\chi(p)p^{-2})$, the limit is
+\[
+ L(1,\chi)\prod_p\Big(1-\frac{\chi(p)}p\Big)\sigma_p
+ \prod_{p\mid q}\sigma_p^{-1}
+ =\S_F\prod_{p\mid q}\sigma_p^{-1},
+\]
+by \eqref{eq:sigmagood} and \eqref{eq:SF}. By the continuity of
+$\mathcal D_q$ at $z=0$, this proves \eqref{eq:seriesfactor}.
+\end{proof}
+
+For a squarefree $q\ge1$ with $(q,N)=1$ we set
+\begin{equation}\label{eq:Sxi}
+ \S_\xi(q)=\frac{C_q(0)}{q^3}\sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^4}
+ =\S_F\prod_{p\mid q}\frac{C_p(0)}{p^3\sigma_p},
+\end{equation}
+where the second expression follows from \eqref{eq:seriesfactor}.
+This is the coefficient of the main term in
+Section~\ref{sec:analytic}. By \eqref{eq:Cstrata} we have
+$\abs{C_p(0)}\le2Kp^2$, and $\sigma_p^{-1}\le2$ by
+\eqref{eq:sigmagood}. Hence
+\begin{equation}\label{eq:Sxibound}
+ \abs{\S_\xi(q)}\le\abs{\S_F}\frac{(4K)^{\omega(q)}}q\ll_{F,K,\eps}q^{-1+\eps}.
+\end{equation}
+
+\subsection{Averages over exceptional frequencies}\label{sec:average}
+
+By \eqref{eq:Cstrata} the sum $C_p(u)$ is $O_K(p^{3/2})$ unless
+$D_p(u)=0$, where it is $O_K(p^2)$. The two lemmas
+of this section show that the larger bound is harmless on average
+over $u$. For a squarefree $h\ge1$ with $(h,N)=1$ and $u\in\Z^4$ set
+\[
+ \Delta_h(u)=\prod_{p\mid h}\mathbf 1_{D_p(u)=0},\qquad\Delta_1(u)=1.
+\]
+
+\begin{lemma}\label{lem:box}
+Let $q_1$ and $h$ be coprime squarefree positive integers with
+$(q_1h,N)=1$, and let $U\ge1$. Then
+\begin{equation}\label{eq:box}
+ \#\{u\in\Z^4:\lVert u\rVert\le U,\ q_1\mid F^*(u),\ \Delta_h(u)=1\}
+ \ll_{E,\eps}(q_1h)^\eps\Big(\frac{U^4}{q_1h}+U^3\Big),
+\end{equation}
+and
+\begin{equation}\label{eq:weightedbox}
+ \sum_{\substack{0<\lVert u\rVert\le U\\q_1\mid F^*(u)}}
+ \frac{\Delta_h(u)}{\lVert u\rVert}
+ \ll_{E,\eps}(q_1h)^\eps\Big(\frac{U^3}{q_1h}+U^2\Big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We apply Lemma~\ref{lem:polynomialbox} with $n=4$ and the modulus
+$m=q_1h$. At a prime $p\mid q_1$ we take for $P_p$ the reduction of
+$F^*$ modulo $p$. It is not the zero polynomial, because $p$ is odd
+and the matrix $\adj(A)$, of determinant $\alpha^3$, is not zero
+modulo $p$. At a prime $p\mid h$ we take $P_p=D_p$. The degrees are
+at most $\max\{2,E\}$, and the vectors $u$ with
+$\lVert u\rVert\le U$ lie in a product of four intervals containing
+at most $3U$ integers each. This gives \eqref{eq:box}. For
+\eqref{eq:weightedbox} we split the range of $u$ into the parts with
+$2^{-j-1}U<\lVert u\rVert\le2^{-j}U$, where $j\ge0$ and $2^j\le U$,
+and apply \eqref{eq:box} with $2^{-j}U$ in place of $U$ to each of
+them.
+\end{proof}
+
+\begin{lemma}\label{lem:average}
+Let $q=q_1q_2$ be squarefree with $(q,N)=1$, and let $U\ge1$. Then
+\begin{equation}\label{eq:average}
+ \sum_{\substack{0<\lVert u\rVert\le U\\q_1\mid F^*(u)}}
+ \frac{\abs{C_{q_2}(u)}}{\lVert u\rVert}
+ \ll_{E,K,\eps}q^\eps q_2^{3/2}\Big(\frac{U^3}{q_1}+q_2^{1/2}U^2\Big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:crt} and \eqref{eq:Cstrata},
+\begin{equation}\label{eq:Cexpand}
+ \abs{C_{q_2}(u)}\le\prod_{p\mid q_2}K(p^{3/2}+p^2\,\mathbf 1_{D_p(u)=0})
+ =K^{\omega(q_2)}q_2^{3/2}\sum_{h\mid q_2}h^{1/2}\Delta_h(u).
+\end{equation}
+We insert this into the left side of \eqref{eq:average} and apply
+\eqref{eq:weightedbox} to each $h$. Since
+\[
+ \sum_{h\mid q_2}h^{1/2}\Big(\frac{U^3}{q_1h}+U^2\Big)
+ \le\tau(q_2)\Big(\frac{U^3}{q_1}+q_2^{1/2}U^2\Big),
+\]
+the lemma follows.
+\end{proof}
+
+\section{Fourier transforms on the quadric modulo \texorpdfstring{$p$}{p}}\label{sec:fourier}
+
+In this section $n\ge2$, and $G\in\Z[x_1,x_2,x_3,x_4]$ is a form of
+degree $n$ satisfying \eqref{eq:smooth}; the integer $N_G$ is defined
+by \eqref{eq:NG}. For a prime $p\nmid N_G$ and a nonprincipal
+character $\psi$ modulo $p$ such that $\psi^n$ is principal, we
+consider the function $\xi_p(x)=\psi(G(x))$ on $\Fp^4$ and the sum
+\begin{equation}\label{eq:Cpsi}
+ C_p(u)=\sum_{\substack{x\bmod p\\F(x)\equiv0\imod p}}\psi(G(x))\e_p(u\cdot x)
+ \qquad(u\in\Z^4),
+\end{equation}
+which is \eqref{eq:Cdef} for this function. We show that the
+hypotheses \eqref{eq:weightproperties} and \eqref{eq:Cstrata} of
+Section~\ref{sec:local} hold, with constants that do not depend on
+the coefficients of $G$. The two cases of interest are $n=2d$ with
+$\psi=\chi_p$, and $n=rd$ with $\psi=\psi_p$ of order $r$.
+
+\subsection{Bad primes and exceptional planes}\label{sec:cover}
+
+For a prime $p\nmid N_F$ we denote the reductions of $F$, $F^*$ and
+$G$ modulo $p$ by the same letters.
+
+\begin{lemma}\label{lem:exceptional}
+Let $n\ge2$. There are numbers $C_{F,n}\ge1$ and $E_{F,n}\ge1$ with
+the following properties, for every form $G\in\Z[x_1,x_2,x_3,x_4]$ of
+degree $n$ satisfying \eqref{eq:smooth}.
+\begin{enumerate}
+\item[\textup{(i)}] The form $G$ has bad reduction at only finitely
+many primes $p\nmid N_F$, and $N_G\ll_{F,n}H_G^{C_{F,n}}$.
+\item[\textup{(ii)}] For every prime $p\nmid N_G$ there is a nonzero
+polynomial $D_p\in\Fp[u_1,u_2,u_3,u_4]$ of total degree at most
+$E_{F,n}$, with $D_p(0)=0$, such that every $u\in\Fp^4$ with
+$D_p(u)\ne0$ satisfies $F^*(u)\ne0$ and
+\begin{equation}\label{eq:transverse}
+ \operatorname{rank}\big(\nabla F(x),\nabla G(x),u\big)=3
+ \qquad\text{for every }x\in\overline{\Fp}^4\setminus\{0\}
+ \text{ with }F(x)=G(x)=u\cdot x=0.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\mathbf g=(g_m)$ be indeterminates indexed by the monomials
+$x^m$ of degree $n$ in $x_1,\ldots,x_4$, let
+$G_{\mathbf g}=\sum_mg_mx^m$ be the generic form of degree $n$, and
+let $u=(u_1,\ldots,u_4)$ be further indeterminates. Consider the
+following two systems of forms in $x$. The first consists of $F$,
+of $G_{\mathbf g}$, and of the six minors of order $2$ of the matrix
+with rows $\nabla F$ and $\nabla G_{\mathbf g}$; its coefficients lie
+in $\Z[\mathbf g]$. The second consists of $F$, of $G_{\mathbf g}$,
+of $u\cdot x$, and of the four minors of order $3$ of the matrix with
+rows $\nabla F$, $\nabla G_{\mathbf g}$ and $u$; its coefficients lie
+in $\Z[\mathbf g,u]$. All these forms have positive degree in $x$. By
+the fundamental theorem of elimination theory \cite[Chapter~IX,
+Theorems~3.2 and~4.1]{La}, there are polynomials
+$P_1,\ldots,P_s\in\Z[\mathbf g]$ and
+$R_1,\ldots,R_t\in\Z[\mathbf g,u]$ with the following property. Let
+$k$ be a field, let $\gamma$ be the vector of coefficients of a form
+$G_\gamma$ of degree $n$ over $k$, and let $\upsilon\in k^4$. Then
+the first system, specialized at $\gamma$, has a common zero
+$x\ne0$ in $\overline k^4$ if and only if $P_i(\gamma)=0$ for every
+$i$; and the second system, specialized at $(\gamma,\upsilon)$, has a
+common zero $x\ne0$ in $\overline k^4$ if and only if
+$R_j(\gamma,\upsilon)=0$ for every $j$. These polynomials depend only
+on $F$ and $n$.
+
+(i) A common zero $x\ne0$ of the first system at $\gamma$ is a point
+with $F(x)=G_\gamma(x)=0$ at which the rank of
+$(\nabla F(x),\nabla G_\gamma(x))$ is less than $2$. Hence
+\eqref{eq:smooth} means that $P_i(G)\ne0$ for some $i$, where
+$P_i(G)$ is the value of $P_i$ at the coefficients of $G$, and bad
+reduction at a prime $p\nmid N_F$ means that $p\mid P_i(G)$ for every
+$i$. Fix $i$ with $P_i(G)\ne0$. The primes of bad reduction divide
+the nonzero integer $P_i(G)$, so that they are finite in number, and
+their product is at most $\abs{P_i(G)}\ll_{F,n}H_G^{\deg P_i}$. This
+proves (i), with $C_{F,n}$ the largest of the degrees of the $P_i$.
+
+(ii) Let $p\nmid N_G$. Then \eqref{eq:smooth} holds for the
+reductions modulo $p$, over $\overline{\Fp}$. By the Jacobian
+criterion, the equations $F=G=0$ define in $\PP^3$ over
+$\overline{\Fp}$ a curve all of whose points are nonsingular. Its
+irreducible components are therefore nonsingular projective curves.
+By Bertini's theorem \cite[Chapter~II, Theorem~8.18]{Ha}, for each
+component the planes that do not contain it and whose intersection
+with it is regular at every point form a dense open subset of the
+dual projective space. Finitely many dense open subsets have a
+common point. Hence there is $u_0\in\overline{\Fp}^4\setminus\{0\}$
+such that the plane $u_0\cdot x=0$ has this property for every
+component. The tangent line to the curve at a point $x$ is defined by
+$\nabla F(x)\cdot y=\nabla G(x)\cdot y=0$, and the intersection with
+the plane is regular at $x$ exactly when the plane does not contain
+this line, that is, when $u_0$ is not a linear combination of
+$\nabla F(x)$ and $\nabla G(x)$. Thus the second system, specialized
+at the coefficients of $G$ and at $u_0$, has no common zero
+$x\ne0$, and $R_j(G,u_0)\ne0$ for some $j$. For this $j$, the
+polynomial $R_j(G,u)\in\Fp[u_1,\ldots,u_4]$, obtained by reducing
+the coefficients of $G$ modulo $p$, is not zero. Set
+\[
+ D_p(u)=F^*(u)\,R_j(G,u).
+\]
+Since $p\nmid N_F$, the form $F^*$ is not zero modulo $p$, so that
+$D_p\ne0$. Its degree is at most $2$ plus the largest of the degrees
+of the $R_j$ in $u$, which we call $E_{F,n}$, and $D_p(0)=0$. If
+$u\in\Fp^4$ and $D_p(u)\ne0$, then $F^*(u)\ne0$ and $R_j(G,u)\ne0$,
+so that the second system at $u$ has no common zero $x\ne0$ in
+$\overline{\Fp}^4$. This is \eqref{eq:transverse}.
+\end{proof}
+
+With $n=2d$, part (i) is the first assertion of
+Theorem~\ref{thm:polynomial}, and with $n=rd$ it is the corresponding
+assertion of Theorem~\ref{thm:cyclic}.
+
+\subsection{Plane sections}\label{sec:hyperplane}
+
+For $u\in\Fp^4$, not zero, the points of $\PP^3$ with
+$F(x)=u\cdot x=0$ form the section of the quadric by the plane
+$u\cdot x=0$. When $F^*(u)\ne0$ it is a conic that can be
+parametrized by the projective line.
+
+\begin{lemma}\label{lem:conic}
+Let $p\nmid N_F$ be a prime and let $u\in\Fp^4$ with $F^*(u)\ne0$.
+There is a vector $\mu=(\mu_1,\mu_2,\mu_3,\mu_4)$ of binary quadratic
+forms $\mu_i\in\Fp[s,t]$ with the following properties.
+\begin{enumerate}
+\item[\textup{(i)}] For every field $k$ containing $\Fp$, the map
+$(s:t)\mapsto\mu(s,t)$ is a bijection from $\PP^1(k)$ onto the set of
+points $x$ of $\PP^3(k)$ with $F(x)=u\cdot x=0$.
+\item[\textup{(ii)}] For every $(s,t)\in\overline{\Fp}^2$ other than
+$(0,0)$, the vectors $\partial\mu/\partial s$ and
+$\partial\mu/\partial t$ at $(s,t)$ are linearly independent.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $V$ be the space of $x\in\Fp^4$ with $u\cdot x=0$, and write
+$b(x,y)=x^{\mathsf T}Ay$. Suppose that $x\in V$ and $b(x,y)=0$ for
+every $y\in V$. Then $Ax$ is a multiple of $u$, so that
+$x=c\adj(A)u$ for some $c\in\Fp$, and $u\cdot x=cF^*(u)$. Hence
+$c=0$. Thus the restriction of $F$ to $V$ is a nondegenerate
+quadratic form in three variables. In suitable coordinates on $V$ it
+is $a_1y_1^2+a_2y_2^2+a_3y_3^2$ with $a_1a_2a_3\ne0$. The sets of
+values of $a_1y_1^2$ and of $-a_3-a_2y_2^2$ have $(p+1)/2$ elements
+each, so that they meet, and $F$ has a zero $e_1\ne0$ in $V$. As in
+the proof of Lemma~\ref{lem:quadriccount}, there are $e_2,e_3\in V$
+such that $e_1,e_2,e_3$ is a basis of $V$ and
+\[
+ F(y_1e_1+y_2e_2+y_3e_3)=y_1y_2+ay_3^2,
+\]
+where $a\ne0$ because the form is nondegenerate. Set
+\[
+ \mu(s,t)=-as^2e_1+t^2e_2+ste_3.
+\]
+Let $k$ be a field containing $\Fp$. The points of $\PP^3(k)$ with
+$u\cdot x=0$ are the points $y_1e_1+y_2e_2+y_3e_3$ with
+$(y_1:y_2:y_3)\in\PP^2(k)$. If $y_1y_2+ay_3^2=0$ and $y_2\ne0$, we
+may take $y_2=1$, and the point is $\mu(y_3,1)$. If $y_2=0$, then
+$y_3=0$, and the point is $\mu(1,0)$. Conversely $F(\mu(s,t))=0$, and
+the points $\mu(s,1)$ and $\mu(1,0)$ are distinct. This proves (i).
+In the basis $e_1,e_2,e_3$ the two derivatives have the coordinates
+$(-2as,0,t)$ and $(0,2t,s)$. They are linearly independent if
+$s\ne0$, and also if $s=0$ and $t\ne0$, because $p$ is odd.
+\end{proof}
+
+\begin{lemma}\label{lem:section}
+Let $p\nmid N_F$ be a prime and $n\ge2$. Let $\psi$ be a nonprincipal
+character modulo $p$ such that $\psi^n$ is principal, let
+$G\in\Fp[x_1,x_2,x_3,x_4]$ be a form of degree $n$, and let
+$u\in\Fp^4$ with $F^*(u)\ne0$ satisfy \eqref{eq:transverse}. Then
+\begin{equation}\label{eq:section}
+ \bigg|\sum_{\substack{P\in\Qc(\Fp)\\u\cdot P=0}}\psi(G(P))\bigg|
+ \le(2n-1)\sqrt p+1.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $\mu$ be as in Lemma~\ref{lem:conic}, and set
+$g(s,t)=G(\mu(s,t))$, a binary form of degree $2n$ over $\Fp$. By
+Lemma~\ref{lem:conic}(i) the sum in \eqref{eq:section} is the sum of
+$\psi(g(s,t))$ over $(s:t)\in\PP^1(\Fp)$. We claim that $g$ has $2n$
+distinct zeros in $\PP^1(\overline{\Fp})$; the bound is then
+Corollary~\ref{cor:weilline} with $2n$ in place of $n$.
+
+Over $\overline{\Fp}$ a nonzero binary form is a product of linear
+forms. If the claim is false, then $g=0$ or $g$ is divisible by the
+square of a linear form, and in both cases there is
+$(s_0,t_0)\ne(0,0)$ in $\overline{\Fp}^2$ at which $g$ and its two
+partial derivatives vanish. Let $x_0=\mu(s_0,t_0)$, and let $y_1$ and
+$y_2$ be the derivatives of $\mu$ with respect to $s$ and to $t$ at
+$(s_0,t_0)$. Then $x_0\ne0$ and $F(x_0)=G(x_0)=u\cdot x_0=0$.
+Differentiating the identities $F(\mu(s,t))=0$ and
+$u\cdot\mu(s,t)=0$, and the form $g$, we get
+\[
+ \nabla F(x_0)\cdot y_i=0,\qquad u\cdot y_i=0,\qquad
+ \nabla G(x_0)\cdot y_i=0\qquad(i=1,2).
+\]
+By Lemma~\ref{lem:conic}(ii) the vectors $y_1$ and $y_2$ are linearly
+independent, so that the vectors orthogonal to both form a space of
+dimension $2$. It contains $\nabla F(x_0)$, $\nabla G(x_0)$ and $u$,
+which contradicts \eqref{eq:transverse}.
+\end{proof}
+
+We can now verify the hypotheses of Section~\ref{sec:local}.
+
+\begin{lemma}\label{lem:fourier}
+Let $n\ge2$, let $G$ be as at the beginning of this section, and for
+every prime $p\nmid N_G$ let $D_p$ be the polynomial of
+Lemma~\ref{lem:exceptional}. Let $p\nmid N_G$, and let $\psi$ be a
+nonprincipal character modulo $p$ such that $\psi^n$ is principal.
+Then the function $\xi_p(x)=\psi(G(x))$ satisfies
+\eqref{eq:weightproperties}, and the sum \eqref{eq:Cpsi} satisfies
+\begin{equation}\label{eq:fourier}
+ \abs{C_p(u)}\le2n^2(p^{3/2}+p^2\,\mathbf 1_{D_p(u)=0})
+ \quad(u\in\Z^4),\qquad
+ C_p(0)=(p-1)\sum_{P\in\Qc(\Fp)}\psi(G(P)).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We have $\psi(G(0))=\psi(0)=0$ and $\abs{\psi}\le1$, and
+$\psi(G(tx))=\psi(t^n)\psi(G(x))=\psi(G(x))$ for $t\ne0$. This is
+\eqref{eq:weightproperties}. Let $a$ be the sum of $\psi(G(P))$ over
+$P\in\Qc(\Fp)$ and, for $u$ not divisible by $p$, let $a_u$ be the
+sum over the points $P$ with $u\cdot P=0$. In \eqref{eq:Cpsi} the
+vector $x=0$ contributes nothing, and the other $x$ are the multiples
+$tx_P$ of a representative $x_P$ of a point $P\in\Qc(\Fp)$, with
+$t\in\Fp\setminus\{0\}$. The sum of $\e_p(tu\cdot x_P)$ over $t$ is
+$p-1$ if $u\cdot x_P=0$, and is $-1$ otherwise. Hence
+\begin{equation}\label{eq:rays}
+ C_p(u)=pa_u-a\quad(p\nmid u),\qquad C_p(u)=(p-1)a\quad(p\mid u).
+\end{equation}
+Since $p\nmid N_G$, Lemma~\ref{lem:katz} gives
+$\abs a\le(2n^2-4n+4)p$. If $p\mid u$, then $D_p(u)=0$ and
+$\abs{C_p(u)}\le(2n^2-4n+4)p^2$.
+
+Let $D_p(u)\ne0$. By Lemma~\ref{lem:exceptional}(ii) and
+Lemma~\ref{lem:section} we have $\abs{a_u}\le(2n-1)\sqrt p+1$, and
+\[
+ \abs{C_p(u)}\le(2n-1)p^{3/2}+(2n^2-4n+5)p\le(2n^2-2n+4)p^{3/2}.
+\]
+
+Let $D_p(u)=0$ and $p\nmid u$. The form $F$ does not vanish
+identically on the space $V$ of $x\in\Fp^4$ with $u\cdot x=0$:
+otherwise $2x^{\mathsf T}Ay=F(x+y)-F(x)-F(y)=0$ for all $x,y\in V$,
+so that the space
+$AV$, of dimension $3$, would consist of multiples of $u$. Let $P_0$
+be a point of $\PP^3(\Fp)$ with $u\cdot P_0=0$ and $F(P_0)\ne0$. Each
+of the $p+1$ lines through $P_0$ in the plane $u\cdot x=0$ contains
+at most two zeros of $F$, because the restriction of $F$ to it is a
+binary quadratic form that is not zero. Hence
+$\abs{a_u}\le2p+2$, and
+\[
+ \abs{C_p(u)}\le2p^2+(2n^2-4n+6)p\le(2n^2-4n+8)p^2.
+\]
+Since $n\ge2$, the three bounds are at most $2n^2p^{3/2}$ or
+$2n^2p^2$, as required.
+\end{proof}
+
+Thus the hypotheses of Section~\ref{sec:local} hold for the functions
+$\xi_p(x)=\psi(G(x))$, with $N=N_G$, with $E=E_{F,n}$ and with
+$K=2n^2$.
+
+\subsection{The diagonal case}\label{sec:diagonal}
+
+In this subsection $F$ and $G$ are the diagonal quadratic forms of
+\eqref{eq:diagonal}, with $\kappa_i$ and $M$ as in
+\eqref{eq:kappadef}, and $\psi=\chi_p$. We prove the first two
+assertions of Theorem~\ref{thm:diagonal} and evaluate $C_p(u)$ for
+every $u$.
+
+\begin{lemma}\label{lem:diagbad}
+The form $G$ satisfies \eqref{eq:smooth}, and it has bad reduction at
+a prime $p\nmid N_F$ if and only if $p\mid M$. Hence
+$N_G=\rad(2\alpha M)$.
+\end{lemma}
+
+\begin{proof}
+Let $k$ be $\overline\Q$, or $\overline{\Fp}$ for a prime
+$p\nmid N_F$. The minors of order $2$ of the matrix with rows
+$\nabla F(x)$ and $\nabla G(x)$ are the products
+$4x_ix_j(a_ib_j-a_jb_i)$ with $i<j$. Suppose that $M$ is not zero in
+$k$, and let $x\in k^4$ be a point at which all these minors vanish.
+Then at most one coordinate $x_i$ is not zero, and $F(x)=a_ix_i^2$.
+Hence $F(x)=0$ only for $x=0$. This proves \eqref{eq:smooth}, and
+that $G$ has good reduction at $p$ if $p\nmid M$. If $p\mid M$, then
+$a_ib_j\equiv a_jb_i\imod p$ for some $i<j$. Let
+$x\in\overline{\Fp}^4$ have $x_i=1$ and
+$x_j^2=-a_i\overline{a_j}$, the other coordinates being zero. Then
+$F(x)=0$ and $G(x)=\overline{a_j}(a_jb_i-a_ib_j)=0$, and all the
+minors vanish at $x$. Thus $G$ has bad reduction at $p$.
+\end{proof}
+
+Let $p\nmid2\alpha M$ be a prime. For $1\le i\le4$ let $t_i$ be the
+residue class modulo $p$ with $a_it_i+b_i\equiv0\imod p$; the four
+classes are distinct because $p\nmid M$, so that $p\ge5$. For
+$u\in\Z^4$ and an integer $t$ set
+\begin{equation}\label{eq:pencilforms}
+ \Phi_u(t)=\sum_{i=1}^4u_i^2\prod_{j\ne i}(b_j+ta_j),
+ \qquad
+ \nu_i(u)=\sum_{j\ne i}u_j^2\prod_{l\ne i,j}(a_ib_l-a_lb_i).
+\end{equation}
+Thus $\Phi_u(t)$ is the value at $u$ of the dual form of $G+tF$; it
+is a polynomial in $t$ of degree at most $3$, and the coefficient of
+$t^3$ is $F^*(u)$.
+
+\begin{lemma}\label{lem:pencil}
+Let $p\nmid2\alpha M$ be a prime and $u\in\Z^4$. Then
+\begin{equation}\label{eq:exactpencil}
+ C_p(u)=p\sum_{\substack{t\bmod p\\t\not\equiv t_1,\ldots,t_4}}
+ \chi_p\big(-\Phi_u(t)\big)
+ +p\sum_{\substack{1\le i\le4\\p\mid u_i}}\chi_p(\kappa_i)R_p(\nu_i(u)).
+\end{equation}
+In particular \eqref{eq:diagtrace} holds, and
+\begin{equation}\label{eq:diagbound}
+ \abs{C_p(u)}\le2p^{3/2}+4p\qquad\text{if }p\nmid F^*(u)u_1u_2u_3u_4.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $x\in\Z^4$ the sum of $\e_p(vF(x))$ over $v$ modulo $p$ is $p$
+if $p\mid F(x)$, and is $0$ otherwise. With $\tau_p$ as in the proof
+of Lemma~\ref{lem:gauss}, we have
+\begin{equation}\label{eq:gaussinv}
+ \sum_{s\bmod p}\chi_p(s)\e_p(sm)=\chi_p(m)\tau_p
+\end{equation}
+for every integer $m$: both sides vanish if $p\mid m$, and otherwise
+we replace $s$ by $s\overline m$. We apply this with $m=G(x)$, and
+write $v=st$ for $p\nmid s$. Then \eqref{eq:Cpsi} becomes
+\begin{equation}\label{eq:pencilsum}
+ C_p(u)=\frac1{p\tau_p}\sum_{s\bmod p}\chi_p(s)\sum_{t\bmod p}\
+ \prod_{i=1}^4\ \sum_{y\bmod p}\e_p\big(s(b_i+ta_i)y^2+u_iy\big).
+\end{equation}
+Let $c$ and $w$ be integers. If $p\nmid c$, completing the square and
+the evaluation of the Gauss sum in the proof of
+Lemma~\ref{lem:gauss} give
+\[
+ \sum_{y\bmod p}\e_p(cy^2+wy)=\chi_p(c)\tau_p\,\e_p(-\overline{4c}\,w^2).
+\]
+If $p\mid c$, the sum is $p$ when $p\mid w$, and is $0$ otherwise.
+
+Let $t\not\equiv t_i$ for every $i$, and let $\Delta$ be the product
+of the four numbers $b_i+ta_i$. The product over $i$ in
+\eqref{eq:pencilsum} is
+$\tau_p^4\chi_p(\Delta)\e_p(-\overline{4s}\,\Phi_u(t)\overline\Delta)$.
+Replacing $s$ by $\overline s$ and using \eqref{eq:gaussinv}, we see
+that its sum over $s$ against $\chi_p(s)$ is
+$\tau_p^5\chi_p(\Delta)\chi_p(-\Phi_u(t)\Delta)$. Since
+$\tau_p^4=p^2$, the contribution of $t$ to $C_p(u)$ is
+$p\chi_p(-\Phi_u(t))$.
+
+Let $t\equiv t_i$. The factor of index $i$ is $p$ if $p\mid u_i$, and
+is $0$ otherwise. Let $\Delta_i$ be the product of the three numbers
+$b_j+t_ia_j$ with $j\ne i$, and let $w_i$ be the sum of
+$u_j^2\overline{(b_j+t_ia_j)}$ over $j\ne i$. The three other factors
+have the product
+$\tau_p^3\chi_p(s)\chi_p(\Delta_i)\e_p(-\overline{4s}\,w_i)$, and the
+sum of $\e_p(-\overline{4s}\,w_i)$ over $s\not\equiv0$ is $R_p(w_i)$.
+Since $\tau_p^2=\chi_p(-1)p$, by the proof of
+Lemma~\ref{lem:gauss}, the contribution of $t_i$ is
+$p\chi_p(-\Delta_i)R_p(w_i)$ when $p\mid u_i$. Now
+$a_i(b_j+t_ia_j)\equiv a_ib_j-a_jb_i\imod p$. Hence
+$-\Delta_i\equiv\kappa_i\overline{a_i}^4$, and $w_i$ is the product
+of $\nu_i(u)$ and an integer prime to $p$. This proves
+\eqref{eq:exactpencil}.
+
+For $u=0$ the first sum in \eqref{eq:exactpencil} vanishes and
+$R_p(\nu_i(0))=p-1$, so that $C_p(0)$ is $p(p-1)$ times the sum of
+the $\chi_p(\kappa_i)$. Since $p\nmid N_G$ by
+Lemma~\ref{lem:diagbad}, this and \eqref{eq:fourier} give
+\eqref{eq:diagtrace}.
+
+Let $p\nmid F^*(u)u_1u_2u_3u_4$. The second sum in
+\eqref{eq:exactpencil} is empty, and $\Phi_u$ is a cubic polynomial
+modulo $p$. If it has three distinct zeros in $\overline{\Fp}$, then
+the sum of $\chi_p(-\Phi_u(t))$ over all $t$ modulo $p$ is at most
+$2\sqrt p$ in absolute value, by Lemma~\ref{lem:weil}. Otherwise
+$\Phi_u$ has a repeated zero $z$, which lies in $\Fp$ because $z$ is
+a zero of the greatest common divisor of $\Phi_u$ and its
+derivative, a polynomial over $\Fp$ equal to a constant multiple of
+$t-z$ or of $(t-z)^2$, and $p\ge5$. Then $\Phi_u(t)$ is
+$F^*(u)(t-z)^3$ or $F^*(u)(t-z)^2(t-z')$ with $z'\in\Fp$ and
+$z'\ne z$, and the sum over all $t$ is $0$ or
+$-\chi_p(-F^*(u)(z-z'))$. In every case the sum over
+$t\not\equiv t_1,\ldots,t_4$ is at most $2\sqrt p+4$ in absolute
+value, which is \eqref{eq:diagbound}.
+\end{proof}
+
+Lemma~\ref{lem:diagbad} and \eqref{eq:diagtrace} are the first two
+assertions of Theorem~\ref{thm:diagonal}. By \eqref{eq:fourier} with
+$n=2$ and by \eqref{eq:diagbound}, in the diagonal case the hypothesis
+\eqref{eq:Cstrata} holds with $K=8$ and with the polynomial
+$F^*(u)u_1u_2u_3u_4$ in place of $D_p$.
+
+\begin{remark}\label{rem:literature}
+The formula \eqref{eq:exactpencil} shows that $C_p(u)$ can have order
+$p^2$. At $u=0$ it is $p(p-1)$ times the sum of the
+$\chi_p(\kappa_i)$, which is $\pm2$ when $\chi(p)=-1$. For an example
+with $p\nmid F^*(u)$, let
+\[
+ F=x_1^2+x_2^2+x_3^2-2x_4^2,\qquad
+ G=x_1^2+2x_2^2+3x_3^2+5x_4^2,\qquad u=(1,0,0,3).
+\]
+Here $\alpha=-2$, $M=1386$ and $F^*(u)=7$, and
+$\Phi_u(t)=7(t+2)^2(t+3)$, $\nu_2(u)=0$, $\nu_3(u)=7$. For every
+prime $p>11$, \eqref{eq:exactpencil} gives
+\[
+ C_p(u)=p\big(p-1-\chi_p(-7)-\chi_p(-14)-\chi_p(-22)-\chi_p(-154)\big)
+ \ge p(p-5).
+\]
+In the notation of \cite{M}, $C_p(u)$ is the sum $S_{p,1}(u)$, for
+which \cite[Lemma~5.3]{M} states the bound $O(p^{3/2})$ for every
+$u$. The sum $S_{p,p}(u)$ of \cite{IM} is
+\[
+ pC_p(u)-\sum_{x\bmod p}\chi_p(G(x))\e_p(u\cdot x),
+\]
+and the last sum, which is $S_{p,1}(u)$ in \cite{IM}, has absolute
+value at most $p^2$ by \cite[Lemma~4.3]{IM}. In the example the sum
+$S_{p,p}(u)$ of \cite{IM} therefore has absolute value at least
+$p^2(p-6)$, while \cite[Lemma~4.6]{IM} states the bound
+$O(p^{5/2})$ for every $u$. For the same forms and $u=(1,1,0,2)$,
+where $F^*(u)=0$, Lemma~\ref{lem:ramified} gives
+$\mathcal S_{p,p}(u)=\chi_p(2)p^4(p-1)$, while
+\cite[Lemma~5.4]{M} states the bound $O(p^{9/2})$ for this sum. The
+nonzero frequencies at which $C_p(u)$ is large are treated on
+average, in Lemma~\ref{lem:average}.
+\end{remark}
+
+\section{Proofs of the main results}\label{sec:proofs}
+
+\subsection{The analytic proposition}\label{sec:analytic}
+
+In this subsection the notation and the hypotheses of
+Section~\ref{sec:local} are in force. For a weight $w$, a squarefree
+integer $q\ge1$ with $(q,N)=1$, and $B>0$ set
+\begin{equation}\label{eq:Tw}
+ T_q(B;w)=\sum_{\substack{x\in\Z^4\\F(x)=0}}w(x/B)\,\xi_q(x).
+\end{equation}
+
+\begin{proposition}\label{prop:analytic}
+Let $W$ be a weight. For every squarefree $q\ge1$ with $(q,N)=1$ and
+every $B\ge2$,
+\begin{equation}\label{eq:analytic}
+ T_q(B;W)=B^2\sigma_\infty(W,F)\,\S_\xi(q)
+ +O_{F,E,K,W,\eps}\big((Bq)^{1+\eps}\big).
+\end{equation}
+In particular the implied constant does not depend on $N$, on the
+polynomials $D_p$ or on the functions $\xi_p$.
+\end{proposition}
+
+The proof follows the method of \cite{HB} and occupies the rest of
+this subsection. We begin with the transformation of $T_q(B;w)$ by
+the delta symbol and the Poisson summation formula.
+
+\begin{lemma}\label{lem:poisson}
+Let $w$ be a weight, let $q\ge1$ be squarefree with $(q,N)=1$, and
+let $B>0$ be such that $Q=B/\sqrt q\ge3$. Then
+\begin{equation}\label{eq:poisson}
+ T_q(B;w)=c_Q\frac{B^2}{q^3}\sum_{c\ge1}\frac1{c^4}\sum_{u\in\Z^4}
+ \mathcal S_{q,c}(u)\,I_{c/Q}^*\Big(\frac u{\sqrt q};w\Big),
+\end{equation}
+where only finitely many $c$ contribute, and the sum over $u$
+converges absolutely for each of them.
+\end{lemma}
+
+\begin{proof}
+Let $x\in\Z^4$ with $F(x)\equiv0\imod q$. We apply \eqref{eq:delta}
+to the integer $n=F(x)/q$. Since $n/Q^2=F(x/B)$ and
+$\e_c(an)=\e_{qc}(aF(x))$, this gives
+\[
+ T_q(B;w)=\frac{c_Q}{Q^2}\sum_{c\ge1}\ \sum_{a\bmod c}^{*}\
+ \sum_{\substack{x\in\Z^4\\F(x)\equiv0\imod q}}
+ \xi_q(x)\,\e_{qc}(aF(x))\,g_c(x),
+ \qquad g_c(x)=w\Big(\frac xB\Big)h\bigg(\frac cQ,F\Big(\frac xB\Big)\bigg).
+\]
+The function $g_c$ is infinitely differentiable with compact support,
+and by the last assertion of Lemma~\ref{lem:delta} it vanishes
+identically when $c/Q$ exceeds $1+2\max\abs{F(y)}$, the maximum being
+over the support of $w$. We sort the vectors $x$ according to their
+residue classes $z$ modulo $qc$. The numbers $\xi_q(x)$ and
+$\e_{qc}(aF(x))$ and the condition $F(x)\equiv0\imod q$ depend only
+on $z$. By the Poisson summation formula in $\R^4$, as in the proof
+of \cite[Theorem~2]{HB},
+\[
+ \sum_{m\in\Z^4}g_c(z+qcm)=\frac1{(qc)^4}\sum_{u\in\Z^4}
+ \e_{qc}(u\cdot z)\int_{\R^4}g_c(x)\,\e_{qc}(-u\cdot x)\,dx,
+\]
+where the sum over $u$ converges absolutely. The substitution $x=By$
+shows that the integral is
+\[
+ B^4\int_{\R^4}w(y)\,h\Big(\frac cQ,F(y)\Big)
+ \e\Big(-\frac{Bu\cdot y}{qc}\Big)\,dy
+ =B^4I_{c/Q}^*\Big(\frac u{\sqrt q};w\Big),
+\]
+by \eqref{eq:Istar}, because $B/(qc)=(Q/c)q^{-1/2}$. Summing over $z$
+and $a$, we obtain the sum $\mathcal S_{q,c}(u)$ of
+\eqref{eq:Snewdef}, and \eqref{eq:poisson} follows because
+$B^4Q^{-2}q^{-4}=B^2q^{-3}$.
+\end{proof}
+
+Let $\mathcal W$ be a set of weights as in Lemma~\ref{lem:integrals},
+and let $\delta$ and $r_0$ be the numbers given by that lemma. In
+Lemmas~\ref{lem:offcone}, \ref{lem:oncone} and~\ref{lem:zerofreq}
+below, $w=W_y$ is one of the functions \eqref{eq:pieces}, with
+$W\in\mathcal W$ and $y\in\R^4$, such that $F$ has a zero in the
+support of $w$; thus \eqref{eq:Izero}, \eqref{eq:Irapid} and
+\eqref{eq:Idecay} hold for $w$. Further $0<\eta\le1/4$, the integer
+$q\ge1$ is squarefree with $(q,N)=1$, and $B\ge9$ and $q\le B$. We
+write
+\[
+ Q=\frac B{\sqrt q},\qquad U=\sqrt q\,B^\eta,\qquad
+ I_c(u)=I_{c/Q}^*\Big(\frac u{\sqrt q};w\Big),
+\]
+so that $3\le\sqrt B\le Q\le B$ and $U\ge1$. In these three lemmas
+the implied constants depend at most on $F$, $\mathcal W$, $E$, $K$
+and $\eta$. Since $I_r^*(v;w)=0$ for $r\ge r_0$,
+Lemma~\ref{lem:poisson} gives
+\begin{equation}\label{eq:poissonpiece}
+ T_q(B;w)=c_Q\frac{B^2}{q^3}\sum_{c<r_0Q}\frac1{c^4}\sum_{u\in\Z^4}
+ \mathcal S_{q,c}(u)\,I_c(u).
+\end{equation}
+Here $c_Q\ll1$, by Lemma~\ref{lem:delta}. For fixed $v$ the integral
+$I_r^*(v;w)$ is a continuously differentiable function of $r>0$,
+because $h$ is infinitely differentiable and $w$ has compact support.
+Let $t\ge1$ be real and $0<\lVert u\rVert\le U$. With $r=t/Q$ and
+$v=u/\sqrt q$, the bound \eqref{eq:Idecay} with $\eps=\eta$ gives
+\begin{equation}\label{eq:Ipiece}
+ \abs{I_r^*(v;w)}+r\,\bigg|\frac{\partial I_r^*(v;w)}{\partial r}\bigg|
+ \ll\Big(\frac tQ\Big)^{1-2\eta}
+ \bigg(\frac{\sqrt q}{\lVert u\rVert}\bigg)^{1-\eta}
+ \le\frac{tq}{B\lVert u\rVert}\,B^{3\eta},
+\end{equation}
+because $(Q/t)^{2\eta}\le B^{2\eta}$,
+$(\lVert u\rVert/\sqrt q)^\eta\le B^\eta$ and $\sqrt q/Q=q/B$.
+
+\begin{lemma}\label{lem:offcone}
+The terms of \eqref{eq:poissonpiece} with $\lVert u\rVert>U$
+contribute $O(1)$, and those with $0<\lVert u\rVert\le U$ and
+$F^*(u)\ne0$ contribute $O((Bq)^{1+8\eta})$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:Snewdef} and \eqref{eq:weightproperties} we have
+$\abs{\mathcal S_{q,c}(u)}\le q^4c^5$, and by \eqref{eq:Irapid},
+\[
+ I_c(u)\ll_j\frac Qc\bigg(\frac{\sqrt q}{\lVert u\rVert}\bigg)^j
+\]
+for $u\ne0$ and every integer $j\ge1$. For $j\ge5$ the sum of
+$\lVert u\rVert^{-j}$ over the $u\in\Z^4$ with $\lVert u\rVert>U$ is
+$O_j(U^{4-j})$, and $q^{j/2}U^{4-j}=q^2B^{-\eta(j-4)}$. Hence the
+terms with $\lVert u\rVert>U$ contribute
+\[
+ \ll_j\frac{B^2}{q^3}\sum_{c<r_0Q}q^4Q\,q^2B^{-\eta(j-4)}
+ \ll B^2q^3Q^2B^{-\eta(j-4)}=B^4q^2B^{-\eta(j-4)}.
+\]
+Since $q\le B$, this is $O(1)$ for $j\ge4+6/\eta$.
+
+Let $0<\lVert u\rVert\le U$. By \eqref{eq:Ipiece} with $t=c$, the
+terms of \eqref{eq:poissonpiece} with these $u$ and with
+$F^*(u)\ne0$ contribute
+\[
+ \ll\frac B{q^2}B^{3\eta}\sum_{q_1q_2=q}\
+ \sum_{\substack{0<\lVert u\rVert\le U\\F^*(u)\ne0}}\frac1{\lVert u\rVert}
+ \sum_{\substack{c\le r_0Q\\(c,q)=q_1}}\frac{\abs{\mathcal S_{q,c}(u)}}{c^3},
+\]
+where we have sorted the integers $c$ according to the value $q_1$
+of $(c,q)$. We apply Lemma~\ref{lem:genericmod} with $\eps=\eta$ and
+$X=r_0Q$. Since $\abs{F^*(u)}\ll_FU^2$ and
+$QU^2\le BqB^{2\eta}$, the factor $(X\abs{F^*(u)})^\eta$ is
+$O((Bq)^{2\eta})$. The contribution is therefore
+\[
+ \ll\frac B{q^2}B^{3\eta}(Bq)^{2\eta}\sum_{q_1q_2=q}q_1^2
+ \sum_{\substack{0<\lVert u\rVert\le U\\q_1\mid F^*(u)}}
+ \frac{\abs{C_{q_2}(u)}}{\lVert u\rVert}.
+\]
+By Lemma~\ref{lem:average} with $\eps=\eta$, and since
+$U^3=q^{3/2}B^{3\eta}$ and $U^2=qB^{2\eta}$,
+\[
+ q_1^2\sum_{\substack{0<\lVert u\rVert\le U\\q_1\mid F^*(u)}}
+ \frac{\abs{C_{q_2}(u)}}{\lVert u\rVert}
+ \ll q^\eta(q_1q_2^{3/2}U^3+q_1^2q_2^2U^2)
+ \le2q^{3+\eta}B^{3\eta}.
+\]
+There are $\tau(q)\ll q^\eta$ factorizations $q=q_1q_2$. Altogether
+these terms contribute
+\[
+ \ll\frac B{q^2}B^{3\eta}(Bq)^{2\eta}q^{3+2\eta}B^{3\eta}
+ \le(Bq)^{1+8\eta}.\qedhere
+\]
+\end{proof}
+
+On the cone $F^*(u)=0$ the sum over $c$ is carried out before
+absolute values are taken.
+
+\begin{lemma}\label{lem:oncone}
+The terms of \eqref{eq:poissonpiece} with $0<\lVert u\rVert\le U$
+and $F^*(u)=0$ contribute $O(B\sqrt q\,(Bq)^{6\eta})$.
+\end{lemma}
+
+\begin{proof}
+Let $u$ be such a vector, and let $q=q_1q_2$. By
+\eqref{eq:coneratio}, the terms of \eqref{eq:poissonpiece} with this
+$u$ and with $(c,q)=q_1$ have the sum
+\begin{equation}\label{eq:conesum}
+ c_Q\frac{B^2}{q^3}\,C_{q_2}(u)\,q_1^2\chi(q_1)\,\xi_{q_1}(\adj(A)u)
+ \sum_{\substack{c<r_0Q\\(c,q)=q_1}}S_c(u)\,\phi(c),
+ \qquad\phi(t)=t^{-4}I_{t/Q}^*\Big(\frac u{\sqrt q};w\Big).
+\end{equation}
+Let $T_u(t)$ be the sum of $S_c(u)$ over the integers $c\le t$ with
+$(c,q)=q_1$. Since $\phi(t)=0$ for $t\ge r_0Q$, partial summation
+gives
+\[
+ \sum_{\substack{c<r_0Q\\(c,q)=q_1}}S_c(u)\,\phi(c)
+ =-\int_1^{r_0Q}T_u(t)\,\phi'(t)\,dt.
+\]
+Here $T_u(t)\ll t^3(tq)^\eta$ by Lemma~\ref{lem:conemod}. With
+$r=t/Q$ and $v=u/\sqrt q$ we have
+\[
+ \phi'(t)=-4t^{-5}I_r^*(v;w)
+ +t^{-5}\,r\,\frac{\partial I_r^*(v;w)}{\partial r},
+\]
+so that $\phi'(t)\ll t^{-4}q(B\lVert u\rVert)^{-1}B^{3\eta}$ by
+\eqref{eq:Ipiece}. Hence
+\[
+ \sum_{\substack{c<r_0Q\\(c,q)=q_1}}S_c(u)\,\phi(c)
+ \ll\frac q{B\lVert u\rVert}B^{3\eta}q^\eta\int_1^{r_0Q}t^{-1+\eta}\,dt
+ \ll\frac q{B\lVert u\rVert}B^{3\eta}(Bq)^\eta.
+\]
+By \eqref{eq:Cstrata} and Lemma~\ref{lem:crt} we have
+$\abs{C_{q_2}(u)}\le(2K)^{\omega(q_2)}q_2^2\ll q_2^2q^\eta$. The
+expression \eqref{eq:conesum} is therefore
+\[
+ \ll\frac{B^2}{q^3}\,q_2^2q^\eta\,q_1^2\,
+ \frac q{B\lVert u\rVert}B^{3\eta}(Bq)^\eta
+ =\frac B{\lVert u\rVert}B^{3\eta}(Bq)^\eta q^\eta.
+\]
+We sum this over the $\tau(q)\ll q^\eta$ factorizations of $q$ and
+over $u$. By \eqref{eq:conecount} with $\eps=\eta$, the sum of
+$\lVert u\rVert^{-1}$ over the $u$ in question is
+$O(U^{1+\eta})$, and $U^{1+\eta}\le\sqrt q\,q^\eta B^{2\eta}$. The
+total is $O(B\sqrt q\,(Bq)^{6\eta})$.
+\end{proof}
+
+\begin{lemma}\label{lem:zerofreq}
+The terms of \eqref{eq:poissonpiece} with $u=0$ contribute
+\[
+ B^2\sigma_\infty(w,F)\,\S_\xi(q)+O\big(B(Bq)^{2\eta}\big).
+\]
+\end{lemma}
+
+\begin{proof}
+Let $q_1=(c,q)$ and $q_2=q/q_1$. By \eqref{eq:coneratio} with $u=0$,
+\[
+ \mathcal S_{q,c}(0)=C_{q_2}(0)\,q_1^2\chi(q_1)\,\xi_{q_1}(0)\,S_c(0).
+\]
+By \eqref{eq:weightproperties} we have $\xi_{q_1}(0)=0$ if $q_1>1$,
+while $\xi_1(0)=1$ by definition. Hence the terms with $u=0$
+contribute
+\begin{equation}\label{eq:zeroterm}
+ c_Q\frac{B^2C_q(0)}{q^3}
+ \sum_{\substack{c<r_0Q\\(c,q)=1}}\frac{S_c(0)}{c^4}\,I_c(0).
+\end{equation}
+The weight $w$ is bounded uniformly in $W$ and $y$, it is supported
+in $\rho_1\le\lVert x\rVert\le\rho_2$, where $\abs{\nabla F}$ is
+bounded below, and the part of the cone $F=0$ in this region has
+finite surface measure. Hence $\sigma_\infty(w,F)\ll1$, and then
+$I_r^*(0;w)\ll1$ for every $r>0$, by \eqref{eq:Izero} for $r<r_0$.
+
+Set $X_0=Q^{1-\eta}$, so that $1\le X_0\le r_0Q$. For $c\le X_0$ we
+have $c/Q\le Q^{-\eta}$, and \eqref{eq:Izero} with an integer
+$j\ge2/\eta$ gives $I_c(0)=\sigma_\infty(w,F)+O(Q^{-2})$. By
+Lemma~\ref{lem:badprime},
+\[
+ \sum_{\substack{c\le X_0\\(c,q)=1}}\frac{S_c(0)}{c^4}\,I_c(0)
+ =\sigma_\infty(w,F)\sum_{\substack{c\le X_0\\(c,q)=1}}\frac{S_c(0)}{c^4}
+ +O(Q^{-2}\log Q).
+\]
+By \eqref{eq:seriesfactor} and \eqref{eq:seriestail} with
+$\eps=\eta$, the last sum over $c$ is
+\[
+ \S_F\prod_{p\mid q}\sigma_p^{-1}+O(q^\eta X_0^{-1+\eta}).
+\]
+For the remaining $c$ let $T(t)$ be the sum of $S_c(0)$ over the
+integers $c\le t$ with $(c,q)=1$, and let
+$\phi_0(t)=t^{-4}I_{t/Q}^*(0;w)$. Then $T(t)\ll t^3(tq)^\eta$ by
+Lemma~\ref{lem:conemod}, and $\phi_0(t)\ll t^{-4}$. By the second
+part of \eqref{eq:Izero},
+\[
+ \phi_0'(t)=-4t^{-5}I_r^*(0;w)
+ +t^{-5}\,r\,\frac{\partial I_r^*(0;w)}{\partial r}\ll t^{-5},
+ \qquad r=\frac tQ.
+\]
+Since $\phi_0(r_0Q)=0$, partial summation gives
+\[
+ \sum_{\substack{X_0<c<r_0Q\\(c,q)=1}}S_c(0)\,\phi_0(c)
+ =-T(X_0)\phi_0(X_0)-\int_{X_0}^{r_0Q}T(t)\,\phi_0'(t)\,dt
+ \ll q^\eta X_0^{-1+\eta}.
+\]
+Here $X_0^{-1+\eta}\le Q^{-1+2\eta}$. Collecting these estimates, we
+find that the sum over $c$ in \eqref{eq:zeroterm} is
+\[
+ \sigma_\infty(w,F)\,\S_F\prod_{p\mid q}\sigma_p^{-1}
+ +O(q^\eta Q^{-1+2\eta}).
+\]
+We multiply by $C_q(0)q^{-3}$, where
+$\abs{C_q(0)}\le(2K)^{\omega(q)}q^2\ll q^{2+\eta}$ by
+\eqref{eq:Cstrata}, and recall \eqref{eq:Sxi}. Thus
+\eqref{eq:zeroterm} is
+\[
+ c_QB^2\big(\sigma_\infty(w,F)\,\S_\xi(q)
+ +O(q^{-1+2\eta}Q^{-1+2\eta})\big).
+\]
+Finally $c_Q=1+O(Q^{-1})$ by Lemma~\ref{lem:delta}, and
+$\S_\xi(q)\ll q^{-1+\eta}$ by \eqref{eq:Sxibound}. Since
+$Q=B/\sqrt q$, the two error terms are
+\[
+ B^2Q^{-1}q^{-1+\eta}=Bq^{-1/2+\eta},\qquad
+ B^2q^{-1+2\eta}Q^{-1+2\eta}=B^{1+2\eta}q^{-1/2+\eta},
+\]
+and both are at most $B(Bq)^{2\eta}$.
+\end{proof}
+
+\begin{lemma}\label{lem:annulus}
+Let $\mathcal W$ be a set of weights as in
+Lemma~\ref{lem:integrals}. For every $W\in\mathcal W$, every
+squarefree $q\ge1$ with $(q,N)=1$ and every $B\ge2$,
+\begin{equation}\label{eq:annulus}
+ T_q(B;W)=B^2\sigma_\infty(W,F)\,\S_\xi(q)
+ +O_{F,\mathcal W,E,K,\eps}\big((Bq)^{1+\eps}\big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We may assume that $\eps\le2$. Suppose first that $B\ge9$ and
+$q\le B$, and let $\delta$ be as in Lemma~\ref{lem:integrals}. By
+\eqref{eq:pieces},
+\[
+ T_q(B;W)=\delta^{-4}\int_{\R^4}T_q(B;W_y)\,dy,\qquad
+ \sigma_\infty(W,F)=\delta^{-4}\int_{\R^4}\sigma_\infty(W_y,F)\,dy,
+\]
+where the integrands vanish unless $\lVert y\rVert\le\rho_2+2$; the
+first identity is \eqref{eq:pieces} at each of the finitely many $x$
+in \eqref{eq:Tw}, and in the second the order of the integrations
+over $y$ and over the cone may be changed because $W$ is bounded and
+$\abs{\nabla F}$ is bounded below on its support. If $F$ has no zero
+in the support of $W_y$, then $T_q(B;W_y)=0$ and
+$\sigma_\infty(W_y,F)=0$. For the other $y$,
+Lemmas~\ref{lem:offcone}, \ref{lem:oncone} and~\ref{lem:zerofreq}
+with $\eta=\eps/8$ give
+\[
+ T_q(B;W_y)=B^2\sigma_\infty(W_y,F)\,\S_\xi(q)+O\big((Bq)^{1+\eps}\big),
+\]
+with an implied constant that does not depend on $y$ or on $W$.
+Integrating over $y$, we obtain \eqref{eq:annulus}.
+
+In the remaining cases we have $q>B$ or $B<9$. The vectors $x$ in
+\eqref{eq:Tw} satisfy $\lVert x\rVert\le\rho_2B$, and by
+Lemma~\ref{lem:quadriccount} there are $O(B^{2+\eps})$ of them, so
+that $T_q(B;W)\ll B^{2+\eps}$. Moreover
+$\sigma_\infty(W,F)\ll1$, as in the proof of
+Lemma~\ref{lem:zerofreq}, and
+$B^2\sigma_\infty(W,F)\,\S_\xi(q)\ll B^2q^{-1+\eps}$ by
+\eqref{eq:Sxibound}. Both bounds are $O((Bq)^{1+\eps})$ when $q>B$,
+and also when $B<9$.
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:analytic}]
+It remains to remove the condition on the support of the weight. Let
+$\kappa:\R\to[0,1]$ be an infinitely differentiable, nonincreasing
+function with $\kappa(t)=1$ for $t\le1$ and $\kappa(t)=0$ for
+$t\ge2$, and set
+\[
+ \omega_0(x)=\kappa(\lVert x\rVert)-\kappa(2\lVert x\rVert).
+\]
+Then $\omega_0$ is a weight supported in
+$1/2\le\lVert x\rVert\le2$, it is nonnegative, and
+\begin{equation}\label{eq:dyadic}
+ \sum_{j=0}^J\omega_0(2^jx)=\kappa(\lVert x\rVert)-\kappa(2^{J+1}\lVert x\rVert)
+ \qquad(J\ge0).
+\end{equation}
+Let $\rho\ge1$ be such that $W(x)=0$ for $\lVert x\rVert\ge\rho$, and
+for $j\ge0$ set
+\[
+ W_j(x)=W(2^{-j}x)\,\omega_0(x/\rho),\qquad B_j=2^{-j}B.
+\]
+The weights $W_j$ are supported in $\rho/2\le\lVert x\rVert\le2\rho$,
+and their partial derivatives of each order are bounded uniformly in
+$j$. Thus Lemma~\ref{lem:annulus} applies to the set $\mathcal W$ of
+the $W_j$, with implied constants depending only on $F$, $E$, $K$,
+$W$ and $\eps$.
+
+Since $W(x)\kappa(\lVert x\rVert/\rho)=W(x)$, the identity
+\eqref{eq:dyadic} gives
+\[
+ \sum_{j=0}^JW_j(2^jx)=W(x)\big(1-\kappa(2^{J+1}\lVert x\rVert/\rho)\big),
+\]
+and the last factor is $1$ when $\lVert x\rVert\ge2^{-J}\rho$. Let
+$J$ be the least integer with $2^J\ge\rho B$. Then
+$W(x/B)=\sum_{j\le J}W_j(x/B_j)$ for every $x\in\Z^4$ other than the
+origin, and therefore
+\begin{equation}\label{eq:dyadicsum}
+ T_q(B;W)=W(0)\,\xi_q(0)+\sum_{j=0}^JT_q(B_j;W_j).
+\end{equation}
+To the terms with $B_j\ge2$ we apply \eqref{eq:annulus}. The sum of
+their error terms is $O((Bq)^{1+\eps})$. In the sum of the other
+terms, a vector $x$ has the coefficient
+$\xi_q(x)W(x/B)\sum_j\omega_0(2^jx/(\rho B))$, where $j$ runs over
+the indices with $B_j<2$; this is at most $\max\abs W$ in absolute
+value, by \eqref{eq:dyadic}, and it vanishes unless
+$\lVert x\rVert<4\rho$. Hence the terms of \eqref{eq:dyadicsum} with
+$B_j<2$ contribute $O_W(1)$, and so does the term $W(0)\xi_q(0)$.
+
+It remains to consider the main terms. The substitution
+$y=2^{-j}z$ maps the cone $F=0$ to itself, multiplies $dS$ by
+$2^{-3j}$ and $\abs{\nabla F}$ by $2^{-j}$. Hence
+\[
+ B_j^2\sigma_\infty(W_j,F)=B^2\sigma_\infty(V_j,F),\qquad
+ V_j(x)=W_j(2^jx)=W(x)\,\omega_0(2^jx/\rho).
+\]
+By \eqref{eq:dyadic} the sum of the $V_j(x)$ over all $j\ge0$ is
+$W(x)$ for $x\ne0$, and its partial sums are at most $\abs{W(x)}$ in
+absolute value. Since the integral defining $\sigma_\infty(W,F)$
+converges absolutely, it follows that
+\[
+ \sum_{j\ge0}B_j^2\sigma_\infty(W_j,F)=B^2\sigma_\infty(W,F).
+\]
+The terms of this series with $B_j<2$ have the sum $O_{F,W}(1)$,
+because $\sigma_\infty(W_j,F)$ is bounded uniformly in $j$. With
+\eqref{eq:Sxibound} this gives \eqref{eq:analytic}.
+\end{proof}
+
+\subsection{The character sums}\label{sec:character-sums}
+
+We deduce Theorems~\ref{thm:polynomial}, \ref{thm:diagonal}
+and~\ref{thm:cyclic} from Proposition~\ref{prop:analytic} and the
+results of Section~\ref{sec:fourier}. The following lemma contains
+the first and the third of them.
+
+\begin{lemma}\label{lem:charsum}
+Let $n\ge2$, and let $G\in\Z[x_1,x_2,x_3,x_4]$ be a form of degree
+$n$ satisfying \eqref{eq:smooth}. Let $\mathcal P$ be a set of primes
+not dividing $N_G$, and for every $p\in\mathcal P$ let $\psi_p$ be a
+nonprincipal character modulo $p$ such that $\psi_p^n$ is principal.
+For $p\in\mathcal P$ let $a_{p,\psi}(G)$ be the sum
+\eqref{eq:apsidef}, which does not depend on the coordinates chosen
+for the points $P$ because $\psi_p^n$ is principal, and set
+\begin{equation}\label{eq:localfactor}
+ \beta_p=\frac{a_{p,\psi}(G)(p^2-1)}{p^2\,\#\Qc(\Fp)}.
+\end{equation}
+Then
+\begin{equation}\label{eq:betabound}
+ \abs{a_{p,\psi}(G)}\le(2n^2-4n+4)p,\qquad
+ \beta_p=\frac{a_{p,\psi}(G)(p-1)(p-\chi(p))}{p^2(p^2-\chi(p))},\qquad
+ \abs{\beta_p}\le\frac{2n^2-4n+4}p.
+\end{equation}
+Moreover, for every weight $W$, every squarefree $q\ge1$ all of whose
+prime divisors lie in $\mathcal P$, and every $B\ge2$,
+\begin{equation}\label{eq:charsum}
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\prod_{p\mid q}\psi_p(G(x))
+ =B^2\sigma_\infty(W,F)\,\S_F\prod_{p\mid q}\beta_p
+ +O_{F,n,W,\eps}\big((Bq)^{1+\eps}\big).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $p\in\mathcal P$. Since $G$ has good reduction at $p$, the first
+bound in \eqref{eq:betabound} is Lemma~\ref{lem:katz}. By
+Lemma~\ref{lem:gauss}(iii) and because $\chi(p)^2=1$,
+\[
+ (p-\chi(p))\,\#\Qc(\Fp)=(p-\chi(p))\big(p^2+(1+\chi(p))p+1\big)
+ =(p+1)(p^2-\chi(p)),
+\]
+which gives the second expression for $\beta_p$. The third assertion
+follows from the first two, because
+$(p-1)(p-\chi(p))\le p^2-\chi(p)$.
+
+By Lemma~\ref{lem:exceptional}(i) the integer $N_G$ is well defined.
+We apply the results of Sections~\ref{sec:local}
+and~\ref{sec:analytic} with $N=N_G$, with $E=E_{F,n}$ and with
+$K=2n^2$. For $p\in\mathcal P$ we take $\xi_p(x)=\psi_p(G(x))$ and
+the polynomial $D_p$ of Lemma~\ref{lem:exceptional}(ii); then
+\eqref{eq:weightproperties} and \eqref{eq:Cstrata} hold by
+Lemma~\ref{lem:fourier}. For the other primes $p\nmid N_G$ we take
+$\xi_p=0$ and $D_p=1$; then $C_p(u)=0$ for every $u$, and
+\eqref{eq:weightproperties} and \eqref{eq:Cstrata} hold as well. For
+$q$ as in the lemma, $\xi_q(x)$ is the product of the
+$\psi_p(G(x))$ over $p\mid q$, and Proposition~\ref{prop:analytic}
+gives \eqref{eq:charsum} with $\S_\xi(q)$ in place of
+$\S_F\prod_{p\mid q}\beta_p$. Now let $p\mid q$. We have
+$C_p(0)=(p-1)a_{p,\psi}(G)$ by \eqref{eq:fourier}, and
+$\sigma_p=(p^2-\chi(p))/(p(p-\chi(p)))$ by \eqref{eq:sigmagood}.
+Hence
+\[
+ \frac{C_p(0)}{p^3\sigma_p}
+ =\frac{a_{p,\psi}(G)(p-1)(p-\chi(p))}{p^2(p^2-\chi(p))}=\beta_p,
+\]
+and $\S_\xi(q)=\S_F\prod_{p\mid q}\beta_p$ by \eqref{eq:Sxi}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:polynomial}]
+The form $G$ has degree $n=2d$. By Lemma~\ref{lem:exceptional}(i)
+the product in \eqref{eq:NG} is finite, and \eqref{eq:badheight}
+holds. Every prime $p\nmid N_G$ is odd, so that $\chi_p$ is a
+nonprincipal character modulo $p$ and $\chi_p^{2d}$ is principal. We
+apply Lemma~\ref{lem:charsum} with the set $\mathcal P$ of all primes
+not dividing $N_G$ and with $\psi_p=\chi_p$. Then
+$a_{p,\psi}(G)=a_p(G)$, and the product of the $\chi_p(G(x))$ over
+$p\mid q$ is $\chi_q(G(x))$. Thus \eqref{eq:charsum} is
+\eqref{eq:mainthm}, with the two expressions of \eqref{eq:Sgeneral}
+for $\S_G(q)$, and the first part of \eqref{eq:betabound} is the
+bound for $a_p(G)$, because $2n^2-4n+4=8d^2-8d+4$. By the last part
+of \eqref{eq:betabound},
+\[
+ \abs{\S_G(q)}\le\abs{\S_F}\frac{(8d^2-8d+4)^{\omega(q)}}q
+ \ll_{F,d,\eps}q^{-1+\eps},
+\]
+and with \eqref{eq:mainthm} this gives the bound for $T_{q,G}(B)$ in
+\eqref{eq:mainbound}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:cyclic}]
+The form $G$ has degree $n=rd$, and the first assertion is
+Lemma~\ref{lem:exceptional}(i). We apply Lemma~\ref{lem:charsum} with
+the set $\mathcal P$ of the primes $p\equiv1\imod r$ not dividing
+$N_G$ and with the given characters $\psi_p$, which are nonprincipal
+because $r\ge3$, and whose $n$th powers are principal. Then
+\eqref{eq:charsum} is \eqref{eq:cyclicmain} with
+\eqref{eq:cyclicfactor}, and the first part of \eqref{eq:betabound}
+is the bound for $a_{p,\psi}(G)$, because
+$2n^2-4n+4=2(1+(rd-1)^2)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:diagonal}]
+The first two assertions are Lemma~\ref{lem:diagbad} and
+\eqref{eq:diagtrace}, which was proved in Lemma~\ref{lem:pencil}. By
+Lemma~\ref{lem:diagbad} the form $G$ satisfies \eqref{eq:smooth},
+and the condition $(q,N_G)=1$ is $(q,2\alpha M)=1$. Hence
+Theorem~\ref{thm:polynomial} applies with $d=1$, and inserting
+\eqref{eq:diagtrace} into the second expression of
+\eqref{eq:Sgeneral} gives \eqref{eq:diagmain}. We also verify the
+identity $\kappa_1\kappa_2\kappa_3\kappa_4=\alpha M^2$ used after the
+theorem: the product of the four factors $-a_i$ is $\alpha$, and for
+each pair $i<j$ the product of the $\kappa_i$ contains the two
+factors $a_ib_j-a_jb_i$ and $a_jb_i-a_ib_j$, whose product over the
+six pairs is $M^2$.
+\end{proof}
+
+For $p\nmid N_G$ the number $\beta_p$ of \eqref{eq:localfactor},
+formed with $\psi_p=\chi_p$, is the factor at $p$ in
+\eqref{eq:Sgeneral}. When it is subtracted from each character, the
+main term disappears.
+
+\begin{corollary}\label{cor:centered}
+Let $d\ge1$, and let $G$ be a form of degree $2d$ satisfying
+\eqref{eq:smooth}. For every weight $W$, every squarefree $q>1$ with
+$(q,N_G)=1$, and every $B\ge2$,
+\begin{equation}\label{eq:centered}
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)
+ \prod_{p\mid q}\big(\chi_p(G(x))-\beta_p\big)
+ \ll_{F,d,W,\eps}(Bq)^{1+\eps}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+For a divisor $s$ of $q$ write $\beta_s$ for the product of the
+$\beta_p$ over $p\mid s$. Expanding the product, we see that the left
+side of \eqref{eq:centered} is
+\[
+ \sum_{st=q}\mu(s)\beta_s\,T_{t,G}(B)
+ =B^2\sigma_\infty(W,F)\,\S_F\sum_{st=q}\mu(s)\beta_s\beta_t
+ +O\bigg(\sum_{st=q}\abs{\beta_s}(Bt)^{1+\eps}\bigg),
+\]
+by Theorem~\ref{thm:polynomial}. Here $\beta_s\beta_t=\beta_q$, and
+the sum of $\mu(s)$ over the divisors $s$ of $q$ vanishes because
+$q>1$. In the error term $(Bt)^{1+\eps}\le(Bq)^{1+\eps}s^{-1}$, and
+by \eqref{eq:betabound}
+\[
+ \sum_{s\mid q}\frac{\abs{\beta_s}}s
+ \le\prod_p\Big(1+\frac{8d^2-8d+4}{p^2}\Big)\ll_d1.\qedhere
+\]
+\end{proof}
+
+\subsection{Square and power values}\label{sec:sieve}
+
+Theorem~\ref{thm:uniformcount} and Corollary~\ref{cor:powercount}
+are the cases $r=2$, $n=2d$ and $r\ge3$, $n=rd$ of the following
+lemma. Its proof is the square sieve of Heath-Brown \cite{HB2}, and
+for $r\ge3$ the analogue for $r$th powers used in
+\cite[Section~2]{HBP}, with
+Lemma~\ref{lem:charsum} at the moduli $q=pp'$.
+
+\begin{lemma}\label{lem:sieve}
+Let $n\ge2$, let $r\ge2$ be a divisor of $n$, and let
+$G\in\Z[x_1,x_2,x_3,x_4]$ be a form of degree $n$ satisfying
+\eqref{eq:smooth}. Let $M_{G,r}(B)$ be the number of $x\in\Z^4$ with
+$\lVert x\rVert_\infty\le B$ and $F(x)=0$ for which $G(x)=k^r$ for
+some integer $k\ne0$. Then, for $B\ge2$,
+\begin{equation}\label{eq:sieve}
+ M_{G,r}(B)\ll_{F,n,\eps}B^{5/3+\eps}+B^{1+\eps}\log^2(2H_GB).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write $\mathcal L=\log(2H_GB)$, so that $\mathcal L>1$. The vectors
+$x$ counted by $M_{G,r}(B)$ satisfy $\lVert x\rVert\le2B$ and
+$F(x)=0$, and Lemma~\ref{lem:quadriccount} gives
+$M_{G,r}(B)\ll_{F,\eps}B^{2+\eps}$. This proves \eqref{eq:sieve} if
+$\mathcal L\ge B^{1/2}$, and we assume from now on that
+$\mathcal L<B^{1/2}$.
+
+In this proof $c_1,c_2,c_3$ and $z_1\ge2$ are positive numbers
+depending only on $F$ and $n$. By the prime number theorem for arithmetic
+progressions \cite[Corollary~11.21]{MV}, for $z\ge z_1$ the interval
+$(z,2z]$ contains at least $c_1z/\log z$ primes $p\equiv1\imod r$. By
+Lemma~\ref{lem:exceptional}(i) we have $\log N_G\le c_2\mathcal L$.
+For $x\in\Z^4$ with $\lVert x\rVert_\infty\le B$ and $G(x)\ne0$ we
+have $\abs{G(x)}\le\binom{n+3}3H_GB^n$, and therefore
+$\log\abs{G(x)}\le c_3\mathcal L$. Set
+\[
+ z=c_4(B^{1/3}+\mathcal L),\qquad
+ c_4=\max\{z_1,\,2c_2/c_1,\,4c_3/c_1\},
+\]
+and let $\mathcal P$ be the set of the primes $p\equiv1\imod r$ with
+$z<p\le2z$ and $p\nmid N_G$. At most $\log N_G/\log z$ primes $p>z$
+divide $N_G$. Since $z\ge z_1$ and $c_2\mathcal L\le c_1z/2$, it
+follows that
+\begin{equation}\label{eq:sieveprimes}
+ \#\mathcal P\ge\frac{c_1z}{2\log z}.
+\end{equation}
+For every $p\in\mathcal P$ let $\psi_p$ be a character modulo $p$ of
+exact order $r$; for $r=2$ this is $\chi_p$.
+
+Let $x$ be one of the vectors counted by $M_{G,r}(B)$, so that
+$G(x)=k^r$ with an integer $k\ne0$. For $p\in\mathcal P$ we have
+$\psi_p(G(x))=\psi_p(k)^r=1$ if $p\nmid G(x)$, and $\psi_p(G(x))=0$
+otherwise. The number of $p\in\mathcal P$ dividing $G(x)$ is at most
+$\log\abs{G(x)}/\log z\le c_3\mathcal L/\log z$, which is at most
+$\#\mathcal P/2$ by \eqref{eq:sieveprimes} and the choice of $c_4$.
+Hence
+\[
+ \sum_{p\in\mathcal P}\psi_p(G(x))\ge\frac{\#\mathcal P}2.
+\]
+Let $\kappa$ be as in the proof of
+Proposition~\ref{prop:analytic}, and let
+$W(x)=\prod_{i=1}^4\kappa(\abs{x_i})$. This is a nonnegative weight
+with $W(x)=1$ for $\lVert x\rVert_\infty\le1$ and $W(x)=0$ for
+$\lVert x\rVert_\infty\ge2$. It follows that
+\begin{equation}\label{eq:sieveineq}
+\begin{aligned}
+ M_{G,r}(B)&\le\frac4{(\#\mathcal P)^2}
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\,
+ \bigg|\sum_{p\in\mathcal P}\psi_p(G(x))\bigg|^2\\
+ &=\frac4{(\#\mathcal P)^2}\sum_{p,p'\in\mathcal P}\
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\,
+ \psi_p(G(x))\overline{\psi_{p'}(G(x))}.
+\end{aligned}
+\end{equation}
+
+Each of the $\#\mathcal P$ terms with $p=p'$ is at most the sum of
+$W(x/B)$ over the zeros $x$ of $F$, which is
+$O_{F,\eps}(B^{2+\eps})$ by Lemma~\ref{lem:quadriccount}. Let $p\ne p'$. We apply
+Lemma~\ref{lem:charsum} with the set $\{p,p'\}$, with the characters
+$\psi_p$ and $\overline{\psi_{p'}}$, and with $q=pp'$. By
+\eqref{eq:charsum} and the last part of \eqref{eq:betabound},
+\[
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\,
+ \psi_p(G(x))\overline{\psi_{p'}(G(x))}
+ \ll_{F,n,\eps}\frac{B^2}{pp'}+(Bpp')^{1+\eps}
+ \le\frac{B^2}{z^2}+(4Bz^2)^{1+\eps}.
+\]
+Inserting these bounds and \eqref{eq:sieveprimes} into
+\eqref{eq:sieveineq}, we obtain
+\[
+ M_{G,r}(B)\ll_{F,n,\eps}\frac{B^{2+\eps}\log z}z
+ +\frac{B^2}{z^2}+(Bz^2)^{1+\eps}.
+\]
+Since $\mathcal L<B^{1/2}$, we have $B^{1/3}\le z\ll_{F,n}B^{1/2}$,
+so that $\log z\ll_{F,n}\log B$ and
+$(Bz^2)^\eps\ll_{F,n}B^{2\eps}$. Moreover
+$z^2\ll_{F,n}B^{2/3}+\mathcal L^2$. Hence
+\[
+ M_{G,r}(B)\ll_{F,n,\eps}B^{5/3+2\eps}+B^{4/3}
+ +B^{2\eps}(B^{5/3}+B\mathcal L^2),
+\]
+which gives \eqref{eq:sieve} with $2\eps$ in place of $\eps$.
+\end{proof}
+
+\subsection{The ranges of the modulus}\label{sec:relative}
+
+We prove the statements made at the end of
+Section~\ref{sec:results}. They rest on lower bounds for the local
+factors $\beta_p$ of \eqref{eq:localfactor} when these do not vanish.
+For a quadratic form $G$ the sum $a_p(G)$ is divisible by $p$, as in
+\eqref{eq:diagtrace}.
+
+\begin{lemma}\label{lem:divisible}
+Let $G$ be a quadratic form satisfying \eqref{eq:smooth}, and let
+$p\nmid N_G$ be a prime. Then $a_p(G)$ is an integer divisible by
+$p$, and $\abs{a_p(G)}\le4p$.
+\end{lemma}
+
+\begin{proof}
+The bound is Lemma~\ref{lem:katz} with $n=2$ and $\psi=\chi_p$. Let
+$C_p(0)$ be the sum \eqref{eq:Cpsi} with $\psi=\chi_p$ and $u=0$. For
+$m\in\Fp$ we have $\chi_p(m)\equiv m^{(p-1)/2}\imod p$, and
+$1-m^{p-1}$ is $1$ if $m=0$ and is $0$ otherwise. Hence
+\[
+ C_p(0)\equiv\sum_{x\in\Fp^4}\big(1-F(x)^{p-1}\big)G(x)^{(p-1)/2}\imod p.
+\]
+The polynomial on the right has degree at most $3(p-1)$, so that each
+of its monomials $x_1^{k_1}x_2^{k_2}x_3^{k_3}x_4^{k_4}$ has an
+exponent $k_i<p-1$. For $0\le k<p-1$ the sum of $y^k$ over
+$y\in\Fp$ vanishes in $\Fp$: this is clear for $k=0$, and for $k>0$
+the sum is unchanged when it is multiplied by $g^k\ne1$, where $g$ is
+a generator of the multiplicative group of $\Fp$. Hence
+$C_p(0)\equiv0\imod p$. Since $C_p(0)=(p-1)a_p(G)$ by
+\eqref{eq:fourier}, the lemma follows.
+\end{proof}
+
+\begin{lemma}\label{lem:lowerbeta}
+Let $n$, $G$, $\mathcal P$ and the characters $\psi_p$ be as in
+Lemma~\ref{lem:charsum}, and let $p\in\mathcal P$ be a prime with
+$a_{p,\psi}(G)\ne0$.
+\begin{enumerate}
+\item[\textup{(i)}] If $\psi_p=\chi_p$, then
+$\abs{\beta_p}\ge1/(2p^2)$, and $\abs{\beta_p}\ge1/(2p)$ if $n=2$.
+\item[\textup{(ii)}] If $\psi_p$ has exact order $r\ge3$, then
+\[
+ \abs{\beta_p}\ge\frac1{2p^2}\big((2n^2-4n+4)p\big)^{1-\varphi(r)/2}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We have $(p-1)(p-\chi(p))\ge(p^2-\chi(p))/2$, because $p\ge3$. By
+the second part of \eqref{eq:betabound}, therefore,
+$\abs{\beta_p}\ge\abs{a_{p,\psi}(G)}/(2p^2)$.
+
+(i) If $\psi_p=\chi_p$, then $a_{p,\psi}(G)=a_p(G)$ is an integer, so
+that $\abs{a_p(G)}\ge1$. If $n=2$, then $\abs{a_p(G)}\ge p$ by
+Lemma~\ref{lem:divisible}.
+
+(ii) Let $\zeta$ be a primitive $r$th root of unity. The values of
+$\psi_p$ are $0$ and powers of $\zeta$, so that
+$a=a_{p,\psi}(G)$ belongs to $\Z[\zeta]$. The automorphisms of the
+field $\Q(\zeta)$ are the $\varphi(r)$ maps $\sigma_t$ with
+$\sigma_t(\zeta)=\zeta^t$, where $t$ runs over the reduced residues
+modulo $r$ \cite[Chapter~VI, Theorem~3.1]{La}. Since
+$\sigma_t(\psi_p(m))=\psi_p^t(m)$ for every integer $m$, the number
+$\sigma_t(a)$ is the sum \eqref{eq:apsidef} formed with the character
+$\psi_p^t$. This character has exact order $r$, and
+Lemma~\ref{lem:katz} gives $\abs{\sigma_t(a)}\le(2n^2-4n+4)p$. The
+product of the $\sigma_t(a)$ is the norm of $a$, a rational integer,
+and it is not zero because $a\ne0$. Moreover
+$\abs{\sigma_{-1}(a)}=\abs a$, because $\sigma_{-1}$ is the complex
+conjugation, and $-1\not\equiv1\imod r$. Hence
+\[
+ 1\le\prod_t\abs{\sigma_t(a)}\le\abs a^2\big((2n^2-4n+4)p\big)^{\varphi(r)-2},
+\]
+which gives the assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:relative}
+Let $n$, $G$, $\mathcal P$ and the characters $\psi_p$ be as in
+Lemma~\ref{lem:charsum}. Let $W$ be a weight with
+$\sigma_\infty(W,F)\,\S_F\ne0$, and let $q\ge1$ be a squarefree
+integer, all of whose prime divisors lie in $\mathcal P$, such that
+$a_{p,\psi}(G)\ne0$ for every $p\mid q$. Suppose that either
+$\psi_p=\chi_p$ for every $p\mid q$, and set $\gamma=2$ if $n=2$ and
+$\gamma=3$ if $n>2$; or that, for some $r\ge3$, the character
+$\psi_p$ has exact order $r$ for every $p\mid q$, and set
+$\gamma=2+\varphi(r)/2$. Then, for $B\ge2$,
+\begin{equation}\label{eq:relative}
+ \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)\prod_{p\mid q}\psi_p(G(x))
+ =B^2\sigma_\infty(W,F)\,\S_F\prod_{p\mid q}\beta_p\,
+ \bigg(1+O_{F,n,W,\eps}\Big(\frac{q^\gamma}B(Bq)^\eps\Big)\bigg).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:lowerbeta} there is a number $c\ge1$, depending
+only on $n$, such that $\abs{\beta_p}\ge(cp^{\gamma-1})^{-1}$ for
+every $p\mid q$; in case (ii) we use that $r\le n$. Hence the product
+of the $\beta_p$ over $p\mid q$ is at least
+$c^{-\omega(q)}q^{1-\gamma}\gg_{n,\eps}q^{1-\gamma-\eps}$ in absolute
+value, and \eqref{eq:relative} follows on dividing the error term of
+\eqref{eq:charsum} by the main term.
+\end{proof}
+
+The error term in \eqref{eq:relative} tends to zero uniformly for
+$q\le B^{1/\gamma-\eta}$, for every fixed $\eta>0$. With
+$\psi_p=\chi_p$ this is the range $q\le B^{1/2-\eta}$ for a quadratic
+form $G$ and $q\le B^{1/3-\eta}$ in general, and for characters of
+order $r\ge3$ it is the range $q\le B^{2/(\varphi(r)+4)-\eta}$, as
+stated in Section~\ref{sec:results}.
+
+\section{Comparison with the determinant method}\label{sec:fixed}
+
+For a form $G$ of degree $r$, the number $M_{G,r}(B)$ of
+Lemma~\ref{lem:sieve} can also be bounded by the determinant method,
+through a theorem of Salberger \cite{S} on complete intersections in
+$\PP^4$. For a quasi-projective variety $U\subseteq\PP^4$ defined
+over $\Q$ and $B\ge1$, let $N(U;B)$ be the number of points of
+$U(\Q)$ that are represented by a vector
+$(x_1,\ldots,x_5)\in\Z^5$ with coprime coordinates and
+$\max_i\abs{x_i}\le B$, as in \cite{S}.
+
+\begin{proposition}\label{prop:salberger}
+Let $r\ge2$, and let $G\in\Z[x_1,x_2,x_3,x_4]$ be a form of degree
+$r$ satisfying \eqref{eq:smooth}. Then, for $B\ge1$,
+\begin{equation}\label{eq:salberger}
+ M_{G,r}(B)\ll_{r,\eps}(H_G^{1/r}B)^{m_r+\eps},
+ \qquad m_r=\max\Big\{1,\frac3{\sqrt{2r}}\Big\}.
+\end{equation}
+The implied constant depends only on $r$ and $\eps$.
+\end{proposition}
+
+\begin{proof}
+Let $X\subset\PP^4$ be the variety defined by the equations
+\[
+ F(x)=0,\qquad y^r=G(x)
+\]
+in the coordinates $(x_1:x_2:x_3:x_4:y)$. We show that $X$ is a
+nonsingular complete intersection of hypersurfaces of degrees $2$
+and $r$. The gradients of the two equations at a point $(x:y)$ of
+$X$ over $\overline\Q$ are $(\nabla F(x),0)$ and
+$(-\nabla G(x),ry^{r-1})$. If $y\ne0$, they are linearly dependent
+only if $\nabla F(x)=2Ax$ vanishes, that is, only if $x=0$; but then
+$y^r=G(0)=0$. If $y=0$, then $x\ne0$ and $F(x)=G(x)=0$, and the
+gradients are linearly independent by \eqref{eq:smooth}.
+
+By \cite[Theorem~0.6]{S}, with $d_1=2$ and $d_2=r$, the complement
+$U$ of the union of the lines on $X$ satisfies
+$N(U;B)\ll_{r,\eps}B^{3/\sqrt{2r}+\eps}+B$, where the implied
+constant depends only on $r$ and $\eps$. The number of lines on $X$
+is bounded in terms of $r$; see \cite[p.~1094]{S}. We claim that no
+line on $X$ is defined over $\Q$. Such a line does not contain the
+point $(0:0:0:0:1)$, which is not on $X$, and its projection to the
+coordinates $x$ is therefore a line in $\PP^3$, defined over $\Q$, on
+which $F$ vanishes. Thus $F$ vanishes on a subspace of $\Q^4$ of
+dimension $2$. Let $T$ be an invertible rational matrix whose first
+two columns form a basis of this subspace. Then
+\[
+ T^{\mathsf T}AT=\begin{pmatrix}0&M_1\\M_1^{\mathsf T}&M_2\end{pmatrix}
+\]
+with $2\times2$ blocks, and $\alpha\det(T)^2=\det(M_1)^2$, which is
+impossible because $\alpha$ is not a square. A line on $X$ that is
+not defined over $\Q$ contains at most one rational point, since two
+rational points span a line defined over $\Q$. Hence
+\begin{equation}\label{eq:salbergerX}
+ N(X;B)\ll_{r,\eps}B^{m_r+\eps}\qquad(B\ge1).
+\end{equation}
+
+Let $x$ be one of the vectors counted by $M_{G,r}(B)$, so that
+$G(x)=k^r$ with an integer $k\ne0$, and let $g$ be the greatest
+common divisor of its coordinates. Then $x'=x/g$ has coprime
+coordinates, $\lVert x'\rVert_\infty\le B/g$ and $F(x')=0$, and
+$G(x')=(k/g)^r$ is an integer, so that $k'=k/g$ is an integer. The
+point $(x':k')$ lies on $X$. A point of $X(\Q)$ arises in this way
+from at most two vectors $x'$, which differ in sign. Since $G$
+has $\binom{r+3}3$ coefficients,
+$\abs{k'}^r\le\binom{r+3}3H_G(B/g)^r$. Hence, for each $g\le B$, the
+number of vectors $x$ with this value of $g$ is at most
+$2N(X;c_rH_G^{1/r}B/g)$, where $c_r=\binom{r+3}3^{1/r}$, and
+\eqref{eq:salbergerX} gives
+\[
+ M_{G,r}(B)\ll_{r,\eps}\sum_{g\le B}\bigg(\frac{H_G^{1/r}B}g\bigg)^{m_r+\eps}
+ \ll(H_G^{1/r}B)^{m_r+\eps}.\qedhere
+\]
+\end{proof}
+
+For $r=2$ the bound \eqref{eq:salberger} is
+$M_G(B)\ll_\eps(H_G^{1/2}B)^{3/2+\eps}$. We compare
+\eqref{eq:salberger} with \eqref{eq:uniformcount} and
+\eqref{eq:powercount} for a form $G$ of degree $r$. The powers of
+$B$ agree when $H_G=B^{\theta_r}$, where
+\[
+ \theta_r=r\Big(\frac5{3m_r}-1\Big),\qquad\text{so that}\qquad
+ \theta_2=\frac29,\quad\theta_3=1.08\ldots,\quad\theta_4=2.28\ldots,
+ \quad\theta_r=\frac{2r}3\quad(r\ge5).
+\]
+For every fixed $\eta>0$, \eqref{eq:salberger} gives a smaller power
+of $B$ when $H_G\le B^{\theta_r-\eta}$, and \eqref{eq:uniformcount}
+and \eqref{eq:powercount} give a smaller power when
+$H_G\ge B^{\theta_r+\eta}$. The dependence of
+\eqref{eq:uniformcount} and \eqref{eq:powercount} on the
+coefficients of $G$ is logarithmic, and these bounds hold for forms
+$G$ of every degree divisible by $r$.
+
+\section{Conclusion and future work}\label{sec:conclusion}
+
+We have proved an asymptotic formula for the sums $T_{q,G}(B)$, and
+for the corresponding sums with characters of order $r\ge3$, in which
+the error term $(Bq)^{1+\eps}$ is uniform in the modulus $q$ and in
+the coefficients of $G$, and the local factors are explicit. As an
+application we have bounded the number of zeros of $F$ at which $G$
+is a nonzero square or $r$th power.
+
+\subsection{The error term}\label{sec:conclusion-error}
+
+In Section~\ref{sec:analytic} the three kinds of frequencies are
+treated in Lemmas~\ref{lem:offcone}, \ref{lem:oncone}
+and~\ref{lem:zerofreq}, for weights supported in an annulus and for
+$q\le B$. The frequency $u=0$ gives the
+main term with an error $O(B(Bq)^\eps)$, and the frequencies $u\ne0$
+with $F^*(u)=0$ contribute $O(B\sqrt q\,(Bq)^\eps)$. The term
+$(Bq)^{1+\eps}$ comes from the frequencies with $F^*(u)\ne0$ alone,
+for which the sums $\mathcal S_{q,c}(u)$ are bounded in absolute
+value. We do not know whether the sum over these frequencies has
+cancellation. An error term smaller than $Bq$ would extend the ranges
+of $q$ at the end of Section~\ref{sec:results}.
+
+\subsection{The exponent \texorpdfstring{$5/3$}{5/3}}\label{sec:conclusion-exponent}
+
+The exponent $5/3$ in \eqref{eq:uniformcount} and
+\eqref{eq:powercount} is that of \cite[Theorem~1.3]{M}. The proof
+of Lemma~\ref{lem:sieve} uses primes $p$ of size
+$B^{1/3}+\log(2H_GB)$. When $\log(2H_GB)\le B^{1/3}$, the terms with
+$p=p'$ and the error term of \eqref{eq:charsum} at the moduli $q=pp'$
+contribute the same power of $B$. Suppose that, for some
+$1/2\le\theta<1$, the error term of \eqref{eq:charsum} were
+$O(B^{1+\eps}q^{\theta+\eps})$ at the moduli $q=pp'$, with the same
+uniformity. Then the same proof, with primes of size
+$B^{1/(1+2\theta)}+\log(2H_GB)$, would give
+\[
+ M_{G,r}(B)\ll B^{2-1/(1+2\theta)+\eps}+B^{1+\eps}\log^2(2H_GB).
+\]
+For $\theta=1/2$, which corresponds to the contribution of
+Lemma~\ref{lem:oncone}, the first exponent is $3/2$.
+
+\subsection{The coefficients of \texorpdfstring{$G$}{G}}\label{sec:conclusion-coefficients}
+
+The bounds \eqref{eq:uniformcount} and \eqref{eq:powercount} depend
+on the coefficients of $G$ only through the term
+$B^{1+\eps}\log^2(2H_GB)$. For a form $G$ of degree $r$ the bound
+\eqref{eq:salberger} of the determinant method has a smaller power of
+$B$ and a power of $H_G$; the two are compared at the end of
+Section~\ref{sec:fixed}. We do not know whether $M_G(B)$ and
+$M_{G,r}(B)$ have bounds with a power of $B$ smaller than $5/3$ in
+which $H_G$ enters only through a power of $\log H_G$.
+
+\subsection{Other cases}\label{sec:conclusion-cases}
+
+Proposition~\ref{prop:analytic} is stated for functions $\xi_p$
+satisfying \eqref{eq:weightproperties} and \eqref{eq:Cstrata}, and
+the form $G$ enters only in Section~\ref{sec:fourier}. The
+proposition therefore applies to other functions $\xi_p$ on the zeros
+of $F$ modulo $p$, once \eqref{eq:Cstrata} is verified for them. The moduli
+in this paper are squarefree and prime to $N_G$; we have not
+considered moduli divisible by squares or by primes of bad reduction.
+We have also assumed that $\alpha$ is not a square. This is used
+when Lemma~\ref{lem:quadriccount} is applied to $F$ and to $F^*$, in
+Lemmas~\ref{lem:conemod} and~\ref{lem:singseries}, and in
+Section~\ref{sec:fixed}. When $\alpha$ is a square, the count
+\eqref{eq:HB} is the sum of a constant multiple of $B^2\log B$, a
+constant multiple of $B^2$ and $O(B^{3/2+\eps})$
+\cite[Theorem~7]{HB}.
+
+\section*{Acknowledgement}
+
+The authors conceived this paper and determined the overall strategy
+of the proofs. In developing and revising the arguments, they worked
+with OpenAI's GPT-6 Astra, in particular on the treatment of the
+exceptional frequencies in Section~\ref{sec:average}; the derivation
+of the Fourier estimate \eqref{eq:fourier} and the construction of
+its exceptional set in Lemma~\ref{lem:exceptional}, with bounds
+uniform in the coefficients of $G$; the derivation of the uniform
+estimate \eqref{eq:analytic} in Proposition~\ref{prop:analytic}; and
+the comparison with the determinant method in
+Proposition~\ref{prop:salberger}. It also assisted with the
+translation of mathematical statements into Lean~\cite{NRZ}.
+Anthropic's Claude (Fable~5.2) was used for adversarial audits and
+to rewrite the authors' draft, which included
+checking the arguments and citations against the sources and
+reorganizing several proofs, notably those of
+Lemma~\ref{lem:divisible} and Proposition~\ref{prop:salberger}.
+
+The authors directed the work, determined the final content of the
+paper, and take full responsibility for its mathematical statements,
+proofs, references and exposition.
+
+\begin{thebibliography}{BCLP}
+
+\bibitem[BCLP]{BCLP}
+A.~Bucur, A.~C. Cojocaru, M.~N. Lal\'in, and L.~B. Pierce,
+\emph{Geometric generalizations of the square sieve, with an application to cyclic covers},
+with an appendix by J.~Rabinoff,
+Mathematika \textbf{69} (2023), no.~1, 106-154.
+
+\bibitem[BKW]{BKW}
+D.~Bonolis, E.~Kowalski, and K.~Woo,
+\emph{Stratification theorems for exponential sums in families},
+arXiv:2506.18299v3, 2026.
+
+\bibitem[BL]{BL}
+T.~D. Browning and D.~Loughran,
+\emph{Sieving rational points on varieties},
+Trans. Amer. Math. Soc. \textbf{371} (2019), no.~8, 5757-5785.
+
+\bibitem[BM]{BM}
+T.~D. Browning and R.~Munshi,
+\emph{Rational points on singular intersections of quadrics},
+Compos. Math. \textbf{149} (2013), no.~9, 1457-1494.
+
+\bibitem[BP]{BP}
+D.~Bonolis and L.~B. Pierce,
+\emph{Application of a polynomial sieve: beyond separation of variables},
+Algebra Number Theory \textbf{18} (2024), no.~8, 1515-1556;
+correction in arXiv:2209.02494v3, 2026.
+
+\bibitem[BPW]{BPW}
+D.~Bonolis, L.~B. Pierce, and K.~Woo,
+\emph{Counting integral points in thin sets of type II: singularities, sieves, and stratification},
+arXiv:2505.11226v1, 2025.
+
+\bibitem[DFI]{DFI}
+W.~Duke, J.~B. Friedlander, and H.~Iwaniec,
+\emph{Bounds for automorphic $L$-functions},
+Invent. Math. \textbf{112} (1993), no.~1, 1-8.
+
+\bibitem[G]{G}
+J.~R. Getz,
+\emph{Secondary terms in asymptotics for the number of zeros of quadratic forms over number fields},
+J. Lond. Math. Soc. (2) \textbf{98} (2018), no.~2, 275-305.
+
+\bibitem[GSS]{GSS}
+R.~Guria, P.~Sharma, and S.~Singh,
+\emph{On quadric surfaces weighted by arbitrary coefficients},
+arXiv:2610.12944v1, 2026.
+
+\bibitem[Ha]{Ha}
+R.~Hartshorne,
+\emph{Algebraic geometry},
+Grad. Texts in Math., vol.~52, Springer, New York, 1977.
+
+\bibitem[HB]{HB}
+D.~R. Heath-Brown,
+\emph{A new form of the circle method, and its application to quadratic forms},
+J. Reine Angew. Math. \textbf{481} (1996), 149-206.
+
+\bibitem[HB2]{HB2}
+D.~R. Heath-Brown,
+\emph{The square sieve and consecutive square-free numbers},
+Math. Ann. \textbf{266} (1984), no.~3, 251-259.
+
+\bibitem[HBP]{HBP}
+D.~R. Heath-Brown and L.~B. Pierce,
+\emph{Counting rational points on smooth cyclic covers},
+J. Number Theory \textbf{132} (2012), no.~8, 1741-1757.
+
+\bibitem[HSS]{HSS}
+Z.~Huang, D.~Schindler, and A.~Shute,
+\emph{Quantitative strong approximation for quaternary quadratic forms},
+arXiv:2501.16766v1, 2025.
+
+\bibitem[IK]{IK}
+H.~Iwaniec and E.~Kowalski,
+\emph{Analytic number theory},
+Amer. Math. Soc. Colloq. Publ., vol.~53, Amer. Math. Soc., Providence, RI, 2004.
+
+\bibitem[IM]{IM}
+H.~Iwaniec and R.~Munshi,
+\emph{The circle method and pairs of quadratic forms},
+J. Th\'eor. Nombres Bordeaux \textbf{22} (2010), no.~2, 403-419.
+
+\bibitem[K]{K}
+N.~M. Katz,
+\emph{Estimates for nonsingular multiplicative character sums},
+Int. Math. Res. Not. \textbf{2002}, no.~7, 333-349.
+
+\bibitem[L]{L}
+S.~Lindqvist,
+\emph{Weak approximation results for quadratic forms in four variables},
+arXiv:1704.00502v1, 2017.
+
+\bibitem[La]{La}
+S.~Lang,
+\emph{Algebra},
+revised third edition, Grad. Texts in Math., vol.~211, Springer, New York, 2002.
+
+\bibitem[M]{M}
+K.~Mallesham,
+\emph{On pairs of quadratic forms in five variables},
+Int. J. Number Theory \textbf{17} (2021), no.~9, 2055-2070.
+
+\bibitem[MV]{MV}
+H.~L. Montgomery and R.~C. Vaughan,
+\emph{Multiplicative number theory. I. Classical theory},
+Cambridge Stud. Adv. Math., vol.~97, Cambridge Univ. Press, Cambridge, 2007.
+
+\bibitem[NRZ]{NRZ}
+H.~Nath, N.~Robles, and A.~Zaharescu,
+\emph{Lean files for ``Character sums over zeros of quaternary quadratic forms''},
+GitHub repository, \url{https://github.com/nicolasrobles/quaternary-quadratic-forms}, 2026.
+
+\bibitem[S]{S}
+P.~Salberger,
+\emph{Counting rational points on projective varieties},
+Proc. Lond. Math. Soc. (3) \textbf{126} (2023), no.~4, 1092-1133.
+
+\end{thebibliography}
+
+\end{document}
