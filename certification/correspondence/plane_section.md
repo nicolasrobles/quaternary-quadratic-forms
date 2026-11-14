@@ -2,7 +2,7 @@
 
 ## Frozen statement and exports
 
-The source is v35, `lem:section`, equation `eq:section`, in
+The source is `lem:section`, equation `eq:section`, in
 [the frozen manuscript](../../manuscript/quadratic_character_sums_github.tex).
 The source hash and compiled numbering are recorded in
 [source.json](../source.json). The full source statement is implemented by

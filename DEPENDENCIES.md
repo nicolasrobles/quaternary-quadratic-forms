@@ -1,7 +1,7 @@
 # Proof dependencies
 
 These graphs describe the proofs in the frozen
-[v35 manuscript](manuscript/quadratic_character_sums_github.tex).
+[quadratic_character_sums_github.tex](manuscript/quadratic_character_sums_github.tex).
 Arrows run from a prerequisite to the result that uses it. The
 [inventory](INVENTORY.md) gives one row per numbered result and links to checked
 Lean exports when they exist. The [live status file](certification/status.json)
@@ -13,10 +13,10 @@ governs completion; a dependency in a graph is not a certification claim.
 |---|---|---|
 | Overview | The main proof branches, with related numbered results grouped together | [SVG](docs/dependency_overview.svg), [PDF](docs/dependency_overview.pdf), [PNG](docs/dependency_overview.png) |
 | Numbered results | All 42 theorem, lemma, proposition and corollary statements shown separately | [SVG](docs/dependency_graph.svg), [PDF](docs/dependency_graph.pdf), [PNG](docs/dependency_graph.png) |
-| Complete graph | The 42 numbered results, 33 auxiliary or supplementary groups, and 19 literature input groups | [Graphviz source](docs/dependency_complete.dot) |
+| Complete graph | The 42 numbered results, 33 auxiliary or supplementary groups, and 20 literature input groups | [Graphviz source](docs/dependency_complete.dot) |
 
 The [machine-readable dependency inventory](certification/dependency_inventory.json)
-is the detailed record: 75 internal nodes and 19 source-input nodes, with 137
+is the detailed record: 75 internal nodes and 20 source-input nodes, with 137
 edges between internal nodes. It retains the reasons for dependencies, exact
 source locations, statement text, and the inputs that need formal interfaces.
 There are 80 direct dependencies between numbered results.
@@ -71,28 +71,27 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 6 · Partial: 2 · Active: 0 · Pending:
-34**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.2, 4.3, and 5.9 have
-complete source-relative proofs. The new Lang branch proves finiteness of
-the actual bad-prime set and the uniform height bound in Lemma 4.1(i).
-It also closes the reduction dependency in Lemma 5.9, whose final theorem
+The numbered-result counts are **Complete: 7 · Partial: 1 · Active: 0 · Pending:
+34**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1, 4.2, 4.3, and 5.9 have
+complete source-relative proofs. Lemma 4.1 includes finiteness of
+the actual bad-prime set, the uniform height bound, and the exceptional-plane
+polynomial with its uniform degree and geometric consequences.
+Its part (i) also closes the reduction dependency in Lemma 5.9, whose final theorem
 uses the literal `p ∤ N_G` hypothesis and proves integrality, divisibility,
 and the bound `|a_p(G)| ≤ 4p`.
 
-Lemma 4.1 is Partial because its exceptional-plane construction in part
-(ii) remains pending. Lemma 4.4 is Partial: all three weight properties
+Lemma 4.4 remains Partial: all three weight properties
 (3.1), the exact zero-frequency clause of (4.4), and the full intermediate
 ray identity (4.5) are checked. Its pointwise Fourier estimate remains
-pending. Theorems 1.1 and 1.4 remain Pending. The full local verifier
-passed for this checkpoint. Current and historical execution evidence is
-recorded in the checkpoint.
+pending. Theorems 1.1 and 1.4 remain Pending. Current and historical
+execution evidence is recorded in the checkpoint.
 
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 261 theorem exports across 50 Lean modules are
-also counted separately from the three external Lean premises. The current
-verification scope includes 70 hashed inputs.
+numbered-result count. The 302 theorem exports across 59 Lean modules are
+also counted separately from the four external Lean premises. The current
+verification scope includes 80 hashed inputs.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -106,8 +105,8 @@ Section 7.2. The open questions in the conclusion are not assertions to prove.
 
 We accept the exact literature statements used in the proofs and verify their
 hypotheses and the manuscript's deductions. The [source registry](TRUSTED_INPUTS.md)
-records these inputs. Its 19 mapped groups are not 19 Lean axioms. Three
-external Lean premises are registered. The first is the simple-root
+records these inputs. It distinguishes 20 mapped source groups from the four
+registered external Lean premises. The first is the simple-root
 univariate Weil estimate from [K, equation (1.2)], specialized to the prime
 field; its [declaration](QuaternaryQuadraticForms/Trusted/Weil.lean) and
 [source correspondence](certification/correspondence/weil_input.md) fix its
@@ -138,6 +137,17 @@ output families. Polynomial-parameter substitution, the actual gradient
 equations, bad-prime finiteness, and the coefficient-height estimate are
 proved internally. The completed Lemma 5.9 uses Lang and Katz, while its
 integer divisibility argument uses neither external estimate.
+
+The fourth premise is the [general coordinate Bertini interface](QuaternaryQuadraticForms/Trusted/Bertini.lean),
+registered against `EXT.HARTSHORNE_BERTINI` and `EXT.PROJECTIVE_JACOBIAN`.
+The [source review](certification/correspondence/bertini_input.md) combines
+Hartshorne II.8.18 with explicitly attributed general projective Jacobian,
+dimension, component and tangent-space facts. It supplies a hyperplane
+normal and a tangent direction for an arbitrary full-rank homogeneous
+system over an algebraically closed field. The rank increase, specialization
+to the actual quadric and form, resultant construction, descent to the prime
+field and uniform degree bound are internal proofs. This interface imposes
+no characteristic restriction or divisibility condition on the degrees.
 
 Existing results from official Lean and the pinned official
 [mathlib4](https://github.com/leanprover-community/mathlib4) may be reused.
@@ -228,10 +238,10 @@ nonsingularity, smoothness, and nonprincipality hypotheses are not needed at
 this stage. The
 [correspondence record](certification/correspondence/fourier_rays.md) identifies
 the precise clauses checked. The plane-section estimate of Lemma 4.3 is now
-available, as is the global Katz bound in Lemma 2.7. The `D_p`-dependent
-bound in Lemma 4.4 still needs the exceptional-polynomial construction in
-Lemma 4.1(ii), the exceptional plane-section count, and the final Fourier
-assembly. Those remaining steps have not been assumed as additional premises.
+available, as are the global Katz bound in Lemma 2.7 and the exceptional
+polynomial in Lemma 4.1(ii). The `D_p`-dependent bound in Lemma 4.4 still
+needs the exceptional plane-section count and the final Fourier assembly.
+Those remaining steps have not been assumed as additional premises.
 
 ## Completed bad-prime finiteness and height bound
 
@@ -269,10 +279,48 @@ The dependency chain for Lemma 4.1(i) is now proved:
    manuscript height and modulus.
 
 The [source correspondence](certification/correspondence/bad_reduction.md)
-covers part (i) in full and leaves part (ii) pending. The selected resultant
+covers both parts of Lemma 4.1. The selected integer resultant
 value may depend on `G`; its fixed family and uniform constants do not.
 The proof preserves the intrinsic bad-prime set instead of enlarging it to
 all prime divisors of the selected value.
+
+## Completed exceptional-plane polynomial
+
+The second elimination system and the construction in Lemma 4.1(ii) are proved:
+
+1. [Rank-three minors](QuaternaryQuadraticForms/RankThreeMinors.lean)
+   identify rank failure with vanishing of all ordered three-column minors.
+   [The plane reduction system](QuaternaryQuadraticForms/PlaneReductionSystem.lean)
+   consists of the actual `F`, `G`, `u · x`, and those minors. Its 67 equations
+   have assigned degrees `2,n,1,n,…,n`. Repeated minors do not change the
+   geometric common-zero locus.
+2. [Joint-parameter resultants](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean)
+   fix an integral family in the coefficients of `G` and the normal `u`,
+   before either is specialized. Its simultaneous zeros detect precisely
+   geometric failure of rank-three transversality.
+3. [Bertini specialization](QuaternaryQuadraticForms/BertiniPlane.lean)
+   applies the general registered input over the algebraic closure and
+   proves the rank-three consequence internally using a tangent vector
+   annihilated by both gradients but not by the plane normal.
+4. [Specialization and descent](QuaternaryQuadraticForms/PlaneResultantSpecialization.lean)
+   show that the resulting geometric witness makes one specialized
+   resultant polynomial nonzero over the base field. No rational
+   transverse plane or injectivity of finite-field polynomial evaluation
+   is assumed.
+5. [Parameter specialization](QuaternaryQuadraticForms/ParameterSpecialization.lean)
+   and the [degree bound](QuaternaryQuadraticForms/ExceptionalPlaneDegree.lean)
+   prove that substituting coefficient constants cannot increase total
+   degree. The fixed family therefore gives a bound chosen before `G,p`.
+6. [The final polynomial theorem](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean)
+   constructs `D_p = F* R_j(G,·)`, proves that it is nonzero and vanishes
+   at the origin, and bounds its degree by `2 + max_j deg R_j`. Its
+   nonvanishing implies both `F*(u) ≠ 0` and the literal geometric
+   rank-three condition. The final integral wrapper derives all reduction
+   hypotheses from the manuscript's `p ∤ N_G`.
+
+The only literature dependencies of the final theorem are Lang and the
+general composite Bertini input. The full source correspondence is recorded
+in [the Lemma 4.1 review](certification/correspondence/bad_reduction.md).
 
 ## Completed quadratic trace theorem
 
@@ -322,18 +370,12 @@ inputs, with no use of the separate Weil estimate.
 
 ## Next proof branch
 
-The next target is Lemma 4.1(ii), the exceptional-plane polynomial. Its
-second homogeneous system involves `F`, `G`, the plane equation, and the
-three-by-three gradient minors. The exact cited geometric input must
-supply a transverse plane over the algebraic closure. The rank
-interpretation and specialization then have to produce a nonzero `D_p`
-with uniformly bounded degree, vanishing at zero, whose nonvanishing gives
-the dual-form and rank-three conditions.
-
-After that construction, the exceptional-section point count and Fourier
-assembly remain in Lemma 4.4. The global Katz estimate, transverse section
-estimate, exact ray identity, and good-reduction modulus are available as
-proved inputs. The main analytic theorems remain Pending.
+The next target is the remaining pointwise estimate in Lemma 4.4. Prove
+the bound of at most `2p+2` points in every nonzero plane section, including
+singular sections, then assemble the generic, exceptional and zero-frequency
+cases. The uniform exceptional polynomial, global Katz estimate, transverse
+section estimate, exact ray identity and good-reduction modulus are available
+as proved inputs. The main analytic theorems remain Pending.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

@@ -1,8 +1,8 @@
-# Bad-reduction, height, and quadratic-trace checkpoint
+# Complete exceptional-plane and bad-reduction checkpoint
 
 ## Numbered-result status
 
-Complete: **6**. Partial: **2**. Active numbered targets: **0**.
+Complete: **7**. Partial: **1**. Active numbered targets: **0**.
 Pending: **34**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
@@ -21,24 +21,29 @@ The preceding Katz milestone includes the literal quadric geometry, the exact
 coefficient, and the scalar bound. The full local verifier passed. GitHub
 Actions verification also passed at the exact proof commit recorded below.
 
-**Lemma 5.9 is now Certified.** Its final integer and complex trace theorems
+**Lemma 5.9 is Certified.** Its final integer and complex trace theorems
 derive finiteness of the actual bad-prime set from characteristic-zero
 smoothness, then use the literal `p ∤ N_G` hypothesis to prove integrality,
 divisibility by `p`, and the bound `|a_p(G)| ≤ 4p`. No separate finiteness
 or good-reduction hypothesis remains.
 
-**Lemma 4.1(i) is complete.** Its finite bad-prime set and bound
-`N_G ≤ K H_G^C` are proved with constants fixed before `G`. Lemma 4.1 is
-Partial because part (ii), the exceptional-plane polynomial, remains
-pending. Lemma 4.4 also remains Partial: its weight properties, ray
-identity (4.5), and exact zero-frequency clause are checked, while its
-pointwise estimate remains pending. Theorems 1.1 and 1.4 remain Pending.
+**Lemma 4.1 is Certified.** Part (i) proves finiteness of the actual bad-prime
+set and `N_G ≤ K H_G^C`, with constants fixed before `G`. Part (ii) now
+constructs `D_p ≠ 0`, proves `D_p(0)=0`, and bounds its degree by `E`
+chosen before both `G` and `p`. Nonvanishing implies `F*(u) ≠ 0` and the
+literal geometric rank-three condition.
+
+Lemma 4.4 remains Partial: its weight properties, ray identity (4.5), and
+exact zero-frequency clause are checked. Lemma 4.1 now supplies the
+required exceptional polynomial. The exceptional-section point count
+and the final pointwise Fourier estimate remain to be proved.
+Theorems 1.1 and 1.4 remain Pending.
 
 ## Mathematical scope
 
 ### Lang input and the actual bad-reduction system
 
-The new external declaration is
+The previously registered external declaration is
 `QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants`, registered
 as `EXT.LANG_ELIMINATION`. It is the general generic-coefficient resultant
 system in Lang, *Algebra*, revised third edition, IX.4.1, printed p. 402.
@@ -96,9 +101,89 @@ modulus. A separate export proves the same bound for every supplied
 finiteness proof.
 
 The [source correspondence review](certification/correspondence/bad_reduction.md)
-covers all of part (i). Part (ii), including the exceptional-plane
-polynomial and its uniform degree, remains pending. This checkpoint makes
-no completion claim for the whole two-part Lemma 4.1.
+covers the constants' quantifier order and the literal bad-prime modulus.
+The following construction completes part (ii), and hence the whole
+two-part Lemma 4.1.
+
+### General Bertini input and the geometric plane
+
+The fourth external Lean declaration is
+`QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent`, registered
+against both `EXT.HARTSHORNE_BERTINI` and `EXT.PROJECTIVE_JACOBIAN`.
+This is explicitly a composite interface, documented in the
+[source review](certification/correspondence/bertini_input.md).
+Hartshorne, *Algebraic Geometry*, II.8.18 and its proof, pp. 179–180,
+give the dense open set of regular hyperplane sections. The registered
+general projective Jacobian criterion, local dimension, component facts,
+and tangent-space interpretation supply its homogeneous-coordinate form.
+The corresponding primary-source locators are recorded in that review.
+
+The interface applies to any finite homogeneous system of positive
+assigned degrees in `N` coordinates, with `c + 2 ≤ N`, over an
+algebraically closed field. Its hypothesis is full rank `c` of the
+actual gradient rows at every nonzero common zero. Its conclusion is
+a nonzero normal `u` such that, at each common zero on its hyperplane,
+there is a common tangent vector `v` with `u·v ≠ 0`. No characteristic-degree
+coprimality, irreducibility, or nonemptiness hypothesis is added.
+
+`BertiniPlane.lean` checks the specialization to the actual quadratic
+polynomial and degree-`n` form. Pairing a putative linear dependence
+with the supplied tangent vector shows that the coefficient of `u`
+vanishes; rank two of the two gradients gives rank three after adjoining
+`u`. This linear-algebra deduction is internal. The premise contains no
+resultant, bad-prime modulus, exceptional polynomial, uniform degree
+bound, or Fourier estimate.
+
+### Second elimination system and complete Lemma 4.1(ii)
+
+`RankThreeMinors.lean` proves that rank failure for three rows in four
+coordinates is equivalent to vanishing of every ordered three-column
+minor. `PlaneReductionSystem.lean` constructs the literal system
+`F,G,u·x` and all 64 ordered minors. Zero and repeated minors preserve
+the zero locus of the four minors in the manuscript. The 67 equations
+have assigned degrees `2,n,1,n,…,n`; their homogeneity and compatibility
+with coefficient maps are proved over arbitrary commutative rings.
+The geometric common-zero condition is proved equivalent to failure of
+the actual `PlaneTransverseRank` predicate.
+
+`ExceptionalPlaneResultants.lean` fixes the integral quadratic matrix and
+degree before constructing the joint coefficient and normal parameter
+ring. The existing Lang premise, through the checked polynomial-parameter
+substitution, supplies one finite family `R_j(g,u)` over the integers.
+The same family detects geometric rank failure after every field and
+coefficient specialization.
+
+The good-reduction hypothesis permits the proved Bertini specialization
+over the algebraic closure. Its transverse-plane witness makes one
+resultant evaluation nonzero. `PlaneResultantSpecialization.lean` proves
+that an already algebraically closed field has exactly the same common
+zeros as its algebraic closure, and that partial coefficient
+specialization commutes with field extension. Thus
+`S(u)=R_j(G,u)` is a nonzero polynomial over the prime field itself.
+The witness need not be rational over that prime field; no such extra
+hypothesis is introduced.
+
+`ParameterSpecialization.lean` proves that substitution of polynomials
+of degree at most one does not increase total degree.
+`ExceptionalPlaneDegree.lean` applies this to specialization of the
+coefficients of `G`, retaining the four normal variables. Consequently
+`E = 2 + sup_j totalDegree(R_j)` is chosen before `G` and `p`, with
+the finite supremum defined to be zero for an empty family.
+
+`ExceptionalPlanePolynomial.lean` constructs the actual product
+`D_p = F* S`. Odd characteristic and nonsingularity prove the dual
+quadratic polynomial nonzero. The product is nonzero, has degree at most
+`E`, and vanishes at the zero normal. If it does not vanish at a normal
+`u`, then both `F*(u) ≠ 0` and the full geometric rank-three conclusion
+hold. The final theorem starts from characteristic-zero smoothness and
+the literal `p ∤ N_G` condition; part (i) supplies the finiteness proof,
+and the exact modulus gives odd characteristic, nonsingularity, and
+good reduction internally.
+
+These deductions complete every clause of Lemma 4.1(ii). The fixed
+resultant family and the uniform degree precede the variable form and
+prime in the final theorem types. Neither the generic Bertini premise
+nor the Lang premise alone asserts the manuscript's result.
 
 ### Katz input and quadric specialization
 
@@ -246,6 +331,9 @@ assumed as an internal premise.
 ### Checked exports and correspondence
 
 - [Complete Lemma 4.1(i)](QuaternaryQuadraticForms/BadReductionHeight.lean).
+- [Complete Lemma 4.1(ii)](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean).
+- [Second elimination system and fixed resultant family](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean).
+- [General Bertini and projective-Jacobian source review](certification/correspondence/bertini_input.md).
 - [Bad-reduction resultant family and finiteness](QuaternaryQuadraticForms/BadReductionResultants.lean).
 - [General Lang source review](certification/correspondence/elimination_input.md).
 - [Bad-reduction and height correspondence review](certification/correspondence/bad_reduction.md).
@@ -271,18 +359,42 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current milestone registers 261 theorem exports across 50 project
-Lean modules, 70 verification input hashes, 19 mapped source groups, and
-three separately registered external Lean premises. They are the Weil
-input, the composite Katz/Fulton spectral input, and the general Lang
-resultant input. Source groups and Lean premise declarations are counted
-separately.
+The current milestone registers 302 theorem exports across 59 project
+Lean modules and 20 mapped source groups. There are four separately
+registered external Lean premises: Weil, the composite Katz/Fulton
+spectral interface, Lang's general resultants, and the composite Bertini
+and projective-Jacobian tangent interface. Source groups and Lean premise
+declarations are counted separately.
 
 The new modules have passed strict builds under official Lean 4.24.0 and
 the pinned mathlib revision, with `warningAsError=true` and
-`autoImplicit=false`. Independent source reviews cover the exact Lang
-interface, the full content of Lemma 4.1(i), and completion of Lemma 5.9.
-The frozen manuscript and PDF are unchanged.
+`autoImplicit=false`. Independent source reviews cover the exact composite
+Bertini interface and every clause of Lemma 4.1(ii), including the geometric
+witness, prime-field descent, uniform degree, and final `D_p` construction.
+Together with the earlier reviewed part (i), this completes Lemma 4.1.
+
+The aggregate local verifier passed for all 59 modules, 302 theorem
+exports, four registered literature premises and 80 input hashes. It
+checked each module directly with strict settings, inspected declaration
+kinds and actual types, verified the exact premise type hashes and allowed
+axiom dependencies, and checked all nine pinned dependency revisions.
+Every recorded input hash matches the current files. All 261 previously
+checked theorem types and axiom dependencies are unchanged.
+
+The [local verification report](certification/verification_report.json)
+records this completed execution. The independent GitHub Actions run for
+the 302-export scope is pending. The frozen manuscript and PDF are
+unchanged. The archived runs below retain their original checked scopes.
+
+## Earlier checked checkpoints
+
+### Bad-reduction, height, and quadratic-trace local execution
+
+This preceding checkpoint contained 261 theorem exports across 50 project
+Lean modules, 70 verification input hashes, 19 mapped source groups, and
+three external Lean premises: Weil, Katz/Fulton, and Lang. Independent
+source reviews covered the exact Lang interface, all of Lemma 4.1(i),
+and completion of Lemma 5.9.
 
 The full verifier passed on 13 November 2026 at 23:05 CST. It checked the frozen
 manuscript and PDF, all 42 numbered statement identities, the dependency
@@ -299,23 +411,42 @@ both Katz and Lang. Those last two are the complete quadratic-trace exports.
 The two source components of the composite Katz premise remain separately
 registered and validated.
 
-All 70 input hashes match the verified files, including ten correspondence
+All 70 input hashes matched the verified files at that proof commit, including ten correspondence
 records. The full Lemma 4.1(i) export places the positive constants before
 the form G. The final Lemma 5.9 types contain no separately assumed
 finiteness or good-reduction condition. Source review found no missing
 clause or strengthened hypothesis in these completed statements.
 
-- [Local verification report](certification/verification_report.json).
+- [Local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/cc87de7c88dc32339bb59636ac0127a19bbdde76/certification/verification_report.json).
 - Lean: official 4.24.0.
 - mathlib: `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
 - Manuscript SHA-256: `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`.
 
-### Current GitHub execution
+### Bad-reduction, height, and quadratic-trace GitHub execution
 
-Publication and GitHub Actions verification for this checkpoint are pending.
-The successful runs below are retained as evidence for their earlier scopes.
+The same verifier passed at the exact proof commit
+[cc87de7c88dc32339bb59636ac0127a19bbdde76](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/cc87de7c88dc32339bb59636ac0127a19bbdde76).
 
-## Earlier checked checkpoints
+- [Successful run 43559876500, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43559876500).
+- Verification job: 132340944839.
+- Artifact: 14100255355.
+- [Preserved CI report](certification/ci/run_43559876500_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43559876500_attempt_1.zip).
+- ZIP SHA-256: `3ac9416897828dece4ccce6465aa58e0a2ceca5cdf29d4fe525277b4bbbf5ef5`.
+- Report SHA-256: `bbab231f27d91a2218f6d6abe4df0e99afeaf49e5dfb2756a79b3b3e535e5a48`.
+
+The original artifact was downloaded and its digest matched GitHub's recorded
+SHA-256. The ZIP contains the verification report alone. All 70 input hashes
+matched the files at that proof commit, including ten correspondence reviews.
+All 261 theorem records, all three separately inspected literature-input
+records, and all nine pinned dependency revisions matched the local report.
+The CI report records six Certified, two Partial, and 34 Pending numbered
+results, and leaves whole-paper certification false.
+
+This preserved evidence covers the original 261-export scope at `cc87de7`.
+The manuscript-name wording updates do not alter the frozen manuscript or
+the original verification artifacts; their new file hashes belong to a later
+verification report. The successful runs below retain their earlier scopes.
 
 ### Katz local execution
 
@@ -508,20 +639,31 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Complete Lemma 4.1(ii): for every good prime, construct a nonzero
-`D_p` with `D_p(0)=0` and degree bounded only in terms of `F,n`. Its
-nonvanishing must imply `F*(u)≠0` and rank three for the actual rows
-`∇F(x), ∇G(x), u` at every nonzero geometric common zero.
+Complete the pointwise Fourier estimate in Lemma 4.4. Lemma 4.1 now
+provides the nonzero bounded-degree polynomial `D_p`, its value at the
+zero normal, and its geometric implications under the actual good-prime
+hypothesis.
 
-This requires the second homogeneous elimination system, involving the
-plane equation and the three-by-three minors, together with the exact
-cited geometric input that supplies a transverse plane over the algebraic
-closure. The general resultant premise and the proved polynomial-parameter
-substitution can be reused. The rank interpretation, nonzero specialized
-polynomial, uniform degree, and exact `D_p` construction remain internal
-deductions to establish.
+Prove the exceptional-plane section count and assemble the three frequency
+cases from the exact ray identity, the Katz bound, and the transverse
+section bound, including the final constant `2n²`. The analytic assembly
+leading to Theorems 1.1 and 1.4 remains Pending.
 
-Then prove the exceptional-plane section count and assemble the pointwise
-Fourier bound in Lemma 4.4 from the existing ray identity, Katz bound, and
-transverse section bound. The analytic assembly leading to Theorems 1.1
-and 1.4 remains Pending.
+A concrete route for the remaining count is available in the pinned library.
+For every nonzero normal, `planeSubspace_finrank_of_ne_zero` gives a
+three-dimensional plane, including tangent planes. Prove its restricted
+quadratic is nonzero: if it vanished on the whole plane, polarization would
+make that plane totally isotropic, contradicting the orthogonal-complement
+dimension `4 - 3 = 1`. In three linear coordinates the actual restriction
+has degree at most two. Mathlib's `MvPolynomial.schwartz_zippel_totalDegree`
+then gives at most `2p²` affine zeros. The existing projective-ray
+decomposition identifies their number as `1 + (p-1)M`, so `p ≥ 3` gives
+the required `M ≤ 2p+2`. This route has been inspected but is not yet
+formalized in this project.
+
+The final assembly must remain a theorem about the literal `fourierSum`
+and `integralFourierSum`. Use the checked bounds in the cases `u=0`,
+`D_p(u)≠0`, and `D_p(u)=0` with `u≠0`. The exceptional count must assume
+only a nonzero normal, since singular sections are included. It must not
+inherit the dual-form nonvanishing hypothesis used by the nonsingular
+conic parametrization.

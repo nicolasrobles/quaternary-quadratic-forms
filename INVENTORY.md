@@ -1,12 +1,12 @@
 # Certification inventory
 
-Frozen manuscript: v35, renamed without content changes for this repository.
+Frozen manuscript: [quadratic_character_sums_github.tex](manuscript/quadratic_character_sums_github.tex).
 
-**6 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 34 are pending.
+**7 of 42 numbered results are certified.** 1 is partial, 0 are active numbered targets, and 34 are pending.
 
-The current checkpoint proves Lemma 4.1(i): the literal bad-prime set is finite, and its modulus N_G satisfies a coefficient-height bound with constants chosen before the form G. The registered Lang resultant theorem supplies a general homogeneous elimination family; the actual gradient equations, coefficient specialization, nonzero integer witness, prime divisibility, and height bound are proved deductions. Lemma 4.1 remains Partial because its exceptional-plane assertion in part (ii) is unfinished. The complete Lemma 5.9 now follows from characteristic-zero smoothness and p not dividing the literal N_G: its final exports assume neither a separate finiteness proof nor good reduction. Lemmas 2.5, 2.7, 4.2–4.3 and Corollary 2.6 remain certified. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; its uniform pointwise estimate is still pending, so that lemma remains Partial. Theorems 1.1 and 1.4 remain Pending. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not additional numbered results.
+The current checkpoint completes Lemma 4.1. Part (i) proves finiteness of the literal bad-prime set and a uniform coefficient-height bound for N_G. Part (ii) constructs a nonzero D_p, vanishing at the origin, whose nonvanishing implies the dual-form condition and actual geometric rank-three transversality. Its degree bound is chosen before G and p. The general Lang and composite Bertini literature inputs are registered separately; the manuscript's elimination systems, rank deductions, specialization, nonvanishing descent and degree bound are proved internally. The complete Lemma 5.9 follows from characteristic-zero smoothness and p not dividing the literal N_G: its final exports assume neither a separate finiteness proof nor good reduction. Lemmas 2.5, 2.7, 4.2–4.3 and Corollary 2.6 remain certified. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; its uniform pointwise estimate is still pending, so that lemma remains Partial. Theorems 1.1 and 1.4 remain Pending. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not additional numbered results.
 
-The verification scope contains **261 proved exports**, **50 proof modules**, and **70 hashed input files**. These counts are derived from the live ledger and project files; they do not increase the number of certified manuscript results.
+The verification scope contains **302 proved exports**, **59 proof modules**, and **80 hashed input files**. These counts are derived from the live ledger and project files; they do not increase the number of certified manuscript results.
 
 [Manuscript source](manuscript/quadratic_character_sums_github.tex) · [PDF](manuscript/quadratic_character_sums_github.pdf) · [Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · [Live proof ledger](certification/status.json)
 
@@ -61,7 +61,7 @@ A successful build does not change these statuses. Imported literature theorems 
 
 | Result | Content | Status | Checked export |
 |---|---|---|---|
-| [Lemma 4.1](manuscript/quadratic_character_sums_github.tex#L1615-L1632) | Polynomial bound for bad-prime product and uniformly bounded-degree exceptional plane locus | Partial | [`QuaternaryQuadraticForms.badReductionPrimes_finite_of_smooth`](QuaternaryQuadraticForms/BadReductionResultants.lean); [`QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound`](QuaternaryQuadraticForms/BadReductionHeight.lean); [`QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound`](QuaternaryQuadraticForms/BadReductionHeight.lean) |
+| [Lemma 4.1](manuscript/quadratic_character_sums_github.tex#L1615-L1632) | Polynomial bound for bad-prime product and uniformly bounded-degree exceptional plane locus | Certified | [`QuaternaryQuadraticForms.badReductionPrimes_finite_of_smooth`](QuaternaryQuadraticForms/BadReductionResultants.lean); [`QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound`](QuaternaryQuadraticForms/BadReductionHeight.lean); [`QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound`](QuaternaryQuadraticForms/BadReductionHeight.lean); [`QuaternaryQuadraticForms.exceptional_plane_polynomial`](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean) |
 | [Lemma 4.2](manuscript/quadratic_character_sums_github.tex#L1712-L1724) | Uniform conic parametrization by binary quadratics over every extension field, with independent derivative vectors | Certified | [`QuaternaryQuadraticForms.conic_parametrization`](QuaternaryQuadraticForms/ConicParametrization.lean) |
 | [Lemma 4.3](manuscript/quadratic_character_sums_github.tex#L1756-L1765) | Transverse plane-section character-sum bound (2n-1) sqrt(p)+1 | Certified | [`QuaternaryQuadraticForms.plane_section_bound`](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) |
 | [Lemma 4.4](manuscript/quadratic_character_sums_github.tex#L1796-L1808) | Coefficient-uniform Fourier bounds with exceptional-locus term and exact zero-frequency projective identity | Partial | [`QuaternaryQuadraticForms.polynomialCharacterWeight_properties`](QuaternaryQuadraticForms/PolynomialWeights.lean); [`QuaternaryQuadraticForms.fourierSum_zero`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.fourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.integralFourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.integralFourierSum_of_dvd`](QuaternaryQuadraticForms/FourierRays.lean) |
@@ -111,6 +111,12 @@ Complete bound for the actual projective-line sum. The charts, dehomogenization,
 
 Complete Lemma 2.7 for the actual projective trace under the literal geometric rank-two condition. Quadric smoothness, geometric polynomial irreducibility, nonvanishing, the exact Chern coefficient, and the scalar norm estimate are proved internally. The registered composite input combines Katz spectral data with the separately attributed general hypersurface geometry, adjunction, and degree formulas.
 
+### Lemma 4.1
+
+[Statement correspondence review](certification/correspondence/bad_reduction.md)
+
+Both parts of Lemma 4.1 are complete. The exact Lang generic-coefficient resultant system and general composite Bertini interface are registered literature premises. Both actual elimination systems, all rank-minor interpretations, parameter specialization, geometric nonvanishing descent, the literal bad-prime finiteness and height estimate, and construction of D_p with a uniform degree bound are internal deductions. Bertini is used only over the algebraic closure; no prime-field transverse plane is assumed.
+
 ### Lemma 4.2
 
 [Statement correspondence review](certification/correspondence/conic_parametrization.md)
@@ -131,21 +137,6 @@ Complete Lemma 5.9 for the actual quadratic projective trace: it is an integer d
 
 ## Scope of partially checked numbered results
 
-### Lemma 4.1
-
-[Statement correspondence review](certification/correspondence/bad_reduction.md)
-
-Checked clauses:
-
-- Part (i): characteristic-zero smoothness implies finiteness of the actual bad-reduction prime set outside N_F.
-- Part (i): for each fixed F and n, constants C,K >= 1 are chosen before G and bound the literal modulus by N_G <= K H_G^C, with H_G the manuscript coefficient height.
-
-Remaining clauses:
-
-- Part (ii): construct a nonzero exceptional-plane polynomial D_p over F_p, of degree bounded uniformly in G,p by E >= 1, with D_p(0)=0 and the dual-form nonvanishing and rank-three transversality consequences whenever D_p(u) != 0.
-
-The full finiteness and uniform height conclusion of part (i) is proved. The only new literature premise is Lang's general generic-coefficient resultant system. Parameter substitution, gradient-minor equations, specialization in every characteristic, the common nonzero integer, literal bad-prime set, and height estimate are internal deductions. Part (ii), the exceptional-plane construction, remains pending.
-
 ### Lemma 4.4
 
 [Statement correspondence review](certification/correspondence/fourier_rays.md)
@@ -158,9 +149,9 @@ Checked clauses:
 
 Remaining clauses:
 
-- The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases.
+- The coefficient-uniform pointwise estimate in (4.4): prove the exceptional plane-section count and assemble the generic, exceptional and zero-frequency bounds using the now completed D_p construction.
 
-Lemmas 2.7 and 4.3 supply the global and transverse plane-section trace bounds. Lemma 4.1(i) now supplies actual bad-prime finiteness and the uniform modulus height bound. The exceptional polynomial from Lemma 4.1(ii), the remaining exceptional-frequency counting, and assembly of the full pointwise bound are still pending. None has been imported as a replacement axiom.
+Lemmas 2.7 and 4.3 supply the global and transverse plane-section trace bounds. The complete Lemma 4.1 supplies actual bad-prime finiteness, the uniform modulus height bound and the nonzero exceptional polynomial with its uniform degree and geometric consequences. The exceptional-frequency section count and assembly of the full pointwise Fourier bound remain pending. Neither has been imported as a replacement axiom.
 
 ## Checked exports and supporting declarations
 
@@ -427,8 +418,49 @@ Lemmas 2.7 and 4.3 supply the global and transverse plane-section trace bounds. 
 | [`QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound`](QuaternaryQuadraticForms/BadReductionHeight.lean) | Full Lemma 4.1(i): for fixed integral A and n >= 2, choose positive natural constants C,K before G; every homogeneous G satisfying the actual characteristic-zero rank condition has a finite literal bad-prime set and its literal N_G is at most K times the actual coefficient height to the power C. | Checked locally |
 | [`QuaternaryQuadraticForms.quadratic_projective_trace_integer`](QuaternaryQuadraticForms/QuadraticTraceTheorem.lean) | The complete divisibility and size conclusions of Lemma 5.9 directly for the actual integer projective trace, under characteristic-zero smoothness and exclusion of the literal N_G whose finiteness is proved internally. | Checked locally |
 | [`QuaternaryQuadraticForms.quadratic_projective_trace`](QuaternaryQuadraticForms/QuadraticTraceTheorem.lean) | Complete Lemma 5.9: the actual complex projective quadratic-character trace equals an integer a with p dividing a and \|a\| <= 4p. The literal N_G is defined using internally proved finiteness from characteristic-zero smoothness; no separate finiteness or good-reduction premise is assumed. | Checked locally |
+| [`QuaternaryQuadraticForms.rowTripleMinor_eq_det`](QuaternaryQuadraticForms/RankThreeMinors.lean) | The polynomial expression is the determinant of the corresponding three-column matrix, including choices with repeated columns. | Checked locally |
+| [`QuaternaryQuadraticForms.rowTripleMinor_map`](QuaternaryQuadraticForms/RankThreeMinors.lean) | Every coefficient homomorphism commutes with the literal minor. | Checked locally |
+| [`QuaternaryQuadraticForms.rank_three_ne_iff_minors_zero`](QuaternaryQuadraticForms/RankThreeMinors.lean) | Three rows have rank different from three precisely when every ordered three-by-three column minor vanishes. | Checked locally |
+| [`QuaternaryQuadraticForms.rank_three_iff_exists_minor_ne_zero`](QuaternaryQuadraticForms/RankThreeMinors.lean) | Full rank is witnessed by a nonzero ordered three-column minor. | Checked locally |
+| [`QuaternaryQuadraticForms.planeEquationPolynomial_eq_planePolynomial`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | The ring-general equation agrees with the previously used field equation. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_planeEquationPolynomial`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Evaluation of the plane equation is the actual dot product. | Checked locally |
+| [`QuaternaryQuadraticForms.planeEquationPolynomial_homogeneous`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | The plane equation retains homogeneous degree one even for zero normal. | Checked locally |
+| [`QuaternaryQuadraticForms.planeEquationPolynomial_map`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Plane equations commute with every coefficient homomorphism. | Checked locally |
+| [`QuaternaryQuadraticForms.gradientPlaneMinor_homogeneous`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Such a minor has degree `n` in the geometric variables. | Checked locally |
+| [`QuaternaryQuadraticForms.gradientPlaneMinor_map`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | The minors commute with coefficient maps, including prime reduction. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_gradientPlaneMinor`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | The formal polynomial minor evaluates to the actual scalar row minor. | Checked locally |
+| [`QuaternaryQuadraticForms.card_planeReductionIndex`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Ordered repetition changes neither the equations nor their finite nature. | Checked locally |
+| [`QuaternaryQuadraticForms.planeReductionSystem_homogeneous`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Every entry has its positive prescribed homogeneous degree. | Checked locally |
+| [`QuaternaryQuadraticForms.planeReductionSystemDegree_pos`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Positivity of all assigned degrees for homogeneous elimination. | Checked locally |
+| [`QuaternaryQuadraticForms.planeReductionSystem_map`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Forming this entire system commutes with coefficient specialization. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_planeReductionSystem_map`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Evaluation after mapping equals evaluation through the coefficient map. | Checked locally |
+| [`QuaternaryQuadraticForms.planeReductionSystem_zero_iff`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Vanishing of this system is the actual failure of rank three at a common zero of the quadratic, the form and the plane equation. | Checked locally |
+| [`QuaternaryQuadraticForms.exists_planeReductionSystem_zero_iff`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | Nonzero common zeros are precisely failures of the manuscript's literal plane-transversality condition. | Checked locally |
+| [`QuaternaryQuadraticForms.hasNonzeroGeometricZero_planeReductionSystem_iff`](QuaternaryQuadraticForms/PlaneReductionSystem.lean) | The geometric zero condition is rank failure over the algebraic closure. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneDegreeForm_homogeneous`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | The form with joint indeterminate parameters is homogeneous of degree `n`. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneReductionSystem_homogeneous`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | Every equation in the second universal system has its assigned degree. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | Evaluation of the joint parameters preserves the fixed matrix. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | The generic form specializes to the form with the chosen literal coefficients. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | The generic normal specializes to the chosen four coordinates. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | Coefficient specialization produces the entire literal plane system. | Checked locally |
+| [`QuaternaryQuadraticForms.genericPlaneReductionSystem_specialize`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | Inserting the actual coefficients of `G` gives its actual second system. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptionalPlane_resultants_over_fields`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | A fixed integral family in `(g,u)` detects geometric nontransversality for every field and every homogeneous form of degree `n` over that field. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptionalPlane_resultant_family`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | The same fixed family detects the manuscript's actual geometric rank failure. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_specializePlaneResultant`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | Evaluation after partial specialization is the joint parameter evaluation. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptionalPlane_specialized_resultant_family`](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean) | One fixed family can equally be stated using polynomials in the plane normal after specialization of the coefficients of `G`. | Checked locally |
+| [`QuaternaryQuadraticForms.hasNonzeroGeometricZero_iff_exists_zero_of_isAlgClosed`](QuaternaryQuadraticForms/PlaneResultantSpecialization.lean) | Over an algebraically closed field the geometric common-zero predicate is exactly the common-zero predicate in that field. | Checked locally |
+| [`QuaternaryQuadraticForms.specializePlaneResultant_map`](QuaternaryQuadraticForms/PlaneResultantSpecialization.lean) | Partial specialization of the form coefficients commutes with any coefficient homomorphism, including passage to an algebraic closure. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptionalPlane_resultants_over_algClosed_fields`](QuaternaryQuadraticForms/PlaneResultantSpecialization.lean) | For an algebraically closed coefficient field, the fixed resultant family detects the literal rank condition over that same field. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptionalPlane_resultants_nonzero_of_transverse_witness`](QuaternaryQuadraticForms/PlaneResultantSpecialization.lean) | A transverse plane over an algebraically closed field forces a nonzero evaluation of at least one member of the fixed resultant family. | Checked locally |
+| [`QuaternaryQuadraticForms.rank_three_of_rank_two_of_tangent`](QuaternaryQuadraticForms/BertiniPlane.lean) | A linear functional nonzero on a common tangent vector is outside the span of two independent rows, so adjoining it gives rank three. | Checked locally |
+| [`QuaternaryQuadraticForms.exists_transverse_plane_of_smooth_intersection`](QuaternaryQuadraticForms/BertiniPlane.lean) | The general Bertini input produces a plane satisfying the literal rank-three condition for a homogeneous quadratic and a degree-`n` form whose common nonzero zeros all satisfy the rank-two condition. | Checked locally |
+| [`QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one`](QuaternaryQuadraticForms/ParameterSpecialization.lean) | Substitution of polynomials of degree at most one does not increase the total degree. Coefficients may be mapped to any commutative semiring. | Checked locally |
+| [`QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le`](QuaternaryQuadraticForms/ExceptionalPlaneDegree.lean) | Specializing the coefficients of the form cannot increase the degree of a resultant polynomial in the remaining plane-normal variables. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family`](QuaternaryQuadraticForms/ExceptionalPlaneDegree.lean) | The degree bound and integral family are chosen before the coefficient field and the degree-`n` form. Their simultaneous zeros detect the literal geometric failure of rank-three transversality. This does not yet assert that one specialized polynomial is nonzero; that needs a transverse plane. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields`](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean) | The exceptional polynomial over any field of odd characteristic with nonsingular quadratic reduction. The degree bound is chosen for the fixed integral matrix and degree before the coefficient field and form. | Checked locally |
+| [`QuaternaryQuadraticForms.exceptional_plane_polynomial`](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean) | Full Lemma 4.1(ii): for fixed symmetric nonsingular integral A and n >= 2, choose E >= 1 before G,p; characteristic-zero smoothness and avoidance of the literal N_G give a nonzero polynomial D_p of total degree at most E, with D_p(0)=0. Its nonvanishing implies the literal adjugate dual-form condition and rank three of the actual gradients and normal at every nonzero geometric common zero. Finiteness defining N_G is proved internally by part (i). | Checked locally |
 
-The allowed dependencies are the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Individual exports may additionally use only the exact literature premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). 3 external Lean premises are registered separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).
+The allowed dependencies are the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Individual exports may additionally use only the exact literature premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). 4 external Lean premises are registered separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).
 
 ## Auxiliary and supplementary obligations
 
@@ -479,7 +511,7 @@ d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.
 
 ```sh
-lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Algebra.MvPolynomial.Degrees Mathlib.Algebra.MvPolynomial.Eval Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.Algebra.MvPolynomial.Variables Mathlib.Algebra.Order.BigOperators.Group.Finset Mathlib.Algebra.Polynomial.Coeff Mathlib.Algebra.Polynomial.Homogenize Mathlib.Analysis.Complex.Basic Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fin.VecNotation Mathlib.Data.Finsupp.Weight Mathlib.Data.Fintype.BigOperators Mathlib.Data.Matrix.Mul Mathlib.Data.Nat.Factorization.Basic Mathlib.FieldTheory.ChevalleyWarning Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.LinearAlgebra.Basis.VectorSpace Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas Mathlib.LinearAlgebra.FiniteDimensional.Lemmas Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex Mathlib.Tactic.FieldSimp Mathlib.Tactic.IntervalCases Mathlib.Tactic.NormNum Mathlib.Tactic.Ring
+lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Algebra.MvPolynomial.Degrees Mathlib.Algebra.MvPolynomial.Eval Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.Algebra.MvPolynomial.Variables Mathlib.Algebra.Order.BigOperators.Group.Finset Mathlib.Algebra.Polynomial.Coeff Mathlib.Algebra.Polynomial.Homogenize Mathlib.Analysis.Complex.Basic Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fin.VecNotation Mathlib.Data.Finsupp.Weight Mathlib.Data.Fintype.BigOperators Mathlib.Data.Matrix.Mul Mathlib.Data.Nat.Factorization.Basic Mathlib.FieldTheory.ChevalleyWarning Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.FieldTheory.IsAlgClosed.Basic Mathlib.LinearAlgebra.Basis.VectorSpace Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas Mathlib.LinearAlgebra.FiniteDimensional.Lemmas Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex Mathlib.Tactic.FieldSimp Mathlib.Tactic.FinCases Mathlib.Tactic.IntervalCases Mathlib.Tactic.NormNum Mathlib.Tactic.Ring
 python3 scripts/verify_certificate.py
 ```
 
@@ -487,4 +519,4 @@ The verifier checks source identities, all 42 statement locations, the dependenc
 
 ## Next proof target
 
-Prove Lemma 4.1(ii): construct the exceptional-plane polynomial with its uniform degree bound and verify the geometric rank condition outside its zero set. Then complete Lemma 4.4 by combining the generic and exceptional frequency cases, the remaining section counts, and the exact ray identity. The proved bad-reduction and height result in Lemma 4.1(i), the full quadratic trace in Lemma 5.9, and the checked Katz, conic, and plane-section bounds remain available as inputs.
+Complete Lemma 4.4 by combining the generic and exceptional frequency cases, the remaining section counts, and the exact ray identity. The complete Lemma 4.1, including its uniform exceptional polynomial, the full quadratic trace in Lemma 5.9, and the checked Katz, conic, and plane-section bounds remain available as inputs.

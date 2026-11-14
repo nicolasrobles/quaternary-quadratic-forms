@@ -69,7 +69,9 @@ jobs:
             Mathlib.Data.Nat.Factorization.Basic \
             Mathlib.Algebra.Polynomial.Coeff \
             Mathlib.Tactic.IntervalCases \
+            Mathlib.Tactic.FinCases \
             Mathlib.Tactic.NormNum \
+            Mathlib.FieldTheory.IsAlgClosed.Basic \
             Mathlib.Algebra.MvPolynomial.Eval \
             Mathlib.Algebra.MvPolynomial.Degrees \
             Mathlib.Algebra.MvPolynomial.Variables \

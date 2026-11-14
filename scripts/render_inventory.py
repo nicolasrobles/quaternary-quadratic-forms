@@ -23,6 +23,7 @@ premise_names = {
     "QuaternaryQuadraticForms.Trusted.weil_simple_roots": "Weil",
     "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data": "Katz with general hypersurface geometry",
     "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants": "Lang",
+    "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent": "Bertini with general projective geometry",
 }
 export_dependencies = Counter(
     tuple(sorted(set(entry["allowed_axioms"]) - foundations))
@@ -75,20 +76,25 @@ katz_exports = sum("QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
                    for e in status["supporting_exports"])
 lang_exports = sum("QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants" in e["allowed_axioms"]
                    for e in status["supporting_exports"])
+bertini_exports = sum("QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent" in e["allowed_axioms"]
+                      for e in status["supporting_exports"])
 lines = [
     "# Certification inventory", "",
-    "Frozen manuscript: v35, renamed without content changes for this repository.", "",
+    "Frozen manuscript: [quadratic_character_sums_github.tex]"
+    "(manuscript/quadratic_character_sums_github.tex).", "",
     f'**{counts["Certified"]} of {numbered_total} numbered results are certified.** '
-    f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
+    f'{counts["Partial"]} {"is" if counts["Partial"] == 1 else "are"} partial, '
+    f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint proves Lemma 4.1(i): the literal bad-prime set is "
-    "finite, and its modulus N_G satisfies a coefficient-height bound with "
-    "constants chosen before the form G. The registered Lang resultant theorem "
-    "supplies a general homogeneous elimination family; the actual gradient "
-    "equations, coefficient specialization, nonzero integer witness, prime "
-    "divisibility, and height bound are proved deductions. Lemma 4.1 remains "
-    "Partial because its exceptional-plane assertion in part (ii) is unfinished. "
-    "The complete Lemma 5.9 now follows from characteristic-zero smoothness and "
+    "The current checkpoint completes Lemma 4.1. Part (i) proves finiteness of "
+    "the literal bad-prime set and a uniform coefficient-height bound for N_G. "
+    "Part (ii) constructs a nonzero D_p, vanishing at the origin, whose "
+    "nonvanishing implies the dual-form condition and actual geometric rank-three "
+    "transversality. Its degree bound is chosen before G and p. The general "
+    "Lang and composite Bertini literature inputs are registered separately; "
+    "the manuscript's elimination systems, rank deductions, specialization, "
+    "nonvanishing descent and degree bound are proved internally. "
+    "The complete Lemma 5.9 follows from characteristic-zero smoothness and "
     "p not dividing the literal N_G: its final exports assume neither a separate "
     "finiteness proof nor good reduction. Lemmas 2.5, 2.7, 4.2–4.3 and Corollary "
     "2.6 remain certified. The weight properties, ray identity (4.5), and "
@@ -192,11 +198,9 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Prove Lemma 4.1(ii): construct the exceptional-plane polynomial with its "
-    "uniform degree bound and verify the geometric rank condition outside its "
-    "zero set. Then complete Lemma 4.4 by combining the generic and exceptional "
+    "Complete Lemma 4.4 by combining the generic and exceptional "
     "frequency cases, the remaining section counts, and the exact ray identity. "
-    "The proved bad-reduction and height result in Lemma 4.1(i), the full "
+    "The complete Lemma 4.1, including its uniform exceptional polynomial, the full "
     "quadratic trace in Lemma 5.9, and the checked Katz, conic, and plane-section "
     "bounds remain available as inputs.", "",
 ]
@@ -261,7 +265,8 @@ trusted += [
     "and finite-product arithmetic use only the standard logical foundations. "
     "The ledger records " + str(weil_exports) + " exports with the exact Weil "
     "premise, " + str(katz_exports) + " with the general Katz surface premise, "
-    "and " + str(lang_exports) + " with the Lang resultant premise. These counts "
+    + str(lang_exports) + " with the Lang resultant premise, and "
+    + str(bertini_exports) + " with the general composite Bertini premise. These counts "
     "overlap when an export uses more than one premise. The following table "
     "groups exports by their exact recorded allowance; actual axiom dependencies "
     "are inspected separately in the verification report.", "",
@@ -279,6 +284,14 @@ trusted += [
     "Lang supplies the finiteness deduction needed to form the literal N_G, "
     "while Katz supplies the projective trace bound. The trace's integrality "
     "and divisibility are proved without either literature premise.", "",
+    "Lemma 4.1(ii) combines Lang with the general composite Bertini interface. "
+    "Hartshorne's theorem and the explicitly attributed projective Jacobian "
+    "and tangent-space facts supply a transverse tangent direction for a "
+    "general homogeneous system over an algebraically closed field. The "
+    "rank-three consequence, actual second elimination system, coefficient "
+    "specialization, descent of polynomial nonvanishing, and construction "
+    "D_p = F* R_j(G,·) with a uniform degree bound are internal proofs. "
+    "No rational transverse plane over the prime field is assumed.", "",
     "The Katz premise explicitly combines its spectral theorem and trace formula "
     "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
     "formulas. The matrix-quadric geometry, the numerical coefficient "

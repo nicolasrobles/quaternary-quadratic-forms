@@ -2,7 +2,7 @@
 
 ## Manuscript and checked statement
 
-The source is the frozen v35 manuscript
+The source is the frozen manuscript
 `manuscript/quadratic_character_sums_github.tex`, SHA-256
 `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`:
 Lemma 2.7 (`lem:katz`), hypothesis (2.13) (`eq:smoothp`), and conclusion

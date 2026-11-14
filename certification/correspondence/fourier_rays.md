@@ -8,7 +8,7 @@ clause of Lemma 4.4. It supports a **Partial** classification for Lemma 4.4.
 The bound involving the exceptional polynomial `D_p` is outside the checked
 scope described here.
 
-The source is the frozen v35 manuscript,
+The source is the frozen manuscript,
 [quadratic_character_sums_github.tex](../../manuscript/quadratic_character_sums_github.tex),
 whose SHA-256 is
 `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`.

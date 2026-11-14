@@ -264,7 +264,48 @@ run_cmd do
     `QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound,
     `QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound,
     `QuaternaryQuadraticForms.quadratic_projective_trace_integer,
-    `QuaternaryQuadraticForms.quadratic_projective_trace]
+    `QuaternaryQuadraticForms.quadratic_projective_trace,
+    `QuaternaryQuadraticForms.rowTripleMinor_eq_det,
+    `QuaternaryQuadraticForms.rowTripleMinor_map,
+    `QuaternaryQuadraticForms.rank_three_ne_iff_minors_zero,
+    `QuaternaryQuadraticForms.rank_three_iff_exists_minor_ne_zero,
+    `QuaternaryQuadraticForms.planeEquationPolynomial_eq_planePolynomial,
+    `QuaternaryQuadraticForms.eval_planeEquationPolynomial,
+    `QuaternaryQuadraticForms.planeEquationPolynomial_homogeneous,
+    `QuaternaryQuadraticForms.planeEquationPolynomial_map,
+    `QuaternaryQuadraticForms.gradientPlaneMinor_homogeneous,
+    `QuaternaryQuadraticForms.gradientPlaneMinor_map,
+    `QuaternaryQuadraticForms.eval_gradientPlaneMinor,
+    `QuaternaryQuadraticForms.card_planeReductionIndex,
+    `QuaternaryQuadraticForms.planeReductionSystem_homogeneous,
+    `QuaternaryQuadraticForms.planeReductionSystemDegree_pos,
+    `QuaternaryQuadraticForms.planeReductionSystem_map,
+    `QuaternaryQuadraticForms.eval_planeReductionSystem_map,
+    `QuaternaryQuadraticForms.planeReductionSystem_zero_iff,
+    `QuaternaryQuadraticForms.exists_planeReductionSystem_zero_iff,
+    `QuaternaryQuadraticForms.hasNonzeroGeometricZero_planeReductionSystem_iff,
+    `QuaternaryQuadraticForms.genericPlaneDegreeForm_homogeneous,
+    `QuaternaryQuadraticForms.genericPlaneReductionSystem_homogeneous,
+    `QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom,
+    `QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericPlaneReductionSystem_specialize,
+    `QuaternaryQuadraticForms.exceptionalPlane_resultants_over_fields,
+    `QuaternaryQuadraticForms.exceptionalPlane_resultant_family,
+    `QuaternaryQuadraticForms.eval_specializePlaneResultant,
+    `QuaternaryQuadraticForms.exceptionalPlane_specialized_resultant_family,
+    `QuaternaryQuadraticForms.hasNonzeroGeometricZero_iff_exists_zero_of_isAlgClosed,
+    `QuaternaryQuadraticForms.specializePlaneResultant_map,
+    `QuaternaryQuadraticForms.exceptionalPlane_resultants_over_algClosed_fields,
+    `QuaternaryQuadraticForms.exceptionalPlane_resultants_nonzero_of_transverse_witness,
+    `QuaternaryQuadraticForms.rank_three_of_rank_two_of_tangent,
+    `QuaternaryQuadraticForms.exists_transverse_plane_of_smooth_intersection,
+    `QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one,
+    `QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le,
+    `QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family,
+    `QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields,
+    `QuaternaryQuadraticForms.exceptional_plane_polynomial]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -272,7 +313,8 @@ run_cmd do
   let inputNames : List Lean.Name := [
     `QuaternaryQuadraticForms.Trusted.weil_simple_roots,
     `QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data,
-    `QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants]
+    `QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants,
+    `QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent]
   for name in inputNames do
     match environment.find? name with
     | some (.axiomInfo _) => pure ()
@@ -1079,3 +1121,129 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.quadratic_projective_trace
 #print axioms QuaternaryQuadraticForms.quadratic_projective_trace
+
+#check @QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent
+#print axioms QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent
+
+#check @QuaternaryQuadraticForms.rowTripleMinor_eq_det
+#print axioms QuaternaryQuadraticForms.rowTripleMinor_eq_det
+
+#check @QuaternaryQuadraticForms.rowTripleMinor_map
+#print axioms QuaternaryQuadraticForms.rowTripleMinor_map
+
+#check @QuaternaryQuadraticForms.rank_three_ne_iff_minors_zero
+#print axioms QuaternaryQuadraticForms.rank_three_ne_iff_minors_zero
+
+#check @QuaternaryQuadraticForms.rank_three_iff_exists_minor_ne_zero
+#print axioms QuaternaryQuadraticForms.rank_three_iff_exists_minor_ne_zero
+
+#check @QuaternaryQuadraticForms.planeEquationPolynomial_eq_planePolynomial
+#print axioms QuaternaryQuadraticForms.planeEquationPolynomial_eq_planePolynomial
+
+#check @QuaternaryQuadraticForms.eval_planeEquationPolynomial
+#print axioms QuaternaryQuadraticForms.eval_planeEquationPolynomial
+
+#check @QuaternaryQuadraticForms.planeEquationPolynomial_homogeneous
+#print axioms QuaternaryQuadraticForms.planeEquationPolynomial_homogeneous
+
+#check @QuaternaryQuadraticForms.planeEquationPolynomial_map
+#print axioms QuaternaryQuadraticForms.planeEquationPolynomial_map
+
+#check @QuaternaryQuadraticForms.gradientPlaneMinor_homogeneous
+#print axioms QuaternaryQuadraticForms.gradientPlaneMinor_homogeneous
+
+#check @QuaternaryQuadraticForms.gradientPlaneMinor_map
+#print axioms QuaternaryQuadraticForms.gradientPlaneMinor_map
+
+#check @QuaternaryQuadraticForms.eval_gradientPlaneMinor
+#print axioms QuaternaryQuadraticForms.eval_gradientPlaneMinor
+
+#check @QuaternaryQuadraticForms.card_planeReductionIndex
+#print axioms QuaternaryQuadraticForms.card_planeReductionIndex
+
+#check @QuaternaryQuadraticForms.planeReductionSystem_homogeneous
+#print axioms QuaternaryQuadraticForms.planeReductionSystem_homogeneous
+
+#check @QuaternaryQuadraticForms.planeReductionSystemDegree_pos
+#print axioms QuaternaryQuadraticForms.planeReductionSystemDegree_pos
+
+#check @QuaternaryQuadraticForms.planeReductionSystem_map
+#print axioms QuaternaryQuadraticForms.planeReductionSystem_map
+
+#check @QuaternaryQuadraticForms.eval_planeReductionSystem_map
+#print axioms QuaternaryQuadraticForms.eval_planeReductionSystem_map
+
+#check @QuaternaryQuadraticForms.planeReductionSystem_zero_iff
+#print axioms QuaternaryQuadraticForms.planeReductionSystem_zero_iff
+
+#check @QuaternaryQuadraticForms.exists_planeReductionSystem_zero_iff
+#print axioms QuaternaryQuadraticForms.exists_planeReductionSystem_zero_iff
+
+#check @QuaternaryQuadraticForms.hasNonzeroGeometricZero_planeReductionSystem_iff
+#print axioms QuaternaryQuadraticForms.hasNonzeroGeometricZero_planeReductionSystem_iff
+
+#check @QuaternaryQuadraticForms.genericPlaneDegreeForm_homogeneous
+#print axioms QuaternaryQuadraticForms.genericPlaneDegreeForm_homogeneous
+
+#check @QuaternaryQuadraticForms.genericPlaneReductionSystem_homogeneous
+#print axioms QuaternaryQuadraticForms.genericPlaneReductionSystem_homogeneous
+
+#check @QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericPlaneReductionSystem_specialize
+#print axioms QuaternaryQuadraticForms.genericPlaneReductionSystem_specialize
+
+#check @QuaternaryQuadraticForms.exceptionalPlane_resultants_over_fields
+#print axioms QuaternaryQuadraticForms.exceptionalPlane_resultants_over_fields
+
+#check @QuaternaryQuadraticForms.exceptionalPlane_resultant_family
+#print axioms QuaternaryQuadraticForms.exceptionalPlane_resultant_family
+
+#check @QuaternaryQuadraticForms.eval_specializePlaneResultant
+#print axioms QuaternaryQuadraticForms.eval_specializePlaneResultant
+
+#check @QuaternaryQuadraticForms.exceptionalPlane_specialized_resultant_family
+#print axioms QuaternaryQuadraticForms.exceptionalPlane_specialized_resultant_family
+
+#check @QuaternaryQuadraticForms.hasNonzeroGeometricZero_iff_exists_zero_of_isAlgClosed
+#print axioms QuaternaryQuadraticForms.hasNonzeroGeometricZero_iff_exists_zero_of_isAlgClosed
+
+#check @QuaternaryQuadraticForms.specializePlaneResultant_map
+#print axioms QuaternaryQuadraticForms.specializePlaneResultant_map
+
+#check @QuaternaryQuadraticForms.exceptionalPlane_resultants_over_algClosed_fields
+#print axioms QuaternaryQuadraticForms.exceptionalPlane_resultants_over_algClosed_fields
+
+#check @QuaternaryQuadraticForms.exceptionalPlane_resultants_nonzero_of_transverse_witness
+#print axioms QuaternaryQuadraticForms.exceptionalPlane_resultants_nonzero_of_transverse_witness
+
+#check @QuaternaryQuadraticForms.rank_three_of_rank_two_of_tangent
+#print axioms QuaternaryQuadraticForms.rank_three_of_rank_two_of_tangent
+
+#check @QuaternaryQuadraticForms.exists_transverse_plane_of_smooth_intersection
+#print axioms QuaternaryQuadraticForms.exists_transverse_plane_of_smooth_intersection
+
+#check @QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one
+#print axioms QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one
+
+#check @QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le
+#print axioms QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le
+
+#check @QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family
+#print axioms QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family
+
+#check @QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields
+#print axioms QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields
+
+#check @QuaternaryQuadraticForms.exceptional_plane_polynomial
+#print axioms QuaternaryQuadraticForms.exceptional_plane_polynomial

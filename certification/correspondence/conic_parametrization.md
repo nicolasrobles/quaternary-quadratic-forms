@@ -2,7 +2,7 @@
 
 ## Frozen statement and exports
 
-The source is v35, `lem:conic`, in
+The source is `lem:conic` in
 [the frozen manuscript](../../manuscript/quadratic_character_sums_github.tex).
 The source hash and compiled numbering are recorded in
 [source.json](../source.json). The complete statement is implemented by

@@ -99,6 +99,7 @@ PREMISE_NAMES = {
  'EXT.WEIL':'Weil',
  'EXT.KATZ':'composite Katz',
  'EXT.LANG_ELIMINATION':'Lang elimination',
+ 'EXT.HARTSHORNE_BERTINI':'composite Bertini',
 }
 OVERVIEW_GROUPS = [
  ('prelim','Preliminary tools','Lemmas 2.1-2.4',
@@ -280,7 +281,7 @@ def write_numbered(data, edges, sources, via_aux):
     premise_count=data['registered_lean_input_count']
     premise_word='premise' if premise_count==1 else 'premises'
     dot=header('NumberedResults','Dependency graph for the numbered results',
-        'Frozen v35 | '+status+'\nLiterature inputs trusted; '+
+        'Frozen github manuscript | '+status+'\nLiterature inputs trusted; '+
         str(premise_count)+' Lean '+premise_word+' registered')
     source_groups=sorted({group_of_external(k) for k,_ in sources})
     dot.append('subgraph cluster_sources { label="Trusted reference inputs (assumed, not reproved)"; fontsize=15; color="#a59adc"; style="rounded"; rank=same;')
@@ -332,7 +333,7 @@ def write_overview(data, edges, sources):
     gedges={(membership[a],membership[b]) for a,b in edges if membership[a]!=membership[b]}
     reduced=transitive_reduction(groupnodes,gedges)
     dot=header('Overview','Proof structure of the quadratic-forms paper',
-               'Frozen v35 | '+status_summary(data['results'])+' | Source-relative Lean certification',True)
+               'Frozen github manuscript | '+status_summary(data['results'])+' | Source-relative Lean certification',True)
     dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger\nRegistered Lean premises:\n'+premise_summary(data))+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
     for group,title,subtitle,members in OVERVIEW_GROUPS:
         member_rows=[rowmap[x] for x in members]
@@ -391,7 +392,7 @@ def main():
     for row in data['auxiliary_obligations']:
         row['status']=live['supplementary_groups'][row['id']]['status']
     rows=data['results']
-    if len(rows)!=42:raise ValueError('Expected the frozen v35 register of exactly 42 numbered results.')
+    if len(rows)!=42:raise ValueError('Expected the frozen github manuscript register of exactly 42 numbered results.')
     edges,sources,via_aux=project_numbered(rows,data['auxiliary_obligations'],data['external_input_catalog'])
     full,counts=write_numbered(data,edges,sources,via_aux)
     overview=write_overview(data,edges,sources)

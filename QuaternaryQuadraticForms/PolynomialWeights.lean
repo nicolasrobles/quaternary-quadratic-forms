@@ -5,7 +5,7 @@ import Mathlib.RingTheory.MvPolynomial.Homogeneous
 /-!
 # Polynomial character weights
 
-The weight in v35, Section 4, is the literal function
+The weight in quadratic_character_sums_github.tex, Section 4, is the literal function
 `x ↦ ψ (MvPolynomial.eval x G)`.  This file proves its three properties in
 equation (3.1), `eq:weightproperties`.  The nonprincipal condition used in
 Lemma 4.4 is unnecessary for these properties: mathlib extends every

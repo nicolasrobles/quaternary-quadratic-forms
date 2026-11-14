@@ -1,7 +1,7 @@
 # Instructions for this verification project
 
 - Freeze manuscript/quadratic_character_sums_github.tex at the SHA-256 in
-  certification/source.json. The filename differs from the supplied v35;
+  certification/source.json. The filename differs from the supplied attachment;
   the content must remain identical unless the authors explicitly revise it.
 - Trust exact cited literature inputs used by the proofs. Do not reprove the
   references. Register exact statements and locators before introducing a Lean

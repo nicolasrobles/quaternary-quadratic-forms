@@ -2,7 +2,7 @@
 
 ## Frozen statement and checked export
 
-The source is v35, `cor:weilline`, equation `eq:weilline`, in
+The source is `cor:weilline`, equation `eq:weilline`, in
 [the frozen manuscript](../../manuscript/quadratic_character_sums_github.tex).
 The complete statement is implemented by `projective_weil_bound` in
 [ProjectiveWeil.lean](../../QuaternaryQuadraticForms/ProjectiveWeil.lean).

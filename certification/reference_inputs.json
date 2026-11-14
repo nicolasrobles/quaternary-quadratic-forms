@@ -100,7 +100,7 @@
     },
     "EXT.LANG_ELIMINATION": {
       "reference": "La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002",
-      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405",
+      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404\u2013405",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
       "status": "Registered trusted literature input",
       "id": "EXT.LANG_ELIMINATION",
@@ -108,20 +108,33 @@
       "lean_declarations": [
         "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants"
       ],
-      "interface_status": "Registered generic homogeneous resultant-system interface; actual Lean axiom type inspected and hashed. Polynomial-parameter substitution is proved in EliminationFamily.lean. The actual bad-reduction equations, integer witness, finiteness, and uniform height bound are proved internally. The exceptional-plane deduction in Lemma 4.1(ii) remains pending.",
+      "interface_status": "Registered generic homogeneous resultant-system interface; actual Lean axiom type inspected and hashed. Polynomial-parameter substitution is proved in EliminationFamily.lean. Both manuscript elimination systems, the bad-reduction integer witness, finiteness, uniform height bound, exceptional-plane resultant specialization and uniform degree are proved internally.",
       "source_url": "https://link.springer.com/book/10.1007/978-1-4613-0041-0",
       "correspondence_record": "certification/correspondence/elimination_input.md",
       "lean_statement": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included."
     },
     "EXT.HARTSHORNE_BERTINI": {
       "reference": "Ha",
-      "locator": "Chapter II, Theorem 8.18",
-      "scope": "Dense open set of hyperplanes meeting each smooth projective curve component regularly over an algebraically closed field.",
-      "status": "Trusted literature input; precise Lean interface pending",
+      "locator": "Chapter II, Theorem 8.18 and proof, printed pp. 179-180; inspected book PDF pp. 194-195. The generic coordinate interpretation uses EXT.PROJECTIVE_JACOBIAN. Stacks Lemma 33.47.3, tag 0FD6, independently gives the smooth-scheme version.",
+      "scope": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
+      "status": "Trusted literature input; general coordinate Bertini interface reviewed",
       "id": "EXT.HARTSHORNE_BERTINI",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "Composite general geometric premise: Hartshorne Bertini plus the separately attributed projective Jacobian, component, dimension and tangent-space interpretation. All deductions for the actual F,G and the exceptional polynomial remain internal.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent"
+      ],
+      "interface_status": "Registered composite general coordinate Bertini interface; actual Lean axiom type inspected and hashed. The rank-three consequence, manuscript specialization, resultant descent, exceptional polynomial and uniform degree are proved internally.",
+      "source_url": "https://ebooks.karbust.me/Mathematics/Robin%20Hartshorne%20-%20Algebraic%20Geometry%20%281977%29%20%5B978-1-4757-3849-0%5D.pdf",
+      "supporting_source_urls": [
+        "https://stacks.math.columbia.edu/tag/0FD6",
+        "https://stacks.math.columbia.edu/tag/0FD4"
+      ],
+      "correspondence_record": "certification/correspondence/bertini_input.md",
+      "lean_statement": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
+      "source_components": [
+        "EXT.HARTSHORNE_BERTINI",
+        "EXT.PROJECTIVE_JACOBIAN"
+      ]
     },
     "EXT.POISSON_R4": {
       "reference": "HB and reputable analysis library",
@@ -249,6 +262,31 @@
       ],
       "correspondence_record": "certification/correspondence/katz_input.md",
       "lean_statement": "The general geometric and Chern/degree interpretation in Trusted.katz_surface_spectral_data, as detailed in the shared correspondence review."
+    },
+    "EXT.PROJECTIVE_JACOBIAN": {
+      "id": "EXT.PROJECTIVE_JACOBIAN",
+      "reference": "Hartshorne; Stacks Project",
+      "locator": "Hartshorne II.8.18 proof, p.180; Stacks Definition 10.137.5 (00T6), Lemma 10.137.6 (00T7), Theorem 10.34.1 (00FV), Lemmas 10.140.1 (00TR), 10.140.5 (00TV), 10.106.3 (00NQ), 28.9.4 (02IR), and 28.7.6 (033M).",
+      "scope": "For any finite homogeneous system in N variables over an algebraically closed field, full rank c of the Jacobian at every nonzero common zero gives a smooth projective closed subscheme locally of dimension N-1-c. Its cone tangent is the common kernel of the formal gradients, its projective tangent is the quotient by the radial line, and a proper regular hyperplane section has nonzero differential on that tangent. The smooth projective scheme has finitely many disjoint smooth integral components. Empty loci are handled vacuously. No characteristic restriction or divisibility hypothesis on the degrees is imposed.",
+      "status": "Explicit geometric source component of the general coordinate Bertini interface",
+      "trust": "General standard smooth-presentation, dimension, component and tangent-space facts used jointly with Hartshorne Bertini. This is not a separate Lean premise and contains no manuscript-specific form, elimination, degree-bound or arithmetic conclusion.",
+      "lean_declarations": [],
+      "interface_status": "Used in the reviewed composite EXT.HARTSHORNE_BERTINI interface",
+      "composite_declarations": [
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent"
+      ],
+      "source_url": "https://stacks.math.columbia.edu/tag/00T7",
+      "supporting_source_urls": [
+        "https://stacks.math.columbia.edu/tag/00T6",
+        "https://stacks.math.columbia.edu/tag/00FV",
+        "https://stacks.math.columbia.edu/tag/00TR",
+        "https://stacks.math.columbia.edu/tag/00TV",
+        "https://stacks.math.columbia.edu/tag/00NQ",
+        "https://stacks.math.columbia.edu/tag/02IR",
+        "https://stacks.math.columbia.edu/tag/033M"
+      ],
+      "correspondence_record": "certification/correspondence/bertini_input.md",
+      "lean_statement": "The general projective-Jacobian, dimension, component and tangent-space interpretation in Trusted.bertini_homogeneous_tangent, as derived in the shared source-correspondence review."
     }
   },
   "excluded_comparison_claims": [

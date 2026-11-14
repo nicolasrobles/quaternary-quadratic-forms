@@ -12,8 +12,8 @@ reduction at `p` are proved internally. Neither is an additional premise
 of the final statements. The earlier conditional helpers remain useful
 and are explained below.
 
-The source is the frozen v35
-[manuscript](../../manuscript/quadratic_character_sums_github.tex), with SHA-256
+The source is the frozen manuscript
+[quadratic_character_sums_github.tex](../../manuscript/quadratic_character_sums_github.tex), with SHA-256
 `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`.
 The equation numbers below agree with the compiled labels in
 [source.json](../source.json).

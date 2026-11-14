@@ -2,7 +2,7 @@
 
 The authors authorize source-relative certification: exact cited inputs used by the proofs are trusted and are not reproved. Their mathematical statements, hypotheses, source locators, and Lean declarations must be registered before use. All specializations, hypothesis checks, coefficient uniformity, and deductions made in this manuscript remain proof obligations.
 
-**19 input groups are mapped; 3 external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
+**20 input groups are mapped; 4 external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
 
 | Input | Source locator | Accepted mathematical scope | Lean interface |
 |---|---|---|---|
@@ -15,7 +15,7 @@ The authors authorize source-relative certification: exact cited inputs used by 
 | `EXT.MV_RAMANUJAN` | [MV], Theorem 4.1 | R_n(t)=sum_{a mod n, gcd(a,n)=1} e_n(a*t)=sum_{h\|gcd(n,t)} h*mu(n/h). | Pending |
 | `EXT.MV_DIRICHLET_L` | [MV], Section 4.3 | Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums. | Pending |
 | `EXT.LANG_ELIMINATION` | [La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002], Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405 | For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included. | [`QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants`](QuaternaryQuadraticForms/Trusted/Elimination.lean) |
-| `EXT.HARTSHORNE_BERTINI` | [Ha], Chapter II, Theorem 8.18 | Dense open set of hyperplanes meeting each smooth projective curve component regularly over an algebraically closed field. | Pending |
+| `EXT.HARTSHORNE_BERTINI` | [Ha], Chapter II, Theorem 8.18 and proof, printed pp. 179-180; inspected book PDF pp. 194-195. The generic coordinate interpretation uses EXT.PROJECTIVE_JACOBIAN. Stacks Lemma 33.47.3, tag 0FD6, independently gives the smooth-scheme version. | For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted. | [`QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent`](QuaternaryQuadraticForms/Trusted/Bertini.lean) |
 | `EXT.POISSON_R4` | [HB and reputable analysis library], Poisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem | Schwartz/compactly supported smooth functions and affine-lattice scaling; exact signs and absolute convergence must be instantiated. Prefer the precise official mathlib theorem when available; otherwise register the exact cited Poisson input before use. | Pending |
 | `EXT.MV_PNT_AP` | [MV], Corollary11.21 | Fixed-modulus prime-number theorem in arithmetic progressions, specialized to a lower bound in (z,2z] for p=1 mod r. | Pending |
 | `EXT.LANG_CYCLOTOMIC` | [La], ChapterVI, Theorem3.1 | The phi(r) automorphisms of Q(zeta_r), indexed by reduced residues, with sigma_t(zeta_r)=zeta_r^t. | Pending |
@@ -25,6 +25,7 @@ The authors authorize source-relative certification: exact cited inputs used by 
 | `EXT.HB_SQUARE_DETERMINANT` | [HB], Theorem7 | The untwisted count for square determinant has B^2 log B main term, B^2 secondary term and O(B^(3/2+epsilon)) remainder, under the source weight hypotheses. | Pending |
 | `EXT.HSS_RESIDUE_ERROR` | [HSS], Theorem4.1 | Published per-residue-class upper error bound O(B^(2-tau+epsilon)/L), L^2=O(B^(1-tau)), -1<tau<1; comparison input, not the actual-error lower bound. | Pending |
 | `EXT.HYPERSURFACE_CHERN` | [Fulton; Stacks Project], Fulton, Intersection Theory, 2nd ed., Examples 2.5.1-2.5.2 (p.42), 3.2.11-3.2.12 (pp.59-60); Stacks tags 0FMH, 01V4, 02UF, 00T1, 089X | For a smooth degree-m hypersurface X in P^3, c(T_X)=(1+L)^4/(1+mL) through degree two and integral_X L^2=m, over arbitrary fields. The standard homogeneous hypersurface/Jacobian interpretation identifies actual geometric irreducibility and rank predicates with the scheme hypotheses of Katz. | Component of [`QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data`](QuaternaryQuadraticForms/Trusted/Katz.lean) (no separate premise declaration) |
+| `EXT.PROJECTIVE_JACOBIAN` | [Hartshorne; Stacks Project], Hartshorne II.8.18 proof, p.180; Stacks Definition 10.137.5 (00T6), Lemma 10.137.6 (00T7), Theorem 10.34.1 (00FV), Lemmas 10.140.1 (00TR), 10.140.5 (00TV), 10.106.3 (00NQ), 28.9.4 (02IR), and 28.7.6 (033M). | For any finite homogeneous system in N variables over an algebraically closed field, full rank c of the Jacobian at every nonzero common zero gives a smooth projective closed subscheme locally of dimension N-1-c. Its cone tangent is the common kernel of the formal gradients, its projective tangent is the quotient by the radial line, and a proper regular hyperplane section has nonzero differential on that tangent. The smooth projective scheme has finitely many disjoint smooth integral components. Empty loci are handled vacuously. No characteristic restriction or divisibility hypothesis on the degrees is imposed. | Component of [`QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent`](QuaternaryQuadraticForms/Trusted/Bertini.lean) (no separate premise declaration) |
 
 ## Registered premise inspection
 
@@ -48,6 +49,14 @@ This is a composite interface with source components `EXT.KATZ`, `EXT.HYPERSURFA
 
 Expected type hash: `5b055036c52e02383dce3540c86432f6756ed153d264cc1e3667088f45199c10`.
 
+### `EXT.HARTSHORNE_BERTINI`
+
+[Exact source and correspondence review](certification/correspondence/bertini_input.md). The verifier checks the declaration kind, inspected Lean type, type hash, and actual axiom dependencies separately from proved exports.
+
+Expected type hash: `dd54ac5f90f102a6351991ddeda32af07e27a39aef27950f7b8ac390f60b92e2`.
+
+This is a composite interface with source components `EXT.HARTSHORNE_BERTINI`, `EXT.PROJECTIVE_JACOBIAN`. Their combined statement is one registered Lean premise. The correspondence review identifies the general geometric translations and formulas included in that statement.
+
 
 ## Cited claims excluded from the premise registry
 
@@ -64,16 +73,20 @@ Other citations used only for attribution, background, or a description of relat
 
 ## Dependencies of proved exports
 
-The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, and finite-product arithmetic use only the standard logical foundations. The ledger records 7 exports with the exact Weil premise, 10 with the general Katz surface premise, and 10 with the Lang resultant premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
+The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, and finite-product arithmetic use only the standard logical foundations. The ledger records 7 exports with the exact Weil premise, 10 with the general Katz surface premise, 18 with the Lang resultant premise, and 3 with the general composite Bertini premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 236 |
+| None (standard logical foundations only) | 268 |
+| Bertini with general projective geometry | 1 |
 | Katz with general hypersurface geometry | 8 |
-| Lang | 8 |
+| Lang | 14 |
 | Weil | 7 |
+| Bertini with general projective geometry; Lang | 2 |
 | Katz with general hypersurface geometry; Lang | 2 |
 
 Lemma 4.1(i) uses Lang's general homogeneous resultant family. Its specialization to the actual F, G and gradient minors, the nonzero integer witness, finiteness of the literal bad-prime set, and the coefficient-height bound are proved internally. The complete Lemma 5.9 uses both Lang and Katz: Lang supplies the finiteness deduction needed to form the literal N_G, while Katz supplies the projective trace bound. The trace's integrality and divisibility are proved without either literature premise.
+
+Lemma 4.1(ii) combines Lang with the general composite Bertini interface. Hartshorne's theorem and the explicitly attributed projective Jacobian and tangent-space facts supply a transverse tangent direction for a general homogeneous system over an algebraically closed field. The rank-three consequence, actual second elimination system, coefficient specialization, descent of polynomial nonvanishing, and construction D_p = F* R_j(G,·) with a uniform degree bound are internal proofs. No rational transverse plane over the prime field is assumed.
 
 The Katz premise explicitly combines its spectral theorem and trace formula with Fulton/Stacks general hypersurface geometry, adjunction, and degree formulas. The matrix-quadric geometry, the numerical coefficient 2n²−4n+4, and the final scalar norm estimate are proved internally. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.

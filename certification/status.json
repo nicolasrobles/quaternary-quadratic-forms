@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Bad-reduction finiteness and height bound; complete quadratic trace theorem",
+  "checkpoint": "Complete bad-prime and exceptional-plane lemma; uniform resultant degree and geometric transversality",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -107,21 +107,22 @@
       "checked_exports": []
     },
     "lem:exceptional": {
-      "status": "Partial",
+      "status": "Certified",
       "checked_exports": [
         "QuaternaryQuadraticForms.badReductionPrimes_finite_of_smooth",
         "QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound",
-        "QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound"
+        "QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound",
+        "QuaternaryQuadraticForms.exceptional_plane_polynomial"
       ],
       "correspondence_record": "certification/correspondence/bad_reduction.md",
       "completed_clauses": [
         "Part (i): characteristic-zero smoothness implies finiteness of the actual bad-reduction prime set outside N_F.",
-        "Part (i): for each fixed F and n, constants C,K >= 1 are chosen before G and bound the literal modulus by N_G <= K H_G^C, with H_G the manuscript coefficient height."
+        "Part (i): for each fixed F and n, constants C,K >= 1 are chosen before G and bound the literal modulus by N_G <= K H_G^C, with H_G the manuscript coefficient height.",
+        "Part (ii): for each fixed F,n, a single bound E >= 1 is chosen before G and p, and every prime p not dividing the literal N_G has a nonzero exceptional polynomial D_p over F_p with total degree at most E and D_p(0)=0.",
+        "Part (ii): whenever D_p(u) != 0, the actual adjugate dual form F*(u) is nonzero and the literal matrix with rows grad F(x), grad G(x), u has rank three at every nonzero geometric common zero of F,G,u dot x."
       ],
-      "remaining_clauses": [
-        "Part (ii): construct a nonzero exceptional-plane polynomial D_p over F_p, of degree bounded uniformly in G,p by E >= 1, with D_p(0)=0 and the dual-form nonvanishing and rank-three transversality consequences whenever D_p(u) != 0."
-      ],
-      "scope_note": "The full finiteness and uniform height conclusion of part (i) is proved. The only new literature premise is Lang's general generic-coefficient resultant system. Parameter substitution, gradient-minor equations, specialization in every characteristic, the common nonzero integer, literal bad-prime set, and height estimate are internal deductions. Part (ii), the exceptional-plane construction, remains pending."
+      "remaining_clauses": [],
+      "scope_note": "Both parts of Lemma 4.1 are complete. The exact Lang generic-coefficient resultant system and general composite Bertini interface are registered literature premises. Both actual elimination systems, all rank-minor interpretations, parameter specialization, geometric nonvanishing descent, the literal bad-prime finiteness and height estimate, and construction of D_p with a uniform degree bound are internal deductions. Bertini is used only over the algebraic closure; no prime-field transverse plane is assumed."
     },
     "lem:conic": {
       "status": "Certified",
@@ -155,9 +156,9 @@
         "The complete intermediate ray identity (4.5), including integral coefficient and frequency reduction."
       ],
       "remaining_clauses": [
-        "The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases."
+        "The coefficient-uniform pointwise estimate in (4.4): prove the exceptional plane-section count and assemble the generic, exceptional and zero-frequency bounds using the now completed D_p construction."
       ],
-      "scope_note": "Lemmas 2.7 and 4.3 supply the global and transverse plane-section trace bounds. Lemma 4.1(i) now supplies actual bad-prime finiteness and the uniform modulus height bound. The exceptional polynomial from Lemma 4.1(ii), the remaining exceptional-frequency counting, and assembly of the full pointwise bound are still pending. None has been imported as a replacement axiom."
+      "scope_note": "Lemmas 2.7 and 4.3 supply the global and transverse plane-section trace bounds. The complete Lemma 4.1 supplies actual bad-prime finiteness, the uniform modulus height bound and the nonzero exceptional polynomial with its uniform degree and geometric consequences. The exceptional-frequency section count and assembly of the full pointwise Fourier bound remain pending. Neither has been imported as a replacement axiom."
     },
     "lem:diagbad": {
       "status": "Pending",
@@ -3585,7 +3586,7 @@
         "lem:exceptional",
         "lem:divisible"
       ],
-      "scope": "All prescribed degrees are positive when the manuscript's `n ≥ 2` hypothesis holds.",
+      "scope": "All prescribed degrees are positive when the manuscript's `n \u2265 2` hypothesis holds.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
@@ -3713,7 +3714,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff",
+      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval\u2082_zero_iff",
       "file": "QuaternaryQuadraticForms/BadReductionSystem.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -3884,7 +3885,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -3898,7 +3899,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -3912,7 +3913,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4181,6 +4182,589 @@
         "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
         "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rowTripleMinor_eq_det",
+      "file": "QuaternaryQuadraticForms/RankThreeMinors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The polynomial expression is the determinant of the corresponding three-column matrix, including choices with repeated columns.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rowTripleMinor_map",
+      "file": "QuaternaryQuadraticForms/RankThreeMinors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Every coefficient homomorphism commutes with the literal minor.",
+      "allowed_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rank_three_ne_iff_minors_zero",
+      "file": "QuaternaryQuadraticForms/RankThreeMinors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Three rows have rank different from three precisely when every ordered three-by-three column minor vanishes.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rank_three_iff_exists_minor_ne_zero",
+      "file": "QuaternaryQuadraticForms/RankThreeMinors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Full rank is witnessed by a nonzero ordered three-column minor.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeEquationPolynomial_eq_planePolynomial",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The ring-general equation agrees with the previously used field equation.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_planeEquationPolynomial",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Evaluation of the plane equation is the actual dot product.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeEquationPolynomial_homogeneous",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The plane equation retains homogeneous degree one even for zero normal.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeEquationPolynomial_map",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Plane equations commute with every coefficient homomorphism.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gradientPlaneMinor_homogeneous",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Such a minor has degree `n` in the geometric variables.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gradientPlaneMinor_map",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The minors commute with coefficient maps, including prime reduction.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_gradientPlaneMinor",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The formal polynomial minor evaluates to the actual scalar row minor.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.card_planeReductionIndex",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Ordered repetition changes neither the equations nor their finite nature.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeReductionSystem_homogeneous",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Every entry has its positive prescribed homogeneous degree.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeReductionSystemDegree_pos",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Positivity of all assigned degrees for homogeneous elimination.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeReductionSystem_map",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Forming this entire system commutes with coefficient specialization.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_planeReductionSystem_map",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Evaluation after mapping equals evaluation through the coefficient map.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeReductionSystem_zero_iff",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Vanishing of this system is the actual failure of rank three at a common zero of the quadratic, the form and the plane equation.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_planeReductionSystem_zero_iff",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Nonzero common zeros are precisely failures of the manuscript's literal plane-transversality condition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasNonzeroGeometricZero_planeReductionSystem_iff",
+      "file": "QuaternaryQuadraticForms/PlaneReductionSystem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The geometric zero condition is rank failure over the algebraic closure.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_homogeneous",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The form with joint indeterminate parameters is homogeneous of degree `n`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_homogeneous",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Every equation in the second universal system has its assigned degree.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval\u2082Hom",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Evaluation of the joint parameters preserves the fixed matrix.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval\u2082Hom",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The generic form specializes to the form with the chosen literal coefficients.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval\u2082Hom",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The generic normal specializes to the chosen four coordinates.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval\u2082Hom",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Coefficient specialization produces the entire literal plane system.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_specialize",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Inserting the actual coefficients of `G` gives its actual second system.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalPlane_resultants_over_fields",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "A fixed integral family in `(g,u)` detects geometric nontransversality for every field and every homogeneous form of degree `n` over that field.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalPlane_resultant_family",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The same fixed family detects the manuscript's actual geometric rank failure.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_specializePlaneResultant",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Evaluation after partial specialization is the joint parameter evaluation.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalPlane_specialized_resultant_family",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "One fixed family can equally be stated using polynomials in the plane normal after specialization of the coefficients of `G`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasNonzeroGeometricZero_iff_exists_zero_of_isAlgClosed",
+      "file": "QuaternaryQuadraticForms/PlaneResultantSpecialization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Over an algebraically closed field the geometric common-zero predicate is exactly the common-zero predicate in that field.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.specializePlaneResultant_map",
+      "file": "QuaternaryQuadraticForms/PlaneResultantSpecialization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Partial specialization of the form coefficients commutes with any coefficient homomorphism, including passage to an algebraic closure.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalPlane_resultants_over_algClosed_fields",
+      "file": "QuaternaryQuadraticForms/PlaneResultantSpecialization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "For an algebraically closed coefficient field, the fixed resultant family detects the literal rank condition over that same field.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalPlane_resultants_nonzero_of_transverse_witness",
+      "file": "QuaternaryQuadraticForms/PlaneResultantSpecialization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "A transverse plane over an algebraically closed field forces a nonzero evaluation of at least one member of the fixed resultant family.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rank_three_of_rank_two_of_tangent",
+      "file": "QuaternaryQuadraticForms/BertiniPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "A linear functional nonzero on a common tangent vector is outside the span of two independent rows, so adjoining it gives rank three.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_transverse_plane_of_smooth_intersection",
+      "file": "QuaternaryQuadraticForms/BertiniPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The general Bertini input produces a plane satisfying the literal rank-three condition for a homogeneous quadratic and a degree-`n` form whose common nonzero zeros all satisfy the rank-two condition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totalDegree_eval\u2082_le_of_degree_one",
+      "file": "QuaternaryQuadraticForms/ParameterSpecialization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Substitution of polynomials of degree at most one does not increase the total degree. Coefficients may be mapped to any commutative semiring.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneDegree.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Specializing the coefficients of the form cannot increase the degree of a resultant polynomial in the remaining plane-normal variables.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlaneDegree.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The degree bound and integral family are chosen before the coefficient field and the degree-`n` form. Their simultaneous zeros detect the literal geometric failure of rank-three transversality. This does not yet assert that one specialized polynomial is nonzero; that needs a transverse plane.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "The exceptional polynomial over any field of odd characteristic with nonsingular quadratic reduction. The degree bound is chosen for the fixed integral matrix and degree before the coefficient field and form.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptional_plane_polynomial",
+      "file": "QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional"
+      ],
+      "scope": "Full Lemma 4.1(ii): for fixed symmetric nonsingular integral A and n >= 2, choose E >= 1 before G,p; characteristic-zero smoothness and avoidance of the literal N_G give a nonzero polynomial D_p of total degree at most E, with D_p(0)=0. Its nonvanishing implies the literal adjugate dual-form condition and rank three of the actual gradients and normal at every nonzero geometric common zero. Finiteness defining N_G is proved internally by part (i).",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
@@ -4191,7 +4775,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Weil.lean",
       "correspondence_record": "certification/correspondence/weil_input.md",
       "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
-      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ),\n  ψ ≠ 1 →\n    ∀ (f : Polynomial (ZMod p)),\n      0 < f.natDegree →\n        Fintype.card ↑(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree →\n          ‖∑ z, ψ (Polynomial.eval z f)‖ ≤ (↑f.natDegree - 1) * √↑p",
+      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)] (\u03c8 : MulChar (ZMod p) \u2102),\n  \u03c8 \u2260 1 \u2192\n    \u2200 (f : Polynomial (ZMod p)),\n      0 < f.natDegree \u2192\n        Fintype.card \u2191(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree \u2192\n          \u2016\u2211 z, \u03c8 (Polynomial.eval z f)\u2016 \u2264 (\u2191f.natDegree - 1) * \u221a\u2191p",
       "type_sha256": "b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85"
     },
     {
@@ -4205,7 +4789,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Katz.lean",
       "correspondence_record": "certification/correspondence/katz_input.md",
       "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
-      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : ℕ),\n  0 < m →\n    0 < n →\n      F.IsHomogeneous m →\n        F ≠ 0 →\n          G.IsHomogeneous n →\n            G ≠ 0 →\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) →\n                    ∀ (ψ : MulChar (ZMod p) ℂ),\n                      ψ ≠ 1 →\n                        ψ ^ n = 1 →\n                          ∀ (c : Polynomial ℤ),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c →\n                              ∃ r eigenvalues,\n                                ↑r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c ∧\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F ψ G = ∑ i, eigenvalues i ∧\n                                    ∀ (i : Fin r), ‖eigenvalues i‖ = ↑p",
+      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : \u2115),\n  0 < m \u2192\n    0 < n \u2192\n      F.IsHomogeneous m \u2192\n        F \u2260 0 \u2192\n          G.IsHomogeneous n \u2192\n            G \u2260 0 \u2192\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) \u2192\n                    \u2200 (\u03c8 : MulChar (ZMod p) \u2102),\n                      \u03c8 \u2260 1 \u2192\n                        \u03c8 ^ n = 1 \u2192\n                          \u2200 (c : Polynomial \u2124),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c \u2192\n                              \u2203 r eigenvalues,\n                                \u2191r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c \u2227\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F \u03c8 G = \u2211 i, eigenvalues i \u2227\n                                    \u2200 (i : Fin r), \u2016eigenvalues i\u2016 = \u2191p",
       "type_sha256": "0841ce91d4525dc10d64c991df75e176c85f1b67c77823926abf82cbf4d6a722"
     },
     {
@@ -4215,8 +4799,22 @@
       "file": "QuaternaryQuadraticForms/Trusted/Elimination.lean",
       "correspondence_record": "certification/correspondence/elimination_input.md",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
-      "expected_type": "∀ (N : ℕ),\n  0 < N →\n    ∀ (ι : Type) [Fintype ι] [Nonempty ι] (d : ι → ℕ),\n      (∀ (i : ι), 0 < d i) →\n        ∃ s R,\n          ∀ (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d → K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) ↔\n              ∀ (j : Fin s), MvPolynomial.eval₂ (Int.castRingHom K) w (R j) = 0",
+      "expected_type": "\u2200 (N : \u2115),\n  0 < N \u2192\n    \u2200 (\u03b9 : Type) [Fintype \u03b9] [Nonempty \u03b9] (d : \u03b9 \u2192 \u2115),\n      (\u2200 (i : \u03b9), 0 < d i) \u2192\n        \u2203 s R,\n          \u2200 (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d \u2192 K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) \u2194\n              \u2200 (j : Fin s), MvPolynomial.eval\u2082 (Int.castRingHom K) w (R j) = 0",
       "type_sha256": "5b055036c52e02383dce3540c86432f6756ed153d264cc1e3667088f45199c10"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent",
+      "kind": "axiom",
+      "reference_id": "EXT.HARTSHORNE_BERTINI",
+      "source_components": [
+        "EXT.HARTSHORNE_BERTINI",
+        "EXT.PROJECTIVE_JACOBIAN"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/Bertini.lean",
+      "correspondence_record": "certification/correspondence/bertini_input.md",
+      "scope": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
+      "expected_type": "\u2200 (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : \u2115),\n  c + 2 \u2264 N \u2192\n    \u2200 (P : Fin c \u2192 MvPolynomial (Fin N) K) (d : Fin c \u2192 \u2115),\n      (\u2200 (i : Fin c), 0 < d i) \u2192\n        (\u2200 (i : Fin c), (P i).IsHomogeneous (d i)) \u2192\n          (\u2200 (x : Fin N \u2192 K),\n              x \u2260 0 \u2192\n                (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) \u2192\n            \u2203 u,\n              u \u2260 0 \u2227\n                \u2200 (x : Fin N \u2192 K),\n                  x \u2260 0 \u2192\n                    (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                      u \u2b1d\u1d65 x = 0 \u2192\n                        \u2203 v, (\u2200 (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x \u2b1d\u1d65 v = 0) \u2227 u \u2b1d\u1d65 v \u2260 0",
+      "type_sha256": "dd54ac5f90f102a6351991ddeda32af07e27a39aef27950f7b8ac390f60b92e2"
     }
   ],
   "whole_paper_certified": false,
