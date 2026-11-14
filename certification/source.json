@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "original_filename": "quadratic_character_sums_v35.tex",
+  "repository_filename": "manuscript/quadratic_character_sums_github.tex",
+  "sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "size_bytes": 132637,
+  "line_count": 3093,
+  "pdf_path": "manuscript/quadratic_character_sums_github.pdf",
+  "pdf_sha256": "2d57a6ca92175e2ab80a2ac37af56bc3dc6219254d844a5d55e4032d79db727d",
+  "pdf_pages": 34,
+  "numbered_result_count": 42,
+  "compiled_labels": {
+    "sec:intro": {
+      "number": "1",
+      "page": 1
+    },
+    "sec:literature": {
+      "number": "1.1",
+      "page": 1
+    },
+    "eq:forms": {
+      "number": "1.1",
+      "page": 1
+    },
+    "eq:HB": {
+      "number": "1.2",
+      "page": 1
+    },
+    "eq:singint": {
+      "number": "1.3",
+      "page": 1
+    },
+    "eq:SF": {
+      "number": "1.4",
+      "page": 1
+    },
+    "eq:Tdef": {
+      "number": "1.5",
+      "page": 2
+    },
+    "eq:diagonal": {
+      "number": "1.6",
+      "page": 2
+    },
+    "eq:MG": {
+      "number": "1.7",
+      "page": 2
+    },
+    "eq:IM": {
+      "number": "1.8",
+      "page": 2
+    },
+    "sec:results": {
+      "number": "1.2",
+      "page": 3
+    },
+    "eq:smooth": {
+      "number": "1.9",
+      "page": 3
+    },
+    "eq:NG": {
+      "number": "1.10",
+      "page": 3
+    },
+    "eq:apdef": {
+      "number": "1.11",
+      "page": 3
+    },
+    "thm:polynomial": {
+      "number": "1.1",
+      "page": 3
+    },
+    "eq:badheight": {
+      "number": "1.12",
+      "page": 3
+    },
+    "eq:mainthm": {
+      "number": "1.13",
+      "page": 3
+    },
+    "eq:Sgeneral": {
+      "number": "1.14",
+      "page": 3
+    },
+    "eq:mainbound": {
+      "number": "1.15",
+      "page": 3
+    },
+    "thm:uniformcount": {
+      "number": "1.2",
+      "page": 4
+    },
+    "eq:uniformcount": {
+      "number": "1.16",
+      "page": 4
+    },
+    "eq:kappadef": {
+      "number": "1.17",
+      "page": 4
+    },
+    "thm:diagonal": {
+      "number": "1.3",
+      "page": 4
+    },
+    "eq:diagtrace": {
+      "number": "1.18",
+      "page": 4
+    },
+    "eq:diagmain": {
+      "number": "1.19",
+      "page": 4
+    },
+    "eq:apsidef": {
+      "number": "1.20",
+      "page": 4
+    },
+    "thm:cyclic": {
+      "number": "1.4",
+      "page": 4
+    },
+    "eq:cyclicmain": {
+      "number": "1.21",
+      "page": 4
+    },
+    "eq:cyclicfactor": {
+      "number": "1.22",
+      "page": 4
+    },
+    "cor:powercount": {
+      "number": "1.1",
+      "page": 4
+    },
+    "eq:powercount": {
+      "number": "1.23",
+      "page": 4
+    },
+    "sec:outline": {
+      "number": "1.3",
+      "page": 5
+    },
+    "sec:notation": {
+      "number": "1.4",
+      "page": 6
+    },
+    "sec:organization": {
+      "number": "1.5",
+      "page": 6
+    },
+    "sec:lemmas": {
+      "number": "2",
+      "page": 6
+    },
+    "sec:delta": {
+      "number": "2.1",
+      "page": 6
+    },
+    "lem:delta": {
+      "number": "2.1",
+      "page": 6
+    },
+    "eq:delta": {
+      "number": "2.1",
+      "page": 6
+    },
+    "eq:Istar": {
+      "number": "2.2",
+      "page": 6
+    },
+    "eq:pieces": {
+      "number": "2.3",
+      "page": 7
+    },
+    "lem:integrals": {
+      "number": "2.2",
+      "page": 7
+    },
+    "eq:Izero": {
+      "number": "2.4",
+      "page": 7
+    },
+    "eq:Irapid": {
+      "number": "2.5",
+      "page": 7
+    },
+    "eq:Idecay": {
+      "number": "2.6",
+      "page": 7
+    },
+    "sec:congruences": {
+      "number": "2.2",
+      "page": 8
+    },
+    "lem:quadriccount": {
+      "number": "2.3",
+      "page": 8
+    },
+    "eq:quadriccount": {
+      "number": "2.7",
+      "page": 8
+    },
+    "eq:dualform": {
+      "number": "2.8",
+      "page": 8
+    },
+    "eq:conecount": {
+      "number": "2.9",
+      "page": 8
+    },
+    "lem:polynomialbox": {
+      "number": "2.4",
+      "page": 9
+    },
+    "eq:polynomialbox": {
+      "number": "2.10",
+      "page": 9
+    },
+    "sec:finite-fields": {
+      "number": "2.3",
+      "page": 10
+    },
+    "lem:weil": {
+      "number": "2.5",
+      "page": 10
+    },
+    "eq:weil": {
+      "number": "2.11",
+      "page": 10
+    },
+    "cor:weilline": {
+      "number": "2.6",
+      "page": 10
+    },
+    "eq:weilline": {
+      "number": "2.12",
+      "page": 10
+    },
+    "lem:katz": {
+      "number": "2.7",
+      "page": 10
+    },
+    "eq:smoothp": {
+      "number": "2.13",
+      "page": 10
+    },
+    "eq:katz": {
+      "number": "2.14",
+      "page": 10
+    },
+    "sec:local": {
+      "number": "3",
+      "page": 11
+    },
+    "eq:weightproperties": {
+      "number": "3.1",
+      "page": 11
+    },
+    "eq:Cdef": {
+      "number": "3.2",
+      "page": 11
+    },
+    "eq:Cstrata": {
+      "number": "3.3",
+      "page": 11
+    },
+    "sec:gauss": {
+      "number": "3.1",
+      "page": 11
+    },
+    "eq:Sdef": {
+      "number": "3.4",
+      "page": 11
+    },
+    "eq:Snewdef": {
+      "number": "3.5",
+      "page": 11
+    },
+    "eq:ramanujan": {
+      "number": "3.6",
+      "page": 11
+    },
+    "lem:crt": {
+      "number": "3.1",
+      "page": 11
+    },
+    "eq:crt": {
+      "number": "3.7",
+      "page": 11
+    },
+    "lem:gauss": {
+      "number": "3.2",
+      "page": 12
+    },
+    "eq:gauss": {
+      "number": "3.8",
+      "page": 12
+    },
+    "eq:unram": {
+      "number": "3.9",
+      "page": 12
+    },
+    "eq:gauss0": {
+      "number": "3.10",
+      "page": 12
+    },
+    "lem:badprime": {
+      "number": "3.3",
+      "page": 13
+    },
+    "eq:badbound": {
+      "number": "3.11",
+      "page": 13
+    },
+    "sec:ramified": {
+      "number": "3.2",
+      "page": 13
+    },
+    "lem:ramified": {
+      "number": "3.4",
+      "page": 13
+    },
+    "eq:ramified": {
+      "number": "3.12",
+      "page": 13
+    },
+    "eq:Uj": {
+      "number": "3.13",
+      "page": 13
+    },
+    "eq:q1q2": {
+      "number": "3.14",
+      "page": 13
+    },
+    "lem:goodglobal": {
+      "number": "3.5",
+      "page": 14
+    },
+    "eq:goodglobal": {
+      "number": "3.15",
+      "page": 14
+    },
+    "eq:coneratio": {
+      "number": "3.16",
+      "page": 14
+    },
+    "sec:moduli": {
+      "number": "3.3",
+      "page": 14
+    },
+    "lem:genericmod": {
+      "number": "3.6",
+      "page": 14
+    },
+    "eq:genericmod": {
+      "number": "3.17",
+      "page": 14
+    },
+    "eq:ramsplit": {
+      "number": "3.18",
+      "page": 14
+    },
+    "lem:conemod": {
+      "number": "3.7",
+      "page": 15
+    },
+    "eq:conemod": {
+      "number": "3.19",
+      "page": 15
+    },
+    "eq:chicube": {
+      "number": "3.20",
+      "page": 15
+    },
+    "eq:chicoprime": {
+      "number": "3.21",
+      "page": 15
+    },
+    "eq:conegood": {
+      "number": "3.22",
+      "page": 15
+    },
+    "lem:density": {
+      "number": "3.8",
+      "page": 16
+    },
+    "eq:densityseries": {
+      "number": "3.23",
+      "page": 16
+    },
+    "eq:sigmagood": {
+      "number": "3.24",
+      "page": 16
+    },
+    "lem:singseries": {
+      "number": "3.9",
+      "page": 16
+    },
+    "eq:seriesfactor": {
+      "number": "3.25",
+      "page": 16
+    },
+    "eq:seriestail": {
+      "number": "3.26",
+      "page": 16
+    },
+    "eq:Sxi": {
+      "number": "3.27",
+      "page": 17
+    },
+    "eq:Sxibound": {
+      "number": "3.28",
+      "page": 17
+    },
+    "sec:average": {
+      "number": "3.4",
+      "page": 18
+    },
+    "lem:box": {
+      "number": "3.10",
+      "page": 18
+    },
+    "eq:box": {
+      "number": "3.29",
+      "page": 18
+    },
+    "eq:weightedbox": {
+      "number": "3.30",
+      "page": 18
+    },
+    "lem:average": {
+      "number": "3.11",
+      "page": 18
+    },
+    "eq:average": {
+      "number": "3.31",
+      "page": 18
+    },
+    "eq:Cexpand": {
+      "number": "3.32",
+      "page": 18
+    },
+    "sec:fourier": {
+      "number": "4",
+      "page": 18
+    },
+    "eq:Cpsi": {
+      "number": "4.1",
+      "page": 18
+    },
+    "sec:cover": {
+      "number": "4.1",
+      "page": 19
+    },
+    "lem:exceptional": {
+      "number": "4.1",
+      "page": 19
+    },
+    "eq:transverse": {
+      "number": "4.2",
+      "page": 19
+    },
+    "sec:hyperplane": {
+      "number": "4.2",
+      "page": 20
+    },
+    "lem:conic": {
+      "number": "4.2",
+      "page": 20
+    },
+    "lem:section": {
+      "number": "4.3",
+      "page": 20
+    },
+    "eq:section": {
+      "number": "4.3",
+      "page": 20
+    },
+    "lem:fourier": {
+      "number": "4.4",
+      "page": 21
+    },
+    "eq:fourier": {
+      "number": "4.4",
+      "page": 21
+    },
+    "eq:rays": {
+      "number": "4.5",
+      "page": 21
+    },
+    "sec:diagonal": {
+      "number": "4.3",
+      "page": 21
+    },
+    "lem:diagbad": {
+      "number": "4.5",
+      "page": 21
+    },
+    "eq:pencilforms": {
+      "number": "4.6",
+      "page": 21
+    },
+    "lem:pencil": {
+      "number": "4.6",
+      "page": 22
+    },
+    "eq:exactpencil": {
+      "number": "4.7",
+      "page": 22
+    },
+    "eq:diagbound": {
+      "number": "4.8",
+      "page": 22
+    },
+    "eq:gaussinv": {
+      "number": "4.9",
+      "page": 22
+    },
+    "eq:pencilsum": {
+      "number": "4.10",
+      "page": 22
+    },
+    "rem:literature": {
+      "number": "4.1",
+      "page": 23
+    },
+    "sec:proofs": {
+      "number": "5",
+      "page": 23
+    },
+    "sec:analytic": {
+      "number": "5.1",
+      "page": 23
+    },
+    "eq:Tw": {
+      "number": "5.1",
+      "page": 23
+    },
+    "prop:analytic": {
+      "number": "5.1",
+      "page": 23
+    },
+    "eq:analytic": {
+      "number": "5.2",
+      "page": 23
+    },
+    "lem:poisson": {
+      "number": "5.1",
+      "page": 23
+    },
+    "eq:poisson": {
+      "number": "5.3",
+      "page": 23
+    },
+    "eq:poissonpiece": {
+      "number": "5.4",
+      "page": 24
+    },
+    "eq:Ipiece": {
+      "number": "5.5",
+      "page": 24
+    },
+    "lem:offcone": {
+      "number": "5.2",
+      "page": 24
+    },
+    "lem:oncone": {
+      "number": "5.3",
+      "page": 25
+    },
+    "eq:conesum": {
+      "number": "5.6",
+      "page": 25
+    },
+    "lem:zerofreq": {
+      "number": "5.4",
+      "page": 25
+    },
+    "eq:zeroterm": {
+      "number": "5.7",
+      "page": 26
+    },
+    "lem:annulus": {
+      "number": "5.5",
+      "page": 26
+    },
+    "eq:annulus": {
+      "number": "5.8",
+      "page": 26
+    },
+    "eq:dyadic": {
+      "number": "5.9",
+      "page": 27
+    },
+    "eq:dyadicsum": {
+      "number": "5.10",
+      "page": 27
+    },
+    "sec:character-sums": {
+      "number": "5.2",
+      "page": 28
+    },
+    "lem:charsum": {
+      "number": "5.6",
+      "page": 28
+    },
+    "eq:localfactor": {
+      "number": "5.11",
+      "page": 28
+    },
+    "eq:betabound": {
+      "number": "5.12",
+      "page": 28
+    },
+    "eq:charsum": {
+      "number": "5.13",
+      "page": 28
+    },
+    "cor:centered": {
+      "number": "5.7",
+      "page": 29
+    },
+    "eq:centered": {
+      "number": "5.14",
+      "page": 29
+    },
+    "sec:sieve": {
+      "number": "5.3",
+      "page": 29
+    },
+    "lem:sieve": {
+      "number": "5.8",
+      "page": 29
+    },
+    "eq:sieve": {
+      "number": "5.15",
+      "page": 29
+    },
+    "eq:sieveprimes": {
+      "number": "5.16",
+      "page": 30
+    },
+    "eq:sieveineq": {
+      "number": "5.17",
+      "page": 30
+    },
+    "sec:relative": {
+      "number": "5.4",
+      "page": 30
+    },
+    "lem:divisible": {
+      "number": "5.9",
+      "page": 30
+    },
+    "lem:lowerbeta": {
+      "number": "5.10",
+      "page": 31
+    },
+    "cor:relative": {
+      "number": "5.11",
+      "page": 31
+    },
+    "eq:relative": {
+      "number": "5.18",
+      "page": 31
+    },
+    "sec:fixed": {
+      "number": "6",
+      "page": 32
+    },
+    "prop:salberger": {
+      "number": "6.1",
+      "page": 32
+    },
+    "eq:salberger": {
+      "number": "6.1",
+      "page": 32
+    },
+    "eq:salbergerX": {
+      "number": "6.2",
+      "page": 32
+    },
+    "sec:conclusion": {
+      "number": "7",
+      "page": 33
+    },
+    "sec:conclusion-error": {
+      "number": "7.1",
+      "page": 33
+    },
+    "sec:conclusion-exponent": {
+      "number": "7.2",
+      "page": 33
+    },
+    "sec:conclusion-coefficients": {
+      "number": "7.3",
+      "page": 33
+    },
+    "sec:conclusion-cases": {
+      "number": "7.4",
+      "page": 33
+    }
+  }
+}

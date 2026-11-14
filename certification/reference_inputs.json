@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "approved_scope": "Trust exact literature statements used by the paper; verify their hypotheses and all manuscript deductions.",
+  "inputs": {
+    "EXT.HB_DELTA": {
+      "reference": "HB",
+      "locator": "Theorem 1; Section 3, equation (3.3)",
+      "scope": "Delta-symbol identity, common smooth h, support and size, and c_Q=1+O_j(Q^-j); use the manuscript-safe range Q>=3.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.HB_DELTA",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HB_WEIGHT_LOCALIZATION": {
+      "reference": "HB",
+      "locator": "Sections 2 and 6; Lemmas 2 and 12",
+      "scope": "Uniform small-support localization of a bounded smooth family with gradient bounded below; coordinate permutations/sign changes and membership in the admissible local weight class.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.HB_WEIGHT_LOCALIZATION",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HB_INTEGRAL_ESTIMATES": {
+      "reference": "HB",
+      "locator": "Theorem 3; Lemmas 13, 14, 15, 18 and 22",
+      "scope": "Singular integral normalization, zero-frequency approximation, derivative reduction and decay estimates for the local oscillatory integrals.",
+      "status": "Trusted literature input; precise Lean interfaces pending",
+      "id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.WEIL": {
+      "reference": "K or IK",
+      "locator": "K equation (1.2); alternatively IK Theorem 11.23",
+      "scope": "Nonprincipal multiplicative-character estimate for a nonconstant polynomial not a constant multiple of the appropriate perfect power; instantiate the simple-root case.",
+      "status": "Trusted literature input; one exact interface to register",
+      "id": "EXT.WEIL",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.KATZ": {
+      "reference": "K",
+      "locator": "Theorem 8.1(1), with trace identity (5.3)",
+      "scope": "Cohomological vanishing, Frobenius magnitude and Euler-characteristic/Chern expression under the precise smoothness/transversality and character hypotheses; scalar trace bound is deduced.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.KATZ",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_GAUSS": {
+      "reference": "MV",
+      "locator": "Theorems 9.5 and 9.7",
+      "scope": "Quadratic Gauss-sum conjugation and norm identities, giving tau_p^2=chi_p(-1)p and tau_p^4=p^2 for odd p.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.MV_GAUSS",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_RAMANUJAN": {
+      "reference": "MV",
+      "locator": "Theorem 4.1",
+      "scope": "R_n(t)=sum_{a mod n, gcd(a,n)=1} e_n(a*t)=sum_{h|gcd(n,t)} h*mu(n/h).",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.MV_RAMANUJAN",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_DIRICHLET_L": {
+      "reference": "MV",
+      "locator": "Section 4.3",
+      "scope": "Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums.",
+      "status": "Trusted literature input or verified library result; precise interface pending",
+      "id": "EXT.MV_DIRICHLET_L",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.LANG_ELIMINATION": {
+      "reference": "La",
+      "locator": "Chapter IX, Theorems 3.2 and 4.1",
+      "scope": "Finite universal elimination equations detecting a common nonzero geometric zero for the homogeneous systems used in Lemma4.1, uniformly under field specialization.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.LANG_ELIMINATION",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HARTSHORNE_BERTINI": {
+      "reference": "Ha",
+      "locator": "Chapter II, Theorem 8.18",
+      "scope": "Dense open set of hyperplanes meeting each smooth projective curve component regularly over an algebraically closed field.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.HARTSHORNE_BERTINI",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.POISSON_R4": {
+      "reference": "HB and reputable analysis library",
+      "locator": "Poisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem",
+      "scope": "Schwartz/compactly supported smooth functions and affine-lattice scaling; exact signs and absolute convergence must be instantiated. Prefer the precise official mathlib theorem when available; otherwise register the exact cited Poisson input before use.",
+      "status": "Pending registration",
+      "used_by": [
+        "lem:poisson"
+      ],
+      "id": "EXT.POISSON_R4",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_PNT_AP": {
+      "reference": "MV",
+      "locator": "Corollary11.21",
+      "scope": "Fixed-modulus prime-number theorem in arithmetic progressions, specialized to a lower bound in (z,2z] for p=1 mod r.",
+      "status": "Pending registration",
+      "used_by": [
+        "lem:sieve"
+      ],
+      "id": "EXT.MV_PNT_AP",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.LANG_CYCLOTOMIC": {
+      "reference": "La",
+      "locator": "ChapterVI, Theorem3.1",
+      "scope": "The phi(r) automorphisms of Q(zeta_r), indexed by reduced residues, with sigma_t(zeta_r)=zeta_r^t.",
+      "status": "Pending registration",
+      "used_by": [
+        "lem:lowerbeta"
+      ],
+      "id": "EXT.LANG_CYCLOTOMIC",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.SALBERGER_COUNT": {
+      "reference": "S",
+      "locator": "Theorem0.6, second bound, d1=2,d2=r",
+      "scope": "Uniform count outside lines on a smooth complete intersection in P4: O_(r,epsilon)(B^(3/sqrt(2r)+epsilon)+B).",
+      "status": "Pending registration",
+      "used_by": [
+        "prop:salberger"
+      ],
+      "id": "EXT.SALBERGER_COUNT",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.SALBERGER_LINES": {
+      "reference": "S",
+      "locator": "Published p1094, paragraph following Theorem0.6",
+      "scope": "Number of geometric lines bounded in terms of the fixed degrees for these smooth complete intersections.",
+      "status": "Pending registration",
+      "used_by": [
+        "prop:salberger"
+      ],
+      "id": "EXT.SALBERGER_LINES",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.IM_FULL_TRANSFORM": {
+      "reference": "IM",
+      "locator": "Lemma4.3",
+      "scope": "For the explicit good diagonal forms in Remark4.1, the full-space transform sum_x chi_p(G(x)) e_p(u.x) has absolute value at most p^2.",
+      "status": "Pending registration",
+      "used_by": [
+        "supp:remark41_im"
+      ],
+      "id": "EXT.IM_FULL_TRANSFORM",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HB_SQUARE_DETERMINANT": {
+      "reference": "HB",
+      "locator": "Theorem7",
+      "scope": "The untwisted count for square determinant has B^2 log B main term, B^2 secondary term and O(B^(3/2+epsilon)) remainder, under the source weight hypotheses.",
+      "status": "Pending registration",
+      "used_by": [
+        "supp:square_determinant"
+      ],
+      "id": "EXT.HB_SQUARE_DETERMINANT",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HSS_RESIDUE_ERROR": {
+      "reference": "HSS",
+      "locator": "Theorem4.1",
+      "scope": "Published per-residue-class upper error bound O(B^(2-tau+epsilon)/L), L^2=O(B^(1-tau)), -1<tau<1; comparison input, not the actual-error lower bound.",
+      "status": "Pending registration",
+      "used_by": [
+        "supp:hss_comparison"
+      ],
+      "id": "EXT.HSS_RESIDUE_ERROR",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    }
+  },
+  "excluded_comparison_claims": [
+    {
+      "reference": "IM",
+      "locator": "Lemma4.6",
+      "reason": "Uniform O(p^(5/2)) for S_(p,p)(u) is explicitly refuted by Remark4.1; comparison target only."
+    },
+    {
+      "reference": "M",
+      "locator": "Lemma5.3",
+      "reason": "Uniform O(p^(3/2)) for its S_(p,1)(u)=C_p(u) is explicitly refuted by Remark4.1."
+    },
+    {
+      "reference": "M",
+      "locator": "Lemma5.4",
+      "reason": "Uniform O(p^(9/2)) for the ramified sum is explicitly refuted by Remark4.1."
+    },
+    {
+      "reference": "M",
+      "locator": "Proposition2.1",
+      "reason": "Its B^2 q^(-3/2) leading bound is contradicted in the introduction by exact-order B^2/q examples; it is not an assumed input."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+digraph Overview {
+graph [rankdir=TB, newrank=true, compound=true, outputorder=edgesfirst,
+  bgcolor="white", fontname="DejaVu Serif", fontsize=23, labelloc=t,
+  label="Proof structure of the quadratic-forms paper\nFrozen v35 | 42 numbered results pending | Source-relative Lean certification",
+  nodesep=0.30, ranksep=0.58, pad=0.28, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#fff4dc", color="#b88023",
+  fontname="DejaVu Serif", fontsize=14, penwidth=1.15, margin="0.12,0.09"];
+edge [color="#4b5563", arrowsize=0.70, penwidth=1.05];
+sources [label="Trusted reference inputs\nHeath-Brown; Weil and Katz; Montgomery-Vaughan;\nLang; Hartshorne; Salberger", fillcolor="#eeeafd", color="#7762b4", fontsize=14];
+"prelim" [label=<<B>Preliminary tools</B><BR/>Lemmas 2.1-2.4<BR/><FONT POINT-SIZE="12" COLOR="#78511a">4 of 4 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"finite" [label=<<B>Finite-field estimates</B><BR/>Lemmas 2.5, 2.7; Corollary 2.6<BR/><FONT POINT-SIZE="12" COLOR="#78511a">3 of 3 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"local" [label=<<B>Local arithmetic</B><BR/>Lemmas 3.1-3.11<BR/><FONT POINT-SIZE="12" COLOR="#78511a">11 of 11 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"fourier" [label=<<B>Geometric Fourier bounds</B><BR/>Lemmas 4.1-4.6<BR/><FONT POINT-SIZE="12" COLOR="#78511a">6 of 6 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"analytic" [label=<<B>Analytic assembly</B><BR/>Proposition 5.1; Lemmas 5.1-5.5<BR/><FONT POINT-SIZE="12" COLOR="#78511a">6 of 6 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"characters" [label=<<B>Character specialization</B><BR/>Lemma 5.6<BR/><FONT POINT-SIZE="12" COLOR="#78511a">1 of 1 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"sieve" [label=<<B>Power sieve</B><BR/>Lemma 5.8<BR/><FONT POINT-SIZE="12" COLOR="#78511a">1 of 1 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"consequences" [label=<<B>Further consequences</B><BR/>Corollaries 5.7, 5.11; Lemmas 5.9, 5.10<BR/><FONT POINT-SIZE="12" COLOR="#78511a">4 of 4 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"maincharacters" [label=<<B>Character-sum theorems</B><BR/>Theorems 1.1, 1.3, 1.4<BR/><FONT POINT-SIZE="12" COLOR="#78511a">3 of 3 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"mainpowers" [label=<<B>Power-value counts</B><BR/>Theorem 1.2; Corollary 1.1<BR/><FONT POINT-SIZE="12" COLOR="#78511a">2 of 2 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"fixed" [label=<<B>Determinant comparison</B><BR/>Proposition 6.1<BR/><FONT POINT-SIZE="12" COLOR="#78511a">1 of 1 pending</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"analytic" -> "characters" [penwidth=1.4];
+"characters" -> "maincharacters" [penwidth=1.4];
+"characters" -> "sieve" [penwidth=1.4];
+"finite" -> "fourier" [penwidth=1.4];
+"fourier" -> "characters" [penwidth=1.4];
+"local" -> "analytic" [penwidth=1.4];
+"maincharacters" -> "consequences" [penwidth=1.4];
+"prelim" -> "local" [penwidth=1.4];
+"sieve" -> "mainpowers" [penwidth=1.4];
+sources -> "analytic" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "consequences" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "finite" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "fixed" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "fourier" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "local" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "prelim" [style=dashed, color="#8d79bc", penwidth=1.0];
+sources -> "sieve" [style=dashed, color="#8d79bc", penwidth=1.0];
+legend [shape=plain, style="", label="Boxes group the numbered results listed inside them.\nArrows record prerequisites between groups; transitive group edges are omitted.\nThe full graph shows all 42 results separately.\nCompletion requires Lean execution and a review of the formal statements.", fontsize=12];
+{rank=sink; legend;}
+"consequences" -> legend [style=invis];
+"fixed" -> legend [style=invis];
+"mainpowers" -> legend [style=invis];
+}

@@ -1,0 +1,47 @@
+name: Lean verification
+
+on:
+  push:
+    paths:
+      - '**.lean'
+      - 'lean-toolchain'
+      - 'lake-manifest.json'
+      - '.github/workflows/lean.yml'
+      - 'scripts/verify_certificate.py'
+      - 'certification/source.json'
+      - 'certification/status.json'
+      - 'certification/dependency_inventory.json'
+      - 'certification/reference_inputs.json'
+      - 'manuscript/**'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: leanprover/lean-action@fe408643ea7367d8c0404a8be3975bb145f5fb64
+        with:
+          auto-config: "false"
+          build: "false"
+          test: "false"
+          lint: "false"
+          use-mathlib-cache: "false"
+          use-github-cache: "false"
+      - name: Fetch the required official mathlib cache
+        run: lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+      - name: Verify manuscript, dependencies, proofs, and status
+        run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
+      - name: Publish verification report
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: lean-verification-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/verification_report.json
+          if-no-files-found: error
+          retention-days: 90
+

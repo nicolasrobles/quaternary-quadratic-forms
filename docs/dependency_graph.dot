@@ -1,0 +1,147 @@
+digraph NumberedResults {
+graph [rankdir=TB, newrank=true, compound=true, outputorder=edgesfirst,
+  bgcolor="white", fontname="DejaVu Serif", fontsize=23, labelloc=t,
+  label="Dependency graph for the numbered results\nFrozen v35 | 42 pending\nLiterature inputs trusted; Lean interfaces pending registration",
+  nodesep=0.30, ranksep=0.58, pad=0.28, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#fff4dc", color="#b88023",
+  fontname="DejaVu Serif", fontsize=12, penwidth=1.15, margin="0.12,0.09"];
+edge [color="#4b5563", arrowsize=0.70, penwidth=1.05];
+subgraph cluster_sources { label="Trusted reference inputs (assumed, not reproved)"; fontsize=15; color="#a59adc"; style="rounded"; rank=same;
+"source:FINITE" [label="Weil and Katz\nFinite-field character sums", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
+"source:GEOMETRY" [label="Lang and Hartshorne\nElimination, Bertini, cyclotomic fields", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
+"source:HB" [label="Heath-Brown\nDelta symbol, integrals, Poisson", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
+"source:MV" [label="Montgomery-Vaughan\nGauss, Ramanujan, L-series, primes", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
+"source:S" [label="Salberger\nComplete intersections and lines", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
+}
+"thm:polynomial" [label=<<B>Theorem 1.1</B><BR/>Quadratic-character<BR/>asymptotic<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L320-L345", target="_blank", tooltip="Coefficient-uniform quadratic-character asymptotic; bad-prime height bound and local-factor bounds"];
+"thm:uniformcount" [label=<<B>Theorem 1.2</B><BR/>Uniform square-value count<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L363-L370", target="_blank", tooltip="Uniform bound for nonzero square values on the integral quadric"];
+"thm:diagonal" [label=<<B>Theorem 1.3</B><BR/>Explicit diagonal local<BR/>factors<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L388-L400", target="_blank", tooltip="Exact bad-prime product and diagonal local traces/factors"];
+"thm:cyclic" [label=<<B>Theorem 1.4</B><BR/>Higher-order characters<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L420-L439", target="_blank", tooltip="Coefficient-uniform asymptotic for products of local characters of exact order r"];
+"cor:powercount" [label=<<B>Corollary 1.1</B><BR/>Uniform power-value count<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L441-L453", target="_blank", tooltip="Uniform count of nonzero r-th powers, r>=3"];
+"lem:delta" [label=<<B>Lemma 2.1</B><BR/>Delta identity and support<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L615-L626", target="_blank", tooltip="Heath-Brown delta identity, normalization and support, for Q >= 3"];
+"lem:integrals" [label=<<B>Lemma 2.2</B><BR/>Localized integral<BR/>estimates<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L667-L688", target="_blank", tooltip="Uniform localization and delta-integral estimates, including r derivative bounds"];
+"lem:quadriccount" [label=<<B>Lemma 2.3</B><BR/>Integer zeros of a quadric<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L769-L776", target="_blank", tooltip="O(U^(2+epsilon)) integral zeros of a nonsingular quaternary form with nonsquare rational determinant"];
+"lem:polynomialbox" [label=<<B>Lemma 2.4</B><BR/>Polynomial congruences in<BR/>boxes<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L832-L843", target="_blank", tooltip="Coefficient-uniform simultaneous polynomial-congruence count for squarefree moduli, exact constant C_(n,E)"];
+"lem:weil" [label=<<B>Lemma 2.5</B><BR/>Weil character-sum bound<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L908-L915", target="_blank", tooltip="Weil bound (m-1) sqrt(p) for a nonprincipal character and a degree-m polynomial with simple geometric roots"];
+"cor:weilline" [label=<<B>Corollary 2.6</B><BR/>Projective-line bound<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L926-L933", target="_blank", tooltip="Projective-line character-sum bound (n-1) sqrt(p)+1"];
+"lem:katz" [label=<<B>Lemma 2.7</B><BR/>Katz bound on the quadric<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L951-L964", target="_blank", tooltip="Quadric character-sum bound (2n^2-4n+4)p under smooth branch divisor"];
+"lem:crt" [label=<<B>Lemma 3.1</B><BR/>CRT and scalar invariance<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1048-L1056", target="_blank", tooltip="CRT multiplicativity of complete sums and invariance under unit scaling of frequency"];
+"lem:gauss" [label=<<B>Lemma 3.2</B><BR/>Gauss sums and point count<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1092-L1108", target="_blank", tooltip="Prime-power quadratic Gauss evaluation, unramified complete sum, and projective quadric point count"];
+"lem:badprime" [label=<<B>Lemma 3.3</B><BR/>Bound at bad primes<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1156-L1161", target="_blank", tooltip="Uniform bound |S_c(u)| <= 4 sqrt(|alpha|) c^3, including bad primes"];
+"lem:ramified" [label=<<B>Lemma 3.4</B><BR/>Shared-prime identity<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1184-L1190", target="_blank", tooltip="Exact shared-prime identity for S_(p,p^k)(u)"];
+"lem:goodglobal" [label=<<B>Lemma 3.5</B><BR/>Global formula and cone<BR/>ratio<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1240-L1252", target="_blank", tooltip="Global good-modulus formula and dual-cone ratio, including bad-prime factors in c"];
+"lem:genericmod" [label=<<B>Lemma 3.6</B><BR/>Off-cone modulus sum<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1292-L1300", target="_blank", tooltip="Off-dual-cone absolute sum over c, retaining q1 | F*(u)"];
+"lem:conemod" [label=<<B>Lemma 3.7</B><BR/>Cancellation on the cone<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1348-L1354", target="_blank", tooltip="Cancellation bound for unweighted complete sums on the dual cone, with (c,q)=q1"];
+"lem:density" [label=<<B>Lemma 3.8</B><BR/>Local densities<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1410-L1420", target="_blank", tooltip="Existence and series expression of local densities; explicit good-prime factor; absolute corrected Euler-product convergence"];
+"lem:singseries" [label=<<B>Lemma 3.9</B><BR/>Singular series and tail<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1446-L1457", target="_blank", tooltip="Convergence, Euler-factor identity and uniform tail of the singular series excluding primes dividing q"];
+"lem:box" [label=<<B>Lemma 3.10</B><BR/>Exceptional congruence<BR/>count<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1539-L1552", target="_blank", tooltip="Exceptional congruence count in four variables and its inverse-norm-weighted form"];
+"lem:average" [label=<<B>Lemma 3.11</B><BR/>Average over exceptional<BR/>frequencies<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1569-L1576", target="_blank", tooltip="Average Fourier bound over exceptional frequencies with divisibility by q1"];
+"lem:exceptional" [label=<<B>Lemma 4.1</B><BR/>Bad primes and exceptional<BR/>planes<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1615-L1632", target="_blank", tooltip="Polynomial bound for bad-prime product and uniformly bounded-degree exceptional plane locus"];
+"lem:conic" [label=<<B>Lemma 4.2</B><BR/>Conic parametrization<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1712-L1724", target="_blank", tooltip="Uniform conic parametrization by binary quadratics over every extension field, with independent derivative vectors"];
+"lem:section" [label=<<B>Lemma 4.3</B><BR/>Plane-section character sum<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1756-L1765", target="_blank", tooltip="Transverse plane-section character-sum bound (2n-1) sqrt(p)+1"];
+"lem:fourier" [label=<<B>Lemma 4.4</B><BR/>Uniform Fourier bound<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1796-L1808", target="_blank", tooltip="Coefficient-uniform Fourier bounds with exceptional-locus term and exact zero-frequency projective identity"];
+"lem:diagbad" [label=<<B>Lemma 4.5</B><BR/>Diagonal bad-prime<BR/>criterion<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1862-L1866", target="_blank", tooltip="Exact bad-prime criterion for diagonal quadratic G and N_G=rad(2 alpha M)"];
+"lem:pencil" [label=<<B>Lemma 4.6</B><BR/>Exact diagonal pencil<BR/>formula<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1897-L1908", target="_blank", tooltip="Exact diagonal Fourier pencil formula, projective trace formula and generic 2p^(3/2)+4p bound"];
+"prop:analytic" [label=<<B>Proposition 5.1</B><BR/>Uniform analytic asymptotic<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2030-L2039", target="_blank", tooltip="Uniform weighted asymptotic for abstract projectively invariant local functions"];
+"lem:poisson" [label=<<B>Lemma 5.1</B><BR/>Delta-Poisson formula<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2045-L2054", target="_blank", tooltip="Delta-symbol and Poisson identity with finite modulus sum and absolute frequency convergence"];
+"lem:offcone" [label=<<B>Lemma 5.2</B><BR/>Off-cone contribution<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2126-L2130", target="_blank", tooltip="Frequency truncation and off-dual-cone contribution"];
+"lem:oncone" [label=<<B>Lemma 5.3</B><BR/>Nonzero cone contribution<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2185-L2188", target="_blank", tooltip="Nonzero dual-cone contribution with cancellation in the modulus"];
+"lem:zerofreq" [label=<<B>Lemma 5.4</B><BR/>Zero-frequency main term<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2234-L2239", target="_blank", tooltip="Zero-frequency main term and uniform error"];
+"lem:annulus" [label=<<B>Lemma 5.5</B><BR/>Uniform annular estimate<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2313-L2321", target="_blank", tooltip="Uniform asymptotic for bounded families of annular weights"];
+"lem:charsum" [label=<<B>Lemma 5.6</B><BR/>Character-weight<BR/>specialization<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2429-L2453", target="_blank", tooltip="Uniform general character-sum asymptotic and explicit local factors"];
+"cor:centered" [label=<<B>Corollary 5.7</B><BR/>Centered correlations<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2543-L2552", target="_blank", tooltip="Centered quadratic-character product has no main term"];
+"lem:sieve" [label=<<B>Lemma 5.8</B><BR/>Uniform power sieve<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2582-L2591", target="_blank", tooltip="Square and power sieve with coefficient height retained"];
+"lem:divisible" [label=<<B>Lemma 5.9</B><BR/>Divisibility of quadratic<BR/>trace<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2686-L2690", target="_blank", tooltip="Quadratic local trace is integral, divisible by p, and bounded by4p"];
+"lem:lowerbeta" [label=<<B>Lemma 5.10</B><BR/>Lower bounds for local<BR/>factors<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2710-L2722", target="_blank", tooltip="Lower bounds for nonzero local factors using integrality and cyclotomic norms"];
+"cor:relative" [label=<<B>Corollary 5.11</B><BR/>Ranges for relative<BR/>asymptotics<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2753-L2768", target="_blank", tooltip="Relative asymptotics in quadratic/general/cyclic cases"];
+"prop:salberger" [label=<<B>Proposition 6.1</B><BR/>Determinant-method<BR/>comparison<BR/><FONT POINT-SIZE="10" COLOR="#78511a">[Pending]</FONT>>, URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2798-L2806", target="_blank", tooltip="Determinant-method bound for degree-r power values with explicit coefficient height"];
+{rank=same; "lem:delta"; "lem:quadriccount"; "lem:polynomialbox"; "lem:weil"; "lem:katz";}
+{rank=same; "lem:integrals"; "cor:weilline"; "lem:crt"; "lem:gauss"; "lem:badprime";}
+{rank=same; "lem:ramified"; "lem:box"; "lem:density"; "lem:exceptional"; "lem:conic";}
+{rank=same; "lem:goodglobal"; "lem:conemod"; "lem:average"; "lem:section"; "lem:diagbad";}
+{rank=same; "lem:genericmod"; "lem:singseries"; "lem:fourier"; "lem:poisson"; "prop:salberger";}
+{rank=same; "lem:pencil"; "lem:offcone"; "lem:oncone"; "lem:zerofreq"; "lem:divisible";}
+{rank=same; "lem:annulus";}
+{rank=same; "prop:analytic";}
+{rank=same; "lem:charsum";}
+{rank=same; "thm:polynomial"; "thm:cyclic"; "lem:sieve"; "lem:lowerbeta";}
+{rank=same; "thm:diagonal"; "cor:centered"; "thm:uniformcount"; "cor:powercount"; "cor:relative";}
+"cor:weilline" -> "lem:section";
+"lem:annulus" -> "prop:analytic";
+"lem:average" -> "lem:offcone";
+"lem:badprime" -> "lem:conemod";
+"lem:badprime" -> "lem:density";
+"lem:badprime" -> "lem:genericmod";
+"lem:box" -> "lem:average";
+"lem:charsum" -> "lem:lowerbeta";
+"lem:charsum" -> "lem:sieve";
+"lem:charsum" -> "thm:cyclic";
+"lem:charsum" -> "thm:polynomial";
+"lem:conemod" -> "lem:oncone";
+"lem:conemod" -> "lem:singseries";
+"lem:conic" -> "lem:section";
+"lem:crt" -> "lem:average";
+"lem:crt" -> "lem:conemod";
+"lem:crt" -> "lem:goodglobal";
+"lem:delta" -> "lem:integrals";
+"lem:delta" -> "lem:poisson";
+"lem:density" -> "lem:singseries";
+"lem:diagbad" -> "lem:pencil";
+"lem:divisible" -> "lem:lowerbeta";
+"lem:exceptional" -> "lem:fourier";
+"lem:fourier" -> "lem:charsum";
+"lem:fourier" -> "lem:divisible";
+"lem:fourier" -> "lem:pencil";
+"lem:gauss" -> "lem:conemod";
+"lem:gauss" -> "lem:density";
+"lem:gauss" -> "lem:ramified";
+"lem:genericmod" -> "lem:offcone";
+"lem:goodglobal" -> "lem:genericmod";
+"lem:goodglobal" -> "lem:oncone";
+"lem:goodglobal" -> "lem:zerofreq";
+"lem:integrals" -> "lem:offcone";
+"lem:integrals" -> "lem:oncone" [style=dashed, color="#7a8795", tooltip="Through an unnumbered proof obligation; see full ledger"];
+"lem:integrals" -> "lem:zerofreq";
+"lem:katz" -> "lem:fourier";
+"lem:lowerbeta" -> "cor:relative";
+"lem:offcone" -> "lem:annulus";
+"lem:oncone" -> "lem:annulus";
+"lem:pencil" -> "thm:diagonal";
+"lem:poisson" -> "lem:offcone";
+"lem:poisson" -> "lem:oncone";
+"lem:poisson" -> "lem:zerofreq";
+"lem:polynomialbox" -> "lem:box";
+"lem:quadriccount" -> "lem:oncone" [style=dashed, color="#7a8795", tooltip="Through an unnumbered proof obligation; see full ledger"];
+"lem:ramified" -> "lem:goodglobal";
+"lem:section" -> "lem:fourier";
+"lem:sieve" -> "cor:powercount";
+"lem:sieve" -> "thm:uniformcount";
+"lem:singseries" -> "lem:zerofreq";
+"lem:weil" -> "cor:weilline";
+"lem:zerofreq" -> "lem:annulus";
+"prop:analytic" -> "lem:charsum";
+"thm:polynomial" -> "cor:centered";
+"thm:polynomial" -> "thm:diagonal";
+"source:FINITE" -> "lem:katz" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:FINITE" -> "lem:weil" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:GEOMETRY" -> "lem:exceptional" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:GEOMETRY" -> "lem:lowerbeta" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:HB" -> "lem:delta" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:HB" -> "lem:integrals" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:HB" -> "lem:poisson" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:MV" -> "lem:gauss" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:MV" -> "lem:genericmod" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:MV" -> "lem:pencil" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:MV" -> "lem:sieve" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:MV" -> "lem:singseries" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+"source:S" -> "prop:salberger" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
+legend [shape=plain, style="", label="Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.\nPurple dashed: trusted source. Transitive numbered edges are omitted.\n42 pending. Supporting algebra checks are recorded separately.\nClick a result for its manuscript statement. Full details are in the dependency inventory.", fontsize=11];
+{rank=sink; legend;}
+"cor:centered" -> legend [style=invis];
+"cor:powercount" -> legend [style=invis];
+"cor:relative" -> legend [style=invis];
+"prop:salberger" -> legend [style=invis];
+"thm:cyclic" -> legend [style=invis];
+"thm:diagonal" -> legend [style=invis];
+"thm:uniformcount" -> legend [style=invis];
+}

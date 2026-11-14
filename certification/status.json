@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "checkpoint": "Initial dependency inventory and finite ray-sum algebra",
+  "numbered_results": {
+    "thm:polynomial": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "thm:uniformcount": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "thm:diagonal": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "thm:cyclic": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "cor:powercount": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:delta": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:integrals": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:quadriccount": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:polynomialbox": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:weil": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "cor:weilline": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:katz": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:crt": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:gauss": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:badprime": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:ramified": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:goodglobal": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:genericmod": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:conemod": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:density": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:singseries": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:box": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:average": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:exceptional": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:conic": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:section": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:fourier": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:diagbad": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:pencil": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "prop:analytic": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:poisson": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:offcone": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:oncone": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:zerofreq": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:annulus": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:charsum": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "cor:centered": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:sieve": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:divisible": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "lem:lowerbeta": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "cor:relative": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "prop:salberger": {
+      "status": "Pending",
+      "checked_exports": []
+    }
+  },
+  "supplementary_groups": {
+    "aux:weight_pieces": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:singint_absolute": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:conecount": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:polynomialbox_epsilon": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:ramanujan": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:Cfactor": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:quadratic_gauss_1d": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:Sxi": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:Sxibound": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:fourier_instantiation": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:diagonal_strata": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "aux:Ipiece": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:matrix_representation": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:smooth_equivalence": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:projective_values": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:local_mean_factor": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:nontrivial_range": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:polynomial_height": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:diagonal_signs": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:even_power_reduction": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:im_bound_recovered": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:mallesham_counterexample": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:hss_comparison": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:remark41_zero": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:remark41_offcone": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:remark41_im": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:remark41_ramified": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:relative_ranges": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:determinant_thresholds": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:frequency_error_summary": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:conditional_sieve": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:abstract_weight_specialization": {
+      "status": "Pending",
+      "checked_exports": []
+    },
+    "supp:square_determinant": {
+      "status": "Pending",
+      "checked_exports": []
+    }
+  },
+  "supporting_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.weighted_ray_sum",
+      "file": "QuaternaryQuadraticForms/RayAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Only the finite weighted-sum algebra after evaluating each nonzero ray. Does not formalize the finite-field/projective sum or certify Lemma 4.4.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "accepted_lean_inputs": [],
+  "whole_paper_certified": false,
+  "completion_rule": "A numbered result is Certified only after successful kernel checking of every clause, explicit premise/dependency review and correspondence with the frozen statement; a supporting algebraic helper is not a completed numbered result."
+}
