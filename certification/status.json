@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete bad-prime and exceptional-plane lemma; uniform resultant degree and geometric transversality",
+  "checkpoint": "Complete polynomial Fourier bound; actual exceptional section count and uniform character-independent exceptional polynomial",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -141,24 +141,25 @@
       "scope_note": "Complete bound for the actual projective plane-section sum under the literal geometric rank-three condition. Parametrization, nonvanishing, and the 2n distinct geometric roots are derived internally, including when p divides 2n. Only the previously registered EXT.WEIL premise is used."
     },
     "lem:fourier": {
-      "status": "Partial",
+      "status": "Certified",
       "checked_exports": [
         "QuaternaryQuadraticForms.polynomialCharacterWeight_properties",
         "QuaternaryQuadraticForms.fourierSum_zero",
         "QuaternaryQuadraticForms.fourierSum_ray_identity",
         "QuaternaryQuadraticForms.integralFourierSum_ray_identity",
-        "QuaternaryQuadraticForms.integralFourierSum_of_dvd"
+        "QuaternaryQuadraticForms.integralFourierSum_of_dvd",
+        "QuaternaryQuadraticForms.fourier_bound",
+        "QuaternaryQuadraticForms.uniform_polynomial_fourier_bound"
       ],
       "correspondence_record": "certification/correspondence/fourier_rays.md",
       "completed_clauses": [
         "All three weight conditions in (3.1), with literal polynomial evaluation and multiplicative characters.",
-        "The exact zero-frequency identity in (4.4).",
-        "The complete intermediate ray identity (4.5), including integral coefficient and frequency reduction."
+        "The exact zero-frequency identity in (4.4) and complete intermediate ray identity (4.5), including integral coefficient and frequency reduction.",
+        "The coefficient-uniform pointwise estimate in (4.4) for every integral frequency, with the exact constant 2n^2, real exponent 3/2 and actual indicator D_p(u)=0.",
+        "The same exceptional polynomial works for every allowed multiplicative character: E is chosen before G,p and D_p before psi, with nonzero-polynomial, bounded-degree, zero-at-origin and actual geometric properties retained."
       ],
-      "remaining_clauses": [
-        "The coefficient-uniform pointwise estimate in (4.4): prove the exceptional plane-section count and assemble the generic, exceptional and zero-frequency bounds using the now completed D_p construction."
-      ],
-      "scope_note": "Lemmas 2.7 and 4.3 supply the global and transverse plane-section trace bounds. The complete Lemma 4.1 supplies actual bad-prime finiteness, the uniform modulus height bound and the nonzero exceptional polynomial with its uniform degree and geometric consequences. The exceptional-frequency section count and assembly of the full pointwise Fourier bound remain pending. Neither has been imported as a replacement axiom."
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 4.4. The actual exceptional section count is proved internally using a nonzero ternary restriction, the proved mathlib Schwartz-Zippel theorem and exact projective-ray counting, including tangent and singular sections. The generic, exceptional and zero-frequency estimates are assembled with the exact constant 2n^2. The literal N_G hypothesis supplies all reduction conditions. The uniform theorem chooses D_p independently of the character and uses only the four previously registered literature premises; no new external premise or restriction that p be prime to n is introduced."
     },
     "lem:diagbad": {
       "status": "Pending",
@@ -3586,7 +3587,7 @@
         "lem:exceptional",
         "lem:divisible"
       ],
-      "scope": "All prescribed degrees are positive when the manuscript's `n \u2265 2` hypothesis holds.",
+      "scope": "All prescribed degrees are positive when the manuscript's `n ≥ 2` hypothesis holds.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
@@ -3714,7 +3715,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval\u2082_zero_iff",
+      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff",
       "file": "QuaternaryQuadraticForms/BadReductionSystem.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -3885,7 +3886,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -3899,7 +3900,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -3913,7 +3914,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4476,7 +4477,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4490,7 +4491,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4504,7 +4505,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4518,7 +4519,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4692,7 +4693,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.totalDegree_eval\u2082_le_of_degree_one",
+      "declaration": "QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one",
       "file": "QuaternaryQuadraticForms/ParameterSpecialization.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4765,6 +4766,364 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_exists_nonzero_quadratic_value",
+      "file": "QuaternaryQuadraticForms/PlaneRestriction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Every nonzero hyperplane contains a vector at which the actual nonsingular symmetric quadratic form is nonzero; polarization and orthogonal dimensions supply the proof.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_planeRestrictionPolynomial",
+      "file": "QuaternaryQuadraticForms/PlaneRestriction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Evaluation of the actual ternary coordinate restriction agrees with the original four-variable quadratic form on the corresponding plane vector.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeRestrictionPolynomial_homogeneous",
+      "file": "QuaternaryQuadraticForms/PlaneRestriction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual restriction along three linear plane coordinates is homogeneous of degree two.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeRestrictionPolynomial_totalDegree_le",
+      "file": "QuaternaryQuadraticForms/PlaneRestriction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual ternary plane restriction has total degree at most two.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeRestrictionPolynomial_ne_zero",
+      "file": "QuaternaryQuadraticForms/PlaneRestriction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual restricted polynomial is nonzero, proved from a nonzero evaluation witness without an invalid finite-field polynomial identity argument.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_plane_quadratic_restriction",
+      "file": "QuaternaryQuadraticForms/PlaneRestriction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Every nonzero plane admits three linear coordinates and a nonzero ternary polynomial of degree at most two with the literal quadratic evaluation identity.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ternary_polynomial_zero_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialGridCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual affine zero set of a nonzero ternary polynomial of degree at most two over F_p has cardinality at most 2p^2, using the proved mathlib Schwartz-Zippel theorem.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeSection_affine_card_eq",
+      "file": "QuaternaryQuadraticForms/PlaneSectionCardinality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Exact cardinality of the actual affine quadratic-plane intersection: one zero vector plus p-1 vectors for each projective section point.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeSection_affine_card_le",
+      "file": "QuaternaryQuadraticForms/PlaneSectionCardinality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Every actual nonzero plane section of the nonsingular quaternary quadratic form has at most 2p^2 affine zeros, including singular sections.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeSection_card_le",
+      "file": "QuaternaryQuadraticForms/PlaneSectionCardinality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Every actual nonzero plane section has at most 2p+2 projective points, including tangent and singular sections; no dual-form nonvanishing is assumed.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveSectionTrace_norm_le",
+      "file": "QuaternaryQuadraticForms/PlaneSectionCardinality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual projective plane-section character sum has norm at most 2p+2 for every nonzero plane, using the proved cardinality and character norm bounds.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourier_generic_constant_bound",
+      "file": "QuaternaryQuadraticForms/FourierBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Elementary real inequality preserving the exact generic-frequency coefficient and reducing it to the manuscript constant 2n^2.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourier_exceptional_constant_bound",
+      "file": "QuaternaryQuadraticForms/FourierBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Elementary real inequality reducing 2p^2+(2n^2-4n+6)p to 2n^2 p^2 for n>=2 and p>=1.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourier_zero_constant_bound",
+      "file": "QuaternaryQuadraticForms/FourierBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Elementary real inequality reducing the zero-frequency factor (p-1)(2n^2-4n+4)p to 2n^2 p^2.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rpow_three_halves_eq_mul_sqrt",
+      "file": "QuaternaryQuadraticForms/FourierBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual real power p^(3/2) equals p times sqrt(p) for p>=0.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_norm_le_section_and_trace",
+      "file": "QuaternaryQuadraticForms/FourierEstimates.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Triangle inequality for the literal Fourier ray identity: norm C_p(u) is bounded by p times the actual section norm plus the actual global trace norm.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_zero_norm",
+      "file": "QuaternaryQuadraticForms/FourierEstimates.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Exact zero-frequency norm with the real nonnegative factor p-1 and the actual projective trace.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_generic_bound",
+      "file": "QuaternaryQuadraticForms/FourierEstimates.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual Fourier sum at a generic frequency satisfies the exact 2n^2 p sqrt(p) estimate under the literal geometric rank-two and rank-three conditions.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_zero_bound",
+      "file": "QuaternaryQuadraticForms/FourierEstimates.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual zero-frequency Fourier sum satisfies the 2n^2 p^2 bound using the exact ray identity and the global Katz estimate.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_nonzero_bound",
+      "file": "QuaternaryQuadraticForms/FourierEstimates.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "The actual Fourier sum at every nonzero frequency satisfies 2n^2 p^2, including tangent and singular sections, using the actual section count and Katz estimate.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_bound_prime_field",
+      "file": "QuaternaryQuadraticForms/FourierBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Complete finite-field pointwise Fourier estimate with the actual exceptional-polynomial indicator, proved by the zero, exceptional, and generic frequency cases.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourier_bound",
+      "file": "QuaternaryQuadraticForms/FourierBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "All five conclusions of Lemma 4.4 for integral coefficients and integral frequencies under literal characteristic-zero smoothness and p not dividing N_G, using the geometric properties of a supplied D_p.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.uniform_polynomial_fourier_bound",
+      "file": "QuaternaryQuadraticForms/FourierTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier"
+      ],
+      "scope": "Complete Lemma 4.4 with E chosen before G,p and one nonzero bounded-degree D_p chosen before every allowed character and frequency, including all three weight properties, the exact Fourier bound, and the zero-frequency identity.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
@@ -4775,7 +5134,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Weil.lean",
       "correspondence_record": "certification/correspondence/weil_input.md",
       "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
-      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)] (\u03c8 : MulChar (ZMod p) \u2102),\n  \u03c8 \u2260 1 \u2192\n    \u2200 (f : Polynomial (ZMod p)),\n      0 < f.natDegree \u2192\n        Fintype.card \u2191(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree \u2192\n          \u2016\u2211 z, \u03c8 (Polynomial.eval z f)\u2016 \u2264 (\u2191f.natDegree - 1) * \u221a\u2191p",
+      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ),\n  ψ ≠ 1 →\n    ∀ (f : Polynomial (ZMod p)),\n      0 < f.natDegree →\n        Fintype.card ↑(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree →\n          ‖∑ z, ψ (Polynomial.eval z f)‖ ≤ (↑f.natDegree - 1) * √↑p",
       "type_sha256": "b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85"
     },
     {
@@ -4789,7 +5148,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Katz.lean",
       "correspondence_record": "certification/correspondence/katz_input.md",
       "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
-      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : \u2115),\n  0 < m \u2192\n    0 < n \u2192\n      F.IsHomogeneous m \u2192\n        F \u2260 0 \u2192\n          G.IsHomogeneous n \u2192\n            G \u2260 0 \u2192\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) \u2192\n                    \u2200 (\u03c8 : MulChar (ZMod p) \u2102),\n                      \u03c8 \u2260 1 \u2192\n                        \u03c8 ^ n = 1 \u2192\n                          \u2200 (c : Polynomial \u2124),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c \u2192\n                              \u2203 r eigenvalues,\n                                \u2191r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c \u2227\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F \u03c8 G = \u2211 i, eigenvalues i \u2227\n                                    \u2200 (i : Fin r), \u2016eigenvalues i\u2016 = \u2191p",
+      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : ℕ),\n  0 < m →\n    0 < n →\n      F.IsHomogeneous m →\n        F ≠ 0 →\n          G.IsHomogeneous n →\n            G ≠ 0 →\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) →\n                    ∀ (ψ : MulChar (ZMod p) ℂ),\n                      ψ ≠ 1 →\n                        ψ ^ n = 1 →\n                          ∀ (c : Polynomial ℤ),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c →\n                              ∃ r eigenvalues,\n                                ↑r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c ∧\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F ψ G = ∑ i, eigenvalues i ∧\n                                    ∀ (i : Fin r), ‖eigenvalues i‖ = ↑p",
       "type_sha256": "0841ce91d4525dc10d64c991df75e176c85f1b67c77823926abf82cbf4d6a722"
     },
     {
@@ -4799,7 +5158,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Elimination.lean",
       "correspondence_record": "certification/correspondence/elimination_input.md",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
-      "expected_type": "\u2200 (N : \u2115),\n  0 < N \u2192\n    \u2200 (\u03b9 : Type) [Fintype \u03b9] [Nonempty \u03b9] (d : \u03b9 \u2192 \u2115),\n      (\u2200 (i : \u03b9), 0 < d i) \u2192\n        \u2203 s R,\n          \u2200 (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d \u2192 K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) \u2194\n              \u2200 (j : Fin s), MvPolynomial.eval\u2082 (Int.castRingHom K) w (R j) = 0",
+      "expected_type": "∀ (N : ℕ),\n  0 < N →\n    ∀ (ι : Type) [Fintype ι] [Nonempty ι] (d : ι → ℕ),\n      (∀ (i : ι), 0 < d i) →\n        ∃ s R,\n          ∀ (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d → K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) ↔\n              ∀ (j : Fin s), MvPolynomial.eval₂ (Int.castRingHom K) w (R j) = 0",
       "type_sha256": "5b055036c52e02383dce3540c86432f6756ed153d264cc1e3667088f45199c10"
     },
     {
@@ -4813,7 +5172,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Bertini.lean",
       "correspondence_record": "certification/correspondence/bertini_input.md",
       "scope": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
-      "expected_type": "\u2200 (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : \u2115),\n  c + 2 \u2264 N \u2192\n    \u2200 (P : Fin c \u2192 MvPolynomial (Fin N) K) (d : Fin c \u2192 \u2115),\n      (\u2200 (i : Fin c), 0 < d i) \u2192\n        (\u2200 (i : Fin c), (P i).IsHomogeneous (d i)) \u2192\n          (\u2200 (x : Fin N \u2192 K),\n              x \u2260 0 \u2192\n                (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) \u2192\n            \u2203 u,\n              u \u2260 0 \u2227\n                \u2200 (x : Fin N \u2192 K),\n                  x \u2260 0 \u2192\n                    (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                      u \u2b1d\u1d65 x = 0 \u2192\n                        \u2203 v, (\u2200 (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x \u2b1d\u1d65 v = 0) \u2227 u \u2b1d\u1d65 v \u2260 0",
+      "expected_type": "∀ (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : ℕ),\n  c + 2 ≤ N →\n    ∀ (P : Fin c → MvPolynomial (Fin N) K) (d : Fin c → ℕ),\n      (∀ (i : Fin c), 0 < d i) →\n        (∀ (i : Fin c), (P i).IsHomogeneous (d i)) →\n          (∀ (x : Fin N → K),\n              x ≠ 0 →\n                (∀ (i : Fin c), (MvPolynomial.eval x) (P i) = 0) →\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) →\n            ∃ u,\n              u ≠ 0 ∧\n                ∀ (x : Fin N → K),\n                  x ≠ 0 →\n                    (∀ (i : Fin c), (MvPolynomial.eval x) (P i) = 0) →\n                      u ⬝ᵥ x = 0 →\n                        ∃ v, (∀ (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x ⬝ᵥ v = 0) ∧ u ⬝ᵥ v ≠ 0",
       "type_sha256": "dd54ac5f90f102a6351991ddeda32af07e27a39aef27950f7b8ac390f60b92e2"
     }
   ],

@@ -86,21 +86,17 @@ lines = [
     f'{counts["Partial"]} {"is" if counts["Partial"] == 1 else "are"} partial, '
     f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint completes Lemma 4.1. Part (i) proves finiteness of "
-    "the literal bad-prime set and a uniform coefficient-height bound for N_G. "
-    "Part (ii) constructs a nonzero D_p, vanishing at the origin, whose "
-    "nonvanishing implies the dual-form condition and actual geometric rank-three "
-    "transversality. Its degree bound is chosen before G and p. The general "
-    "Lang and composite Bertini literature inputs are registered separately; "
-    "the manuscript's elimination systems, rank deductions, specialization, "
-    "nonvanishing descent and degree bound are proved internally. "
-    "The complete Lemma 5.9 follows from characteristic-zero smoothness and "
-    "p not dividing the literal N_G: its final exports assume neither a separate "
-    "finiteness proof nor good reduction. Lemmas 2.5, 2.7, 4.2–4.3 and Corollary "
-    "2.6 remain certified. The weight properties, ray identity (4.5), and "
-    "zero-frequency clause of Lemma 4.4 remain checked; its uniform pointwise "
-    "estimate is still pending, so that lemma remains Partial. Theorems 1.1 "
-    "and 1.4 remain Pending. "
+    "The current checkpoint completes Lemma 4.4: all three weight properties, "
+    "the exact zero-frequency identity, and the pointwise Fourier estimate "
+    "with constant 2n² and the actual exceptional-polynomial indicator. "
+    "The nonzero plane-section bound of 2p+2 points is proved internally, "
+    "including tangent and singular sections, using a nonzero ternary "
+    "restriction, the proved mathlib Schwartz–Zippel theorem and exact rays. "
+    "The final theorem uses the literal N_G; its uniform wrapper chooses "
+    "E before G,p and D_p before the character. All four existing literature "
+    "premises remain unchanged. Lemmas 2.5, 2.7, 4.1–4.3 and 5.9 and "
+    "Corollary 2.6 remain certified. No numbered result remains Partial. "
+    "Theorems 1.1 and 1.4 remain Pending. "
     f"The {auxiliary_total} auxiliary and supplementary groups are tracked separately; "
     "these are groups of assertions, not additional numbered results.", "",
     f'The verification scope contains **{len(status["supporting_exports"])} proved exports**, '
@@ -142,6 +138,8 @@ for row in rows:
               "[Statement correspondence review](" + current["correspondence_record"] + ")", "",
               current.get("scope_note", ""), ""]
 lines += ["## Scope of partially checked numbered results", ""]
+if not counts["Partial"]:
+    lines += ["There are no partially checked numbered results at this checkpoint.", ""]
 for row in rows:
     current = status["numbered_results"][row["label"]]
     if current["status"] != "Partial":
@@ -198,11 +196,12 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Complete Lemma 4.4 by combining the generic and exceptional "
-    "frequency cases, the remaining section counts, and the exact ray identity. "
-    "The complete Lemma 4.1, including its uniform exceptional polynomial, the full "
-    "quadratic trace in Lemma 5.9, and the checked Katz, conic, and plane-section "
-    "bounds remain available as inputs.", "",
+    "Complete Lemma 4.5 for the actual diagonal pair: prove characteristic-zero "
+    "smoothness, characterize geometric bad reduction at p not dividing N_F "
+    "by p dividing the product M of the six coefficient differences, and "
+    "identify the existing modulus exactly as rad(|2αM|). Keep this target "
+    "Pending until all three clauses and source correspondence are complete. "
+    "The pencil character-sum evaluation in Lemma 4.6 is the subsequent target.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -292,6 +291,14 @@ trusted += [
     "specialization, descent of polynomial nonvanishing, and construction "
     "D_p = F* R_j(G,·) with a uniform degree bound are internal proofs. "
     "No rational transverse plane over the prime field is assumed.", "",
+    "The complete uniform Fourier theorem in Lemma 4.4 uses all four existing "
+    "premises through the checked results above. The given-polynomial integral "
+    "theorem uses Weil, Katz and Lang; the prime-field estimate uses Weil and "
+    "Katz. The exceptional section count, including tangent and singular "
+    "sections, is proved with the official mathlib Schwartz–Zippel theorem "
+    "and the actual projective-ray decomposition, with no external premise. "
+    "The constant comparisons and assembly of the indicator bound are internal "
+    "deductions. No new literature declaration is introduced.", "",
     "The Katz premise explicitly combines its spectral theorem and trace formula "
     "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
     "formulas. The matrix-quadric geometry, the numerical coefficient "

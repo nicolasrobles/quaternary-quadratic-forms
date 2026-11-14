@@ -1622,7 +1622,7 @@
         "The key internal ray identity is C_p(u)=p*a_u-a for u!=0 and C_p(0)=(p-1)*a.",
         "The exceptional nonzero-frequency bound uses at most 2p+2 points in a plane section, including singular sections.",
         "All three weight conditions (3.1) are part of the claimed result.",
-        "The complete exceptional polynomial from Lemma 4.1(ii) is now available. The remaining proof obligations are the exceptional section count and assembly of the uniform pointwise bound; the weight properties, ray identity and zero-frequency clause are checked."
+        "All clauses are now checked. The actual exceptional section count follows from the nonzero ternary quadratic restriction, proved Schwartz-Zippel bound and exact projective rays; the three Fourier cases yield the exact 2n^2 estimate. The final integral theorem derives good reduction from the literal N_G, and its uniform wrapper chooses E before G,p and D_p before psi. No new external premise is used."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

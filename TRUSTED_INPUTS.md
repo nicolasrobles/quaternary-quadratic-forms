@@ -73,20 +73,25 @@ Other citations used only for attribution, background, or a description of relat
 
 ## Dependencies of proved exports
 
-The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, and finite-product arithmetic use only the standard logical foundations. The ledger records 7 exports with the exact Weil premise, 10 with the general Katz surface premise, 18 with the Lang resultant premise, and 3 with the general composite Bertini premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
+The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, and finite-product arithmetic use only the standard logical foundations. The ledger records 11 exports with the exact Weil premise, 16 with the general Katz surface premise, 20 with the Lang resultant premise, and 4 with the general composite Bertini premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 268 |
+| None (standard logical foundations only) | 285 |
 | Bertini with general projective geometry | 1 |
-| Katz with general hypersurface geometry | 8 |
+| Katz with general hypersurface geometry | 10 |
 | Lang | 14 |
 | Weil | 7 |
 | Bertini with general projective geometry; Lang | 2 |
 | Katz with general hypersurface geometry; Lang | 2 |
+| Katz with general hypersurface geometry; Weil | 2 |
+| Katz with general hypersurface geometry; Lang; Weil | 1 |
+| Bertini with general projective geometry; Katz with general hypersurface geometry; Lang; Weil | 1 |
 
 Lemma 4.1(i) uses Lang's general homogeneous resultant family. Its specialization to the actual F, G and gradient minors, the nonzero integer witness, finiteness of the literal bad-prime set, and the coefficient-height bound are proved internally. The complete Lemma 5.9 uses both Lang and Katz: Lang supplies the finiteness deduction needed to form the literal N_G, while Katz supplies the projective trace bound. The trace's integrality and divisibility are proved without either literature premise.
 
 Lemma 4.1(ii) combines Lang with the general composite Bertini interface. Hartshorne's theorem and the explicitly attributed projective Jacobian and tangent-space facts supply a transverse tangent direction for a general homogeneous system over an algebraically closed field. The rank-three consequence, actual second elimination system, coefficient specialization, descent of polynomial nonvanishing, and construction D_p = F* R_j(G,·) with a uniform degree bound are internal proofs. No rational transverse plane over the prime field is assumed.
+
+The complete uniform Fourier theorem in Lemma 4.4 uses all four existing premises through the checked results above. The given-polynomial integral theorem uses Weil, Katz and Lang; the prime-field estimate uses Weil and Katz. The exceptional section count, including tangent and singular sections, is proved with the official mathlib Schwartz–Zippel theorem and the actual projective-ray decomposition, with no external premise. The constant comparisons and assembly of the indicator bound are internal deductions. No new literature declaration is introduced.
 
 The Katz premise explicitly combines its spectral theorem and trace formula with Fulton/Stacks general hypersurface geometry, adjunction, and degree formulas. The matrix-quadric geometry, the numerical coefficient 2n²−4n+4, and the final scalar norm estimate are proved internally. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.

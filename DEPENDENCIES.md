@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 7 · Partial: 1 · Active: 0 · Pending:
-34**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1, 4.2, 4.3, and 5.9 have
+The numbered-result counts are **Complete: 8 · Partial: 0 · Active: 0 · Pending:
+34**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1, 4.2, 4.3, 4.4, and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -80,18 +80,19 @@ Its part (i) also closes the reduction dependency in Lemma 5.9, whose final theo
 uses the literal `p ∤ N_G` hypothesis and proves integrality, divisibility,
 and the bound `|a_p(G)| ≤ 4p`.
 
-Lemma 4.4 remains Partial: all three weight properties
-(3.1), the exact zero-frequency clause of (4.4), and the full intermediate
-ray identity (4.5) are checked. Its pointwise Fourier estimate remains
-pending. Theorems 1.1 and 1.4 remain Pending. Current and historical
+Lemma 4.4 is complete: all three weight properties (3.1), the exact
+zero-frequency clause and pointwise estimate in (4.4), and the full
+intermediate ray identity (4.5) are checked. The exceptional section count
+includes tangent and singular sections, and the same exceptional polynomial
+works for every allowed character. Theorems 1.1 and 1.4 remain Pending. Current and historical
 execution evidence is recorded in the checkpoint.
 
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 302 theorem exports across 59 Lean modules are
+numbered-result count. The 325 theorem exports across 66 Lean modules are
 also counted separately from the four external Lean premises. The current
-verification scope includes 80 hashed inputs.
+verification scope includes 87 hashed inputs.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -237,11 +238,49 @@ Positive degree and `ψ ^ n = 1` suffice for this identity; the manuscript's
 nonsingularity, smoothness, and nonprincipality hypotheses are not needed at
 this stage. The
 [correspondence record](certification/correspondence/fourier_rays.md) identifies
-the precise clauses checked. The plane-section estimate of Lemma 4.3 is now
-available, as are the global Katz bound in Lemma 2.7 and the exceptional
-polynomial in Lemma 4.1(ii). The `D_p`-dependent bound in Lemma 4.4 still
-needs the exceptional plane-section count and the final Fourier assembly.
-Those remaining steps have not been assumed as additional premises.
+the precise clauses checked and the complete assembly below.
+
+## Completed polynomial Fourier bound
+
+The remaining deduction in Lemma 4.4 is now proved for the actual sums.
+[PlaneRestriction](QuaternaryQuadraticForms/PlaneRestriction.lean) shows
+that a nonsingular symmetric quadratic form cannot vanish identically on
+a three-dimensional hyperplane: polarization would put that plane inside
+its one-dimensional orthogonal complement. It constructs the actual nonzero
+ternary quadratic restriction. The proved mathlib Schwartz–Zippel theorem,
+specialized in [PolynomialGridCount](QuaternaryQuadraticForms/PolynomialGridCount.lean),
+bounds its affine zeros by `2p²`.
+
+[PlaneSectionCardinality](QuaternaryQuadraticForms/PlaneSectionCardinality.lean)
+identifies those zeros with the literal four-coordinate section and proves
+that their number is `1 + (p−1)M`, where `M` is its projective cardinality.
+For odd primes this implies `M ≤ 2p+2`, including tangent and singular
+sections. This is an alternative proof of the manuscript's elementary
+incidence-line count; it requires no additional literature premise.
+
+[FourierEstimates](QuaternaryQuadraticForms/FourierEstimates.lean) applies
+the actual Katz and plane-section estimates to the exact ray identity.
+[FourierBoundConstants](QuaternaryQuadraticForms/FourierBoundConstants.lean)
+proves the elementary constant comparisons and the real-power identity
+`p^(3/2) = p sqrt(p)`.
+
+| Frequency case | Checked bound |
+|---|---|
+| `D_p(u) ≠ 0` | `2n² p sqrt(p)` |
+| `u ≠ 0`, including the exceptional locus | `2n² p²` |
+| `u = 0` | `2n² p²`, from the exact `(p−1)a` identity |
+
+[FourierBound](QuaternaryQuadraticForms/FourierBound.lean) combines these
+cases into the actual indicator estimate for every integral frequency.
+Its literal `p ∤ N_G` hypothesis supplies odd characteristic,
+nonsingularity and geometric good reduction internally. The final export in
+[FourierTheorem](QuaternaryQuadraticForms/FourierTheorem.lean) retains the
+order `∃ E, ∀ G,p, ∃ D_p, ∀ ψ,u`: the degree bound is uniform in the
+coefficients and prime, and the exceptional polynomial is independent of
+the character. All three weight conditions and the exact zero-frequency
+identity occur explicitly in the same conclusion. No condition `p ∤ n`
+is introduced. This uniform export uses precisely the four already
+registered Weil, Katz, Lang and composite Bertini premises.
 
 ## Completed bad-prime finiteness and height bound
 
@@ -370,12 +409,14 @@ inputs, with no use of the separate Weil estimate.
 
 ## Next proof branch
 
-The next target is the remaining pointwise estimate in Lemma 4.4. Prove
-the bound of at most `2p+2` points in every nonzero plane section, including
-singular sections, then assemble the generic, exceptional and zero-frequency
-cases. The uniform exceptional polynomial, global Katz estimate, transverse
-section estimate, exact ray identity and good-reduction modulus are available
-as proved inputs. The main analytic theorems remain Pending.
+The next target is the complete diagonal bad-prime statement, Lemma 4.5.
+Prove characteristic-zero smoothness of the actual diagonal pair,
+characterize its geometric bad reduction at `p ∤ N_F` by `p ∣ M`, and
+identify the existing modulus exactly as `rad(|2αM|)`, where `M` is the
+product of the six coefficient differences. This target remains Pending
+until all three clauses pass kernel checking and source correspondence.
+The pencil character-sum evaluation in Lemma 4.6 follows afterward.
+The main analytic theorems remain Pending.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

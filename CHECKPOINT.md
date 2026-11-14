@@ -1,8 +1,8 @@
-# Complete exceptional-plane and bad-reduction checkpoint
+# Complete polynomial Fourier estimate checkpoint
 
 ## Numbered-result status
 
-Complete: **7**. Partial: **1**. Active numbered targets: **0**.
+Complete: **8**. Partial: **0**. Active numbered targets: **0**.
 Pending: **34**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
@@ -33,13 +33,70 @@ constructs `D_p ≠ 0`, proves `D_p(0)=0`, and bounds its degree by `E`
 chosen before both `G` and `p`. Nonvanishing implies `F*(u) ≠ 0` and the
 literal geometric rank-three condition.
 
-Lemma 4.4 remains Partial: its weight properties, ray identity (4.5), and
-exact zero-frequency clause are checked. Lemma 4.1 now supplies the
-required exceptional polynomial. The exceptional-section point count
-and the final pointwise Fourier estimate remain to be proved.
-Theorems 1.1 and 1.4 remain Pending.
+**Lemma 4.4 is Certified.** Its three weight properties, full pointwise
+Fourier estimate, and exact zero-frequency identity are proved for the
+actual integral data under the literal `p ∤ N_G` hypothesis. The uniform
+theorem chooses `E ≥ 1` before `G,p`, then `D_p` before the character.
+The elementary section count is proved for every nonzero normal, including
+tangent and singular sections. Theorem 1.1, Theorem 1.4, and the next target,
+Lemma 4.5, remain Pending.
 
 ## Mathematical scope
+
+### Complete Lemma 4.4
+
+`FourierTheorem.lean` proves the final uniform theorem
+`uniform_polynomial_fourier_bound`. For a fixed nonsingular symmetric
+integral matrix `A` and degree `n ≥ 2`, it chooses `E ≥ 1` before the
+integral polynomial `G` and prime `p`. Under the literal homogeneity,
+characteristic-zero smoothness, and `p ∤ N_G` assumptions, it chooses a
+nonzero `D_p` of degree at most `E`, with `D_p(0)=0` and the dual-form and
+geometric rank-three implications from Lemma 4.1(ii). This same polynomial
+then works for every nonprincipal character satisfying `ψ ^ n = 1`.
+
+The five conclusions are the three conditions on the actual weight
+`x ↦ ψ(G(x))` (value zero at the origin, norm at most one, and invariance
+under nonzero scalar multiplication), the bound at every integral frequency,
+
+$$|C_p(u)|\le 2n^2\bigl(p^{3/2}+p^2
+\mathbf 1_{D_p(\bar u)=0}\bigr),$$
+
+and the exact identity `C_p(0)=(p−1)a_p(G)`. Here $\bar u$ is the
+coordinatewise reduction of `u`; all sums and evaluations are the literal
+objects already used in the preceding checked Fourier identities.
+
+`PlaneRestriction.lean` proves the missing geometric step. For any nonzero
+normal, its plane has dimension three. If the quadratic restriction
+vanished everywhere, polarization in odd characteristic would make the
+plane a subspace of its orthogonal complement. Nonsingularity gives that
+complement dimension one, a contradiction. An actual linear equivalence
+with three coordinates supplies a nonzero ternary polynomial of total
+degree at most two and an exact evaluation identity.
+
+`PolynomialGridCount.lean` applies mathlib's proved Schwartz–Zippel theorem
+to that polynomial, giving at most `2p²` affine zeros.
+`PlaneSectionCardinality.lean` transports the actual zero set through the
+coordinate equivalence and proves its cardinality is `1+(p−1)M`, where
+`M` counts the actual projective plane-section points. The good-prime
+condition gives `p ≥ 3`, so `M ≤ 2p+2`. The proof requires only a nonzero
+normal, with no dual-form nonvanishing or section nonsingularity assumption.
+Character norms at most one give the literal section-trace bound `2p+2`.
+
+`FourierEstimates.lean` combines the exact ray identity with the checked
+Katz and transverse-section estimates. A generic frequency has bound
+`2n²p^(3/2)`; every nonzero exceptional frequency has bound `2n²p²`.
+The exact zero-frequency identity and Katz estimate give the same
+exceptional bound at zero. `FourierBoundConstants.lean` proves all required
+constant comparisons and `p^(3/2)=p√p`. `FourierBound.lean` assembles the
+indicator estimate and obtains odd characteristic, nonsingular reduction,
+and geometric good reduction from the literal `p ∤ N_G` hypothesis.
+
+The final uniform wrapper applies `exceptional_plane_polynomial` before
+quantifying over the character, so the exceptional set is independent of
+the character and frequency. No restriction `p ∤ n`, extra finiteness
+hypothesis, or new literature premise is added. The
+[source correspondence review](certification/correspondence/fourier_rays.md)
+records every clause, the three frequency cases, and the quantifier order.
 
 ### Lang input and the actual bad-reduction system
 
@@ -330,6 +387,12 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete Lemma 4.4 with uniform exceptional polynomial](QuaternaryQuadraticForms/FourierTheorem.lean).
+- [Integral Fourier bound and all five conclusions](QuaternaryQuadraticForms/FourierBound.lean).
+- [Actual generic, exceptional, and zero-frequency estimates](QuaternaryQuadraticForms/FourierEstimates.lean).
+- [Nonzero plane restriction](QuaternaryQuadraticForms/PlaneRestriction.lean).
+- [Affine and projective section counts](QuaternaryQuadraticForms/PlaneSectionCardinality.lean).
+- [Complete Fourier correspondence review](certification/correspondence/fourier_rays.md).
 - [Complete Lemma 4.1(i)](QuaternaryQuadraticForms/BadReductionHeight.lean).
 - [Complete Lemma 4.1(ii)](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean).
 - [Second elimination system and fixed resultant family](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean).
@@ -359,31 +422,72 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current milestone registers 302 theorem exports across 59 project
+The current milestone registers 325 theorem exports across 66 project
 Lean modules and 20 mapped source groups. There are four separately
 registered external Lean premises: Weil, the composite Katz/Fulton
 spectral interface, Lang's general resultants, and the composite Bertini
 and projective-Jacobian tangent interface. Source groups and Lean premise
 declarations are counted separately.
 
-The new modules have passed strict builds under official Lean 4.24.0 and
+The seven new modules have passed strict builds under official Lean 4.24.0 and
 the pinned mathlib revision, with `warningAsError=true` and
-`autoImplicit=false`. Independent source reviews cover the exact composite
-Bertini interface and every clause of Lemma 4.1(ii), including the geometric
-witness, prime-field descent, uniform degree, and final `D_p` construction.
-Together with the earlier reviewed part (i), this completes Lemma 4.1.
+`autoImplicit=false`. The final uniform wrapper compiled successfully
+without additional assumptions. All 23 new actual theorem types and axiom
+dependencies have been inspected. Seventeen new helpers use only the
+standard foundations `propext`, `Classical.choice`, and `Quot.sound`.
+The generic and finite-field indicator bounds use Katz and Weil; the
+zero-frequency and nonzero-frequency bounds use Katz. The integral
+`fourier_bound` uses Katz, Lang, and Weil. The final
+`uniform_polynomial_fourier_bound` uses all four unchanged registered
+literature premises, including the construction of its exceptional
+polynomial.
+
+The full aggregate local verifier passed for all 66 modules, 325 theorem
+records, four registered literature-input records, and nine pinned
+dependency revisions. All 87 recorded input hashes match the final checked
+files. Every one of the 302 previously checked theorem types and axiom
+lists is unchanged; their source hashes and scopes are also unchanged.
+The four registered premise records and all dependency revisions exactly
+match the preceding local report. The frozen manuscript and PDF remain
+unchanged.
+
+The [local verification report](certification/verification_report.json)
+has SHA-256
+`88f51797dd5b426549a351f4cbc62dc24dd51b5d5c57005298b6ee691edcd003`.
+The report records 8 Certified and 34 Pending numbered results, with zero
+Partial or Active results; all 33 auxiliary/supplementary groups remain
+Pending. Whole-paper certification remains false.
+
+GitHub Actions verification of the new proof checkpoint is pending. Its
+exact commit, run and downloaded artifact evidence will be recorded after
+that execution completes. The preserved runs below cover their stated
+preceding scopes.
+
+## Earlier checked checkpoints
+
+### Exceptional-plane local execution
+
+This preceding checkpoint contained 302 theorem exports across 59 project
+Lean modules, four registered literature premises, 80 verification input
+hashes, and 20 mapped source groups. Independent source reviews covered
+the exact composite Bertini interface and every clause of Lemma 4.1(ii),
+including the geometric witness, prime-field descent, uniform degree,
+and final `D_p` construction. Together with the earlier reviewed part (i),
+that completed Lemma 4.1.
 
 The aggregate local verifier passed for all 59 modules, 302 theorem
 exports, four registered literature premises and 80 input hashes. It
 checked each module directly with strict settings, inspected declaration
 kinds and actual types, verified the exact premise type hashes and allowed
 axiom dependencies, and checked all nine pinned dependency revisions.
-Every recorded input hash matches the current files. All 261 previously
-checked theorem types and axiom dependencies are unchanged.
+Every recorded input hash matched the files at that checked proof commit.
+All 261 preceding theorem types and axiom dependencies were unchanged.
 
-The [local verification report](certification/verification_report.json)
-records this completed execution. Its SHA-256 is
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/afdaf2497bcd76fdff8b658efef8e28f0388f5b7/certification/verification_report.json)
+records that completed execution. Its SHA-256 is
 `36fe3c138da8345206a445c3968cf38c8e650916f8d7779fd7dbc11752a7b324`.
+
+### Exceptional-plane GitHub execution
 
 The independent GitHub verifier also passed for the exact proof commit
 [afdaf2497bcd76fdff8b658efef8e28f0388f5b7](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7),
@@ -397,15 +501,14 @@ whose tree is `1bbf8bd0ddc4fb32d66871ed8424793cc21e0ffa`.
 - ZIP SHA-256: `63320ecada162fd33fda88598056eac35ed8e093461d030711e9cdd7f64e304d`.
 - Report SHA-256: `e33bff89ac7be8a07b7606b85d94d08d33613494995ce4c276a5239c8e2576e0`.
 
-The ZIP digest matches the one advertised by GitHub. Its extracted report
-matches the local report exactly on all 80 input hashes, 302 complete theorem
+The ZIP digest matched the one advertised by GitHub. Its extracted report
+matched the local report exactly on all 80 input hashes, 302 complete theorem
 records, four literature-input records, nine dependency revisions and all
-certification counts and flags. The only top-level differences are the
-generation timestamp and build log. All 80 checked hashes also match the
-published proof files and final source records. The frozen manuscript and
-PDF are unchanged. The archived runs below retain their original scopes.
-
-## Earlier checked checkpoints
+certification counts and flags. The only top-level differences were the
+generation timestamp and build log. All 80 checked hashes also matched the
+published proof files and source records at that checkpoint. That report
+records seven Certified, one Partial, and 34 Pending numbered results.
+The archived runs retain their original scopes.
 
 ### Bad-reduction, height, and quadratic-trace local execution
 
@@ -658,31 +761,20 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Complete the pointwise Fourier estimate in Lemma 4.4. Lemma 4.1 now
-provides the nonzero bounded-degree polynomial `D_p`, its value at the
-zero normal, and its geometric implications under the actual good-prime
-hypothesis.
+Lemma 4.5 is the next bounded target and remains Pending. For the actual
+diagonal forms `F` and `G`, first prove the characteristic-zero smoothness
+condition and the equivalence
 
-Prove the exceptional-plane section count and assemble the three frequency
-cases from the exact ray identity, the Katz bound, and the transverse
-section bound, including the final constant `2n²`. The analytic assembly
-leading to Theorems 1.1 and 1.4 remains Pending.
+$$p\nmid N_F\quad\Longrightarrow\quad
+\bigl(G\text{ has bad reduction at }p\ \Longleftrightarrow\ p\mid M\bigr).$$
 
-A concrete route for the remaining count is available in the pinned library.
-For every nonzero normal, `planeSubspace_finrank_of_ne_zero` gives a
-three-dimensional plane, including tangent planes. Prove its restricted
-quadratic is nonzero: if it vanished on the whole plane, polarization would
-make that plane totally isotropic, contradicting the orthogonal-complement
-dimension `4 - 3 = 1`. In three linear coordinates the actual restriction
-has degree at most two. Mathlib's `MvPolynomial.schwartz_zippel_totalDegree`
-then gives at most `2p²` affine zeros. The existing projective-ray
-decomposition identifies their number as `1 + (p-1)M`, so `p ≥ 3` gives
-the required `M ≤ 2p+2`. This route has been inspected but is not yet
-formalized in this project.
+The forward and reverse directions must use the literal gradient-rank
+condition and the manuscript's pairwise determinants. In the bad case,
+construct the stated two-coordinate point over the algebraic closure.
+Then identify the intrinsic bad-prime set and prove the exact formula
+`N_G = rad(2αM)` for the already defined modulus.
 
-The final assembly must remain a theorem about the literal `fourierSum`
-and `integralFourierSum`. Use the checked bounds in the cases `u=0`,
-`D_p(u)≠0`, and `D_p(u)=0` with `u≠0`. The exceptional count must assume
-only a nonzero normal, since singular sections are included. It must not
-inherit the dual-form nonvanishing hypothesis used by the nonsingular
-conic parametrization.
+The characteristic-zero and good-prime matrix hypotheses should be
+deduced from the manuscript's diagonal assumptions. The exact formula
+must not replace `N_G` by a separately defined surrogate. The analytic
+assembly leading to Theorems 1.1 and 1.4 remains Pending.

@@ -305,7 +305,30 @@ run_cmd do
     `QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le,
     `QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family,
     `QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields,
-    `QuaternaryQuadraticForms.exceptional_plane_polynomial]
+    `QuaternaryQuadraticForms.exceptional_plane_polynomial,
+    `QuaternaryQuadraticForms.plane_exists_nonzero_quadratic_value,
+    `QuaternaryQuadraticForms.eval_planeRestrictionPolynomial,
+    `QuaternaryQuadraticForms.planeRestrictionPolynomial_homogeneous,
+    `QuaternaryQuadraticForms.planeRestrictionPolynomial_totalDegree_le,
+    `QuaternaryQuadraticForms.planeRestrictionPolynomial_ne_zero,
+    `QuaternaryQuadraticForms.exists_plane_quadratic_restriction,
+    `QuaternaryQuadraticForms.ternary_polynomial_zero_card_le,
+    `QuaternaryQuadraticForms.planeSection_affine_card_eq,
+    `QuaternaryQuadraticForms.planeSection_affine_card_le,
+    `QuaternaryQuadraticForms.planeSection_card_le,
+    `QuaternaryQuadraticForms.projectiveSectionTrace_norm_le,
+    `QuaternaryQuadraticForms.fourier_generic_constant_bound,
+    `QuaternaryQuadraticForms.fourier_exceptional_constant_bound,
+    `QuaternaryQuadraticForms.fourier_zero_constant_bound,
+    `QuaternaryQuadraticForms.rpow_three_halves_eq_mul_sqrt,
+    `QuaternaryQuadraticForms.fourierSum_norm_le_section_and_trace,
+    `QuaternaryQuadraticForms.fourierSum_zero_norm,
+    `QuaternaryQuadraticForms.fourierSum_generic_bound,
+    `QuaternaryQuadraticForms.fourierSum_zero_bound,
+    `QuaternaryQuadraticForms.fourierSum_nonzero_bound,
+    `QuaternaryQuadraticForms.fourierSum_bound_prime_field,
+    `QuaternaryQuadraticForms.fourier_bound,
+    `QuaternaryQuadraticForms.uniform_polynomial_fourier_bound]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -1247,3 +1270,72 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.exceptional_plane_polynomial
 #print axioms QuaternaryQuadraticForms.exceptional_plane_polynomial
+
+#check @QuaternaryQuadraticForms.plane_exists_nonzero_quadratic_value
+#print axioms QuaternaryQuadraticForms.plane_exists_nonzero_quadratic_value
+
+#check @QuaternaryQuadraticForms.eval_planeRestrictionPolynomial
+#print axioms QuaternaryQuadraticForms.eval_planeRestrictionPolynomial
+
+#check @QuaternaryQuadraticForms.planeRestrictionPolynomial_homogeneous
+#print axioms QuaternaryQuadraticForms.planeRestrictionPolynomial_homogeneous
+
+#check @QuaternaryQuadraticForms.planeRestrictionPolynomial_totalDegree_le
+#print axioms QuaternaryQuadraticForms.planeRestrictionPolynomial_totalDegree_le
+
+#check @QuaternaryQuadraticForms.planeRestrictionPolynomial_ne_zero
+#print axioms QuaternaryQuadraticForms.planeRestrictionPolynomial_ne_zero
+
+#check @QuaternaryQuadraticForms.exists_plane_quadratic_restriction
+#print axioms QuaternaryQuadraticForms.exists_plane_quadratic_restriction
+
+#check @QuaternaryQuadraticForms.ternary_polynomial_zero_card_le
+#print axioms QuaternaryQuadraticForms.ternary_polynomial_zero_card_le
+
+#check @QuaternaryQuadraticForms.planeSection_affine_card_eq
+#print axioms QuaternaryQuadraticForms.planeSection_affine_card_eq
+
+#check @QuaternaryQuadraticForms.planeSection_affine_card_le
+#print axioms QuaternaryQuadraticForms.planeSection_affine_card_le
+
+#check @QuaternaryQuadraticForms.planeSection_card_le
+#print axioms QuaternaryQuadraticForms.planeSection_card_le
+
+#check @QuaternaryQuadraticForms.projectiveSectionTrace_norm_le
+#print axioms QuaternaryQuadraticForms.projectiveSectionTrace_norm_le
+
+#check @QuaternaryQuadraticForms.fourier_generic_constant_bound
+#print axioms QuaternaryQuadraticForms.fourier_generic_constant_bound
+
+#check @QuaternaryQuadraticForms.fourier_exceptional_constant_bound
+#print axioms QuaternaryQuadraticForms.fourier_exceptional_constant_bound
+
+#check @QuaternaryQuadraticForms.fourier_zero_constant_bound
+#print axioms QuaternaryQuadraticForms.fourier_zero_constant_bound
+
+#check @QuaternaryQuadraticForms.rpow_three_halves_eq_mul_sqrt
+#print axioms QuaternaryQuadraticForms.rpow_three_halves_eq_mul_sqrt
+
+#check @QuaternaryQuadraticForms.fourierSum_norm_le_section_and_trace
+#print axioms QuaternaryQuadraticForms.fourierSum_norm_le_section_and_trace
+
+#check @QuaternaryQuadraticForms.fourierSum_zero_norm
+#print axioms QuaternaryQuadraticForms.fourierSum_zero_norm
+
+#check @QuaternaryQuadraticForms.fourierSum_generic_bound
+#print axioms QuaternaryQuadraticForms.fourierSum_generic_bound
+
+#check @QuaternaryQuadraticForms.fourierSum_zero_bound
+#print axioms QuaternaryQuadraticForms.fourierSum_zero_bound
+
+#check @QuaternaryQuadraticForms.fourierSum_nonzero_bound
+#print axioms QuaternaryQuadraticForms.fourierSum_nonzero_bound
+
+#check @QuaternaryQuadraticForms.fourierSum_bound_prime_field
+#print axioms QuaternaryQuadraticForms.fourierSum_bound_prime_field
+
+#check @QuaternaryQuadraticForms.fourier_bound
+#print axioms QuaternaryQuadraticForms.fourier_bound
+
+#check @QuaternaryQuadraticForms.uniform_polynomial_fourier_bound
+#print axioms QuaternaryQuadraticForms.uniform_polynomial_fourier_bound

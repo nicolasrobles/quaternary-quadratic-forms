@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 7 · Partial: 1 · Active: 0 · Pending: 34** — 42 numbered results.
+**Complete: 8 · Partial: 0 · Active: 0 · Pending: 34** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -46,22 +46,34 @@ deduced inside this theorem.
 both `G` and `p`. Nonvanishing of `D_p(u)` implies the dual-form condition
 and the actual geometric rank-three transversality condition.
 
-Lemma 4.4 remains **Partial**: its three weight properties, exact
-zero-frequency formula, and ray identity (4.5) are checked. The newly
-available `D_p` supplies its exceptional set; the exceptional-section
-point count and final pointwise Fourier estimate remain to be proved.
-Theorems 1.1 and 1.4 remain Pending.
+**Lemma 4.4 is Certified.** The actual polynomial character weight vanishes
+at zero, has norm at most one, and is invariant under nonzero scalar
+multiplication. The full pointwise bound
+`|C_p(u)| ≤ 2n²(p^(3/2) + p² 1_{D_p(u)=0})` and exact zero-frequency
+identity `C_p(0) = (p−1)a` are proved under the literal manuscript
+hypotheses. The final uniform theorem chooses the degree bound before
+`G,p` and the exceptional polynomial before the character. Its section
+count includes tangent and singular sections. Theorems 1.1 and 1.4 remain
+Pending.
 
-This milestone covers 302 theorem exports across 59 Lean modules, four
+This milestone covers 325 theorem exports across 66 Lean modules, four
 separately registered external Lean premises, and 20 mapped source groups.
 All 33 auxiliary/supplementary groups remain Pending. This repository does
 not yet provide a certificate for the whole paper.
 
-**The full local and GitHub verifiers passed for the current checkpoint at
+The full local verifier passed for all 66 modules and 325 theorem exports
+under the pinned strict settings. All 87 input hashes match the checked
+files, and all nine pinned dependency revisions are unchanged. The 302
+previously checked theorem types and axiom dependencies and the four
+registered literature-input records are unchanged. GitHub Actions
+verification of this new proof checkpoint is pending; the preserved runs
+below certify their stated preceding scopes.
+
+**The full local and GitHub verifiers passed for the preceding exceptional-plane checkpoint at
 [proof commit afdaf24](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7):** all 59 modules,
 302 theorem exports, four exact registered literature premises and 80 input
-hashes were checked under the pinned Lean settings. All 261 previously
-checked theorem types and axiom dependencies are unchanged.
+hashes were checked under the pinned Lean settings. All 261 preceding
+theorem types and axiom dependencies were unchanged at that checkpoint.
 [GitHub Actions run 43608132418, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43608132418)
 succeeded. Its [downloaded report](certification/ci/run_43608132418_attempt_1.json)
 and [original artifact ZIP](certification/ci/run_43608132418_attempt_1.zip)
@@ -111,7 +123,7 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
-- [Correspondence review for the Fourier ray identity](certification/correspondence/fourier_rays.md)
+- [Correspondence review for complete Lemma 4.4 and the Fourier ray identity](certification/correspondence/fourier_rays.md)
 - [Correspondence review for the quadratic trace](certification/correspondence/quadratic_trace.md)
 - [Correspondence review for the Weil input](certification/correspondence/weil_input.md)
 - [Correspondence review for the projective-line bound](certification/correspondence/projective_weil.md)
@@ -330,13 +342,63 @@ is proved to be zero exactly when `p` divides each coordinate.
 
 These identities require only positive degree and `ψ ^ n = 1`; nonsingularity,
 smoothness, and nonprincipality are unnecessary for this part of the proof.
-The manuscript's hypotheses therefore specialize the checked results. The
-remaining clause of Lemma 4.4 is the bound involving the exceptional polynomial
-`D_p`, whose construction and properties are now checked in Lemma 4.1(ii).
-The remaining proof combines the generic transverse-section estimate with
-the exceptional-section point count and the numerical constants. The
-[correspondence record](certification/correspondence/fourier_rays.md) separates
-the completed clauses from those obligations.
+The manuscript's hypotheses therefore specialize the checked results.
+
+## Complete polynomial Fourier estimate
+
+Lemma 4.4 is proved for the literal Fourier sum at every integral frequency.
+For a homogeneous integral `G` of degree `n ≥ 2` satisfying the
+characteristic-zero smoothness condition, a prime `p ∤ N_G`, and a
+nonprincipal character with `ψ ^ n = 1`, the conclusion is
+
+$$|C_p(u)|\le 2n^2\bigl(p^{3/2}+p^2
+\mathbf 1_{D_p(\bar u)=0}\bigr),\qquad
+C_p(0)=(p-1)a_p(G),$$
+
+where $\bar u$ is the coordinatewise reduction of the integral frequency.
+The theorem also includes the three weight conditions: value zero at the
+origin, norm at most one everywhere, and invariance under every nonzero
+scalar. These are proved for the actual function `x ↦ ψ(G(x))`.
+
+The section count used for exceptional frequencies requires only `u ≠ 0`.
+The hyperplane `u·x=0` has dimension three. If the nonsingular quadratic
+form vanished on that entire plane, polarization in odd characteristic
+would put the plane inside its orthogonal complement, whose dimension is
+one. This contradiction proves that its restriction in three linear
+coordinates is a nonzero polynomial of degree at most two. The proved
+Schwartz–Zippel theorem in mathlib gives at most `2p²` affine zeros.
+The actual projective-ray decomposition counts these zeros as
+`1 + (p−1)M`, where `M` is the number of projective section points.
+Since a good prime is at least three, this proves `M ≤ 2p+2`, including
+tangent planes and singular sections. The character norm bound then gives
+`|a_u| ≤ 2p+2` on every such section.
+
+For `D_p(u) ≠ 0`, Lemma 4.1(ii) supplies the geometric hypotheses of
+Lemma 4.3. Its section bound and the Katz bound for `a`, combined with
+`C_p(u)=p a_u−a`, give the generic `2n²p^(3/2)` estimate. For a nonzero
+exceptional frequency, the section count gives `2n²p²`. At the zero
+frequency, the exact identity and the Katz bound give the same exceptional
+estimate. The numerical comparisons, including the real power `p^(3/2)`,
+are proved in Lean.
+
+The terminal theorem `uniform_polynomial_fourier_bound` fixes `A,n` and
+chooses `E ≥ 1` before `G` and `p`. Under the literal smoothness and
+`p ∤ N_G` hypotheses, it then chooses `D_p ≠ 0` with degree at most `E`,
+`D_p(0)=0`, and the dual-form and geometric transversality implications.
+That same `D_p` works for every allowed character and every integral
+frequency. No additional condition `p ∤ n` is imposed. The
+[source correspondence review](certification/correspondence/fourier_rays.md)
+matches all five conclusions and the quantifier order to the manuscript.
+
+| Module | Checked contribution |
+|---|---|
+| [PlaneRestriction](QuaternaryQuadraticForms/PlaneRestriction.lean) | Nonvanishing of every nonzero plane's quadratic restriction and an actual ternary coordinate polynomial |
+| [PolynomialGridCount](QuaternaryQuadraticForms/PolynomialGridCount.lean) | Schwartz–Zippel bound for the actual affine zero set of a nonzero ternary quadratic |
+| [PlaneSectionCardinality](QuaternaryQuadraticForms/PlaneSectionCardinality.lean) | Exact affine-to-projective count, the bound `2p+2`, and the exceptional section-trace bound |
+| [FourierBoundConstants](QuaternaryQuadraticForms/FourierBoundConstants.lean) | Generic, exceptional, and zero-frequency constant comparisons and the real-power identity |
+| [FourierEstimates](QuaternaryQuadraticForms/FourierEstimates.lean) | Bounds for the literal Fourier sum from the exact ray identity and checked trace estimates |
+| [FourierBound](QuaternaryQuadraticForms/FourierBound.lean) | Complete Lemma 4.4 for a supplied exceptional polynomial, under the literal integral hypotheses |
+| [FourierTheorem](QuaternaryQuadraticForms/FourierTheorem.lean) | Uniform existence of the exceptional polynomial before the character, with all five conclusions |
 
 ## Bad primes and the uniform coefficient-height bound
 
@@ -500,11 +562,15 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Algebra.MvPolynomial.Eval \
       Mathlib.Algebra.MvPolynomial.Degrees \
       Mathlib.Algebra.MvPolynomial.Variables \
+      Mathlib.Algebra.MvPolynomial.SchwartzZippel \
+      Mathlib.FieldTheory.Finite.Basic \
+      Mathlib.Analysis.SpecialFunctions.Pow.Real \
       Mathlib.Algebra.Order.BigOperators.Group.Finset \
       Mathlib.Data.Finsupp.Weight \
       Mathlib.Tactic.IntervalCases \
       Mathlib.Tactic.FinCases \
       Mathlib.Tactic.LinearCombination \
+      Mathlib.Tactic.Linarith \
       Mathlib.Tactic.NormNum
     python3 scripts/verify_certificate.py
 
@@ -522,10 +588,9 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next target is the remaining pointwise Fourier estimate in Lemma 4.4.
-The exceptional polynomial `D_p` and all its required properties are now
-available from complete Lemma 4.1. The existing Katz estimate, transverse
-plane-section estimate, and exact ray identity handle the zero and generic
-frequencies. The exceptional-section point count and the final constant
-comparisons must be proved and assembled under the exact manuscript
-hypotheses. The analytic assembly and main theorems remain Pending.
+The next target is Lemma 4.5, which remains Pending. For the manuscript's
+actual diagonal quadratic forms, prove characteristic-zero smoothness and
+the exact characterization of bad reduction at primes `p ∤ N_F` by
+`p ∣ M`. Then deduce the literal formula `N_G = rad(2αM)` for the already
+defined bad-prime modulus. The analytic assembly and Theorems 1.1 and 1.4
+remain Pending.

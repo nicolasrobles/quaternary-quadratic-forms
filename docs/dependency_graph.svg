@@ -10,7 +10,7 @@
 <title>NumberedResults</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-1358.16 2304.66,-1358.16 2304.66,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="1142.25" y="-1315.6" font-family="DejaVu Serif" font-size="23.00">Dependency graph for the numbered results</text>
-<text text-anchor="middle" x="1142.25" y="-1290.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 7 certified; 1 partial; 34 pending</text>
+<text text-anchor="middle" x="1142.25" y="-1290.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 8 certified; 34 pending</text>
 <text text-anchor="middle" x="1142.25" y="-1265.6" font-family="DejaVu Serif" font-size="23.00">Literature inputs trusted; 4 Lean premises registered</text>
 <g id="clust1" class="cluster">
 <title>cluster_sources</title>
@@ -837,10 +837,10 @@
 <g id="node33" class="node">
 <title>lem:fourier</title>
 <g id="a_node33"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1796-L1808" xlink:title="Coefficient&#45;uniform Fourier bounds with exceptional&#45;locus term and exact zero&#45;frequency projective identity" target="_blank">
-<path fill="#e4f1ff" stroke="#3676aa" stroke-width="1.15" d="M1546.5,-718C1546.5,-718 1411.5,-718 1411.5,-718 1405.5,-718 1399.5,-712 1399.5,-706 1399.5,-706 1399.5,-684 1399.5,-684 1399.5,-678 1405.5,-672 1411.5,-672 1411.5,-672 1546.5,-672 1546.5,-672 1552.5,-672 1558.5,-678 1558.5,-684 1558.5,-684 1558.5,-706 1558.5,-706 1558.5,-712 1552.5,-718 1546.5,-718"/>
+<path fill="#e1f5df" stroke="#408342" stroke-width="1.15" d="M1546.5,-718C1546.5,-718 1411.5,-718 1411.5,-718 1405.5,-718 1399.5,-712 1399.5,-706 1399.5,-706 1399.5,-684 1399.5,-684 1399.5,-678 1405.5,-672 1411.5,-672 1411.5,-672 1546.5,-672 1546.5,-672 1552.5,-672 1558.5,-678 1558.5,-684 1558.5,-684 1558.5,-706 1558.5,-706 1558.5,-712 1552.5,-718 1546.5,-718"/>
 <text text-anchor="start" x="1441.5" y="-703.4" font-family="DejaVu Serif" font-weight="bold" font-size="12.00">Lemma 4.4</text>
 <text text-anchor="start" x="1408.5" y="-691.4" font-family="DejaVu Serif" font-size="12.00">Uniform Fourier bound</text>
-<text text-anchor="start" x="1459" y="-681" font-family="DejaVu Serif" font-size="10.00" fill="#3676aa">[Partial]</text>
+<text text-anchor="start" x="1453" y="-681" font-family="DejaVu Serif" font-size="10.00" fill="#408342">[Certified]</text>
 </a>
 </g>
 </g>
@@ -1021,7 +1021,7 @@
 <title>legend</title>
 <text text-anchor="middle" x="1742" y="-39.2" font-family="DejaVu Serif" font-size="11.00">Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.</text>
 <text text-anchor="middle" x="1742" y="-27.2" font-family="DejaVu Serif" font-size="11.00">Purple dashed: trusted source. Transitive numbered edges are omitted.</text>
-<text text-anchor="middle" x="1742" y="-15.2" font-family="DejaVu Serif" font-size="11.00">7 certified; 1 partial; 34 pending. Partial means identified clauses checked; the full result is unfinished.</text>
+<text text-anchor="middle" x="1742" y="-15.2" font-family="DejaVu Serif" font-size="11.00">8 certified; 34 pending. Partial means identified clauses checked; the full result is unfinished.</text>
 <text text-anchor="middle" x="1742" y="-3.2" font-family="DejaVu Serif" font-size="11.00">Click a result for its manuscript statement. Full details are in the dependency inventory.</text>
 </g>
 </g>

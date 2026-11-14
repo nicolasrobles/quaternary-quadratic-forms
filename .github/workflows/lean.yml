@@ -76,7 +76,11 @@ jobs:
             Mathlib.Algebra.MvPolynomial.Degrees \
             Mathlib.Algebra.MvPolynomial.Variables \
             Mathlib.Algebra.Order.BigOperators.Group.Finset \
-            Mathlib.Data.Finsupp.Weight
+            Mathlib.Data.Finsupp.Weight \
+            Mathlib.Algebra.MvPolynomial.SchwartzZippel \
+            Mathlib.FieldTheory.Finite.Basic \
+            Mathlib.Analysis.SpecialFunctions.Pow.Real \
+            Mathlib.Tactic.Linarith
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report
