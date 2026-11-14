@@ -104,7 +104,7 @@ The Lemma 3.2 milestone adds 54 public theorem exports in 16 new
 modules, with 137 recorded input hashes including the new
 correspondence review.
 
-**The full local aggregate verifier passed for all 536 theorem exports
+**The full local and GitHub verifiers passed for all 536 theorem exports
 and 112 Lean modules.** All 137 input hashes match the checked files.
 All 54 new actual types and axiom lists match their prior inspections;
 every new export uses exactly `Classical.choice`, `Quot.sound`, and
@@ -123,10 +123,27 @@ contains 780,870 bytes and has SHA-256
 It records 12 Certified, zero Partial or Active, and 30 Pending numbered
 results; all 33 auxiliary/supplementary groups remain Pending.
 
-**GitHub CI for this 536-export scope is pending.** The successful
-GitHub runs below cover their stated earlier scopes. The
-[execution checkpoint](CHECKPOINT.md) records the new local result
-and its exact comparison with the preceding 482-export report.
+[GitHub Actions run 43633148645, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43633148645)
+succeeded at [proof commit 2b3caed](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7),
+with verification job `132564011074`. Its artifact `14128654819` is
+preserved as the [original ZIP](certification/ci/run_43633148645_attempt_1.zip)
+and [downloaded report](certification/ci/run_43633148645_attempt_1.json).
+The ZIP contains 91,228 bytes and has SHA-256
+`0e46e53424a2264c3f0335a81bb9fbdff8bf25016342115213e5af3da6424d90`;
+the report contains 788,811 bytes and has SHA-256
+`403930110d44417d11827c61441cfb4a7e52e4f05f8f56432e0b993e35e9ce71`.
+
+The ZIP digest matches GitHub's advertised artifact digest, and its
+sole member is byte-identical to the archived report. All 18
+verification-content fields exactly match the unchanged local report,
+including all 536 complete theorem records, four premise records,
+137 input hashes, nine dependency revisions, and the complete Lean
+inspection output. Only `generated_at_utc` and `lake_build_output` differ.
+All 137 hashes match the current inspected files and the exact proof
+tree `dea151816197aafb69f94b3d9a7b885a24b63a5d`. The
+[execution checkpoint](CHECKPOINT.md) records the job, artifact,
+timestamps, digests, and full 536-export scope. The older evidence
+below retains its original scopes.
 
 **The full local and GitHub verifiers passed for the preceding 482-export
 CRT milestone.** All 96 modules passed the pinned strict checks, and all

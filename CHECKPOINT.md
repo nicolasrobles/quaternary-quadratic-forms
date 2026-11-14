@@ -876,10 +876,41 @@ Pending, and whole-paper certification remains false.
 
 ### Gauss GitHub execution
 
-**GitHub CI for the 536-export scope is pending.** No successful
-GitHub run or CI report is yet recorded for this milestone. The local
-result above covers the new scope; the preceding 482-export local and
-CI reports retain their exact historical scope below.
+**The full local and GitHub verifiers passed for all 112 modules,
+536 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7),
+whose tree is `dea151816197aafb69f94b3d9a7b885a24b63a5d`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43633148645, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43633148645).
+- Verification job: `132564011074`; every step succeeded.
+- Verification completed `2026-11-14T19:48:39Z`; the job completed `2026-11-14T19:48:43Z`.
+- Artifact: `14128654819`, 91,228 bytes, created `2026-11-14T19:48:40Z`.
+- [Preserved CI report](certification/ci/run_43633148645_attempt_1.json), 788,811 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43633148645_attempt_1.zip).
+- ZIP SHA-256: `0e46e53424a2264c3f0335a81bb9fbdff8bf25016342115213e5af3da6424d90`.
+- CI report SHA-256: `403930110d44417d11827c61441cfb4a7e52e4f05f8f56432e0b993e35e9ce71`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON. The local and CI reports agree exactly on all 18
+verification-content fields: all 536 complete theorem records and their
+actual types and axiom dependencies, four registered premise records,
+137 input hashes, nine pinned dependency revisions, the complete Lean
+export-inspection output, the Lean version, and every verification flag
+and scope count. Only `generated_at_utc` and `lake_build_output` differ.
+
+Every recorded input hash matches both the current inspected files
+and the exact proof tree. The local report remains unchanged at
+780,870 bytes with SHA-256
+`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`,
+byte-identical to the report at the published proof commit. The frozen
+manuscript and PDF are unchanged. This evidence covers the complete
+536-export Gauss milestone; the earlier local and CI reports below
+retain their original scopes. The numbered status remains 12 Certified,
+zero Partial or Active, and 30 Pending, with all 33 auxiliary/supplementary
+groups Pending and whole-paper certification false.
 
 ## Earlier checked checkpoints
 
