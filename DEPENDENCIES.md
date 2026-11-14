@@ -71,18 +71,22 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 0 · Partial: 2 · Active: 0 · Pending:
-40**. Lemma 4.4 is Partial: all three weight properties (3.1), the exact
+The numbered-result counts are **Complete: 4 · Partial: 2 · Active: 0 · Pending:
+36**. Lemma 2.5, Corollary 2.6, and Lemmas 4.2 and 4.3 are complete relative to
+the accepted literature inputs. The projective-line and conic arguments now
+give the bound for the actual transverse plane-section character sum.
+
+Lemma 4.4 is Partial: all three weight properties (3.1), the exact
 zero-frequency clause of (4.4), and the full intermediate ray identity (4.5)
 are checked. Its pointwise Fourier estimate remains pending. Lemma 5.9 is
 Partial: integrality and divisibility of the actual projective trace are
-checked locally; its separate bound `|a_p(G)| ≤ 4p` remains pending.
+checked; its separate bound `|a_p(G)| ≤ 4p` remains pending.
 
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 40 registered checked exports across nine proof
-modules are also counted separately.
+numbered-result count. The 162 registered theorem exports across 31 Lean
+modules are also counted separately from the one registered literature premise.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -96,8 +100,14 @@ Section 7.2. The open questions in the conclusion are not assertions to prove.
 
 We accept the exact literature statements used in the proofs and verify their
 hypotheses and the manuscript's deductions. The [source registry](TRUSTED_INPUTS.md)
-records these inputs. Its 18 mapped groups are not 18 Lean axioms: no external
-literature premise has been introduced into Lean at the current checkpoint.
+records these inputs. Its 18 mapped groups are not 18 Lean axioms. Exactly one
+external literature premise is registered in Lean: the simple-root univariate
+Weil estimate from [K, equation (1.2)], specialized to the prime field. Its
+[declaration](QuaternaryQuadraticForms/Trusted/Weil.lean) and
+[source correspondence](certification/correspondence/weil_input.md) fix the
+exact statement. The projective-line bound, conic construction, and geometric
+deductions are proved; they are not additional trusted premises.
+
 Existing results from official Lean and the pinned official
 [mathlib4](https://github.com/leanprover-community/mathlib4) may be reused.
 
@@ -106,6 +116,35 @@ not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
 bound in [M, Proposition 2.1]. Their exclusion is recorded in the same registry.
 Trusting a reference does not require assuming an assertion that the paper
 itself disproves.
+
+## Completed projective-line and plane-section estimates
+
+Two proved branches meet in Lemma 4.3:
+
+1. [Lemma 2.5](QuaternaryQuadraticForms/WeilBound.lean) applies the registered
+   Weil input. [Corollary 2.6](QuaternaryQuadraticForms/ProjectiveWeil.lean)
+   deduces the bound for the actual projective-line sum, proving the chart
+   decomposition, affine degree, distinct-root condition, and contribution
+   at infinity.
+2. [Lemma 4.2](QuaternaryQuadraticForms/ConicParametrization.lean) constructs
+   one tuple of binary quadratic polynomials over the prime field. Its mapped
+   coefficients parametrize the actual conic over every field extension, and
+   its formal derivative vectors are independent at every nonzero parameter.
+   The construction proves isotropy, the normal form, and compatibility with
+   field extension under the manuscript's exact good-prime hypothesis. This
+   geometric branch does not depend on the Weil premise.
+3. [Lemma 4.3](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) uses the
+   conic parametrization to transport the literal section sum to the
+   projective line. The rank-three transversality hypothesis proves that the
+   degree-`2n` pullback has `2n` distinct geometric projective zeros; no
+   restriction that the characteristic be prime to the degree is added.
+   Corollary 2.6 then gives the bound `(2n−1)√p+1`.
+
+The correspondence reviews for the
+[projective-line bound](certification/correspondence/projective_weil.md),
+[uniform conic parametrization](certification/correspondence/conic_parametrization.md),
+and [plane-section bound](certification/correspondence/plane_section.md) record
+the checked clauses and their actual dependencies.
 
 ## Completed ray identity
 
@@ -131,9 +170,11 @@ Positive degree and `ψ ^ n = 1` suffice for this identity; the manuscript's
 nonsingularity, smoothness, and nonprincipality hypotheses are not needed at
 this stage. The
 [correspondence record](certification/correspondence/fourier_rays.md) identifies
-the precise clauses checked. The `D_p`-dependent bound in Lemma 4.4 still needs
-the geometric estimates of Lemmas 2.7, 4.1 and 4.3 and the exceptional
-plane-section count. Those steps have not been assumed as additional premises.
+the precise clauses checked. The plane-section estimate of Lemma 4.3 is now
+available. The `D_p`-dependent bound in Lemma 4.4 still needs the Katz
+specialization in Lemma 2.7, the exceptional-polynomial construction in
+Lemma 4.1, and the exceptional plane-section count and final Fourier
+assembly. Those remaining steps have not been assumed as additional premises.
 
 ## Integrality and divisibility in Lemma 5.9
 
@@ -165,13 +206,16 @@ these clauses; the geometric assumptions enter the unfinished size bound.
 
 ## Next estimate branch
 
-The next work is to register precise Weil and Katz interfaces and prove the
-manuscript's specializations. Corollary 2.6, the projective-line estimate, is a
-practical first target. The Katz specialization of Lemma 2.7 still requires
-the geometric hypotheses and the explicit constant to be handled. It supports
-both the remaining bound in Lemma 5.9 and the Fourier estimate in Lemma 4.4;
-the latter also needs the exceptional-polynomial and plane-section arguments.
-The exact identities already checked remain completed inputs to that work.
+The next target is the precise Katz literature interface and its geometric
+specialization in Lemma 2.7, including the manuscript's hypotheses and explicit
+constant. This global trace estimate is needed for the remaining size clause
+`|a_p(G)| ≤ 4p` in Lemma 5.9.
+
+The exceptional-polynomial construction of Lemma 4.1 is a separate remaining
+branch. The Fourier bound in Lemma 4.4 must combine that construction and the
+exceptional-section count with the Katz bound, the now-proved plane-section
+estimate, and the checked ray identity. The identities, integrality, and
+divisibility results already checked remain completed inputs to that work.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

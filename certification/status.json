@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Univariate Weil input and the projective-line character-sum bound",
+  "checkpoint": "Uniform conic parametrization and the transverse plane-section bound",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -107,12 +107,20 @@
       "checked_exports": []
     },
     "lem:conic": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.conic_parametrization"
+      ],
+      "correspondence_record": "certification/correspondence/conic_parametrization.md",
+      "scope_note": "Both clauses are proved for one tuple of literal binary quadratic forms chosen over F_p before quantifying over every extension field. The projective bijection, independent formal derivatives, normal form, and scalar extension are constructed from the manuscript hypotheses. No external mathematical premise is used."
     },
     "lem:section": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.plane_section_bound"
+      ],
+      "correspondence_record": "certification/correspondence/plane_section.md",
+      "scope_note": "Complete bound for the actual projective plane-section sum under the literal geometric rank-three condition. Parametrization, nonvanishing, and the 2n distinct geometric roots are derived internally, including when p divides 2n. Only the previously registered EXT.WEIL premise is used."
     },
     "lem:fourier": {
       "status": "Partial",
@@ -132,7 +140,7 @@
       "remaining_clauses": [
         "The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases."
       ],
-      "scope_note": "The geometric bounds from Lemmas 2.7, 4.1 and 4.3, and the plane-section counting step, have not been imported as assumptions or certified by this checkpoint."
+      "scope_note": "Lemma 4.3 is now available as a proved input. The global trace estimate from Lemma 2.7, the exceptional polynomial from Lemma 4.1, and the remaining exceptional-frequency counting and assembly steps are still pending. None has been imported as a replacement axiom."
     },
     "lem:diagbad": {
       "status": "Pending",
@@ -1311,6 +1319,1397 @@
         "cor:weilline"
       ],
       "scope": "Complete Corollary 2.6 under the literal binary-form and distinct geometric projective-root hypotheses.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.pderiv_aeval_chain_rule",
+      "file": "QuaternaryQuadraticForms/PolynomialChainRule.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The algebraic chain rule for a finite tuple of polynomial substitutions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_aeval_polynomial",
+      "file": "QuaternaryQuadraticForms/PolynomialChainRule.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Evaluation commutes with polynomial substitution.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_pderiv_aeval_chain_rule",
+      "file": "QuaternaryQuadraticForms/PolynomialChainRule.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The chain rule evaluated at a point.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_planeSubspace",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Membership in the actual hyperplane is exactly the zero dot-product condition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixBilin_isSymm",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "A symmetric matrix gives a symmetric bilinear form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrix_mulVec_adjugate",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Multiplication by the matrix cancels its adjugate up to the determinant.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.adjugate_bilin_self",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The adjugate normal has nonzero self-pairing under the dual-form hypothesis.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeSubspace_eq_orthogonal",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The geometric plane is the orthogonal complement of the adjugate normal.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_bilin_nondegenerate",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The restriction to the plane section is nondegenerate.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeFunctional_ne_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The dual-form hypothesis makes the hyperplane functional nonzero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeSubspace_finrank",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "A nonzero hyperplane in four-space has dimension three.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_planePolynomial",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The actual linear plane polynomial evaluates to the dot product with the normal.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planePolynomial_totalDegree_le",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The plane polynomial has total degree at most one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_exists_isotropic",
+      "file": "QuaternaryQuadraticForms/QuadraticPlane.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Chevalley--Warning produces an actual nonzero isotropic point in every four-variable quadratic hyperplane section over a prime field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_hyperbolic_partner",
+      "file": "QuaternaryQuadraticForms/ConicNormalForm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Normalize an isotropic partner so that the mixed quadratic coefficient is one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_common_orthogonal",
+      "file": "QuaternaryQuadraticForms/ConicNormalForm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "In dimension three, two linear orthogonality conditions have a nonzero solution.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hyperbolic_triple_linearIndependent",
+      "file": "QuaternaryQuadraticForms/ConicNormalForm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "An isotropic hyperbolic pair and a nonzero common orthogonal vector are linearly independent.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_ternary_hyperbolic_coordinates",
+      "file": "QuaternaryQuadraticForms/ConicNormalForm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "A nondegenerate ternary form with an isotropic vector admits the exact hyperbolic normal form used in the conic parametrization.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_exists_hyperbolic_coordinates",
+      "file": "QuaternaryQuadraticForms/ConicNormalForm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The actual prime-field plane section has the required hyperbolic coordinates.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_apply_map",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The extended linear map agrees with coefficient extension on base-field vectors.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_comp",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Scalar extension of finite coordinate maps preserves composition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_id",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Scalar extension preserves the identity coordinate map.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_injective",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "An injective coordinate map remains injective over every extension field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_coordinatePolynomial",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The coordinate polynomial evaluates to the corresponding component of the linear map.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coordinatePolynomial_homogeneous",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Each coordinate polynomial of a linear map is homogeneous of degree one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coordinatePolynomial_map",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Mapping coefficients of the coordinate polynomial gives the coordinate polynomial of the extended map.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_mem_plane",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Extension of coefficients preserves the equation defining the plane.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeSubspace_finrank_of_ne_zero",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The actual hyperplane has dimension three over any field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_range_plane",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "An injective three-coordinate parametrization of a hyperplane spans that same hyperplane after every extension of coefficients.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.map_aeval_polynomial",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Polynomial substitution commutes with extension of all coefficients.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_map",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The literal matrix quadratic polynomial commutes with coefficient extension.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendCoordinateMap_quadratic",
+      "file": "QuaternaryQuadraticForms/ScalarExtension.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The ternary normal-form identity is a polynomial identity and therefore persists over every field extension, including infinite extensions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicVector_smul",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The canonical binary quadratic vector scales by the square of the scalar.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicVector_ne_zero",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The canonical quadratic vector is nonzero at every nonzero binary parameter.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicValue_vector",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The canonical quadratic vector lies on the literal ternary conic.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicValue_smul",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The ternary conic polynomial scales quadratically.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicValue_units_zero_iff",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The conic equation is invariant under multiplication by a field unit.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicProjective_mk",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The projective map agrees with the literal formula on any representative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPoint_injective",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Distinct projective parameters give distinct points of the conic.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicVector_surjective_projective",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Every nonzero zero of the ternary form is a scalar multiple of a parametrized vector. This statement works over an arbitrary field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPoint_surjective",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Every actual projective zero lies in the parametrization.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConic_derivatives_independent",
+      "file": "QuaternaryQuadraticForms/ConicCharts.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The two explicit tangent vectors are independent away from the origin in characteristic different from two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomials_eval",
+      "file": "QuaternaryQuadraticForms/ConicPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Evaluation recovers the literal quadratic parametrization.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomials_homogeneous",
+      "file": "QuaternaryQuadraticForms/ConicPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Each coordinate polynomial is homogeneous of degree two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomials_partial_s",
+      "file": "QuaternaryQuadraticForms/ConicPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The evaluated first partials are the explicit first tangent vector.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomials_partial_t",
+      "file": "QuaternaryQuadraticForms/ConicPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The evaluated second partials are the explicit second tangent vector.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomials_partials_independent",
+      "file": "QuaternaryQuadraticForms/ConicPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The actual polynomial partial derivatives are independent at every nonzero parameter, provided the characteristic is not two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomials_map",
+      "file": "QuaternaryQuadraticForms/ConicPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Coefficient extension gives the same three coordinate forms over any extension field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.BinaryNonsingular.ne_zero",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Nonsingularity excludes the zero polynomial.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_derivative",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Differentiation in the affine variable commutes with dehomogenization.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binary_euler_eval",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Euler's identity for a binary form, evaluated at an arbitrary vector.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_euler",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Euler's identity after the literal affine substitution.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_derivative_ne_zero",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "A nonsingular binary form has no repeated root in its affine chart.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_separable_of_nonsingular",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Over an algebraically closed field, the affine polynomial is separable.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coeff_X_mul_derivative",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The coefficient of `X f'` at degree `m` is `m` times the coefficient of `f`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_degree_of_nonsingular_infinity",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "A nonsingular zero at infinity decreases the affine degree by exactly one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryProjectiveZeros_card_of_nonsingular",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "A homogeneous nonsingular binary form over an algebraically closed field has exactly its degree many distinct projective zeros.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binary_nonsingular_geometric_roots",
+      "file": "QuaternaryQuadraticForms/BinaryNonsingular.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The exact geometric-root hypothesis of Corollary 2.6 follows from the absence of a nonzero geometric common zero of the form and its partial derivatives.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.independent_three_two_dot_impossible",
+      "file": "QuaternaryQuadraticForms/TransversePullback.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Three independent covectors in four-space cannot annihilate two independent vectors. The covectors here are identified using the actual dot product.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.pderiv_planePolynomial",
+      "file": "QuaternaryQuadraticForms/TransversePullback.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Each partial derivative of the plane polynomial is its corresponding coefficient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialGradient_plane",
+      "file": "QuaternaryQuadraticForms/TransversePullback.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The gradient of the actual plane polynomial is its normal vector.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_pderiv_pullback",
+      "file": "QuaternaryQuadraticForms/TransversePullback.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The evaluated polynomial chain rule as a dot product of actual vectors.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.transverse_pullback_nonsingular",
+      "file": "QuaternaryQuadraticForms/TransversePullback.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Transversality and the independent derivatives of a genuine conic parametrization imply that its polynomial pullback has no projective singular zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rank_three_iff_linearIndependent",
+      "file": "QuaternaryQuadraticForms/TransversalityRank.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "A three-row matrix over a field has rank three exactly when its rows are linearly independent.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeTransverseRank_iff",
+      "file": "QuaternaryQuadraticForms/TransversalityRank.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The source's matrix-rank formulation and the proof's linear-independence formulation of transversality are equivalent.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_eval",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Evaluation of the four binary coordinate polynomials agrees with the embedded canonical vector.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_homogeneous",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Each of the four embedded coordinate polynomials is homogeneous of degree two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_map",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The same binary coordinate forms are obtained after extending every coefficient to an overfield.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coordinatePolynomial_pderiv",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "A coordinate of a linear map has its matrix entry as formal derivative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_partial",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The derivative vector is transported by the same linear map.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_partials_independent",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The actual polynomial partials remain independent after the embedding.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_canonicalConicPolynomial",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The literal ternary quadratic polynomial evaluates to the canonical conic form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomial_homogeneous",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The ternary canonical conic polynomial is homogeneous of degree two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coordinateQuadratic_pullback",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The assumed normal form is an identity of quadratic polynomials.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.canonicalConicPolynomial_substitution",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Substituting the canonical quadratics into their conic equation is zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_quadric_identity",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The embedded quadratic parametrization satisfies the actual equation F=0 as a polynomial identity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coordinatePlane_pullback",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The embedded linear coordinate map satisfies the plane equation as a polynomial identity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicPolynomials_plane_identity",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The four binary quadratic coordinates satisfy the actual plane equation as a polynomial identity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.planeConic_units_iff",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "The two equations of the plane section are stable under nonzero scalars.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedCanonicalConicPoint_injective",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Injectivity of the linear embedding gives injectivity on projective conics.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedCanonicalConicPoint_surjective",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Spanning the hyperplane gives every projective point of the plane section.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.embeddedConicEquiv_mk",
+      "file": "QuaternaryQuadraticForms/EmbeddedConic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "On an arbitrary nonzero representative, the projective equivalence is the literal embedded quadratic formula.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodPrime_ne_two",
+      "file": "QuaternaryQuadraticForms/GoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Nondivisibility of the actual modulus 2*|det A| excludes the prime two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodPrime_reduced_det_ne_zero",
+      "file": "QuaternaryQuadraticForms/GoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Nondivisibility of the actual modulus proves that the reduced matrix has nonzero determinant.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.reduceQuadraticMatrix_symmetric",
+      "file": "QuaternaryQuadraticForms/GoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Symmetry of the integral matrix is preserved by coefficient reduction.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.reduceQuadraticMatrix_adjugate",
+      "file": "QuaternaryQuadraticForms/GoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Reducing the integral adjugate equals the adjugate of the reduced matrix.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeField_two_ne_zero",
+      "file": "QuaternaryQuadraticForms/ConicParametrization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Odd characteristic supplied by the prime-field hypothesis.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.conic_parametrization_prime_field",
+      "file": "QuaternaryQuadraticForms/ConicParametrization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Lemma 4.2 over the prime field: one tuple of literal binary quadratic forms works over every field extension, with every parametrization clause proved.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.conic_parametrization",
+      "file": "QuaternaryQuadraticForms/ConicParametrization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:conic",
+        "lem:section"
+      ],
+      "scope": "Complete Lemma 4.2: one tuple over F_p parametrizes the actual plane conic over every extension field, with independent formal partials, from the integral good-prime and dual-form hypotheses.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveSectionTrace_eq_sum_conic",
+      "file": "QuaternaryQuadraticForms/PlaneSectionBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The filtered section trace is the sum over its actual projective zero subtype.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveSectionTrace_eq_projectiveLine",
+      "file": "QuaternaryQuadraticForms/PlaneSectionBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "The conic parametrization identifies the literal section trace with the projective-line character sum of the actual substituted polynomial.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_section_bound_of_parametrization",
+      "file": "QuaternaryQuadraticForms/PlaneSectionBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Lemma 4.3 after the conic parametrizations have been constructed over the prime field and its algebraic closure. All simple-root conditions are deductions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_section_bound_prime_field",
+      "file": "QuaternaryQuadraticForms/PlaneSectionTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Lemma 4.3 over the prime field, with the actual geometric matrix-rank condition and with the required parametrizations constructed in the proof.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.plane_section_bound",
+      "file": "QuaternaryQuadraticForms/PlaneSectionTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:section"
+      ],
+      "scope": "Complete Lemma 4.3 for the literal projective section trace, using the integral good-prime condition and the actual geometric rank-three transversality hypothesis.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",

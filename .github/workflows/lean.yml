@@ -50,7 +50,20 @@ jobs:
             Mathlib.NumberTheory.LegendreSymbol.Basic \
             Mathlib.Algebra.Polynomial.Homogenize \
             Mathlib.Data.Fin.VecNotation \
-            Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+            Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
+            Mathlib.Algebra.MvPolynomial.PDeriv \
+            Mathlib.LinearAlgebra.Basis.VectorSpace \
+            Mathlib.LinearAlgebra.BilinearForm.Orthogonal \
+            Mathlib.LinearAlgebra.Dual.Lemmas \
+            Mathlib.LinearAlgebra.FiniteDimensional.Lemmas \
+            Mathlib.LinearAlgebra.LinearIndependent.Basic \
+            Mathlib.LinearAlgebra.LinearIndependent.Lemmas \
+            Mathlib.LinearAlgebra.Matrix.Adjugate \
+            Mathlib.LinearAlgebra.Matrix.BilinearForm \
+            Mathlib.LinearAlgebra.Matrix.Dual \
+            Mathlib.LinearAlgebra.Matrix.Rank \
+            Mathlib.RingTheory.MvPolynomial.EulerIdentity \
+            Mathlib.Tactic.FieldSimp
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

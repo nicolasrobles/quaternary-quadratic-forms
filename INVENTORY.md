@@ -2,9 +2,9 @@
 
 Frozen manuscript: v35, renamed without content changes for this repository.
 
-**2 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 38 are pending.
+**4 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 36 are pending.
 
-The current checkpoint certifies Lemma 2.5 relative to its exact cited Weil input and proves the complete projective-line Corollary 2.6. The charts, dehomogenization, degree calculation, and simple-root condition are checked deductions. The earlier integrality and divisibility clauses of Lemma 5.9 remain checked; its size bound remains pending. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas remain Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
+The current checkpoint proves the complete conic parametrization in Lemma 4.2 and the transverse plane-section bound in Lemma 4.3. One tuple of actual binary quadratic forms works over every extension field; the projective bijection, independent derivatives, transversality deduction, and distinct geometric roots are proved. Lemma 2.5 remains certified relative to its exact cited Weil input, and the complete projective-line Corollary 2.6 remains proved. No further external premise has been added. The earlier integrality and divisibility clauses of Lemma 5.9 remain checked; its size bound remains pending. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas remain Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
 
 [Manuscript source](manuscript/quadratic_character_sums_github.tex) · [PDF](manuscript/quadratic_character_sums_github.pdf) · [Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · [Live proof ledger](certification/status.json)
 
@@ -60,8 +60,8 @@ A successful build does not change these statuses. Imported literature theorems 
 | Result | Content | Status | Checked export |
 |---|---|---|---|
 | [Lemma 4.1](manuscript/quadratic_character_sums_github.tex#L1615-L1632) | Polynomial bound for bad-prime product and uniformly bounded-degree exceptional plane locus | Pending | Pending |
-| [Lemma 4.2](manuscript/quadratic_character_sums_github.tex#L1712-L1724) | Uniform conic parametrization by binary quadratics over every extension field, with independent derivative vectors | Pending | Pending |
-| [Lemma 4.3](manuscript/quadratic_character_sums_github.tex#L1756-L1765) | Transverse plane-section character-sum bound (2n-1) sqrt(p)+1 | Pending | Pending |
+| [Lemma 4.2](manuscript/quadratic_character_sums_github.tex#L1712-L1724) | Uniform conic parametrization by binary quadratics over every extension field, with independent derivative vectors | Certified | [`QuaternaryQuadraticForms.conic_parametrization`](QuaternaryQuadraticForms/ConicParametrization.lean) |
+| [Lemma 4.3](manuscript/quadratic_character_sums_github.tex#L1756-L1765) | Transverse plane-section character-sum bound (2n-1) sqrt(p)+1 | Certified | [`QuaternaryQuadraticForms.plane_section_bound`](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) |
 | [Lemma 4.4](manuscript/quadratic_character_sums_github.tex#L1796-L1808) | Coefficient-uniform Fourier bounds with exceptional-locus term and exact zero-frequency projective identity | Partial | [`QuaternaryQuadraticForms.polynomialCharacterWeight_properties`](QuaternaryQuadraticForms/PolynomialWeights.lean); [`QuaternaryQuadraticForms.fourierSum_zero`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.fourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.integralFourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.integralFourierSum_of_dvd`](QuaternaryQuadraticForms/FourierRays.lean) |
 | [Lemma 4.5](manuscript/quadratic_character_sums_github.tex#L1862-L1866) | Exact bad-prime criterion for diagonal quadratic G and N_G=rad(2 alpha M) | Pending | Pending |
 | [Lemma 4.6](manuscript/quadratic_character_sums_github.tex#L1897-L1908) | Exact diagonal Fourier pencil formula, projective trace formula and generic 2p^(3/2)+4p bound | Pending | Pending |
@@ -103,6 +103,18 @@ All clauses match the exact registered cited input EXT.WEIL. This is source-rela
 
 Complete bound for the actual projective-line sum. The charts, dehomogenization, degree drop, distinct-root condition, and contribution at infinity are proved; only EXT.WEIL is an external premise.
 
+### Lemma 4.2
+
+[Statement correspondence review](certification/correspondence/conic_parametrization.md)
+
+Both clauses are proved for one tuple of literal binary quadratic forms chosen over F_p before quantifying over every extension field. The projective bijection, independent formal derivatives, normal form, and scalar extension are constructed from the manuscript hypotheses. No external mathematical premise is used.
+
+### Lemma 4.3
+
+[Statement correspondence review](certification/correspondence/plane_section.md)
+
+Complete bound for the actual projective plane-section sum under the literal geometric rank-three condition. Parametrization, nonvanishing, and the 2n distinct geometric roots are derived internally, including when p divides 2n. Only the previously registered EXT.WEIL premise is used.
+
 ## Scope of partially checked numbered results
 
 ### Lemma 4.4
@@ -119,7 +131,7 @@ Remaining clauses:
 
 - The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases.
 
-The geometric bounds from Lemmas 2.7, 4.1 and 4.3, and the plane-section counting step, have not been imported as assumptions or certified by this checkpoint.
+Lemma 4.3 is now available as a proved input. The global trace estimate from Lemma 2.7, the exceptional polynomial from Lemma 4.1, and the remaining exceptional-frequency counting and assembly steps are still pending. None has been imported as a replacement axiom.
 
 ### Lemma 5.9
 
@@ -208,6 +220,100 @@ The checked divisibility statement only needs an odd prime and a homogeneous qua
 | [`QuaternaryQuadraticForms.projectiveLineCharacterSum_chart`](QuaternaryQuadraticForms/ProjectiveWeil.lean) | The literal projective character sum splits into the value at infinity and the sum of the literal affine polynomial character weight. | Checked locally |
 | [`QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots`](QuaternaryQuadraticForms/ProjectiveWeil.lean) | The norm estimate after the affine root hypotheses have been checked, using the triangle inequality and the degree bound. | Checked locally |
 | [`QuaternaryQuadraticForms.projective_weil_bound`](QuaternaryQuadraticForms/ProjectiveWeil.lean) | Complete Corollary 2.6 under the literal binary-form and distinct geometric projective-root hypotheses. | Checked locally |
+| [`QuaternaryQuadraticForms.pderiv_aeval_chain_rule`](QuaternaryQuadraticForms/PolynomialChainRule.lean) | The algebraic chain rule for a finite tuple of polynomial substitutions. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_aeval_polynomial`](QuaternaryQuadraticForms/PolynomialChainRule.lean) | Evaluation commutes with polynomial substitution. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_pderiv_aeval_chain_rule`](QuaternaryQuadraticForms/PolynomialChainRule.lean) | The chain rule evaluated at a point. | Checked locally |
+| [`QuaternaryQuadraticForms.mem_planeSubspace`](QuaternaryQuadraticForms/QuadraticPlane.lean) | Membership in the actual hyperplane is exactly the zero dot-product condition. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixBilin_isSymm`](QuaternaryQuadraticForms/QuadraticPlane.lean) | A symmetric matrix gives a symmetric bilinear form. | Checked locally |
+| [`QuaternaryQuadraticForms.matrix_mulVec_adjugate`](QuaternaryQuadraticForms/QuadraticPlane.lean) | Multiplication by the matrix cancels its adjugate up to the determinant. | Checked locally |
+| [`QuaternaryQuadraticForms.adjugate_bilin_self`](QuaternaryQuadraticForms/QuadraticPlane.lean) | The adjugate normal has nonzero self-pairing under the dual-form hypothesis. | Checked locally |
+| [`QuaternaryQuadraticForms.planeSubspace_eq_orthogonal`](QuaternaryQuadraticForms/QuadraticPlane.lean) | The geometric plane is the orthogonal complement of the adjugate normal. | Checked locally |
+| [`QuaternaryQuadraticForms.plane_bilin_nondegenerate`](QuaternaryQuadraticForms/QuadraticPlane.lean) | The restriction to the plane section is nondegenerate. | Checked locally |
+| [`QuaternaryQuadraticForms.planeFunctional_ne_zero`](QuaternaryQuadraticForms/QuadraticPlane.lean) | The dual-form hypothesis makes the hyperplane functional nonzero. | Checked locally |
+| [`QuaternaryQuadraticForms.planeSubspace_finrank`](QuaternaryQuadraticForms/QuadraticPlane.lean) | A nonzero hyperplane in four-space has dimension three. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_planePolynomial`](QuaternaryQuadraticForms/QuadraticPlane.lean) | The actual linear plane polynomial evaluates to the dot product with the normal. | Checked locally |
+| [`QuaternaryQuadraticForms.planePolynomial_totalDegree_le`](QuaternaryQuadraticForms/QuadraticPlane.lean) | The plane polynomial has total degree at most one. | Checked locally |
+| [`QuaternaryQuadraticForms.plane_exists_isotropic`](QuaternaryQuadraticForms/QuadraticPlane.lean) | Chevalley--Warning produces an actual nonzero isotropic point in every four-variable quadratic hyperplane section over a prime field. | Checked locally |
+| [`QuaternaryQuadraticForms.exists_hyperbolic_partner`](QuaternaryQuadraticForms/ConicNormalForm.lean) | Normalize an isotropic partner so that the mixed quadratic coefficient is one. | Checked locally |
+| [`QuaternaryQuadraticForms.exists_common_orthogonal`](QuaternaryQuadraticForms/ConicNormalForm.lean) | In dimension three, two linear orthogonality conditions have a nonzero solution. | Checked locally |
+| [`QuaternaryQuadraticForms.hyperbolic_triple_linearIndependent`](QuaternaryQuadraticForms/ConicNormalForm.lean) | An isotropic hyperbolic pair and a nonzero common orthogonal vector are linearly independent. | Checked locally |
+| [`QuaternaryQuadraticForms.exists_ternary_hyperbolic_coordinates`](QuaternaryQuadraticForms/ConicNormalForm.lean) | A nondegenerate ternary form with an isotropic vector admits the exact hyperbolic normal form used in the conic parametrization. | Checked locally |
+| [`QuaternaryQuadraticForms.plane_exists_hyperbolic_coordinates`](QuaternaryQuadraticForms/ConicNormalForm.lean) | The actual prime-field plane section has the required hyperbolic coordinates. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_apply_map`](QuaternaryQuadraticForms/ScalarExtension.lean) | The extended linear map agrees with coefficient extension on base-field vectors. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_comp`](QuaternaryQuadraticForms/ScalarExtension.lean) | Scalar extension of finite coordinate maps preserves composition. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_id`](QuaternaryQuadraticForms/ScalarExtension.lean) | Scalar extension preserves the identity coordinate map. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_injective`](QuaternaryQuadraticForms/ScalarExtension.lean) | An injective coordinate map remains injective over every extension field. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_coordinatePolynomial`](QuaternaryQuadraticForms/ScalarExtension.lean) | The coordinate polynomial evaluates to the corresponding component of the linear map. | Checked locally |
+| [`QuaternaryQuadraticForms.coordinatePolynomial_homogeneous`](QuaternaryQuadraticForms/ScalarExtension.lean) | Each coordinate polynomial of a linear map is homogeneous of degree one. | Checked locally |
+| [`QuaternaryQuadraticForms.coordinatePolynomial_map`](QuaternaryQuadraticForms/ScalarExtension.lean) | Mapping coefficients of the coordinate polynomial gives the coordinate polynomial of the extended map. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_mem_plane`](QuaternaryQuadraticForms/ScalarExtension.lean) | Extension of coefficients preserves the equation defining the plane. | Checked locally |
+| [`QuaternaryQuadraticForms.planeSubspace_finrank_of_ne_zero`](QuaternaryQuadraticForms/ScalarExtension.lean) | The actual hyperplane has dimension three over any field. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_range_plane`](QuaternaryQuadraticForms/ScalarExtension.lean) | An injective three-coordinate parametrization of a hyperplane spans that same hyperplane after every extension of coefficients. | Checked locally |
+| [`QuaternaryQuadraticForms.map_aeval_polynomial`](QuaternaryQuadraticForms/ScalarExtension.lean) | Polynomial substitution commutes with extension of all coefficients. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_map`](QuaternaryQuadraticForms/ScalarExtension.lean) | The literal matrix quadratic polynomial commutes with coefficient extension. | Checked locally |
+| [`QuaternaryQuadraticForms.extendCoordinateMap_quadratic`](QuaternaryQuadraticForms/ScalarExtension.lean) | The ternary normal-form identity is a polynomial identity and therefore persists over every field extension, including infinite extensions. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicVector_smul`](QuaternaryQuadraticForms/ConicCharts.lean) | The canonical binary quadratic vector scales by the square of the scalar. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicVector_ne_zero`](QuaternaryQuadraticForms/ConicCharts.lean) | The canonical quadratic vector is nonzero at every nonzero binary parameter. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicValue_vector`](QuaternaryQuadraticForms/ConicCharts.lean) | The canonical quadratic vector lies on the literal ternary conic. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicValue_smul`](QuaternaryQuadraticForms/ConicCharts.lean) | The ternary conic polynomial scales quadratically. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicValue_units_zero_iff`](QuaternaryQuadraticForms/ConicCharts.lean) | The conic equation is invariant under multiplication by a field unit. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicProjective_mk`](QuaternaryQuadraticForms/ConicCharts.lean) | The projective map agrees with the literal formula on any representative. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPoint_injective`](QuaternaryQuadraticForms/ConicCharts.lean) | Distinct projective parameters give distinct points of the conic. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicVector_surjective_projective`](QuaternaryQuadraticForms/ConicCharts.lean) | Every nonzero zero of the ternary form is a scalar multiple of a parametrized vector. This statement works over an arbitrary field. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPoint_surjective`](QuaternaryQuadraticForms/ConicCharts.lean) | Every actual projective zero lies in the parametrization. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConic_derivatives_independent`](QuaternaryQuadraticForms/ConicCharts.lean) | The two explicit tangent vectors are independent away from the origin in characteristic different from two. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomials_eval`](QuaternaryQuadraticForms/ConicPolynomials.lean) | Evaluation recovers the literal quadratic parametrization. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomials_homogeneous`](QuaternaryQuadraticForms/ConicPolynomials.lean) | Each coordinate polynomial is homogeneous of degree two. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomials_partial_s`](QuaternaryQuadraticForms/ConicPolynomials.lean) | The evaluated first partials are the explicit first tangent vector. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomials_partial_t`](QuaternaryQuadraticForms/ConicPolynomials.lean) | The evaluated second partials are the explicit second tangent vector. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomials_partials_independent`](QuaternaryQuadraticForms/ConicPolynomials.lean) | The actual polynomial partial derivatives are independent at every nonzero parameter, provided the characteristic is not two. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomials_map`](QuaternaryQuadraticForms/ConicPolynomials.lean) | Coefficient extension gives the same three coordinate forms over any extension field. | Checked locally |
+| [`QuaternaryQuadraticForms.BinaryNonsingular.ne_zero`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Nonsingularity excludes the zero polynomial. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_derivative`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Differentiation in the affine variable commutes with dehomogenization. | Checked locally |
+| [`QuaternaryQuadraticForms.binary_euler_eval`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Euler's identity for a binary form, evaluated at an arbitrary vector. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_euler`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Euler's identity after the literal affine substitution. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_derivative_ne_zero`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | A nonsingular binary form has no repeated root in its affine chart. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_separable_of_nonsingular`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Over an algebraically closed field, the affine polynomial is separable. | Checked locally |
+| [`QuaternaryQuadraticForms.coeff_X_mul_derivative`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | The coefficient of `X f'` at degree `m` is `m` times the coefficient of `f`. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_degree_of_nonsingular_infinity`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | A nonsingular zero at infinity decreases the affine degree by exactly one. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryProjectiveZeros_card_of_nonsingular`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | A homogeneous nonsingular binary form over an algebraically closed field has exactly its degree many distinct projective zeros. | Checked locally |
+| [`QuaternaryQuadraticForms.binary_nonsingular_geometric_roots`](QuaternaryQuadraticForms/BinaryNonsingular.lean) | The exact geometric-root hypothesis of Corollary 2.6 follows from the absence of a nonzero geometric common zero of the form and its partial derivatives. | Checked locally |
+| [`QuaternaryQuadraticForms.independent_three_two_dot_impossible`](QuaternaryQuadraticForms/TransversePullback.lean) | Three independent covectors in four-space cannot annihilate two independent vectors. The covectors here are identified using the actual dot product. | Checked locally |
+| [`QuaternaryQuadraticForms.pderiv_planePolynomial`](QuaternaryQuadraticForms/TransversePullback.lean) | Each partial derivative of the plane polynomial is its corresponding coefficient. | Checked locally |
+| [`QuaternaryQuadraticForms.polynomialGradient_plane`](QuaternaryQuadraticForms/TransversePullback.lean) | The gradient of the actual plane polynomial is its normal vector. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_pderiv_pullback`](QuaternaryQuadraticForms/TransversePullback.lean) | The evaluated polynomial chain rule as a dot product of actual vectors. | Checked locally |
+| [`QuaternaryQuadraticForms.transverse_pullback_nonsingular`](QuaternaryQuadraticForms/TransversePullback.lean) | Transversality and the independent derivatives of a genuine conic parametrization imply that its polynomial pullback has no projective singular zero. | Checked locally |
+| [`QuaternaryQuadraticForms.rank_three_iff_linearIndependent`](QuaternaryQuadraticForms/TransversalityRank.lean) | A three-row matrix over a field has rank three exactly when its rows are linearly independent. | Checked locally |
+| [`QuaternaryQuadraticForms.planeTransverseRank_iff`](QuaternaryQuadraticForms/TransversalityRank.lean) | The source's matrix-rank formulation and the proof's linear-independence formulation of transversality are equivalent. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_eval`](QuaternaryQuadraticForms/EmbeddedConic.lean) | Evaluation of the four binary coordinate polynomials agrees with the embedded canonical vector. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_homogeneous`](QuaternaryQuadraticForms/EmbeddedConic.lean) | Each of the four embedded coordinate polynomials is homogeneous of degree two. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_map`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The same binary coordinate forms are obtained after extending every coefficient to an overfield. | Checked locally |
+| [`QuaternaryQuadraticForms.coordinatePolynomial_pderiv`](QuaternaryQuadraticForms/EmbeddedConic.lean) | A coordinate of a linear map has its matrix entry as formal derivative. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_partial`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The derivative vector is transported by the same linear map. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_partials_independent`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The actual polynomial partials remain independent after the embedding. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_canonicalConicPolynomial`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The literal ternary quadratic polynomial evaluates to the canonical conic form. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomial_homogeneous`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The ternary canonical conic polynomial is homogeneous of degree two. | Checked locally |
+| [`QuaternaryQuadraticForms.coordinateQuadratic_pullback`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The assumed normal form is an identity of quadratic polynomials. | Checked locally |
+| [`QuaternaryQuadraticForms.canonicalConicPolynomial_substitution`](QuaternaryQuadraticForms/EmbeddedConic.lean) | Substituting the canonical quadratics into their conic equation is zero. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_quadric_identity`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The embedded quadratic parametrization satisfies the actual equation F=0 as a polynomial identity. | Checked locally |
+| [`QuaternaryQuadraticForms.coordinatePlane_pullback`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The embedded linear coordinate map satisfies the plane equation as a polynomial identity. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicPolynomials_plane_identity`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The four binary quadratic coordinates satisfy the actual plane equation as a polynomial identity. | Checked locally |
+| [`QuaternaryQuadraticForms.planeConic_units_iff`](QuaternaryQuadraticForms/EmbeddedConic.lean) | The two equations of the plane section are stable under nonzero scalars. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedCanonicalConicPoint_injective`](QuaternaryQuadraticForms/EmbeddedConic.lean) | Injectivity of the linear embedding gives injectivity on projective conics. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedCanonicalConicPoint_surjective`](QuaternaryQuadraticForms/EmbeddedConic.lean) | Spanning the hyperplane gives every projective point of the plane section. | Checked locally |
+| [`QuaternaryQuadraticForms.embeddedConicEquiv_mk`](QuaternaryQuadraticForms/EmbeddedConic.lean) | On an arbitrary nonzero representative, the projective equivalence is the literal embedded quadratic formula. | Checked locally |
+| [`QuaternaryQuadraticForms.goodPrime_ne_two`](QuaternaryQuadraticForms/GoodPrime.lean) | Nondivisibility of the actual modulus 2*\|det A\| excludes the prime two. | Checked locally |
+| [`QuaternaryQuadraticForms.goodPrime_reduced_det_ne_zero`](QuaternaryQuadraticForms/GoodPrime.lean) | Nondivisibility of the actual modulus proves that the reduced matrix has nonzero determinant. | Checked locally |
+| [`QuaternaryQuadraticForms.reduceQuadraticMatrix_symmetric`](QuaternaryQuadraticForms/GoodPrime.lean) | Symmetry of the integral matrix is preserved by coefficient reduction. | Checked locally |
+| [`QuaternaryQuadraticForms.reduceQuadraticMatrix_adjugate`](QuaternaryQuadraticForms/GoodPrime.lean) | Reducing the integral adjugate equals the adjugate of the reduced matrix. | Checked locally |
+| [`QuaternaryQuadraticForms.primeField_two_ne_zero`](QuaternaryQuadraticForms/ConicParametrization.lean) | Odd characteristic supplied by the prime-field hypothesis. | Checked locally |
+| [`QuaternaryQuadraticForms.conic_parametrization_prime_field`](QuaternaryQuadraticForms/ConicParametrization.lean) | Lemma 4.2 over the prime field: one tuple of literal binary quadratic forms works over every field extension, with every parametrization clause proved. | Checked locally |
+| [`QuaternaryQuadraticForms.conic_parametrization`](QuaternaryQuadraticForms/ConicParametrization.lean) | Complete Lemma 4.2: one tuple over F_p parametrizes the actual plane conic over every extension field, with independent formal partials, from the integral good-prime and dual-form hypotheses. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveSectionTrace_eq_sum_conic`](QuaternaryQuadraticForms/PlaneSectionBound.lean) | The filtered section trace is the sum over its actual projective zero subtype. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveSectionTrace_eq_projectiveLine`](QuaternaryQuadraticForms/PlaneSectionBound.lean) | The conic parametrization identifies the literal section trace with the projective-line character sum of the actual substituted polynomial. | Checked locally |
+| [`QuaternaryQuadraticForms.plane_section_bound_of_parametrization`](QuaternaryQuadraticForms/PlaneSectionBound.lean) | Lemma 4.3 after the conic parametrizations have been constructed over the prime field and its algebraic closure. All simple-root conditions are deductions. | Checked locally |
+| [`QuaternaryQuadraticForms.plane_section_bound_prime_field`](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) | Lemma 4.3 over the prime field, with the actual geometric matrix-rank condition and with the required parametrizations constructed in the proof. | Checked locally |
+| [`QuaternaryQuadraticForms.plane_section_bound`](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) | Complete Lemma 4.3 for the literal projective section trace, using the integral good-prime condition and the actual geometric rank-three transversality hypothesis. | Checked locally |
 
 The allowed dependencies are the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Individual exports may additionally use only the exact literature premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). 1 external Lean premise is registered separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).
 
@@ -260,7 +366,7 @@ d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.
 
 ```sh
-lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.LinearAlgebra.Basis.VectorSpace Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas Mathlib.LinearAlgebra.FiniteDimensional.Lemmas Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.Tactic.FieldSimp Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
 python3 scripts/verify_certificate.py
 ```
 
@@ -268,4 +374,4 @@ The verifier checks source identities, all 42 statement locations, the dependenc
 
 ## Next proof target
 
-Proceed to the finite-field estimate branch: register the precise Weil and Katz source interfaces and prove their manuscript-specific specializations. Corollary 2.6 is the first projective-line estimate in that branch. The Katz specialization is needed for the remaining size clause of Lemma 5.9 and for Lemma 4.4. Retain the checked exact identities and divisibility result as inputs; the internal geometric arguments remain proof obligations.
+Register the exact Katz source interface and prove its manuscript-specific geometric specialization in Lemma 2.7. This supplies the global trace bound needed for the remaining size clause of Lemma 5.9. The exceptional polynomial in Lemma 4.1 and the remaining exceptional-frequency counting and assembly steps in Lemma 4.4 are separate obligations. Retain the checked conic and plane-section deductions, exact identities, and divisibility result as inputs.

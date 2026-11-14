@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 2 · Partial: 2 · Active: 0 · Pending: 38** — 42 numbered results.
+**Complete: 4 · Partial: 2 · Active: 0 · Pending: 36** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -20,19 +20,32 @@ Corollary 2.6 is proved for the actual projective-line character sum, including
 the chart decomposition, polynomial dehomogenization, degree calculation,
 distinct-root condition, and contribution at infinity.
 
+**Lemmas 4.2 and 4.3 are now Certified.** Lemma 4.2 constructs one tuple of binary quadratic forms over the
+prime field and proves that its coefficient extensions parametrize the actual
+conic over every extension field, with independent formal partial derivatives.
+Lemma 4.3 deduces the simple-root condition from the manuscript's geometric
+rank-three hypothesis and proves the bound for the actual projective section
+sum. No restriction that the characteristic be prime to the degree is added.
+
 Lemma 4.4 remains **Partial**: its three weight properties, exact zero-frequency
 formula, and intermediate ray identity (4.5) are checked; its pointwise Fourier
 bound remains pending. Lemma 5.9 remains **Partial**: integrality and divisibility
 of the actual quadratic projective trace are checked; the bound
 `|a_p(G)| ≤ 4p` remains pending.
 
-The ledger registers 68 checked theorem exports and one separate trusted
-literature premise across 16 Lean modules. All 33 auxiliary/supplementary groups
+This milestone covers 162 theorem exports and one separate trusted
+literature premise across 31 Lean modules. All 33 auxiliary/supplementary groups
 remain Pending. This repository does not yet provide a certificate for the
 whole paper. The execution checkpoint records the exact scope and evidence
 for each verification run.
 
-This checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447)
+**The full local verifier passed for this milestone:** all 31 modules, 162
+proved exports, the exact literature premise, and 47 recorded input hashes
+were checked. GitHub Actions verification for this new scope is pending
+publication and will be recorded in the execution checkpoint.
+
+The preceding Weil and projective-line checkpoint passed locally and in
+[GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447)
 at [proof commit 450ff67](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/450ff678b56b0a32a76b848278b53ba697958939).
 The downloaded CI report and original artifact are preserved in the repository.
 
@@ -45,6 +58,8 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Correspondence review for quadratic-trace divisibility](certification/correspondence/quadratic_trace.md)
 - [Correspondence review for the Weil input](certification/correspondence/weil_input.md)
 - [Correspondence review for the projective-line bound](certification/correspondence/projective_weil.md)
+- [Correspondence review for the uniform conic parametrization](certification/correspondence/conic_parametrization.md)
+- [Correspondence review for the plane-section bound](certification/correspondence/plane_section.md)
 - [Latest execution checkpoint](CHECKPOINT.md)
 
 ![Principal proof dependencies](docs/dependency_overview.png)
@@ -70,7 +85,9 @@ One external premise is registered: the simple-root univariate Weil estimate
 from [K, equation (1.2)], specialized to the prime field. Its exact type,
 source correspondence, and type hash are inspected separately from proved
 exports. The projective-line deductions use this input and the official library;
-they are not included among the trusted assumptions.
+they are not included among the trusted assumptions. The conic geometry and
+transversality deductions are also proved internally. The plane-section
+estimate uses the same Weil input through the proved projective-line bound.
 
 ## The projective-line estimate
 
@@ -95,6 +112,53 @@ has a character value of norm at most one.
 | [BinaryFormRoots](QuaternaryQuadraticForms/BinaryFormRoots.lean) | Derivation of the positive affine degree and simple-root condition from the projective geometric roots |
 | [WeilBound](QuaternaryQuadraticForms/WeilBound.lean) | Lemma 2.5 as an exact application of the separately [registered literature premise](QuaternaryQuadraticForms/Trusted/Weil.lean) |
 | [ProjectiveWeil](QuaternaryQuadraticForms/ProjectiveWeil.lean) | Complete Corollary 2.6 under the literal manuscript hypotheses |
+
+## The conic and plane-section estimates
+
+For a good prime `p ∤ 2 |det A|` and `F*(u) ≠ 0`, Lemma 4.2 constructs a
+single tuple `μ` of binary quadratic polynomials over `ZMod p`. For every field
+extension `k`, the same polynomials, with their coefficients mapped to `k`, give
+a bijection from `P¹(k)` onto the projective points satisfying
+`F(x) = u · x = 0`. The two vectors of formal partial derivatives of `μ` are
+linearly independent at every nonzero parameter vector, including over the
+algebraic closure.
+
+The construction proves the existence of an isotropic vector and a basis in
+which the restricted form is `y₀ y₁ + a y₂²`, with `a ≠ 0`. In that basis the
+parametrization is `(-a s², t², st)`. Its embedding into four coordinates,
+polynomial identities, and compatibility with every field extension are
+proved. The projective equivalence is tied to the evaluation of these actual
+coordinate polynomials on every representative.
+
+For Lemma 4.3, the hypothesis is the literal rank-three condition on
+`(∇F(x), ∇G(x), u)` at every nonzero geometric common zero. The formal chain
+rule and the independent derivative vectors show that `G ∘ μ` cannot have a
+singular projective zero. The degree-`2n` binary form therefore has exactly
+`2n` distinct geometric projective zeros. This argument uses Euler's identity
+without dividing by the degree, so it also covers characteristics dividing
+`n` or `2n`.
+
+Transporting the actual section trace along the constructed bijection and
+applying Corollary 2.6 gives
+
+$$\left|\sum_{\substack{P\in\mathcal Q(\mathbf F_p)\\u\cdot P=0}}
+\psi(G(P))\right|\le (2n-1)\sqrt p+1.$$
+
+Representative independence is proved from homogeneity and `ψ ^ n = 1`.
+The final theorem starts from the manuscript's integral symmetric matrix,
+good-prime condition, and geometric transversality hypothesis; it constructs
+the required parametrizations inside the proof.
+
+| Module | Checked contribution |
+|---|---|
+| [QuadraticPlane](QuaternaryQuadraticForms/QuadraticPlane.lean), [ConicNormalForm](QuaternaryQuadraticForms/ConicNormalForm.lean) | Nondegeneracy and isotropy of the plane restriction, and the ternary hyperbolic basis |
+| [ConicCharts](QuaternaryQuadraticForms/ConicCharts.lean), [ConicPolynomials](QuaternaryQuadraticForms/ConicPolynomials.lean) | Actual projective bijection for the canonical conic, homogeneous coordinates, and formal derivatives |
+| [ScalarExtension](QuaternaryQuadraticForms/ScalarExtension.lean), [GoodPrime](QuaternaryQuadraticForms/GoodPrime.lean) | Extension of the fixed coordinates to every field, and reduction under the exact good-prime condition |
+| [PlaneConic](QuaternaryQuadraticForms/PlaneConic.lean), [EmbeddedConic](QuaternaryQuadraticForms/EmbeddedConic.lean) | The literal projective plane section, its polynomial parametrization, and the defining polynomial identities |
+| [ConicParametrization](QuaternaryQuadraticForms/ConicParametrization.lean) | Complete Lemma 4.2, including one tuple valid over every extension field |
+| [PolynomialChainRule](QuaternaryQuadraticForms/PolynomialChainRule.lean), [TransversePullback](QuaternaryQuadraticForms/TransversePullback.lean), [TransversalityRank](QuaternaryQuadraticForms/TransversalityRank.lean) | Formal differentiation of the pullback and conversion of the literal rank-three hypothesis to the tangent-space contradiction |
+| [BinaryNonsingular](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Distinct geometric projective zeros, including infinity, with no characteristic-degree restriction |
+| [PlaneSectionBound](QuaternaryQuadraticForms/PlaneSectionBound.lean), [PlaneSectionTheorem](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) | Transport of the literal character sum and complete Lemma 4.3 under the manuscript hypotheses |
 
 ## Checked finite-field branch
 
@@ -135,7 +199,7 @@ the completed clauses from those obligations.
 
 ## Quadratic-trace divisibility
 
-For an odd prime and a quadratic homogeneous `G`, the new branch proves
+For an odd prime and a quadratic homogeneous `G`, the checked branch proves
 
 $$a_p(G)\in\mathbb Z,\qquad p\mid a_p(G).$$
 
@@ -173,7 +237,20 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.NumberTheory.LegendreSymbol.Basic \
       Mathlib.Algebra.Polynomial.Homogenize \
       Mathlib.Data.Fin.VecNotation \
-      Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+      Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
+      Mathlib.Algebra.MvPolynomial.PDeriv \
+      Mathlib.LinearAlgebra.Basis.VectorSpace \
+      Mathlib.LinearAlgebra.BilinearForm.Orthogonal \
+      Mathlib.LinearAlgebra.Dual.Lemmas \
+      Mathlib.LinearAlgebra.FiniteDimensional.Lemmas \
+      Mathlib.LinearAlgebra.LinearIndependent.Basic \
+      Mathlib.LinearAlgebra.LinearIndependent.Lemmas \
+      Mathlib.LinearAlgebra.Matrix.Adjugate \
+      Mathlib.LinearAlgebra.Matrix.BilinearForm \
+      Mathlib.LinearAlgebra.Matrix.Dual \
+      Mathlib.LinearAlgebra.Matrix.Rank \
+      Mathlib.RingTheory.MvPolynomial.EulerIdentity \
+      Mathlib.Tactic.FieldSimp
     python3 scripts/verify_certificate.py
 
 The verifier checks the frozen source, every inventory entry, the dependency
@@ -190,12 +267,11 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The projective-line estimate is now available for the plane-section argument.
-The next deductions are the conic parametrization in Lemma 4.2 and its use in
-the plane-section estimate of Lemma 4.3, with the geometric hypotheses checked
-on the actual forms and projective sets.
+The next target is the exact Katz literature interface and its geometric
+specialization in Lemma 2.7. The resulting global trace estimate is needed to
+complete the remaining size clause `|a_p(G)| ≤ 4p` in Lemma 5.9.
 
-The Katz specialization in Lemma 2.7 is a separate remaining branch. Its
-precise literature interface and manuscript-specific geometric deductions
-are still pending. It supplies the global trace bound needed for the remaining
-clauses of Lemmas 4.4 and 5.9.
+The exceptional-polynomial construction in Lemma 4.1 and the pointwise Fourier
+bound in Lemma 4.4 remain separate proof obligations. Completing the
+plane-section estimate supplies one of their needed inputs; it does not
+certify the exceptional-plane construction or the remaining Fourier argument.

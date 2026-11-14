@@ -34,10 +34,14 @@ lines = [
     f'**{counts["Certified"]} of 42 numbered results are certified.** '
     f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint certifies Lemma 2.5 relative to its exact cited Weil "
-    "input and proves the complete projective-line Corollary 2.6. The charts, "
-    "dehomogenization, degree calculation, and simple-root condition are checked "
-    "deductions. The earlier integrality and divisibility clauses of Lemma 5.9 "
+    "The current checkpoint proves the complete conic parametrization in Lemma 4.2 "
+    "and the transverse plane-section bound in Lemma 4.3. One tuple of actual "
+    "binary quadratic forms works over every extension field; the projective "
+    "bijection, independent derivatives, transversality deduction, and distinct "
+    "geometric roots are proved. Lemma 2.5 remains certified relative to its "
+    "exact cited Weil input, and the complete projective-line Corollary 2.6 "
+    "remains proved. No further external premise has been added. The earlier "
+    "integrality and divisibility clauses of Lemma 5.9 "
     "remain checked; its size bound remains pending. The weight properties, "
     "ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; "
     "that lemma's pointwise estimate remains pending. Both numbered lemmas "
@@ -133,6 +137,13 @@ lines += [
     "Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic "
     "Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation "
     "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure "
+    "Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.LinearAlgebra.Basis.VectorSpace "
+    "Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas "
+    "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas "
+    "Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas "
+    "Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm "
+    "Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank "
+    "Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.Tactic.FieldSimp "
     "Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
     "python3 scripts/verify_certificate.py",
     BT * 3, "",
@@ -142,12 +153,12 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Proceed to the finite-field estimate branch: register the precise Weil and "
-    "Katz source interfaces and prove their manuscript-specific specializations. "
-    "Corollary 2.6 is the first projective-line estimate in that branch. The Katz "
-    "specialization is needed for the remaining size clause of Lemma 5.9 and for "
-    "Lemma 4.4. Retain the checked exact identities and divisibility result as inputs; "
-    "the internal geometric arguments remain proof obligations.", "",
+    "Register the exact Katz source interface and prove its manuscript-specific "
+    "geometric specialization in Lemma 2.7. This supplies the global trace bound "
+    "needed for the remaining size clause of Lemma 5.9. The exceptional polynomial "
+    "in Lemma 4.1 and the remaining exceptional-frequency counting and assembly "
+    "steps in Lemma 4.4 are separate obligations. Retain the checked conic and "
+    "plane-section deductions, exact identities, and divisibility result as inputs.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -192,7 +203,7 @@ trusted += [
     "square/power-sieve references motivate the method; the manuscript's actual "
     "sieve inequality is a deduction to be proved.", "",
     "The geometric and algebraic supporting exports use no external literature "
-    "premises. The univariate and projective character-sum bounds additionally "
+    "premises. The univariate, projective-line, and plane-section character-sum bounds additionally "
     "use the single registered Weil premise. Every future input must likewise "
     "be listed separately from proved exports and appear explicitly in the "
     "inspected axiom dependencies.", "",

@@ -71,7 +71,101 @@ run_cmd do
     `QuaternaryQuadraticForms.weil_bound_of_separable,
     `QuaternaryQuadraticForms.projectiveLineCharacterSum_chart,
     `QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots,
-    `QuaternaryQuadraticForms.projective_weil_bound]
+    `QuaternaryQuadraticForms.projective_weil_bound,
+    `QuaternaryQuadraticForms.pderiv_aeval_chain_rule,
+    `QuaternaryQuadraticForms.eval_aeval_polynomial,
+    `QuaternaryQuadraticForms.eval_pderiv_aeval_chain_rule,
+    `QuaternaryQuadraticForms.mem_planeSubspace,
+    `QuaternaryQuadraticForms.matrixBilin_isSymm,
+    `QuaternaryQuadraticForms.matrix_mulVec_adjugate,
+    `QuaternaryQuadraticForms.adjugate_bilin_self,
+    `QuaternaryQuadraticForms.planeSubspace_eq_orthogonal,
+    `QuaternaryQuadraticForms.plane_bilin_nondegenerate,
+    `QuaternaryQuadraticForms.planeFunctional_ne_zero,
+    `QuaternaryQuadraticForms.planeSubspace_finrank,
+    `QuaternaryQuadraticForms.eval_planePolynomial,
+    `QuaternaryQuadraticForms.planePolynomial_totalDegree_le,
+    `QuaternaryQuadraticForms.plane_exists_isotropic,
+    `QuaternaryQuadraticForms.exists_hyperbolic_partner,
+    `QuaternaryQuadraticForms.exists_common_orthogonal,
+    `QuaternaryQuadraticForms.hyperbolic_triple_linearIndependent,
+    `QuaternaryQuadraticForms.exists_ternary_hyperbolic_coordinates,
+    `QuaternaryQuadraticForms.plane_exists_hyperbolic_coordinates,
+    `QuaternaryQuadraticForms.extendCoordinateMap_apply_map,
+    `QuaternaryQuadraticForms.extendCoordinateMap_comp,
+    `QuaternaryQuadraticForms.extendCoordinateMap_id,
+    `QuaternaryQuadraticForms.extendCoordinateMap_injective,
+    `QuaternaryQuadraticForms.eval_coordinatePolynomial,
+    `QuaternaryQuadraticForms.coordinatePolynomial_homogeneous,
+    `QuaternaryQuadraticForms.coordinatePolynomial_map,
+    `QuaternaryQuadraticForms.extendCoordinateMap_mem_plane,
+    `QuaternaryQuadraticForms.planeSubspace_finrank_of_ne_zero,
+    `QuaternaryQuadraticForms.extendCoordinateMap_range_plane,
+    `QuaternaryQuadraticForms.map_aeval_polynomial,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_map,
+    `QuaternaryQuadraticForms.extendCoordinateMap_quadratic,
+    `QuaternaryQuadraticForms.canonicalConicVector_smul,
+    `QuaternaryQuadraticForms.canonicalConicVector_ne_zero,
+    `QuaternaryQuadraticForms.canonicalConicValue_vector,
+    `QuaternaryQuadraticForms.canonicalConicValue_smul,
+    `QuaternaryQuadraticForms.canonicalConicValue_units_zero_iff,
+    `QuaternaryQuadraticForms.canonicalConicProjective_mk,
+    `QuaternaryQuadraticForms.canonicalConicPoint_injective,
+    `QuaternaryQuadraticForms.canonicalConicVector_surjective_projective,
+    `QuaternaryQuadraticForms.canonicalConicPoint_surjective,
+    `QuaternaryQuadraticForms.canonicalConic_derivatives_independent,
+    `QuaternaryQuadraticForms.canonicalConicPolynomials_eval,
+    `QuaternaryQuadraticForms.canonicalConicPolynomials_homogeneous,
+    `QuaternaryQuadraticForms.canonicalConicPolynomials_partial_s,
+    `QuaternaryQuadraticForms.canonicalConicPolynomials_partial_t,
+    `QuaternaryQuadraticForms.canonicalConicPolynomials_partials_independent,
+    `QuaternaryQuadraticForms.canonicalConicPolynomials_map,
+    `QuaternaryQuadraticForms.BinaryNonsingular.ne_zero,
+    `QuaternaryQuadraticForms.binaryDehom_derivative,
+    `QuaternaryQuadraticForms.binary_euler_eval,
+    `QuaternaryQuadraticForms.binaryDehom_euler,
+    `QuaternaryQuadraticForms.binaryDehom_derivative_ne_zero,
+    `QuaternaryQuadraticForms.binaryDehom_separable_of_nonsingular,
+    `QuaternaryQuadraticForms.coeff_X_mul_derivative,
+    `QuaternaryQuadraticForms.binaryDehom_degree_of_nonsingular_infinity,
+    `QuaternaryQuadraticForms.binaryProjectiveZeros_card_of_nonsingular,
+    `QuaternaryQuadraticForms.binary_nonsingular_geometric_roots,
+    `QuaternaryQuadraticForms.independent_three_two_dot_impossible,
+    `QuaternaryQuadraticForms.pderiv_planePolynomial,
+    `QuaternaryQuadraticForms.polynomialGradient_plane,
+    `QuaternaryQuadraticForms.eval_pderiv_pullback,
+    `QuaternaryQuadraticForms.transverse_pullback_nonsingular,
+    `QuaternaryQuadraticForms.rank_three_iff_linearIndependent,
+    `QuaternaryQuadraticForms.planeTransverseRank_iff,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_eval,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_homogeneous,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_map,
+    `QuaternaryQuadraticForms.coordinatePolynomial_pderiv,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_partial,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_partials_independent,
+    `QuaternaryQuadraticForms.eval_canonicalConicPolynomial,
+    `QuaternaryQuadraticForms.canonicalConicPolynomial_homogeneous,
+    `QuaternaryQuadraticForms.coordinateQuadratic_pullback,
+    `QuaternaryQuadraticForms.canonicalConicPolynomial_substitution,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_quadric_identity,
+    `QuaternaryQuadraticForms.coordinatePlane_pullback,
+    `QuaternaryQuadraticForms.embeddedConicPolynomials_plane_identity,
+    `QuaternaryQuadraticForms.planeConic_units_iff,
+    `QuaternaryQuadraticForms.embeddedCanonicalConicPoint_injective,
+    `QuaternaryQuadraticForms.embeddedCanonicalConicPoint_surjective,
+    `QuaternaryQuadraticForms.embeddedConicEquiv_mk,
+    `QuaternaryQuadraticForms.goodPrime_ne_two,
+    `QuaternaryQuadraticForms.goodPrime_reduced_det_ne_zero,
+    `QuaternaryQuadraticForms.reduceQuadraticMatrix_symmetric,
+    `QuaternaryQuadraticForms.reduceQuadraticMatrix_adjugate,
+    `QuaternaryQuadraticForms.primeField_two_ne_zero,
+    `QuaternaryQuadraticForms.conic_parametrization_prime_field,
+    `QuaternaryQuadraticForms.conic_parametrization,
+    `QuaternaryQuadraticForms.projectiveSectionTrace_eq_sum_conic,
+    `QuaternaryQuadraticForms.projectiveSectionTrace_eq_projectiveLine,
+    `QuaternaryQuadraticForms.plane_section_bound_of_parametrization,
+    `QuaternaryQuadraticForms.plane_section_bound_prime_field,
+    `QuaternaryQuadraticForms.plane_section_bound]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -299,3 +393,285 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.projective_weil_bound
 #print axioms QuaternaryQuadraticForms.projective_weil_bound
+
+#check @QuaternaryQuadraticForms.pderiv_aeval_chain_rule
+#print axioms QuaternaryQuadraticForms.pderiv_aeval_chain_rule
+
+#check @QuaternaryQuadraticForms.eval_aeval_polynomial
+#print axioms QuaternaryQuadraticForms.eval_aeval_polynomial
+
+#check @QuaternaryQuadraticForms.eval_pderiv_aeval_chain_rule
+#print axioms QuaternaryQuadraticForms.eval_pderiv_aeval_chain_rule
+
+#check @QuaternaryQuadraticForms.mem_planeSubspace
+#print axioms QuaternaryQuadraticForms.mem_planeSubspace
+
+#check @QuaternaryQuadraticForms.matrixBilin_isSymm
+#print axioms QuaternaryQuadraticForms.matrixBilin_isSymm
+
+#check @QuaternaryQuadraticForms.matrix_mulVec_adjugate
+#print axioms QuaternaryQuadraticForms.matrix_mulVec_adjugate
+
+#check @QuaternaryQuadraticForms.adjugate_bilin_self
+#print axioms QuaternaryQuadraticForms.adjugate_bilin_self
+
+#check @QuaternaryQuadraticForms.planeSubspace_eq_orthogonal
+#print axioms QuaternaryQuadraticForms.planeSubspace_eq_orthogonal
+
+#check @QuaternaryQuadraticForms.plane_bilin_nondegenerate
+#print axioms QuaternaryQuadraticForms.plane_bilin_nondegenerate
+
+#check @QuaternaryQuadraticForms.planeFunctional_ne_zero
+#print axioms QuaternaryQuadraticForms.planeFunctional_ne_zero
+
+#check @QuaternaryQuadraticForms.planeSubspace_finrank
+#print axioms QuaternaryQuadraticForms.planeSubspace_finrank
+
+#check @QuaternaryQuadraticForms.eval_planePolynomial
+#print axioms QuaternaryQuadraticForms.eval_planePolynomial
+
+#check @QuaternaryQuadraticForms.planePolynomial_totalDegree_le
+#print axioms QuaternaryQuadraticForms.planePolynomial_totalDegree_le
+
+#check @QuaternaryQuadraticForms.plane_exists_isotropic
+#print axioms QuaternaryQuadraticForms.plane_exists_isotropic
+
+#check @QuaternaryQuadraticForms.exists_hyperbolic_partner
+#print axioms QuaternaryQuadraticForms.exists_hyperbolic_partner
+
+#check @QuaternaryQuadraticForms.exists_common_orthogonal
+#print axioms QuaternaryQuadraticForms.exists_common_orthogonal
+
+#check @QuaternaryQuadraticForms.hyperbolic_triple_linearIndependent
+#print axioms QuaternaryQuadraticForms.hyperbolic_triple_linearIndependent
+
+#check @QuaternaryQuadraticForms.exists_ternary_hyperbolic_coordinates
+#print axioms QuaternaryQuadraticForms.exists_ternary_hyperbolic_coordinates
+
+#check @QuaternaryQuadraticForms.plane_exists_hyperbolic_coordinates
+#print axioms QuaternaryQuadraticForms.plane_exists_hyperbolic_coordinates
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_apply_map
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_apply_map
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_comp
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_comp
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_id
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_id
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_injective
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_injective
+
+#check @QuaternaryQuadraticForms.eval_coordinatePolynomial
+#print axioms QuaternaryQuadraticForms.eval_coordinatePolynomial
+
+#check @QuaternaryQuadraticForms.coordinatePolynomial_homogeneous
+#print axioms QuaternaryQuadraticForms.coordinatePolynomial_homogeneous
+
+#check @QuaternaryQuadraticForms.coordinatePolynomial_map
+#print axioms QuaternaryQuadraticForms.coordinatePolynomial_map
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_mem_plane
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_mem_plane
+
+#check @QuaternaryQuadraticForms.planeSubspace_finrank_of_ne_zero
+#print axioms QuaternaryQuadraticForms.planeSubspace_finrank_of_ne_zero
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_range_plane
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_range_plane
+
+#check @QuaternaryQuadraticForms.map_aeval_polynomial
+#print axioms QuaternaryQuadraticForms.map_aeval_polynomial
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_map
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_map
+
+#check @QuaternaryQuadraticForms.extendCoordinateMap_quadratic
+#print axioms QuaternaryQuadraticForms.extendCoordinateMap_quadratic
+
+#check @QuaternaryQuadraticForms.canonicalConicVector_smul
+#print axioms QuaternaryQuadraticForms.canonicalConicVector_smul
+
+#check @QuaternaryQuadraticForms.canonicalConicVector_ne_zero
+#print axioms QuaternaryQuadraticForms.canonicalConicVector_ne_zero
+
+#check @QuaternaryQuadraticForms.canonicalConicValue_vector
+#print axioms QuaternaryQuadraticForms.canonicalConicValue_vector
+
+#check @QuaternaryQuadraticForms.canonicalConicValue_smul
+#print axioms QuaternaryQuadraticForms.canonicalConicValue_smul
+
+#check @QuaternaryQuadraticForms.canonicalConicValue_units_zero_iff
+#print axioms QuaternaryQuadraticForms.canonicalConicValue_units_zero_iff
+
+#check @QuaternaryQuadraticForms.canonicalConicProjective_mk
+#print axioms QuaternaryQuadraticForms.canonicalConicProjective_mk
+
+#check @QuaternaryQuadraticForms.canonicalConicPoint_injective
+#print axioms QuaternaryQuadraticForms.canonicalConicPoint_injective
+
+#check @QuaternaryQuadraticForms.canonicalConicVector_surjective_projective
+#print axioms QuaternaryQuadraticForms.canonicalConicVector_surjective_projective
+
+#check @QuaternaryQuadraticForms.canonicalConicPoint_surjective
+#print axioms QuaternaryQuadraticForms.canonicalConicPoint_surjective
+
+#check @QuaternaryQuadraticForms.canonicalConic_derivatives_independent
+#print axioms QuaternaryQuadraticForms.canonicalConic_derivatives_independent
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomials_eval
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomials_eval
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomials_homogeneous
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomials_homogeneous
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomials_partial_s
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomials_partial_s
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomials_partial_t
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomials_partial_t
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomials_partials_independent
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomials_partials_independent
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomials_map
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomials_map
+
+#check @QuaternaryQuadraticForms.BinaryNonsingular.ne_zero
+#print axioms QuaternaryQuadraticForms.BinaryNonsingular.ne_zero
+
+#check @QuaternaryQuadraticForms.binaryDehom_derivative
+#print axioms QuaternaryQuadraticForms.binaryDehom_derivative
+
+#check @QuaternaryQuadraticForms.binary_euler_eval
+#print axioms QuaternaryQuadraticForms.binary_euler_eval
+
+#check @QuaternaryQuadraticForms.binaryDehom_euler
+#print axioms QuaternaryQuadraticForms.binaryDehom_euler
+
+#check @QuaternaryQuadraticForms.binaryDehom_derivative_ne_zero
+#print axioms QuaternaryQuadraticForms.binaryDehom_derivative_ne_zero
+
+#check @QuaternaryQuadraticForms.binaryDehom_separable_of_nonsingular
+#print axioms QuaternaryQuadraticForms.binaryDehom_separable_of_nonsingular
+
+#check @QuaternaryQuadraticForms.coeff_X_mul_derivative
+#print axioms QuaternaryQuadraticForms.coeff_X_mul_derivative
+
+#check @QuaternaryQuadraticForms.binaryDehom_degree_of_nonsingular_infinity
+#print axioms QuaternaryQuadraticForms.binaryDehom_degree_of_nonsingular_infinity
+
+#check @QuaternaryQuadraticForms.binaryProjectiveZeros_card_of_nonsingular
+#print axioms QuaternaryQuadraticForms.binaryProjectiveZeros_card_of_nonsingular
+
+#check @QuaternaryQuadraticForms.binary_nonsingular_geometric_roots
+#print axioms QuaternaryQuadraticForms.binary_nonsingular_geometric_roots
+
+#check @QuaternaryQuadraticForms.independent_three_two_dot_impossible
+#print axioms QuaternaryQuadraticForms.independent_three_two_dot_impossible
+
+#check @QuaternaryQuadraticForms.pderiv_planePolynomial
+#print axioms QuaternaryQuadraticForms.pderiv_planePolynomial
+
+#check @QuaternaryQuadraticForms.polynomialGradient_plane
+#print axioms QuaternaryQuadraticForms.polynomialGradient_plane
+
+#check @QuaternaryQuadraticForms.eval_pderiv_pullback
+#print axioms QuaternaryQuadraticForms.eval_pderiv_pullback
+
+#check @QuaternaryQuadraticForms.transverse_pullback_nonsingular
+#print axioms QuaternaryQuadraticForms.transverse_pullback_nonsingular
+
+#check @QuaternaryQuadraticForms.rank_three_iff_linearIndependent
+#print axioms QuaternaryQuadraticForms.rank_three_iff_linearIndependent
+
+#check @QuaternaryQuadraticForms.planeTransverseRank_iff
+#print axioms QuaternaryQuadraticForms.planeTransverseRank_iff
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_eval
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_eval
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_homogeneous
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_homogeneous
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_map
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_map
+
+#check @QuaternaryQuadraticForms.coordinatePolynomial_pderiv
+#print axioms QuaternaryQuadraticForms.coordinatePolynomial_pderiv
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_partial
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_partial
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_partials_independent
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_partials_independent
+
+#check @QuaternaryQuadraticForms.eval_canonicalConicPolynomial
+#print axioms QuaternaryQuadraticForms.eval_canonicalConicPolynomial
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomial_homogeneous
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomial_homogeneous
+
+#check @QuaternaryQuadraticForms.coordinateQuadratic_pullback
+#print axioms QuaternaryQuadraticForms.coordinateQuadratic_pullback
+
+#check @QuaternaryQuadraticForms.canonicalConicPolynomial_substitution
+#print axioms QuaternaryQuadraticForms.canonicalConicPolynomial_substitution
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_quadric_identity
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_quadric_identity
+
+#check @QuaternaryQuadraticForms.coordinatePlane_pullback
+#print axioms QuaternaryQuadraticForms.coordinatePlane_pullback
+
+#check @QuaternaryQuadraticForms.embeddedConicPolynomials_plane_identity
+#print axioms QuaternaryQuadraticForms.embeddedConicPolynomials_plane_identity
+
+#check @QuaternaryQuadraticForms.planeConic_units_iff
+#print axioms QuaternaryQuadraticForms.planeConic_units_iff
+
+#check @QuaternaryQuadraticForms.embeddedCanonicalConicPoint_injective
+#print axioms QuaternaryQuadraticForms.embeddedCanonicalConicPoint_injective
+
+#check @QuaternaryQuadraticForms.embeddedCanonicalConicPoint_surjective
+#print axioms QuaternaryQuadraticForms.embeddedCanonicalConicPoint_surjective
+
+#check @QuaternaryQuadraticForms.embeddedConicEquiv_mk
+#print axioms QuaternaryQuadraticForms.embeddedConicEquiv_mk
+
+#check @QuaternaryQuadraticForms.goodPrime_ne_two
+#print axioms QuaternaryQuadraticForms.goodPrime_ne_two
+
+#check @QuaternaryQuadraticForms.goodPrime_reduced_det_ne_zero
+#print axioms QuaternaryQuadraticForms.goodPrime_reduced_det_ne_zero
+
+#check @QuaternaryQuadraticForms.reduceQuadraticMatrix_symmetric
+#print axioms QuaternaryQuadraticForms.reduceQuadraticMatrix_symmetric
+
+#check @QuaternaryQuadraticForms.reduceQuadraticMatrix_adjugate
+#print axioms QuaternaryQuadraticForms.reduceQuadraticMatrix_adjugate
+
+#check @QuaternaryQuadraticForms.primeField_two_ne_zero
+#print axioms QuaternaryQuadraticForms.primeField_two_ne_zero
+
+#check @QuaternaryQuadraticForms.conic_parametrization_prime_field
+#print axioms QuaternaryQuadraticForms.conic_parametrization_prime_field
+
+#check @QuaternaryQuadraticForms.conic_parametrization
+#print axioms QuaternaryQuadraticForms.conic_parametrization
+
+#check @QuaternaryQuadraticForms.projectiveSectionTrace_eq_sum_conic
+#print axioms QuaternaryQuadraticForms.projectiveSectionTrace_eq_sum_conic
+
+#check @QuaternaryQuadraticForms.projectiveSectionTrace_eq_projectiveLine
+#print axioms QuaternaryQuadraticForms.projectiveSectionTrace_eq_projectiveLine
+
+#check @QuaternaryQuadraticForms.plane_section_bound_of_parametrization
+#print axioms QuaternaryQuadraticForms.plane_section_bound_of_parametrization
+
+#check @QuaternaryQuadraticForms.plane_section_bound_prime_field
+#print axioms QuaternaryQuadraticForms.plane_section_bound_prime_field
+
+#check @QuaternaryQuadraticForms.plane_section_bound
+#print axioms QuaternaryQuadraticForms.plane_section_bound

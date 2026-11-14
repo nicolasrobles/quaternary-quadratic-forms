@@ -47,4 +47,4 @@ The paper gives counterexamples to the following claims. They are comparison tar
 
 Other citations used only for attribution, background, or a description of related work are not automatically Lean assumptions. In particular, the square/power-sieve references motivate the method; the manuscript's actual sieve inequality is a deduction to be proved.
 
-The geometric and algebraic supporting exports use no external literature premises. The univariate and projective character-sum bounds additionally use the single registered Weil premise. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.
+The geometric and algebraic supporting exports use no external literature premises. The univariate, projective-line, and plane-section character-sum bounds additionally use the single registered Weil premise. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.
