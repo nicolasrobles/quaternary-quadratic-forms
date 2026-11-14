@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 12 · Partial: 0 · Active: 0 · Pending:
-30**. Lemmas 2.5, 2.7 and 3.1–3.2, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 13 · Partial: 0 · Active: 0 · Pending:
+29**. Lemmas 2.5, 2.7 and 3.1–3.3, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -123,12 +123,24 @@ The 54 supporting exports in 16 new modules introduce no literature
 premise. Actual type and dependency inspection, aggregate verification
 and CI execution evidence are recorded separately in the checkpoint.
 
+Lemma 3.3 is complete for every positive modulus and every integral
+frequency. Its exact bound is `|S_c(u)|≤4√|det A| c³` for the existing
+complete sum, assuming only symmetry and integer nonsingularity of
+the actual matrix. The squared-norm identity selects the actual
+residue kernel of `2A`; its cardinality is bounded using integer
+range indices, surjective coefficient reduction, and the proved
+Smith-normal-form determinant-index theorem in mathlib. All 17 new
+exports in eight modules use only standard logical foundations.
+Modulus one, even moduli, and arbitrary bad-prime factors are included.
+Aggregate verification and CI evidence are recorded separately in
+the checkpoint.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 536 theorem exports across 112 Lean modules are
+numbered-result count. The 553 theorem exports across 120 Lean modules are
 also counted separately from the four external Lean premises. The current
-expected verification scope includes 137 hashed inputs and nine pinned dependency
+expected verification scope includes 146 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
 
@@ -211,6 +223,15 @@ the recurrence, adjugate square completion, Ramanujan reindexing and
 actual point counts are internal deductions. No source-specific Gauss
 evaluation, diagonalization conclusion, recurrence or count is accepted
 as a premise in the final statements.
+
+The bound at arbitrary moduli in Lemma 3.3 also uses no registered
+literature premise. The conjugate-product identity, composite-modulus
+orthogonality, actual residue kernel, coefficient-reduction maps, and
+complete-sum triangle inequality are internal deductions. Mathlib's
+`Submodule.natAbs_det_equiv` is a proved general determinant-index
+theorem, whose proof uses Smith normal form. Its application here
+proves the required actual kernel bound; no source-specific kernel
+count or inner Gauss estimate is assumed.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -706,23 +727,120 @@ identity or point count remains an internal assumption of the final
 theorem. The 54 new public exports and 16 modules remain separate
 counts from the single numbered lemma and the auxiliary-group ledger.
 
+## Completed complete-sum bound at every positive modulus
+
+[BadPrimeBound](QuaternaryQuadraticForms/BadPrimeBound.lean) proves the
+full source endpoint `bad_prime_bound` of Lemma 3.3:
+
+$$
+\lVert S_c(u)\rVert\le4\sqrt{|\det A|}\,c^3.
+$$
+
+The sum is the existing `unweightedCompleteSum c A u`. Its hypotheses
+are `[NeZero c]`, `A.transpose=A`, and `A.det≠0`, with arbitrary
+`u : Fin 4 → ℤ`. Thus it covers every positive source modulus and
+frequency, including modulus one, even moduli, bad-prime powers,
+and mixed composite moduli. There is no good-prime, oddness,
+nonzero-frequency, or nonsquare-determinant restriction.
+
+The completed proof uses the following actual objects and deductions:
+
+1. [GaussNorm](QuaternaryQuadraticForms/GaussNorm.lean) proves
+   four-coordinate additive orthogonality at every positive modulus.
+   For each actual unit parameter `a`, translation of the finite
+   vector sum and symmetry of `A` give the exact identity
+
+   $$
+   V\overline V
+   =c^4\sum_{\substack{z\bmod c\\2Az=0\bmod c}}
+     e_c(aF(z)+u\cdot z).
+   $$
+
+   The unit `a` cancels in the linear kernel condition; the factor
+   two remains in the matrix. Taking norms and using the norm-one
+   character values proves `|V|²≤c⁴ #ker(2A mod c)`. This step works
+   even when the reduced matrix is singular.
+2. [MatrixResidueKernel](QuaternaryQuadraticForms/MatrixResidueKernel.lean)
+   defines `matrixResidueKernel c B` as the literal filtered finite
+   set of vectors killed by the reduction of an integer matrix `B`.
+   [IntegerMatrixKernelBound](QuaternaryQuadraticForms/IntegerMatrixKernelBound.lean)
+   constructs the actual coordinate-reduction homomorphism, proves
+   it surjective with canonical lifts, and checks that reduction
+   carries the integer matrix range onto the residue matrix range.
+   For nonsingular `B`, it derives
+
+   $$
+   \#\ker(\overline B)
+   =[(\mathbb Z/c\mathbb Z)^4:\operatorname{im}(\overline B)]
+   \mid[\mathbb Z^4:B\mathbb Z^4]
+   =|\det B|.
+   $$
+
+   The first equality is the finite-endomorphism index theorem;
+   divisibility follows from the surjective reduction map. The final
+   equality applies mathlib's proved determinant-index theorem to the
+   actual integer matrix, whose injectivity follows from its nonzero
+   determinant. Positivity then gives the public bound
+   `(matrixResidueKernel c B).card ≤ B.det.natAbs`. The proof uses
+   mathlib's Smith-normal-form determinant-index theorem; the new
+   exported endpoint is this bound, with no separate exact
+   gcd-product kernel formula claimed.
+3. [DoubledMatrixKernel](QuaternaryQuadraticForms/DoubledMatrixKernel.lean)
+   identifies the kernel selected by polarization with the actual
+   reduction of the integer matrix `2 • A`.
+   [GaussBoundConstants](QuaternaryQuadraticForms/GaussBoundConstants.lean)
+   proves `det(2 • A)=16 det A` and its absolute-value identity. It
+   checks the nonnegative square-root calculation giving the precise
+   constant four and bounds the actual unit-group cardinality by `c`.
+4. [BadPrimeGaussBound](QuaternaryQuadraticForms/BadPrimeGaussBound.lean)
+   combines these deductions to prove the squared bound
+   `|V|²≤c⁴(16|det A|)` and hence
+   `|V|≤4√|det A| c²`. Its residue-unit endpoint covers every frequency
+   modulo `c`; the integral endpoint uses the original matrix,
+   integer scalar with unit reduction, and integral frequency.
+5. [CompleteSumNorm](QuaternaryQuadraticForms/CompleteSumNorm.lean)
+   applies the triangle inequality to the actual outer unit sum.
+   Its common inner bound is an explicit hypothesis of this assembly
+   helper. [BadPrimeBound](QuaternaryQuadraticForms/BadPrimeBound.lean)
+   supplies that bound from the proved matrix and norm results, then
+   gives the complete source estimate in both natural-absolute-value
+   and real-absolute-value notation. No inner estimate or kernel
+   count remains assumed in the final theorem.
+
+The [source correspondence review](certification/correspondence/bad_prime_bound.md)
+records the actual sums, the modulus-one convention, the determinant
+constant, and the precise relationship to the manuscript's Smith
+normal form argument. All 17 new exports in eight modules passed
+strict targeted builds and actual type/axiom inspection. Each uses
+exactly `Classical.choice`, `Quot.sound`, and `propext`. The four
+registered literature premises and their established scopes are
+unchanged. Aggregate verification and CI execution evidence are
+recorded separately in the checkpoint.
+
 ## Next proof branch
 
-Complete Lemma 3.3 remains Pending and is the next target. Under the
-manuscript's standing nonsingularity hypothesis, prove the literal bound
-`|S_c(u)| ≤ 4√|det A| c³` for every `c≥1` and every integral frequency,
-including moduli containing bad primes.
+Complete Lemma 3.4, source lines 1184–1232, remains Pending and is
+the next target. For a source prime `p∤N`, an exponent `k≥1`, and
+the supplied local weight `ξ_p`, its full formula is
 
-The proof must square the norm of the actual inner Gauss sum, reindex
-the two vectors, and use additive orthogonality to obtain
-`|V|² ≤ c⁴ #ker(2A mod c)`. The kernel is the actual set of residue
-vectors satisfying `2Az=0 mod c`. Smith normal form of the integer
-matrix `2A` should give its cardinality as `∏_i gcd(d_i,c)`, bounded by
-`∏_i d_i=|det(2A)|=16|det A|`. This yields
-`|V|≤4√|det A| c²`; summing over the actual unit parameter, whose
-cardinality is at most `c`, gives the required complete-sum bound.
-These kernel and norm arguments are still to be proved. The main
-analytic theorems remain Pending.
+$$
+\mathcal S_{p,p^k}(u)
+=\chi(p)^{k+1}p^{2k+1}
+ \xi_p(\operatorname{adj}(A)u)\,
+ R_{p^{k+1}}(F^*(u)).
+$$
+
+The proposed proof follows the source's weighted sum `𝒰_j` for
+`j≥2`. Actual residue digits and additive orthogonality must select
+`2aAy+u=0 mod p`; the source scalar invariance must then identify
+the selected weight with `ξ_p(adj(A)u)`. The completed Gauss formula
+supplies the remaining unweighted sum. A separate decomposition of
+the actual unit parameter modulo `p^(k+1)` must prove
+`𝒰_{k+1}=p 𝒮_{p,p^k}`, using orthogonality to impose the actual cone
+condition `p∣F(x)`. The complete shared-prime statement and these
+weighted deductions remain to be proved.
+
+The main analytic theorems remain Pending.
 In particular, the first two assertions of Theorem 1.3 now have checked
 inputs from Lemmas 4.5 and 4.6, while its asymptotic and explicit global
 factor clause still require Theorem 1.1; Theorem 1.3 remains Pending.

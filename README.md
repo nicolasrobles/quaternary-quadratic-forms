@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 12 · Partial: 0 · Active: 0 · Pending: 30** — 42 numbered results.
+**Complete: 13 · Partial: 0 · Active: 0 · Pending: 29** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -95,17 +95,54 @@ every integral frequency, and every integer scalar not divisible by
 modular inverses, and unit permutation are proved internally. This
 branch uses no literature premise.
 
-The current scope covers 536 theorem exports across 112 Lean modules,
+**Lemma 3.3 is Certified.** The existing complete sum satisfies
+`|S_c(u)| ≤ 4 sqrt(|det A|) c³` for every positive modulus and every
+integral frequency. The proof covers arbitrary composite moduli,
+including modulus one and bad-prime factors. It proves the exact
+kernel phase in the squared Gauss norm, bounds the actual residue
+kernel through the integer matrix's determinant and range index, and
+sums over the actual residue units. The final theorem assumes symmetry
+and integer nonsingularity, without a good-prime or nonsquare condition.
+No literature premise is used.
+
+The current scope covers 553 theorem exports across 120 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-The Lemma 3.2 milestone adds 54 public theorem exports in 16 new
-modules, with 137 recorded input hashes including the new
+The Lemma 3.3 milestone adds 17 public theorem exports in eight new
+modules, with 146 recorded input hashes including the new correspondence
+review.
+
+**The full local aggregate verifier passed for all 553 theorem exports
+and 120 Lean modules.** All 146 input hashes match the checked files.
+All 536 preceding complete theorem records remain identical, including
+their actual types, axiom lists, Lean source hashes, and scopes. All
+17 new actual types and axiom lists match their prior inspections;
+every new export uses exactly `Classical.choice`, `Quot.sound`, and
+`propext`. The four registered literature premise records and nine
+pinned dependency revisions are unchanged. All 29 frozen changed-file
+hashes were preserved through verification, and the frozen manuscript
+and PDF remain unchanged.
+
+The [local verification report](certification/verification_report.json)
+contains 800,979 bytes and has SHA-256
+`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`.
+It records 13 Certified, zero Partial or Active, and 29 Pending numbered
+results; all 33 auxiliary/supplementary groups remain Pending.
+
+**GitHub CI for this 553-export scope is pending.** The successful
+GitHub runs below retain their exact historical scopes. The
+[execution checkpoint](CHECKPOINT.md) records the new local result
+and its comparison with the preceding 536-export report.
+
+The preceding Lemma 3.2 milestone added 54 public theorem exports in
+16 new modules, with 137 recorded input hashes including its source
 correspondence review.
 
-**The full local and GitHub verifiers passed for all 536 theorem exports
-and 112 Lean modules.** All 137 input hashes match the checked files.
+**The full local and GitHub verifiers passed for the preceding 536-export
+Gauss milestone.** All 112 modules were checked, and all 137 input
+hashes match the files checked at that checkpoint.
 All 54 new actual types and axiom lists match their prior inspections;
 every new export uses exactly `Classical.choice`, `Quot.sound`, and
 `propext`. All 482 preceding actual types, axiom lists, and Lean source
@@ -117,7 +154,7 @@ dependency revisions are unchanged. All 37
 frozen changed-file hashes were preserved through verification, and
 the frozen manuscript and PDF remain unchanged.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7/certification/verification_report.json)
 contains 780,870 bytes and has SHA-256
 `824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
 It records 12 Certified, zero Partial or Active, and 30 Pending numbered
@@ -139,11 +176,14 @@ verification-content fields exactly match the unchanged local report,
 including all 536 complete theorem records, four premise records,
 137 input hashes, nine dependency revisions, and the complete Lean
 inspection output. Only `generated_at_utc` and `lake_build_output` differ.
-All 137 hashes match the current inspected files and the exact proof
-tree `dea151816197aafb69f94b3d9a7b885a24b63a5d`. The
-[execution checkpoint](CHECKPOINT.md) records the job, artifact,
-timestamps, digests, and full 536-export scope. The older evidence
-below retains its original scopes.
+All 137 hashes match the inspected files at that checkpoint and the
+exact proof tree `dea151816197aafb69f94b3d9a7b885a24b63a5d`.
+The report and original artifact were preserved in
+[evidence commit cf3e902](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/cf3e90217e153d04ffd40a9636dceb29fc6fbc59).
+The [execution checkpoint](CHECKPOINT.md) records the job, artifact,
+timestamps, digests, and full 536-export scope. This evidence does not
+cover the new 553-export bound milestone. The older evidence below
+retains its original scopes.
 
 **The full local and GitHub verifiers passed for the preceding 482-export
 CRT milestone.** All 96 modules passed the pinned strict checks, and all
@@ -297,6 +337,7 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
+- [Correspondence review for complete Lemma 3.3 and the uniform complete-sum bound](certification/correspondence/bad_prime_bound.md)
 - [Correspondence review for complete Lemma 3.2 and the actual prime-power Gauss sums](certification/correspondence/prime_power_gauss.md)
 - [Correspondence review for complete Lemma 3.1 and the literal complete sums](certification/correspondence/complete_sum_crt.md)
 - [Correspondence review for complete Lemma 4.6 and the diagonal pencil](certification/correspondence/diagonal_pencil.md)
@@ -521,6 +562,66 @@ is proved to be zero exactly when `p` divides each coordinate.
 These identities require only positive degree and `ψ ^ n = 1`; nonsingularity,
 smoothness, and nonprincipality are unnecessary for this part of the proof.
 The manuscript's hypotheses therefore specialize the checked results.
+
+## The uniform complete-sum bound
+
+[BadPrimeBound.lean](QuaternaryQuadraticForms/BadPrimeBound.lean) proves
+`bad_prime_bound`, the full statement of Lemma 3.3:
+
+$$|S_c(u)|\le4\sqrt{|\det A|}\,c^3\qquad(c\ge1,\ u\in\mathbb Z^4).$$
+
+Here `S_c` is the existing `unweightedCompleteSum`, with its actual
+unit parameter and four residue coordinates. The final theorem assumes
+`A.transpose = A` and `A.det ≠ 0` over the integers. Positive moduli
+are represented by `c : ℕ` with `[NeZero c]`. The theorem includes
+modulus one, arbitrary composite moduli, and every frequency. It needs
+neither a good-prime condition nor nonsquareness of the determinant.
+
+For each actual unit parameter $a$, put
+$V_c(a,u)=\sum_{x\bmod c}e_c(aF(x)+u\cdot x)$ and let
+$K_c(2A)=\{z\bmod c:2Az=0\}$. The checked translation identity is
+
+$$V_c(a,u)\overline{V_c(a,u)}
+=c^4\sum_{z\in K_c(2A)}e_c(aF(z)+u\cdot z).$$
+
+It follows by reindexing the actual pair of vectors as $x,x+z$,
+expanding the symmetric quadratic form, and applying the standard
+character's orthogonality at the composite modulus. Invertibility of
+$a$ removes that scalar from the kernel condition. The triangle
+inequality then gives $|V_c(a,u)|^2\le c^4|K_c(2A)|$.
+
+The kernel estimate uses a determinant/index form of the manuscript's
+Smith normal-form argument. For a nonsingular integer `4 × 4` matrix `B`,
+mathlib's proved determinant-index theorem identifies the index of
+$B\mathbb Z^4$ in $\mathbb Z^4$ with $|\det B|$. Coordinate reduction
+is surjective and takes this actual range onto the range of `B`
+modulo `c`, whose index therefore divides the integer index. For the
+finite residue endomorphism, the range index is precisely the kernel
+cardinality. Consequently,
+
+$$|K_c(B)|\mid |\det B|,\qquad |K_c(B)|\le|\det B|.$$
+
+Applying this to `B = 2 • A`, with the exact identity
+$\det(2A)=16\det A$, yields
+$|V_c(a,u)|^2\le16|\det A|c^4$. Nonnegative square roots give the
+factor $4\sqrt{|\det A|}c^2$. Finally, the actual unit group has at
+most `c` elements, so summing its inner bounds proves the source
+estimate.
+
+| Modules | Checked contribution |
+|---|---|
+| [GaussNorm](QuaternaryQuadraticForms/GaussNorm.lean) | Composite-modulus orthogonality, the exact kernel phase, and the squared-norm inequality |
+| [MatrixResidueKernel](QuaternaryQuadraticForms/MatrixResidueKernel.lean), [IntegerMatrixKernelBound](QuaternaryQuadraticForms/IntegerMatrixKernelBound.lean) | The actual residue kernel and its determinant bound through range-index divisibility |
+| [DoubledMatrixKernel](QuaternaryQuadraticForms/DoubledMatrixKernel.lean) | Identification of the selected kernel with the reduction of the doubled integer matrix |
+| [GaussBoundConstants](QuaternaryQuadraticForms/GaussBoundConstants.lean) | The factor sixteen in the determinant, the factor four after square roots, and the actual unit-count bound |
+| [BadPrimeGaussBound](QuaternaryQuadraticForms/BadPrimeGaussBound.lean) | The full inner Gauss bound for integral matrices and every modulus |
+| [CompleteSumNorm](QuaternaryQuadraticForms/CompleteSumNorm.lean), [BadPrimeBound](QuaternaryQuadraticForms/BadPrimeBound.lean) | Summation over actual units and the final literal complete-sum estimate |
+
+The [source correspondence review](certification/correspondence/bad_prime_bound.md)
+checks the kernel argument, exact constants, and every source quantifier.
+The determinant/index theorem is proved in the pinned mathlib using
+Smith normal form. No literature premise or assumed inner bound remains
+in the final theorem.
 
 ## Complete prime-power Gauss evaluation
 
@@ -994,6 +1095,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.LinearAlgebra.BilinearForm.Orthogonal \
       Mathlib.LinearAlgebra.Dual.Lemmas \
       Mathlib.LinearAlgebra.FiniteDimensional.Lemmas \
+      Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient \
       Mathlib.LinearAlgebra.LinearIndependent.Basic \
       Mathlib.LinearAlgebra.LinearIndependent.Lemmas \
       Mathlib.LinearAlgebra.Matrix.Adjugate \
@@ -1041,23 +1143,31 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next bounded target is complete Lemma 3.3, source lines 1156–1178.
-For the source's nonsingular symmetric integral matrix, every integer
-modulus $c\ge1$, and every integral frequency $u$, it asserts
+The next bounded target is complete Lemma 3.4, source lines 1184–1232.
+For a prime $p\nmid N$, every $k\ge1$, and every integral frequency
+$u$, the required identity is
 
-$$|S_c(u)|\le4\sqrt{|\det A|}\,c^3.$$
+$$\mathcal S_{p,p^k}(u)
+=\chi(p)^{k+1}p^{2k+1}\,
+\xi_p(\operatorname{adj}(A)u)\,
+R_{p^{k+1}}(F^*(u)).$$
 
-The proof must start with the squared norm of the actual Gauss sum,
-use additive orthogonality to bound it by $c^4$ times the number of
-solutions to $2Az=0\pmod c$, and prove that this kernel has at most
-$16|\det A|$ elements. The source's Smith normal-form argument gives
-the exact kernel count $\prod_i\gcd(d_i,c)$, where the invariant
-factors of `2A` have product $16|\det A|$. Taking square roots and
-summing over the actual unit parameters then gives the full bound.
-This target includes modulus one and all bad-prime factors; it remains
-Pending.
+This concerns the existing mixed complete sum with a prime shared by
+both moduli and the supplied source weight family. The source
+condition on `N` must supply the good-prime hypotheses, and the weight
+must remain evaluated at the actual adjugate vector reduced modulo `p`.
 
-Lemmas 3.1 and 3.2 and all Section 4 lemmas are complete. The global
+The planned proof first evaluates the literal weighted sum
+$\mathcal U_j(u)$ for $j\ge2$. Splitting off the last residue digit
+forces $2aAy+u=0\pmod p$ by additive orthogonality. The surviving
+weight is $\xi_p(\operatorname{adj}(A)u)$ by nonzero-scalar
+invariance, so Lemma 3.2 gives the exact weighted Ramanujan formula.
+The actual unit decomposition $a+t p^k$ then gives
+$\mathcal U_{k+1}(u)=p\mathcal S_{p,p^k}(u)$, including the precise
+factor of `p`. This entire target remains Pending; no proof of it is
+part of the current milestone.
+
+Lemmas 3.1–3.3 and all Section 4 lemmas are complete. The global
 asymptotic in Theorem 1.3, the analytic assembly, and Theorems 1.1 and
 1.4 remain Pending. All 33 auxiliary/supplementary groups remain
 Pending.

@@ -879,7 +879,9 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "No good-prime restriction on c. The kernel count for 2A uses the invariant factors and det(2A)=16 alpha."
+        "Complete Lean proof of the actual norm bound at every positive modulus and every integral frequency under the source standing symmetry and integer nonsingularity hypotheses. Modulus one and all bad-prime factors are included; no good-prime, oddness, or modular invertibility condition is used.",
+        "The exact product of the Gauss sum and its conjugate is reindexed by translation, polarized, and evaluated by composite-modulus additive orthogonality. Its norm is bounded by c^4 times the literal finite kernel cardinality of 2*A modulo c.",
+        "The actual integer matrix range has index equal to the absolute determinant by mathlib's proved Smith-normal-form determinant-index theorem. Surjective coordinate reduction identifies the residue range, whose index divides the integer index and equals its kernel cardinality. The factor 16 from det(2*A), square root factor 4, and cardinality bound on actual units give the full complete-sum estimate. No kernel bound or inner Gauss estimate remains assumed in the final theorem, and no literature premise is used."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

@@ -1,9 +1,9 @@
-# Complete prime-power Gauss checkpoint
+# Uniform complete-sum bound checkpoint
 
 ## Numbered-result status
 
-Complete: **12**. Partial: **0**. Active numbered targets: **0**.
-Pending: **30**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **13**. Partial: **0**. Active numbered targets: **0**.
+Pending: **29**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -75,9 +75,118 @@ every integral frequency, and every integer scalar not divisible by
 modular inverses, and unit permutation are proved internally. This
 branch uses no literature premise.
 
-The next bounded target is complete Lemma 3.3.
+**Lemma 3.3 is Certified.** The existing complete sum satisfies
+`|S_c(u)| ≤ 4 sqrt(|det A|) c³` for every positive modulus and every
+integral frequency. The proof covers arbitrary composite moduli,
+including modulus one and bad-prime factors. It proves the exact
+kernel phase in the squared Gauss norm, bounds the actual residue
+kernel through the integer matrix's determinant and range index, and
+sums over the actual residue units. The final theorem assumes symmetry
+and integer nonsingularity, without a good-prime or nonsquare condition.
+No literature premise is used.
+
+The next bounded target is complete Lemma 3.4.
 
 ## Mathematical scope
+
+### Complete Lemma 3.3
+
+[BadPrimeBound.lean](QuaternaryQuadraticForms/BadPrimeBound.lean)
+proves `bad_prime_bound` for the manuscript's actual complete sum:
+
+```lean
+(c : ℕ) [NeZero c]
+(A : Matrix (Fin 4) (Fin 4) ℤ)
+(hA : A.transpose = A) (hdet : A.det ≠ 0)
+(u : Fin 4 → ℤ) :
+  ‖unweightedCompleteSum c A u‖ ≤
+    4 * Real.sqrt |(A.det : ℝ)| * (c : ℝ) ^ 3
+```
+
+Thus every positive integer modulus and every integral frequency is
+covered. The assumptions are precisely symmetry and integer
+nonsingularity of the actual matrix. The proof does not impose
+nonsingularity modulo `c`, a good-prime restriction, nonsquareness of
+the determinant, or a condition on `u`. Modulus one is included.
+
+`GaussNorm.lean` works first over the actual residue ring `ZMod c`.
+For an arbitrary symmetric residue matrix and an actual unit parameter,
+it proves the exact product identity
+
+$$V_c(a,u)\overline{V_c(a,u)}
+=c^4\sum_{\substack{z\bmod c\\2Az=0\pmod c}}
+e_c(aF(z)+u\cdot z),$$
+
+where $V_c(a,u)$ is the existing `quadraticGaussSum`. The finite
+product of sums is reindexed by the translation $y=x+z$. Symmetry
+expands the quadratic phase into its value at `z` and the linear
+term $2a\,x^{\mathsf T}Az$. The standard character is primitive at
+every positive modulus; separating the four coordinates proves that
+the inner sum is `c⁴` exactly on the kernel of `2A`, and zero outside
+it. The unit property of `a` proves the exact kernel condition even
+when the residue ring has zero divisors.
+
+Taking norms of this proved identity and using the norm-one value of
+each character yields
+
+$$|V_c(a,u)|^2\le c^4\#\{z\bmod c:2Az=0\pmod c\}.$$
+
+`MatrixResidueKernel.lean` defines the finite set of vectors killed
+by the entrywise reduction of the actual integer `4 × 4` matrix `B`.
+`DoubledMatrixKernel.lean` proves that reduction commutes with doubling
+and identifies `matrixResidueKernel c (2 • A)` with precisely the
+filtered kernel in the Gauss estimate.
+
+`IntegerMatrixKernelBound.lean` proves the determinant bound through
+the actual range and index. For `B.det ≠ 0`, the integer map is
+injective. Applied to its range and the resulting linear equivalence,
+mathlib's proved `Submodule.natAbs_det_equiv` gives
+
+$$[\mathbb Z^4:B\mathbb Z^4]=|\det B|.$$
+
+The library proof uses Smith normal form. Coordinate reduction from
+$\mathbb Z^4$ onto $(\mathbb Z/c\mathbb Z)^4$ is proved surjective
+using canonical representatives, and it commutes with the integer
+matrix map. The image of the integer range is therefore exactly the
+range of the reduced matrix. The latter range index divides the
+former. For an endomorphism of the actual finite residue group, its
+range index equals its kernel cardinality, giving
+
+$$\#K_c(B)\mid|\det B|,\qquad \#K_c(B)\le|\det B|.$$
+
+This provides the kernel estimate needed by the source's Smith
+normal-form argument without any coprimality condition on `c`. All
+range, reduction, quotient, and kernel identifications are proved for
+the actual matrix; the kernel count is not supplied as a hypothesis.
+
+`GaussBoundConstants.lean` proves the exact quaternary identities
+
+$$\det(2A)=16\det A,\qquad |\det(2A)|=16|\det A|.$$
+
+`BadPrimeGaussBound.lean` combines the residue squared-norm inequality
+with this integer kernel bound. Taking nonnegative square roots gives
+
+$$|V_c(a,u)|\le4\sqrt{|\det A|}\,c^2.$$
+
+The inner bound is proved both for every actual residue unit and for
+integral scalar data whose reduction is a unit. Its integral wrapper
+uses the same matrix, coefficient, and frequency reductions as the
+source's representative sum.
+
+`CompleteSumNorm.lean` applies the triangle inequality to the existing
+`unweightedCompleteSum`, using its already proved identity as the sum
+of the actual Gauss sums over `(ZMod c)ˣ`. Injectivity of the unit-value
+map proves that there are at most `c` unit parameters, including when
+`c=1`. The final `BadPrimeBound.lean` theorem supplies the proved inner
+bound to this assembly, yielding the exact factor
+$4\sqrt{|\det A|}c^3$. Its final cast identity identifies the natural
+absolute determinant with the real absolute value displayed in the
+source statement.
+
+The [correspondence review](certification/correspondence/bad_prime_bound.md)
+covers the complete statement and the determinant/index realization
+of the source argument. All supporting norm and kernel assertions are
+proved internally; no literature premise is used.
 
 ### Complete Lemma 3.2
 
@@ -756,6 +865,15 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete uniform bound: Lemma 3.3](QuaternaryQuadraticForms/BadPrimeBound.lean).
+- [Actual Gauss norm and exact kernel phase](QuaternaryQuadraticForms/GaussNorm.lean).
+- [The actual residue kernel](QuaternaryQuadraticForms/MatrixResidueKernel.lean).
+- [Integer determinant and residue-kernel index bound](QuaternaryQuadraticForms/IntegerMatrixKernelBound.lean).
+- [Reduction of the doubled matrix and its kernel](QuaternaryQuadraticForms/DoubledMatrixKernel.lean).
+- [Exact determinant, square-root, and unit-count constants](QuaternaryQuadraticForms/GaussBoundConstants.lean).
+- [Uniform inner Gauss bound](QuaternaryQuadraticForms/BadPrimeGaussBound.lean).
+- [Summation over actual unit parameters](QuaternaryQuadraticForms/CompleteSumNorm.lean).
+- [Complete uniform-bound correspondence review](certification/correspondence/bad_prime_bound.md).
 - [Complete three-clause Lemma 3.2](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean).
 - [Closed pure and shifted prime-power Gauss formulas](QuaternaryQuadraticForms/PrimePowerGauss.lean).
 - [General-matrix prime base case](QuaternaryQuadraticForms/GeneralPrimeGauss.lean).
@@ -821,7 +939,68 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current Gauss milestone contains 536 theorem exports across 112
+The current Lemma 3.3 milestone contains 553 theorem exports across
+120 project Lean modules and 20 mapped source groups: 17 new public
+theorem exports in eight new modules. The four registered literature
+premises and all nine pinned dependency revisions are unchanged.
+Source groups and Lean premise declarations remain separate counts.
+The completed aggregate report records 146 input hashes; its nine
+added inputs are the eight new Lean modules and the correspondence
+review.
+
+All eight modules and the root library passed strict targeted
+compilation under official Lean 4.24.0 and the pinned mathlib revision,
+with `warningAsError=true` and `autoImplicit=false` (3,158 build jobs).
+All 17 actual theorem types and axiom lists were inspected before the
+aggregate run. Each new export uses exactly `Classical.choice`,
+`Quot.sound`, and `propext`; no new theorem uses a literature premise.
+
+### Uniform bound local execution
+
+**The full local aggregate verifier passed for all 120 modules and
+553 theorem exports.** All 146 recorded input hashes match the checked
+files. All 17 new actual theorem types and axiom lists match their
+prior individual inspections, with only the three standard foundations
+in every new export.
+
+The independent comparison confirms that all 536 preceding complete
+theorem records remain identical, including actual types, axiom lists,
+Lean source hashes, and scopes. All four registered literature premise
+records and all nine pinned dependency revisions remain identical to
+the preceding report.
+
+The exact nine added inspected inputs are the eight new Lean modules
+and `certification/correspondence/bad_prime_bound.md`. The only changes
+to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 29 frozen
+changed-file hashes was preserved through the verification run.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier. The installed local report preserves the exact
+bytes of the successfully compared verifier output.
+
+The [local verification report](certification/verification_report.json)
+contains 800,979 bytes and has SHA-256
+`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`.
+It records 13 Certified and 29 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Uniform bound GitHub execution
+
+**GitHub CI for the 553-export scope is pending.** No successful GitHub
+run or CI report is yet recorded for this milestone. The new local
+result above covers the complete Lemma 3.3 scope; the preceding
+536-export proof and its local and CI reports retain their exact
+historical scope below.
+
+## Earlier checked checkpoints
+
+### Gauss local execution
+
+The preceding Gauss milestone contained 536 theorem exports across 112
 project Lean modules and 20 mapped source groups: 54 new public theorem
 exports in 16 new modules. The four registered literature premises and
 all nine pinned dependency revisions are unchanged. Source groups and
@@ -835,8 +1014,6 @@ All 16 new modules passed strict targeted builds under official Lean
 inspected before the aggregate run. Each new export uses exactly
 `Classical.choice`, `Quot.sound`, and `propext`; no new theorem uses a
 literature premise.
-
-### Gauss local execution
 
 **The full local aggregate verifier passed for all 112 modules and
 536 theorem exports.** All 137 recorded input hashes match the checked
@@ -867,7 +1044,7 @@ These subsequent README and checkpoint updates record the successful
 local execution; the inspected proof inputs remain those checked by
 the aggregate verifier.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7/certification/verification_report.json)
 contains 780,870 bytes and has SHA-256
 `824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
 It records 12 Certified and 30 Pending numbered results, with zero
@@ -901,18 +1078,21 @@ actual types and axiom dependencies, four registered premise records,
 export-inspection output, the Lean version, and every verification flag
 and scope count. Only `generated_at_utc` and `lake_build_output` differ.
 
-Every recorded input hash matches both the current inspected files
-and the exact proof tree. The local report remains unchanged at
-780,870 bytes with SHA-256
-`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`,
-byte-identical to the report at the published proof commit. The frozen
-manuscript and PDF are unchanged. This evidence covers the complete
-536-export Gauss milestone; the earlier local and CI reports below
-retain their original scopes. The numbered status remains 12 Certified,
-zero Partial or Active, and 30 Pending, with all 33 auxiliary/supplementary
-groups Pending and whole-paper certification false.
-
-## Earlier checked checkpoints
+Every recorded input hash matches the inspected files at that checkpoint
+and the exact proof tree. The local report at that proof commit has
+780,870 bytes and SHA-256
+`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
+The report and original artifact were preserved in
+[evidence commit cf3e902](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/cf3e90217e153d04ffd40a9636dceb29fc6fbc59),
+whose tree is `d13c6fd8f97143c159254d78c238eb8003ee4273`.
+That evidence commit changed only README, CHECKPOINT, and the two
+archived CI files; all 137 inspected inputs and the local report were
+unchanged. The frozen manuscript and PDF are unchanged. This evidence
+covers the preceding 536-export Gauss milestone; it does not cover the
+new 553-export bound milestone. At that checkpoint, the numbered status
+was 12 Certified, zero Partial or Active, and 30 Pending, with all 33
+auxiliary/supplementary groups Pending and whole-paper certification
+false. Earlier local and CI reports below retain their original scopes.
 
 ### CRT local execution
 
@@ -1499,36 +1679,51 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The next bounded target is complete Lemma 3.3, source lines 1156–1178.
-For the source's nonsingular symmetric integral matrix, it asserts
+The next bounded target is complete Lemma 3.4, source lines 1184–1232.
+Under the source's Section 3 hypotheses, let $p\nmid N$ be prime,
+$k\ge1$, and $u\in\mathbb Z^4$. The exact required identity is
 
-$$|S_c(u)|\le4\sqrt{|\det A|}\,c^3$$
+$$\mathcal S_{p,p^k}(u)
+=\chi(p)^{k+1}p^{2k+1}\,
+\xi_p(\operatorname{adj}(A)u)\,
+R_{p^{k+1}}(F^*(u)).$$
 
-for every integer modulus $c\ge1$ and every $u\in\mathbb Z^4$.
-This includes modulus one, bad primes, and arbitrary composite moduli.
-The proof must concern the existing actual complete sum.
+The endpoint must concern the existing mixed complete sum, the supplied
+weight at the good prime, the actual integral adjugate vector reduced
+modulo `p`, and the literal Ramanujan sum. The condition $p\nmid N$
+and the source divisibility of `N` by $\operatorname{rad}(N_F)$ must
+supply the good-prime deductions. Every frequency is included, without
+excluding $p\mid u$ or $p\mid F^*(u)$.
 
-For each actual unit parameter $a$, write
-$V=\sum_{x\bmod c}e_c(aF(x)+u\cdot x)$. The proposed proof follows
-the source in three steps:
+The source proof first introduces, for $j\ge2$, the actual weighted sum
 
-1. Expand the squared norm using pairs $x,x+z$. Additive orthogonality
-   and invertibility of $a$ should give
+$$\mathcal U_j(u)=\sum_{a\bmod p^j}^{*}\sum_{x\bmod p^j}
+\xi_p(x)e_{p^j}(aF(x)+u\cdot x).$$
 
-   $$|V|^2\le c^4\#\{z\bmod c:2Az=0\pmod c\}.$$
+Splitting $x=y+p^{j-1}z$ should leave the weight dependent only on
+`y mod p`. The outer digit sum forces $2aAy+u=0\pmod p$; invertibility
+of `2aA` identifies its surviving residue with a nonzero scalar
+multiple of $\operatorname{adj}(A)u$. The source weight invariance
+then extracts precisely $\xi_p(\operatorname{adj}(A)u)$, and the
+proved Lemma 3.2 evaluates the remaining actual Gauss sums. This must
+yield
 
-2. Use a proved integer Smith normal form of `2A` and the corresponding
-   invertible changes of variables modulo `c` to establish the actual
-   kernel count $\prod_i\gcd(d_i,c)$. The invariant factors satisfy
-   $\prod_i d_i=|\det(2A)|=16|\det A|$, so the kernel has at most
-   $16|\det A|$ elements.
+$$\mathcal U_j(u)=\chi(p)^j p^{2j}\,
+\xi_p(\operatorname{adj}(A)u)R_{p^j}(F^*(u)).$$
 
-3. Take square roots to get $|V|\le4\sqrt{|\det A|}\,c^2$ and sum
-   over the actual unit parameters, using $\varphi(c)\le c$.
+Finally, the actual units modulo $p^{k+1}$ are parametrized by
+$a+t p^k$, with `a` a unit modulo $p^k$ and $t\bmod p$.
+Orthogonality in `t` imposes the existing congruence constraint
+$p\mid F(x)$ and gives exactly
 
-The full estimate, including its kernel count and every modulus, remains
-Pending. No proof of this next target is included in the Gauss milestone.
-Lemmas 3.1 and 3.2 and all Section 4 lemmas are complete. Theorem 1.3
+$$\mathcal U_{k+1}(u)=p\mathcal S_{p,p^k}(u).$$
+
+Combining these identities produces the required exponent `2k+1`
+and Ramanujan modulus $p^{k+1}$. The full statement, including the
+actual weight extraction and unit parametrization, remains Pending.
+No proof of this target is included in the Lemma 3.3 milestone.
+
+Lemmas 3.1–3.3 and all Section 4 lemmas are complete. Theorem 1.3
 remains Pending because its global asymptotic is not proved. The
 analytic assembly, Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary
 groups remain Pending.

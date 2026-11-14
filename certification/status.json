@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete prime-power Gauss evaluation, unramified complete sum, and projective quadric point count",
+  "checkpoint": "Complete uniform bound for the actual complete sums at every positive modulus, including bad-prime factors",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -93,11 +93,20 @@
         "The actual projective quadric over the prime field has integer cardinality p^2+(1+legendreSym p det(A))*p+1."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.2 for a general symmetric integral matrix, every prime outside the literal N_F=2*abs(det A), every k>=1, and every integral frequency. The scalar condition p not dividing a is the source condition. The good-prime hypothesis supplies oddness, determinant nonsingularity, and all required prime-power units. The prime calculation constructs its orthogonal basis and determinant-square identity; actual residue-digit bijections and additive orthogonality prove V_(k+2)=p^4*V_k, including V_0=1. Square completion uses the actual adjugate and native residue-ring inverse. Unit reindexing gives the Ramanujan formula; affine orthogonality and the existing projective-ray equivalence give the point count. The pure and shifted integral formulas extend to k=0, while the unit-lift and final source conjunction retain k>=1. No diagonalization, Gauss-value, recurrence, or counting assumption survives in the endpoint. All 54 new exports use only standard logical foundations and no literature premise. Lemma 3.3 and the global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.2 for a general symmetric integral matrix, every prime outside the literal N_F=2*abs(det A), every k>=1, and every integral frequency. The scalar condition p not dividing a is the source condition. The good-prime hypothesis supplies oddness, determinant nonsingularity, and all required prime-power units. The prime calculation constructs its orthogonal basis and determinant-square identity; actual residue-digit bijections and additive orthogonality prove V_(k+2)=p^4*V_k, including V_0=1. Square completion uses the actual adjugate and native residue-ring inverse. Unit reindexing gives the Ramanujan formula; affine orthogonality and the existing projective-ray equivalence give the point count. The pure and shifted integral formulas extend to k=0, while the unit-lift and final source conjunction retain k>=1. No diagonalization, Gauss-value, recurrence, or counting assumption survives in the endpoint. All 54 new exports use only standard logical foundations and no literature premise. The global analytic theorems remain Pending."
     },
     "lem:badprime": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.bad_prime_bound",
+        "QuaternaryQuadraticForms.unweightedCompleteSum_norm_le"
+      ],
+      "correspondence_record": "certification/correspondence/bad_prime_bound.md",
+      "completed_clauses": [
+        "The existing unweightedCompleteSum at every positive modulus and every integral frequency has norm at most 4 times the real square root of the absolute integer determinant times the cube of the modulus, under the source standing symmetry and nonsingularity hypotheses."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.3 for the actual symmetric nonsingular integral quaternary matrix. The modulus is any nonzero natural number, representing every source integer c>=1; modulus one and all bad-prime factors are included. The proof reindexes the actual product with its conjugate, checks polarization and composite-modulus additive orthogonality, and bounds it by c^4 times the actual kernel cardinality of 2*A modulo c. The integer matrix range index equals the absolute determinant by the proved library Smith-normal-form theorem; actual coordinate reduction, equality of ranges, index divisibility, and finite endomorphism kernel cardinality prove the residue-kernel bound. The literal determinant identity gives the factor 16, the nonnegative square root gives 4, and summing the actual unit parameters gives the final c^3. All conditional inner-bound hypotheses are discharged. No good-prime, oddness, modular nonsingularity, nonzero-frequency, or nonsquare-determinant assumption is introduced. All 17 new exports use only standard logical foundations and no literature premise. Lemma 3.4 and the global analytic theorems remain Pending."
     },
     "lem:ramified": {
       "status": "Pending",
@@ -8613,6 +8622,283 @@
         "eq:dualform"
       ],
       "scope": "Lemma 3.2(ii), with the actual complete sum, actual Ramanujan unit sum, and the manuscript's integral determinant and adjugate dual form.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_residue_vector_orthogonality",
+      "file": "QuaternaryQuadraticForms/GaussNorm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:badbound",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "Four-coordinate additive orthogonality at every positive modulus, including composite moduli and modulus one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_mul_conj_eq_kernel_sum",
+      "file": "QuaternaryQuadraticForms/GaussNorm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:badbound",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The product of the literal Gauss sum with its conjugate is the character sum on the actual kernel of twice the matrix.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_norm_sq_le_kernel_card",
+      "file": "QuaternaryQuadraticForms/GaussNorm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:badbound",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The squared norm is bounded by the modulus to the fourth power times the cardinality of the actual kernel of twice the matrix. No nonsingularity or oddness assumption is needed, and modulus one is included.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_matrixResidueKernel",
+      "file": "QuaternaryQuadraticForms/MatrixResidueKernel.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime"
+      ],
+      "scope": "Membership in the actual finite residue kernel is exactly vanishing of the reduced integer matrix applied to the residue vector.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixResidueKernel_card_le_det",
+      "file": "QuaternaryQuadraticForms/IntegerMatrixKernelBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:badbound"
+      ],
+      "scope": "The actual residue kernel has at most the absolute integer determinant many elements at every positive modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quaternary_det_two_smul",
+      "file": "QuaternaryQuadraticForms/GaussBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "Doubling every entry of a quaternary matrix multiplies its determinant by sixteen.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quaternary_det_two_smul_natAbs",
+      "file": "QuaternaryQuadraticForms/GaussBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The exact absolute determinant used to count the source residue kernel.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gauss_norm_le_of_sq_le",
+      "file": "QuaternaryQuadraticForms/GaussBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The squared Gauss estimate gives the exact factor four after taking square roots.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.zmod_card_units_le",
+      "file": "QuaternaryQuadraticForms/GaussBoundConstants.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The actual unit parameters form a subset of the residue ring at every positive modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.reduceQuadraticMatrix_two_smul",
+      "file": "QuaternaryQuadraticForms/DoubledMatrixKernel.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "Coefficient reduction commutes with doubling the actual integer matrix.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixResidueKernel_two_smul",
+      "file": "QuaternaryQuadraticForms/DoubledMatrixKernel.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The finite set selected by polarization is the kernel of the doubled integer matrix.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_norm_le_of_gauss_bound",
+      "file": "QuaternaryQuadraticForms/CompleteSumNorm.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:Sdef",
+        "eq:badbound"
+      ],
+      "scope": "A common norm bound on the actual inner Gauss sums gives the corresponding bound for the manuscript's complete sum, at every positive modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_sq_le",
+      "file": "QuaternaryQuadraticForms/BadPrimeGaussBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:Sdef",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The squared norm of every actual unit-parameter Gauss sum has the source bound, including at moduli divisible by bad primes.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_le",
+      "file": "QuaternaryQuadraticForms/BadPrimeGaussBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:Sdef",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The actual inner Gauss sum has norm at most `4 sqrt(|det A|) n²` for every unit scalar and every residue frequency.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_norm_le",
+      "file": "QuaternaryQuadraticForms/BadPrimeGaussBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:Sdef",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The same inner estimate for the literal integer data whenever the scalar is a unit modulo the modulus, as required in the manuscript's proof.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_norm_le",
+      "file": "QuaternaryQuadraticForms/BadPrimeBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:Sdef",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "The actual complete sum is bounded uniformly in the positive modulus and frequency, with the determinant absolute value written as a natural number.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.bad_prime_bound",
+      "file": "QuaternaryQuadraticForms/BadPrimeBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:badprime",
+        "eq:Sdef",
+        "eq:forms",
+        "eq:badbound"
+      ],
+      "scope": "Lemma 3.3 for the manuscript's actual complete sum: every positive modulus, every integral frequency, and the exact real constant `4 sqrt(|α|)`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",

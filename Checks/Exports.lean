@@ -539,7 +539,24 @@ run_cmd do
     `QuaternaryQuadraticForms.residueRamanujanSum_mul,
     `QuaternaryQuadraticForms.residueRamanujanSum_inverse_sum,
     `QuaternaryQuadraticForms.residueRamanujanSum_reciprocal_phase,
-    `QuaternaryQuadraticForms.unweightedCompleteSum_prime_power]
+    `QuaternaryQuadraticForms.unweightedCompleteSum_prime_power,
+    `QuaternaryQuadraticForms.stdAddChar_residue_vector_orthogonality,
+    `QuaternaryQuadraticForms.quadraticGaussSum_mul_conj_eq_kernel_sum,
+    `QuaternaryQuadraticForms.quadraticGaussSum_norm_sq_le_kernel_card,
+    `QuaternaryQuadraticForms.mem_matrixResidueKernel,
+    `QuaternaryQuadraticForms.matrixResidueKernel_card_le_det,
+    `QuaternaryQuadraticForms.quaternary_det_two_smul,
+    `QuaternaryQuadraticForms.quaternary_det_two_smul_natAbs,
+    `QuaternaryQuadraticForms.gauss_norm_le_of_sq_le,
+    `QuaternaryQuadraticForms.zmod_card_units_le,
+    `QuaternaryQuadraticForms.reduceQuadraticMatrix_two_smul,
+    `QuaternaryQuadraticForms.matrixResidueKernel_two_smul,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_norm_le_of_gauss_bound,
+    `QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_sq_le,
+    `QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_le,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_norm_le,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_norm_le,
+    `QuaternaryQuadraticForms.bad_prime_bound]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2183,3 +2200,54 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.unweightedCompleteSum_prime_power
 #print axioms QuaternaryQuadraticForms.unweightedCompleteSum_prime_power
+
+#check @QuaternaryQuadraticForms.stdAddChar_residue_vector_orthogonality
+#print axioms QuaternaryQuadraticForms.stdAddChar_residue_vector_orthogonality
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_mul_conj_eq_kernel_sum
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_mul_conj_eq_kernel_sum
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_norm_sq_le_kernel_card
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_norm_sq_le_kernel_card
+
+#check @QuaternaryQuadraticForms.mem_matrixResidueKernel
+#print axioms QuaternaryQuadraticForms.mem_matrixResidueKernel
+
+#check @QuaternaryQuadraticForms.matrixResidueKernel_card_le_det
+#print axioms QuaternaryQuadraticForms.matrixResidueKernel_card_le_det
+
+#check @QuaternaryQuadraticForms.quaternary_det_two_smul
+#print axioms QuaternaryQuadraticForms.quaternary_det_two_smul
+
+#check @QuaternaryQuadraticForms.quaternary_det_two_smul_natAbs
+#print axioms QuaternaryQuadraticForms.quaternary_det_two_smul_natAbs
+
+#check @QuaternaryQuadraticForms.gauss_norm_le_of_sq_le
+#print axioms QuaternaryQuadraticForms.gauss_norm_le_of_sq_le
+
+#check @QuaternaryQuadraticForms.zmod_card_units_le
+#print axioms QuaternaryQuadraticForms.zmod_card_units_le
+
+#check @QuaternaryQuadraticForms.reduceQuadraticMatrix_two_smul
+#print axioms QuaternaryQuadraticForms.reduceQuadraticMatrix_two_smul
+
+#check @QuaternaryQuadraticForms.matrixResidueKernel_two_smul
+#print axioms QuaternaryQuadraticForms.matrixResidueKernel_two_smul
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_norm_le_of_gauss_bound
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_norm_le_of_gauss_bound
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_sq_le
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_sq_le
+
+#check @QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_le
+#print axioms QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_le
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_norm_le
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_norm_le
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_norm_le
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_norm_le
+
+#check @QuaternaryQuadraticForms.bad_prime_bound
+#print axioms QuaternaryQuadraticForms.bad_prime_bound
