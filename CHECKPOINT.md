@@ -458,10 +458,34 @@ The report records 8 Certified and 34 Pending numbered results, with zero
 Partial or Active results; all 33 auxiliary/supplementary groups remain
 Pending. Whole-paper certification remains false.
 
-GitHub Actions verification of the new proof checkpoint is pending. Its
-exact commit, run and downloaded artifact evidence will be recorded after
-that execution completes. The preserved runs below cover their stated
-preceding scopes.
+### Polynomial Fourier GitHub execution
+
+The same verifier succeeded at exact proof commit
+[`25dea299d18e2a423404488ac1a923fded0cde7b`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/25dea299d18e2a423404488ac1a923fded0cde7b),
+whose tree is `0329196f131b11b8d416917ff417c4ceb90578b1`.
+
+- [Successful run 43611293071, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43611293071).
+- Verification job: `132496696818`; every step succeeded.
+- Artifact: `14120945036`, 58,271 bytes, created `2026-11-14T15:44:27Z`.
+- [Preserved CI report](certification/ci/run_43611293071_attempt_1.json), 492,952 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43611293071_attempt_1.zip).
+- ZIP SHA-256: `e2e4750b08ac9687568d726fe155f7a409573c1b71254b1b6f9edd26190cede7`.
+- CI report SHA-256: `482496c1212f5d366ebf1d54f8fd223bc58aa7cadf464582250931b60a6c060a`.
+
+The downloaded ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, and both archived files are
+byte-identical to the download and extracted member. The CI and local
+reports agree exactly on all 18 verification-content fields: all 325 full
+theorem records and their actual types and axiom dependencies, all four
+registered-premise records, all 87 input hashes, all nine pinned dependency
+revisions, the complete Lean export-inspection output, the Lean version,
+and all verification flags and scope counts. The only differing fields are
+`generated_at_utc` and `lake_build_output`.
+
+Every recorded input hash also matches the current files. This evidence
+covers the complete 325-export scope and the eight certified numbered
+results. The preserved earlier runs below retain their original scopes;
+whole-paper certification remains false.
 
 ## Earlier checked checkpoints
 

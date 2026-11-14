@@ -61,13 +61,21 @@ separately registered external Lean premises, and 20 mapped source groups.
 All 33 auxiliary/supplementary groups remain Pending. This repository does
 not yet provide a certificate for the whole paper.
 
-The full local verifier passed for all 66 modules and 325 theorem exports
-under the pinned strict settings. All 87 input hashes match the checked
-files, and all nine pinned dependency revisions are unchanged. The 302
-previously checked theorem types and axiom dependencies and the four
-registered literature-input records are unchanged. GitHub Actions
-verification of this new proof checkpoint is pending; the preserved runs
-below certify their stated preceding scopes.
+**The full local and GitHub verifiers passed for this checkpoint at
+[proof commit 25dea29](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/25dea299d18e2a423404488ac1a923fded0cde7b):** all 66 modules and 325 theorem
+exports were checked under the pinned strict settings. All 87 input hashes
+match the checked files, and all nine pinned dependency revisions are
+unchanged. The 302 previously checked theorem types and axiom dependencies
+and the four registered literature-input records are unchanged.
+[GitHub Actions run 43611293071, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43611293071)
+succeeded. Its [downloaded report](certification/ci/run_43611293071_attempt_1.json)
+and [original artifact ZIP](certification/ci/run_43611293071_attempt_1.zip)
+are preserved. All 325 theorem records, four premise records, 87 input
+hashes, nine dependency revisions and the complete Lean inspection output
+exactly match the local report. Only the run time and build log differ.
+The [execution checkpoint](CHECKPOINT.md) records the artifact identifiers,
+digests and complete scope. The preserved runs below retain their stated
+preceding scopes.
 
 **The full local and GitHub verifiers passed for the preceding exceptional-plane checkpoint at
 [proof commit afdaf24](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7):** all 59 modules,
