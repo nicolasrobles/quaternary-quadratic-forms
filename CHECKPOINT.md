@@ -1,9 +1,9 @@
-# Complete diagonal bad-prime checkpoint
+# Complete diagonal pencil checkpoint
 
 ## Numbered-result status
 
-Complete: **9**. Partial: **0**. Active numbered targets: **0**.
-Pending: **33**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **10**. Partial: **0**. Active numbered targets: **0**.
+Pending: **32**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -44,10 +44,96 @@ tangent and singular sections. Theorem 1.1 and Theorem 1.4 remain Pending.
 diagonal forms: characteristic-zero smoothness, geometric bad reduction
 at `p ∤ N_F` if and only if `p ∣ M`, and the exact formula
 `N_G = rad(|2αM|)` for the existing modulus. Finiteness follows directly
-from `M ≠ 0`; no Lang or other literature premise is used. Lemma 4.6 is
-the next target and remains Pending.
+from `M ≠ 0`; no Lang or other literature premise is used.
+
+**Lemma 4.6 is Certified relative to the accepted Weil input.** Its
+complete integral theorem proves the exact pencil formula, the literal
+integer projective-trace identity, and the generic Fourier bound
+`2p^(3/2)+4p`. The prime hypothesis is precisely `p ∤ 2αM`, and the
+generic condition is precisely `p ∤ F*(u)u₁u₂u₃u₄`. The exact formula
+and trace use only the standard foundations; the bound additionally uses
+the existing Weil premise. All Section 4 lemmas are now complete.
+Theorem 1.3 remains Pending because its global asymptotic is not proved.
+The next target is complete Lemma 3.1; the full Lemma 3.2 remains Pending.
 
 ## Mathematical scope
+
+### Complete Lemma 4.6
+
+`DiagonalPencilTheorem.lean` proves the final all-clauses theorem
+`diagonal_pencil` for integral vectors `a,b,u` under the literal hypothesis
+`¬ (p : ℤ) ∣ 2 * (∏ i, a i) * diagonalPairProduct a b`. The actual
+sum is the existing `integralFourierSum` for `Matrix.diagonal a`, the
+complex quadratic character, and the polynomial of `Matrix.diagonal b`.
+The statement reduces the formal integral `Φ_u` polynomial and the
+integral `κ_i,ν_i` values into `ZMod p`; its singular filter uses literal
+integer divisibility `p ∣ u_i`.
+
+The exact formula is
+
+$$C_p(u)=p\sum_{t\notin\{t_1,t_2,t_3,t_4\}}\chi_p(-\Phi_u(t))
+ +p\sum_{i:\,p\mid u_i}\chi_p(\kappa_i)R_p(\nu_i(u)).$$
+
+`DiagonalPencil.lean` defines the source's actual pencil data, including
+`κ_i = −a_i ∏_{j≠i}(a_i b_j−a_j b_i)`, and proves their compatibility
+with coefficient maps. `DiagonalPencilCubic.lean` identifies the cubic
+coefficient with evaluation of the actual adjugate matrix polynomial
+and identifies `Φ_u(t)` with the dual form of `G+tF`.
+`DiagonalPencilAlgebra.lean` proves distinctness of the four singular
+parameters, deduces `5 ≤ p`, and proves the regular and singular
+identities. In particular,
+`−Δ_i = κ_i/a_i⁴` and `w_i = ν_i/(a_i²Δ_i)` have their literal source
+signs and denominators.
+
+`PrimeQuadraticGauss.lean` derives the scalar prime-field identities
+from proved mathlib Gauss-sum and square-root counting results. Its
+exports cover nonvanishing of `τ_p`, `τ_p²=χ_p(−1)p`, `τ_p⁴=p²`,
+Gauss inversion including zero, inversion over units, and the two
+square-completion branches. `PrimeRamanujan.lean` defines the actual
+finite sum and proves its values `p−1` and `−1`, together with the
+unit-scaling and reciprocal-parameter invariances. These statements
+use no registered external premise.
+
+`FourierOrthogonality.lean` and `FourierGaussExpansion.lean` express
+the actual constrained Fourier sum as the product of four scalar
+quadratic exponential sums. The Gauss parameter is a unit before the
+substitution `v=s t` or inversion. `DiagonalPencilEvaluation.lean`
+computes every regular and singular contribution.
+`DiagonalPencilFormula.lean` splits the finite parameter set and
+cancels the nonzero factor `p τ_p` to prove the exact formula. Singular
+terms with `ν_i(u)=0` remain present; no uniform size-`p` assertion is
+made for those terms.
+
+At zero frequency, the regular contribution vanishes and every
+Ramanujan value is `p−1`. `DiagonalPencilConsequences.lean` combines
+this with the existing exact zero-frequency identity and cancels
+`p−1` to obtain the actual complex trace and integer trace. The final
+integral identity is
+
+$$a_p(G)=p\sum_i\chi_p(\kappa_i).$$
+
+For the generic bound, `DiagonalPencilReduction.lean` derives all
+nonzero coordinate and dual-value hypotheses from
+`p ∤ F*(u)u₁u₂u₃u₄`, where `F*(u)` is the actual integral adjugate
+quadratic value. The singular sum is empty and `Φ_u` has degree three.
+`CubicCharacterSum.lean` handles the separable case using the existing
+Weil premise. Over the perfect prime field, a nonseparable cubic is
+factored as `c (X−a)²(X−b)` and its actual sum is evaluated internally.
+Thus no separability hypothesis is added. The sum over all parameters
+has norm at most `2√p`; deleting four parameters gives `2√p+4`, and
+multiplication by `p` gives the literal source bound
+
+$$|C_p(u)|\le2p^{3/2}+4p.$$
+
+The four exports in `DiagonalPencilTheorem.lean` give the integral exact
+formula, integral projective trace, generic estimate, and conjunction
+of all clauses. The formula and trace use only `Classical.choice`,
+`Quot.sound`, and `propext`. The generic estimate and all-clauses theorem
+add only `QuaternaryQuadraticForms.Trusted.weil_simple_roots`; they use
+no Katz, Lang, or Bertini premise. The
+[source correspondence review](certification/correspondence/diagonal_pencil.md)
+records the full source match. This completes all Section 4 lemmas;
+the global asymptotic in Theorem 1.3 remains Pending.
 
 ### Complete Lemma 4.5
 
@@ -452,6 +538,13 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete integral Lemma 4.6](QuaternaryQuadraticForms/DiagonalPencilTheorem.lean).
+- [Exact finite-field pencil formula](QuaternaryQuadraticForms/DiagonalPencilFormula.lean).
+- [Trace and generic Fourier bound](QuaternaryQuadraticForms/DiagonalPencilConsequences.lean).
+- [Scalar prime Gauss identities](QuaternaryQuadraticForms/PrimeQuadraticGauss.lean).
+- [Literal prime Ramanujan sums](QuaternaryQuadraticForms/PrimeRamanujan.lean).
+- [Cubic estimates with repeated roots](QuaternaryQuadraticForms/CubicCharacterSum.lean).
+- [Complete diagonal-pencil correspondence review](certification/correspondence/diagonal_pencil.md).
 - [Complete Lemma 4.5 and its exact modulus](QuaternaryQuadraticForms/DiagonalBadPrimes.lean).
 - [Literal diagonal data and six-factor product](QuaternaryQuadraticForms/DiagonalForms.lean).
 - [Diagonal rank criterion and geometric singular point](QuaternaryQuadraticForms/DiagonalGeometry.lean).
@@ -493,15 +586,66 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current milestone registers 349 theorem exports across 71 project
+The current pencil milestone contains 416 theorem exports across 84
+project Lean modules and 20 mapped source groups: 67 new exports in 13
+new modules. The four registered literature premises are unchanged,
+as are all nine pinned dependency revisions. Source groups and Lean
+premise declarations remain separate counts. The completed aggregate
+report records 107 input hashes, including the new correspondence review.
+
+All 13 new modules have passed strict builds under official Lean 4.24.0
+and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 67 new actual theorem types and axiom
+dependencies have been inspected. Of these, 59 use exactly
+`Classical.choice`, `Quot.sound`, and `propext`; one uses only `propext`;
+and seven additionally use the existing registered Weil premise.
+The exact pencil formula and both complex and integer trace identities
+use only standard foundations. The generic bound adds only Weil.
+No new external premise has been introduced, and the Lean, mathlib,
+manuscript, and PDF inputs remain fixed.
+
+**The full aggregate local verifier passed for all 84 modules, 416 theorem
+exports, four registered premise records, and nine pinned dependency
+revisions. GitHub CI for this new scope is still pending.** All 107 input
+hashes match the checked files. The independent baseline comparison
+confirmed that all 349 preceding complete theorem records are unchanged,
+including their actual types, axiom lists, source hashes, and scopes.
+All four registered premise records and all nine dependency revisions
+also match the preceding report exactly. The 67 new actual types and
+axiom lists match their earlier individual inspections.
+
+At the verification freeze, all 34 changed-file hashes matched the frozen
+snapshot. The 14 added inspected inputs are the 13 new Lean modules and
+the new source correspondence review. Among the preceding inspected
+inputs, only the root Lean imports, `Checks/Exports.lean`,
+`certification/status.json`, and `certification/dependency_inventory.json`
+changed. The frozen manuscript and PDF remain byte-for-byte unchanged.
+The subsequent edits record this successful execution in README and this
+checkpoint and preserve the exact report; the inspected proof inputs
+remain those checked by the successful aggregate run.
+
+The [current local verification report](certification/verification_report.json)
+contains 620,000 bytes and has SHA-256
+`d60c7a129061c59979ff52a1b79adca054ed97073fd0a527eb0a6d0663a1dca1`.
+It records 10 Certified and 32 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false. The preserved
+local and CI reports below retain their earlier scopes; none substitutes
+for the still-pending GitHub execution of this 416-export milestone.
+
+## Earlier checked checkpoints
+
+### Diagonal bad-prime local execution
+
+The preceding diagonal bad-prime milestone registered 349 theorem exports across 71 project
 Lean modules and 20 mapped source groups. The four registered literature
 premises are unchanged, as are the nine pinned dependency revisions.
 Source groups and Lean premise declarations remain separate counts.
 
-The five new modules have passed strict builds under official Lean 4.24.0
+Its five new modules passed strict builds under official Lean 4.24.0
 and the pinned mathlib revision, with `warningAsError=true` and
 `autoImplicit=false`. All 24 new actual theorem types and axiom dependencies
-have been inspected. They use only the standard foundations
+were inspected. They use only the standard foundations
 `Classical.choice`, `Quot.sound`, and `propext`; no new external premise is
 introduced, and the diagonal finiteness proof does not use elimination.
 
@@ -521,7 +665,7 @@ and contains 525,699 bytes. It records 9 Certified and 33 Pending numbered
 results, with zero Partial or Active results. All 33 auxiliary/supplementary
 groups remain Pending, and whole-paper certification remains false.
 
-### Diagonal GitHub execution
+### Diagonal bad-prime GitHub execution
 
 The published proof commit is
 [`09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6),
@@ -548,12 +692,11 @@ Lean version, and all verification flags and scope counts. The only
 differing fields are `generated_at_utc` and `lake_build_output`.
 
 Every recorded input hash also matches the files at the proof commit and
-the current checked source. All 24 new export records have only
+the checked source at that checkpoint. All 24 new export records have only
 `Classical.choice`, `Quot.sound`, and `propext` in their axiom lists.
-This evidence covers the complete 349-export diagonal milestone; the
-preceding runs below retain their original scopes.
-
-## Earlier checked checkpoints
+This evidence covers the complete 349-export diagonal bad-prime milestone.
+It does not cover the new 416-export pencil scope. The older runs below
+retain their original scopes.
 
 ### Polynomial Fourier local execution
 
@@ -919,31 +1062,32 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Lemma 4.6 remains Pending and is the next target. First establish the shared
-prime-field quadratic Gauss identities for the actual complex quadratic
-character and standard additive character, using mathlib's proved Gauss-sum
-square, nonvanishing, multiplicative-shift, and square-root counting
-theorems. The existing `stdAddChar_units_sum` already gives the prime
-Ramanujan values `p−1` at zero and `−1` otherwise.
+Complete Lemma 3.1, the source CRT lemma, is the next target. Work with
+the generic functions `ξ_p` of Section 3 and their squarefree product
+`ξ_q`, with the source's invariance under nonzero prime-field scalars.
+Define the actual constrained Fourier sum `C_q`, the unweighted sum
+`S_c`, and the mixed sum `𝒮_{q,c}`. Their residue-class definitions must
+include modulus one and prove `ξ_1=1`, `𝒮_{1,c}=S_c`, and
+`𝒮_{q,1}=C_q` with the source normalizations. Use `F(x) ≡ 0 mod q`
+to prove that the mixed summand is independent of the lift of its
+residue `a mod c` into the phase modulo `qc`.
 
-Define the literal `t_i`, `κ_i`, `Φ_u`, `ν_i`, and prime Ramanujan sum,
-then prove the exact pencil formula for `integralFourierSum`, retaining
-all four singular pencil members. Deduce the projective trace formula
-from zero frequency. Prove the generic `2p^(3/2)+4p` bound using the
-checked Weil estimate for separable cubics and an internal treatment of
-repeated-root cubics. Derive `p ≥ 5` from the four distinct `t_i`.
+The two required clauses are the actual CRT factorization
+`𝒮_{q,c}(u)=𝒮_{q′,c′}(u)𝒮_{q″,c″}(u)` when
+`q=q′q″`, `c=c′c″`, and `(q′c′,q″c″)=1`, and unit-frequency
+invariance `𝒮_{q,c}(tu)=𝒮_{q,c}(u)` for `(t,qc)=1`. The source
+weight invariance must justify the changes of variables. The prime
+specialization must be identified with the existing Fourier sum so the
+already checked Section 4 estimates can be applied to the literal
+local sums. The consequences include the prime factorization of `C_q`
+and multiplicativity of `S_c`.
 
-The preparatory source audit found no sign or normalization discrepancy.
-Remove the zero Gauss parameter before the substitution `v = s t` and
-inversion of `s`. For a singular member, set
-`Δ_i = ∏ j ≠ i, (b_j + t_i a_j)` and prove the literal identities
-`-Δ_i = κ_i / a_i^4` and `w_i = ν_i / (a_i^2 Δ_i)` in the prime field.
-The second multiplier is a unit, so the Ramanujan value is unchanged and
-acquires no character factor. Retain `ν_i = 0`, whose contribution can
-have size `p(p−1)`. The cubic estimate needs the affine Weil theorem,
-followed by the explicit repeated-root cases. These are implementation
-targets; no clause of Lemma 4.6 is yet recorded as kernel checked.
+The full Lemma 3.2 remains Pending. The scalar prime-field Gauss
+identities established for Lemma 4.6 supply one ingredient only. Its
+remaining clauses concern the actual general quaternary prime-power
+exponential sum, the recurrence `V_k=p⁴V_{k−2}`, the full Ramanujan
+formula for `S_{p^k}`, and the exact projective-quadric point count.
 
-The full prime-power Gauss lemma, Lemma 3.2, remains Pending; this branch
-needs only its shared one-dimensional prime-field helper. The analytic
-assembly leading to Theorems 1.1 and 1.4 remains Pending.
+All Section 4 lemmas are complete. Theorem 1.3 remains Pending because
+the global asymptotic has not been proved. The analytic assembly and
+Theorems 1.1 and 1.4 also remain Pending.

@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 9 · Partial: 0 · Active: 0 · Pending:
-33**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1–4.5 and 5.9 have
+The numbered-result counts are **Complete: 10 · Partial: 0 · Active: 0 · Pending:
+32**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -93,12 +93,22 @@ the six-factor product `M`, and the existing modulus equals `rad(|2αM|)`.
 Its proofs use only standard logical foundations, including the direct
 finiteness argument and the treatment of shared prime divisors.
 
+Lemma 4.6 is complete for the literal integral input data: the exact pencil
+formula retains all four singular members, zero frequency gives the actual
+integer projective trace, and the generic Fourier bound is
+`2p^(3/2)+4p`. The exact formula and trace use no external premise. The
+bound uses only the existing Weil premise, with repeated-root cubics
+handled internally. Theorem 1.3 remains Pending because its asymptotic
+clause still depends on Theorem 1.1.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 349 theorem exports across 71 Lean modules are
+numbered-result count. The 416 theorem exports across 84 Lean modules are
 also counted separately from the four external Lean premises. The current
-verification scope includes 93 hashed inputs.
+verification scope includes 107 hashed inputs and nine pinned dependency
+revisions. The 20 mapped source groups and four registered premises are
+unchanged; aggregate execution evidence is recorded in the checkpoint.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -158,6 +168,13 @@ no characteristic restriction or divisibility condition on the degrees.
 
 Existing results from official Lean and the pinned official
 [mathlib4](https://github.com/leanprover-community/mathlib4) may be reused.
+The prime-field quadratic Gauss identities needed for Lemma 4.6 are proved
+from those library results in
+[PrimeQuadraticGauss](QuaternaryQuadraticForms/PrimeQuadraticGauss.lean).
+The source's Gauss-sum citation does not introduce a fifth Lean premise.
+The exact pencil formula and trace use no literature premise, and the
+generic bound uses the already registered affine Weil estimate only in
+the separable cubic case.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -453,20 +470,86 @@ overlapping prime divisors, and `p = 3` outside `N_F` are covered. The
 [source review](certification/correspondence/diagonal_bad_primes.md) records
 the actual hypotheses and every clause.
 
+## Completed diagonal pencil formula and bound
+
+All three clauses of Lemma 4.6 are proved for the actual integral diagonal
+forms and frequencies, under the literal restriction `p ∤ 2αM`:
+
+1. [PrimeQuadraticGauss](QuaternaryQuadraticForms/PrimeQuadraticGauss.lean)
+   defines the actual complex quadratic Gauss sum and proves its
+   nonvanishing, square and fourth-power identities, Gauss inversion,
+   and the one-dimensional quadratic exponential sum. Completing the
+   square uses the standard additive character, and zero quadratic
+   coefficients have their separate exact evaluation.
+   [PrimeRamanujan](QuaternaryQuadraticForms/PrimeRamanujan.lean) defines
+   the actual sum over units and proves both values, including `R_p(0)=p−1`,
+   together with the reciprocal-phase identity.
+2. [DiagonalPencil](QuaternaryQuadraticForms/DiagonalPencil.lean) defines
+   the literal `t_i`, `κ_i`, `Φ_u`, `ν_i`, coefficient products, and
+   reciprocal phases. [DiagonalPencilAlgebra](QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean)
+   checks the field identities, all nonzero denominators, and distinctness
+   of the four singular parameters, which implies `p ≥ 5`.
+   [DiagonalPencilCubic](QuaternaryQuadraticForms/DiagonalPencilCubic.lean)
+   proves the formal degree bound and identifies the coefficient of `t³`
+   with the actual adjugate dual value `F*(u)`.
+3. [FourierOrthogonality](QuaternaryQuadraticForms/FourierOrthogonality.lean)
+   expands the actual quadric constraint and factors the four coordinate
+   sums. [FourierGaussExpansion](QuaternaryQuadraticForms/FourierGaussExpansion.lean)
+   removes the zero Gauss parameter before the substitution `v = s t`
+   and proves the exact identity `(p τ_p) C_p(u) = ∑_t rawSum(t)`.
+4. [DiagonalPencilEvaluation](QuaternaryQuadraticForms/DiagonalPencilEvaluation.lean)
+   evaluates each regular raw term as `p² τ_p χ_p(-Φ_u(t))`.
+   Each singular raw term is `p² τ_p χ_p(κ_i) R_p(ν_i(u))` when
+   `u_i=0`, and zero otherwise. The signs and powers follow from
+   `-Δ_i=κ_i/a_i⁴` and the exact nonzero factor relating `w_i` to
+   `ν_i(u)`. [DiagonalPencilFormula](QuaternaryQuadraticForms/DiagonalPencilFormula.lean)
+   splits the parameter sum into its complement and all four distinct
+   singular parameters, then cancels the proved nonzero factor `p τ_p`.
+5. [CubicCharacterSum](QuaternaryQuadraticForms/CubicCharacterSum.lean)
+   handles every cubic. The separable case uses the existing affine
+   Weil estimate. Over the perfect prime field, a nonseparable cubic
+   factors as `c (X-a)² (X-b)` with both roots in that field; its exact
+   character sum is `-χ_p(c(a-b))`, also covering the triple-root case.
+   Deleting the four singular parameters therefore costs at most four.
+6. [DiagonalPencilConsequences](QuaternaryQuadraticForms/DiagonalPencilConsequences.lean)
+   specializes zero frequency and the checked projective-ray identity
+   to obtain `a_p(G)=p ∑_i χ_p(κ_i)`. When every `u_i` and `F*(u)` are
+   nonzero, the singular sum vanishes, `Φ_u` has degree three, and the
+   cubic estimate gives `2p^(3/2)+4p`.
+7. [DiagonalPencilReduction](QuaternaryQuadraticForms/DiagonalPencilReduction.lean)
+   derives every field hypothesis from the source divisibility conditions
+   and verifies the coefficient maps of the dual form.
+   [DiagonalPencilTheorem](QuaternaryQuadraticForms/DiagonalPencilTheorem.lean)
+   gives the exact integral Fourier formula, the integer projective trace,
+   the generic bound, and one combined export for every clause.
+
+The [source correspondence review](certification/correspondence/diagonal_pencil.md)
+records the literal objects and normalization throughout this chain.
+The Gauss calculations, rational identities, singular terms, exact trace,
+and repeated-root argument use only standard logical foundations and
+proved library results. The final bound and combined theorem add only
+the existing Weil premise. No separability assumption is imposed on
+`Φ_u`, and neither `ν_i(u)=0` nor a vanishing coefficient `b_i` is excluded.
+
 ## Next proof branch
 
-Lemma 4.6 remains Pending and is the next target. First establish the
-shared one-dimensional prime-field Gauss identities using proved library
-results and the existing actual complex quadratic character and standard
-additive character. Define the literal `t_i`, `κ_i`, `Φ_u` and `ν_i`, and
-prove the exact Fourier pencil formula with all four singular members.
-Then deduce the zero-frequency projective trace and the generic
-`2p^(3/2)+4p` bound, including the repeated-root cubic cases. The four
-distinct `t_i` supply `p ≥ 5` in this later lemma.
+Lemma 3.1 remains Pending and is the next bounded target. Define the
+literal composite weights and complete sums `C_q`, `S_c`, and
+`𝒮_{q,c}`, then prove both CRT multiplicativity and invariance under unit
+scaling of the frequency, including the modulus-one cases. The phase in
+`𝒮_{q,c}` must be proved independent of the lift of `a mod c`, using the
+constraint `F(x)=0 mod q`. The direct prime-factor corollaries and the
+bridge to the existing prime Fourier sum connect the checked local
+estimates to the later composite-modulus arguments.
 
-The full prime-power statement of Lemma 3.2 remains Pending; proving a
-shared scalar helper does not certify its other clauses. The main analytic
-theorems remain Pending.
+The next step after that is all three clauses of Lemma 3.2. Its shared
+one-dimensional prime-field Gauss identities are now available, but
+general-matrix diagonalization, the prime-power recurrence and shifted
+evaluation, the Ramanujan formula, and the projective point count remain
+to be proved. Lemma 3.2 and the main analytic theorems remain Pending.
+In particular, the first two assertions of Theorem 1.3 now have checked
+inputs from Lemmas 4.5 and 4.6, while its asymptotic and explicit global
+factor clause still require Theorem 1.1; Theorem 1.3 remains Pending.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

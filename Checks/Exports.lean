@@ -352,7 +352,74 @@ run_cmd do
     `QuaternaryQuadraticForms.polynomialBadPrimeModulus_eq_primeRadical_of_bad_iff,
     `QuaternaryQuadraticForms.diagonal_badReductionPrimes_finite,
     `QuaternaryQuadraticForms.diagonal_badPrimeModulus,
-    `QuaternaryQuadraticForms.diagonal_bad_primes]
+    `QuaternaryQuadraticForms.diagonal_bad_primes,
+    `QuaternaryQuadraticForms.nonseparable_cubic_factorization,
+    `QuaternaryQuadraticForms.quadraticChar_repeated_cubic_sum,
+    `QuaternaryQuadraticForms.quadraticChar_nonseparable_cubic_sum_norm_le_one,
+    `QuaternaryQuadraticForms.quadraticChar_cubic_sum_norm_le,
+    `QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_norm_le,
+    `QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_four_norm_le,
+    `QuaternaryQuadraticForms.eval_diagonalPencilPhi,
+    `QuaternaryQuadraticForms.diagonalPencilCoeff_map,
+    `QuaternaryQuadraticForms.diagonalKappa_map,
+    `QuaternaryQuadraticForms.diagonalPencilPhi_map,
+    `QuaternaryQuadraticForms.diagonalPencilNu_map,
+    `QuaternaryQuadraticForms.diagonalPencilCoeff_eq_zero_iff,
+    `QuaternaryQuadraticForms.diagonalPencilCoeff_at_own_root,
+    `QuaternaryQuadraticForms.diagonalPencilCoeff_at_root,
+    `QuaternaryQuadraticForms.diagonalPencilCoeff_at_root_ne_zero,
+    `QuaternaryQuadraticForms.diagonalPencilRoot_injective,
+    `QuaternaryQuadraticForms.five_le_of_diagonalPencil_roots,
+    `QuaternaryQuadraticForms.diagonalPencilDelta_ne_zero,
+    `QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_ne_zero,
+    `QuaternaryQuadraticForms.diagonalPencilPhi_div_delta,
+    `QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_eq,
+    `QuaternaryQuadraticForms.neg_diagonalPencilDeltaAtRoot_eq,
+    `QuaternaryQuadraticForms.diagonalKappa_ne_zero,
+    `QuaternaryQuadraticForms.diagonalPencilW_eq,
+    `QuaternaryQuadraticForms.diagonal_projectiveTrace_eq,
+    `QuaternaryQuadraticForms.diagonal_projectiveQuadraticTrace_eq,
+    `QuaternaryQuadraticForms.diagonal_fourier_generic_bound_sqrt,
+    `QuaternaryQuadraticForms.diagonal_fourier_generic_bound,
+    `QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_le,
+    `QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three,
+    `QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three_eq_eval,
+    `QuaternaryQuadraticForms.eval_diagonalPencilPhi_eq_dual,
+    `QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_eq_three,
+    `QuaternaryQuadraticForms.diagonalPencilRawSum_regular,
+    `QuaternaryQuadraticForms.diagonalPencilRawSum_singular,
+    `QuaternaryQuadraticForms.mem_diagonalPencilRoots,
+    `QuaternaryQuadraticForms.diagonalPencilRoots_card_le,
+    `QuaternaryQuadraticForms.diagonalPencil_sum_split,
+    `QuaternaryQuadraticForms.diagonal_fourier_pencil_formula,
+    `QuaternaryQuadraticForms.diagonalPencil_reduced_data,
+    `QuaternaryQuadraticForms.diagonalPencil_dual_map,
+    `QuaternaryQuadraticForms.diagonalPencil_generic_reduction,
+    `QuaternaryQuadraticForms.integral_diagonal_fourier_pencil_formula,
+    `QuaternaryQuadraticForms.integral_diagonal_projectiveTrace_eq,
+    `QuaternaryQuadraticForms.integral_diagonal_fourier_bound,
+    `QuaternaryQuadraticForms.diagonal_pencil,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_phase_expansion,
+    `QuaternaryQuadraticForms.fourierSum_quadraticGauss_expansion,
+    `QuaternaryQuadraticForms.diagonal_fourier_pencil_expansion,
+    `QuaternaryQuadraticForms.stdAddChar_orthogonality,
+    `QuaternaryQuadraticForms.fourierSum_additive_expansion,
+    `QuaternaryQuadraticForms.stdAddChar_sum,
+    `QuaternaryQuadraticForms.diagonal_exponential_sum_factorization,
+    `QuaternaryQuadraticForms.complexQuadraticChar_sq_apply,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_ne_zero,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_sq,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_fourth,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_inversion,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_units_inversion,
+    `QuaternaryQuadraticForms.primeQuadraticGauss_units_div_inversion,
+    `QuaternaryQuadraticForms.primeQuadraticExponentialSum_zero,
+    `QuaternaryQuadraticForms.primeQuadraticExponentialSum_unshifted,
+    `QuaternaryQuadraticForms.primeQuadraticExponentialSum_of_ne_zero,
+    `QuaternaryQuadraticForms.primeRamanujan_eq,
+    `QuaternaryQuadraticForms.primeRamanujan_mul,
+    `QuaternaryQuadraticForms.primeRamanujan_inverse_sum,
+    `QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -1435,3 +1502,204 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.diagonal_bad_primes
 #print axioms QuaternaryQuadraticForms.diagonal_bad_primes
+
+#check @QuaternaryQuadraticForms.nonseparable_cubic_factorization
+#print axioms QuaternaryQuadraticForms.nonseparable_cubic_factorization
+
+#check @QuaternaryQuadraticForms.quadraticChar_repeated_cubic_sum
+#print axioms QuaternaryQuadraticForms.quadraticChar_repeated_cubic_sum
+
+#check @QuaternaryQuadraticForms.quadraticChar_nonseparable_cubic_sum_norm_le_one
+#print axioms QuaternaryQuadraticForms.quadraticChar_nonseparable_cubic_sum_norm_le_one
+
+#check @QuaternaryQuadraticForms.quadraticChar_cubic_sum_norm_le
+#print axioms QuaternaryQuadraticForms.quadraticChar_cubic_sum_norm_le
+
+#check @QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_norm_le
+#print axioms QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_norm_le
+
+#check @QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_four_norm_le
+#print axioms QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_four_norm_le
+
+#check @QuaternaryQuadraticForms.eval_diagonalPencilPhi
+#print axioms QuaternaryQuadraticForms.eval_diagonalPencilPhi
+
+#check @QuaternaryQuadraticForms.diagonalPencilCoeff_map
+#print axioms QuaternaryQuadraticForms.diagonalPencilCoeff_map
+
+#check @QuaternaryQuadraticForms.diagonalKappa_map
+#print axioms QuaternaryQuadraticForms.diagonalKappa_map
+
+#check @QuaternaryQuadraticForms.diagonalPencilPhi_map
+#print axioms QuaternaryQuadraticForms.diagonalPencilPhi_map
+
+#check @QuaternaryQuadraticForms.diagonalPencilNu_map
+#print axioms QuaternaryQuadraticForms.diagonalPencilNu_map
+
+#check @QuaternaryQuadraticForms.diagonalPencilCoeff_eq_zero_iff
+#print axioms QuaternaryQuadraticForms.diagonalPencilCoeff_eq_zero_iff
+
+#check @QuaternaryQuadraticForms.diagonalPencilCoeff_at_own_root
+#print axioms QuaternaryQuadraticForms.diagonalPencilCoeff_at_own_root
+
+#check @QuaternaryQuadraticForms.diagonalPencilCoeff_at_root
+#print axioms QuaternaryQuadraticForms.diagonalPencilCoeff_at_root
+
+#check @QuaternaryQuadraticForms.diagonalPencilCoeff_at_root_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonalPencilCoeff_at_root_ne_zero
+
+#check @QuaternaryQuadraticForms.diagonalPencilRoot_injective
+#print axioms QuaternaryQuadraticForms.diagonalPencilRoot_injective
+
+#check @QuaternaryQuadraticForms.five_le_of_diagonalPencil_roots
+#print axioms QuaternaryQuadraticForms.five_le_of_diagonalPencil_roots
+
+#check @QuaternaryQuadraticForms.diagonalPencilDelta_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonalPencilDelta_ne_zero
+
+#check @QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_ne_zero
+
+#check @QuaternaryQuadraticForms.diagonalPencilPhi_div_delta
+#print axioms QuaternaryQuadraticForms.diagonalPencilPhi_div_delta
+
+#check @QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_eq
+#print axioms QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_eq
+
+#check @QuaternaryQuadraticForms.neg_diagonalPencilDeltaAtRoot_eq
+#print axioms QuaternaryQuadraticForms.neg_diagonalPencilDeltaAtRoot_eq
+
+#check @QuaternaryQuadraticForms.diagonalKappa_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonalKappa_ne_zero
+
+#check @QuaternaryQuadraticForms.diagonalPencilW_eq
+#print axioms QuaternaryQuadraticForms.diagonalPencilW_eq
+
+#check @QuaternaryQuadraticForms.diagonal_projectiveTrace_eq
+#print axioms QuaternaryQuadraticForms.diagonal_projectiveTrace_eq
+
+#check @QuaternaryQuadraticForms.diagonal_projectiveQuadraticTrace_eq
+#print axioms QuaternaryQuadraticForms.diagonal_projectiveQuadraticTrace_eq
+
+#check @QuaternaryQuadraticForms.diagonal_fourier_generic_bound_sqrt
+#print axioms QuaternaryQuadraticForms.diagonal_fourier_generic_bound_sqrt
+
+#check @QuaternaryQuadraticForms.diagonal_fourier_generic_bound
+#print axioms QuaternaryQuadraticForms.diagonal_fourier_generic_bound
+
+#check @QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_le
+#print axioms QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_le
+
+#check @QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three
+#print axioms QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three
+
+#check @QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three_eq_eval
+#print axioms QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three_eq_eval
+
+#check @QuaternaryQuadraticForms.eval_diagonalPencilPhi_eq_dual
+#print axioms QuaternaryQuadraticForms.eval_diagonalPencilPhi_eq_dual
+
+#check @QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_eq_three
+#print axioms QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_eq_three
+
+#check @QuaternaryQuadraticForms.diagonalPencilRawSum_regular
+#print axioms QuaternaryQuadraticForms.diagonalPencilRawSum_regular
+
+#check @QuaternaryQuadraticForms.diagonalPencilRawSum_singular
+#print axioms QuaternaryQuadraticForms.diagonalPencilRawSum_singular
+
+#check @QuaternaryQuadraticForms.mem_diagonalPencilRoots
+#print axioms QuaternaryQuadraticForms.mem_diagonalPencilRoots
+
+#check @QuaternaryQuadraticForms.diagonalPencilRoots_card_le
+#print axioms QuaternaryQuadraticForms.diagonalPencilRoots_card_le
+
+#check @QuaternaryQuadraticForms.diagonalPencil_sum_split
+#print axioms QuaternaryQuadraticForms.diagonalPencil_sum_split
+
+#check @QuaternaryQuadraticForms.diagonal_fourier_pencil_formula
+#print axioms QuaternaryQuadraticForms.diagonal_fourier_pencil_formula
+
+#check @QuaternaryQuadraticForms.diagonalPencil_reduced_data
+#print axioms QuaternaryQuadraticForms.diagonalPencil_reduced_data
+
+#check @QuaternaryQuadraticForms.diagonalPencil_dual_map
+#print axioms QuaternaryQuadraticForms.diagonalPencil_dual_map
+
+#check @QuaternaryQuadraticForms.diagonalPencil_generic_reduction
+#print axioms QuaternaryQuadraticForms.diagonalPencil_generic_reduction
+
+#check @QuaternaryQuadraticForms.integral_diagonal_fourier_pencil_formula
+#print axioms QuaternaryQuadraticForms.integral_diagonal_fourier_pencil_formula
+
+#check @QuaternaryQuadraticForms.integral_diagonal_projectiveTrace_eq
+#print axioms QuaternaryQuadraticForms.integral_diagonal_projectiveTrace_eq
+
+#check @QuaternaryQuadraticForms.integral_diagonal_fourier_bound
+#print axioms QuaternaryQuadraticForms.integral_diagonal_fourier_bound
+
+#check @QuaternaryQuadraticForms.diagonal_pencil
+#print axioms QuaternaryQuadraticForms.diagonal_pencil
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_phase_expansion
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_phase_expansion
+
+#check @QuaternaryQuadraticForms.fourierSum_quadraticGauss_expansion
+#print axioms QuaternaryQuadraticForms.fourierSum_quadraticGauss_expansion
+
+#check @QuaternaryQuadraticForms.diagonal_fourier_pencil_expansion
+#print axioms QuaternaryQuadraticForms.diagonal_fourier_pencil_expansion
+
+#check @QuaternaryQuadraticForms.stdAddChar_orthogonality
+#print axioms QuaternaryQuadraticForms.stdAddChar_orthogonality
+
+#check @QuaternaryQuadraticForms.fourierSum_additive_expansion
+#print axioms QuaternaryQuadraticForms.fourierSum_additive_expansion
+
+#check @QuaternaryQuadraticForms.stdAddChar_sum
+#print axioms QuaternaryQuadraticForms.stdAddChar_sum
+
+#check @QuaternaryQuadraticForms.diagonal_exponential_sum_factorization
+#print axioms QuaternaryQuadraticForms.diagonal_exponential_sum_factorization
+
+#check @QuaternaryQuadraticForms.complexQuadraticChar_sq_apply
+#print axioms QuaternaryQuadraticForms.complexQuadraticChar_sq_apply
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_ne_zero
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_ne_zero
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_sq
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_sq
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_fourth
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_fourth
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_inversion
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_inversion
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_units_inversion
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_units_inversion
+
+#check @QuaternaryQuadraticForms.primeQuadraticGauss_units_div_inversion
+#print axioms QuaternaryQuadraticForms.primeQuadraticGauss_units_div_inversion
+
+#check @QuaternaryQuadraticForms.primeQuadraticExponentialSum_zero
+#print axioms QuaternaryQuadraticForms.primeQuadraticExponentialSum_zero
+
+#check @QuaternaryQuadraticForms.primeQuadraticExponentialSum_unshifted
+#print axioms QuaternaryQuadraticForms.primeQuadraticExponentialSum_unshifted
+
+#check @QuaternaryQuadraticForms.primeQuadraticExponentialSum_of_ne_zero
+#print axioms QuaternaryQuadraticForms.primeQuadraticExponentialSum_of_ne_zero
+
+#check @QuaternaryQuadraticForms.primeRamanujan_eq
+#print axioms QuaternaryQuadraticForms.primeRamanujan_eq
+
+#check @QuaternaryQuadraticForms.primeRamanujan_mul
+#print axioms QuaternaryQuadraticForms.primeRamanujan_mul
+
+#check @QuaternaryQuadraticForms.primeRamanujan_inverse_sum
+#print axioms QuaternaryQuadraticForms.primeRamanujan_inverse_sum
+
+#check @QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase
+#print axioms QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase

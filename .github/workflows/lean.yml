@@ -82,7 +82,10 @@ jobs:
             Mathlib.Analysis.SpecialFunctions.Pow.Real \
             Mathlib.Tactic.Linarith \
             Mathlib.Tactic.LinearCombination \
-            Mathlib.Data.Nat.PrimeFin
+            Mathlib.Data.Nat.PrimeFin \
+            Mathlib.NumberTheory.GaussSum \
+            Mathlib.Algebra.Polynomial.BigOperators \
+            Mathlib.FieldTheory.Perfect
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

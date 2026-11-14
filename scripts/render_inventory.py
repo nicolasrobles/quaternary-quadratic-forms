@@ -86,18 +86,20 @@ lines = [
     f'{counts["Partial"]} {"is" if counts["Partial"] == 1 else "are"} partial, '
     f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint completes Lemma 4.5: characteristic-zero "
-    "smoothness of the actual diagonal pair, geometric bad reduction "
-    "exactly at primes dividing M outside N_F, and the identity of the "
-    "existing modulus with rad(|2αM|). The actual gradient minors and "
-    "algebraic-closure witness are proved, and finiteness follows directly "
-    "from the six-factor product M. Shared prime divisors are counted once. "
-    "All new exports use only standard logical foundations; the four "
+    "The current checkpoint completes every clause of Lemma 4.6 for the "
+    "literal integral diagonal forms and frequencies: the exact pencil "
+    "formula with all four singular members, the integer projective trace, "
+    "and the generic bound 2p^(3/2)+4p. The prime restriction p ∤ 2αM "
+    "supplies the field hypotheses internally. The exact formula and trace "
+    "use no external premise; the bound uses only the existing Weil premise, "
+    "with repeated-root cubics handled internally. The prime-field Gauss "
+    "identities are proved using official mathlib results, so the four "
     "registered literature premises remain unchanged. Lemmas 2.5, 2.7, "
-    "4.1–4.4 and 5.9 and Corollary 2.6 remain certified. No numbered "
-    "result remains Partial. "
-    "Theorems 1.1 and 1.4 remain Pending. "
-    f"The {auxiliary_total} auxiliary and supplementary groups are tracked separately; "
+    "4.1–4.5 and 5.9 and Corollary 2.6 remain certified, including the "
+    "exact diagonal bad-prime modulus rad(|2αM|). No numbered result "
+    "remains Partial. Theorems 1.1, 1.3 and 1.4 remain Pending: the "
+    "asymptotic clause of Theorem 1.3 still depends on Theorem 1.1. "
+    f"All {auxiliary_total} auxiliary and supplementary groups remain Pending and are tracked separately; "
     "these are groups of assertions, not additional numbered results.", "",
     f'The verification scope contains **{len(status["supporting_exports"])} proved exports**, '
     f'**{len(proof_files)} proof modules**, and **{len(verification_inputs)} hashed input files**. '
@@ -196,14 +198,16 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Complete Lemma 4.6, beginning with the shared one-dimensional prime-field "
-    "Gauss identities needed for its actual Fourier pencil calculation. "
-    "Define the literal t_i, κ_i, Φ_u and ν_i, retain all four singular "
-    "pencil members in the exact formula, then deduce the zero-frequency "
-    "trace and the bound 2p^(3/2)+4p, including repeated-root cubics. "
-    "Lemma 4.6 remains Pending until every clause passes source review and "
-    "kernel checking. The shared Gauss helpers do not by themselves certify "
-    "the full prime-power statement of Lemma 3.2.", "",
+    "Complete Lemma 3.1, which remains Pending. Define the literal composite "
+    "weights and complete sums C_q, S_c and 𝒮_{q,c}, then prove both CRT "
+    "multiplicativity and invariance under unit scaling of the frequency, "
+    "including modulus-one cases and independence of the lift of a mod c. "
+    "Establish the direct prime-factor corollaries and the bridge to the "
+    "existing prime Fourier sum. After this, complete all three clauses "
+    "of Lemma 3.2: its shared one-dimensional prime-field Gauss identities "
+    "are now available, while the general quaternary prime-power evaluation, "
+    "recurrence, Ramanujan identity and projective point count remain to be "
+    "proved. Lemma 3.2 and Theorem 1.3 remain Pending.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -231,6 +235,12 @@ for key, entry in graph["external_input_catalog"].items():
     links += [f'Component of [{BT}{r["declaration"]}{BT}]({r["file"]}) '
               "(no separate premise declaration)" for r in components]
     interfaces = "; ".join(links) or "Pending"
+    if key == "EXT.MV_GAUSS" and not links:
+        interfaces = (
+            "Needed prime-field identities [proved using official mathlib]"
+            "(QuaternaryQuadraticForms/PrimeQuadraticGauss.lean); "
+            "no external premise declaration"
+        )
     trusted.append(f'| {BT}{key}{BT} | [{cell(entry["reference"])}], '
                    f'{cell(entry["locator"])} | {cell(entry["scope"])} | {interfaces} |')
 trusted += ["", "## Registered premise inspection", ""]
@@ -263,7 +273,8 @@ trusted += [
     "## Dependencies of proved exports", "",
     "The matrix geometry, ordered gradient minors, homogeneous coefficient "
     "reconstruction, coefficient specialization, polynomial-height estimates, "
-    "and finite-product arithmetic use only the standard logical foundations. "
+    "finite-product arithmetic, prime-field Gauss calculations and exact "
+    "diagonal pencil evaluations use only the standard logical foundations. "
     "The ledger records " + str(weil_exports) + " exports with the exact Weil "
     "premise, " + str(katz_exports) + " with the general Katz surface premise, "
     + str(lang_exports) + " with the Lang resultant premise, and "
@@ -306,6 +317,17 @@ trusted += [
     "geometric singular witness, coefficient reduction, direct finiteness "
     "from M and exact radical product are proved using standard logical "
     "foundations and proved library results.", "",
+    "The complete diagonal pencil lemma, Lemma 4.6, retains every regular "
+    "and singular member of the actual Fourier sum. Its Gauss identities, "
+    "reciprocal phases, Ramanujan factors and exact integer projective "
+    "trace are proved internally with official mathlib results and no "
+    "registered literature premise. The generic bound uses only the "
+    "existing affine Weil premise in the separable cubic case. A "
+    "nonseparable cubic is factored over the perfect prime field, and "
+    "its character sum is evaluated exactly, so no separability "
+    "assumption survives in the final bound. The needed Gauss "
+    "specialization does not introduce a new premise or certify all "
+    "three clauses of the prime-power Lemma 3.2.", "",
     "The Katz premise explicitly combines its spectral theorem and trace formula "
     "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
     "formulas. The matrix-quadric geometry, the numerical coefficient "

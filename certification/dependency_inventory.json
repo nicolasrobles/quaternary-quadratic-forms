@@ -1737,9 +1737,10 @@
       ],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "The direct pencil identity and generic estimate do not require the general geometric Fourier bound; the Lemma4.4 dependency belongs to the trace clause.",
-        "The four singular pencil members are retained explicitly, including their Ramanujan factors.",
-        "Repeated-root cubics are treated separately and use p>=5, which follows from the four distinct t_i."
+        "Complete Lean proof for all three clauses uses the actual integral Fourier sum and integer projective trace under the literal p not dividing 2 alpha M condition. Source coefficient maps and the integer singular-coordinate divisibility filter are proved explicitly.",
+        "The exact pencil formula and trace use no literature premise. Additive orthogonality, actual quadratic Gauss identities, removal of the zero Gauss term, the v=s*t substitution and all four singular members are internally proved; the nu_i=0 Ramanujan case is retained.",
+        "The actual cubic leading coefficient is the adjugate dual value F*(u), and the four distinct singular parameters give p>=5. Perfectness and polynomial factorization handle repeated-root cubics internally; only the separable cubic bound uses the unchanged registered Weil premise.",
+        "The new prime-field scalar Gauss helpers do not certify the separate general prime-power and counting clauses of Lemma 3.2. The global asymptotic clause of Theorem 1.3 remains Pending."
       ],
       "shared_proof_references": [
         {

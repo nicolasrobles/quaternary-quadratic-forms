@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete diagonal bad-prime criterion and exact radical formula for the intrinsic modulus",
+  "checkpoint": "Complete diagonal Fourier pencil formula, exact projective trace, and generic cubic character-sum bound",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -179,8 +179,21 @@
       "scope_note": "Complete Lemma 4.5 using only standard logical foundations. The literal diagonal polynomials, gradient minors, algebraic-closure witness, coefficient reduction, exact bad-prime set and radical product are proved internally. The final theorem uses nonzero alpha and the six i<j differences; it allows zero b_i, negative coefficients and M, overlapping prime divisors, and p=3 outside N_F. The unused nonsquare-determinant hypothesis is omitted. No elimination or other registered literature premise is used."
     },
     "lem:pencil": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.integral_diagonal_fourier_pencil_formula",
+        "QuaternaryQuadraticForms.integral_diagonal_projectiveTrace_eq",
+        "QuaternaryQuadraticForms.integral_diagonal_fourier_bound",
+        "QuaternaryQuadraticForms.diagonal_pencil"
+      ],
+      "correspondence_record": "certification/correspondence/diagonal_pencil.md",
+      "completed_clauses": [
+        "The exact formula for the existing integralFourierSum at every integral frequency, with the mapped literal cubic Phi, all four actual singular parameters, integer p-divisibility of each singular coordinate, and the full kappa/Ramanujan factors including nu=0.",
+        "The actual integer integralProjectiveQuadraticTrace equals p times the sum of the four quadratic-character values of the source kappa_i, deduced from the exact zero-frequency identity.",
+        "The norm of the actual integralFourierSum is at most 2*p^(3/2)+4*p under the literal nondivisibility of F*(u)*u_1*u_2*u_3*u_4, with F* evaluated by the adjugate and both separable and repeated-root cubic cases covered."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 4.6 under primality and the literal integer restriction p not dividing 2*alpha*M. The prime-field hypotheses and p>=5 follow internally. The exact formula and trace use only standard logical foundations; the generic bound and final conjunction use only the existing Weil premise in addition. Positive Fourier phase, zero b_i, all four singular members, nu_i=0, the actual dual leading coefficient, and repeated-root descent over the perfect prime field are included. No new premise, separability assumption, or source-level nonvanishing hypothesis is introduced. Theorem 1.3 and the full prime-power Lemma 3.2 remain Pending."
     },
     "prop:analytic": {
       "status": "Pending",
@@ -5540,6 +5553,1103 @@
         "eq:NG"
       ],
       "scope": "Complete Lemma 4.5: characteristic-zero smoothness, exact bad reduction iff p divides M away from N_F, and the radical identity for the existing modulus with finiteness supplied internally.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.nonseparable_cubic_factorization",
+      "file": "QuaternaryQuadraticForms/CubicCharacterSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagbound"
+      ],
+      "scope": "A repeated root of a cubic over a perfect field descends to that field. The two roots in this factorization are allowed to coincide.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticChar_repeated_cubic_sum",
+      "file": "QuaternaryQuadraticForms/CubicCharacterSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagbound"
+      ],
+      "scope": "The exact repeated-root cubic sum. If the two roots coincide, both sides vanish; otherwise the sum consists of one omitted character value.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticChar_nonseparable_cubic_sum_norm_le_one",
+      "file": "QuaternaryQuadraticForms/CubicCharacterSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagbound"
+      ],
+      "scope": "A nonseparable cubic has quadratic character sum of norm at most one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticChar_cubic_sum_norm_le",
+      "file": "QuaternaryQuadraticForms/CubicCharacterSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagbound"
+      ],
+      "scope": "The quadratic character sum of every cubic, including repeated-root cubics, satisfies the same degree-three Weil bound.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_norm_le",
+      "file": "QuaternaryQuadraticForms/CubicCharacterSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagbound"
+      ],
+      "scope": "Removing a finite set costs at most its cardinality, with no separability condition on the cubic.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticChar_cubic_sum_sdiff_four_norm_le",
+      "file": "QuaternaryQuadraticForms/CubicCharacterSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagbound"
+      ],
+      "scope": "The four excluded pencil parameters contribute at most four to the unscaled cubic character sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_diagonalPencilPhi",
+      "file": "QuaternaryQuadraticForms/DiagonalPencil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef"
+      ],
+      "scope": "Evaluation of `Φ_u` is the source sum of complementary coefficient products.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilCoeff_map",
+      "file": "QuaternaryQuadraticForms/DiagonalPencil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef"
+      ],
+      "scope": "Coefficient homomorphisms preserve the pencil coefficients.",
+      "allowed_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalKappa_map",
+      "file": "QuaternaryQuadraticForms/DiagonalPencil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef"
+      ],
+      "scope": "Coefficient homomorphisms preserve the source `κ_i`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilPhi_map",
+      "file": "QuaternaryQuadraticForms/DiagonalPencil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef"
+      ],
+      "scope": "The formal polynomial `Φ_u` commutes with coefficient maps.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilNu_map",
+      "file": "QuaternaryQuadraticForms/DiagonalPencil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef"
+      ],
+      "scope": "Coefficient homomorphisms preserve the actual forms `ν_i`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilCoeff_eq_zero_iff",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The vanishing parameter of the `i`th pencil coefficient is `-b_i/a_i`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilCoeff_at_own_root",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The indicated coefficient vanishes at its own singular parameter.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilCoeff_at_root",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "Evaluation at another coefficient's root gives the literal pair difference divided by its first coefficient.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilCoeff_at_root_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "Distinct pair ratios make all three remaining coefficients nonzero.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilRoot_injective",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The four actual singular parameters are distinct.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.five_le_of_diagonalPencil_roots",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "A prime field containing the four distinct singular parameters has at least five elements.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilDelta_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "Away from the four roots, the full coefficient product is nonzero.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The product of the three surviving coefficients is nonzero.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilPhi_div_delta",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The regular pencil phase is the source numerator divided by the actual product of the four coefficients.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilDeltaAtRoot_eq",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The surviving product is the three pair differences divided by `a_i³`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.neg_diagonalPencilDeltaAtRoot_eq",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The sign and fourth-power factor in the source singular Gauss term.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalKappa_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The source singular coefficient is nonzero under the same literal pair-difference assumptions.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilW_eq",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilAlgebra.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:kappadef",
+        "eq:exactpencil"
+      ],
+      "scope": "The singular reciprocal phase equals the actual source form `ν_i` divided by its explicit nonzero scalar denominator.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_projectiveTrace_eq",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilConsequences.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "The diagonal projective trace is the sum of the four singular-pencil characters, multiplied by the prime.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_projectiveQuadraticTrace_eq",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilConsequences.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "The same identity holds for the literal integer-valued projective trace.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_fourier_generic_bound_sqrt",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilConsequences.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "Nonzero coordinate frequencies remove all singular members; the remaining cubic sum gives the explicit square-root bound.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_fourier_generic_bound",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilConsequences.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "The generic-frequency conclusion in the source's real `3/2` exponent notation, for the actual diagonal Fourier sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_le",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilCubic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:diagbound"
+      ],
+      "scope": "The actual source pencil polynomial has degree at most three over every commutative coefficient ring.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilCubic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:diagbound"
+      ],
+      "scope": "The cubic coefficient is exactly `F*(u)`, evaluated using the adjugate of the actual diagonal matrix of `F`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilPhi_coeff_three_eq_eval",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilCubic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:diagbound"
+      ],
+      "scope": "The same leading coefficient equals evaluation of the literal dual matrix polynomial, not merely a separate numerical expression.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_diagonalPencilPhi_eq_dual",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilCubic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:diagbound"
+      ],
+      "scope": "At each parameter, `Φ_u(t)` is the dual quadratic form of `G + t F`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilPhi_natDegree_eq_three",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilCubic.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilforms",
+        "eq:diagbound"
+      ],
+      "scope": "Nonvanishing of the actual dual value makes the pencil genuinely cubic.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilRawSum_regular",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilEvaluation.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilsum",
+        "eq:exactpencil"
+      ],
+      "scope": "The exact contribution of a regular pencil member, before division by the orthogonality and Gauss factors.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilRawSum_singular",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilEvaluation.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:pencilsum",
+        "eq:exactpencil"
+      ],
+      "scope": "The exact contribution of every singular pencil member. The formula keeps the full Ramanujan sum when `ν_i(u)` is zero.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_diagonalPencilRoots",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilFormula.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil"
+      ],
+      "scope": "Membership names one of the four actual singular parameters.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencilRoots_card_le",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilFormula.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil"
+      ],
+      "scope": "There are at most four excluded parameters, even before distinctness has been deduced from the pair determinants.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencil_sum_split",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilFormula.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil"
+      ],
+      "scope": "The sum over all parameters splits into regular parameters and the four singular members once their parameters are distinct.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_fourier_pencil_formula",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilFormula.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil"
+      ],
+      "scope": "The exact Fourier pencil identity, including all four singular members and their full prime Ramanujan factors.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencil_reduced_data",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagbound"
+      ],
+      "scope": "The literal source good-prime restriction supplies odd characteristic, nonzero first coefficients, and all nonzero pair differences after reduction.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencil_dual_map",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagbound"
+      ],
+      "scope": "Coefficient maps preserve the actual adjugate dual value of the first diagonal form.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPencil_generic_reduction",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagbound"
+      ],
+      "scope": "The literal generic-frequency nondivisibility gives the needed nonzero coordinates and nonzero dual value in the prime field.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integral_diagonal_fourier_pencil_formula",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "The exact pencil formula for the actual integral input data, with literal divisibility in the singular-member filter.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integral_diagonal_projectiveTrace_eq",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "The source trace identity as an equality of the actual integer sums.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integral_diagonal_fourier_bound",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "The generic bound under the literal source nondivisibility of `F*(u) u_1 u_2 u_3 u_4`, including all cubic multiplicity cases.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_pencil",
+      "file": "QuaternaryQuadraticForms/DiagonalPencilTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:exactpencil",
+        "eq:diagtrace",
+        "eq:diagbound"
+      ],
+      "scope": "Every clause of Lemma 4.6: the exact pencil formula, integer projective trace, and generic Fourier bound, all for the source integral data.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_phase_expansion",
+      "file": "QuaternaryQuadraticForms/FourierGaussExpansion.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "eq:Cpsi"
+      ],
+      "scope": "Gauss inversion with the additional Fourier phase.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_quadraticGauss_expansion",
+      "file": "QuaternaryQuadraticForms/FourierGaussExpansion.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "eq:Cpsi"
+      ],
+      "scope": "The actual cone Fourier sum after additive orthogonality and quadratic Gauss inversion. The zero Gauss parameter has already been removed.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_fourier_pencil_expansion",
+      "file": "QuaternaryQuadraticForms/FourierGaussExpansion.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "eq:Cpsi"
+      ],
+      "scope": "The source pencil expansion, with the exact four one-dimensional quadratic factors and every value of the pencil parameter retained.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_orthogonality",
+      "file": "QuaternaryQuadraticForms/FourierOrthogonality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:Cpsi",
+        "eq:pencilsum"
+      ],
+      "scope": "Orthogonality of the actual standard additive character.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_additive_expansion",
+      "file": "QuaternaryQuadraticForms/FourierOrthogonality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:Cpsi",
+        "eq:pencilsum"
+      ],
+      "scope": "The cone condition in the literal Fourier sum is an additive-character average. This identity does not require nonsingularity or smoothness.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_sum",
+      "file": "QuaternaryQuadraticForms/FourierOrthogonality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:Cpsi",
+        "eq:pencilsum"
+      ],
+      "scope": "An additive character carries a finite sum to the product of its values.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_exponential_sum_factorization",
+      "file": "QuaternaryQuadraticForms/FourierOrthogonality.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:Cpsi",
+        "eq:pencilsum"
+      ],
+      "scope": "The actual four-variable diagonal exponential sum factors into the one-dimensional quadratic sums used in the pencil calculation.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.complexQuadraticChar_sq_apply",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "A nonzero argument has quadratic-character square equal to one. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_ne_zero",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "The actual quadratic Gauss sum is nonzero at every odd prime. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_sq",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "The square identity for the actual quadratic Gauss sum. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_fourth",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "The fourth power is `p²`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_inversion",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "Quadratic Gauss inversion at every frequency, including zero. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_units_inversion",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "Removing the zero term gives the same inversion identity over units. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticGauss_units_div_inversion",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "Inversion permutes the nonzero scalars and leaves the quadratic character unchanged, giving the reciprocal phase used in the pencil sum. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticExponentialSum_zero",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "The zero-quadratic-coefficient case is exact additive orthogonality. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticExponentialSum_unshifted",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "Counting the square roots of each field element gives the exact unshifted quadratic exponential sum for a nonzero quadratic coefficient. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeQuadraticExponentialSum_of_ne_zero",
+      "file": "QuaternaryQuadraticForms/PrimeQuadraticGauss.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:gaussinv",
+        "eq:pencilsum",
+        "lem:gauss"
+      ],
+      "scope": "Completing the square in the actual finite sum gives the exact formula for every nonzero quadratic coefficient and every linear coefficient. This is a shared one-dimensional prime-field helper; the full prime-power Lemma 3.2 remains Pending.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeRamanujan_eq",
+      "file": "QuaternaryQuadraticForms/PrimeRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:ramanujan",
+        "eq:exactpencil"
+      ],
+      "scope": "The two exact prime Ramanujan values.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeRamanujan_mul",
+      "file": "QuaternaryQuadraticForms/PrimeRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:ramanujan",
+        "eq:exactpencil"
+      ],
+      "scope": "Multiplying the argument by a nonzero field element preserves the sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeRamanujan_inverse_sum",
+      "file": "QuaternaryQuadraticForms/PrimeRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:ramanujan",
+        "eq:exactpencil"
+      ],
+      "scope": "Inversion permutes the nonzero residue classes in the Ramanujan sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeRamanujan_reciprocal_phase",
+      "file": "QuaternaryQuadraticForms/PrimeRamanujan.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:pencil",
+        "eq:ramanujan",
+        "eq:exactpencil"
+      ],
+      "scope": "The reciprocal phase in a singular pencil member gives exactly the same Ramanujan value, including when its argument vanishes.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
