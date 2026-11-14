@@ -77,10 +77,27 @@ correspondence records are included in the verification report's input hashes.
 
 ## GitHub execution
 
-The completed proof sources and local verification report are ready for the
-same verifier in GitHub Actions. Its exact checked commit and downloaded
-report will be recorded here after the new run succeeds. The successful
-runs below concern earlier completed checkpoints.
+The same verifier passed in GitHub Actions at the exact proof commit
+[450ff678b56b0a32a76b848278b53ba697958939](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/450ff678b56b0a32a76b848278b53ba697958939).
+
+- [Successful run 43551946447, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447).
+- Verification job: 132316195320.
+- Artifact: 14096052644.
+- [Preserved CI report](certification/ci/run_43551946447_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43551946447_attempt_1.zip).
+- ZIP SHA-256: e12b55a4ff9e680d68950cb410628f89b3319b2268b9e86361396c92e96fe73a.
+- Report SHA-256: ac477c5d4e3d1b48f242946e1228a83226e3690eaee1dbbc971f5ccebd48f8d5.
+
+The downloaded artifact was inspected. All 30 recorded input hashes match
+the checked local files, including the four correspondence records. All 68
+theorem records and the separately inspected literature-input record match
+the local actual types and axiom dependencies. The CI report records two
+Certified, two Partial, and 38 Pending numbered results, with one registered
+external mathematical premise.
+
+The later commit preserving this evidence changes documentation and evidence
+records only. The proof sources, checker, status ledger, and correspondence
+records remain those of the checked proof commit linked above.
 
 ## Earlier checked checkpoints
 

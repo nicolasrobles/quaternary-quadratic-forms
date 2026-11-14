@@ -32,6 +32,10 @@ remain Pending. This repository does not yet provide a certificate for the
 whole paper. The execution checkpoint records the exact scope and evidence
 for each verification run.
 
+This checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447)
+at [proof commit 450ff67](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/450ff678b56b0a32a76b848278b53ba697958939).
+The downloaded CI report and original artifact are preserved in the repository.
+
 - [Certification inventory, with links to checked exports](INVENTORY.md)
 - [Dependency graphs and the proof structure](DEPENDENCIES.md)
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
