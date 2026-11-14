@@ -30,8 +30,8 @@ sum. No restriction that the characteristic be prime to the degree is added.
 **Lemma 2.7 is now Certified.**
 The exact quadric trace bound follows from the registered general Katz/Fulton
 spectral interface, with the quadric geometry, coefficient calculation, and
-scalar estimate proved internally. The full local verifier passed; GitHub
-Actions verification for this milestone is pending publication.
+scalar estimate proved internally. The full local verifier and the same
+GitHub Actions verifier both passed for this milestone.
 
 Lemma 4.4 remains **Partial**: its three weight properties, exact zero-frequency
 formula, and intermediate ray identity (4.5) are checked; its pointwise Fourier
@@ -49,10 +49,12 @@ remain Pending. This repository does not yet provide a certificate for the
 whole paper. The execution checkpoint records the exact scope and evidence
 for each verification run.
 
-**The full local verifier passed for this milestone:** all 38 modules, 207
-proved exports, both exact literature premises, and 56 recorded input hashes
-were checked. GitHub Actions verification for this new scope is pending
-publication and will be recorded in the execution checkpoint.
+**This checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43557804300)**
+at [proof commit ef786b7](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ef786b7f270a017dfce7ae702f1b720ff1084ef2): all 38 modules, 207 proved exports,
+both exact literature premises, and 56 recorded input hashes were checked.
+The [downloaded CI report](certification/ci/run_43557804300_attempt_1.json) and its
+[original artifact ZIP](certification/ci/run_43557804300_attempt_1.zip) are preserved.
+Their types, axiom dependencies, and input hashes match the local verification.
 
 **The preceding conic and plane-section checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43553749446)**
 at [proof commit 0fccf53](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0fccf5379e067d349cb0f14b6dc226bc8096033b): all 31 modules, 162 proved exports,

@@ -19,7 +19,7 @@ Their earlier local and GitHub verification evidence is preserved below.
 **Lemma 2.7 is now Certified.**
 The new Katz milestone includes the literal quadric geometry, the exact
 coefficient, and the scalar bound. The full local verifier passed. GitHub
-Actions verification for the new scope is pending publication.
+Actions verification also passed at the exact proof commit recorded below.
 
 Lemma 4.4 retains its checked weight properties, ray identity (4.5), and exact
 zero-frequency clause; its pointwise estimate remains pending. Lemma 5.9
@@ -224,8 +224,28 @@ source component and one whose secondary source did not register the declaration
 
 ### Current GitHub execution
 
-Publication and GitHub Actions verification for this checkpoint are pending.
-The successful runs below are retained as evidence for their earlier scopes.
+The same verifier passed at the exact proof commit
+[ef786b7f270a017dfce7ae702f1b720ff1084ef2](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ef786b7f270a017dfce7ae702f1b720ff1084ef2).
+
+- [Successful run 43557804300, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43557804300).
+- Verification job: 132334510120.
+- Artifact: 14098914113.
+- [Preserved CI report](certification/ci/run_43557804300_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43557804300_attempt_1.zip).
+- ZIP SHA-256: `90174464799304606926d69cafb5eac9cda02a72d1340d4178f6015a0f80d611`.
+- Report SHA-256: `268626f13be0e8c998704cd0bc8da601b5cc8439a29009d580d5f08c2bf2c370`.
+
+The original artifact was downloaded and its digest matched GitHub's recorded
+SHA-256. The ZIP contains the verification report alone. All 56 input hashes
+match the local verified files, including the eight correspondence reviews.
+All 207 theorem records, both separately inspected literature-input records,
+and the pinned dependency revisions match the local report. The CI report
+records five Certified, two Partial, and 35 Pending numbered results; it
+explicitly leaves whole-paper certification false.
+
+The subsequent evidence commit changes only README, this checkpoint, and the
+preserved CI JSON and ZIP. The Lean sources, verifier, statement ledger, and
+correspondence records remain identical to the checked proof commit.
 
 The actual quadric geometry, coefficient calculation, finite-sum inequality,
 and good-reduction arithmetic introduce no further external premises.
@@ -364,6 +384,20 @@ smoothness hypothesis must yield a nonzero integer `P_i(G)` divisible by
 every bad prime. The existing arithmetic bridge then supplies the actual
 finite bad-prime set and closes the remaining reduction dependency in
 Lemma 5.9.
+
+The next source interface has been scoped against Lang, *Algebra*, revised
+third edition: IX.4.1, printed p. 402, gives a finite resultant system over
+the integers; IX.3.2, p. 390, and the remarks after IX.3.1, p. 389, fix its
+arbitrary-field and algebraic-closure interpretation. The finite family is
+chosen before the field and coefficient specialization. Specialization may
+produce zero polynomials, and no degree/characteristic coprimality restriction
+is needed. No Lean elimination premise has yet been introduced.
+
+The internal application uses the eight homogeneous forms consisting of
+`F`, `G`, and the six two-by-two gradient minors, with assigned degrees
+`2,n,n,n,n,n,n,n`. Rank failure, coefficient reduction, the nonzero
+characteristic-zero resultant value, and divisibility at every bad prime
+must all be proved internally.
 
 The coefficient-height estimate in Lemma 4.1(i), the exceptional-plane
 polynomial in Lemma 4.1(ii), the exceptional-section count, and the final
