@@ -79,8 +79,8 @@ four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-**The full aggregate local verifier passed for the 416-export pencil
-milestone. GitHub CI for this new scope is still pending.** All 84 modules
+**The full local and GitHub verifiers passed for the 416-export pencil
+milestone.** All 84 modules
 and 416 theorem exports passed the pinned strict checks, and all 107
 recorded input hashes match the checked files. All 349 preceding full
 theorem records, the four registered literature-input records, and all
@@ -92,9 +92,19 @@ Weil premise. The frozen manuscript and PDF remain unchanged.
 The [local verification report](certification/verification_report.json)
 contains 620,000 bytes and has SHA-256
 `d60c7a129061c59979ff52a1b79adca054ed97073fd0a527eb0a6d0663a1dca1`.
-The [execution checkpoint](CHECKPOINT.md) records the complete comparison
-and scope. The preserved 349-export CI report below retains its preceding
-scope and does not establish GitHub verification of the pencil milestone.
+[GitHub Actions run 43618745198, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43618745198)
+succeeded at [proof commit 7da6aca](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/7da6aca687135b7c0f859873e69d5fe844b2cdac).
+Its [downloaded report](certification/ci/run_43618745198_attempt_1.json)
+and [original artifact ZIP](certification/ci/run_43618745198_attempt_1.zip)
+are preserved. The ZIP digest matches GitHub's advertised digest, and
+its sole report member is byte-identical to the archived JSON. All 18
+verification-content fields exactly match the local report, including
+all 416 theorem records, four premise records, 107 input hashes, nine
+dependency revisions, and the complete Lean inspection output. Only the
+run time and build log differ. All 107 hashes also match the exact proof
+tree and current inspected files. The [execution checkpoint](CHECKPOINT.md)
+records the identifiers, digests, and complete scope. The preserved runs
+below retain their preceding scopes.
 
 **The full local and GitHub verifiers passed for the preceding diagonal
 bad-prime milestone.**

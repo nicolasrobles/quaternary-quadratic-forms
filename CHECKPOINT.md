@@ -604,9 +604,9 @@ use only standard foundations. The generic bound adds only Weil.
 No new external premise has been introduced, and the Lean, mathlib,
 manuscript, and PDF inputs remain fixed.
 
-**The full aggregate local verifier passed for all 84 modules, 416 theorem
+**The full local and GitHub verifiers passed for all 84 modules, 416 theorem
 exports, four registered premise records, and nine pinned dependency
-revisions. GitHub CI for this new scope is still pending.** All 107 input
+revisions.** All 107 input
 hashes match the checked files. The independent baseline comparison
 confirmed that all 349 preceding complete theorem records are unchanged,
 including their actual types, axiom lists, source hashes, and scopes.
@@ -624,14 +624,43 @@ The subsequent edits record this successful execution in README and this
 checkpoint and preserve the exact report; the inspected proof inputs
 remain those checked by the successful aggregate run.
 
-The [current local verification report](certification/verification_report.json)
+The [local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/7da6aca687135b7c0f859873e69d5fe844b2cdac/certification/verification_report.json)
 contains 620,000 bytes and has SHA-256
 `d60c7a129061c59979ff52a1b79adca054ed97073fd0a527eb0a6d0663a1dca1`.
 It records 10 Certified and 32 Pending numbered results, with zero
 Partial or Active results. All 33 auxiliary/supplementary groups remain
-Pending, and whole-paper certification remains false. The preserved
-local and CI reports below retain their earlier scopes; none substitutes
-for the still-pending GitHub execution of this 416-export milestone.
+Pending, and whole-paper certification remains false.
+
+### Pencil GitHub execution
+
+The published proof commit is
+[`7da6aca687135b7c0f859873e69d5fe844b2cdac`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/7da6aca687135b7c0f859873e69d5fe844b2cdac),
+whose tree is `c78fd84236351f88baabd440f99fc5ca83fd2fc3`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43618745198, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43618745198).
+- Verification job: `132519443067`; every step succeeded.
+- Verification completed `2026-11-14T17:07:53Z`; the job and run completed `2026-11-14T17:07:56Z`.
+- Artifact: `14123891609`, 72,429 bytes, created `2026-11-14T17:07:54Z`.
+- [Preserved CI report](certification/ci/run_43618745198_attempt_1.json), 626,114 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43618745198_attempt_1.zip).
+- ZIP SHA-256: `f2ff89bd98196e6af865a617631c6a5ee2163c984e78d4834ea56871de895407`.
+- CI report SHA-256: `ba6f569e5bd2e93e6893034f2cd514779fd92536479d91ecac4e548ad0754b8c`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON. The local and CI reports agree exactly on all 18
+verification-content fields: all 416 complete theorem records and their
+actual types and axiom dependencies, four registered-premise records,
+107 input hashes, nine pinned dependency revisions, the complete Lean
+export-inspection output, the Lean version, and every verification flag
+and scope count. Only `generated_at_utc` and `lake_build_output` differ.
+
+Every recorded input hash matches both the current inspected files and
+the exact proof tree. The proof sources, registries, source reviews,
+and local report remain byte-identical to that checked proof commit.
+This evidence covers the complete 416-export pencil milestone. The
+preserved local and CI reports below retain their earlier scopes.
 
 ## Earlier checked checkpoints
 
