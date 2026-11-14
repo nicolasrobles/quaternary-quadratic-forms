@@ -57,12 +57,18 @@ separately registered external Lean premises, and 20 mapped source groups.
 All 33 auxiliary/supplementary groups remain Pending. This repository does
 not yet provide a certificate for the whole paper.
 
-**The full local verifier passed for the current checkpoint:** all 59 modules,
+**The full local and GitHub verifiers passed for the current checkpoint at
+[proof commit afdaf24](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7):** all 59 modules,
 302 theorem exports, four exact registered literature premises and 80 input
 hashes were checked under the pinned Lean settings. All 261 previously
-checked theorem types and axiom dependencies are unchanged. The independent
-GitHub Actions run for this scope is pending. The execution checkpoint
-records the scope and evidence for each run.
+checked theorem types and axiom dependencies are unchanged.
+[GitHub Actions run 43608132418, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43608132418)
+succeeded. Its [downloaded report](certification/ci/run_43608132418_attempt_1.json)
+and [original artifact ZIP](certification/ci/run_43608132418_attempt_1.zip)
+are preserved. All 80 input hashes, 302 theorem records, four literature-input
+records and nine pinned dependency revisions exactly matched the local
+verification. The [execution checkpoint](CHECKPOINT.md) records the artifact
+identifiers, digests and complete scope.
 
 **The full local and GitHub verifiers passed for the preceding bad-reduction,
 height, and quadratic-trace checkpoint at

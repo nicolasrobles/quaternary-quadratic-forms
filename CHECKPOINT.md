@@ -382,9 +382,28 @@ Every recorded input hash matches the current files. All 261 previously
 checked theorem types and axiom dependencies are unchanged.
 
 The [local verification report](certification/verification_report.json)
-records this completed execution. The independent GitHub Actions run for
-the 302-export scope is pending. The frozen manuscript and PDF are
-unchanged. The archived runs below retain their original checked scopes.
+records this completed execution. Its SHA-256 is
+`36fe3c138da8345206a445c3968cf38c8e650916f8d7779fd7dbc11752a7b324`.
+
+The independent GitHub verifier also passed for the exact proof commit
+[afdaf2497bcd76fdff8b658efef8e28f0388f5b7](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7),
+whose tree is `1bbf8bd0ddc4fb32d66871ed8424793cc21e0ffa`.
+
+- [Successful run 43608132418, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43608132418).
+- Verification job: `132487086734`; every step succeeded.
+- Artifact: `14118739233`, 53,297 bytes.
+- [Preserved CI report](certification/ci/run_43608132418_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43608132418_attempt_1.zip).
+- ZIP SHA-256: `63320ecada162fd33fda88598056eac35ed8e093461d030711e9cdd7f64e304d`.
+- Report SHA-256: `e33bff89ac7be8a07b7606b85d94d08d33613494995ce4c276a5239c8e2576e0`.
+
+The ZIP digest matches the one advertised by GitHub. Its extracted report
+matches the local report exactly on all 80 input hashes, 302 complete theorem
+records, four literature-input records, nine dependency revisions and all
+certification counts and flags. The only top-level differences are the
+generation timestamp and build log. All 80 checked hashes also match the
+published proof files and final source records. The frozen manuscript and
+PDF are unchanged. The archived runs below retain their original scopes.
 
 ## Earlier checked checkpoints
 
