@@ -64,3 +64,8 @@ import QuaternaryQuadraticForms.FourierBoundConstants
 import QuaternaryQuadraticForms.FourierEstimates
 import QuaternaryQuadraticForms.FourierBound
 import QuaternaryQuadraticForms.FourierTheorem
+import QuaternaryQuadraticForms.DiagonalForms
+import QuaternaryQuadraticForms.DiagonalGeometry
+import QuaternaryQuadraticForms.DiagonalReduction
+import QuaternaryQuadraticForms.BadPrimeRadical
+import QuaternaryQuadraticForms.DiagonalBadPrimes

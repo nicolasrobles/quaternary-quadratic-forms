@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 8 · Partial: 0 · Active: 0 · Pending:
-34**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1, 4.2, 4.3, 4.4, and 5.9 have
+The numbered-result counts are **Complete: 9 · Partial: 0 · Active: 0 · Pending:
+33**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.1–4.5 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -87,12 +87,18 @@ includes tangent and singular sections, and the same exceptional polynomial
 works for every allowed character. Theorems 1.1 and 1.4 remain Pending. Current and historical
 execution evidence is recorded in the checkpoint.
 
+Lemma 4.5 is complete: the actual diagonal pair is smooth in characteristic
+zero, its geometric bad primes outside `N_F` are precisely those dividing
+the six-factor product `M`, and the existing modulus equals `rad(|2αM|)`.
+Its proofs use only standard logical foundations, including the direct
+finiteness argument and the treatment of shared prime divisors.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 325 theorem exports across 66 Lean modules are
+numbered-result count. The 349 theorem exports across 71 Lean modules are
 also counted separately from the four external Lean premises. The current
-verification scope includes 87 hashed inputs.
+verification scope includes 93 hashed inputs.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -407,16 +413,60 @@ at most `4p`. Neither finiteness nor good reduction is an extra premise
 of this final theorem. Its dependencies are the registered Lang and Katz
 inputs, with no use of the separate Weil estimate.
 
+## Completed diagonal bad-prime criterion
+
+[DiagonalForms](QuaternaryQuadraticForms/DiagonalForms.lean) identifies the
+literal matrix polynomials with the source sums of coefficient-weighted
+squares and defines `M` as the product over exactly the six pairs `i < j`.
+It proves the coefficient-map identities, nonvanishing of that product,
+the nonzero individual first-form coefficients, and `N_F |M| = |2αM|`.
+
+[DiagonalGeometry](QuaternaryQuadraticForms/DiagonalGeometry.lean) calculates
+the actual gradient minors as `4 x_i x_j (a_i b_j - a_j b_i)`. When all
+pair differences are nonzero and two is nonzero, simultaneous vanishing
+of these minors leaves at most one nonzero coordinate. The actual first
+quadratic equation then excludes every nonzero vector. Conversely, a
+vanishing pair difference gives the explicit geometric point
+`x = e_i + z e_j`, where `z² = -a_i/a_j`. Both equations and actual rank
+failure are proved for that point over the algebraically closed field.
+
+[DiagonalReduction](QuaternaryQuadraticForms/DiagonalReduction.lean) applies
+this geometry to the literal characteristic-zero smoothness predicate and
+to `GoodReductionAt`. At a prime outside `N_F`, nonsingularity and odd
+characteristic follow internally. The six-factor product maps through
+reduction and the injective algebraic-closure map, giving exactly
+`¬ GoodReductionAt p A G ↔ (p : ℤ) ∣ M`.
+
+[BadPrimeRadical](QuaternaryQuadraticForms/BadPrimeRadical.lean) proves the
+arithmetic consequence of this actual geometric criterion. The nonzero
+integer `M` gives finiteness directly. The additional bad-prime finset is
+`primeFactors(|M|) \ primeFactors(N_F)`; its product together with
+`rad(N_F)` is the radical of `N_F |M|`, with common prime factors included
+once. [DiagonalBadPrimes](QuaternaryQuadraticForms/DiagonalBadPrimes.lean)
+combines all three clauses of Lemma 4.5 and proves the existing modulus
+equality for every proof of finiteness supplied to its definition.
+
+All 24 new exports have only the standard logical foundations in their
+inspected axiom lists. No elimination or other registered literature
+premise is used. Zero coefficients `b_i`, negative coefficients and `M`,
+overlapping prime divisors, and `p = 3` outside `N_F` are covered. The
+[source review](certification/correspondence/diagonal_bad_primes.md) records
+the actual hypotheses and every clause.
+
 ## Next proof branch
 
-The next target is the complete diagonal bad-prime statement, Lemma 4.5.
-Prove characteristic-zero smoothness of the actual diagonal pair,
-characterize its geometric bad reduction at `p ∤ N_F` by `p ∣ M`, and
-identify the existing modulus exactly as `rad(|2αM|)`, where `M` is the
-product of the six coefficient differences. This target remains Pending
-until all three clauses pass kernel checking and source correspondence.
-The pencil character-sum evaluation in Lemma 4.6 follows afterward.
-The main analytic theorems remain Pending.
+Lemma 4.6 remains Pending and is the next target. First establish the
+shared one-dimensional prime-field Gauss identities using proved library
+results and the existing actual complex quadratic character and standard
+additive character. Define the literal `t_i`, `κ_i`, `Φ_u` and `ν_i`, and
+prove the exact Fourier pencil formula with all four singular members.
+Then deduce the zero-frequency projective trace and the generic
+`2p^(3/2)+4p` bound, including the repeated-root cubic cases. The four
+distinct `t_i` supply `p ≥ 5` in this later lemma.
+
+The full prime-power statement of Lemma 3.2 remains Pending; proving a
+shared scalar helper does not certify its other clauses. The main analytic
+theorems remain Pending.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

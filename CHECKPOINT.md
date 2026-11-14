@@ -1,9 +1,9 @@
-# Complete polynomial Fourier estimate checkpoint
+# Complete diagonal bad-prime checkpoint
 
 ## Numbered-result status
 
-Complete: **8**. Partial: **0**. Active numbered targets: **0**.
-Pending: **34**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **9**. Partial: **0**. Active numbered targets: **0**.
+Pending: **33**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -38,10 +38,75 @@ Fourier estimate, and exact zero-frequency identity are proved for the
 actual integral data under the literal `p ∤ N_G` hypothesis. The uniform
 theorem chooses `E ≥ 1` before `G,p`, then `D_p` before the character.
 The elementary section count is proved for every nonzero normal, including
-tangent and singular sections. Theorem 1.1, Theorem 1.4, and the next target,
-Lemma 4.5, remain Pending.
+tangent and singular sections. Theorem 1.1 and Theorem 1.4 remain Pending.
+
+**Lemma 4.5 is Certified.** All three clauses are proved for the actual
+diagonal forms: characteristic-zero smoothness, geometric bad reduction
+at `p ∤ N_F` if and only if `p ∣ M`, and the exact formula
+`N_G = rad(|2αM|)` for the existing modulus. Finiteness follows directly
+from `M ≠ 0`; no Lang or other literature premise is used. Lemma 4.6 is
+the next target and remains Pending.
 
 ## Mathematical scope
+
+### Complete Lemma 4.5
+
+`DiagonalBadPrimes.lean` proves the final all-clauses theorem
+`diagonal_bad_primes`. The integral coefficient vectors `a,b` define
+`A = Matrix.diagonal a` and the actual polynomial of `Matrix.diagonal b`.
+The hypotheses are `α = ∏ i, a_i ≠ 0` and
+`a_i b_j − a_j b_i ≠ 0` for each of the six pairs `i < j`.
+`DiagonalForms.lean` proves the formal polynomial identity with
+`∑ i, C(a_i) X_i²`, defines the literal product `M`, and proves the
+required coefficient-map, nonvanishing, and sign identities.
+
+`DiagonalGeometry.lean` calculates the actual gradient rows and their
+two-by-two minors `4 x_i x_j (a_i b_j − a_j b_i)`. In a field of odd
+characteristic with nonzero `a_i`, pairwise nonzero determinants imply
+the geometric rank-two condition. If the rank failed, the minors would
+force at most one nonzero coordinate, contrary to `F(x)=0`.
+
+Conversely, when a pair determinant vanishes, the proof constructs an
+actual nonzero point over the algebraic closure: `x_i=1`,
+`x_j²=−a_i/a_j`, and all other coordinates zero. An algebraic-closure
+square root supplies the coordinate. Both defining polynomials vanish,
+and the actual gradient rows are proportional, so their rank is not two.
+This establishes the exact field criterion, rather than assuming a
+geometric singularity from a numerical surrogate.
+
+`DiagonalReduction.lean` maps the actual equations to the algebraic
+closures of `ℚ` and `ZMod p`. It proves `SmoothCharacteristicZero` from
+the integral hypotheses and derives odd characteristic and nonzero
+reduced `a_i` directly from `p ∤ N_F`. The resulting equivalence is
+
+$$\neg\operatorname{GoodReductionAt}(p,A,G)
+\quad\Longleftrightarrow\quad p\mid M
+\qquad(p\nmid N_F).$$
+
+The primewise theorem does not additionally assume integral `M ≠ 0`.
+It includes `p=3`, zero coefficients `b_i`, and arbitrary signs of the
+integer data. No `p ≥ 5` condition enters Lemma 4.5.
+
+`BadPrimeRadical.lean` derives finiteness of the existing bad-prime set
+from a nonzero integer with this exact divisibility criterion. Its actual
+finset is `primeFactors(|M|) ∖ primeFactors(N_F)`. The disjoint union
+with the prime factors of `N_F` therefore proves
+`polynomialBadPrimeModulus = primeRadical(N_F * |M|)`. Shared prime
+divisors occur once, without a coprimality assumption.
+
+The final diagonal wrapper supplies `M ≠ 0` from the six source hypotheses
+and proves the literal identity
+
+$$N_G=\operatorname{rad}(|2\alpha M|).$$
+
+`diagonal_badPrimeModulus` holds for any proof of finiteness passed to
+the existing modulus. `diagonal_bad_primes` supplies that proof internally
+and combines the smoothness, primewise criterion, and modulus equality.
+All 24 new exports have only `Classical.choice`, `Quot.sound`, and
+`propext` among their inspected axioms. In particular, the direct
+finiteness argument uses no Lang elimination premise. The
+[source correspondence review](certification/correspondence/diagonal_bad_primes.md)
+records the hypotheses, algebraic-closure witness, signs, and all three clauses.
 
 ### Complete Lemma 4.4
 
@@ -387,6 +452,12 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete Lemma 4.5 and its exact modulus](QuaternaryQuadraticForms/DiagonalBadPrimes.lean).
+- [Literal diagonal data and six-factor product](QuaternaryQuadraticForms/DiagonalForms.lean).
+- [Diagonal rank criterion and geometric singular point](QuaternaryQuadraticForms/DiagonalGeometry.lean).
+- [Characteristic-zero and prime reduction wrappers](QuaternaryQuadraticForms/DiagonalReduction.lean).
+- [Direct bad-prime finiteness and radical formula](QuaternaryQuadraticForms/BadPrimeRadical.lean).
+- [Complete diagonal bad-prime correspondence review](certification/correspondence/diagonal_bad_primes.md).
 - [Complete Lemma 4.4 with uniform exceptional polynomial](QuaternaryQuadraticForms/FourierTheorem.lean).
 - [Integral Fourier bound and all five conclusions](QuaternaryQuadraticForms/FourierBound.lean).
 - [Actual generic, exceptional, and zero-frequency estimates](QuaternaryQuadraticForms/FourierEstimates.lean).
@@ -422,18 +493,53 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current milestone registers 325 theorem exports across 66 project
+The current milestone registers 349 theorem exports across 71 project
+Lean modules and 20 mapped source groups. The four registered literature
+premises are unchanged, as are the nine pinned dependency revisions.
+Source groups and Lean premise declarations remain separate counts.
+
+The five new modules have passed strict builds under official Lean 4.24.0
+and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 24 new actual theorem types and axiom dependencies
+have been inspected. They use only the standard foundations
+`Classical.choice`, `Quot.sound`, and `propext`; no new external premise is
+introduced, and the diagonal finiteness proof does not use elimination.
+
+The full aggregate local verifier passed for all 71 modules, 349 theorem
+records, four registered literature-input records, and nine pinned
+dependency revisions. All 93 recorded input hashes matched the files
+checked. Every one of the 325 previously checked theorem records is
+unchanged, including the actual types, axiom lists, source hashes and
+scopes. The four registered premise records and all dependency revisions
+exactly match the preceding local report. The frozen manuscript and PDF
+remain unchanged.
+
+The local report has SHA-256
+`50606c6ea147df96a5905de201f9263396e037299d8ef3a1743c6d325d81a0b8`
+and contains 525,699 bytes. It records 9 Certified and 33 Pending numbered
+results, with zero Partial or Active results. All 33 auxiliary/supplementary
+groups remain Pending, and whole-paper certification remains false.
+
+The new GitHub Actions run is pending. Its exact proof commit, successful
+run, original artifact, and complete comparison with this local report
+will be recorded after independent execution.
+
+## Earlier checked checkpoints
+
+### Polynomial Fourier local execution
+
+The preceding polynomial Fourier milestone registered 325 theorem exports across 66 project
 Lean modules and 20 mapped source groups. There are four separately
 registered external Lean premises: Weil, the composite Katz/Fulton
 spectral interface, Lang's general resultants, and the composite Bertini
 and projective-Jacobian tangent interface. Source groups and Lean premise
 declarations are counted separately.
 
-The seven new modules have passed strict builds under official Lean 4.24.0 and
+Its seven new modules passed strict builds under official Lean 4.24.0 and
 the pinned mathlib revision, with `warningAsError=true` and
 `autoImplicit=false`. The final uniform wrapper compiled successfully
 without additional assumptions. All 23 new actual theorem types and axiom
-dependencies have been inspected. Seventeen new helpers use only the
+dependencies were inspected. Seventeen new helpers use only the
 standard foundations `propext`, `Classical.choice`, and `Quot.sound`.
 The generic and finite-field indicator bounds use Katz and Weil; the
 zero-frequency and nonzero-frequency bounds use Katz. The integral
@@ -444,14 +550,14 @@ polynomial.
 
 The full aggregate local verifier passed for all 66 modules, 325 theorem
 records, four registered literature-input records, and nine pinned
-dependency revisions. All 87 recorded input hashes match the final checked
-files. Every one of the 302 previously checked theorem types and axiom
-lists is unchanged; their source hashes and scopes are also unchanged.
-The four registered premise records and all dependency revisions exactly
-match the preceding local report. The frozen manuscript and PDF remain
-unchanged.
+dependency revisions. All 87 recorded input hashes matched the files checked
+at that checkpoint. Every one of the 302 previously checked theorem types
+and axiom lists was unchanged; their source hashes and scopes were also
+unchanged. The four registered premise records and all dependency revisions
+exactly matched the preceding local report. The frozen manuscript and PDF
+were unchanged.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/25dea299d18e2a423404488ac1a923fded0cde7b/certification/verification_report.json)
 has SHA-256
 `88f51797dd5b426549a351f4cbc62dc24dd51b5d5c57005298b6ee691edcd003`.
 The report records 8 Certified and 34 Pending numbered results, with zero
@@ -482,12 +588,11 @@ revisions, the complete Lean export-inspection output, the Lean version,
 and all verification flags and scope counts. The only differing fields are
 `generated_at_utc` and `lake_build_output`.
 
-Every recorded input hash also matches the current files. This evidence
-covers the complete 325-export scope and the eight certified numbered
-results. The preserved earlier runs below retain their original scopes;
-whole-paper certification remains false.
-
-## Earlier checked checkpoints
+Every recorded input hash also matched the files at that proof commit.
+This preserved evidence covers the original 325-export scope and its eight
+certified numbered results, before the diagonal milestone. The preserved
+earlier runs below retain their original scopes; whole-paper certification
+remains false.
 
 ### Exceptional-plane local execution
 
@@ -785,20 +890,20 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Lemma 4.5 is the next bounded target and remains Pending. For the actual
-diagonal forms `F` and `G`, first prove the characteristic-zero smoothness
-condition and the equivalence
+Lemma 4.6 remains Pending and is the next target. First establish the shared
+prime-field quadratic Gauss identities for the actual complex quadratic
+character and standard additive character, using mathlib's proved Gauss-sum
+square, nonvanishing, multiplicative-shift, and square-root counting
+theorems. The existing `stdAddChar_units_sum` already gives the prime
+Ramanujan values `p−1` at zero and `−1` otherwise.
 
-$$p\nmid N_F\quad\Longrightarrow\quad
-\bigl(G\text{ has bad reduction at }p\ \Longleftrightarrow\ p\mid M\bigr).$$
+Define the literal `t_i`, `κ_i`, `Φ_u`, `ν_i`, and prime Ramanujan sum,
+then prove the exact pencil formula for `integralFourierSum`, retaining
+all four singular pencil members. Deduce the projective trace formula
+from zero frequency. Prove the generic `2p^(3/2)+4p` bound using the
+checked Weil estimate for separable cubics and an internal treatment of
+repeated-root cubics. Derive `p ≥ 5` from the four distinct `t_i`.
 
-The forward and reverse directions must use the literal gradient-rank
-condition and the manuscript's pairwise determinants. In the bad case,
-construct the stated two-coordinate point over the algebraic closure.
-Then identify the intrinsic bad-prime set and prove the exact formula
-`N_G = rad(2αM)` for the already defined modulus.
-
-The characteristic-zero and good-prime matrix hypotheses should be
-deduced from the manuscript's diagonal assumptions. The exact formula
-must not replace `N_G` by a separately defined surrogate. The analytic
+The full prime-power Gauss lemma, Lemma 3.2, remains Pending; this branch
+needs only its shared one-dimensional prime-field helper. The analytic
 assembly leading to Theorems 1.1 and 1.4 remains Pending.

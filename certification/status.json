@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete polynomial Fourier bound; actual exceptional section count and uniform character-independent exceptional polynomial",
+  "checkpoint": "Complete diagonal bad-prime criterion and exact radical formula for the intrinsic modulus",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -162,8 +162,21 @@
       "scope_note": "Complete Lemma 4.4. The actual exceptional section count is proved internally using a nonzero ternary restriction, the proved mathlib Schwartz-Zippel theorem and exact projective-ray counting, including tangent and singular sections. The generic, exceptional and zero-frequency estimates are assembled with the exact constant 2n^2. The literal N_G hypothesis supplies all reduction conditions. The uniform theorem chooses D_p independently of the character and uses only the four previously registered literature premises; no new external premise or restriction that p be prime to n is introduced."
     },
     "lem:diagbad": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.diagonal_smooth_characteristicZero",
+        "QuaternaryQuadraticForms.diagonal_badReductionAt_iff",
+        "QuaternaryQuadraticForms.diagonal_badPrimeModulus",
+        "QuaternaryQuadraticForms.diagonal_bad_primes"
+      ],
+      "correspondence_record": "certification/correspondence/diagonal_bad_primes.md",
+      "completed_clauses": [
+        "The actual integral diagonal pair satisfies the literal characteristic-zero smoothness condition under nonsingularity and the six nonzero coefficient differences.",
+        "For every prime p not dividing the literal N_F, geometric bad reduction over the algebraic closure occurs if and only if (p:Z) divides the actual six-factor product M.",
+        "The existing polynomialBadPrimeModulus equals primeRadical |2 alpha M|. Finiteness of the actual bad-prime set is proved directly from M!=0, and the equality holds for every finiteness proof, with shared prime factors counted once."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 4.5 using only standard logical foundations. The literal diagonal polynomials, gradient minors, algebraic-closure witness, coefficient reduction, exact bad-prime set and radical product are proved internally. The final theorem uses nonzero alpha and the six i<j differences; it allows zero b_i, negative coefficients and M, overlapping prime divisors, and p=3 outside N_F. The unused nonsquare-determinant hypothesis is omitted. No elimination or other registered literature premise is used."
     },
     "lem:pencil": {
       "status": "Pending",
@@ -5121,6 +5134,414 @@
         "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
         "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants",
         "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalQuadraticPolynomial_eq_sum",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Formal polynomial identity identifying the existing diagonal matrix polynomial with the manuscript sum of four coefficient-weighted squares over every commutative ring.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPairProduct_map",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The literal six-factor product M commutes with coefficient maps, including integer reduction and extension to the algebraic closure.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalPairProduct_ne_zero_iff",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Nonvanishing of the actual product M is equivalent to nonvanishing of exactly the six coefficient differences indexed by i<j.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_pair_difference_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The six source inequalities imply nonvanishing for every ordered pair of distinct indices, using the exact change of sign on reversal.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonalQuadraticPolynomial_map",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The actual diagonal matrix quadratic polynomial commutes with arbitrary coefficient maps.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_coefficients_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Nonzero product of the four first-form coefficients implies every coefficient is nonzero, supplying diagonal nonsingularity hypotheses.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticBadPrimeModulus_diagonal",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The existing quadratic bad-prime modulus of the diagonal matrix is exactly 2 times the absolute value of the coefficient product alpha.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_bad_modulus_product",
+      "file": "QuaternaryQuadraticForms/DiagonalForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The natural product N_F times |M| equals the absolute value of the source integer 2 alpha M, without any sign assumption.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_diagonalQuadraticPolynomial",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Evaluation of the actual diagonal matrix polynomial is the literal sum of coefficient-weighted coordinate squares.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialGradient_diagonalQuadraticPolynomial",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The actual formal gradient of a diagonal quadratic polynomial has coordinates 2 a_i x_i.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_gradient_minor",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Each literal two-by-two gradient minor is exactly 4 x_i x_j (a_i b_j-a_j b_i).",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Nonzero first-form coefficients and pair differences in characteristic different from two imply the actual projective rank-two condition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_diagonal_rank_failure_of_pair_eq_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "A vanishing pair difference gives an actual nonzero common zero with rank failure over an algebraically closed field, using x_i=1 and x_j^2=-a_i/a_j.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.not_diagonal_projectiveIntersectionTransverseRank_of_pair_eq_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The explicitly constructed geometric common zero contradicts the actual projective transversality condition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff",
+      "file": "QuaternaryQuadraticForms/DiagonalGeometry.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Over an algebraically closed field with two nonzero and nonsingular first diagonal form, actual projective transversality is equivalent to all distinct pair differences being nonzero.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff_pairProduct_ne_zero",
+      "file": "QuaternaryQuadraticForms/DiagonalReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The actual geometric rank condition is equivalent to nonvanishing of the literal six-factor product M over the algebraically closed field.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_smooth_characteristicZero",
+      "file": "QuaternaryQuadraticForms/DiagonalReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The actual integral diagonal pair satisfies SmoothCharacteristicZero under the manuscript nonsingularity and six-difference hypotheses.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_badReductionAt_iff",
+      "file": "QuaternaryQuadraticForms/DiagonalReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "For every prime outside the literal N_F, failure of the actual GoodReductionAt predicate is equivalent to integer divisibility of M. No nonzero b_i or p>=5 condition is introduced.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.badReductionPrimes_finite_of_iff_dvd",
+      "file": "QuaternaryQuadraticForms/BadPrimeRadical.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "An exact divisibility criterion by a fixed nonzero integer proves finiteness of the actual bad-prime set directly, without elimination.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.badReductionPrimes_toFinset_eq_primeFactors_sdiff",
+      "file": "QuaternaryQuadraticForms/BadPrimeRadical.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The actual additional bad-prime finset equals the prime factors of |z| with those already dividing N_F removed.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBadPrimeModulus_eq_primeRadical_of_bad_iff",
+      "file": "QuaternaryQuadraticForms/BadPrimeRadical.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The existing modulus equals primeRadical (N_F*|z|) under the actual geometric divisibility criterion, for every finiteness proof and with overlapping prime factors counted once.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_badReductionPrimes_finite",
+      "file": "QuaternaryQuadraticForms/DiagonalBadPrimes.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The six source differences supply a nonzero M and hence a direct proof that the actual diagonal bad-prime set is finite.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_badPrimeModulus",
+      "file": "QuaternaryQuadraticForms/DiagonalBadPrimes.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "The literal diagonal modulus equals primeRadical |2 alpha M| for every proof of finiteness used in its existing definition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.diagonal_bad_primes",
+      "file": "QuaternaryQuadraticForms/DiagonalBadPrimes.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:diagbad",
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:NG"
+      ],
+      "scope": "Complete Lemma 4.5: characteristic-zero smoothness, exact bad reduction iff p divides M away from N_F, and the radical identity for the existing modulus with finiteness supplied internally.",
+      "allowed_axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]

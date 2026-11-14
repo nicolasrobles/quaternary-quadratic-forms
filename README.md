@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 8 · Partial: 0 · Active: 0 · Pending: 34** — 42 numbered results.
+**Complete: 9 · Partial: 0 · Active: 0 · Pending: 33** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -56,26 +56,44 @@ hypotheses. The final uniform theorem chooses the degree bound before
 count includes tangent and singular sections. Theorems 1.1 and 1.4 remain
 Pending.
 
-This milestone covers 325 theorem exports across 66 Lean modules, four
-separately registered external Lean premises, and 20 mapped source groups.
+**Lemma 4.5 is Certified.** For the actual diagonal forms, the source's
+nonzero coefficient product and six nonzero pair determinants imply
+characteristic-zero smoothness. At every prime outside `N_F`, geometric
+bad reduction is equivalent to divisibility of the literal product `M`.
+The actual bad-prime set is finite directly from `M ≠ 0`, and the existing
+modulus equals `rad(|2αM|)`, including signs and shared prime divisors.
+This proof uses no literature premise.
+
+This milestone covers 349 theorem exports across 71 Lean modules, four
+unchanged separately registered external Lean premises, and 20 mapped source groups.
 All 33 auxiliary/supplementary groups remain Pending. This repository does
 not yet provide a certificate for the whole paper.
 
-**The full local and GitHub verifiers passed for this checkpoint at
+**The full aggregate local verifier passed for the diagonal milestone.**
+All 71 modules and 349 theorem exports were checked under the pinned strict
+settings. All 93 input hashes matched the files checked. The 325 previously
+checked theorem records, including their actual types, axiom dependencies,
+source hashes and scopes, are unchanged, as are the four registered
+literature-input records and all nine pinned dependency revisions.
+All 24 new exports use only `Classical.choice`, `Quot.sound`, and `propext`.
+The new GitHub Actions run is pending; its artifact will be recorded after
+successful independent execution and comparison with the local report.
+
+**The full local and GitHub verifiers passed for the preceding polynomial Fourier checkpoint at
 [proof commit 25dea29](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/25dea299d18e2a423404488ac1a923fded0cde7b):** all 66 modules and 325 theorem
 exports were checked under the pinned strict settings. All 87 input hashes
-match the checked files, and all nine pinned dependency revisions are
-unchanged. The 302 previously checked theorem types and axiom dependencies
-and the four registered literature-input records are unchanged.
+matched the files checked at that proof commit, and all nine pinned dependency
+revisions were unchanged. The 302 previously checked theorem types and axiom
+dependencies and the four registered literature-input records were unchanged.
 [GitHub Actions run 43611293071, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43611293071)
 succeeded. Its [downloaded report](certification/ci/run_43611293071_attempt_1.json)
 and [original artifact ZIP](certification/ci/run_43611293071_attempt_1.zip)
 are preserved. All 325 theorem records, four premise records, 87 input
 hashes, nine dependency revisions and the complete Lean inspection output
-exactly match the local report. Only the run time and build log differ.
+exactly matched that checkpoint's local report. Only the run time and build log differed.
 The [execution checkpoint](CHECKPOINT.md) records the artifact identifiers,
-digests and complete scope. The preserved runs below retain their stated
-preceding scopes.
+digests and original 325-export scope. This evidence does not cover the new
+diagonal milestone. The preserved runs below retain their stated preceding scopes.
 
 **The full local and GitHub verifiers passed for the preceding exceptional-plane checkpoint at
 [proof commit afdaf24](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7):** all 59 modules,
@@ -131,6 +149,7 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
+- [Correspondence review for complete Lemma 4.5 and the exact diagonal modulus](certification/correspondence/diagonal_bad_primes.md)
 - [Correspondence review for complete Lemma 4.4 and the Fourier ray identity](certification/correspondence/fourier_rays.md)
 - [Correspondence review for the quadratic trace](certification/correspondence/quadratic_trace.md)
 - [Correspondence review for the Weil input](certification/correspondence/weil_input.md)
@@ -408,6 +427,58 @@ matches all five conclusions and the quantifier order to the manuscript.
 | [FourierBound](QuaternaryQuadraticForms/FourierBound.lean) | Complete Lemma 4.4 for a supplied exceptional polynomial, under the literal integral hypotheses |
 | [FourierTheorem](QuaternaryQuadraticForms/FourierTheorem.lean) | Uniform existence of the exceptional polynomial before the character, with all five conclusions |
 
+## The diagonal bad-prime criterion
+
+Lemma 4.5 is proved for the literal diagonal matrix polynomials
+
+$$F(x)=\sum_{i=1}^4a_ix_i^2,\qquad
+G(x)=\sum_{i=1}^4b_ix_i^2,\qquad
+\alpha=\prod_{i=1}^4a_i,\qquad
+M=\prod_{i<j}(a_ib_j-a_jb_i).$$
+
+The source assumptions are `α ≠ 0` and nonvanishing of all six differences
+with `i < j`. They imply the actual rank-two smoothness condition over
+the algebraic closure of the rationals. For every prime `p ∤ N_F`, the
+proved equivalence is
+
+$$G\text{ has bad reduction at }p\quad\Longleftrightarrow\quad p\mid M.$$
+
+The formal gradients have minors `4 x_i x_j (a_i b_j − a_j b_i)`.
+If all pair differences are nonzero in the field, vanishing of these
+minors forces at most one nonzero coordinate. Since each `a_i` is
+nonzero, such a vector cannot satisfy `F(x)=0`. In the converse direction,
+a vanishing pair difference supplies an actual point over the algebraic
+closure with `x_i=1`, `x_j²=−a_i/a_j`, and all other coordinates zero.
+The proof verifies both equations and dependence of the actual gradient
+rows at that nonzero point.
+
+Reduction and extension of the actual polynomials identify this field
+criterion with `GoodReductionAt`. The prime criterion includes `p=3`
+and allows zero coefficients `b_i`; it adds no condition `p ≥ 5`.
+The integer coefficient product and `M` may have either sign.
+
+Every additional bad prime divides the nonzero integer `M`, so finiteness
+is proved directly, without Lang's elimination premise. More precisely,
+the actual bad-prime finset consists of the prime factors of `|M|` outside
+the prime factors of `N_F`. Taking their disjoint union proves
+
+$$N_G=\operatorname{rad}(|2\alpha M|).$$
+
+This is an equality for the existing `polynomialBadPrimeModulus`, valid
+for every proof of finiteness passed to its definition. Primes dividing
+both `N_F` and `M` occur once; no coprimality is assumed. All 24 new
+supporting exports use only the standard Lean foundations. The
+[source correspondence review](certification/correspondence/diagonal_bad_primes.md)
+matches all three clauses to the manuscript.
+
+| Module | Checked contribution |
+|---|---|
+| [DiagonalForms](QuaternaryQuadraticForms/DiagonalForms.lean) | Actual diagonal polynomial, six-factor product, coefficient maps, nonvanishing, and sign-compatible modulus identities |
+| [DiagonalGeometry](QuaternaryQuadraticForms/DiagonalGeometry.lean) | Literal gradient minors, rank criterion, and the actual algebraic-closure singular point |
+| [DiagonalReduction](QuaternaryQuadraticForms/DiagonalReduction.lean) | Characteristic-zero smoothness and exact geometric bad reduction after coefficient reduction and extension |
+| [BadPrimeRadical](QuaternaryQuadraticForms/BadPrimeRadical.lean) | Direct finiteness, exact additional-prime finset, and radical equality for the existing modulus |
+| [DiagonalBadPrimes](QuaternaryQuadraticForms/DiagonalBadPrimes.lean) | Complete Lemma 4.5, including the exact modulus for every finiteness proof |
+
 ## Bad primes and the uniform coefficient-height bound
 
 Lemma 4.1(i) is proved for the actual characteristic-zero rank condition,
@@ -566,6 +637,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Tactic.FieldSimp \
       Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
       Mathlib.Data.Nat.Factorization.Basic \
+      Mathlib.Data.Nat.PrimeFin \
       Mathlib.Algebra.Polynomial.Coeff \
       Mathlib.Algebra.MvPolynomial.Eval \
       Mathlib.Algebra.MvPolynomial.Degrees \
@@ -596,9 +668,15 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next target is Lemma 4.5, which remains Pending. For the manuscript's
-actual diagonal quadratic forms, prove characteristic-zero smoothness and
-the exact characterization of bad reduction at primes `p ∤ N_F` by
-`p ∣ M`. Then deduce the literal formula `N_G = rad(2αM)` for the already
-defined bad-prime modulus. The analytic assembly and Theorems 1.1 and 1.4
-remain Pending.
+The next target is Lemma 4.6, which remains Pending. First prove the shared
+prime-field quadratic Gauss identities for the actual complex quadratic
+character and standard additive character. Then define the source's pencil
+data and prove the exact formula for `integralFourierSum`, including all four
+singular pencil members. The zero-frequency specialization gives the
+projective trace formula; the generic estimate is `2p^(3/2)+4p`, using the
+checked Weil bound and an internal treatment of repeated-root cubics.
+The four distinct singular parameters supply `p ≥ 5` at this stage.
+
+Only the shared one-dimensional prime-field Gauss identities are needed
+for this branch; the full prime-power Lemma 3.2 remains Pending. The
+analytic assembly and Theorems 1.1 and 1.4 also remain Pending.

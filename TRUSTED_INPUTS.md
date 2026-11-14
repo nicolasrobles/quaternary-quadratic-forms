@@ -77,7 +77,7 @@ The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruc
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 285 |
+| None (standard logical foundations only) | 309 |
 | Bertini with general projective geometry | 1 |
 | Katz with general hypersurface geometry | 10 |
 | Lang | 14 |
@@ -93,5 +93,7 @@ Lemma 4.1(i) uses Lang's general homogeneous resultant family. Its specializatio
 Lemma 4.1(ii) combines Lang with the general composite Bertini interface. Hartshorne's theorem and the explicitly attributed projective Jacobian and tangent-space facts supply a transverse tangent direction for a general homogeneous system over an algebraically closed field. The rank-three consequence, actual second elimination system, coefficient specialization, descent of polynomial nonvanishing, and construction D_p = F* R_j(G,·) with a uniform degree bound are internal proofs. No rational transverse plane over the prime field is assumed.
 
 The complete uniform Fourier theorem in Lemma 4.4 uses all four existing premises through the checked results above. The given-polynomial integral theorem uses Weil, Katz and Lang; the prime-field estimate uses Weil and Katz. The exceptional section count, including tangent and singular sections, is proved with the official mathlib Schwartz–Zippel theorem and the actual projective-ray decomposition, with no external premise. The constant comparisons and assembly of the indicator bound are internal deductions. No new literature declaration is introduced.
+
+The complete diagonal bad-prime lemma, Lemma 4.5, uses none of the registered literature premises. The actual gradient-minor calculation, geometric singular witness, coefficient reduction, direct finiteness from M and exact radical product are proved using standard logical foundations and proved library results.
 
 The Katz premise explicitly combines its spectral theorem and trace formula with Fulton/Stacks general hypersurface geometry, adjunction, and degree formulas. The matrix-quadric geometry, the numerical coefficient 2n²−4n+4, and the final scalar norm estimate are proved internally. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.

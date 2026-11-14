@@ -86,16 +86,16 @@ lines = [
     f'{counts["Partial"]} {"is" if counts["Partial"] == 1 else "are"} partial, '
     f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint completes Lemma 4.4: all three weight properties, "
-    "the exact zero-frequency identity, and the pointwise Fourier estimate "
-    "with constant 2n² and the actual exceptional-polynomial indicator. "
-    "The nonzero plane-section bound of 2p+2 points is proved internally, "
-    "including tangent and singular sections, using a nonzero ternary "
-    "restriction, the proved mathlib Schwartz–Zippel theorem and exact rays. "
-    "The final theorem uses the literal N_G; its uniform wrapper chooses "
-    "E before G,p and D_p before the character. All four existing literature "
-    "premises remain unchanged. Lemmas 2.5, 2.7, 4.1–4.3 and 5.9 and "
-    "Corollary 2.6 remain certified. No numbered result remains Partial. "
+    "The current checkpoint completes Lemma 4.5: characteristic-zero "
+    "smoothness of the actual diagonal pair, geometric bad reduction "
+    "exactly at primes dividing M outside N_F, and the identity of the "
+    "existing modulus with rad(|2αM|). The actual gradient minors and "
+    "algebraic-closure witness are proved, and finiteness follows directly "
+    "from the six-factor product M. Shared prime divisors are counted once. "
+    "All new exports use only standard logical foundations; the four "
+    "registered literature premises remain unchanged. Lemmas 2.5, 2.7, "
+    "4.1–4.4 and 5.9 and Corollary 2.6 remain certified. No numbered "
+    "result remains Partial. "
     "Theorems 1.1 and 1.4 remain Pending. "
     f"The {auxiliary_total} auxiliary and supplementary groups are tracked separately; "
     "these are groups of assertions, not additional numbered results.", "",
@@ -196,12 +196,14 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Complete Lemma 4.5 for the actual diagonal pair: prove characteristic-zero "
-    "smoothness, characterize geometric bad reduction at p not dividing N_F "
-    "by p dividing the product M of the six coefficient differences, and "
-    "identify the existing modulus exactly as rad(|2αM|). Keep this target "
-    "Pending until all three clauses and source correspondence are complete. "
-    "The pencil character-sum evaluation in Lemma 4.6 is the subsequent target.", "",
+    "Complete Lemma 4.6, beginning with the shared one-dimensional prime-field "
+    "Gauss identities needed for its actual Fourier pencil calculation. "
+    "Define the literal t_i, κ_i, Φ_u and ν_i, retain all four singular "
+    "pencil members in the exact formula, then deduce the zero-frequency "
+    "trace and the bound 2p^(3/2)+4p, including repeated-root cubics. "
+    "Lemma 4.6 remains Pending until every clause passes source review and "
+    "kernel checking. The shared Gauss helpers do not by themselves certify "
+    "the full prime-power statement of Lemma 3.2.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -299,6 +301,11 @@ trusted += [
     "and the actual projective-ray decomposition, with no external premise. "
     "The constant comparisons and assembly of the indicator bound are internal "
     "deductions. No new literature declaration is introduced.", "",
+    "The complete diagonal bad-prime lemma, Lemma 4.5, uses none of the "
+    "registered literature premises. The actual gradient-minor calculation, "
+    "geometric singular witness, coefficient reduction, direct finiteness "
+    "from M and exact radical product are proved using standard logical "
+    "foundations and proved library results.", "",
     "The Katz premise explicitly combines its spectral theorem and trace formula "
     "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
     "formulas. The matrix-quadric geometry, the numerical coefficient "

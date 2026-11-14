@@ -328,7 +328,31 @@ run_cmd do
     `QuaternaryQuadraticForms.fourierSum_nonzero_bound,
     `QuaternaryQuadraticForms.fourierSum_bound_prime_field,
     `QuaternaryQuadraticForms.fourier_bound,
-    `QuaternaryQuadraticForms.uniform_polynomial_fourier_bound]
+    `QuaternaryQuadraticForms.uniform_polynomial_fourier_bound,
+    `QuaternaryQuadraticForms.diagonalQuadraticPolynomial_eq_sum,
+    `QuaternaryQuadraticForms.diagonalPairProduct_map,
+    `QuaternaryQuadraticForms.diagonalPairProduct_ne_zero_iff,
+    `QuaternaryQuadraticForms.diagonal_pair_difference_ne_zero,
+    `QuaternaryQuadraticForms.diagonalQuadraticPolynomial_map,
+    `QuaternaryQuadraticForms.diagonal_coefficients_ne_zero,
+    `QuaternaryQuadraticForms.quadraticBadPrimeModulus_diagonal,
+    `QuaternaryQuadraticForms.diagonal_bad_modulus_product,
+    `QuaternaryQuadraticForms.eval_diagonalQuadraticPolynomial,
+    `QuaternaryQuadraticForms.polynomialGradient_diagonalQuadraticPolynomial,
+    `QuaternaryQuadraticForms.diagonal_gradient_minor,
+    `QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank,
+    `QuaternaryQuadraticForms.exists_diagonal_rank_failure_of_pair_eq_zero,
+    `QuaternaryQuadraticForms.not_diagonal_projectiveIntersectionTransverseRank_of_pair_eq_zero,
+    `QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff,
+    `QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff_pairProduct_ne_zero,
+    `QuaternaryQuadraticForms.diagonal_smooth_characteristicZero,
+    `QuaternaryQuadraticForms.diagonal_badReductionAt_iff,
+    `QuaternaryQuadraticForms.badReductionPrimes_finite_of_iff_dvd,
+    `QuaternaryQuadraticForms.badReductionPrimes_toFinset_eq_primeFactors_sdiff,
+    `QuaternaryQuadraticForms.polynomialBadPrimeModulus_eq_primeRadical_of_bad_iff,
+    `QuaternaryQuadraticForms.diagonal_badReductionPrimes_finite,
+    `QuaternaryQuadraticForms.diagonal_badPrimeModulus,
+    `QuaternaryQuadraticForms.diagonal_bad_primes]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -1339,3 +1363,75 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.uniform_polynomial_fourier_bound
 #print axioms QuaternaryQuadraticForms.uniform_polynomial_fourier_bound
+
+#check @QuaternaryQuadraticForms.diagonalQuadraticPolynomial_eq_sum
+#print axioms QuaternaryQuadraticForms.diagonalQuadraticPolynomial_eq_sum
+
+#check @QuaternaryQuadraticForms.diagonalPairProduct_map
+#print axioms QuaternaryQuadraticForms.diagonalPairProduct_map
+
+#check @QuaternaryQuadraticForms.diagonalPairProduct_ne_zero_iff
+#print axioms QuaternaryQuadraticForms.diagonalPairProduct_ne_zero_iff
+
+#check @QuaternaryQuadraticForms.diagonal_pair_difference_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonal_pair_difference_ne_zero
+
+#check @QuaternaryQuadraticForms.diagonalQuadraticPolynomial_map
+#print axioms QuaternaryQuadraticForms.diagonalQuadraticPolynomial_map
+
+#check @QuaternaryQuadraticForms.diagonal_coefficients_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonal_coefficients_ne_zero
+
+#check @QuaternaryQuadraticForms.quadraticBadPrimeModulus_diagonal
+#print axioms QuaternaryQuadraticForms.quadraticBadPrimeModulus_diagonal
+
+#check @QuaternaryQuadraticForms.diagonal_bad_modulus_product
+#print axioms QuaternaryQuadraticForms.diagonal_bad_modulus_product
+
+#check @QuaternaryQuadraticForms.eval_diagonalQuadraticPolynomial
+#print axioms QuaternaryQuadraticForms.eval_diagonalQuadraticPolynomial
+
+#check @QuaternaryQuadraticForms.polynomialGradient_diagonalQuadraticPolynomial
+#print axioms QuaternaryQuadraticForms.polynomialGradient_diagonalQuadraticPolynomial
+
+#check @QuaternaryQuadraticForms.diagonal_gradient_minor
+#print axioms QuaternaryQuadraticForms.diagonal_gradient_minor
+
+#check @QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank
+#print axioms QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank
+
+#check @QuaternaryQuadraticForms.exists_diagonal_rank_failure_of_pair_eq_zero
+#print axioms QuaternaryQuadraticForms.exists_diagonal_rank_failure_of_pair_eq_zero
+
+#check @QuaternaryQuadraticForms.not_diagonal_projectiveIntersectionTransverseRank_of_pair_eq_zero
+#print axioms QuaternaryQuadraticForms.not_diagonal_projectiveIntersectionTransverseRank_of_pair_eq_zero
+
+#check @QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff
+#print axioms QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff
+
+#check @QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff_pairProduct_ne_zero
+#print axioms QuaternaryQuadraticForms.diagonal_projectiveIntersectionTransverseRank_iff_pairProduct_ne_zero
+
+#check @QuaternaryQuadraticForms.diagonal_smooth_characteristicZero
+#print axioms QuaternaryQuadraticForms.diagonal_smooth_characteristicZero
+
+#check @QuaternaryQuadraticForms.diagonal_badReductionAt_iff
+#print axioms QuaternaryQuadraticForms.diagonal_badReductionAt_iff
+
+#check @QuaternaryQuadraticForms.badReductionPrimes_finite_of_iff_dvd
+#print axioms QuaternaryQuadraticForms.badReductionPrimes_finite_of_iff_dvd
+
+#check @QuaternaryQuadraticForms.badReductionPrimes_toFinset_eq_primeFactors_sdiff
+#print axioms QuaternaryQuadraticForms.badReductionPrimes_toFinset_eq_primeFactors_sdiff
+
+#check @QuaternaryQuadraticForms.polynomialBadPrimeModulus_eq_primeRadical_of_bad_iff
+#print axioms QuaternaryQuadraticForms.polynomialBadPrimeModulus_eq_primeRadical_of_bad_iff
+
+#check @QuaternaryQuadraticForms.diagonal_badReductionPrimes_finite
+#print axioms QuaternaryQuadraticForms.diagonal_badReductionPrimes_finite
+
+#check @QuaternaryQuadraticForms.diagonal_badPrimeModulus
+#print axioms QuaternaryQuadraticForms.diagonal_badPrimeModulus
+
+#check @QuaternaryQuadraticForms.diagonal_bad_primes
+#print axioms QuaternaryQuadraticForms.diagonal_bad_primes

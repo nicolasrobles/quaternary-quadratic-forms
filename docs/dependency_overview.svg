@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-823.16 1045.16,-823.16 1045.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="512.5" y="-780.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="512.5" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 8 certified; 34 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="512.5" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 9 certified; 33 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -162,11 +162,11 @@
 <!-- fourier -->
 <g id="node5" class="node">
 <title>fourier</title>
-<g id="a_node5"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Geometric Fourier bounds&lt;/B&gt;&lt;BR/&gt;Lemmas 4.1&#45;4.6&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;4 certified; 2 pending&lt;/FONT&gt;" target="_blank">
+<g id="a_node5"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Geometric Fourier bounds&lt;/B&gt;&lt;BR/&gt;Lemmas 4.1&#45;4.6&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;5 certified; 1 pending&lt;/FONT&gt;" target="_blank">
 <path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M599,-522C599,-522 398,-522 398,-522 392,-522 386,-516 386,-510 386,-510 386,-482 386,-482 386,-476 392,-470 398,-470 398,-470 599,-470 599,-470 605,-470 611,-476 611,-482 611,-482 611,-510 611,-510 611,-516 605,-522 599,-522"/>
 <text text-anchor="start" x="395" y="-505.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Geometric Fourier bounds</text>
 <text text-anchor="start" x="441" y="-491.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 4.1&#45;4.6</text>
-<text text-anchor="start" x="434" y="-479.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">4 certified; 2 pending</text>
+<text text-anchor="start" x="434" y="-479.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">5 certified; 1 pending</text>
 </a>
 </g>
 </g>

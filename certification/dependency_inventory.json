@@ -1679,8 +1679,9 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "Prove both directions of the bad-prime criterion; the converse constructs a singular point over the algebraic closure.",
-        "This is an independent algebraic proof, not an application of the general elimination bound."
+        "Both directions of the literal geometric bad-prime criterion are proved. The converse constructs an actual nonzero common zero with rank failure over the algebraic closure.",
+        "The actual six-factor product M supplies finiteness directly. The additional bad-prime finset is primeFactors(|M|) minus primeFactors(N_F), yielding the exact existing modulus rad(|2 alpha M|) for every finiteness proof.",
+        "All clauses use only standard logical foundations, independently of the general elimination bound. Zero b_i, negative M, common prime factors of N_F and M, and p=3 outside N_F are included."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [
