@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete shared-prime evaluation for the actual mixed complete sums and the supplied source weights",
+  "checkpoint": "Complete good-modulus and arbitrary-modulus dual-cone identities for the actual mixed complete sums",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -119,11 +119,22 @@
         "The existing mixedCompleteSum at q=p and c=p^k, for every source prime p not dividing N, every k>=1, and every integral frequency, equals the exact Legendre-symbol power times p^(2*k+1), the original supplied local weight at the reduced integral adjugate vector, and the actual Ramanujan sum modulo p^(k+1) at the integral dual quadratic value."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.4 for the actual symmetric nonsingular integral matrix and the source weight family. The source wrapper assumes exactly primeRadical(N_F) divides N and p not dividing N; the nonzero integer determinant makes the radical divisibility bridge valid and supplies the literal good-prime condition p not dividing N_F=2*abs(det A). Actual residue digits at p^j, j>=2, retain the gradient phase and preserve the local weight. Four-coordinate additive orthogonality gives the stationary condition 2*a*A*y+u=0 modulo p and the factor p^4. Applying the actual adjugate identifies adj(A)*u=-(2*a*det A)*y modulo p; the nonzero scalar and the supplied invariance extract precisely the adjugate-frequency weight. The already proved unweighted Gauss evaluation gives the exact weighted U_j formula. A separately proved bijection of actual units with canonical lift a.val+c*t.val, followed by scalar orthogonality, imposes the literal divisibility p divides F(x) and proves U_(k+1)=p*mixedCompleteSum. Only the nonzero complex scalar p is cancelled, giving the exact exponent 2*k+1 and Ramanujan modulus p^(k+1). The original supplied local function occurs on the source right side; no excluded-prime value or additional weight is assumed. The boundary k=1 and every frequency, including zero, are covered; k=0 is excluded as in the source. Only local scalar invariance is used from the weight hypotheses; vanishing at zero, its norm bound, the stratified Fourier estimate, and the global nonsquare condition are unnecessary here. Every conditional inner-factor hypothesis is discharged in the final endpoints. All 18 new exports use only standard logical foundations and no literature premise. Lemma 3.5 and the global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.4 for the actual symmetric nonsingular integral matrix and the source weight family. The source wrapper assumes exactly primeRadical(N_F) divides N and p not dividing N; the nonzero integer determinant makes the radical divisibility bridge valid and supplies the literal good-prime condition p not dividing N_F=2*abs(det A). Actual residue digits at p^j, j>=2, retain the gradient phase and preserve the local weight. Four-coordinate additive orthogonality gives the stationary condition 2*a*A*y+u=0 modulo p and the factor p^4. Applying the actual adjugate identifies adj(A)*u=-(2*a*det A)*y modulo p; the nonzero scalar and the supplied invariance extract precisely the adjugate-frequency weight. The already proved unweighted Gauss evaluation gives the exact weighted U_j formula. A separately proved bijection of actual units with canonical lift a.val+c*t.val, followed by scalar orthogonality, imposes the literal divisibility p divides F(x) and proves U_(k+1)=p*mixedCompleteSum. Only the nonzero complex scalar p is cancelled, giving the exact exponent 2*k+1 and Ramanujan modulus p^(k+1). The original supplied local function occurs on the source right side; no excluded-prime value or additional weight is assumed. The boundary k=1 and every frequency, including zero, are covered; k=0 is excluded as in the source. Only local scalar invariance is used from the weight hypotheses; vanishing at zero, its norm bound, the stratified Fourier estimate, and the global nonsquare condition are unnecessary here. Every conditional inner-factor hypothesis is discharged in the final endpoints. All 18 new exports use only standard logical foundations and no literature premise. The global analytic theorems remain Pending."
     },
     "lem:goodglobal": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_good_global_complete_sum",
+        "QuaternaryQuadraticForms.source_mixedCompleteSum_good_modulus",
+        "QuaternaryQuadraticForms.source_mixedCompleteSum_dual_cone"
+      ],
+      "correspondence_record": "certification/correspondence/good_global_complete_sum.md",
+      "completed_clauses": [
+        "For every positive squarefree q coprime to N, every positive c coprime to N_F, and every integral frequency, the existing mixed complete sum equals the actual constrained sum at q/gcd(q,c), times gcd(q,c)*c^2, the original supplied Dirichlet character at gcd(q,c)*c, the literal product of supplied prime weights at the integral adjugate frequency, and the actual Ramanujan sum at the dual value and modulus gcd(q,c)*c.",
+        "On the actual integral dual cone, the existing mixed complete sum at every positive modulus c, including arbitrary bad-prime factors, equals the actual constrained sum at q/gcd(q,c), times gcd(q,c)^2, the original supplied character at gcd(q,c), the original composite weight at the adjugate frequency, and the actual unweighted complete sum S_c."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.5, including both clauses and the literal source factors q1=gcd(q,c), q2=q/q1. Squarefreeness supplies the exact positive gcd and quotient, their coprimality with the full shared CRT block, and the split of a squarefree divisor across coprime moduli. Prime-power induction proves the shared-support formula for actual mixed sums when q divides c; its prime-power branches use the already proved unramified and ramified evaluations. Actual CRT then separates precisely the constrained Fourier sum at q2. The Ramanujan product is proved through the actual unit CRT bijection, and its value at zero is the actual unit count. The totient identity phi(d*c)=d*phi(c) is proved for d dividing c. The intermediate coefficient is the actual Jacobi symbol. The original source Dirichlet character is supplied with exactly its stated Legendre values at good primes; prime induction proves its equality with that coefficient at every needed good positive composite modulus. No composite-character equality, primitive-character construction, or identity at bad moduli is assumed. The right-hand weight is the literal product of the original supplied functions. Every prime occurring in the constrained Fourier factor also lies outside N, since the quotient divides q. For the dual-cone clause, an actual positive bad-prime/good-prime decomposition c=b*g is constructed, q is proved coprime to b, and gcd(q,c)=gcd(q,g) is proved. Both actual CRT identities retain the factor S_b multiplicatively; no character sum, weight, or character value is cancelled or assumed nonzero. Integer nonsingularity and the source radical divisibility derive q coprime to N_F from q coprime to N for the arbitrary-modulus clause. Modulus one and zero frequency are included. The separate source condition N>=1 is unused, and is not inferred from q coprime to N; the additional N=0 case forces q=1. The weight zero-value, norm and stratified Fourier bounds, and character primitivity and nonsquareness are unnecessary once the supplied character and its source good-prime values are available. All 27 new theorem exports use only standard logical foundations: 26 have exactly Classical.choice, Quot.sound, and propext; gcd_mul_blocks_coprime uses only propext. No literature premise is added or used. Lemma 3.6 and the global analytic theorems remain Pending."
     },
     "lem:genericmod": {
       "status": "Pending",
@@ -9216,6 +9227,485 @@
         "eq:forms"
       ],
       "scope": "Constant weight one recovers the manuscript's existing complete sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_dual_cone",
+      "file": "QuaternaryQuadraticForms/ConeCompleteSum.lean",
+      "scope": "On the actual dual cone, the good-modulus formula has the exact source coefficient multiplying the existing unweighted complete sum.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:coneratio",
+        "eq:goodglobal",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:q1q2",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_dual_cone",
+      "file": "QuaternaryQuadraticForms/ConeCompleteSum.lean",
+      "scope": "The complete dual-cone clause of Lemma 3.5 for every positive modulus, including arbitrary bad-prime factors and zero sum values.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:coneratio",
+        "eq:goodglobal",
+        "eq:Sdef",
+        "eq:Snewdef",
+        "eq:q1q2",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_one",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "The coefficient at modulus one is the empty product.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_mul",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "Multiplicativity of the actual Jacobi coefficient at positive moduli.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_prime",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "At a prime the global coefficient is the exact Legendre symbol.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_prime_power",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "Prime-power agreement includes the empty power at exponent zero.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_sq",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "On coprime arguments the quadratic coefficient has square one.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.monoidHom_eq_globalQuadraticChar",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "Good-prime values determine every positive value coprime to `2*|α|` of an actual multiplicative map on the natural numbers.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_eq_dirichletCharacter",
+      "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
+      "scope": "The Jacobi coefficient equals the original supplied Dirichlet character on every good positive modulus. The only character hypothesis is the source's explicit Legendre value at good primes.",
+      "source_labels": [
+        "eq:forms",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_good_modulus",
+      "file": "QuaternaryQuadraticForms/GoodGlobalCompleteSum.lean",
+      "scope": "Lemma 3.5's good-modulus identity, with the actual gcd and quotient, the existing complete sums, and the actual Jacobi character value.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:q1q2",
+        "eq:Cdef",
+        "eq:Snewdef",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_mixedCompleteSum_good_modulus",
+      "file": "QuaternaryQuadraticForms/GoodGlobalTheorem.lean",
+      "scope": "The good-modulus clause of Lemma 3.5, with the original supplied Dirichlet character and the literal product of supplied prime weights.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio",
+        "eq:q1q2",
+        "eq:Snewdef",
+        "eq:forms",
+        "eq:weightproperties"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_mixedCompleteSum_dual_cone",
+      "file": "QuaternaryQuadraticForms/GoodGlobalTheorem.lean",
+      "scope": "The full dual-cone clause for every positive modulus, using the source radical condition and retaining the original character and weights.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio",
+        "eq:q1q2",
+        "eq:Snewdef",
+        "eq:forms",
+        "eq:weightproperties"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_good_global_complete_sum",
+      "file": "QuaternaryQuadraticForms/GoodGlobalTheorem.lean",
+      "scope": "Both clauses of Lemma 3.5 for the source's supplied Dirichlet character and prime functions, with its actual gcd factors and complete sums.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio",
+        "eq:q1q2",
+        "eq:Snewdef",
+        "eq:forms",
+        "eq:weightproperties"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_good_modulus",
+      "file": "QuaternaryQuadraticForms/GoodUnweightedCompleteSum.lean",
+      "scope": "The exact unweighted formula at every positive modulus coprime to the source's `N_F`, including modulus one and every integral frequency.",
+      "source_labels": [
+        "lem:gauss",
+        "eq:unram",
+        "lem:goodglobal",
+        "eq:Sdef",
+        "eq:ramanujan",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_modulus_prime_split",
+      "file": "QuaternaryQuadraticForms/ModulusPrimeSplit.lean",
+      "scope": "A positive modulus admits the source's bad-prime/good-prime split, with actual positive factors, their coprimality, and their prime support.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:coneratio",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprime_of_prime_dvd_support",
+      "file": "QuaternaryQuadraticForms/ModulusPrimeSplit.lean",
+      "scope": "Coprimality with the excluded-prime integer passes to every positive or zero integer whose prime support lies in that integer's support.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:coneratio",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gcd_eq_good_part_of_prime_support",
+      "file": "QuaternaryQuadraticForms/ModulusPrimeSplit.lean",
+      "scope": "Removing the factor supported on excluded primes preserves the actual gcd defining the source's shared squarefree factor.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:coneratio",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_mul",
+      "file": "QuaternaryQuadraticForms/RamanujanMultiplicativity.lean",
+      "scope": "Multiplicativity of the literal integral Ramanujan sum, proved by the actual reduced-residue CRT bijection. Both moduli may equal one.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_zero",
+      "file": "QuaternaryQuadraticForms/RamanujanMultiplicativity.lean",
+      "scope": "At zero frequency the actual Ramanujan sum is the Euler totient, including the single unit and single character value at modulus one.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totient_mul_of_dvd",
+      "file": "QuaternaryQuadraticForms/RamanujanMultiplicativity.lean",
+      "scope": "A divisor of the modulus multiplies its totient by that same factor. This applies to the source factor `gcd(q,c)` and also includes zero cases.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_shared_support",
+      "file": "QuaternaryQuadraticForms/SharedSupportCompleteSum.lean",
+      "scope": "The source closed formula for every squarefree `q ∣ c` at a good positive modulus, with the actual local weights and every integral frequency.",
+      "source_labels": [
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "lem:crt",
+        "lem:gauss",
+        "lem:ramified",
+        "eq:q1q2",
+        "eq:weightproperties",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_extend_eq_source",
+      "file": "QuaternaryQuadraticForms/SourceCompositeWeights.lean",
+      "scope": "The representation inside the actual complete sums agrees with the literal product of the original source functions.",
+      "source_labels": [
+        "sec:local",
+        "eq:weightproperties",
+        "eq:Cdef",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_coprime_quadraticBadPrimeModulus",
+      "file": "QuaternaryQuadraticForms/SourceGoodModulus.lean",
+      "scope": "Every source modulus coprime to `N` is coprime to the actual bad-prime modulus, using precisely the source radical divisibility condition.",
+      "source_labels": [
+        "eq:forms",
+        "sec:local",
+        "lem:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.squarefree_gcd_factors",
+      "file": "QuaternaryQuadraticForms/SquarefreeGcdFactors.lean",
+      "scope": "The source gcd and quotient factors, with every positivity, squarefreeness, and CRT coprimality conclusion derived from the data.",
+      "source_labels": [
+        "eq:q1q2",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gcd_mul_blocks_coprime",
+      "file": "QuaternaryQuadraticForms/SquarefreeGcdFactors.lean",
+      "scope": "The source shared factors of two coprime modulus blocks have coprime full CRT moduli. This deduction does not require squarefreeness.",
+      "source_labels": [
+        "eq:q1q2",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.squarefree_shared_gcd_factors",
+      "file": "QuaternaryQuadraticForms/SquarefreeGcdFactors.lean",
+      "scope": "A squarefree divisor of a product of coprime moduli splits into the actual gcds used in the source's shared-prime factorization.",
+      "source_labels": [
+        "eq:q1q2",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime",
+      "file": "QuaternaryQuadraticForms/SquarefreeGcdFactors.lean",
+      "scope": "A squarefree divisor of a prime power is one or that prime, including the exponent-zero case.",
+      "source_labels": [
+        "eq:q1q2",
+        "lem:goodglobal",
+        "eq:goodglobal",
+        "eq:coneratio"
+      ],
+      "status": "Checked locally",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",

@@ -92,7 +92,12 @@ jobs:
             Mathlib.LinearAlgebra.QuadraticForm.Basic \
             Mathlib.Logic.Equiv.Fin.Basic \
             Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient \
-            Mathlib.Logic.Equiv.Prod
+            Mathlib.Logic.Equiv.Prod \
+            Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
+            Mathlib.NumberTheory.DirichletCharacter.Basic \
+            Mathlib.Data.Nat.Factorization.Induction \
+            Mathlib.Data.Nat.GCD.Basic \
+            Mathlib.Data.Nat.Totient
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

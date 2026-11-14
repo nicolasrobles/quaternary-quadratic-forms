@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-823.16 1060.16,-823.16 1060.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="520" y="-780.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="520" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 14 certified; 28 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="520" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 15 certified; 27 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -151,11 +151,11 @@
 <!-- local -->
 <g id="node4" class="node">
 <title>local</title>
-<g id="a_node4"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Local arithmetic&lt;/B&gt;&lt;BR/&gt;Lemmas 3.1&#45;3.11&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;4 certified; 7 pending&lt;/FONT&gt;" target="_blank">
+<g id="a_node4"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Local arithmetic&lt;/B&gt;&lt;BR/&gt;Lemmas 3.1&#45;3.11&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;5 certified; 6 pending&lt;/FONT&gt;" target="_blank">
 <path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M332,-522C332,-522 208,-522 208,-522 202,-522 196,-516 196,-510 196,-510 196,-482 196,-482 196,-476 202,-470 208,-470 208,-470 332,-470 332,-470 338,-470 344,-476 344,-482 344,-482 344,-510 344,-510 344,-516 338,-522 332,-522"/>
 <text text-anchor="start" x="205" y="-505.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Local arithmetic</text>
 <text text-anchor="start" x="208" y="-491.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 3.1&#45;3.11</text>
-<text text-anchor="start" x="205.5" y="-479.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">4 certified; 7 pending</text>
+<text text-anchor="start" x="205.5" y="-479.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">5 certified; 6 pending</text>
 </a>
 </g>
 </g>

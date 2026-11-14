@@ -1,9 +1,9 @@
-# Ramified complete-sum checkpoint
+# Global complete-sum identities checkpoint
 
 ## Numbered-result status
 
-Complete: **14**. Partial: **0**. Active numbered targets: **0**.
-Pending: **28**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **15**. Partial: **0**. Active numbered targets: **0**.
+Pending: **27**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -95,9 +95,155 @@ condition supplies good reduction; only the nonzero scalar `p` is
 cancelled in the final assembly. No nonvanishing assumption on a
 character sum, frequency restriction, or literature premise is used.
 
-The next bounded target is complete Lemma 3.5, including both clauses.
+**Lemma 3.5 is Certified.** Both identities use the literal
+`q₁ = gcd(q,c)` and `q₂ = q/q₁`, the actual complete sums, the
+original supplied weight product, and the source Dirichlet character.
+The good-modulus formula follows from actual prime-power and CRT
+assembly. On the dual cone, the second identity holds for every
+positive modulus, including bad-prime factors; the proof retains the
+possibly zero bad-part sum multiplicatively. Agreement of the Jacobi
+coefficient with the supplied character is proved from the source's
+good-prime values. No literature premise is used.
+
+The next bounded target is complete Lemma 3.6, the generic-frequency modulus estimate.
 
 ## Mathematical scope
+
+### Complete Lemma 3.5
+
+[GoodGlobalTheorem.lean](QuaternaryQuadraticForms/GoodGlobalTheorem.lean)
+proves the two source theorems `source_mixedCompleteSum_good_modulus`
+and `source_mixedCompleteSum_dual_cone`, and bundles them as
+`source_good_global_complete_sum`. Let $q\ge1$ be squarefree,
+$(q,N)=1$, and $c\ge1$, with the literal source factors
+
+$$q_1=\gcd(q,c),\qquad q_2=q/q_1.$$
+
+For a good modulus the first clause is
+
+$$\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1c^2\chi(q_1c)\,
+\xi_{q_1}(\operatorname{adj}(A)u)\,
+R_{q_1c}(F^*(u)),\qquad(c,N_F)=1.$$
+
+The second clause holds for every positive modulus:
+
+$$\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1^2\chi(q_1)\,
+\xi_{q_1}(\operatorname{adj}(A)u)\,S_c(u),
+\qquad F^*(u)=0.$$
+
+The left-hand side is the existing
+`mixedCompleteSum (extendPrimeWeights N ξ) q c A u`. The first factor
+on the right is the existing constrained Fourier sum at the actual
+quotient `q / q.gcd c`. The dual value is literally
+`dotProduct u (A.adjugate.mulVec u)`, and the weight is evaluated at
+the actual integral vector `A.adjugate.mulVec u`. Positive moduli are
+represented by `NeZero` instances. Modulus one, zero frequency, and
+zero values of any of the complete sums are included.
+
+**The original character and supplied weights.**
+`GlobalQuadraticCharacter.lean` defines the intermediate complex
+coefficient as the actual Jacobi symbol, and proves its value at one,
+multiplicativity at positive moduli, prime and prime-power Legendre
+values, and square-one value on coprime arguments. The source theorem
+accepts an actual `DirichletCharacter ℂ M` and precisely its stated
+Legendre values at primes not dividing `N_F`. Prime induction proves
+that this supplied character equals the Jacobi coefficient at every
+positive modulus coprime to `N_F`. Consequently, the final formulas
+contain the original `χ` evaluated at `q₁ c` and `q₁`, respectively.
+There is no hypothesis identifying the character at composite moduli;
+that agreement is proved internally.
+
+`SourceCompositeWeights.lean` defines `sourceCompositeWeight` as the
+literal product of the original supplied functions over the prime
+divisors of a modulus coprime to `N`. It proves that this product agrees
+with `compositeWeight (extendPrimeWeights N ξ)`. The final right-hand
+weight is therefore the source's supplied product, without imposing
+any condition on an undefined or excluded-prime function.
+
+**The actual local-to-global assembly.**
+`RamanujanMultiplicativity.lean` reindexes the actual unit sum by
+`scaledChineseRemainderUnits`. The standard character splits with
+unchanged integer frequency, proving
+
+$$R_{mn}(t)=R_m(t)R_n(t)\qquad((m,n)=1).$$
+
+At zero frequency the sum is the actual unit cardinality, hence
+$R_n(0)=\varphi(n)$. The identity
+$\varphi(dc)=d\varphi(c)$ for `d ∣ c` follows from the proved
+totient/gcd product identity, with the zero case handled separately.
+In its positive case only the nonzero natural number $\varphi(d)$
+is cancelled. No character sum is divided out.
+
+`GoodUnweightedCompleteSum.lean` combines the actual prime-power
+formula of Lemma 3.2 with CRT and Ramanujan multiplicativity to prove
+
+$$S_c(u)=\chi(c)c^2R_c(F^*(u))\qquad((c,N_F)=1).$$
+
+The intermediate coefficient is the proved Jacobi representative;
+the character agreement described above supplies the source `χ`.
+The proof includes the case `c=1`.
+
+`SquarefreeGcdFactors.lean` proves all arithmetic for the source's
+actual gcd and quotient: their product is `q`, they are positive and
+squarefree, `q₁ ∣ c`, and `(q₂,q₁ c)=1`. It also proves the gcd split
+for a squarefree divisor of a coprime product and proves that a
+squarefree divisor of a prime power is `1` or that prime.
+
+`SharedSupportCompleteSum.lean` treats squarefree `q ∣ c`. Induction
+over positive prime powers and coprime products reduces the prime-power
+case to `q=1` or `q=p`, where Lemmas 3.2 and 3.4 give the exact sums.
+For `c=mn`, it splits the weight modulus into `gcd(q,m)` and
+`gcd(q,n)` and proves coprimality of the full CRT blocks. The literal
+CRT formula, character, composite weights, and Ramanujan factors
+combine to give the exact coefficient `q c²` and modulus `q c`.
+`GoodGlobalCompleteSum.lean` then separates the actual factor
+$C_{q_2}(u)$ by CRT and applies that shared-support formula to `q₁`.
+This proves the complete good-modulus identity with the literal
+source factors, rather than assuming a suitable factorization.
+
+**The dual-cone clause at arbitrary moduli.**
+At a good modulus, `ConeCompleteSum.lean` uses `F*(u)=0`,
+$R_n(0)=\varphi(n)$, and
+$\varphi(q_1c)=q_1\varphi(c)$ to obtain the exact coefficient of
+$S_c(u)$. The identity is proved by multiplication of the displayed
+factors and does not require nonvanishing of $S_c(u)$.
+
+For every positive modulus, `ModulusPrimeSplit.lean` constructs
+positive coprime `b,g` such that `c = b*g`, every prime of `b` divides
+`N_F`, and `(g,N_F)=1`. Coprimality of `q` with `N_F` gives `(q,b)=1`
+and proves `gcd(q,c)=gcd(q,g)`. Both actual CRT factorizations are then
+used:
+
+$$\mathcal S_{q,c}(u)=S_b(u)\mathcal S_{q,g}(u),\qquad
+S_c(u)=S_b(u)S_g(u).$$
+
+The good-part cone formula is multiplied by the existing $S_b(u)$.
+This factor is retained throughout, so the full identity includes its
+possible vanishing and every bad-prime factor in `c`.
+
+`SourceGoodModulus.lean` proves `(q,N_F)=1` from the source radical
+condition `primeRadical N_F ∣ N`, `(q,N)=1`, and `A.det ≠ 0`.
+Nonsingularity ensures `N_F ≠ 0`, as required by the prime-divisor
+characterization of the literal radical. This supplies the good-prime
+condition needed for the arbitrary-modulus cone theorem. The final
+bundled source theorem assumes symmetry, nonsingularity, the radical
+condition, the supplied character's good-prime values, and scalar
+invariance of the supplied prime functions.
+
+The identities do not need the weight's value at zero or its norm
+bound, the Section 3 exceptional frequency strata, primitivity or a
+particular conductor of the supplied character, or nonsquareness of
+the determinant. The source's separate `N ≥ 1` condition is unused;
+it is not a consequence of `(q,N)=1`, since `q=1, N=0` satisfies
+that coprimality condition. The weaker formal assumptions retain both
+complete source conclusions.
+
+The [correspondence review](certification/correspondence/good_global_complete_sum.md)
+checks both clauses, the exact source character and weight interfaces,
+the gcd/quotient factors, and the arbitrary-modulus cone proof.
+No literature premise is used.
 
 ### Complete Lemma 3.4
 
@@ -990,6 +1136,18 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Both source clauses of Lemma 3.5](QuaternaryQuadraticForms/GoodGlobalTheorem.lean).
+- [Actual Jacobi coefficients and source-character agreement](QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean).
+- [Actual Ramanujan multiplicativity and zero frequency](QuaternaryQuadraticForms/RamanujanMultiplicativity.lean).
+- [The literal squarefree gcd factors](QuaternaryQuadraticForms/SquarefreeGcdFactors.lean).
+- [The constructed bad/good modulus split](QuaternaryQuadraticForms/ModulusPrimeSplit.lean).
+- [Unweighted evaluation at every good modulus](QuaternaryQuadraticForms/GoodUnweightedCompleteSum.lean).
+- [The complete shared-support formula](QuaternaryQuadraticForms/SharedSupportCompleteSum.lean).
+- [The actual good-modulus global formula](QuaternaryQuadraticForms/GoodGlobalCompleteSum.lean).
+- [The dual-cone formula at every positive modulus](QuaternaryQuadraticForms/ConeCompleteSum.lean).
+- [The original source weight product](QuaternaryQuadraticForms/SourceCompositeWeights.lean).
+- [Good moduli from the source radical condition](QuaternaryQuadraticForms/SourceGoodModulus.lean).
+- [Complete Lemma 3.5 correspondence review](certification/correspondence/good_global_complete_sum.md).
 - [Complete ramified identity: Lemma 3.4](QuaternaryQuadraticForms/RamifiedCompleteSum.lean).
 - [Literal weighted inner and complete sums](QuaternaryQuadraticForms/WeightedGaussSums.lean).
 - [Actual weighted stationary expansion](QuaternaryQuadraticForms/WeightedGaussStationaryPhase.lean).
@@ -1073,7 +1231,70 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current Lemma 3.4 milestone contains 571 theorem exports across
+The current Lemma 3.5 milestone contains 598 theorem exports across
+139 project Lean modules and 20 mapped source groups: 27 new public
+theorem exports in eleven new modules. The four registered literature
+premises and all nine pinned dependency revisions are unchanged.
+Source groups and Lean premise declarations remain separate counts.
+The completed aggregate report records 167 input hashes; its twelve
+added inputs are the eleven new Lean modules and
+`certification/correspondence/good_global_complete_sum.md`.
+
+All eleven modules and the root library passed strict targeted
+compilation under official Lean 4.24.0 and the pinned mathlib revision,
+with `warningAsError=true` and `autoImplicit=false` (3,180 build jobs).
+The combined inspection of all 27 actual theorem types and axiom
+lists passed before the aggregate run. Exactly 26 new exports use
+`Classical.choice`, `Quot.sound`, and `propext`;
+`gcd_mul_blocks_coprime` uses only `propext`. No new export uses a
+literature premise.
+
+### Global complete-sum local execution
+
+**The full local aggregate verifier passed for all 139 modules and
+598 theorem exports.** All 167 recorded input hashes match the checked
+files. All 27 new actual theorem types and axiom lists match their
+prior inspections. Exactly 26 exports use the standard foundation
+triplet and `gcd_mul_blocks_coprime` uses only `propext`.
+
+The independent comparison confirms that all 571 preceding complete
+theorem records remain identical, including actual types, axiom lists,
+Lean source hashes, and scopes. All four registered literature premise
+records and all nine pinned dependency revisions remain identical to
+the preceding report. The mapped source-group count remains 20.
+
+The exact twelve added inspected inputs are the eleven new Lean modules
+and `certification/correspondence/good_global_complete_sum.md`. The only
+changes to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 32 frozen
+changed-file hashes was preserved through the verification run,
+including the workflow, which is outside the report's 167 input hashes.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier. The installed local report preserves the exact
+bytes of the successfully compared verifier output.
+
+The [local verification report](certification/verification_report.json)
+contains 879,086 bytes and has SHA-256
+`307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`.
+It records 15 Certified and 27 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Global complete-sum GitHub execution
+
+**GitHub CI for the 598-export scope is pending.** The new local result
+above covers the complete Lemma 3.5 scope. The preceding 571-export
+proof and its local and CI reports retain their exact historical scope
+below.
+
+## Earlier checked checkpoints
+
+### Ramified milestone
+
+The preceding Lemma 3.4 milestone contained 571 theorem exports across
 128 project Lean modules and 20 mapped source groups: 18 new public
 theorem exports in eight new modules. The four registered literature
 premises and all nine pinned dependency revisions are unchanged.
@@ -1113,10 +1334,10 @@ changed-file hashes was preserved through the verification run.
 The frozen manuscript and PDF remain byte-for-byte unchanged.
 These subsequent README and checkpoint updates record the successful
 local execution; the inspected proof inputs remain those checked by
-the aggregate verifier. The installed local report preserves the exact
-bytes of the successfully compared verifier output.
+the aggregate verifier. The local report at that proof commit preserves
+the exact bytes of the successfully compared verifier output.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/169218f4b525d0433c2b53fdd49483f47623c1e8/certification/verification_report.json)
 contains 833,730 bytes and has SHA-256
 `e0bac7dc8881c3d8837d89fcf5a2b1a37056275256d0f6c8b20a749278e9a734`.
 It records 14 Certified and 28 Pending numbered results, with zero
@@ -1152,18 +1373,20 @@ dependency revisions, the complete Lean export-inspection output,
 the Lean version, and every verification flag and scope count.
 Only `generated_at_utc` and `lake_build_output` differ.
 
-All 155 input hashes match the current inspected files and the exact
-proof tree. The installed local report remains unchanged at
-833,730 bytes with SHA-256
-`e0bac7dc8881c3d8837d89fcf5a2b1a37056275256d0f6c8b20a749278e9a734`,
-byte-identical to the report at the published proof commit. The frozen
-manuscript and PDF are unchanged. This evidence covers the complete
-571-export Lemma 3.4 milestone. The numbered status remains 14 Certified,
-zero Partial or Active, and 28 Pending; all 33 auxiliary/supplementary
-groups remain Pending and whole-paper certification remains false.
-The earlier local and CI reports below retain their original scopes.
-
-## Earlier checked checkpoints
+All 155 input hashes match the files inspected at that checkpoint and
+the exact proof tree. The local report at that published proof commit
+contains the exact 833,730 bytes with SHA-256
+`e0bac7dc8881c3d8837d89fcf5a2b1a37056275256d0f6c8b20a749278e9a734`.
+The original artifact and report were preserved in
+[evidence commit 77acba81d1aa6024d8132500464fd66290b2665c](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/77acba81d1aa6024d8132500464fd66290b2665c),
+whose tree is `3c3eca9779da8b87d9b3ab844e6c09eb41ae419b`.
+The frozen manuscript and PDF are unchanged. This evidence covers the
+complete 571-export Lemma 3.4 milestone; it does not cover the current
+598-export Lemma 3.5 milestone. At that checkpoint the numbered status
+was 14 Certified, zero Partial or Active, and 28 Pending; all 33
+auxiliary/supplementary groups were Pending and whole-paper
+certification was false. The earlier local and CI reports below
+retain their original scopes.
 
 ### Uniform bound milestone
 
@@ -1253,8 +1476,9 @@ The original artifact and report were preserved in
 [evidence commit 642a0c8064bc3287be3660f132325adab4534624](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/642a0c8064bc3287be3660f132325adab4534624),
 whose tree is `91ed8165569569a763e5e9fc364da5e4a17c8657`.
 The frozen manuscript and PDF are unchanged. This evidence covers the
-complete 553-export Lemma 3.3 milestone; it does not cover the current
-571-export ramified milestone. At that checkpoint the numbered status
+complete 553-export Lemma 3.3 milestone; it does not cover the subsequent
+571-export ramified milestone or the current 598-export Lemma 3.5
+milestone. At that checkpoint the numbered status
 was 13 Certified, zero Partial or Active, and 29 Pending; all 33
 auxiliary/supplementary groups were Pending and whole-paper
 certification was false. The earlier local and CI reports below
@@ -1351,8 +1575,8 @@ That evidence commit changed only README, CHECKPOINT, and the two
 archived CI files; all 137 inspected inputs and the local report were
 unchanged. The frozen manuscript and PDF are unchanged. This evidence
 covers the preceding 536-export Gauss milestone; it does not cover the
-subsequent 553-export bound milestone or the current 571-export
-ramified milestone. At that checkpoint, the numbered status
+subsequent 553-export bound and 571-export ramified milestones or the
+current 598-export Lemma 3.5 milestone. At that checkpoint, the numbered status
 was 12 Certified, zero Partial or Active, and 30 Pending, with all 33
 auxiliary/supplementary groups Pending and whole-paper certification
 false. Earlier local and CI reports below retain their original scopes.
@@ -1942,57 +2166,64 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The next bounded target is complete Lemma 3.5, source lines 1240–1280.
-Both displayed conclusions are required. Under the source's Section 3
-hypotheses, let $q\ge1$ be squarefree with $(q,N)=1$, let $c\ge1$,
-and define the actual source factors
+The next bounded target is complete Lemma 3.6, `lem:genericmod`, source
+lines 1292–1342: statement at 1292–1300 and proof at 1302–1342. For
+squarefree $q=q_1q_2$ with $(q,N)=1$, $u\in\mathbb Z^4$ with
+$m=F^*(u)\ne0$, $X\ge1$, and $\varepsilon>0$, the required bound is
 
-$$q_1=\gcd(q,c),\qquad q_2=q/q_1.$$
+$$\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\ll_{F,\varepsilon}|C_{q_2}(u)|\,q_1^2\,
+\mathbf 1_{q_1\mid F^*(u)}\,(X|F^*(u)|)^\varepsilon.$$
 
-If $(c,N_F)=1$, the first required identity is
+The endpoint must use the actual mixed sums and constrained Fourier
+factor, the literal gcd restriction on the summation set, and
+$q_2=q/q_1$. For each fixed `F` and positive `ε`, the constant must
+be uniform in the remaining admissible source data, including `q`,
+the frequency, and `X`. The indicator is essential: if `q₁ ∤ m`,
+the actual sum on the left must vanish.
 
-$$\mathcal S_{q,c}(u)
-=C_{q_2}(u)\,q_1c^2\chi(q_1c)\,
-\xi_{q_1}(\operatorname{adj}(A)u)\,
-R_{q_1c}(F^*(u)).$$
+The source first splits each modulus into its bad-prime-supported
+part and good part, $c=c_1c_2$. The constructed split and gcd
+preservation are now available, as are the actual CRT identities,
+Lemma 3.3's bound $4\sqrt{|\det A|}c_1^3$, and the full good-modulus
+formula of Lemma 3.5. The next proof must combine these with the
+source weight norm bound to reduce to an actual Ramanujan estimate.
 
-If $F^*(u)=0$, the second required identity must hold for every
-positive modulus, including those with bad-prime factors:
+For the shared primes it must justify the local evaluation, writing
+$v=v_p(m)$,
 
-$$\mathcal S_{q,c}(u)
-=C_{q_2}(u)\,q_1^2\chi(q_1)\,
-\xi_{q_1}(\operatorname{adj}(A)u)\,S_c(u).$$
+$$p\sum_{k\ge1}\frac{|R_{p^{k+1}}(m)|}{p^k}
+=\begin{cases}
+0,&v=0,\\
+p\big((v-1)(p-1)+1\big),&v\ge1,
+\end{cases}$$
 
-The endpoints must use the existing mixed and unweighted complete
-sums, composite weights, integer character, dual value, and literal
-Ramanujan sums. The source factors must be derived from `gcd(q,c)`
-and its quotient, with squarefreeness and coprimality supplying the
-needed disjoint prime factors.
+and its bound by $p^2v$ when $v\ge1$. The finite support for nonzero
+`m`, the exact prime-power Ramanujan values, and the passage from the
+restricted modulus sum to the product over the actual shared prime
+factors must be proved. The product must vanish unless $q_1\mid m$
+and otherwise be at most $q_1^2\tau(|m|)$.
 
-For the good-modulus clause, the source decomposes
-$c=c_0\prod_{p\mid q_1}p^{k_p}$, with $(c_0,q)=1$ and $k_p\ge1$.
-The proof must assemble the actual CRT factorization from Lemma 3.1
-and the local evaluations from Lemmas 3.2 and 3.4. The coefficient
-products must give exactly $q_1c^2$, $\chi(q_1c)$, and
-$\xi_{q_1}(\operatorname{adj}(A)u)$. Multiplicativity of the actual
-Ramanujan sum must identify its product with $R_{q_1c}(F^*(u))$.
+The remaining unshared moduli require the actual divisor/harmonic
+bound
 
-On the dual cone, the good-modulus case uses the actual identities
-$R_n(0)=\varphi(n)$ and $\varphi(q_1c)=q_1\varphi(c)$, since every
-prime dividing $q_1$ divides $c$. For an arbitrary modulus, the source
-then splits $c=c_1c_2$, where every prime dividing $c_1$ divides
-$N_F$ and $(c_2,N_F)=1$. It must prove $(q,c)=(q,c_2)$ and the two
-actual factorizations
+$$\sum_{n\le X}\frac{|R_n(m)|}{n}
+\le \tau(|m|)(1+\log X).$$
 
-$$\mathcal S_{q,c}(u)=S_{c_1}(u)\mathcal S_{q,c_2}(u),\qquad
-S_c(u)=S_{c_1}(u)S_{c_2}(u).$$
+The bad-prime-supported integers $c_1\le X$ must be counted by
+$(1+\log X/\log 2)^{\omega(N_F)}$. Summing the bad-part estimates
+then gives the intermediate source bound with the factor
 
-The common factor $S_{c_1}(u)$ is retained throughout. No cancellation
-or nonvanishing assumption for that factor is permitted: the identity
-must also hold when it is zero. This full Lemma 3.5 target remains
-Pending, and no part of its proof is included in the present milestone.
+$$\tau(|m|)^2(1+\log X)^{1+\omega(N_F)}.$$
 
-Lemmas 3.1–3.4 and all Section 4 lemmas are complete. Theorem 1.3
+The divisor and logarithmic estimates must finally absorb this factor
+into $(X|m|)^\varepsilon$ with a constant depending only on `F,ε`.
+The exact domains `X≥1` and `m≠0`, including `|m|=1`, must be kept.
+This complete Lemma 3.6 target remains Pending, and no part of its
+proof is included in the present milestone.
+
+Lemmas 3.1–3.5 and all Section 4 lemmas are complete. Theorem 1.3
 remains Pending because its global asymptotic is not proved. The
 analytic assembly, Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary
 groups remain Pending.

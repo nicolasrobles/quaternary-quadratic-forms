@@ -991,8 +991,10 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "The first formula assumes (c,N_F)=1, but the cone ratio holds for every c.",
-        "Bad-prime factors are retained multiplicatively in the cone identity; they are not discarded."
+        "Complete Lean proof of both Lemma 3.5 clauses for the existing complete sums and literal q1=gcd(q,c), q2=q/q1. Actual prime-power induction, gcd arithmetic, and CRT prove the good-modulus formula with the precise coefficient q1*c^2 and Ramanujan modulus q1*c.",
+        "The actual Jacobi coefficient is proved to equal the original supplied Dirichlet character on every needed good positive modulus, from precisely the source good-prime Legendre values. The right-hand composite weight is the literal product of the original supplied local functions. No composite-character agreement or global factorization conclusion is assumed.",
+        "Actual unit CRT proves Ramanujan multiplicativity, the unit count gives R_n(0)=phi(n), and the proved divisor identity gives phi(q1*c)=q1*phi(c). An actual positive coprime bad/good decomposition c=b*g extends the cone identity to every positive modulus; gcd(q,c)=gcd(q,g) is proved, and the possibly vanishing factor S_b is retained multiplicatively throughout.",
+        "All 27 new exports use only standard logical foundations, with no new literature premise. Modulus one and zero frequency are included. Scalar invariance is the only weight property used; primitivity, nonsquareness, the weight norm/zero/Fourier bounds, and N>=1 are unnecessary for these identities. N>=1 is not inferred from q coprime to N."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

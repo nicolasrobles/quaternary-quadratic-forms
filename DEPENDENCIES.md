@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 14 · Partial: 0 · Active: 0 · Pending:
-28**. Lemmas 2.5, 2.7 and 3.1–3.4, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 15 · Partial: 0 · Active: 0 · Pending:
+27**. Lemmas 2.5, 2.7 and 3.1–3.5, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -147,14 +147,28 @@ use only standard logical foundations; no literature premise is added.
 Aggregate verification and CI execution evidence are recorded separately
 in the checkpoint.
 
+Lemma 3.5 is complete in both clauses, with the actual factors
+`q₁=gcd(q,c)` and `q₂=q/q₁`. Prime-power CRT induction proves the
+global formula at moduli coprime to `N_F`. The dual-cone identity
+holds at every positive modulus, including arbitrary bad-prime
+factors; the bad-part sum is multiplied through without cancellation.
+The source endpoints retain an actual supplied Dirichlet character
+and the product of the original supplied prime weights. Agreement
+between the Jacobi coefficient and the character at good composite
+moduli is proved from its stated good-prime values. The 27 new
+exports in 11 modules use only standard logical foundations and
+introduce no literature premise. Aggregate verification and CI
+execution evidence are recorded separately in the checkpoint.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 571 theorem exports across 128 Lean modules are
+numbered-result count. The 598 theorem exports across 139 Lean modules are
 also counted separately from the four external Lean premises. The current
-expected verification scope includes 155 hashed inputs and nine pinned dependency
+expected verification scope includes 167 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
+The whole-paper certification flag remains false.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -253,6 +267,16 @@ unweighted sum. The source-domain extension is identified with the
 original supplied function, and the exact radical divisibility
 hypothesis supplies good reduction. Neither a weighted extraction nor
 the identity `𝒰_{k+1}=p 𝒮_{p,p^k}` is assumed in the final theorem.
+
+The two global identities in Lemma 3.5 likewise use no registered
+literature premise. Actual Ramanujan CRT, the unit count at zero,
+the divisor-totient identity, gcd/quotient arithmetic, and the
+constructed bad/good prime-support split are internal deductions.
+The source's supplied Dirichlet character is an actual
+`DirichletCharacter`; prime induction proves its composite agreement
+with the Jacobi coefficient from exactly the given Legendre values.
+No equality at composite moduli, CRT factorization, or nonvanishing
+of the bad-part sum is assumed in either final source clause.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -919,14 +943,22 @@ builds and actual type/axiom inspection have passed; every inspected
 dependency list is exactly `Classical.choice`, `Quot.sound`, and
 `propext`. Aggregate verification and CI execution evidence are
 recorded separately in the checkpoint.
+That completed milestone covered 571 exports, 128 proof modules and
+155 inspected input hashes; the current totals include Lemma 3.5.
 
-## Next proof branch
+## Completed global mixed-sum and dual-cone identities
 
-Complete Lemma 3.5, with the source definitions, statement and proof
-at lines 1234–1280, remains Pending. Both clauses are the next target.
-For squarefree `q≥1` with `(q,N)=1` and every `c≥1`, use the actual
-definitions `q₁=gcd(q,c)` and `q₂=q/q₁`. The first clause assumes
-`(c,N_F)=1` and states
+[GoodGlobalTheorem](QuaternaryQuadraticForms/GoodGlobalTheorem.lean)
+proves both clauses of Lemma 3.5 in `source_good_global_complete_sum`,
+with separate source exports for each clause. The matrix is the
+source's symmetric nonsingular integral matrix, `q≥1` is squarefree,
+`(q,N)=1`, and `rad(N_F)∣N`. The supplied character is an actual
+Dirichlet character with the good-prime Legendre values stated in
+the introduction. The weights are the original functions supplied
+at primes not dividing `N`, with their nonzero scalar invariance.
+
+For every positive `c`, the factors are literally `q₁=gcd(q,c)` and
+`q₂=q/q₁`. If `(c,N_F)=1`, the first clause is
 
 $$
 \mathcal S_{q,c}(u)
@@ -935,13 +967,8 @@ $$
  R_{q_1c}(F^*(u)).
 $$
 
-Its proof must assemble the actual coprime local factors using
-Lemmas 3.1, 3.2 and 3.4, including multiplicativity of the literal
-Ramanujan sums, the character and prime-product weights, and the
-exact product of prime powers.
-
-The second clause assumes `F*(u)=0` and asserts, for every positive
-`c` including arbitrary bad-prime factors,
+If `F*(u)=0`, the second clause holds for every positive `c`, including
+arbitrary bad-prime factors:
 
 $$
 \mathcal S_{q,c}(u)
@@ -949,15 +976,137 @@ $$
  \xi_{q_1}(\operatorname{adj}(A)u)\,S_c(u).
 $$
 
-The good-modulus case must use `R_{q₁c}(0)=φ(q₁c)=q₁φ(c)`.
-For the general case, split the actual modulus as `c=c_bad*c_good`,
-with every prime of `c_bad` dividing `N_F` and `(c_good,N_F)=1`.
-The proof must identify `gcd(q,c)=gcd(q,c_good)` and use CRT to
-multiply both the mixed sum and `S_c` by the actual factor
-`S_{c_bad}(u)`. That factor may vanish, so it must be retained
-multiplicatively; no division by it is justified. The definitions,
-modulus-one cases, and this full bad-factor clause remain proof
-obligations of Lemma 3.5.
+The proof uses the following actual objects and deductions:
+
+1. [RamanujanMultiplicativity](QuaternaryQuadraticForms/RamanujanMultiplicativity.lean)
+   reindexes the actual unit group by the existing scaled CRT
+   equivalence and splits the standard additive character. It
+   proves `R_{mn}(t)=R_m(t)R_n(t)` for coprime positive factors,
+   including factors equal to one. At zero the sum is the actual
+   unit-group cardinality, giving `R_n(0)=φ(n)`. The proved
+   totient identity `φ(dc)=dφ(c)` whenever `d∣c` supplies the
+   additional factor on the dual cone.
+2. [GlobalQuadraticCharacter](QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean)
+   uses the actual integer Jacobi symbol cast to `ℂ`, proves its
+   multiplicativity and prime-power Legendre agreement, and proves
+   equality with the original supplied `DirichletCharacter ℂ M`
+   at every positive modulus coprime to `N_F`. Prime induction
+   establishes composite agreement from the source's given good-prime
+   values; no global identity with the source character is assumed.
+   No character agreement at bad, even, or zero moduli is claimed.
+3. [GoodUnweightedCompleteSum](QuaternaryQuadraticForms/GoodUnweightedCompleteSum.lean)
+   extends the proved prime-power formula to every positive good
+   modulus by actual complete-sum CRT and Ramanujan multiplicativity.
+   The modulus-one base is explicit. The result is
+   `S_c(u)=χ(c)c²R_c(F*(u))` after the proved character bridge,
+   for every integral frequency.
+4. [SquarefreeGcdFactors](QuaternaryQuadraticForms/SquarefreeGcdFactors.lean)
+   proves positivity, squarefreeness, `q₁q₂=q`, `q₁∣c`, and
+   `(q₂,q₁c)=1` for the literal source factors. For coprime
+   modulus factors `m,n`, a squarefree divisor of `mn` splits as
+   `gcd(q,m)gcd(q,n)`, with the full resulting CRT blocks coprime.
+   A squarefree divisor of a prime power is proved to be one or
+   that prime, including the exponent-zero boundary.
+5. [SharedSupportCompleteSum](QuaternaryQuadraticForms/SharedSupportCompleteSum.lean)
+   first evaluates the mixed sum for squarefree `q∣c` at good
+   positive moduli. The two prime-power cases use the actual
+   unweighted formula and the completed ramified Lemma 3.4.
+   Induction over coprime modulus factors splits the weight modulus
+   by its actual gcds and combines the actual sums, Jacobi factors,
+   supplied weights and Ramanujan sums. The resulting coefficient
+   is exactly `q c² χ(qc)`.
+6. [GoodGlobalCompleteSum](QuaternaryQuadraticForms/GoodGlobalCompleteSum.lean)
+   separates the `q₂` block at complete-sum modulus one by actual
+   CRT. This block is precisely `C_{q₂}(u)`. The shared-support
+   evaluation of the remaining `q₁,c` block proves the first
+   full formula with the literal gcd and quotient.
+7. [ModulusPrimeSplit](QuaternaryQuadraticForms/ModulusPrimeSplit.lean)
+   constructs positive coprime factors `c=c_bad*c_good`, with
+   every prime of `c_bad` dividing `N_F` and `(c_good,N_F)=1`.
+   It proves `(q,c_bad)=1` and
+   `gcd(q,c)=gcd(q,c_good)` from `(q,N_F)=1`.
+   [ConeCompleteSum](QuaternaryQuadraticForms/ConeCompleteSum.lean)
+   first specializes the good formula using
+   `R_{q₁c}(0)=φ(q₁c)=q₁φ(c)` and the proved formula for `S_c`.
+   It then uses both actual CRT identities to multiply through
+   by `S_{c_bad}(u)`. That factor is never divided out; its possible
+   vanishing is included. Thus the second source clause covers
+   every positive modulus, all bad-prime powers, and mixed factors.
+8. [SourceGoodModulus](QuaternaryQuadraticForms/SourceGoodModulus.lean)
+   derives `(q,N_F)=1` from the exact source hypotheses
+   `(q,N)=1`, `rad(N_F)∣N`, and `det A≠0`. Nonsingularity makes
+   the actual bad-prime modulus nonzero for the radical argument.
+9. [SourceCompositeWeights](QuaternaryQuadraticForms/SourceCompositeWeights.lean)
+   defines the literal product of the original supplied functions
+   over the prime divisors of a modulus coprime to `N`. It proves
+   equality with the existing total-family representation inside
+   the complete sums. [GoodGlobalTheorem](QuaternaryQuadraticForms/GoodGlobalTheorem.lean)
+   applies this weight bridge and the actual Dirichlet-character
+   agreement to both clauses, then gives their bundled source endpoint.
+
+The statements include `q=1`, `c=1`, all integral frequencies in the
+first clause, and every integral point of the dual cone in the second.
+The source condition `N≥1` is unused; it is not a consequence of
+`(q,N)=1`, since `q=1,N=0` satisfies that coprimality condition.
+Once the source character and its stated prime values are supplied,
+its primitivity and the nonsquare-determinant condition are unnecessary
+for these identities. Only nonzero scalar invariance is used from
+the weight hypotheses; vanishing at zero, the norm bound, and the
+Fourier stratification bounds are unused.
+
+The [source correspondence review](certification/correspondence/good_global_complete_sum.md)
+records both clauses, the actual sums and source-data bridges, and
+these strengthenings. All 27 new theorem exports in 11 modules
+passed strict targeted builds and actual type/axiom inspection.
+`gcd_mul_blocks_coprime` uses only `propext`; the other 26 exports
+use exactly `Classical.choice`, `Quot.sound`, and `propext`.
+No registered literature premise is added or used. Aggregate
+verification and CI execution evidence are recorded separately
+in the checkpoint.
+
+## Next proof branch
+
+Full Lemma 3.6, `lem:genericmod`, at source lines 1292–1342 remains
+Pending and is the next target. For squarefree `q=q₁q₂` with
+`(q,N)=1`, an integral frequency with `m=F*(u)≠0`, every `X≥1`,
+and each `ε>0`, the complete target is
+
+$$
+\sum_{\substack{1\le c\le X\\(c,q)=q_1}}
+ \frac{|\mathcal S_{q,c}(u)|}{c^3}
+\ll_{F,\varepsilon}
+ |C_{q_2}(u)|\,q_1^2\,
+ \mathbf 1_{q_1\mid m}\,(X|m|)^\varepsilon.
+$$
+
+The implicit constant must depend only on `F` and `ε`, uniformly
+in `q`, `u`, and `X`. The divisibility indicator and the whole
+sum over the exact gcd condition are part of the target.
+
+The proof still needs the count of moduli supported on bad primes,
+stated immediately before the lemma at source lines 1288–1290:
+at most `(1+log X/log 2)^ω(N_F)`. Lemma 3.3 controls their actual
+unweighted sums, while the completed good-modulus formula and the
+source weight norm bound reduce the good part to the literal
+Ramanujan sums. The prime-power valuation calculation must prove
+
+$$
+p\sum_{k\ge1}\frac{|R_{p^{k+1}}(m)|}{p^k}
+=\begin{cases}
+0,&v_p(m)=0,\\
+p\big((v_p(m)-1)(p-1)+1\big),&v_p(m)\ge1,
+\end{cases}
+$$
+
+and the upper bound `p²v_p(m)`. This supplies the exact zero when
+`q₁∤m` and the product bound `q₁²τ(|m|)` otherwise. The remaining
+Ramanujan divisor and harmonic-sum estimate is
+`∑_{n≤X}|R_n(m)|/n ≤ τ(|m|)(1+log X)`. Combining these estimates
+must give the source intermediate bound with
+`τ(|m|)²(1+log X)^(1+ω(N_F))`, followed by the uniform divisor and
+logarithm bound required for the final `ε` power. These actual
+summation, valuation, counting and uniformity statements remain
+proof obligations; no Lemma 3.6 proof is claimed at this checkpoint.
 
 The main analytic theorems remain Pending.
 In particular, the first two assertions of Theorem 1.3 now have checked

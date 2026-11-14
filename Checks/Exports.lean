@@ -574,7 +574,34 @@ run_cmd do
     `QuaternaryQuadraticForms.weightedIntegralGaussSum_stationary_expansion,
     `QuaternaryQuadraticForms.weightedIntegralGaussSum_one,
     `QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_integralQuadraticGaussSum,
-    `QuaternaryQuadraticForms.primeWeightedCompleteSum_one]
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_one,
+    `QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_dual_cone,
+    `QuaternaryQuadraticForms.mixedCompleteSum_dual_cone,
+    `QuaternaryQuadraticForms.globalQuadraticChar_one,
+    `QuaternaryQuadraticForms.globalQuadraticChar_mul,
+    `QuaternaryQuadraticForms.globalQuadraticChar_prime,
+    `QuaternaryQuadraticForms.globalQuadraticChar_prime_power,
+    `QuaternaryQuadraticForms.globalQuadraticChar_sq,
+    `QuaternaryQuadraticForms.monoidHom_eq_globalQuadraticChar,
+    `QuaternaryQuadraticForms.globalQuadraticChar_eq_dirichletCharacter,
+    `QuaternaryQuadraticForms.mixedCompleteSum_good_modulus,
+    `QuaternaryQuadraticForms.source_mixedCompleteSum_good_modulus,
+    `QuaternaryQuadraticForms.source_mixedCompleteSum_dual_cone,
+    `QuaternaryQuadraticForms.source_good_global_complete_sum,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_good_modulus,
+    `QuaternaryQuadraticForms.exists_modulus_prime_split,
+    `QuaternaryQuadraticForms.coprime_of_prime_dvd_support,
+    `QuaternaryQuadraticForms.gcd_eq_good_part_of_prime_support,
+    `QuaternaryQuadraticForms.integralRamanujanSum_mul,
+    `QuaternaryQuadraticForms.integralRamanujanSum_zero,
+    `QuaternaryQuadraticForms.totient_mul_of_dvd,
+    `QuaternaryQuadraticForms.mixedCompleteSum_shared_support,
+    `QuaternaryQuadraticForms.compositeWeight_extend_eq_source,
+    `QuaternaryQuadraticForms.source_coprime_quadraticBadPrimeModulus,
+    `QuaternaryQuadraticForms.squarefree_gcd_factors,
+    `QuaternaryQuadraticForms.gcd_mul_blocks_coprime,
+    `QuaternaryQuadraticForms.squarefree_shared_gcd_factors,
+    `QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2323,3 +2350,84 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.primeWeightedCompleteSum_one
 #print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_one
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_dual_cone
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_dual_cone
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_dual_cone
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_dual_cone
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_one
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_one
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_mul
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_mul
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_prime
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_prime
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_prime_power
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_prime_power
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_sq
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_sq
+
+#check @QuaternaryQuadraticForms.monoidHom_eq_globalQuadraticChar
+#print axioms QuaternaryQuadraticForms.monoidHom_eq_globalQuadraticChar
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_eq_dirichletCharacter
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_eq_dirichletCharacter
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_good_modulus
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_good_modulus
+
+#check @QuaternaryQuadraticForms.source_mixedCompleteSum_good_modulus
+#print axioms QuaternaryQuadraticForms.source_mixedCompleteSum_good_modulus
+
+#check @QuaternaryQuadraticForms.source_mixedCompleteSum_dual_cone
+#print axioms QuaternaryQuadraticForms.source_mixedCompleteSum_dual_cone
+
+#check @QuaternaryQuadraticForms.source_good_global_complete_sum
+#print axioms QuaternaryQuadraticForms.source_good_global_complete_sum
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_good_modulus
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_good_modulus
+
+#check @QuaternaryQuadraticForms.exists_modulus_prime_split
+#print axioms QuaternaryQuadraticForms.exists_modulus_prime_split
+
+#check @QuaternaryQuadraticForms.coprime_of_prime_dvd_support
+#print axioms QuaternaryQuadraticForms.coprime_of_prime_dvd_support
+
+#check @QuaternaryQuadraticForms.gcd_eq_good_part_of_prime_support
+#print axioms QuaternaryQuadraticForms.gcd_eq_good_part_of_prime_support
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_mul
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_mul
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_zero
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_zero
+
+#check @QuaternaryQuadraticForms.totient_mul_of_dvd
+#print axioms QuaternaryQuadraticForms.totient_mul_of_dvd
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_shared_support
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_shared_support
+
+#check @QuaternaryQuadraticForms.compositeWeight_extend_eq_source
+#print axioms QuaternaryQuadraticForms.compositeWeight_extend_eq_source
+
+#check @QuaternaryQuadraticForms.source_coprime_quadraticBadPrimeModulus
+#print axioms QuaternaryQuadraticForms.source_coprime_quadraticBadPrimeModulus
+
+#check @QuaternaryQuadraticForms.squarefree_gcd_factors
+#print axioms QuaternaryQuadraticForms.squarefree_gcd_factors
+
+#check @QuaternaryQuadraticForms.gcd_mul_blocks_coprime
+#print axioms QuaternaryQuadraticForms.gcd_mul_blocks_coprime
+
+#check @QuaternaryQuadraticForms.squarefree_shared_gcd_factors
+#print axioms QuaternaryQuadraticForms.squarefree_shared_gcd_factors
+
+#check @QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime
+#print axioms QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime
