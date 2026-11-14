@@ -1,9 +1,9 @@
-# Uniform complete-sum bound checkpoint
+# Ramified complete-sum checkpoint
 
 ## Numbered-result status
 
-Complete: **13**. Partial: **0**. Active numbered targets: **0**.
-Pending: **29**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **14**. Partial: **0**. Active numbered targets: **0**.
+Pending: **28**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -85,9 +85,134 @@ sums over the actual residue units. The final theorem assumes symmetry
 and integer nonsingularity, without a good-prime or nonsquare condition.
 No literature premise is used.
 
-The next bounded target is complete Lemma 3.4.
+**Lemma 3.4 is Certified.** For every prime `p ∤ N`, every `k ≥ 1`,
+and every integral frequency, the existing mixed complete sum has the
+exact ramified formula with the original supplied weight evaluated at
+`adj(A)u` and Ramanujan modulus `p^(k+1)`. Actual residue digits and
+orthogonality prove the weighted Gauss extraction, and an actual unit
+digit bijection proves `𝒰_(k+1) = p 𝒮_(p,p^k)`. The source radical
+condition supplies good reduction; only the nonzero scalar `p` is
+cancelled in the final assembly. No nonvanishing assumption on a
+character sum, frequency restriction, or literature premise is used.
+
+The next bounded target is complete Lemma 3.5, including both clauses.
 
 ## Mathematical scope
+
+### Complete Lemma 3.4
+
+[RamifiedCompleteSum.lean](QuaternaryQuadraticForms/RamifiedCompleteSum.lean)
+proves `ramified_complete_sum` at the literal quadratic good-prime
+modulus and `source_ramified_complete_sum` for the source's supplied
+local functions. The latter assumes a symmetric integral matrix with
+nonzero determinant, `primeRadical (quadraticBadPrimeModulus A) ∣ N`,
+`p ∤ N`, primality of `p`, `k ≥ 1`, and nonzero-scalar invariance of
+the supplied function at `p`. For every integral frequency, it proves
+
+$$\mathcal S_{p,p^k}(u)
+=\chi(p)^{k+1}p^{2k+1}\,
+\xi_p(\operatorname{adj}(A)u)\,
+R_{p^{k+1}}(F^*(u)).$$
+
+The left side is the existing `mixedCompleteSum (extendPrimeWeights N ξ)`.
+The right side contains the original supplied function
+`ξ p Fact.out hpN`, evaluated at
+`reduceFrequency p (A.adjugate.mulVec u)`. The character is the actual
+complex cast of `legendreSym p A.det`, and the Ramanujan sum is
+`integralRamanujanSum (p ^ (k + 1)) (dotProduct u (A.adjugate.mulVec u))`.
+Thus the formula uses the exact integral determinant, adjugate,
+frequency, and dual value from the source.
+
+`SourceGoodPrime.lean` derives `p ∤ quadraticBadPrimeModulus A`
+from the source radical divisibility and `p ∤ N`. The determinant
+hypothesis is used: it makes `N_F = 2 |det A|` nonzero, as required
+by the proved prime-divisor characterization of the literal radical.
+The empty-product radical at zero would not justify that deduction.
+The source's separate `N ≥ 1` condition is unnecessary in this
+wrapper, since `p ∤ N` already excludes `N = 0`. No good-reduction
+condition is left as an extra assumption in the source endpoint.
+
+`WeightedGaussSums.lean` defines the actual weighted inner sum using
+canonical integer lifts of residue vectors and their reduction modulo
+`p`. Its actual unit sum is the source's
+
+$$\mathcal U_j(u)=\sum_{a\bmod p^j}^{*}\sum_{x\bmod p^j}
+\xi_p(x)e_{p^j}(aF(x)+u\cdot x),\qquad j\ge2.$$
+
+Constant weight one recovers the existing integral Gauss and complete
+sums through proved bridges. The weight and character in these
+definitions use the same canonical representative of every residue
+vector; their agreement with the source sums is part of the proof.
+
+`WeightedGaussStationaryPhase.lean` first works at any positive
+modulus `m * p` with `p ∣ m`. The actual residue-digit equivalence
+reindexes vectors as $y+mz$. The high digit does not change the
+weight modulo `p`. Symmetry expands the exact quadratic phase, and
+`p ∣ m` makes its quadratic high-digit term divisible by `mp`.
+The remaining high-digit phase is
+
+$$e_p((2aAy+u)\cdot z).$$
+
+The four-coordinate character sum is $p^4$ precisely when
+$2aAy+u=0\pmod p$, and zero otherwise. This stationary expansion
+itself needs neither primality nor nonsingularity. It is an identity
+for the actual weighted sum, not a stationary-phase hypothesis.
+
+`WeightedGaussExtraction.lean` applies the actual adjugate to the
+stationary equation, obtaining
+
+$$\operatorname{adj}(A)u=-(2a\det A)y\pmod p.$$
+
+At a good prime with $p\nmid a$, the displayed scalar is nonzero.
+The supplied scalar invariance therefore identifies the weight on
+every surviving residue with $\xi_p(\operatorname{adj}(A)u)$.
+Comparison with the constant-weight-one stationary expansion proves
+
+$$\sum_{x\bmod p^j}\xi_p(x)e_{p^j}(aF(x)+u\cdot x)
+=\xi_p(\operatorname{adj}(A)u)
+\sum_{x\bmod p^j}e_{p^j}(aF(x)+u\cdot x).$$
+
+`WeightedCompleteSum.lean` proves that every actual residue unit's
+canonical integer value is not divisible by `p`. It sums the proved
+inner identity and applies the complete Lemma 3.2 formula, giving
+
+$$\mathcal U_j(u)=\chi(p)^j p^{2j}\,
+\xi_p(\operatorname{adj}(A)u)R_{p^j}(F^*(u))$$
+
+for every $j\ge2$. All unit hypotheses and weight factors in this
+assembly are proved for the actual summation parameters.
+
+`PrimePowerUnitDigits.lean` restricts the existing residue-digit
+bijection to a genuine equivalence
+
+$$(\mathbb Z/c\mathbb Z)^\times\times\mathbb Z/p\mathbb Z
+\simeq(\mathbb Z/pc\mathbb Z)^\times,\qquad(a,t)\mapsto a+c t,$$
+
+valid for positive moduli with $p\mid c$. Its proof identifies the
+canonical value with `a.val + c * t.val` and proves the exact
+coprimality condition. In `RamifiedUnitLift.lean`, the `t` sum of
+the literal phase contributes `p` precisely when $p\mid F(x)$.
+That condition is the existing indicator in `mixedIntegerSummand`,
+and the weight agrees by the prime specialization of the existing
+composite weight. This proves the exact identity
+
+$$\mathcal U_{k+1}(u)=p\mathcal S_{p,p^k}(u).$$
+
+The unit-lift identity needs no symmetry, nonsingularity, parity, or
+weight-invariance hypothesis. The final theorem combines it with the
+weighted evaluation and cancels only the nonzero complex scalar `p`.
+The resulting exponent is exactly `2k+1`, and the Ramanujan modulus
+is exactly `p^(k+1)`.
+
+Every $k\ge1$ and every integral frequency is covered, including
+$p\mid u$, $p\mid F^*(u)$, and zero frequency. The weight's
+vanishing at zero and its norm bound are not needed. Nor does the
+proof assume membership in one of the Section 3 exceptional frequency
+strata or nonsquareness of the determinant. No character sum or
+Ramanujan value is divided out. The
+[correspondence review](certification/correspondence/ramified_complete_sum.md)
+checks the full source statement and both actual digit arguments.
+No literature premise is used.
 
 ### Complete Lemma 3.3
 
@@ -865,6 +990,15 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete ramified identity: Lemma 3.4](QuaternaryQuadraticForms/RamifiedCompleteSum.lean).
+- [Literal weighted inner and complete sums](QuaternaryQuadraticForms/WeightedGaussSums.lean).
+- [Actual weighted stationary expansion](QuaternaryQuadraticForms/WeightedGaussStationaryPhase.lean).
+- [Adjugate weight extraction](QuaternaryQuadraticForms/WeightedGaussExtraction.lean).
+- [Exact weighted complete-sum evaluation](QuaternaryQuadraticForms/WeightedCompleteSum.lean).
+- [Actual unit digits](QuaternaryQuadraticForms/PrimePowerUnitDigits.lean).
+- [The exact ramified unit-lift identity](QuaternaryQuadraticForms/RamifiedUnitLift.lean).
+- [Good primes from the source radical condition](QuaternaryQuadraticForms/SourceGoodPrime.lean).
+- [Complete ramified correspondence review](certification/correspondence/ramified_complete_sum.md).
 - [Complete uniform bound: Lemma 3.3](QuaternaryQuadraticForms/BadPrimeBound.lean).
 - [Actual Gauss norm and exact kernel phase](QuaternaryQuadraticForms/GaussNorm.lean).
 - [The actual residue kernel](QuaternaryQuadraticForms/MatrixResidueKernel.lean).
@@ -939,7 +1073,68 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current Lemma 3.3 milestone contains 553 theorem exports across
+The current Lemma 3.4 milestone contains 571 theorem exports across
+128 project Lean modules and 20 mapped source groups: 18 new public
+theorem exports in eight new modules. The four registered literature
+premises and all nine pinned dependency revisions are unchanged.
+Source groups and Lean premise declarations remain separate counts.
+The completed aggregate report records 155 input hashes; its nine
+added inputs are the eight new Lean modules and
+`certification/correspondence/ramified_complete_sum.md`.
+
+All eight modules and the root library passed strict targeted
+compilation under official Lean 4.24.0 and the pinned mathlib revision,
+with `warningAsError=true` and `autoImplicit=false` (3,166 build jobs).
+The combined inspection of all 18 actual theorem types and axiom
+lists passed before the aggregate run. Each new export uses exactly
+`Classical.choice`, `Quot.sound`, and `propext`; no new theorem uses a
+literature premise.
+
+### Ramified local execution
+
+**The full local aggregate verifier passed for all 128 modules and
+571 theorem exports.** All 155 recorded input hashes match the checked
+files. All 18 new actual theorem types and axiom lists match their
+prior inspections, with only the three standard foundations in every
+new export.
+
+The independent comparison confirms that all 553 preceding complete
+theorem records remain identical, including actual types, axiom lists,
+Lean source hashes, and scopes. All four registered literature premise
+records and all nine pinned dependency revisions remain identical to
+the preceding report. The mapped source-group count remains 20.
+
+The exact nine added inspected inputs are the eight new Lean modules
+and `certification/correspondence/ramified_complete_sum.md`. The only
+changes to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 28 frozen
+changed-file hashes was preserved through the verification run.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier. The installed local report preserves the exact
+bytes of the successfully compared verifier output.
+
+The [local verification report](certification/verification_report.json)
+contains 833,730 bytes and has SHA-256
+`e0bac7dc8881c3d8837d89fcf5a2b1a37056275256d0f6c8b20a749278e9a734`.
+It records 14 Certified and 28 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Ramified GitHub execution
+
+**GitHub CI for the 571-export scope is pending.** The new local result
+above covers the complete Lemma 3.4 scope. The preceding 553-export
+proof and its local and CI reports retain their exact historical scope
+below.
+
+## Earlier checked checkpoints
+
+### Uniform bound milestone
+
+The preceding Lemma 3.3 milestone contained 553 theorem exports across
 120 project Lean modules and 20 mapped source groups: 17 new public
 theorem exports in eight new modules. The four registered literature
 premises and all nine pinned dependency revisions are unchanged.
@@ -978,10 +1173,10 @@ changed-file hashes was preserved through the verification run.
 The frozen manuscript and PDF remain byte-for-byte unchanged.
 These subsequent README and checkpoint updates record the successful
 local execution; the inspected proof inputs remain those checked by
-the aggregate verifier. The installed local report preserves the exact
-bytes of the successfully compared verifier output.
+the aggregate verifier. The local report at that proof commit preserves
+the exact bytes of the successfully compared verifier output.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/b38301f89b01e424e5cf656da88ea3b56916423d/certification/verification_report.json)
 contains 800,979 bytes and has SHA-256
 `7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`.
 It records 13 Certified and 29 Pending numbered results, with zero
@@ -1017,18 +1212,20 @@ dependency revisions, the complete Lean export-inspection output,
 the Lean version, and every verification flag and scope count.
 Only `generated_at_utc` and `lake_build_output` differ.
 
-All 146 input hashes match the current inspected files and the exact
-proof tree. The installed local report remains unchanged at
-800,979 bytes with SHA-256
-`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`,
-byte-identical to the report at the published proof commit. The frozen
-manuscript and PDF are unchanged. This evidence covers the complete
-553-export Lemma 3.3 milestone. The numbered status remains 13 Certified,
-zero Partial or Active, and 29 Pending; all 33 auxiliary/supplementary
-groups remain Pending and whole-paper certification remains false.
-The earlier local and CI reports below retain their original scopes.
-
-## Earlier checked checkpoints
+All 146 input hashes match the files inspected at that checkpoint and
+the exact proof tree. The local report at that published proof commit
+contains the exact 800,979 bytes with SHA-256
+`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`.
+The original artifact and report were preserved in
+[evidence commit 642a0c8064bc3287be3660f132325adab4534624](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/642a0c8064bc3287be3660f132325adab4534624),
+whose tree is `91ed8165569569a763e5e9fc364da5e4a17c8657`.
+The frozen manuscript and PDF are unchanged. This evidence covers the
+complete 553-export Lemma 3.3 milestone; it does not cover the current
+571-export ramified milestone. At that checkpoint the numbered status
+was 13 Certified, zero Partial or Active, and 29 Pending; all 33
+auxiliary/supplementary groups were Pending and whole-paper
+certification was false. The earlier local and CI reports below
+retain their original scopes.
 
 ### Gauss local execution
 
@@ -1121,7 +1318,8 @@ That evidence commit changed only README, CHECKPOINT, and the two
 archived CI files; all 137 inspected inputs and the local report were
 unchanged. The frozen manuscript and PDF are unchanged. This evidence
 covers the preceding 536-export Gauss milestone; it does not cover the
-new 553-export bound milestone. At that checkpoint, the numbered status
+subsequent 553-export bound milestone or the current 571-export
+ramified milestone. At that checkpoint, the numbered status
 was 12 Certified, zero Partial or Active, and 30 Pending, with all 33
 auxiliary/supplementary groups Pending and whole-paper certification
 false. Earlier local and CI reports below retain their original scopes.
@@ -1711,51 +1909,57 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The next bounded target is complete Lemma 3.4, source lines 1184–1232.
-Under the source's Section 3 hypotheses, let $p\nmid N$ be prime,
-$k\ge1$, and $u\in\mathbb Z^4$. The exact required identity is
+The next bounded target is complete Lemma 3.5, source lines 1240–1280.
+Both displayed conclusions are required. Under the source's Section 3
+hypotheses, let $q\ge1$ be squarefree with $(q,N)=1$, let $c\ge1$,
+and define the actual source factors
 
-$$\mathcal S_{p,p^k}(u)
-=\chi(p)^{k+1}p^{2k+1}\,
-\xi_p(\operatorname{adj}(A)u)\,
-R_{p^{k+1}}(F^*(u)).$$
+$$q_1=\gcd(q,c),\qquad q_2=q/q_1.$$
 
-The endpoint must concern the existing mixed complete sum, the supplied
-weight at the good prime, the actual integral adjugate vector reduced
-modulo `p`, and the literal Ramanujan sum. The condition $p\nmid N$
-and the source divisibility of `N` by $\operatorname{rad}(N_F)$ must
-supply the good-prime deductions. Every frequency is included, without
-excluding $p\mid u$ or $p\mid F^*(u)$.
+If $(c,N_F)=1$, the first required identity is
 
-The source proof first introduces, for $j\ge2$, the actual weighted sum
+$$\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1c^2\chi(q_1c)\,
+\xi_{q_1}(\operatorname{adj}(A)u)\,
+R_{q_1c}(F^*(u)).$$
 
-$$\mathcal U_j(u)=\sum_{a\bmod p^j}^{*}\sum_{x\bmod p^j}
-\xi_p(x)e_{p^j}(aF(x)+u\cdot x).$$
+If $F^*(u)=0$, the second required identity must hold for every
+positive modulus, including those with bad-prime factors:
 
-Splitting $x=y+p^{j-1}z$ should leave the weight dependent only on
-`y mod p`. The outer digit sum forces $2aAy+u=0\pmod p$; invertibility
-of `2aA` identifies its surviving residue with a nonzero scalar
-multiple of $\operatorname{adj}(A)u$. The source weight invariance
-then extracts precisely $\xi_p(\operatorname{adj}(A)u)$, and the
-proved Lemma 3.2 evaluates the remaining actual Gauss sums. This must
-yield
+$$\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1^2\chi(q_1)\,
+\xi_{q_1}(\operatorname{adj}(A)u)\,S_c(u).$$
 
-$$\mathcal U_j(u)=\chi(p)^j p^{2j}\,
-\xi_p(\operatorname{adj}(A)u)R_{p^j}(F^*(u)).$$
+The endpoints must use the existing mixed and unweighted complete
+sums, composite weights, integer character, dual value, and literal
+Ramanujan sums. The source factors must be derived from `gcd(q,c)`
+and its quotient, with squarefreeness and coprimality supplying the
+needed disjoint prime factors.
 
-Finally, the actual units modulo $p^{k+1}$ are parametrized by
-$a+t p^k$, with `a` a unit modulo $p^k$ and $t\bmod p$.
-Orthogonality in `t` imposes the existing congruence constraint
-$p\mid F(x)$ and gives exactly
+For the good-modulus clause, the source decomposes
+$c=c_0\prod_{p\mid q_1}p^{k_p}$, with $(c_0,q)=1$ and $k_p\ge1$.
+The proof must assemble the actual CRT factorization from Lemma 3.1
+and the local evaluations from Lemmas 3.2 and 3.4. The coefficient
+products must give exactly $q_1c^2$, $\chi(q_1c)$, and
+$\xi_{q_1}(\operatorname{adj}(A)u)$. Multiplicativity of the actual
+Ramanujan sum must identify its product with $R_{q_1c}(F^*(u))$.
 
-$$\mathcal U_{k+1}(u)=p\mathcal S_{p,p^k}(u).$$
+On the dual cone, the good-modulus case uses the actual identities
+$R_n(0)=\varphi(n)$ and $\varphi(q_1c)=q_1\varphi(c)$, since every
+prime dividing $q_1$ divides $c$. For an arbitrary modulus, the source
+then splits $c=c_1c_2$, where every prime dividing $c_1$ divides
+$N_F$ and $(c_2,N_F)=1$. It must prove $(q,c)=(q,c_2)$ and the two
+actual factorizations
 
-Combining these identities produces the required exponent `2k+1`
-and Ramanujan modulus $p^{k+1}$. The full statement, including the
-actual weight extraction and unit parametrization, remains Pending.
-No proof of this target is included in the Lemma 3.3 milestone.
+$$\mathcal S_{q,c}(u)=S_{c_1}(u)\mathcal S_{q,c_2}(u),\qquad
+S_c(u)=S_{c_1}(u)S_{c_2}(u).$$
 
-Lemmas 3.1–3.3 and all Section 4 lemmas are complete. Theorem 1.3
+The common factor $S_{c_1}(u)$ is retained throughout. No cancellation
+or nonvanishing assumption for that factor is permitted: the identity
+must also hold when it is zero. This full Lemma 3.5 target remains
+Pending, and no part of its proof is included in the present milestone.
+
+Lemmas 3.1–3.4 and all Section 4 lemmas are complete. Theorem 1.3
 remains Pending because its global asymptotic is not proved. The
 analytic assembly, Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary
 groups remain Pending.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete uniform bound for the actual complete sums at every positive modulus, including bad-prime factors",
+  "checkpoint": "Complete shared-prime evaluation for the actual mixed complete sums and the supplied source weights",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -106,11 +106,20 @@
         "The existing unweightedCompleteSum at every positive modulus and every integral frequency has norm at most 4 times the real square root of the absolute integer determinant times the cube of the modulus, under the source standing symmetry and nonsingularity hypotheses."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.3 for the actual symmetric nonsingular integral quaternary matrix. The modulus is any nonzero natural number, representing every source integer c>=1; modulus one and all bad-prime factors are included. The proof reindexes the actual product with its conjugate, checks polarization and composite-modulus additive orthogonality, and bounds it by c^4 times the actual kernel cardinality of 2*A modulo c. The integer matrix range index equals the absolute determinant by the proved library Smith-normal-form theorem; actual coordinate reduction, equality of ranges, index divisibility, and finite endomorphism kernel cardinality prove the residue-kernel bound. The literal determinant identity gives the factor 16, the nonnegative square root gives 4, and summing the actual unit parameters gives the final c^3. All conditional inner-bound hypotheses are discharged. No good-prime, oddness, modular nonsingularity, nonzero-frequency, or nonsquare-determinant assumption is introduced. All 17 new exports use only standard logical foundations and no literature premise. Lemma 3.4 and the global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.3 for the actual symmetric nonsingular integral quaternary matrix. The modulus is any nonzero natural number, representing every source integer c>=1; modulus one and all bad-prime factors are included. The proof reindexes the actual product with its conjugate, checks polarization and composite-modulus additive orthogonality, and bounds it by c^4 times the actual kernel cardinality of 2*A modulo c. The integer matrix range index equals the absolute determinant by the proved library Smith-normal-form theorem; actual coordinate reduction, equality of ranges, index divisibility, and finite endomorphism kernel cardinality prove the residue-kernel bound. The literal determinant identity gives the factor 16, the nonnegative square root gives 4, and summing the actual unit parameters gives the final c^3. All conditional inner-bound hypotheses are discharged. No good-prime, oddness, modular nonsingularity, nonzero-frequency, or nonsquare-determinant assumption is introduced. All 17 new exports use only standard logical foundations and no literature premise. The global analytic theorems remain Pending."
     },
     "lem:ramified": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_ramified_complete_sum",
+        "QuaternaryQuadraticForms.ramified_complete_sum"
+      ],
+      "correspondence_record": "certification/correspondence/ramified_complete_sum.md",
+      "completed_clauses": [
+        "The existing mixedCompleteSum at q=p and c=p^k, for every source prime p not dividing N, every k>=1, and every integral frequency, equals the exact Legendre-symbol power times p^(2*k+1), the original supplied local weight at the reduced integral adjugate vector, and the actual Ramanujan sum modulo p^(k+1) at the integral dual quadratic value."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.4 for the actual symmetric nonsingular integral matrix and the source weight family. The source wrapper assumes exactly primeRadical(N_F) divides N and p not dividing N; the nonzero integer determinant makes the radical divisibility bridge valid and supplies the literal good-prime condition p not dividing N_F=2*abs(det A). Actual residue digits at p^j, j>=2, retain the gradient phase and preserve the local weight. Four-coordinate additive orthogonality gives the stationary condition 2*a*A*y+u=0 modulo p and the factor p^4. Applying the actual adjugate identifies adj(A)*u=-(2*a*det A)*y modulo p; the nonzero scalar and the supplied invariance extract precisely the adjugate-frequency weight. The already proved unweighted Gauss evaluation gives the exact weighted U_j formula. A separately proved bijection of actual units with canonical lift a.val+c*t.val, followed by scalar orthogonality, imposes the literal divisibility p divides F(x) and proves U_(k+1)=p*mixedCompleteSum. Only the nonzero complex scalar p is cancelled, giving the exact exponent 2*k+1 and Ramanujan modulus p^(k+1). The original supplied local function occurs on the source right side; no excluded-prime value or additional weight is assumed. The boundary k=1 and every frequency, including zero, are covered; k=0 is excluded as in the source. Only local scalar invariance is used from the weight hypotheses; vanishing at zero, its norm bound, the stratified Fourier estimate, and the global nonsquare condition are unnecessary here. Every conditional inner-factor hypothesis is discharged in the final endpoints. All 18 new exports use only standard logical foundations and no literature premise. Lemma 3.5 and the global analytic theorems remain Pending."
     },
     "lem:goodglobal": {
       "status": "Pending",
@@ -8899,6 +8908,314 @@
         "eq:badbound"
       ],
       "scope": "Lemma 3.3 for the manuscript's actual complete sum: every positive modulus, every integral frequency, and the exact real constant `4 sqrt(|α|)`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.residueUnitDigitsEquiv_val",
+      "file": "QuaternaryQuadraticForms/PrimePowerUnitDigits.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Snewdef"
+      ],
+      "scope": "The unit bijection preserves the literal canonical low and high digits.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_units_residueLift_digits",
+      "file": "QuaternaryQuadraticForms/PrimePowerUnitDigits.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Snewdef"
+      ],
+      "scope": "Reindexing an actual unit sum by its canonical digits.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ramified_complete_sum",
+      "file": "QuaternaryQuadraticForms/RamifiedCompleteSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:ramified",
+        "eq:Snewdef",
+        "eq:weightproperties",
+        "eq:forms"
+      ],
+      "scope": "The full shared-prime identity for the existing mixed complete sum, with a scalar-invariant local weight and the literal good-prime modulus.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_ramified_complete_sum",
+      "file": "QuaternaryQuadraticForms/RamifiedCompleteSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:ramified",
+        "eq:Snewdef",
+        "eq:weightproperties",
+        "eq:forms"
+      ],
+      "scope": "Lemma 3.4 for the manuscript's supplied local functions: `p ∤ N` and `rad(N_F) ∣ N` supply every good-prime condition, and the final weight is the original supplied function at the actual adjugate vector.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightedCompleteSum_eq_prime_mul_mixedCompleteSum",
+      "file": "QuaternaryQuadraticForms/RamifiedUnitLift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Snewdef",
+        "eq:ramified"
+      ],
+      "scope": "The literal weighted unit sum at modulus `p*c` is `p` times the mixed complete sum whenever `p` is prime and divides the positive modulus `c`. The matrix, frequency, and whole family of local weights are arbitrary.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_lift",
+      "file": "QuaternaryQuadraticForms/RamifiedUnitLift.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Snewdef",
+        "eq:ramified"
+      ],
+      "scope": "The exact source bridge `𝒰_(k+1) = p * 𝒮_(p,p^k)` for every `k ≥ 1`. There is no symmetry, nonsingularity, weight-invariance, or parity premise.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_not_dvd_quadraticBadPrimeModulus",
+      "file": "QuaternaryQuadraticForms/SourceGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "sec:local",
+        "eq:forms"
+      ],
+      "scope": "The source condition `rad(N_F) ∣ N` implies that every prime not dividing `N` is a good prime for the actual integral quadratic form.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightedCompleteSum_of_gauss_factor",
+      "file": "QuaternaryQuadraticForms/WeightedCompleteSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "lem:gauss",
+        "eq:Uj",
+        "eq:unram",
+        "eq:ramanujan"
+      ],
+      "scope": "A common factor of the literal inner sums factors from the actual unit sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_factor",
+      "file": "QuaternaryQuadraticForms/WeightedCompleteSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "lem:gauss",
+        "eq:Uj",
+        "eq:unram",
+        "eq:ramanujan"
+      ],
+      "scope": "The actual weighted complete sum factors by the source adjugate weight at every prime power of exponent at least two.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power",
+      "file": "QuaternaryQuadraticForms/WeightedCompleteSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "lem:gauss",
+        "eq:Uj",
+        "eq:unram",
+        "eq:ramanujan"
+      ],
+      "scope": "The exact formula `𝒰_j` from the proof of Lemma 3.4, with the actual weight, Legendre symbol, adjugate dual value, and Ramanujan sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stationary_weight_eq_adjugate",
+      "file": "QuaternaryQuadraticForms/WeightedGaussExtraction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:weightproperties",
+        "eq:forms"
+      ],
+      "scope": "The actual stationary residue has the adjugate-frequency weight. Only invariance under nonzero scalars is needed, also at zero frequency.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedIntegralGaussSum_mul_extract",
+      "file": "QuaternaryQuadraticForms/WeightedGaussExtraction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:weightproperties",
+        "eq:forms"
+      ],
+      "scope": "At a good prime, the complete weighted inner sum is the literal unweighted Gauss sum times the adjugate-frequency weight.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedIntegralGaussSum_prime_power_extract",
+      "file": "QuaternaryQuadraticForms/WeightedGaussExtraction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:weightproperties",
+        "eq:forms"
+      ],
+      "scope": "The source's weighted inner Gauss extraction for every exponent at least two, with its literal good-prime and integral-unit hypotheses.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedGauss_digit_phase",
+      "file": "QuaternaryQuadraticForms/WeightedGaussStationaryPhase.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:forms",
+        "eq:weightproperties"
+      ],
+      "scope": "The actual final residue digit contributes only the gradient phase.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedIntegralGaussSum_stationary_expansion",
+      "file": "QuaternaryQuadraticForms/WeightedGaussStationaryPhase.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:forms",
+        "eq:weightproperties"
+      ],
+      "scope": "Actual two-digit reindexing and orthogonality restrict the weighted sum to the residues where `2 a A y + u` vanishes modulo `p`.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedIntegralGaussSum_one",
+      "file": "QuaternaryQuadraticForms/WeightedGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "Constant weight one recovers the existing integral Gauss sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_integralQuadraticGaussSum",
+      "file": "QuaternaryQuadraticForms/WeightedGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "The existing complete sum is the unit sum of its literal integral Gauss sums.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightedCompleteSum_one",
+      "file": "QuaternaryQuadraticForms/WeightedGaussSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:ramified",
+        "eq:Uj",
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "scope": "Constant weight one recovers the manuscript's existing complete sum.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",

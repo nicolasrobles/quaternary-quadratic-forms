@@ -556,7 +556,25 @@ run_cmd do
     `QuaternaryQuadraticForms.quadraticGaussSum_integral_norm_le,
     `QuaternaryQuadraticForms.integralQuadraticGaussSum_norm_le,
     `QuaternaryQuadraticForms.unweightedCompleteSum_norm_le,
-    `QuaternaryQuadraticForms.bad_prime_bound]
+    `QuaternaryQuadraticForms.bad_prime_bound,
+    `QuaternaryQuadraticForms.residueUnitDigitsEquiv_val,
+    `QuaternaryQuadraticForms.sum_units_residueLift_digits,
+    `QuaternaryQuadraticForms.ramified_complete_sum,
+    `QuaternaryQuadraticForms.source_ramified_complete_sum,
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_eq_prime_mul_mixedCompleteSum,
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_lift,
+    `QuaternaryQuadraticForms.source_not_dvd_quadraticBadPrimeModulus,
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_of_gauss_factor,
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_factor,
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power,
+    `QuaternaryQuadraticForms.stationary_weight_eq_adjugate,
+    `QuaternaryQuadraticForms.weightedIntegralGaussSum_mul_extract,
+    `QuaternaryQuadraticForms.weightedIntegralGaussSum_prime_power_extract,
+    `QuaternaryQuadraticForms.weightedGauss_digit_phase,
+    `QuaternaryQuadraticForms.weightedIntegralGaussSum_stationary_expansion,
+    `QuaternaryQuadraticForms.weightedIntegralGaussSum_one,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_integralQuadraticGaussSum,
+    `QuaternaryQuadraticForms.primeWeightedCompleteSum_one]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2251,3 +2269,57 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.bad_prime_bound
 #print axioms QuaternaryQuadraticForms.bad_prime_bound
+
+#check @QuaternaryQuadraticForms.residueUnitDigitsEquiv_val
+#print axioms QuaternaryQuadraticForms.residueUnitDigitsEquiv_val
+
+#check @QuaternaryQuadraticForms.sum_units_residueLift_digits
+#print axioms QuaternaryQuadraticForms.sum_units_residueLift_digits
+
+#check @QuaternaryQuadraticForms.ramified_complete_sum
+#print axioms QuaternaryQuadraticForms.ramified_complete_sum
+
+#check @QuaternaryQuadraticForms.source_ramified_complete_sum
+#print axioms QuaternaryQuadraticForms.source_ramified_complete_sum
+
+#check @QuaternaryQuadraticForms.primeWeightedCompleteSum_eq_prime_mul_mixedCompleteSum
+#print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_eq_prime_mul_mixedCompleteSum
+
+#check @QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_lift
+#print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_lift
+
+#check @QuaternaryQuadraticForms.source_not_dvd_quadraticBadPrimeModulus
+#print axioms QuaternaryQuadraticForms.source_not_dvd_quadraticBadPrimeModulus
+
+#check @QuaternaryQuadraticForms.primeWeightedCompleteSum_of_gauss_factor
+#print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_of_gauss_factor
+
+#check @QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_factor
+#print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power_factor
+
+#check @QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power
+#print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_prime_power
+
+#check @QuaternaryQuadraticForms.stationary_weight_eq_adjugate
+#print axioms QuaternaryQuadraticForms.stationary_weight_eq_adjugate
+
+#check @QuaternaryQuadraticForms.weightedIntegralGaussSum_mul_extract
+#print axioms QuaternaryQuadraticForms.weightedIntegralGaussSum_mul_extract
+
+#check @QuaternaryQuadraticForms.weightedIntegralGaussSum_prime_power_extract
+#print axioms QuaternaryQuadraticForms.weightedIntegralGaussSum_prime_power_extract
+
+#check @QuaternaryQuadraticForms.weightedGauss_digit_phase
+#print axioms QuaternaryQuadraticForms.weightedGauss_digit_phase
+
+#check @QuaternaryQuadraticForms.weightedIntegralGaussSum_stationary_expansion
+#print axioms QuaternaryQuadraticForms.weightedIntegralGaussSum_stationary_expansion
+
+#check @QuaternaryQuadraticForms.weightedIntegralGaussSum_one
+#print axioms QuaternaryQuadraticForms.weightedIntegralGaussSum_one
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_integralQuadraticGaussSum
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_eq_sum_integralQuadraticGaussSum
+
+#check @QuaternaryQuadraticForms.primeWeightedCompleteSum_one
+#print axioms QuaternaryQuadraticForms.primeWeightedCompleteSum_one

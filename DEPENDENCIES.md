@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 13 · Partial: 0 · Active: 0 · Pending:
-29**. Lemmas 2.5, 2.7 and 3.1–3.3, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 14 · Partial: 0 · Active: 0 · Pending:
+28**. Lemmas 2.5, 2.7 and 3.1–3.4, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -135,12 +135,24 @@ Modulus one, even moduli, and arbitrary bad-prime factors are included.
 Aggregate verification and CI evidence are recorded separately in
 the checkpoint.
 
+Lemma 3.4 is complete for every `k≥1` and integral frequency, with the
+original supplied local weight at a source prime `p∤N`. The actual
+weighted sum `𝒰_j`, its stationary residue expansion, and invariance
+under nonzero scalars give the adjugate-frequency weight. The actual
+unit-digit bijection proves `𝒰_{k+1}=p 𝒮_{p,p^k}` with the literal
+constraint `p∣F(x)`. Cancelling the nonzero scalar `p` gives the exact
+power `p^(2k+1)`. The source radical condition `rad(N_F)∣N` supplies
+good reduction from `det A≠0`. All 18 new exports in eight modules
+use only standard logical foundations; no literature premise is added.
+Aggregate verification and CI execution evidence are recorded separately
+in the checkpoint.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 553 theorem exports across 120 Lean modules are
+numbered-result count. The 571 theorem exports across 128 Lean modules are
 also counted separately from the four external Lean premises. The current
-expected verification scope includes 146 hashed inputs and nine pinned dependency
+expected verification scope includes 155 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
 
@@ -232,6 +244,15 @@ complete-sum triangle inequality are internal deductions. Mathlib's
 theorem, whose proof uses Smith normal form. Its application here
 proves the required actual kernel bound; no source-specific kernel
 count or inner Gauss estimate is assumed.
+
+The shared-prime identity in Lemma 3.4 uses no registered literature
+premise. Its literal weighted Gauss sums, stationary residue expansion,
+adjugate calculation, nonzero scalar, and actual unit-digit bijection
+are proved internally. The completed Lemma 3.2 evaluates the remaining
+unweighted sum. The source-domain extension is identified with the
+original supplied function, and the exact radical divisibility
+hypothesis supplies good reduction. Neither a weighted extraction nor
+the identity `𝒰_{k+1}=p 𝒮_{p,p^k}` is assumed in the final theorem.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -817,11 +838,13 @@ registered literature premises and their established scopes are
 unchanged. Aggregate verification and CI execution evidence are
 recorded separately in the checkpoint.
 
-## Next proof branch
+## Completed shared-prime complete-sum evaluation
 
-Complete Lemma 3.4, source lines 1184–1232, remains Pending and is
-the next target. For a source prime `p∤N`, an exponent `k≥1`, and
-the supplied local weight `ξ_p`, its full formula is
+[RamifiedCompleteSum](QuaternaryQuadraticForms/RamifiedCompleteSum.lean)
+proves the full source endpoint `source_ramified_complete_sum` of
+Lemma 3.4. For the source's symmetric nonsingular integral matrix,
+a source prime `p∤N` with `rad(N_F)∣N`, every exponent `k≥1`, and
+every integral frequency, it gives
 
 $$
 \mathcal S_{p,p^k}(u)
@@ -830,15 +853,111 @@ $$
  R_{p^{k+1}}(F^*(u)).
 $$
 
-The proposed proof follows the source's weighted sum `𝒰_j` for
-`j≥2`. Actual residue digits and additive orthogonality must select
-`2aAy+u=0 mod p`; the source scalar invariance must then identify
-the selected weight with `ξ_p(adj(A)u)`. The completed Gauss formula
-supplies the remaining unweighted sum. A separate decomposition of
-the actual unit parameter modulo `p^(k+1)` must prove
-`𝒰_{k+1}=p 𝒮_{p,p^k}`, using orthogonality to impose the actual cone
-condition `p∣F(x)`. The complete shared-prime statement and these
-weighted deductions remain to be proved.
+The formula uses the existing `mixedCompleteSum`, the literal integer
+dual value `F*(u)=u·adj(A)u`, the Legendre symbol `χ(p)=(det A/p)`,
+and the actual Ramanujan sum over units. The proof has six steps:
+
+1. [WeightedGaussSums](QuaternaryQuadraticForms/WeightedGaussSums.lean)
+   defines `weightedIntegralGaussSum` and `primeWeightedCompleteSum`
+   by the actual vector and unit sums. The local weight is evaluated
+   on the reduction modulo `p` of each canonical integer vector.
+   Constant weight one recovers the existing integral Gauss and
+   complete sums. In particular, at modulus `p^j` the latter
+   definition is exactly the source's `𝒰_j`.
+2. [WeightedGaussStationaryPhase](QuaternaryQuadraticForms/WeightedGaussStationaryPhase.lean)
+   reindexes vectors as `x=y+mz` at modulus `mp`, where `p∣m`.
+   The phase is `aF(y)+u·y+m(2aAy+u)·z`, and the weight is unchanged
+   modulo `p`. Four-coordinate additive orthogonality contributes
+   `p⁴` precisely when `2aAy+u=0 mod p`, and zero otherwise.
+   Taking `m=p^(j−1)` gives the source expansion for every `j≥2`.
+3. [WeightedGaussExtraction](QuaternaryQuadraticForms/WeightedGaussExtraction.lean)
+   multiplies the stationary equation by the actual adjugate to prove
+   `adj(A)u=−(2a det A)y mod p`. Good reduction and the unit scalar
+   make this multiplier nonzero. The supplied scalar invariance
+   therefore identifies every surviving weight with
+   `ξ_p(adj(A)u)`. Comparing with the same expansion for constant
+   weight one proves the actual weighted Gauss extraction, including
+   at zero frequency.
+4. [WeightedCompleteSum](QuaternaryQuadraticForms/WeightedCompleteSum.lean)
+   proves that the canonical integer representative of each actual
+   unit modulo `p^j` is coprime to `p` when `j≥1`. It applies the
+   proved extraction to every inner sum and then uses Lemma 3.2 to
+   obtain `𝒰_j=χ(p)^j p^(2j) ξ_p(adj(A)u) R_{p^j}(F*(u))`
+   for `j≥2`. The common-factor premise of its elementary assembly
+   helper is fully discharged in this evaluation.
+5. [PrimePowerUnitDigits](QuaternaryQuadraticForms/PrimePowerUnitDigits.lean)
+   restricts the actual residue-digit bijection to units and proves
+   the exact canonical representative `a.val+c*t.val` at modulus
+   `pc` whenever `p∣c`. [RamifiedUnitLift](QuaternaryQuadraticForms/RamifiedUnitLift.lean)
+   sums the scalar digit `t mod p`. Its orthogonality gives a single
+   factor `p` and precisely the existing cone constraint `p∣F(x)`.
+   The prime-product weight specializes to `ξ_p`, proving
+   `𝒰_{k+1}=p 𝒮_{p,p^k}` for every `k≥1`. This branch requires no
+   symmetry, good-reduction, or scalar-invariance hypothesis.
+6. [SourceGoodPrime](QuaternaryQuadraticForms/SourceGoodPrime.lean)
+   proves that the exact source condition `rad(N_F)∣N`, together
+   with `p∤N`, implies `p∤N_F`. The source hypothesis `det A≠0`
+   is retained: it makes `N_F=2|det A|` nonzero, which is necessary
+   for the literal prime-radical membership theorem at this step.
+   [RamifiedCompleteSum](QuaternaryQuadraticForms/RamifiedCompleteSum.lean)
+   combines the two evaluations of `𝒰_{k+1}` and cancels only the
+   proved nonzero scalar `p`, giving the exponent `2k+1`. Its source
+   wrapper accepts weights only at primes not dividing `N`; it uses
+   the existing total-family extension inside the mixed sum and
+   proves that the right-hand weight is the original supplied function.
+
+Only invariance under nonzero scalar multiplication is needed from
+the source weight hypotheses. The conditions `ξ_p(0)=0`, the norm
+bound, and the Fourier stratification estimates are not used; the
+proved identity is correspondingly stronger and covers every frequency.
+The global nonsquare-determinant assumption is also unnecessary.
+The [source correspondence review](certification/correspondence/ramified_complete_sum.md)
+records these strengthenings and every actual map and normalization.
+The 18 new theorem exports in eight modules use only standard logical
+foundations and add no registered literature premise. Strict targeted
+builds and actual type/axiom inspection have passed; every inspected
+dependency list is exactly `Classical.choice`, `Quot.sound`, and
+`propext`. Aggregate verification and CI execution evidence are
+recorded separately in the checkpoint.
+
+## Next proof branch
+
+Complete Lemma 3.5, with the source definitions, statement and proof
+at lines 1234–1280, remains Pending. Both clauses are the next target.
+For squarefree `q≥1` with `(q,N)=1` and every `c≥1`, use the actual
+definitions `q₁=gcd(q,c)` and `q₂=q/q₁`. The first clause assumes
+`(c,N_F)=1` and states
+
+$$
+\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1c^2\chi(q_1c)\,
+ \xi_{q_1}(\operatorname{adj}(A)u)\,
+ R_{q_1c}(F^*(u)).
+$$
+
+Its proof must assemble the actual coprime local factors using
+Lemmas 3.1, 3.2 and 3.4, including multiplicativity of the literal
+Ramanujan sums, the character and prime-product weights, and the
+exact product of prime powers.
+
+The second clause assumes `F*(u)=0` and asserts, for every positive
+`c` including arbitrary bad-prime factors,
+
+$$
+\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1^2\chi(q_1)\,
+ \xi_{q_1}(\operatorname{adj}(A)u)\,S_c(u).
+$$
+
+The good-modulus case must use `R_{q₁c}(0)=φ(q₁c)=q₁φ(c)`.
+For the general case, split the actual modulus as `c=c_bad*c_good`,
+with every prime of `c_bad` dividing `N_F` and `(c_good,N_F)=1`.
+The proof must identify `gcd(q,c)=gcd(q,c_good)` and use CRT to
+multiply both the mixed sum and `S_c` by the actual factor
+`S_{c_bad}(u)`. That factor may vanish, so it must be retained
+multiplicatively; no division by it is justified. The definitions,
+modulus-one cases, and this full bad-factor clause remain proof
+obligations of Lemma 3.5.
 
 The main analytic theorems remain Pending.
 In particular, the first two assertions of Theorem 1.3 now have checked

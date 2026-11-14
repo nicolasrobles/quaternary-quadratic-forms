@@ -929,8 +929,9 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "Retain the factor p^(2k+1) and Ramanujan modulus p^(k+1).",
-        "Projective invariance of xi and the lifted-unit orthogonality are manuscript deductions."
+        "Complete Lean proof of the exact shared-prime formula for the existing mixed complete sum, every k>=1, and every integral frequency. The source wrapper uses the actual radical condition rad(N_F) divides N and the original local functions supplied only at primes not dividing N.",
+        "Actual vector digits preserve the weight modulo p and remove the quadratic high-digit term; additive orthogonality yields the stationary gradient condition and p^4. The adjugate identity gives adj(A)*u=-(2*a*det A)*y modulo p, whose nonzero scalar supplies the exact weight extraction. The proved Lemma 3.2 evaluation gives the literal weighted U_j formula for j>=2.",
+        "An actual unit-digit bijection with canonical lift a.val+c*t.val proves U_(k+1)=p*mixedCompleteSum by scalar orthogonality imposing precisely p divides F(x). Cancelling only the nonzero scalar p gives the exact factor p^(2*k+1) and Ramanujan modulus p^(k+1). Every inner-factor and unit-lifting deduction is proved, scalar invariance is the only weight hypothesis used, and no literature premise is added or used."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [
