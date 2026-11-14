@@ -58,12 +58,28 @@ PDF and DOT views display the same status as the inventory.
 
 ## GitHub execution
 
-Publication of this checkpoint triggers the same verification workflow. Its
-run and preserved artifact will be recorded here after execution succeeds.
-The preceding successful initial checkpoint remains preserved in
+The same verifier passed in GitHub Actions at the exact proof commit
+[9c9840ed04c90a22af480eec1e1fe6eee168487b](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/9c9840ed04c90a22af480eec1e1fe6eee168487b).
+
+- [Successful run 43547207971, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43547207971).
+- Verification job: 132301195594.
+- Artifact: 14094418614.
+- [Preserved CI report](certification/ci/run_43547207971_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43547207971_attempt_1.zip).
+- ZIP SHA-256: 067d30301e01e43e376c4b2da72f3ef0311a0dca5eb850694dc002702edaf6a7.
+- Report SHA-256: 5b593601c51e33e8dd68a19f7af607c97688897cb860ab2e6212015a671afb7b.
+
+The downloaded report was inspected. All 16 recorded input hashes match the
+checked source, including the correspondence record, and all 19 theorem
+records match the locally inspected types and axiom dependencies. The report
+records one Partial numbered result, 41 Pending numbered results, and zero
+external Lean premises. The later commit preserving this evidence changes
+documentation and records only; the proof code, checker, and live status
+remain those of the checked commit linked above.
+
+The initial algebra-only checkpoint remains preserved separately in
 [run_43545694187_attempt_1.json](certification/ci/run_43545694187_attempt_1.json)
-and its associated ZIP. That earlier run checked the initial algebra helper;
-it is not evidence for the new finite-field identities.
+and its associated ZIP.
 
 ## Next target
 
@@ -72,3 +88,12 @@ of Lemma 5.9. Its size bound is a separate obligation. Completing Lemma 4.4
 also requires the precise literature interfaces, geometric specializations,
 plane-section bound, and exceptional-frequency count listed in the
 correspondence review. Preserve the checked ray identity as a completed input.
+
+The pinned official mathlib already supplies the polynomial-grid vanishing
+lemma MvPolynomial.sum_eval_eq_zero in Mathlib.FieldTheory.ChevalleyWarning.
+The next implementation should specialize it to
+(1 - F^(p-1)) * G^((p-1)/2), using the literal integer-valued quadratic
+character, and then use the checked zero-frequency identity to pass from the
+affine sum to the integer-valued projective trace. The trace must first be
+constructed over the integers and compared with its complex cast; divisibility
+is not asserted directly of an arbitrary complex-valued character sum.

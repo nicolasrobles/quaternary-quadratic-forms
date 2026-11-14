@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-14T02:37:19.050166+00:00",
+  "scope": "Listed Lean exports plus frozen-source/dependency/status checks",
+  "manuscript_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "numbered_results": {
+    "Partial": 1,
+    "Pending": 41
+  },
+  "numbered_total": 42,
+  "auxiliary_supplementary_groups": 33,
+  "internal_dependency_edges": 136,
+  "trusted_reference_groups_mapped": 18,
+  "registered_external_lean_inputs": 0,
+  "whole_paper_certified": false,
+  "metadata_checks_passed": true,
+  "lean_executed": true,
+  "input_sha256": {
+    "QuaternaryQuadraticForms/FiniteCharacters.lean": "12c1c4b0f33b1f756368de029de4cb403caa180731d78f4971b7ea1e3b2dbb4a",
+    "QuaternaryQuadraticForms/FourierRays.lean": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+    "QuaternaryQuadraticForms/PolynomialWeights.lean": "19aef69dbb2f5e14031486464183afb77938c5b195687269f85e1f8f364b1e02",
+    "QuaternaryQuadraticForms/ProjectiveRays.lean": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+    "QuaternaryQuadraticForms/RayAlgebra.lean": "7804a24cc6beb1de1a56d9f7ce305f128bcfae4fca376caef10cd0d853214480",
+    "QuaternaryQuadraticForms.lean": "11eb2286c484afdc702c48254422f8ec3894453c15bccde11ff45d7f5a69cd24",
+    "Checks/Exports.lean": "6e68d87db2f76a50f92d015283a8e3000812875a79a51566bbad730e039d595d",
+    "certification/correspondence/fourier_rays.md": "8881bf029d89ffa2601d82582f9671cbae16f290507e00771e97a4a4612d1c81",
+    "lean-toolchain": "b95237892fa7ebd207117de3e47fed3fea518f5c52a5bd9c0534d853052ab128",
+    "lakefile.lean": "585908579f9b0db0ad91e3a96240aded5e34ce61eecaab7d6d11534727dab3bf",
+    "lake-manifest.json": "08645a4980232706e7e92fcde4cbab1a9003d623f9c9fefb086de9eebbb4a937",
+    "certification/source.json": "cce0558891817aeabd0db3f028dbce910f13784741524fc71600edd7f84d13d3",
+    "certification/dependency_inventory.json": "f6bf4a64bffca4db5573391c5fc9abcf1a20c8ae13de044a9b9d3784d367785f",
+    "certification/status.json": "00f4314cf31c0eee4175baa99f3b52b9244b0e1acc1b99fcc8ddd8c65adfd980",
+    "certification/reference_inputs.json": "5cc654fddad2e892fcb6128e19c6938e82927183bcd73650a54665d3ba1920e7",
+    "scripts/verify_certificate.py": "0f2dcd03a3b3c67257dc232b952d9c79c6472c289657fe9a49335fe96448c2f0"
+  },
+  "lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "dependency_revisions": {
+    "mathlib": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "plausible": "dfd06ebfe8d0e8fa7faba9cb5e5a2e74e7bd2805",
+    "LeanSearchClient": "99657ad92e23804e279f77ea6dbdeebaa1317b98",
+    "importGraph": "d768126816be17600904726ca7976b185786e6b9",
+    "proofwidgets": "556caed0eadb7901e068131d1be208dd907d07a2",
+    "aesop": "725ac8cd67acd70a7beaf47c3725e23484c1ef50",
+    "Qq": "dea6a3361fa36d5a13f87333dc506ada582e025c",
+    "batteries": "8da40b72fece29b7d3fe3d768bac4c8910ce9bee",
+    "Cli": "91c18fa62838ad0ab7384c03c9684d99d306e1da"
+  },
+  "lake_build_output": "✔ [2993/2999] Built QuaternaryQuadraticForms.RayAlgebra (1.1s)\n✔ [2994/2999] Built QuaternaryQuadraticForms.PolynomialWeights (2.0s)\n✔ [2995/2999] Built QuaternaryQuadraticForms.ProjectiveRays (1.0s)\n✔ [2996/2999] Built QuaternaryQuadraticForms.FiniteCharacters (2.5s)\n✔ [2997/2999] Built QuaternaryQuadraticForms.FourierRays (2.3s)\n✔ [2998/2999] Built QuaternaryQuadraticForms (1.4s)\nBuild completed successfully (2999 jobs).",
+  "checked_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.weighted_ray_sum",
+      "kind": "theorem",
+      "actual_type": "∀ {ι : Type u_1} {R : Type u_2} [inst : CommRing R] (s : Finset ι)\n  (weight : ι → R) (hit : ι → Prop) [inst_1 : DecidablePred hit] (p : R),\n  (∑ i ∈ s, weight i * if hit i then p - 1 else -1) = p * ∑ i ∈ s with hit i, weight i - ∑ i ∈ s, weight i",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/RayAlgebra.lean",
+      "source_sha256": "7804a24cc6beb1de1a56d9f7ce305f128bcfae4fca376caef10cd0d853214480",
+      "scope": "Final finite-ring algebra combining evaluated ray contributions."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primitiveAddChar_units_sum",
+      "kind": "theorem",
+      "actual_type": "∀ {K : Type u_1} [inst : Field K] [inst_1 : Fintype K]\n  [inst_2 : DecidableEq K] {R : Type u_2} [inst_3 : CommRing R] [IsDomain R] (ψ : AddChar K R),\n  ψ.IsPrimitive → ∀ (c : K), ∑ t, ψ (↑t * c) = if c = 0 then ↑(Fintype.card K) - 1 else -1",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FiniteCharacters.lean",
+      "source_sha256": "12c1c4b0f33b1f756368de029de4cb403caa180731d78f4971b7ea1e3b2dbb4a",
+      "scope": "Primitive additive-character sum over the actual nonzero scalars of a finite field."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_units_sum",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (c : ZMod p),\n  ∑ t, ZMod.stdAddChar (↑t * c) = if c = 0 then ↑p - 1 else -1",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FiniteCharacters.lean",
+      "source_sha256": "12c1c4b0f33b1f756368de029de4cb403caa180731d78f4971b7ea1e3b2dbb4a",
+      "scope": "Standard complex additive character over F_p: the unit sum is p-1 at zero and -1 otherwise."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveRayVector_injective",
+      "kind": "theorem",
+      "actual_type": "∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Injective QuaternaryQuadraticForms.projectiveRayVector",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "source_sha256": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+      "scope": "The map (P,t) to t times the representative is injective for actual projective points and field units."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveRayVector_surjective",
+      "kind": "theorem",
+      "actual_type": "∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Surjective QuaternaryQuadraticForms.projectiveRayVector",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "source_sha256": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+      "scope": "Every nonzero vector is a nonzero scalar multiple of a representative of its projective class."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.invariant_rep_mk",
+      "kind": "theorem",
+      "actual_type": "∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] {A : Type u_3} (f : V → A),\n  (∀ (a : Kˣ) (x : V), f (a • x) = f x) → ∀ (x : V) (hx : x ≠ 0), f (Projectivization.mk K x hx).rep = f x",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "source_sha256": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+      "scope": "A scalar-invariant function takes the same value on a vector and the chosen representative of its projective class."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.cone_rep_mk",
+      "kind": "theorem",
+      "actual_type": "∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] (C : V → Prop),\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) → ∀ (x : V) (hx : x ≠ 0), C (Projectivization.mk K x hx).rep ↔ C x",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "source_sha256": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+      "scope": "Membership of a scalar-stable cone is independent of projective representative."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective",
+      "kind": "theorem",
+      "actual_type": "∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] [inst_3 : Fintype V] [DecidableEq V] [inst_5 : Fintype Kˣ]\n  [inst_6 : Fintype (Projectivization K V)] {R : Type u_3} [inst_7 : Semiring R] (C : V → Prop)\n  [inst_8 : DecidablePred C],\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) →\n    ∀ (weight phase : V → R),\n      weight 0 = 0 →\n        (∀ (a : Kˣ) (x : V), weight (a • x) = weight x) →\n          ∑ x with C x, weight x * phase x = ∑ P with C P.rep, weight P.rep * ∑ a, phase (a • P.rep)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "source_sha256": "ee8292645f05c83df410c8921bddc53a0efe5ed49f3fe4881315742b1b0039f2",
+      "scope": "Actual affine-cone sum decomposed into projective points and nonzero scalars; partition proved from the quotient."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.homogeneous_eval_smul",
+      "kind": "theorem",
+      "actual_type": "∀ {σ : Type u_1} {R : Type u_2} [inst : CommSemiring R]\n  {G : MvPolynomial σ R} {n : ℕ},\n  G.IsHomogeneous n → ∀ (t : R) (x : σ → R), (MvPolynomial.eval (t • x)) G = t ^ n * (MvPolynomial.eval x) G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/PolynomialWeights.lean",
+      "source_sha256": "19aef69dbb2f5e14031486464183afb77938c5b195687269f85e1f8f364b1e02",
+      "scope": "Polynomial evaluation obeys G(tx)=t^n G(x), proved from homogeneity and monomial expansion."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.homogeneous_reduce_mod",
+      "kind": "theorem",
+      "actual_type": "∀ {σ : Type u_1} {G : MvPolynomial σ ℤ} {n : ℕ},\n  G.IsHomogeneous n → ∀ (p : ℕ), ((MvPolynomial.map (Int.castRingHom (ZMod p))) G).IsHomogeneous n",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/PolynomialWeights.lean",
+      "source_sha256": "19aef69dbb2f5e14031486464183afb77938c5b195687269f85e1f8f364b1e02",
+      "scope": "Coefficient reduction of an integral homogeneous polynomial preserves its degree of homogeneity."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialCharacterWeight_properties",
+      "kind": "theorem",
+      "actual_type": "∀ {σ : Type u_1} {p n : ℕ} [inst : Fact (Nat.Prime p)]\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial σ (ZMod p)},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G 0 = 0 ∧\n          (∀ (x : σ → ZMod p), ‖QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x‖ ≤ 1) ∧\n            ∀ (t : ZMod p),\n              t ≠ 0 →\n                ∀ (x : σ → ZMod p),\n                  QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (t • x) =\n                    QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/PolynomialWeights.lean",
+      "source_sha256": "19aef69dbb2f5e14031486464183afb77938c5b195687269f85e1f8f364b1e02",
+      "scope": "All three clauses of (3.1) for the literal weight psi(G(x)), including zero, norm and scalar invariance."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_projectiveQuadric_mk",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  Projectivization.mk (ZMod p) x hx ∈ QuaternaryQuadraticForms.projectiveQuadric A ↔\n    QuaternaryQuadraticForms.quadraticValue A x = 0",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "Projective-quadric membership is equivalent to the actual equation x^T A x=0 on any nonzero representative."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveWeight_rep_mk",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ)\n  {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    ψ ^ n = 1 →\n      ∀ (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (Projectivization.mk (ZMod p) x hx).rep =\n          QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "The polynomial character weight is well-defined on actual projective points."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hyperplane_rep_mk",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (u x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  u ⬝ᵥ (Projectivization.mk (ZMod p) x hx).rep = 0 ↔ u ⬝ᵥ x = 0",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "The condition u dot x=0 defining the projective section is independent of representative."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_ray_identity",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : QuaternaryQuadraticForms.PrimeVector p),\n          QuaternaryQuadraticForms.fourierSum A ψ G u =\n            ↑p * QuaternaryQuadraticForms.projectiveSectionTrace A ψ G u -\n              QuaternaryQuadraticForms.projectiveTrace A ψ G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "The literal finite-field Fourier sum equals p*a_u-a for every reduced frequency, with a_0=a."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_zero",
+      "kind": "theorem",
+      "actual_type": "∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) (ZMod p))\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.fourierSum A ψ G 0 = (↑p - 1) * QuaternaryQuadraticForms.projectiveTrace A ψ G",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "Exact zero-frequency clause C_p(0)=(p-1)*a of Lemma 4.4; no Fourier estimate claimed."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) (u : Fin 4 → ℤ),\n  QuaternaryQuadraticForms.reduceFrequency p u = 0 ↔ ∀ (i : Fin 4), ↑p ∣ u i",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "An integral frequency reduces to zero exactly when p divides each of its four coordinates."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralFourierSum_ray_identity",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n            ↑p *\n                QuaternaryQuadraticForms.projectiveSectionTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G) (QuaternaryQuadraticForms.reduceFrequency p u) -\n              QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "Equation (4.5) for integral matrix and polynomial coefficients and integral frequencies, after proved homogeneous reduction."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralFourierSum_of_dvd",
+      "kind": "theorem",
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          (∀ (i : Fin 4), ↑p ∣ u i) →\n            QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n              (↑p - 1) *\n                QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "source_sha256": "a3ee5b0d83b329266dae43a881450204a6dcad7b208bb27b34e7dfa575661d54",
+      "scope": "The p-divides-u clause of (4.5), with explicit coordinatewise integer divisibility."
+    }
+  ],
+  "lean_export_inspection_output": "@QuaternaryQuadraticForms.weighted_ray_sum : ∀ {ι : Type u_1} {R : Type u_2} [inst : CommRing R] (s : Finset ι)\n  (weight : ι → R) (hit : ι → Prop) [inst_1 : DecidablePred hit] (p : R),\n  (∑ i ∈ s, weight i * if hit i then p - 1 else -1) = p * ∑ i ∈ s with hit i, weight i - ∑ i ∈ s, weight i\n'QuaternaryQuadraticForms.weighted_ray_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.primitiveAddChar_units_sum : ∀ {K : Type u_1} [inst : Field K] [inst_1 : Fintype K]\n  [inst_2 : DecidableEq K] {R : Type u_2} [inst_3 : CommRing R] [IsDomain R] (ψ : AddChar K R),\n  ψ.IsPrimitive → ∀ (c : K), ∑ t, ψ (↑t * c) = if c = 0 then ↑(Fintype.card K) - 1 else -1\n'QuaternaryQuadraticForms.primitiveAddChar_units_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.stdAddChar_units_sum : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (c : ZMod p),\n  ∑ t, ZMod.stdAddChar (↑t * c) = if c = 0 then ↑p - 1 else -1\n'QuaternaryQuadraticForms.stdAddChar_units_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveRayVector_injective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Injective QuaternaryQuadraticForms.projectiveRayVector\n'QuaternaryQuadraticForms.projectiveRayVector_injective' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveRayVector_surjective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V], Function.Surjective QuaternaryQuadraticForms.projectiveRayVector\n'QuaternaryQuadraticForms.projectiveRayVector_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.invariant_rep_mk : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] {A : Type u_3} (f : V → A),\n  (∀ (a : Kˣ) (x : V), f (a • x) = f x) → ∀ (x : V) (hx : x ≠ 0), f (Projectivization.mk K x hx).rep = f x\n'QuaternaryQuadraticForms.invariant_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.cone_rep_mk : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] (C : V → Prop),\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) → ∀ (x : V) (hx : x ≠ 0), C (Projectivization.mk K x hx).rep ↔ C x\n'QuaternaryQuadraticForms.cone_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective : ∀ {K : Type u_1} {V : Type u_2} [inst : DivisionRing K]\n  [inst_1 : AddCommGroup V] [inst_2 : Module K V] [inst_3 : Fintype V] [DecidableEq V] [inst_5 : Fintype Kˣ]\n  [inst_6 : Fintype (Projectivization K V)] {R : Type u_3} [inst_7 : Semiring R] (C : V → Prop)\n  [inst_8 : DecidablePred C],\n  (∀ (a : Kˣ) (x : V), C (a • x) ↔ C x) →\n    ∀ (weight phase : V → R),\n      weight 0 = 0 →\n        (∀ (a : Kˣ) (x : V), weight (a • x) = weight x) →\n          ∑ x with C x, weight x * phase x = ∑ P with C P.rep, weight P.rep * ∑ a, phase (a • P.rep)\n'QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.homogeneous_eval_smul : ∀ {σ : Type u_1} {R : Type u_2} [inst : CommSemiring R]\n  {G : MvPolynomial σ R} {n : ℕ},\n  G.IsHomogeneous n → ∀ (t : R) (x : σ → R), (MvPolynomial.eval (t • x)) G = t ^ n * (MvPolynomial.eval x) G\n'QuaternaryQuadraticForms.homogeneous_eval_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.homogeneous_reduce_mod : ∀ {σ : Type u_1} {G : MvPolynomial σ ℤ} {n : ℕ},\n  G.IsHomogeneous n → ∀ (p : ℕ), ((MvPolynomial.map (Int.castRingHom (ZMod p))) G).IsHomogeneous n\n'QuaternaryQuadraticForms.homogeneous_reduce_mod' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.polynomialCharacterWeight_properties : ∀ {σ : Type u_1} {p n : ℕ} [inst : Fact (Nat.Prime p)]\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial σ (ZMod p)},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G 0 = 0 ∧\n          (∀ (x : σ → ZMod p), ‖QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x‖ ≤ 1) ∧\n            ∀ (t : ZMod p),\n              t ≠ 0 →\n                ∀ (x : σ → ZMod p),\n                  QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (t • x) =\n                    QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x\n'QuaternaryQuadraticForms.polynomialCharacterWeight_properties' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n@QuaternaryQuadraticForms.mem_projectiveQuadric_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  Projectivization.mk (ZMod p) x hx ∈ QuaternaryQuadraticForms.projectiveQuadric A ↔\n    QuaternaryQuadraticForms.quadraticValue A x = 0\n'QuaternaryQuadraticForms.mem_projectiveQuadric_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.projectiveWeight_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ)\n  {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    ψ ^ n = 1 →\n      ∀ (x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n        QuaternaryQuadraticForms.polynomialCharacterWeight ψ G (Projectivization.mk (ZMod p) x hx).rep =\n          QuaternaryQuadraticForms.polynomialCharacterWeight ψ G x\n'QuaternaryQuadraticForms.projectiveWeight_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.hyperplane_rep_mk : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (u x : QuaternaryQuadraticForms.PrimeVector p) (hx : x ≠ 0),\n  u ⬝ᵥ (Projectivization.mk (ZMod p) x hx).rep = 0 ↔ u ⬝ᵥ x = 0\n'QuaternaryQuadraticForms.hyperplane_rep_mk' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.fourierSum_ray_identity : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) (ZMod p)) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : QuaternaryQuadraticForms.PrimeVector p),\n          QuaternaryQuadraticForms.fourierSum A ψ G u =\n            ↑p * QuaternaryQuadraticForms.projectiveSectionTrace A ψ G u -\n              QuaternaryQuadraticForms.projectiveTrace A ψ G\n'QuaternaryQuadraticForms.fourierSum_ray_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n@QuaternaryQuadraticForms.fourierSum_zero : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) (ZMod p))\n  (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) (ZMod p)} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        QuaternaryQuadraticForms.fourierSum A ψ G 0 = (↑p - 1) * QuaternaryQuadraticForms.projectiveTrace A ψ G\n'QuaternaryQuadraticForms.fourierSum_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.reduceFrequency_eq_zero_iff : ∀ (p : ℕ) (u : Fin 4 → ℤ),\n  QuaternaryQuadraticForms.reduceFrequency p u = 0 ↔ ∀ (i : Fin 4), ↑p ∣ u i\n'QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.integralFourierSum_ray_identity : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n            ↑p *\n                QuaternaryQuadraticForms.projectiveSectionTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G) (QuaternaryQuadraticForms.reduceFrequency p u) -\n              QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)\n'QuaternaryQuadraticForms.integralFourierSum_ray_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\nQuaternaryQuadraticForms.integralFourierSum_of_dvd : ∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (ψ : MulChar (ZMod p) ℂ) {G : MvPolynomial (Fin 4) ℤ} {n : ℕ},\n  G.IsHomogeneous n →\n    0 < n →\n      ψ ^ n = 1 →\n        ∀ (u : Fin 4 → ℤ),\n          (∀ (i : Fin 4), ↑p ∣ u i) →\n            QuaternaryQuadraticForms.integralFourierSum p A ψ G u =\n              (↑p - 1) *\n                QuaternaryQuadraticForms.projectiveTrace (A.map ⇑(Int.castRingHom (ZMod p))) ψ\n                  ((MvPolynomial.map (Int.castRingHom (ZMod p))) G)\n'QuaternaryQuadraticForms.integralFourierSum_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

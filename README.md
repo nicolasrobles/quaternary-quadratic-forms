@@ -15,9 +15,10 @@ included. The source SHA-256 is
 **Complete: 0 · Partial: 1 · Active: 0 · Pending: 41** — 42 numbered results.
 
 Lemma 4.4 is **Partial**. Its three weight properties, exact zero-frequency
-formula, and intermediate ray identity (4.5) are now checked locally for the
-actual finite-field and projective sums. Its pointwise Fourier bound remains
-pending. The ledger registers 19 checked supporting exports; all 33 separate
+formula, and intermediate ray identity (4.5) are checked for the actual
+finite-field and projective sums, both locally and in
+[GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43547207971).
+Its pointwise Fourier bound remains pending. The ledger registers 19 checked supporting exports; all 33 separate
 auxiliary/supplementary groups remain Pending. This repository does not yet
 provide a certificate for the whole paper.
 
