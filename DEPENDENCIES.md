@@ -71,27 +71,28 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 5 · Partial: 2 · Active: 0 · Pending:
-35**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.2 and 4.3 have complete
-source-relative proofs. The new Katz milestone passed the full local
-verifier; current execution evidence is recorded in the checkpoint.
-The projective-line and conic arguments give the transverse section bound,
-and the new branch gives the complete quadric trace bound.
+The numbered-result counts are **Complete: 6 · Partial: 2 · Active: 0 · Pending:
+34**. Lemmas 2.5 and 2.7, Corollary 2.6, and Lemmas 4.2, 4.3, and 5.9 have
+complete source-relative proofs. The new Lang branch proves finiteness of
+the actual bad-prime set and the uniform height bound in Lemma 4.1(i).
+It also closes the reduction dependency in Lemma 5.9, whose final theorem
+uses the literal `p ∤ N_G` hypothesis and proves integrality, divisibility,
+and the bound `|a_p(G)| ≤ 4p`.
 
-Lemma 4.4 is Partial: all three weight properties (3.1), the exact
-zero-frequency clause of (4.4), and the full intermediate ray identity (4.5)
-are checked. Its pointwise Fourier estimate remains pending. Lemma 5.9 is
-Partial: integrality and divisibility of the actual projective trace are
-checked, and the bound `|a_p(G)| ≤ 4p` is proved under literal good reduction.
-The `N_G` wrappers still require a proof that the bad-prime set is finite;
-obtaining that proof from characteristic-zero smoothness remains pending.
+Lemma 4.1 is Partial because its exceptional-plane construction in part
+(ii) remains pending. Lemma 4.4 is Partial: all three weight properties
+(3.1), the exact zero-frequency clause of (4.4), and the full intermediate
+ray identity (4.5) are checked. Its pointwise Fourier estimate remains
+pending. Theorems 1.1 and 1.4 remain Pending. The full local verifier
+passed for this checkpoint. Current and historical execution evidence is
+recorded in the checkpoint.
 
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 207 theorem exports across 38 Lean modules are
-also counted separately from the two external Lean premises. The current
-verification scope includes 56 hashed inputs.
+numbered-result count. The 261 theorem exports across 50 Lean modules are
+also counted separately from the three external Lean premises. The current
+verification scope includes 70 hashed inputs.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -105,7 +106,7 @@ Section 7.2. The open questions in the conclusion are not assertions to prove.
 
 We accept the exact literature statements used in the proofs and verify their
 hypotheses and the manuscript's deductions. The [source registry](TRUSTED_INPUTS.md)
-records these inputs. Its 19 mapped groups are not 19 Lean axioms. Two
+records these inputs. Its 19 mapped groups are not 19 Lean axioms. Three
 external Lean premises are registered. The first is the simple-root
 univariate Weil estimate from [K, equation (1.2)], specialized to the prime
 field; its [declaration](QuaternaryQuadraticForms/Trusted/Weil.lean) and
@@ -125,6 +126,18 @@ The quadric's smoothness and geometric irreducibility, the coefficient
 `2n²−4n+4`, and the scalar norm inequality are proved internally. The
 projective-line, conic, and plane-section deductions retain their earlier
 scope. None of these manuscript deductions is registered as an extra premise.
+
+The third premise is the [general homogeneous resultant system](QuaternaryQuadraticForms/Trusted/Elimination.lean),
+registered as `EXT.LANG_ELIMINATION`. Lang's theorem supplies one finite
+integer family in independent generic coefficients, chosen before the
+field and coefficient assignment, whose vanishing detects a nonzero
+common zero over the algebraic closure. The
+[input review](certification/correspondence/elimination_input.md) records
+the exact statement and its treatment of zero specialized forms and empty
+output families. Polynomial-parameter substitution, the actual gradient
+equations, bad-prime finiteness, and the coefficient-height estimate are
+proved internally. The completed Lemma 5.9 uses Lang and Katz, while its
+integer divisibility argument uses neither external estimate.
 
 Existing results from official Lean and the pinned official
 [mathlib4](https://github.com/leanprover-community/mathlib4) may be reused.
@@ -166,7 +179,7 @@ the checked clauses and their actual dependencies.
 
 ## Completed quadric Katz estimate
 
-The new branch supplies Lemma 2.7:
+The Katz branch supplies Lemma 2.7:
 
 1. [Quadric geometry](QuaternaryQuadraticForms/QuadricSmooth.lean) computes
    the actual gradient `2 A x` and proves the nonvanishing-gradient condition,
@@ -217,10 +230,51 @@ this stage. The
 the precise clauses checked. The plane-section estimate of Lemma 4.3 is now
 available, as is the global Katz bound in Lemma 2.7. The `D_p`-dependent
 bound in Lemma 4.4 still needs the exceptional-polynomial construction in
-Lemma 4.1, the exceptional plane-section count, and the final Fourier
+Lemma 4.1(ii), the exceptional plane-section count, and the final Fourier
 assembly. Those remaining steps have not been assumed as additional premises.
 
-## The quadratic trace and the remaining reduction dependency
+## Completed bad-prime finiteness and height bound
+
+The dependency chain for Lemma 4.1(i) is now proved:
+
+1. [Homogeneous forms](QuaternaryQuadraticForms/HomogeneousForms.lean)
+   identify the finite coefficient vector with the actual polynomial.
+   [Elimination data](QuaternaryQuadraticForms/EliminationData.lean)
+   define the nonzero geometric zero condition.
+2. The [registered Lang input](QuaternaryQuadraticForms/Trusted/Elimination.lean)
+   supplies a fixed resultant family in independent generic coefficients.
+   [Polynomial-parameter substitution](QuaternaryQuadraticForms/EliminationFamily.lean)
+   is proved by reconstruction and composition of evaluation.
+3. [Rank minors](QuaternaryQuadraticForms/RankMinors.lean) and the
+   [literal bad-reduction system](QuaternaryQuadraticForms/BadReductionSystem.lean)
+   identify the gradient rank failure with common nonzero zeros. The
+   assigned degrees and arbitrary coefficient maps are checked. All ordered
+   minors are used, with zero entries and repeated negatives preserving
+   the manuscript's common zero locus.
+4. The [generic quadric family](QuaternaryQuadraticForms/GenericQuadricFamily.lean)
+   fixes `A,n` before introducing the coefficients of `G`.
+   [Geometric reduction](QuaternaryQuadraticForms/GeometricReduction.lean)
+   identifies the characteristic-zero and prime-field specializations
+   with the actual algebraic-closure rank conditions.
+5. [Bad-reduction resultants](QuaternaryQuadraticForms/BadReductionResultants.lean)
+   yield one fixed family `R_j`. Smoothness gives a nonzero integer value,
+   and every bad prime divides it. The
+   [arithmetic bridge](QuaternaryQuadraticForms/GoodReduction.lean)
+   proves finiteness of the actual bad-prime set and divisibility of its
+   distinct-prime product into the absolute value of that integer.
+6. [Polynomial evaluation bounds](QuaternaryQuadraticForms/PolynomialHeight.lean)
+   give uniform positive constants for the fixed family.
+   [The height theorem](QuaternaryQuadraticForms/BadReductionHeight.lean)
+   proves `N_G ≤ K H_G^C`, with `∃ C K` before `∀ G` and the literal
+   manuscript height and modulus.
+
+The [source correspondence](certification/correspondence/bad_reduction.md)
+covers part (i) in full and leaves part (ii) pending. The selected resultant
+value may depend on `G`; its fixed family and uniform constants do not.
+The proof preserves the intrinsic bad-prime set instead of enlarging it to
+all prime divisors of the selected value.
+
+## Completed quadratic trace theorem
 
 This branch uses the checked zero-frequency identity and the following four
 modules:
@@ -246,31 +300,40 @@ integer witness for the paper's complex-valued trace. Independence of the
 integer summand from its projective representative is also proved. The
 [correspondence review](certification/correspondence/quadratic_trace.md)
 records the exact scope. Odd primality and quadratic homogeneity suffice for
-these clauses. The new [quadratic trace bounds](QuaternaryQuadraticForms/QuadraticTraceBound.lean)
+these clauses. The [quadratic trace bounds](QuaternaryQuadraticForms/QuadraticTraceBound.lean)
 prove the degree-two size estimate under the actual good-reduction condition
 and combine it with the integer witness and divisibility.
 
 [GoodReduction.lean](QuaternaryQuadraticForms/GoodReduction.lean) defines the
 exact bad-prime set and finite-product modulus. It proves that avoiding this
 modulus is equivalent to avoiding `N_F` and satisfying the geometric rank
-condition. The finiteness proof is explicit in this definition and in the
-final trace wrappers. It also proves finiteness and the product bound from
-any nonzero integer divisible by every bad prime. The still-unproved
-elimination witness in Lemma 4.1(i) must provide that integer from the source's
-characteristic-zero smoothness assumption. This is why Lemma 5.9 remains Partial.
+condition. Its modulus definition takes an explicit finiteness proof.
+The completed elimination argument supplies that proof from the source's
+characteristic-zero smoothness assumption.
+
+[QuadraticTraceTheorem.lean](QuaternaryQuadraticForms/QuadraticTraceTheorem.lean)
+then proves Lemma 5.9 from the literal manuscript hypotheses. It derives
+good reduction from `p ∤ N_G` and combines the actual integer trace,
+divisibility, and degree-two Katz bound. The complex export identifies
+the projective sum with an integer divisible by `p` and of absolute value
+at most `4p`. Neither finiteness nor good reduction is an extra premise
+of this final theorem. Its dependencies are the registered Lang and Katz
+inputs, with no use of the separate Weil estimate.
 
 ## Next proof branch
 
-The next target is the elimination witness in Lemma 4.1(i), giving a nonzero
-integer `P_i(G)` divisible by every bad prime from the characteristic-zero
-rank condition. The proved arithmetic bridge then yields finiteness of the
-actual bad-prime set and completes the missing reduction step in Lemma 5.9.
+The next target is Lemma 4.1(ii), the exceptional-plane polynomial. Its
+second homogeneous system involves `F`, `G`, the plane equation, and the
+three-by-three gradient minors. The exact cited geometric input must
+supply a transverse plane over the algebraic closure. The rank
+interpretation and specialization then have to produce a nonzero `D_p`
+with uniformly bounded degree, vanishing at zero, whose nonvanishing gives
+the dual-form and rank-three conditions.
 
-The height bound for `N_G`, the exceptional-polynomial construction in
-Lemma 4.1(ii), and the exceptional-section count and Fourier assembly remain
-further obligations. The global Katz estimate, plane-section estimate, exact
-ray identity, and quadratic-trace integrality and divisibility are available
-as proved inputs.
+After that construction, the exceptional-section point count and Fourier
+assembly remain in Lemma 4.4. The global Katz estimate, transverse section
+estimate, exact ray identity, and good-reduction modulus are available as
+proved inputs. The main analytic theorems remain Pending.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

@@ -3,6 +3,7 @@
 from collections import Counter
 import json
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 BT = chr(96)
@@ -11,6 +12,41 @@ status = json.loads((ROOT / "certification/status.json").read_text())
 source = json.loads((ROOT / "certification/source.json").read_text())
 source_path = source["repository_filename"]
 rows = graph["results"]
+proof_files = sorted((ROOT / "QuaternaryQuadraticForms").rglob("*.lean"))
+cache_roots = sorted({
+    module
+    for path in proof_files
+    for module in re.findall(r"^\s*import\s+(Mathlib\.\S+)", path.read_text(), re.M)
+})
+foundations = {"propext", "Classical.choice", "Quot.sound"}
+premise_names = {
+    "QuaternaryQuadraticForms.Trusted.weil_simple_roots": "Weil",
+    "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data": "Katz with general hypersurface geometry",
+    "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants": "Lang",
+}
+export_dependencies = Counter(
+    tuple(sorted(set(entry["allowed_axioms"]) - foundations))
+    for entry in status["supporting_exports"]
+)
+claim_entries = list(status["numbered_results"].values()) + list(
+    status["supplementary_groups"].values())
+correspondence_records = {
+    ROOT / entry["correspondence_record"]
+    for entry in claim_entries
+    if entry["status"] in {"Partial", "Certified"}
+}
+correspondence_records.update(
+    ROOT / entry["correspondence_record"] for entry in status["accepted_lean_inputs"]
+)
+# Match the verifier's input categories, without relying on a previous report.
+verification_inputs = set(proof_files) | correspondence_records | {
+    ROOT / path for path in [
+        "QuaternaryQuadraticForms.lean", "Checks/Exports.lean", "lean-toolchain",
+        "lakefile.lean", "lake-manifest.json", "certification/source.json",
+        "certification/dependency_inventory.json", "certification/status.json",
+        "certification/reference_inputs.json", "scripts/verify_certificate.py",
+    ]
+}
 
 
 def cell(text):
@@ -37,27 +73,34 @@ weil_exports = sum("QuaternaryQuadraticForms.Trusted.weil_simple_roots" in e["al
                    for e in status["supporting_exports"])
 katz_exports = sum("QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data" in e["allowed_axioms"]
                    for e in status["supporting_exports"])
+lang_exports = sum("QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants" in e["allowed_axioms"]
+                   for e in status["supporting_exports"])
 lines = [
     "# Certification inventory", "",
     "Frozen manuscript: v35, renamed without content changes for this repository.", "",
     f'**{counts["Certified"]} of {numbered_total} numbered results are certified.** '
     f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint proves the complete quadric character-sum bound in "
-    "Lemma 2.7. The quadric's actual geometric smoothness and irreducibility are "
-    "proved from the matrix hypotheses. A general spectral input combines Katz's "
-    "theorem with explicitly registered general hypersurface geometry, adjunction, "
-    "and degree formulas; the quadric coefficient and scalar norm bound are proved "
-    "deductions. The earlier Lemma 2.5, Corollary 2.6, and Lemmas 4.2–4.3 remain "
-    "certified. The degree-two size bound in Lemma 5.9 is now checked under actual "
-    "geometric good reduction, alongside its integrality and divisibility. Its "
-    "literal N_G wrappers still require a proof that the exact bad-prime set is "
-    "finite, so the numbered lemma remains Partial. The weight properties, "
-    "ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; "
-    "that lemma's pointwise estimate remains pending. Both numbered lemmas "
-    "remain Partial. "
+    "The current checkpoint proves Lemma 4.1(i): the literal bad-prime set is "
+    "finite, and its modulus N_G satisfies a coefficient-height bound with "
+    "constants chosen before the form G. The registered Lang resultant theorem "
+    "supplies a general homogeneous elimination family; the actual gradient "
+    "equations, coefficient specialization, nonzero integer witness, prime "
+    "divisibility, and height bound are proved deductions. Lemma 4.1 remains "
+    "Partial because its exceptional-plane assertion in part (ii) is unfinished. "
+    "The complete Lemma 5.9 now follows from characteristic-zero smoothness and "
+    "p not dividing the literal N_G: its final exports assume neither a separate "
+    "finiteness proof nor good reduction. Lemmas 2.5, 2.7, 4.2–4.3 and Corollary "
+    "2.6 remain certified. The weight properties, ray identity (4.5), and "
+    "zero-frequency clause of Lemma 4.4 remain checked; its uniform pointwise "
+    "estimate is still pending, so that lemma remains Partial. Theorems 1.1 "
+    "and 1.4 remain Pending. "
     f"The {auxiliary_total} auxiliary and supplementary groups are tracked separately; "
     "these are groups of assertions, not additional numbered results.", "",
+    f'The verification scope contains **{len(status["supporting_exports"])} proved exports**, '
+    f'**{len(proof_files)} proof modules**, and **{len(verification_inputs)} hashed input files**. '
+    "These counts are derived from the live ledger and project files; they do not "
+    "increase the number of certified manuscript results.", "",
     "[Manuscript source](manuscript/quadratic_character_sums_github.tex) · "
     "[PDF](manuscript/quadratic_character_sums_github.pdf) · "
     "[Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · "
@@ -140,24 +183,7 @@ lines += [
     BT + "f897ebcf72cd16f89ab4577d0c826cd14afaafc7" + BT +
     " are pinned; the Lake manifest locks the transitive dependencies.", "",
     BT * 3 + "sh",
-    "lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar "
-    "Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality "
-    "Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds "
-    "Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul "
-    "Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic "
-    "Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation "
-    "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure "
-    "Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.LinearAlgebra.Basis.VectorSpace "
-    "Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas "
-    "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas "
-    "Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas "
-    "Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm "
-    "Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank "
-    "Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.Tactic.FieldSimp "
-    "Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex "
-    "Mathlib.Data.Nat.Factorization.Basic Mathlib.Algebra.Polynomial.Coeff "
-    "Mathlib.Tactic.IntervalCases Mathlib.Tactic.NormNum "
-    "Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
+    "lake exe cache get " + " ".join(cache_roots),
     "python3 scripts/verify_certificate.py",
     BT * 3, "",
     f"The verifier checks source identities, all {numbered_total} statement locations, the dependency "
@@ -166,13 +192,13 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Construct the nonzero elimination value in Lemma 4.1(i) and prove that every "
-    "bad-reduction prime divides it. The checked arithmetic then proves finiteness "
-    "of the actual bad-prime set and supplies the missing argument to the literal "
-    "N_G wrappers in Lemma 5.9. The exceptional-plane construction in Lemma 4.1 "
-    "and the remaining exceptional-section count and Fourier-bound assembly in "
-    "Lemma 4.4 are separate obligations. Retain the checked Katz, conic, "
-    "plane-section, exact-identity, and quadratic-trace results as inputs.", "",
+    "Prove Lemma 4.1(ii): construct the exceptional-plane polynomial with its "
+    "uniform degree bound and verify the geometric rank condition outside its "
+    "zero set. Then complete Lemma 4.4 by combining the generic and exceptional "
+    "frequency cases, the remaining section counts, and the exact ray identity. "
+    "The proved bad-reduction and height result in Lemma 4.1(i), the full "
+    "quadratic trace in Lemma 5.9, and the checked Katz, conic, and plane-section "
+    "bounds remain available as inputs.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -229,12 +255,30 @@ trusted += [
     "related work are not automatically Lean assumptions. In particular, the "
     "square/power-sieve references motivate the method; the manuscript's actual "
     "sieve inequality is a deduction to be proved.", "",
-    "The matrix geometry, polynomial calculations, and finite-product supporting exports use no external literature "
-    "premises. The ledger records " + str(weil_exports) + " exports with the exact "
-    "Weil premise, for the univariate, projective-line, and plane-section bounds, "
-    "and " + str(katz_exports) + " with the general Katz surface premise, for "
-    "Lemma 2.7 and the quadratic-trace bounds. Their actual axiom dependencies "
+    "## Dependencies of proved exports", "",
+    "The matrix geometry, ordered gradient minors, homogeneous coefficient "
+    "reconstruction, coefficient specialization, polynomial-height estimates, "
+    "and finite-product arithmetic use only the standard logical foundations. "
+    "The ledger records " + str(weil_exports) + " exports with the exact Weil "
+    "premise, " + str(katz_exports) + " with the general Katz surface premise, "
+    "and " + str(lang_exports) + " with the Lang resultant premise. These counts "
+    "overlap when an export uses more than one premise. The following table "
+    "groups exports by their exact recorded allowance; actual axiom dependencies "
     "are inspected separately in the verification report.", "",
+    "| Permitted literature premises | Proved exports |",
+    "|---|---:|",
+]
+for dependencies, count in sorted(export_dependencies.items(), key=lambda item: (len(item[0]), item[0])):
+    label = "; ".join(premise_names.get(name, BT + name + BT) for name in dependencies)
+    trusted.append(f'| {label or "None (standard logical foundations only)"} | {count} |')
+trusted += [
+    "", "Lemma 4.1(i) uses Lang's general homogeneous resultant family. Its "
+    "specialization to the actual F, G and gradient minors, the nonzero integer "
+    "witness, finiteness of the literal bad-prime set, and the coefficient-height "
+    "bound are proved internally. The complete Lemma 5.9 uses both Lang and Katz: "
+    "Lang supplies the finiteness deduction needed to form the literal N_G, "
+    "while Katz supplies the projective trace bound. The trace's integrality "
+    "and divisibility are proved without either literature premise.", "",
     "The Katz premise explicitly combines its spectral theorem and trace formula "
     "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
     "formulas. The matrix-quadric geometry, the numerical coefficient "

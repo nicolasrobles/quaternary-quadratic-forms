@@ -95,6 +95,11 @@ EXTERNAL_GROUPS = {
  'GEOMETRY':'Lang and Hartshorne\nElimination, Bertini, cyclotomic fields',
  'S':'Salberger\nComplete intersections and lines',
 }
+PREMISE_NAMES = {
+ 'EXT.WEIL':'Weil',
+ 'EXT.KATZ':'composite Katz',
+ 'EXT.LANG_ELIMINATION':'Lang elimination',
+}
 OVERVIEW_GROUPS = [
  ('prelim','Preliminary tools','Lemmas 2.1-2.4',
   ['lem:delta','lem:integrals','lem:quadriccount','lem:polynomialbox']),
@@ -150,6 +155,31 @@ def group_of_external(key):
     if key.startswith('EXT.LANG') or key.startswith('EXT.HARTSHORNE'): return 'GEOMETRY'
     if key.startswith('EXT.SALBERGER'): return 'S'
     return key
+
+
+def premise_summary(data):
+    return '; '.join(PREMISE_NAMES.get(entry['reference_id'], entry['reference_id'])
+                     for entry in data['registered_lean_inputs'])
+
+
+def external_group_label(data, group):
+    names = [PREMISE_NAMES.get(entry['reference_id'], entry['reference_id'])
+             for entry in data['registered_lean_inputs']
+             if group_of_external(entry['reference_id']) == group]
+    registration = 'Registered Lean: ' + '; '.join(names) if names else 'Mapped sources; no registered Lean premise'
+    return EXTERNAL_GROUPS.get(group, group) + '\n' + registration
+
+
+def external_registration_label(data, key):
+    direct = [entry for entry in data['registered_lean_inputs'] if entry['reference_id'] == key]
+    if direct:
+        return 'Registered Lean premise'
+    components = [entry for entry in data['registered_lean_inputs']
+                  if key in entry.get('source_components', [])]
+    if components:
+        return 'Component of registered ' + '; '.join(
+            PREMISE_NAMES.get(entry['reference_id'], entry['reference_id']) for entry in components)
+    return 'Mapped input; no registered Lean premise'
 
 
 def adjacency(nodes, edges):
@@ -255,7 +285,7 @@ def write_numbered(data, edges, sources, via_aux):
     source_groups=sorted({group_of_external(k) for k,_ in sources})
     dot.append('subgraph cluster_sources { label="Trusted reference inputs (assumed, not reproved)"; fontsize=15; color="#a59adc"; style="rounded"; rank=same;')
     for group in source_groups:
-        text=EXTERNAL_GROUPS.get(group,group)
+        text=external_group_label(data,group)
         dot.append(q('source:'+group)+' [label='+q(text)+', fillcolor="#eeeafd", color="#7762b4", fontsize=11];')
     dot.append('}')
     for r in rows:
@@ -303,7 +333,7 @@ def write_overview(data, edges, sources):
     reduced=transitive_reduction(groupnodes,gedges)
     dot=header('Overview','Proof structure of the quadratic-forms paper',
                'Frozen v35 | '+status_summary(data['results'])+' | Source-relative Lean certification',True)
-    dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger')+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
+    dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger\nRegistered Lean premises:\n'+premise_summary(data))+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
     for group,title,subtitle,members in OVERVIEW_GROUPS:
         member_rows=[rowmap[x] for x in members]
         states={r.get('status','Pending') for r in member_rows}
@@ -313,7 +343,7 @@ def write_overview(data, edges, sources):
     for a,b in sorted(reduced):dot.append(q(a)+' -> '+q(b)+' [penwidth=1.4];')
     for group in sorted({membership[b] for _,b in sources}):
         dot.append('sources -> '+q(group)+' [style=dashed, color="#8d79bc", penwidth=1.0];')
-    dot.append('legend [shape=plain, style="", label='+q('Boxes group the numbered results listed inside them.\nArrows record prerequisites between groups; transitive group edges are omitted.\nThe full graph shows all 42 results separately.\nCompletion requires Lean execution and a review of the formal statements.')+', fontsize=12];')
+    dot.append('legend [shape=plain, style="", label='+q('Boxes group the numbered results listed inside them.\nArrows record prerequisites between groups; transitive group edges are omitted.\nThe full graph shows all '+str(len(rowmap))+' results separately.\nCompletion requires Lean execution and a review of the formal statements.')+', fontsize=12];')
     dot.append('{rank=sink; legend;}')
     for node in sorted(groupnodes-{a for a,b in reduced}):
         dot.append(q(node)+' -> legend [style=invis];')
@@ -323,7 +353,8 @@ def write_overview(data, edges, sources):
 
 def write_complete(data):
     rows=data['results'];aux=data['auxiliary_obligations'];external=data['external_input_catalog']
-    dot=header('CompleteLedger','Complete recorded dependency ledger','Numbered results, auxiliary obligations, and trusted reference interfaces')
+    dot=header('CompleteLedger','Complete recorded dependency ledger',
+        'Numbered results, auxiliary obligations, and trusted reference interfaces\nRegistered Lean premises: '+premise_summary(data))
     nodes=set();edges=set()
     for r in rows+aux:
         rid=row_id(r);nodes.add(rid)
@@ -333,7 +364,7 @@ def write_complete(data):
         for dep in all_dependencies(r):edges.add((dep,rid))
     for key,item in external.items():
         nodes.add(key)
-        label=key+'\n'+item.get('locator','')
+        label=key+'\n'+item.get('locator','')+'\n'+external_registration_label(data,key)
         dot.append(q(key)+' [label='+q(label)+', fillcolor="#eeeafd", color="#7762b4"];')
     topological(nodes,edges)
     for a,b in sorted(edges):dot.append(q(a)+' -> '+q(b)+(' [style=dashed, color="#8d79bc"]' if a in external else '')+';')
@@ -353,6 +384,7 @@ def main():
     DOCS.mkdir(exist_ok=True)
     data=json.loads(SOURCE.read_text())
     live=json.loads(STATUS.read_text())
+    data['registered_lean_inputs']=live['accepted_lean_inputs']
     data['registered_lean_input_count']=len(live['accepted_lean_inputs'])
     for row in data['results']:
         row['status']=live['numbered_results'][row['label']]['status']

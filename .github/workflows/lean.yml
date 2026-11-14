@@ -48,6 +48,7 @@ jobs:
             Mathlib.Data.Matrix.Mul \
             Mathlib.FieldTheory.ChevalleyWarning \
             Mathlib.NumberTheory.LegendreSymbol.Basic \
+            Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
             Mathlib.Algebra.Polynomial.Homogenize \
             Mathlib.Data.Fin.VecNotation \
             Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
@@ -68,7 +69,12 @@ jobs:
             Mathlib.Data.Nat.Factorization.Basic \
             Mathlib.Algebra.Polynomial.Coeff \
             Mathlib.Tactic.IntervalCases \
-            Mathlib.Tactic.NormNum
+            Mathlib.Tactic.NormNum \
+            Mathlib.Algebra.MvPolynomial.Eval \
+            Mathlib.Algebra.MvPolynomial.Degrees \
+            Mathlib.Algebra.MvPolynomial.Variables \
+            Mathlib.Algebra.Order.BigOperators.Group.Finset \
+            Mathlib.Data.Finsupp.Weight
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

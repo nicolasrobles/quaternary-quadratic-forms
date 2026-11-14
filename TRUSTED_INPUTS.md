@@ -2,7 +2,7 @@
 
 The authors authorize source-relative certification: exact cited inputs used by the proofs are trusted and are not reproved. Their mathematical statements, hypotheses, source locators, and Lean declarations must be registered before use. All specializations, hypothesis checks, coefficient uniformity, and deductions made in this manuscript remain proof obligations.
 
-**19 input groups are mapped; 2 external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
+**19 input groups are mapped; 3 external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
 
 | Input | Source locator | Accepted mathematical scope | Lean interface |
 |---|---|---|---|
@@ -14,7 +14,7 @@ The authors authorize source-relative certification: exact cited inputs used by 
 | `EXT.MV_GAUSS` | [MV], Theorems 9.5 and 9.7 | Quadratic Gauss-sum conjugation and norm identities, giving tau_p^2=chi_p(-1)p and tau_p^4=p^2 for odd p. | Pending |
 | `EXT.MV_RAMANUJAN` | [MV], Theorem 4.1 | R_n(t)=sum_{a mod n, gcd(a,n)=1} e_n(a*t)=sum_{h\|gcd(n,t)} h*mu(n/h). | Pending |
 | `EXT.MV_DIRICHLET_L` | [MV], Section 4.3 | Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums. | Pending |
-| `EXT.LANG_ELIMINATION` | [La], Chapter IX, Theorems 3.2 and 4.1 | Finite universal elimination equations detecting a common nonzero geometric zero for the homogeneous systems used in Lemma4.1, uniformly under field specialization. | Pending |
+| `EXT.LANG_ELIMINATION` | [La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002], Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405 | For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included. | [`QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants`](QuaternaryQuadraticForms/Trusted/Elimination.lean) |
 | `EXT.HARTSHORNE_BERTINI` | [Ha], Chapter II, Theorem 8.18 | Dense open set of hyperplanes meeting each smooth projective curve component regularly over an algebraically closed field. | Pending |
 | `EXT.POISSON_R4` | [HB and reputable analysis library], Poisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem | Schwartz/compactly supported smooth functions and affine-lattice scaling; exact signs and absolute convergence must be instantiated. Prefer the precise official mathlib theorem when available; otherwise register the exact cited Poisson input before use. | Pending |
 | `EXT.MV_PNT_AP` | [MV], Corollary11.21 | Fixed-modulus prime-number theorem in arithmetic progressions, specialized to a lower bound in (z,2z] for p=1 mod r. | Pending |
@@ -42,6 +42,12 @@ Expected type hash: `0841ce91d4525dc10d64c991df75e176c85f1b67c77823926abf82cbf4d
 
 This is a composite interface with source components `EXT.KATZ`, `EXT.HYPERSURFACE_CHERN`. Their combined statement is one registered Lean premise. The correspondence review identifies the general geometric translations and formulas included in that statement.
 
+### `EXT.LANG_ELIMINATION`
+
+[Exact source and correspondence review](certification/correspondence/elimination_input.md). The verifier checks the declaration kind, inspected Lean type, type hash, and actual axiom dependencies separately from proved exports.
+
+Expected type hash: `5b055036c52e02383dce3540c86432f6756ed153d264cc1e3667088f45199c10`.
+
 
 ## Cited claims excluded from the premise registry
 
@@ -56,6 +62,18 @@ The paper gives counterexamples to the following claims. They are comparison tar
 
 Other citations used only for attribution, background, or a description of related work are not automatically Lean assumptions. In particular, the square/power-sieve references motivate the method; the manuscript's actual sieve inequality is a deduction to be proved.
 
-The matrix geometry, polynomial calculations, and finite-product supporting exports use no external literature premises. The ledger records 7 exports with the exact Weil premise, for the univariate, projective-line, and plane-section bounds, and 8 with the general Katz surface premise, for Lemma 2.7 and the quadratic-trace bounds. Their actual axiom dependencies are inspected separately in the verification report.
+## Dependencies of proved exports
+
+The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, and finite-product arithmetic use only the standard logical foundations. The ledger records 7 exports with the exact Weil premise, 10 with the general Katz surface premise, and 10 with the Lang resultant premise. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
+
+| Permitted literature premises | Proved exports |
+|---|---:|
+| None (standard logical foundations only) | 236 |
+| Katz with general hypersurface geometry | 8 |
+| Lang | 8 |
+| Weil | 7 |
+| Katz with general hypersurface geometry; Lang | 2 |
+
+Lemma 4.1(i) uses Lang's general homogeneous resultant family. Its specialization to the actual F, G and gradient minors, the nonzero integer witness, finiteness of the literal bad-prime set, and the coefficient-height bound are proved internally. The complete Lemma 5.9 uses both Lang and Katz: Lang supplies the finiteness deduction needed to form the literal N_G, while Katz supplies the projective trace bound. The trace's integrality and divisibility are proved without either literature premise.
 
 The Katz premise explicitly combines its spectral theorem and trace formula with Fulton/Stacks general hypersurface geometry, adjunction, and degree formulas. The matrix-quadric geometry, the numerical coefficient 2n²−4n+4, and the final scalar norm estimate are proved internally. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.

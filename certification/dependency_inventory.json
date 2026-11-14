@@ -1435,10 +1435,10 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "Both conclusions remain proof obligations. Universal elimination data must specialize over arbitrary fields and modulo each prime.",
-        "Constants and polynomial degrees depend only on F,n; the chosen elimination polynomial R_j may depend on p.",
-        "A single nonzero integer P_i(G) controls all bad primes; its polynomial-height bound must be proved.",
-        "Bertini is used over the algebraic closure; no F_p-rational good plane is assumed."
+        "Part (i) is proved: the fixed generic resultant family is substituted into the actual gradient-minor system, with identical specialization over Q and every prime field.",
+        "The constants in the height bound are chosen for fixed F,n before G. A single nonzero integer resultant value is divisible by every actual bad prime, proving finiteness and the literal N_G bound.",
+        "Part (ii) remains pending: construct D_p with a degree bound depending only on F,n, zero at the origin, and the required dual-form and rank-three consequences.",
+        "Bertini is used over the algebraic closure for part (ii); no F_p-rational good plane is assumed."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [
@@ -2448,8 +2448,8 @@
         2708
       ],
       "formalization_notes": [
-        "The dependency on Lem4.4 can be narrowed to its independently proved ray-identity helper. Do not assume the divisibility statement itself.",
-        "The source-level N_G wrapper additionally requires the finiteness deduction in Lemma 4.1(i); the finite-field bound and finite-product arithmetic do not themselves discharge it."
+        "The dependency on Lemma 4.4 uses only its independently proved zero-frequency ray identity, not its pending pointwise bound.",
+        "The required finiteness deduction in Lemma 4.1(i) is now proved from characteristic-zero smoothness. The final source-level theorem therefore uses the literal N_G without a separate finite-set or geometric good-reduction premise."
       ],
       "foundation_requirements": [
         "Euler criterion for the quadratic character, including zero.",
@@ -3631,14 +3631,19 @@
       "interface_status": "Pending"
     },
     "EXT.LANG_ELIMINATION": {
-      "reference": "La",
-      "locator": "Chapter IX, Theorems 3.2 and 4.1",
-      "scope": "Finite universal elimination equations detecting a common nonzero geometric zero for the homogeneous systems used in Lemma4.1, uniformly under field specialization.",
-      "status": "Trusted literature input; precise Lean interface pending",
+      "reference": "La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002",
+      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405",
+      "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
+      "status": "Registered trusted literature input",
       "id": "EXT.LANG_ELIMINATION",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "Exact published resultant-system statement under the author-approved source-relative scope; all parameter substitutions and manuscript-specific deductions are internal proofs.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants"
+      ],
+      "interface_status": "Registered generic homogeneous resultant-system interface; actual Lean axiom type inspected and hashed. Polynomial-parameter substitution is proved in EliminationFamily.lean. The actual bad-reduction equations, integer witness, finiteness, and uniform height bound are proved internally. The exceptional-plane deduction in Lemma 4.1(ii) remains pending.",
+      "source_url": "https://link.springer.com/book/10.1007/978-1-4613-0041-0",
+      "correspondence_record": "certification/correspondence/elimination_input.md",
+      "lean_statement": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included."
     },
     "EXT.HARTSHORNE_BERTINI": {
       "reference": "Ha",
@@ -3819,7 +3824,7 @@
     },
     {
       "target": "Polynomial power-sum divisibility supporting Lemma5.9",
-      "reason": "Concrete finite-field algebra; use official mathlib Euler criterion and finite-field sum identities where available. The complete numbered lemma still needs the ray identity and accepted Katz bound."
+      "reason": "Initial target: concrete finite-field algebra using official mathlib Euler criterion and finite-field sum identities. The ray identity, accepted Katz specialization, and bad-prime finiteness deduction are now proved, completing Lemma 5.9."
     },
     {
       "target": "Trusted-source interfaces Lemma2.1 and2.5",

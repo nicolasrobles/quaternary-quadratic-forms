@@ -1,7 +1,7 @@
 digraph CompleteLedger {
 graph [rankdir=TB, newrank=true, compound=true, outputorder=edgesfirst,
   bgcolor="white", fontname="DejaVu Serif", fontsize=23, labelloc=t,
-  label="Complete recorded dependency ledger\nNumbered results, auxiliary obligations, and trusted reference interfaces",
+  label="Complete recorded dependency ledger\nNumbered results, auxiliary obligations, and trusted reference interfaces\nRegistered Lean premises: Weil; composite Katz; Lang elimination",
   nodesep=0.30, ranksep=0.58, pad=0.28, splines=polyline];
 node [shape=box, style="rounded,filled", fillcolor="#fff4dc", color="#b88023",
   fontname="DejaVu Serif", fontsize=12, penwidth=1.15, margin="0.12,0.09"];
@@ -29,7 +29,7 @@ edge [color="#4b5563", arrowsize=0.70, penwidth=1.05];
 "lem:singseries" [label=<<B>Lemma 3.9</B><BR/>Singular series and tail<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1446-L1457"];
 "lem:box" [label=<<B>Lemma 3.10</B><BR/>Exceptional congruence count<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1539-L1552"];
 "lem:average" [label=<<B>Lemma 3.11</B><BR/>Average over exceptional<BR/>frequencies<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1569-L1576"];
-"lem:exceptional" [label=<<B>Lemma 4.1</B><BR/>Bad primes and exceptional planes<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1615-L1632"];
+"lem:exceptional" [label=<<B>Lemma 4.1</B><BR/>Bad primes and exceptional planes<BR/><FONT POINT-SIZE="10" COLOR="#3676aa">[Partial]</FONT>>, fillcolor="#e4f1ff", color="#3676aa", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1615-L1632"];
 "lem:conic" [label=<<B>Lemma 4.2</B><BR/>Conic parametrization<BR/><FONT POINT-SIZE="10" COLOR="#408342">[Certified]</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1712-L1724"];
 "lem:section" [label=<<B>Lemma 4.3</B><BR/>Plane-section character sum<BR/><FONT POINT-SIZE="10" COLOR="#408342">[Certified]</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1756-L1765"];
 "lem:fourier" [label=<<B>Lemma 4.4</B><BR/>Uniform Fourier bound<BR/><FONT POINT-SIZE="10" COLOR="#3676aa">[Partial]</FONT>>, fillcolor="#e4f1ff", color="#3676aa", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1796-L1808"];
@@ -44,7 +44,7 @@ edge [color="#4b5563", arrowsize=0.70, penwidth=1.05];
 "lem:charsum" [label=<<B>Lemma 5.6</B><BR/>Character-weight specialization<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2429-L2453"];
 "cor:centered" [label=<<B>Corollary 5.7</B><BR/>Centered correlations<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2543-L2552"];
 "lem:sieve" [label=<<B>Lemma 5.8</B><BR/>Uniform power sieve<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2582-L2591"];
-"lem:divisible" [label=<<B>Lemma 5.9</B><BR/>Divisibility of quadratic trace<BR/><FONT POINT-SIZE="10" COLOR="#3676aa">[Partial]</FONT>>, fillcolor="#e4f1ff", color="#3676aa", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2686-L2690"];
+"lem:divisible" [label=<<B>Lemma 5.9</B><BR/>Divisibility of quadratic trace<BR/><FONT POINT-SIZE="10" COLOR="#408342">[Certified]</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2686-L2690"];
 "lem:lowerbeta" [label=<<B>Lemma 5.10</B><BR/>Lower bounds for local factors<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2710-L2722"];
 "cor:relative" [label=<<B>Corollary 5.11</B><BR/>Ranges for relative asymptotics<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2753-L2768"];
 "prop:salberger" [label=<<B>Proposition 6.1</B><BR/>Determinant-method comparison<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2798-L2806"];
@@ -81,25 +81,25 @@ edge [color="#4b5563", arrowsize=0.70, penwidth=1.05];
 "supp:conditional_sieve" [label=<<B>supp:conditional_sieve</B><BR/>Conditional improvement of the<BR/>exponent with the height term<BR/>retained<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2903-L2919"];
 "supp:abstract_weight_specialization" [label=<<B>supp:abstract_weight_specialization</B><BR/>Apply the abstract analytic<BR/>proposition to other local<BR/>functions satisfying its stated<BR/>hypotheses<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2933-L2939"];
 "supp:square_determinant" [label=<<B>supp:square_determinant</B><BR/>Square-determinant untwisted count<BR/>has B^2 log B and B^2 terms with<BR/>the stated error<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2944-L2947"];
-"EXT.HB_DELTA" [label="EXT.HB_DELTA\nTheorem 1; Section 3, equation (3.3)", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.HB_WEIGHT_LOCALIZATION" [label="EXT.HB_WEIGHT_LOCALIZATION\nSections 2 and 6; Lemmas 2 and 12", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.HB_INTEGRAL_ESTIMATES" [label="EXT.HB_INTEGRAL_ESTIMATES\nTheorem 3; Lemmas 13, 14, 15, 18 and 22", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.WEIL" [label="EXT.WEIL\nPublished equation (1.2); matching multiplicative-character bound in Section 1, page 1 of the author version dated April 19, 2001", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.KATZ" [label="EXT.KATZ\nPublished Theorem 8.1(1) and (5.3); directly inspected author-version Theorem 18(1), printed p.12, trace formula p.5; composite hypersurface interpretation uses EXT.HYPERSURFACE_CHERN", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.MV_GAUSS" [label="EXT.MV_GAUSS\nTheorems 9.5 and 9.7", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.MV_RAMANUJAN" [label="EXT.MV_RAMANUJAN\nTheorem 4.1", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.MV_DIRICHLET_L" [label="EXT.MV_DIRICHLET_L\nSection 4.3", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.LANG_ELIMINATION" [label="EXT.LANG_ELIMINATION\nChapter IX, Theorems 3.2 and 4.1", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.HARTSHORNE_BERTINI" [label="EXT.HARTSHORNE_BERTINI\nChapter II, Theorem 8.18", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.POISSON_R4" [label="EXT.POISSON_R4\nPoisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.MV_PNT_AP" [label="EXT.MV_PNT_AP\nCorollary11.21", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.LANG_CYCLOTOMIC" [label="EXT.LANG_CYCLOTOMIC\nChapterVI, Theorem3.1", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.SALBERGER_COUNT" [label="EXT.SALBERGER_COUNT\nTheorem0.6, second bound, d1=2,d2=r", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.SALBERGER_LINES" [label="EXT.SALBERGER_LINES\nPublished p1094, paragraph following Theorem0.6", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.IM_FULL_TRANSFORM" [label="EXT.IM_FULL_TRANSFORM\nLemma4.3", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.HB_SQUARE_DETERMINANT" [label="EXT.HB_SQUARE_DETERMINANT\nTheorem7", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.HSS_RESIDUE_ERROR" [label="EXT.HSS_RESIDUE_ERROR\nTheorem4.1", fillcolor="#eeeafd", color="#7762b4"];
-"EXT.HYPERSURFACE_CHERN" [label="EXT.HYPERSURFACE_CHERN\nFulton, Intersection Theory, 2nd ed., Examples 2.5.1-2.5.2 (p.42), 3.2.11-3.2.12 (pp.59-60); Stacks tags 0FMH, 01V4, 02UF, 00T1, 089X", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HB_DELTA" [label="EXT.HB_DELTA\nTheorem 1; Section 3, equation (3.3)\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HB_WEIGHT_LOCALIZATION" [label="EXT.HB_WEIGHT_LOCALIZATION\nSections 2 and 6; Lemmas 2 and 12\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HB_INTEGRAL_ESTIMATES" [label="EXT.HB_INTEGRAL_ESTIMATES\nTheorem 3; Lemmas 13, 14, 15, 18 and 22\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.WEIL" [label="EXT.WEIL\nPublished equation (1.2); matching multiplicative-character bound in Section 1, page 1 of the author version dated April 19, 2001\nRegistered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.KATZ" [label="EXT.KATZ\nPublished Theorem 8.1(1) and (5.3); directly inspected author-version Theorem 18(1), printed p.12, trace formula p.5; composite hypersurface interpretation uses EXT.HYPERSURFACE_CHERN\nRegistered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.MV_GAUSS" [label="EXT.MV_GAUSS\nTheorems 9.5 and 9.7\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.MV_RAMANUJAN" [label="EXT.MV_RAMANUJAN\nTheorem 4.1\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.MV_DIRICHLET_L" [label="EXT.MV_DIRICHLET_L\nSection 4.3\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.LANG_ELIMINATION" [label="EXT.LANG_ELIMINATION\nChapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405\nRegistered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HARTSHORNE_BERTINI" [label="EXT.HARTSHORNE_BERTINI\nChapter II, Theorem 8.18\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.POISSON_R4" [label="EXT.POISSON_R4\nPoisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.MV_PNT_AP" [label="EXT.MV_PNT_AP\nCorollary11.21\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.LANG_CYCLOTOMIC" [label="EXT.LANG_CYCLOTOMIC\nChapterVI, Theorem3.1\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.SALBERGER_COUNT" [label="EXT.SALBERGER_COUNT\nTheorem0.6, second bound, d1=2,d2=r\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.SALBERGER_LINES" [label="EXT.SALBERGER_LINES\nPublished p1094, paragraph following Theorem0.6\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.IM_FULL_TRANSFORM" [label="EXT.IM_FULL_TRANSFORM\nLemma4.3\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HB_SQUARE_DETERMINANT" [label="EXT.HB_SQUARE_DETERMINANT\nTheorem7\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HSS_RESIDUE_ERROR" [label="EXT.HSS_RESIDUE_ERROR\nTheorem4.1\nMapped input; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4"];
+"EXT.HYPERSURFACE_CHERN" [label="EXT.HYPERSURFACE_CHERN\nFulton, Intersection Theory, 2nd ed., Examples 2.5.1-2.5.2 (p.42), 3.2.11-3.2.12 (pp.59-60); Stacks tags 0FMH, 01V4, 02UF, 00T1, 089X\nComponent of registered composite Katz", fillcolor="#eeeafd", color="#7762b4"];
 "EXT.HARTSHORNE_BERTINI" -> "lem:exceptional" [style=dashed, color="#8d79bc"];
 "EXT.HB_DELTA" -> "lem:delta" [style=dashed, color="#8d79bc"];
 "EXT.HB_INTEGRAL_ESTIMATES" -> "lem:integrals" [style=dashed, color="#8d79bc"];

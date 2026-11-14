@@ -210,14 +210,69 @@ run_cmd do
     `QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le,
     `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound,
     `QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus,
-    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus]
+    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus,
+    `QuaternaryQuadraticForms.homogeneousForm_isHomogeneous,
+    `QuaternaryQuadraticForms.homogeneousForm_coeff,
+    `QuaternaryQuadraticForms.homogeneousForm_coeff_eq_zero_of_degree_ne,
+    `QuaternaryQuadraticForms.homogeneousForm_coeff_formula,
+    `QuaternaryQuadraticForms.homogeneousForm_coefficients,
+    `QuaternaryQuadraticForms.homogeneousForm_map,
+    `QuaternaryQuadraticForms.homogeneousSystem_parameter_coefficients,
+    `QuaternaryQuadraticForms.homogeneous_parameter_resultants,
+    `QuaternaryQuadraticForms.rank_two_ne_iff_minors_zero,
+    `QuaternaryQuadraticForms.rank_two_iff_exists_minor_ne_zero,
+    `QuaternaryQuadraticForms.card_badReductionIndex,
+    `QuaternaryQuadraticForms.gradientMinor_homogeneous,
+    `QuaternaryQuadraticForms.badReductionSystem_homogeneous,
+    `QuaternaryQuadraticForms.badReductionSystemDegree_pos,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_map_ring,
+    `QuaternaryQuadraticForms.gradientMinor_map,
+    `QuaternaryQuadraticForms.badReductionSystem_map,
+    `QuaternaryQuadraticForms.eval_badReductionSystem_map,
+    `QuaternaryQuadraticForms.eval_badReductionSystem_map_point,
+    `QuaternaryQuadraticForms.eval_gradientMinor,
+    `QuaternaryQuadraticForms.badReductionSystem_zero_iff,
+    `QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff,
+    `QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff,
+    `QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff_not_goodReductionAt,
+    `QuaternaryQuadraticForms.exists_badReductionSystem_intCast_zero_iff_not_goodReductionAt,
+    `QuaternaryQuadraticForms.two_le_polynomialCoefficientHeight,
+    `QuaternaryQuadraticForms.natAbs_coeff_le_polynomialCoefficientHeight,
+    `QuaternaryQuadraticForms.natAbs_eval_le_coefficientSum_mul_pow,
+    `QuaternaryQuadraticForms.natAbs_eval_le_coefficientSum_mul_pow_of_forall,
+    `QuaternaryQuadraticForms.finite_polynomial_family_eval_bound,
+    `QuaternaryQuadraticForms.finite_polynomial_family_eval_bound_of_height,
+    `QuaternaryQuadraticForms.finite_polynomial_family_coeff_eval_bound,
+    `QuaternaryQuadraticForms.genericDegreeForm_homogeneous,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_homogeneous,
+    `QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_specialize,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_specialize_integral,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_specialize_map,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_specialize_intCast,
+    `QuaternaryQuadraticForms.hasNonzeroGeometricZero_map_intCast_iff,
+    `QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_iff,
+    `QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_rat_iff,
+    `QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_zmod_iff,
+    `QuaternaryQuadraticForms.badReduction_resultants_over_fields,
+    `QuaternaryQuadraticForms.badReduction_resultant_family,
+    `QuaternaryQuadraticForms.exists_nonzero_badReduction_divisor,
+    `QuaternaryQuadraticForms.badReductionPrimes_finite_of_smooth,
+    `QuaternaryQuadraticForms.exists_nonzero_badReduction_divisor_height_bound,
+    `QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound,
+    `QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound,
+    `QuaternaryQuadraticForms.quadratic_projective_trace_integer,
+    `QuaternaryQuadraticForms.quadratic_projective_trace]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
     | _ => Lean.throwError "Expected a theorem declaration for {name}"
   let inputNames : List Lean.Name := [
     `QuaternaryQuadraticForms.Trusted.weil_simple_roots,
-    `QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data]
+    `QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data,
+    `QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants]
   for name in inputNames do
     match environment.find? name with
     | some (.axiomInfo _) => pure ()
@@ -238,6 +293,9 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data
 #print axioms QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data
+
+#check @QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants
+#print axioms QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants
 
 #check @QuaternaryQuadraticForms.weighted_ray_sum
 #print axioms QuaternaryQuadraticForms.weighted_ray_sum
@@ -859,3 +917,165 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus
 #print axioms QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus
+
+#check @QuaternaryQuadraticForms.homogeneousForm_isHomogeneous
+#print axioms QuaternaryQuadraticForms.homogeneousForm_isHomogeneous
+
+#check @QuaternaryQuadraticForms.homogeneousForm_coeff
+#print axioms QuaternaryQuadraticForms.homogeneousForm_coeff
+
+#check @QuaternaryQuadraticForms.homogeneousForm_coeff_eq_zero_of_degree_ne
+#print axioms QuaternaryQuadraticForms.homogeneousForm_coeff_eq_zero_of_degree_ne
+
+#check @QuaternaryQuadraticForms.homogeneousForm_coeff_formula
+#print axioms QuaternaryQuadraticForms.homogeneousForm_coeff_formula
+
+#check @QuaternaryQuadraticForms.homogeneousForm_coefficients
+#print axioms QuaternaryQuadraticForms.homogeneousForm_coefficients
+
+#check @QuaternaryQuadraticForms.homogeneousForm_map
+#print axioms QuaternaryQuadraticForms.homogeneousForm_map
+
+#check @QuaternaryQuadraticForms.homogeneousSystem_parameter_coefficients
+#print axioms QuaternaryQuadraticForms.homogeneousSystem_parameter_coefficients
+
+#check @QuaternaryQuadraticForms.homogeneous_parameter_resultants
+#print axioms QuaternaryQuadraticForms.homogeneous_parameter_resultants
+
+#check @QuaternaryQuadraticForms.rank_two_ne_iff_minors_zero
+#print axioms QuaternaryQuadraticForms.rank_two_ne_iff_minors_zero
+
+#check @QuaternaryQuadraticForms.rank_two_iff_exists_minor_ne_zero
+#print axioms QuaternaryQuadraticForms.rank_two_iff_exists_minor_ne_zero
+
+#check @QuaternaryQuadraticForms.card_badReductionIndex
+#print axioms QuaternaryQuadraticForms.card_badReductionIndex
+
+#check @QuaternaryQuadraticForms.gradientMinor_homogeneous
+#print axioms QuaternaryQuadraticForms.gradientMinor_homogeneous
+
+#check @QuaternaryQuadraticForms.badReductionSystem_homogeneous
+#print axioms QuaternaryQuadraticForms.badReductionSystem_homogeneous
+
+#check @QuaternaryQuadraticForms.badReductionSystemDegree_pos
+#print axioms QuaternaryQuadraticForms.badReductionSystemDegree_pos
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_map_ring
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_map_ring
+
+#check @QuaternaryQuadraticForms.gradientMinor_map
+#print axioms QuaternaryQuadraticForms.gradientMinor_map
+
+#check @QuaternaryQuadraticForms.badReductionSystem_map
+#print axioms QuaternaryQuadraticForms.badReductionSystem_map
+
+#check @QuaternaryQuadraticForms.eval_badReductionSystem_map
+#print axioms QuaternaryQuadraticForms.eval_badReductionSystem_map
+
+#check @QuaternaryQuadraticForms.eval_badReductionSystem_map_point
+#print axioms QuaternaryQuadraticForms.eval_badReductionSystem_map_point
+
+#check @QuaternaryQuadraticForms.eval_gradientMinor
+#print axioms QuaternaryQuadraticForms.eval_gradientMinor
+
+#check @QuaternaryQuadraticForms.badReductionSystem_zero_iff
+#print axioms QuaternaryQuadraticForms.badReductionSystem_zero_iff
+
+#check @QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff
+#print axioms QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff
+
+#check @QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff
+#print axioms QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff
+
+#check @QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff_not_goodReductionAt
+#print axioms QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff_not_goodReductionAt
+
+#check @QuaternaryQuadraticForms.exists_badReductionSystem_intCast_zero_iff_not_goodReductionAt
+#print axioms QuaternaryQuadraticForms.exists_badReductionSystem_intCast_zero_iff_not_goodReductionAt
+
+#check @QuaternaryQuadraticForms.two_le_polynomialCoefficientHeight
+#print axioms QuaternaryQuadraticForms.two_le_polynomialCoefficientHeight
+
+#check @QuaternaryQuadraticForms.natAbs_coeff_le_polynomialCoefficientHeight
+#print axioms QuaternaryQuadraticForms.natAbs_coeff_le_polynomialCoefficientHeight
+
+#check @QuaternaryQuadraticForms.natAbs_eval_le_coefficientSum_mul_pow
+#print axioms QuaternaryQuadraticForms.natAbs_eval_le_coefficientSum_mul_pow
+
+#check @QuaternaryQuadraticForms.natAbs_eval_le_coefficientSum_mul_pow_of_forall
+#print axioms QuaternaryQuadraticForms.natAbs_eval_le_coefficientSum_mul_pow_of_forall
+
+#check @QuaternaryQuadraticForms.finite_polynomial_family_eval_bound
+#print axioms QuaternaryQuadraticForms.finite_polynomial_family_eval_bound
+
+#check @QuaternaryQuadraticForms.finite_polynomial_family_eval_bound_of_height
+#print axioms QuaternaryQuadraticForms.finite_polynomial_family_eval_bound_of_height
+
+#check @QuaternaryQuadraticForms.finite_polynomial_family_coeff_eval_bound
+#print axioms QuaternaryQuadraticForms.finite_polynomial_family_coeff_eval_bound
+
+#check @QuaternaryQuadraticForms.genericDegreeForm_homogeneous
+#print axioms QuaternaryQuadraticForms.genericDegreeForm_homogeneous
+
+#check @QuaternaryQuadraticForms.genericBadReductionSystem_homogeneous
+#print axioms QuaternaryQuadraticForms.genericBadReductionSystem_homogeneous
+
+#check @QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom
+#print axioms QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom
+
+#check @QuaternaryQuadraticForms.genericBadReductionSystem_specialize
+#print axioms QuaternaryQuadraticForms.genericBadReductionSystem_specialize
+
+#check @QuaternaryQuadraticForms.genericBadReductionSystem_specialize_integral
+#print axioms QuaternaryQuadraticForms.genericBadReductionSystem_specialize_integral
+
+#check @QuaternaryQuadraticForms.genericBadReductionSystem_specialize_map
+#print axioms QuaternaryQuadraticForms.genericBadReductionSystem_specialize_map
+
+#check @QuaternaryQuadraticForms.genericBadReductionSystem_specialize_intCast
+#print axioms QuaternaryQuadraticForms.genericBadReductionSystem_specialize_intCast
+
+#check @QuaternaryQuadraticForms.hasNonzeroGeometricZero_map_intCast_iff
+#print axioms QuaternaryQuadraticForms.hasNonzeroGeometricZero_map_intCast_iff
+
+#check @QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_iff
+#print axioms QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_iff
+
+#check @QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_rat_iff
+#print axioms QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_rat_iff
+
+#check @QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_zmod_iff
+#print axioms QuaternaryQuadraticForms.hasNonzeroGeometricZero_badReductionSystem_zmod_iff
+
+#check @QuaternaryQuadraticForms.badReduction_resultants_over_fields
+#print axioms QuaternaryQuadraticForms.badReduction_resultants_over_fields
+
+#check @QuaternaryQuadraticForms.badReduction_resultant_family
+#print axioms QuaternaryQuadraticForms.badReduction_resultant_family
+
+#check @QuaternaryQuadraticForms.exists_nonzero_badReduction_divisor
+#print axioms QuaternaryQuadraticForms.exists_nonzero_badReduction_divisor
+
+#check @QuaternaryQuadraticForms.badReductionPrimes_finite_of_smooth
+#print axioms QuaternaryQuadraticForms.badReductionPrimes_finite_of_smooth
+
+#check @QuaternaryQuadraticForms.exists_nonzero_badReduction_divisor_height_bound
+#print axioms QuaternaryQuadraticForms.exists_nonzero_badReduction_divisor_height_bound
+
+#check @QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound
+#print axioms QuaternaryQuadraticForms.polynomialBadPrimeModulus_height_bound
+
+#check @QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound
+#print axioms QuaternaryQuadraticForms.badReductionPrimes_finite_and_height_bound
+
+#check @QuaternaryQuadraticForms.quadratic_projective_trace_integer
+#print axioms QuaternaryQuadraticForms.quadratic_projective_trace_integer
+
+#check @QuaternaryQuadraticForms.quadratic_projective_trace
+#print axioms QuaternaryQuadraticForms.quadratic_projective_trace

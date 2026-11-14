@@ -99,14 +99,19 @@
       "interface_status": "Pending"
     },
     "EXT.LANG_ELIMINATION": {
-      "reference": "La",
-      "locator": "Chapter IX, Theorems 3.2 and 4.1",
-      "scope": "Finite universal elimination equations detecting a common nonzero geometric zero for the homogeneous systems used in Lemma4.1, uniformly under field specialization.",
-      "status": "Trusted literature input; precise Lean interface pending",
+      "reference": "La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002",
+      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405",
+      "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
+      "status": "Registered trusted literature input",
       "id": "EXT.LANG_ELIMINATION",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "Exact published resultant-system statement under the author-approved source-relative scope; all parameter substitutions and manuscript-specific deductions are internal proofs.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants"
+      ],
+      "interface_status": "Registered generic homogeneous resultant-system interface; actual Lean axiom type inspected and hashed. Polynomial-parameter substitution is proved in EliminationFamily.lean. The actual bad-reduction equations, integer witness, finiteness, and uniform height bound are proved internally. The exceptional-plane deduction in Lemma 4.1(ii) remains pending.",
+      "source_url": "https://link.springer.com/book/10.1007/978-1-4613-0041-0",
+      "correspondence_record": "certification/correspondence/elimination_input.md",
+      "lean_statement": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included."
     },
     "EXT.HARTSHORNE_BERTINI": {
       "reference": "Ha",
