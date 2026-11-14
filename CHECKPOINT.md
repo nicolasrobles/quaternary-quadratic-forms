@@ -990,11 +990,43 @@ Pending, and whole-paper certification remains false.
 
 ### Uniform bound GitHub execution
 
-**GitHub CI for the 553-export scope is pending.** No successful GitHub
-run or CI report is yet recorded for this milestone. The new local
-result above covers the complete Lemma 3.3 scope; the preceding
-536-export proof and its local and CI reports retain their exact
-historical scope below.
+**The full local and GitHub verifiers passed for all 120 modules,
+553 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[b38301f89b01e424e5cf656da88ea3b56916423d](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/b38301f89b01e424e5cf656da88ea3b56916423d),
+whose tree is `ebe28edb7e366b988bc88032f2525be7a507368c`.
+The same verifier succeeded on the push of that exact proof commit.
+
+- [Successful run 43637398379, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43637398379).
+- Workflow: `417945069`; event: `push`; branch: `main`.
+- Verification job: `132577106792`; every step succeeded.
+- Verification completed `2026-11-14T20:38:27Z`; the job completed `2026-11-14T20:38:29Z`.
+- Artifact: `14130567360`, 94,216 bytes, created `2026-11-14T20:38:28Z`.
+- [Preserved CI report](certification/ci/run_43637398379_attempt_1.json), 809,782 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43637398379_attempt_1.zip).
+- ZIP SHA-256: `6f13223d4ddc910357e052aee24454d2bfe9ba9e7d96db23a60bda989a9933cf`.
+- CI report SHA-256: `85aa7a67cc31680eca5197cfdb759e387076085cf69d54c9883b24dc097a33da`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON and to the independently extracted report. Both strict
+comparisons confirm equality on all 18 verification-content fields:
+all 553 complete theorem records and their actual types and axiom
+lists, four registered premise records, 146 input hashes, nine pinned
+dependency revisions, the complete Lean export-inspection output,
+the Lean version, and every verification flag and scope count.
+Only `generated_at_utc` and `lake_build_output` differ.
+
+All 146 input hashes match the current inspected files and the exact
+proof tree. The installed local report remains unchanged at
+800,979 bytes with SHA-256
+`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`,
+byte-identical to the report at the published proof commit. The frozen
+manuscript and PDF are unchanged. This evidence covers the complete
+553-export Lemma 3.3 milestone. The numbered status remains 13 Certified,
+zero Partial or Active, and 29 Pending; all 33 auxiliary/supplementary
+groups remain Pending and whole-paper certification remains false.
+The earlier local and CI reports below retain their original scopes.
 
 ## Earlier checked checkpoints
 

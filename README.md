@@ -131,10 +131,29 @@ contains 800,979 bytes and has SHA-256
 It records 13 Certified, zero Partial or Active, and 29 Pending numbered
 results; all 33 auxiliary/supplementary groups remain Pending.
 
-**GitHub CI for this 553-export scope is pending.** The successful
-GitHub runs below retain their exact historical scopes. The
-[execution checkpoint](CHECKPOINT.md) records the new local result
-and its comparison with the preceding 536-export report.
+**The local and GitHub verifiers passed for the complete 553-export
+scope.** [GitHub Actions run 43637398379, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43637398379)
+succeeded at [proof commit b38301f](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/b38301f89b01e424e5cf656da88ea3b56916423d),
+with verification job `132577106792`. Its artifact `14130567360`
+is preserved as the [original ZIP](certification/ci/run_43637398379_attempt_1.zip)
+and [downloaded report](certification/ci/run_43637398379_attempt_1.json).
+The ZIP contains 94,216 bytes and has SHA-256
+`6f13223d4ddc910357e052aee24454d2bfe9ba9e7d96db23a60bda989a9933cf`;
+the report contains 809,782 bytes and has SHA-256
+`85aa7a67cc31680eca5197cfdb759e387076085cf69d54c9883b24dc097a33da`.
+
+The ZIP digest matches GitHub's advertised artifact digest, and its
+sole member is byte-identical to the archived report. Independent
+comparisons agree on all 18 verification-content fields, including
+all 553 complete theorem records, four premise records, 146 input
+hashes, nine dependency revisions, and the complete Lean inspection
+output. Only `generated_at_utc` and `lake_build_output` differ.
+All 146 hashes match the current inspected files and the exact proof
+tree `ebe28edb7e366b988bc88032f2525be7a507368c`. The installed local report remains
+unchanged at 800,979 bytes, with the digest recorded above.
+The [execution checkpoint](CHECKPOINT.md) records the exact proof,
+run, job, artifact, timestamps, and complete 553-export scope. The
+older evidence below retains its original scopes.
 
 The preceding Lemma 3.2 milestone added 54 public theorem exports in
 16 new modules, with 137 recorded input hashes including its source
