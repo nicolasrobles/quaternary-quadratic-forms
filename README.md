@@ -153,10 +153,30 @@ contains 879,086 bytes and has SHA-256
 It records 15 Certified, zero Partial or Active, and 27 Pending numbered
 results; all 33 auxiliary/supplementary groups remain Pending.
 
-**GitHub CI for this 598-export scope is pending.** The successful
-GitHub runs below retain their exact historical scopes. The
-[execution checkpoint](CHECKPOINT.md) records the new local result
-and its comparison with the preceding 571-export report.
+**The local and GitHub verifiers passed for the complete 598-export
+scope.** [GitHub Actions run 43648807603, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43648807603)
+succeeded at [proof commit 5d052df](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/5d052dfa49810e4456dfb6de6e30577493658496),
+with verification job `132612448839`. Its artifact `14134999045`
+is preserved as the [original ZIP](certification/ci/run_43648807603_attempt_1.zip)
+and [downloaded report](certification/ci/run_43648807603_attempt_1.json).
+The ZIP contains 103,724 bytes and has SHA-256
+`1e75bb6ef4db64e47b391e53cbc5f8751c402509364ed9fc9b30266fbc922a1f`;
+the report contains 889,339 bytes and has SHA-256
+`a0c9710c3554aeb34b82cfbeb8c32e5ef6112833fb3cf28bfbd2e1d10e392119`.
+
+The ZIP digest matches GitHub's advertised artifact digest, and its
+sole member is byte-identical to the archived report. Independent
+comparisons agree on all 18 verification-content fields, including
+all 598 complete theorem records, four premise records, 167 input
+hashes, nine dependency revisions, and the complete Lean inspection
+output. Only `generated_at_utc` and `lake_build_output` differ.
+All 167 hashes match the current inspected files and the exact proof
+tree `c1fc351aa09bac693b50db3d1f45d8f10efec08d`. All 30 frozen nondocument paths, including the
+workflow, remain unchanged and are bound to that proof tree. The installed local report remains
+unchanged at 879,086 bytes, with the digest recorded above.
+The [execution checkpoint](CHECKPOINT.md) records the exact proof,
+run, job, artifact, timestamps, and complete 598-export scope. The
+older evidence below retains its original scopes.
 
 ### Earlier Lemma 3.4 verification
 
