@@ -2,9 +2,9 @@
 
 Frozen manuscript: v35, renamed without content changes for this repository.
 
-**0 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 40 are pending.
+**2 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 38 are pending.
 
-The current checkpoint proves the integrality and divisibility clauses of Lemma 5.9, using an actual integer-valued projective quadratic trace. Its size bound remains pending. The earlier weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas are Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
+The current checkpoint certifies Lemma 2.5 relative to its exact cited Weil input and proves the complete projective-line Corollary 2.6. The charts, dehomogenization, degree calculation, and simple-root condition are checked deductions. The earlier integrality and divisibility clauses of Lemma 5.9 remain checked; its size bound remains pending. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas remain Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
 
 [Manuscript source](manuscript/quadratic_character_sums_github.tex) · [PDF](manuscript/quadratic_character_sums_github.pdf) · [Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · [Live proof ledger](certification/status.json)
 
@@ -35,8 +35,8 @@ A successful build does not change these statuses. Imported literature theorems 
 | [Lemma 2.2](manuscript/quadratic_character_sums_github.tex#L667-L688) | Uniform localization and delta-integral estimates, including r derivative bounds | Pending | Pending |
 | [Lemma 2.3](manuscript/quadratic_character_sums_github.tex#L769-L776) | O(U^(2+epsilon)) integral zeros of a nonsingular quaternary form with nonsquare rational determinant | Pending | Pending |
 | [Lemma 2.4](manuscript/quadratic_character_sums_github.tex#L832-L843) | Coefficient-uniform simultaneous polynomial-congruence count for squarefree moduli, exact constant C_(n,E) | Pending | Pending |
-| [Lemma 2.5](manuscript/quadratic_character_sums_github.tex#L908-L915) | Weil bound (m-1) sqrt(p) for a nonprincipal character and a degree-m polynomial with simple geometric roots | Pending | Pending |
-| [Corollary 2.6](manuscript/quadratic_character_sums_github.tex#L926-L933) | Projective-line character-sum bound (n-1) sqrt(p)+1 | Pending | Pending |
+| [Lemma 2.5](manuscript/quadratic_character_sums_github.tex#L908-L915) | Weil bound (m-1) sqrt(p) for a nonprincipal character and a degree-m polynomial with simple geometric roots | Certified | [`QuaternaryQuadraticForms.weil_bound`](QuaternaryQuadraticForms/WeilBound.lean) |
+| [Corollary 2.6](manuscript/quadratic_character_sums_github.tex#L926-L933) | Projective-line character-sum bound (n-1) sqrt(p)+1 | Certified | [`QuaternaryQuadraticForms.projective_weil_bound`](QuaternaryQuadraticForms/ProjectiveWeil.lean) |
 | [Lemma 2.7](manuscript/quadratic_character_sums_github.tex#L951-L964) | Quadric character-sum bound (2n^2-4n+4)p under smooth branch divisor | Pending | Pending |
 
 ## Section 3
@@ -88,6 +88,20 @@ A successful build does not change these statuses. Imported literature theorems 
 | Result | Content | Status | Checked export |
 |---|---|---|---|
 | [Proposition 6.1](manuscript/quadratic_character_sums_github.tex#L2798-L2806) | Determinant-method bound for degree-r power values with explicit coefficient height | Pending | Pending |
+
+## Correspondence reviews for certified numbered results
+
+### Lemma 2.5
+
+[Statement correspondence review](certification/correspondence/weil_input.md)
+
+All clauses match the exact registered cited input EXT.WEIL. This is source-relative certification, not a reproof of the published Weil estimate.
+
+### Corollary 2.6
+
+[Statement correspondence review](certification/correspondence/projective_weil.md)
+
+Complete bound for the actual projective-line sum. The charts, dehomogenization, degree drop, distinct-root condition, and contribution at infinity are proved; only EXT.WEIL is an external premise.
 
 ## Scope of partially checked numbered results
 
@@ -166,8 +180,36 @@ The checked divisibility statement only needs an odd prime and a homogeneous qua
 | [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | An explicit integer witness identifies the complex trace and proves divisibility; these are the completed clauses of Lemma 5.9. | Checked locally |
 | [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | Divisibility of the actual integer projective trace after reducing integral matrix and quadratic-form coefficients. | Checked locally |
 | [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) | Source-level integrality and divisibility of the complex trace for the manuscript's integral coefficient data, with an explicit integer witness. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryVector_eq_vec`](QuaternaryQuadraticForms/ProjectiveLine.lean) | Agreement of the literal binary-vector definition with two-coordinate vector notation. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveLinePoint_injective`](QuaternaryQuadraticForms/ProjectiveLine.lean) | Distinct affine points and infinity give distinct actual projective-line points. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveLinePoint_surjective`](QuaternaryQuadraticForms/ProjectiveLine.lean) | Every actual projective-line point has an affine representative (z,1) or the representative (1,0). | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveLinePoint_weight`](QuaternaryQuadraticForms/ProjectiveLine.lean) | A scalar-invariant weight on projective representatives equals its value on the standard chart representatives. | Checked locally |
+| [`QuaternaryQuadraticForms.sum_projectiveLine`](QuaternaryQuadraticForms/ProjectiveLine.lean) | The actual projective-line sum is the affine-chart sum plus its value at infinity. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveLinePoint_predicate`](QuaternaryQuadraticForms/ProjectiveLine.lean) | A scalar-stable zero condition is equivalent on chosen and standard chart representatives. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_eval`](QuaternaryQuadraticForms/BinaryForms.lean) | Evaluation of the literal substitution g(X,1) agrees with evaluation of the binary form at (z,1). | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_map`](QuaternaryQuadraticForms/BinaryForms.lean) | Dehomogenization commutes with coefficient extension. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_homogenize`](QuaternaryQuadraticForms/BinaryForms.lean) | Homogenizing the affine polynomial to the original homogeneous degree recovers the literal binary form. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_ne_zero`](QuaternaryQuadraticForms/BinaryForms.lean) | A nonzero homogeneous binary form has a nonzero affine polynomial. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_natDegree_le`](QuaternaryQuadraticForms/BinaryForms.lean) | The affine degree is at most the homogeneous degree. | Checked locally |
+| [`QuaternaryQuadraticForms.homogenize_eval_infinity`](QuaternaryQuadraticForms/BinaryForms.lean) | Evaluation of a homogenization at (1,0) is the corresponding top coefficient. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_coeff_top`](QuaternaryQuadraticForms/BinaryForms.lean) | The degree-n affine coefficient is exactly the binary form value at infinity. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_natDegree_eq_iff`](QuaternaryQuadraticForms/BinaryForms.lean) | For a nonzero homogeneous form, affine degree n is equivalent to nonvanishing at infinity. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_natDegree_lt_of_infinity_zero`](QuaternaryQuadraticForms/BinaryForms.lean) | Vanishing at infinity strictly lowers the affine degree of a nonzero homogeneous form. | Checked locally |
+| [`QuaternaryQuadraticForms.rootSet_card_le_natDegree`](QuaternaryQuadraticForms/GeometricRoots.lean) | The actual distinct root count over any field extension is at most the polynomial degree. | Checked locally |
+| [`QuaternaryQuadraticForms.geometricRootCount_eq_natDegree_iff`](QuaternaryQuadraticForms/GeometricRoots.lean) | For a nonzero polynomial, full distinct-root count over the algebraic closure is equivalent to separability. | Checked locally |
+| [`QuaternaryQuadraticForms.geometricRootCount_eq_natDegree`](QuaternaryQuadraticForms/GeometricRoots.lean) | A separable polynomial has degree-many distinct geometric roots. | Checked locally |
+| [`QuaternaryQuadraticForms.homogeneous_binary_zero_units_smul`](QuaternaryQuadraticForms/BinaryFormRoots.lean) | The zero condition of a homogeneous binary form is independent of nonzero scalar representatives. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryProjectiveZeros_card`](QuaternaryQuadraticForms/BinaryFormRoots.lean) | The literal projective zero count is the affine distinct-root count plus the possible point at infinity. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_degree_and_rootCount`](QuaternaryQuadraticForms/BinaryFormRoots.lean) | For n distinct projective zeros, the affine degree is n or n-1 according to infinity, is positive, and equals its distinct-root count. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_geometric_data`](QuaternaryQuadraticForms/BinaryFormRoots.lean) | The manuscript geometric-root hypothesis implies every affine polynomial hypothesis of the univariate Weil input. | Checked locally |
+| [`QuaternaryQuadraticForms.binaryDehom_geometric_separable`](QuaternaryQuadraticForms/BinaryFormRoots.lean) | The affine polynomial is separable, derived from the literal projective geometric zeros. | Checked locally |
+| [`QuaternaryQuadraticForms.weil_bound`](QuaternaryQuadraticForms/WeilBound.lean) | Lemma 2.5 with its explicit degree parameter and distinct geometric roots; exact specialization of the registered literature input. | Checked locally |
+| [`QuaternaryQuadraticForms.weil_bound_of_separable`](QuaternaryQuadraticForms/WeilBound.lean) | The univariate character-sum bound after proving the geometric root-count condition from separability. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveLineCharacterSum_chart`](QuaternaryQuadraticForms/ProjectiveWeil.lean) | The literal projective character sum splits into the value at infinity and the sum of the literal affine polynomial character weight. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots`](QuaternaryQuadraticForms/ProjectiveWeil.lean) | The norm estimate after the affine root hypotheses have been checked, using the triangle inequality and the degree bound. | Checked locally |
+| [`QuaternaryQuadraticForms.projective_weil_bound`](QuaternaryQuadraticForms/ProjectiveWeil.lean) | Complete Corollary 2.6 under the literal binary-form and distinct geometric projective-root hypotheses. | Checked locally |
 
-These declarations use only the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). There are no registered external Lean premises at this checkpoint.
+The allowed dependencies are the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Individual exports may additionally use only the exact literature premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). 1 external Lean premise is registered separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).
 
 ## Auxiliary and supplementary obligations
 
@@ -218,7 +260,7 @@ d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.
 
 ```sh
-lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
 python3 scripts/verify_certificate.py
 ```
 

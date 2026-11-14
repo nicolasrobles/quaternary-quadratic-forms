@@ -34,11 +34,14 @@ lines = [
     f'**{counts["Certified"]} of 42 numbered results are certified.** '
     f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint proves the integrality and divisibility clauses of "
-    "Lemma 5.9, using an actual integer-valued projective quadratic trace. Its "
-    "size bound remains pending. The earlier weight properties, ray identity (4.5), "
-    "and zero-frequency clause of Lemma 4.4 remain checked; that lemma's "
-    "pointwise estimate remains pending. Both numbered lemmas are Partial. "
+    "The current checkpoint certifies Lemma 2.5 relative to its exact cited Weil "
+    "input and proves the complete projective-line Corollary 2.6. The charts, "
+    "dehomogenization, degree calculation, and simple-root condition are checked "
+    "deductions. The earlier integrality and divisibility clauses of Lemma 5.9 "
+    "remain checked; its size bound remains pending. The weight properties, "
+    "ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; "
+    "that lemma's pointwise estimate remains pending. Both numbered lemmas "
+    "remain Partial. "
     "The 33 auxiliary and supplementary groups are tracked separately; these are "
     "groups of assertions, not 33 additional numbered results.", "",
     "[Manuscript source](manuscript/quadratic_character_sums_github.tex) · "
@@ -67,6 +70,14 @@ for section in sorted({r["number"].split(".")[0] for r in rows}, key=int):
         lines.append(f'| {source_link(row)} | {cell(row["content"])} | '
                      f'{current["status"]} | {exports} |')
     lines.append("")
+lines += ["## Correspondence reviews for certified numbered results", ""]
+for row in rows:
+    current = status["numbered_results"][row["label"]]
+    if current["status"] != "Certified":
+        continue
+    lines += [f'### {row["display"]}', "",
+              "[Statement correspondence review](" + current["correspondence_record"] + ")", "",
+              current.get("scope_note", ""), ""]
 lines += ["## Scope of partially checked numbered results", ""]
 for row in rows:
     current = status["numbered_results"][row["label"]]
@@ -88,11 +99,13 @@ for entry in status["supporting_exports"]:
     lines.append(f'| [{BT}{entry["declaration"]}{BT}]({entry["file"]}) | '
                  f'{cell(entry["scope"])} | {entry["status"]} |')
 lines += [
-    "", "These declarations use only the standard logical foundations "
+    "", "The allowed dependencies are the standard logical foundations "
     f'{BT}propext{BT}, {BT}Classical.choice{BT}, and {BT}Quot.sound{BT}. '
-    "Their actual Lean types and axiom dependencies are in the "
+    "Individual exports may additionally use only the exact literature "
+    "premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the "
     "[verification report](certification/verification_report.json). "
-    "There are no registered external Lean premises at this checkpoint.", "",
+    f'{len(status["accepted_lean_inputs"])} external Lean premise is registered '
+    "separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).", "",
     "## Auxiliary and supplementary obligations", "",
     "The following 33 groups retain their own correspondence review. "
     "The single numbered Remark 4.1 is represented by four of these groups. "
@@ -118,6 +131,8 @@ lines += [
     "Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds "
     "Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul "
     "Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic "
+    "Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation "
+    "Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure "
     "Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
     "python3 scripts/verify_certificate.py",
     BT * 3, "",
@@ -143,15 +158,26 @@ trusted = [
     "hypotheses, source locators, and Lean declarations must be registered before use. "
     "All specializations, hypothesis checks, coefficient uniformity, and deductions "
     "made in this manuscript remain proof obligations.", "",
-    "**18 input groups are mapped; zero external premise declarations are currently "
-    "registered in Lean.** Mapping an input is not the same as formalizing its interface. "
+    f'**18 input groups are mapped; {len(status["accepted_lean_inputs"])} external '
+    "premise declaration is currently registered in Lean.** "
+    "Mapping an input is not the same as formalizing its interface. "
     "Use a suitable official mathlib result where available.", "",
     "| Input | Source locator | Accepted mathematical scope | Lean interface |",
     "|---|---|---|---|",
 ]
 for key, entry in graph["external_input_catalog"].items():
+    registered = [r for r in status["accepted_lean_inputs"] if r["reference_id"] == key]
+    interfaces = "; ".join(f'[{BT}{r["declaration"]}{BT}]({r["file"]})'
+                           for r in registered) or "Pending"
     trusted.append(f'| {BT}{key}{BT} | [{cell(entry["reference"])}], '
-                   f'{cell(entry["locator"])} | {cell(entry["scope"])} | Pending |')
+                   f'{cell(entry["locator"])} | {cell(entry["scope"])} | {interfaces} |')
+trusted += ["", "## Registered premise inspection", ""]
+for entry in status["accepted_lean_inputs"]:
+    trusted += [f'### {BT}{entry["reference_id"]}{BT}', "",
+                "[Exact source and correspondence review](" + entry["correspondence_record"] + "). "
+                "The verifier checks the declaration kind, inspected Lean type, type hash, "
+                "and actual axiom dependencies separately from proved exports.", "",
+                "Expected type hash: " + BT + entry["type_sha256"] + BT + ".", ""]
 trusted += [
     "", "## Cited claims excluded from the premise registry", "",
     "The paper gives counterexamples to the following claims. They are comparison "
@@ -165,8 +191,10 @@ trusted += [
     "related work are not automatically Lean assumptions. In particular, the "
     "square/power-sieve references motivate the method; the manuscript's actual "
     "sieve inequality is a deduction to be proved.", "",
-    "The current Lean exports use no external literature premises. Future inputs "
-    "must be listed separately from proved exports and appear explicitly in the "
+    "The geometric and algebraic supporting exports use no external literature "
+    "premises. The univariate and projective character-sum bounds additionally "
+    "use the single registered Weil premise. Every future input must likewise "
+    "be listed separately from proved exports and appear explicitly in the "
     "inspected axiom dependencies.", "",
 ]
 (ROOT / "TRUSTED_INPUTS.md").write_text("\n".join(trusted))

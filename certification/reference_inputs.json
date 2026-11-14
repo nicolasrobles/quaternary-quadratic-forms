@@ -33,14 +33,20 @@
       "interface_status": "Pending"
     },
     "EXT.WEIL": {
-      "reference": "K or IK",
-      "locator": "K equation (1.2); alternatively IK Theorem 11.23",
-      "scope": "Nonprincipal multiplicative-character estimate for a nonconstant polynomial not a constant multiple of the appropriate perfect power; instantiate the simple-root case.",
-      "status": "Trusted literature input; one exact interface to register",
+      "reference": "K",
+      "locator": "Published equation (1.2); matching multiplicative-character bound in Section 1, page 1 of the author version dated April 19, 2001",
+      "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
+      "status": "Trusted literature input; exact simple-root prime-field interface registered",
       "id": "EXT.WEIL",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "The cited univariate Weil estimate is assumed under the author-approved source-relative scope. The projective-line deductions are proved independently from this interface.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ],
+      "interface_status": "Registered; inspection in the verification report",
+      "source_url": "https://web.math.princeton.edu/~nmk/multp5.pdf",
+      "published_doi": "10.1155/S1073792802106088",
+      "correspondence_record": "certification/correspondence/weil_input.md",
+      "lean_statement": "For p : Nat with Fact p.Prime, psi : MulChar (ZMod p) Complex with psi != 1, f : Polynomial (ZMod p) with 0 < f.natDegree and Fintype.card (f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree, norm (sum z : ZMod p, psi (f.eval z)) <= (f.natDegree - 1 : Real) * Real.sqrt p."
     },
     "EXT.KATZ": {
       "reference": "K",

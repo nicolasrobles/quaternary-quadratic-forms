@@ -2,14 +2,14 @@
 
 The authors authorize source-relative certification: exact cited inputs used by the proofs are trusted and are not reproved. Their mathematical statements, hypotheses, source locators, and Lean declarations must be registered before use. All specializations, hypothesis checks, coefficient uniformity, and deductions made in this manuscript remain proof obligations.
 
-**18 input groups are mapped; zero external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
+**18 input groups are mapped; 1 external premise declaration is currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
 
 | Input | Source locator | Accepted mathematical scope | Lean interface |
 |---|---|---|---|
 | `EXT.HB_DELTA` | [HB], Theorem 1; Section 3, equation (3.3) | Delta-symbol identity, common smooth h, support and size, and c_Q=1+O_j(Q^-j); use the manuscript-safe range Q>=3. | Pending |
 | `EXT.HB_WEIGHT_LOCALIZATION` | [HB], Sections 2 and 6; Lemmas 2 and 12 | Uniform small-support localization of a bounded smooth family with gradient bounded below; coordinate permutations/sign changes and membership in the admissible local weight class. | Pending |
 | `EXT.HB_INTEGRAL_ESTIMATES` | [HB], Theorem 3; Lemmas 13, 14, 15, 18 and 22 | Singular integral normalization, zero-frequency approximation, derivative reduction and decay estimates for the local oscillatory integrals. | Pending |
-| `EXT.WEIL` | [K or IK], K equation (1.2); alternatively IK Theorem 11.23 | Nonprincipal multiplicative-character estimate for a nonconstant polynomial not a constant multiple of the appropriate perfect power; instantiate the simple-root case. | Pending |
+| `EXT.WEIL` | [K], Published equation (1.2); matching multiplicative-character bound in Section 1, page 1 of the author version dated April 19, 2001 | For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed. | [`QuaternaryQuadraticForms.Trusted.weil_simple_roots`](QuaternaryQuadraticForms/Trusted/Weil.lean) |
 | `EXT.KATZ` | [K], Theorem 8.1(1), with trace identity (5.3) | Cohomological vanishing, Frobenius magnitude and Euler-characteristic/Chern expression under the precise smoothness/transversality and character hypotheses; scalar trace bound is deduced. | Pending |
 | `EXT.MV_GAUSS` | [MV], Theorems 9.5 and 9.7 | Quadratic Gauss-sum conjugation and norm identities, giving tau_p^2=chi_p(-1)p and tau_p^4=p^2 for odd p. | Pending |
 | `EXT.MV_RAMANUJAN` | [MV], Theorem 4.1 | R_n(t)=sum_{a mod n, gcd(a,n)=1} e_n(a*t)=sum_{h\|gcd(n,t)} h*mu(n/h). | Pending |
@@ -25,6 +25,15 @@ The authors authorize source-relative certification: exact cited inputs used by 
 | `EXT.HB_SQUARE_DETERMINANT` | [HB], Theorem7 | The untwisted count for square determinant has B^2 log B main term, B^2 secondary term and O(B^(3/2+epsilon)) remainder, under the source weight hypotheses. | Pending |
 | `EXT.HSS_RESIDUE_ERROR` | [HSS], Theorem4.1 | Published per-residue-class upper error bound O(B^(2-tau+epsilon)/L), L^2=O(B^(1-tau)), -1<tau<1; comparison input, not the actual-error lower bound. | Pending |
 
+## Registered premise inspection
+
+### `EXT.WEIL`
+
+[Exact source and correspondence review](certification/correspondence/weil_input.md). The verifier checks the declaration kind, inspected Lean type, type hash, and actual axiom dependencies separately from proved exports.
+
+Expected type hash: `b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85`.
+
+
 ## Cited claims excluded from the premise registry
 
 The paper gives counterexamples to the following claims. They are comparison targets and must never be accepted as axioms of this certificate.
@@ -38,4 +47,4 @@ The paper gives counterexamples to the following claims. They are comparison tar
 
 Other citations used only for attribution, background, or a description of related work are not automatically Lean assumptions. In particular, the square/power-sieve references motivate the method; the manuscript's actual sieve inequality is a deduction to be proved.
 
-The current Lean exports use no external literature premises. Future inputs must be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.
+The geometric and algebraic supporting exports use no external literature premises. The univariate and projective character-sum bounds additionally use the single registered Weil premise. Every future input must likewise be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.

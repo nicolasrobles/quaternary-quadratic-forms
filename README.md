@@ -12,19 +12,25 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 0 · Partial: 2 · Active: 0 · Pending: 40** — 42 numbered results.
+**Complete: 2 · Partial: 2 · Active: 0 · Pending: 38** — 42 numbered results.
 
-Lemma 4.4 is **Partial**: its three weight properties, exact zero-frequency
+**Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
+inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
+Corollary 2.6 is proved for the actual projective-line character sum, including
+the chart decomposition, polynomial dehomogenization, degree calculation,
+distinct-root condition, and contribution at infinity.
+
+Lemma 4.4 remains **Partial**: its three weight properties, exact zero-frequency
 formula, and intermediate ray identity (4.5) are checked; its pointwise Fourier
-bound remains pending. Lemma 5.9 is now **Partial**: integrality and divisibility
-of the actual quadratic projective trace are checked locally and in
-[GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43550688913), while the bound
+bound remains pending. Lemma 5.9 remains **Partial**: integrality and divisibility
+of the actual quadratic projective trace are checked; the bound
 `|a_p(G)| ≤ 4p` remains pending.
 
-The ledger registers 40 checked exports across nine proof modules. All 33
-separate auxiliary/supplementary groups remain Pending. This repository does
-not yet provide a certificate for the whole paper. The execution checkpoint
-records the exact scope and evidence for each verification run.
+The ledger registers 68 checked theorem exports and one separate trusted
+literature premise across 16 Lean modules. All 33 auxiliary/supplementary groups
+remain Pending. This repository does not yet provide a certificate for the
+whole paper. The execution checkpoint records the exact scope and evidence
+for each verification run.
 
 - [Certification inventory, with links to checked exports](INVENTORY.md)
 - [Dependency graphs and the proof structure](DEPENDENCIES.md)
@@ -33,6 +39,8 @@ records the exact scope and evidence for each verification run.
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
 - [Correspondence review for the Fourier ray identity](certification/correspondence/fourier_rays.md)
 - [Correspondence review for quadratic-trace divisibility](certification/correspondence/quadratic_trace.md)
+- [Correspondence review for the Weil input](certification/correspondence/weil_input.md)
+- [Correspondence review for the projective-line bound](certification/correspondence/projective_weil.md)
 - [Latest execution checkpoint](CHECKPOINT.md)
 
 ![Principal proof dependencies](docs/dependency_overview.png)
@@ -54,7 +62,35 @@ frozen source. Counts refer to numbered results, not supporting declarations.
 Supplementary mathematical claims and a final whole-paper correspondence review
 are tracked separately.
 
-No external literature premise has been introduced into Lean at this checkpoint.
+One external premise is registered: the simple-root univariate Weil estimate
+from [K, equation (1.2)], specialized to the prime field. Its exact type,
+source correspondence, and type hash are inspected separately from proved
+exports. The projective-line deductions use this input and the official library;
+they are not included among the trusted assumptions.
+
+## The projective-line estimate
+
+For a nonzero homogeneous binary form of degree `n ≥ 2` with `n` distinct
+projective zeros over the algebraic closure, a nonprincipal character `ψ`
+satisfying `ψ ^ n = 1` gives
+
+$$\left|\sum_{P\in\mathbf P^1(\mathbf F_p)}\psi(g(P))\right|
+\le (n-1)\sqrt p+1.$$
+
+The proof constructs the actual projective charts `(z:1)` and `(1:0)` and
+uses the literal polynomial `g(X,1)`. Counting the geometric zeros proves
+that its degree is `n` or `n−1`, and that all its roots are distinct. This
+supplies every hypothesis of the registered Weil input. The point at infinity
+has a character value of norm at most one.
+
+| Module | Checked contribution |
+|---|---|
+| [ProjectiveLine](QuaternaryQuadraticForms/ProjectiveLine.lean) | Actual projective charts, the sum decomposition, and the corresponding zero-set equivalence |
+| [BinaryForms](QuaternaryQuadraticForms/BinaryForms.lean) | Literal substitution, coefficient extension, homogenization recovery, and degree calculation |
+| [GeometricRoots](QuaternaryQuadraticForms/GeometricRoots.lean) | Root-count bounds and equivalence with separability over the algebraic closure |
+| [BinaryFormRoots](QuaternaryQuadraticForms/BinaryFormRoots.lean) | Derivation of the positive affine degree and simple-root condition from the projective geometric roots |
+| [WeilBound](QuaternaryQuadraticForms/WeilBound.lean) | Lemma 2.5 as an exact application of the separately [registered literature premise](QuaternaryQuadraticForms/Trusted/Weil.lean) |
+| [ProjectiveWeil](QuaternaryQuadraticForms/ProjectiveWeil.lean) | Complete Corollary 2.6 under the literal manuscript hypotheses |
 
 ## Checked finite-field branch
 
@@ -130,7 +166,10 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.RingTheory.MvPolynomial.Homogeneous \
       Mathlib.Data.Matrix.Mul \
       Mathlib.FieldTheory.ChevalleyWarning \
-      Mathlib.NumberTheory.LegendreSymbol.Basic
+      Mathlib.NumberTheory.LegendreSymbol.Basic \
+      Mathlib.Algebra.Polynomial.Homogenize \
+      Mathlib.Data.Fin.VecNotation \
+      Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
     python3 scripts/verify_certificate.py
 
 The verifier checks the frozen source, every inventory entry, the dependency
@@ -147,10 +186,12 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next branch concerns the finite-field estimates: register the precise
-Weil and Katz input interfaces and prove the manuscript's specializations.
-Corollary 2.6, the projective-line estimate, is a practical first target.
-The Katz specialization in Lemma 2.7 and the remaining geometric clauses of
-Lemma 4.4 require their own hypothesis checks and deductions. Once the relevant
-trace bound is available, it also supplies the remaining size clause of
-Lemma 5.9.
+The projective-line estimate is now available for the plane-section argument.
+The next deductions are the conic parametrization in Lemma 4.2 and its use in
+the plane-section estimate of Lemma 4.3, with the geometric hypotheses checked
+on the actual forms and projective sets.
+
+The Katz specialization in Lemma 2.7 is a separate remaining branch. Its
+precise literature interface and manuscript-specific geometric deductions
+are still pending. It supplies the global trace bound needed for the remaining
+clauses of Lemmas 4.4 and 5.9.

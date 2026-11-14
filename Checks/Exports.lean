@@ -43,11 +43,58 @@ run_cmd do
     `QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd,
     `QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd,
     `QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd,
-    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd]
+    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd,
+    `QuaternaryQuadraticForms.binaryVector_eq_vec,
+    `QuaternaryQuadraticForms.projectiveLinePoint_injective,
+    `QuaternaryQuadraticForms.projectiveLinePoint_surjective,
+    `QuaternaryQuadraticForms.projectiveLinePoint_weight,
+    `QuaternaryQuadraticForms.sum_projectiveLine,
+    `QuaternaryQuadraticForms.projectiveLinePoint_predicate,
+    `QuaternaryQuadraticForms.binaryDehom_eval,
+    `QuaternaryQuadraticForms.binaryDehom_map,
+    `QuaternaryQuadraticForms.binaryDehom_homogenize,
+    `QuaternaryQuadraticForms.binaryDehom_ne_zero,
+    `QuaternaryQuadraticForms.binaryDehom_natDegree_le,
+    `QuaternaryQuadraticForms.homogenize_eval_infinity,
+    `QuaternaryQuadraticForms.binaryDehom_coeff_top,
+    `QuaternaryQuadraticForms.binaryDehom_natDegree_eq_iff,
+    `QuaternaryQuadraticForms.binaryDehom_natDegree_lt_of_infinity_zero,
+    `QuaternaryQuadraticForms.rootSet_card_le_natDegree,
+    `QuaternaryQuadraticForms.geometricRootCount_eq_natDegree_iff,
+    `QuaternaryQuadraticForms.geometricRootCount_eq_natDegree,
+    `QuaternaryQuadraticForms.homogeneous_binary_zero_units_smul,
+    `QuaternaryQuadraticForms.binaryProjectiveZeros_card,
+    `QuaternaryQuadraticForms.binaryDehom_degree_and_rootCount,
+    `QuaternaryQuadraticForms.binaryDehom_geometric_data,
+    `QuaternaryQuadraticForms.binaryDehom_geometric_separable,
+    `QuaternaryQuadraticForms.weil_bound,
+    `QuaternaryQuadraticForms.weil_bound_of_separable,
+    `QuaternaryQuadraticForms.projectiveLineCharacterSum_chart,
+    `QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots,
+    `QuaternaryQuadraticForms.projective_weil_bound]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
     | _ => Lean.throwError "Expected a theorem declaration for {name}"
+  let inputNames : List Lean.Name := [
+    `QuaternaryQuadraticForms.Trusted.weil_simple_roots]
+  for name in inputNames do
+    match environment.find? name with
+    | some (.axiomInfo _) => pure ()
+    | _ => Lean.throwError "Expected a registered external premise for {name}"
+  let _ ← environment.constants.foldM (init := ()) fun _ name info => do
+    if (`QuaternaryQuadraticForms).isPrefixOf name then
+      match info with
+      | .axiomInfo _ =>
+        unless inputNames.contains name do
+          Lean.throwError "Unregistered project axiom: {name}"
+      | _ => pure ()
+    else
+      pure ()
+  pure ()
+
+#check @QuaternaryQuadraticForms.Trusted.weil_simple_roots
+#print axioms QuaternaryQuadraticForms.Trusted.weil_simple_roots
 
 #check @QuaternaryQuadraticForms.weighted_ray_sum
 #print axioms QuaternaryQuadraticForms.weighted_ray_sum
@@ -168,3 +215,87 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd
 #print axioms QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd
+
+#check @QuaternaryQuadraticForms.binaryVector_eq_vec
+#print axioms QuaternaryQuadraticForms.binaryVector_eq_vec
+
+#check @QuaternaryQuadraticForms.projectiveLinePoint_injective
+#print axioms QuaternaryQuadraticForms.projectiveLinePoint_injective
+
+#check @QuaternaryQuadraticForms.projectiveLinePoint_surjective
+#print axioms QuaternaryQuadraticForms.projectiveLinePoint_surjective
+
+#check @QuaternaryQuadraticForms.projectiveLinePoint_weight
+#print axioms QuaternaryQuadraticForms.projectiveLinePoint_weight
+
+#check @QuaternaryQuadraticForms.sum_projectiveLine
+#print axioms QuaternaryQuadraticForms.sum_projectiveLine
+
+#check @QuaternaryQuadraticForms.projectiveLinePoint_predicate
+#print axioms QuaternaryQuadraticForms.projectiveLinePoint_predicate
+
+#check @QuaternaryQuadraticForms.binaryDehom_eval
+#print axioms QuaternaryQuadraticForms.binaryDehom_eval
+
+#check @QuaternaryQuadraticForms.binaryDehom_map
+#print axioms QuaternaryQuadraticForms.binaryDehom_map
+
+#check @QuaternaryQuadraticForms.binaryDehom_homogenize
+#print axioms QuaternaryQuadraticForms.binaryDehom_homogenize
+
+#check @QuaternaryQuadraticForms.binaryDehom_ne_zero
+#print axioms QuaternaryQuadraticForms.binaryDehom_ne_zero
+
+#check @QuaternaryQuadraticForms.binaryDehom_natDegree_le
+#print axioms QuaternaryQuadraticForms.binaryDehom_natDegree_le
+
+#check @QuaternaryQuadraticForms.homogenize_eval_infinity
+#print axioms QuaternaryQuadraticForms.homogenize_eval_infinity
+
+#check @QuaternaryQuadraticForms.binaryDehom_coeff_top
+#print axioms QuaternaryQuadraticForms.binaryDehom_coeff_top
+
+#check @QuaternaryQuadraticForms.binaryDehom_natDegree_eq_iff
+#print axioms QuaternaryQuadraticForms.binaryDehom_natDegree_eq_iff
+
+#check @QuaternaryQuadraticForms.binaryDehom_natDegree_lt_of_infinity_zero
+#print axioms QuaternaryQuadraticForms.binaryDehom_natDegree_lt_of_infinity_zero
+
+#check @QuaternaryQuadraticForms.rootSet_card_le_natDegree
+#print axioms QuaternaryQuadraticForms.rootSet_card_le_natDegree
+
+#check @QuaternaryQuadraticForms.geometricRootCount_eq_natDegree_iff
+#print axioms QuaternaryQuadraticForms.geometricRootCount_eq_natDegree_iff
+
+#check @QuaternaryQuadraticForms.geometricRootCount_eq_natDegree
+#print axioms QuaternaryQuadraticForms.geometricRootCount_eq_natDegree
+
+#check @QuaternaryQuadraticForms.homogeneous_binary_zero_units_smul
+#print axioms QuaternaryQuadraticForms.homogeneous_binary_zero_units_smul
+
+#check @QuaternaryQuadraticForms.binaryProjectiveZeros_card
+#print axioms QuaternaryQuadraticForms.binaryProjectiveZeros_card
+
+#check @QuaternaryQuadraticForms.binaryDehom_degree_and_rootCount
+#print axioms QuaternaryQuadraticForms.binaryDehom_degree_and_rootCount
+
+#check @QuaternaryQuadraticForms.binaryDehom_geometric_data
+#print axioms QuaternaryQuadraticForms.binaryDehom_geometric_data
+
+#check @QuaternaryQuadraticForms.binaryDehom_geometric_separable
+#print axioms QuaternaryQuadraticForms.binaryDehom_geometric_separable
+
+#check @QuaternaryQuadraticForms.weil_bound
+#print axioms QuaternaryQuadraticForms.weil_bound
+
+#check @QuaternaryQuadraticForms.weil_bound_of_separable
+#print axioms QuaternaryQuadraticForms.weil_bound_of_separable
+
+#check @QuaternaryQuadraticForms.projectiveLineCharacterSum_chart
+#print axioms QuaternaryQuadraticForms.projectiveLineCharacterSum_chart
+
+#check @QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots
+#print axioms QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots
+
+#check @QuaternaryQuadraticForms.projective_weil_bound
+#print axioms QuaternaryQuadraticForms.projective_weil_bound

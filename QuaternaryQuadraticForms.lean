@@ -7,3 +7,10 @@ import QuaternaryQuadraticForms.QuadraticCharacter
 import QuaternaryQuadraticForms.MatrixPolynomial
 import QuaternaryQuadraticForms.AffineDivisibility
 import QuaternaryQuadraticForms.QuadraticTrace
+import QuaternaryQuadraticForms.ProjectiveLine
+import QuaternaryQuadraticForms.BinaryForms
+import QuaternaryQuadraticForms.GeometricRoots
+import QuaternaryQuadraticForms.BinaryFormRoots
+import QuaternaryQuadraticForms.Trusted.Weil
+import QuaternaryQuadraticForms.WeilBound
+import QuaternaryQuadraticForms.ProjectiveWeil

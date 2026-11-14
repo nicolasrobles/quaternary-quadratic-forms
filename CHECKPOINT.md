@@ -1,60 +1,74 @@
-# Quadratic-trace divisibility checkpoint
+# Weil and projective-line checkpoint
 
 ## Numbered-result status
 
-Complete: **0**. Partial: **2**. Active numbered targets: **0**.
-Pending: **40**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **2**. Partial: **2**. Active numbered targets: **0**.
+Pending: **38**. All 33 auxiliary/supplementary groups remain Pending.
 
-The new Partial result is **Lemma 5.9**. Its integrality and divisibility
-clauses are proved for the actual projective quadratic-character trace.
-The size bound |a_p(G)| ≤ 4p remains pending. Lemma 4.4 retains its checked
-weight properties, ray identity and exact zero-frequency clause; its
-pointwise estimate remains pending.
+**Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
+inputs.** The first is matched to the cited simple-root univariate Weil bound.
+The second is proved under the literal manuscript hypotheses, with the
+projective charts, affine polynomial, degree, and geometric-root deductions
+checked in Lean.
+
+Lemma 4.4 retains its checked weight properties, ray identity (4.5), and exact
+zero-frequency clause; its pointwise estimate remains pending. Lemma 5.9
+retains its checked integrality and divisibility clauses; its size bound
+|a_p(G)| ≤ 4p remains pending. Both results remain Partial.
 
 ## Mathematical scope
 
-The proof constructs integer-valued affine and projective sums of the
-quadratic character and identifies their complex casts with the sums already
-used in the Fourier identity. The matrix expression x^T A x is represented
-by an explicitly defined homogeneous quadratic polynomial. Its evaluation
-identity and degree bound are proved.
+The registered source input is [K, equation (1.2)], verified against the
+matching multiplicative-character estimate on page 1 of Katz's author
+version. Its assumptions are a nonprincipal character extended by zero,
+a positive-degree polynomial, and degree-many distinct geometric roots.
+There is no condition that the degree be prime to p. This published estimate
+is assumed under the author's source-relative program, not reproved.
 
-Euler's criterion and the polynomial zero-locus indicator turn the affine
-sum modulo p into the sum of (1-F^(p-1))*G^(p/2). The proof checks the strict
-degree threshold and applies the official mathlib polynomial-sum theorem.
-This proves divisibility of the integer affine sum. The established ray
-identity yields C=(p-1)*a over the integers; reducing this equality modulo p
-proves divisibility of the projective trace.
+The projective-line deduction constructs an actual equivalence between
+projective points and the affine chart together with infinity. Homogeneity
+and the character-order condition prove representative independence. The
+polynomial is the literal substitution g(X,1), with degree at most n and
+with top coefficient g(1,0).
 
-The final export gives an explicit integer a whose complex cast is the
-paper's trace and for which p divides a. It includes reduction of integral
-matrix and form coefficients. The trace's independence of projective
-representatives is proved under quadratic homogeneity.
+Counting the actual geometric projective zeros proves that the affine
+degree is n or n−1 according to whether infinity is a zero, and that all
+affine roots are distinct. Since n≥2, the affine degree is positive. Applying
+the registered Weil input and adding the character value at infinity gives
+the complete bound (n−1)√p+1.
 
-- [Main trace statements](QuaternaryQuadraticForms/QuadraticTrace.lean).
-- [Affine divisibility proof](QuaternaryQuadraticForms/AffineDivisibility.lean).
-- [Statement correspondence](certification/correspondence/quadratic_trace.md).
-- [Inventory with links to all checked exports](INVENTORY.md).
+The counting argument replaces the manuscript's intermediate polynomial
+divisibility discussion. No simple-root condition or degree conclusion is
+assumed as an internal premise.
+
+- [Complete Corollary 2.6](QuaternaryQuadraticForms/ProjectiveWeil.lean).
+- [Geometric-root deduction](QuaternaryQuadraticForms/BinaryFormRoots.lean).
+- [Projective-line correspondence review](certification/correspondence/projective_weil.md).
+- [Exact Weil input review](certification/correspondence/weil_input.md).
+- [Inventory with checked-export links](INVENTORY.md).
 - [Full dependency graph PNG](docs/dependency_graph.png).
 - [Overview PNG](docs/dependency_overview.png).
 
-The divisibility result needs an odd prime and a homogeneous quadratic G.
-It does not need the geometric hypotheses required for the pending size
-estimate. No internal lemma or estimate has been introduced as an external
-premise.
-
 ## Local execution
 
-The full verifier passed on 13 November 2026 at 21:13 CST. It checked the frozen
+The full verifier passed on 13 November 2026 at 21:29 CST. It checked the unchanged frozen
 manuscript and PDF, all 42 numbered statement identities, the dependency
-ledger, pinned library checkouts, all nine local proof modules, and all 40
-registered theorem declarations with their actual types and axiom dependencies.
+ledger, pinned dependency checkouts, all 16 local Lean modules, 68 registered
+theorem exports, and the one separately registered literature premise.
 The direct Lean checks use warningAsError=true and autoImplicit=false.
 
-Every inspected theorem uses only propext, Classical.choice, and Quot.sound.
-There are zero registered external Lean premises. Both correspondence
-records are bound to the report by SHA-256. The live ledger records the
-completed and remaining clauses of both Partial numbered results.
+The 64 geometric, algebraic, and earlier theorem exports use only the
+standard foundations propext, Classical.choice, and Quot.sound. Four
+character-sum exports additionally use the exact registered declaration
+QuaternaryQuadraticForms.Trusted.weil_simple_roots. Its actual type is
+compared against the reviewed type hash, and the environment inspection
+checks that it is an axiom while every proved export is a theorem.
+
+The checker rejects unregistered axiom declarations, unexpected axiom
+dependencies, altered premise types, and proof placeholders. Negative source
+policy checks also rejected an additional axiom, an additional constant, a
+missing or duplicated premise, and a proof placeholder. All four
+correspondence records are included in the verification report's input hashes.
 
 - Lean: official 4.24.0.
 - mathlib: f897ebcf72cd16f89ab4577d0c826cd14afaafc7.
@@ -63,28 +77,18 @@ completed and remaining clauses of both Partial numbered results.
 
 ## GitHub execution
 
-The same verifier passed in GitHub Actions at the exact proof commit
-[ee274f6752d5a28e875919349821518b297e3115](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ee274f6752d5a28e875919349821518b297e3115).
-
-- [Successful run 43550688913, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43550688913).
-- Verification job: 132312192673.
-- Artifact: 14095862449.
-- [Preserved CI report](certification/ci/run_43550688913_attempt_1.json).
-- [Preserved original artifact ZIP](certification/ci/run_43550688913_attempt_1.zip).
-- ZIP SHA-256: 182154b8c40d97d9f25aef44b4884d0575fd998c840ff477816fc6dd957f1ec1.
-- Report SHA-256: 5857644248cb0e950e22ff317e8cc918b8cd3199de407af7e6b0f954f9375002.
-
-The downloaded artifact was inspected. All 21 recorded input hashes match
-the checked files, including both correspondence records. All 40 theorem
-records match the locally inspected actual types and axiom dependencies.
-The CI report records two Partial numbered results, 40 Pending numbered
-results, and zero external Lean premises.
-
-The later commit preserving this evidence changes documentation and records
-only. The proof sources, checker, status ledger, and correspondence records
-remain those of the checked proof commit linked above.
+The completed proof sources and local verification report are ready for the
+same verifier in GitHub Actions. Its exact checked commit and downloaded
+report will be recorded here after the new run succeeds. The successful
+runs below concern earlier completed checkpoints.
 
 ## Earlier checked checkpoints
+
+The quadratic-trace divisibility checkpoint passed at proof commit
+[ee274f6752d5a28e875919349821518b297e3115](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ee274f6752d5a28e875919349821518b297e3115),
+with [successful run 43550688913](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43550688913).
+Its [report](certification/ci/run_43550688913_attempt_1.json) and
+[original artifact](certification/ci/run_43550688913_attempt_1.zip) remain preserved.
 
 The complete ray identity was checked at proof commit
 [9c9840ed04c90a22af480eec1e1fe6eee168487b](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/9c9840ed04c90a22af480eec1e1fe6eee168487b),
@@ -96,14 +100,10 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-Proceed to the finite-field estimate branch. First record the precise
-univariate Weil input used in Lemma 2.5, then prove the manuscript's
-projective-line Corollary 2.6, including the affine-chart decomposition and
-the degree and simple-root conditions after dehomogenization. This provides
-a concrete next estimate toward the plane-section argument.
+The projective-line estimate is now available for the conic-parametrization
+and plane-section branch, Lemmas 4.2 and 4.3. Those deductions must use the
+actual forms and projective sets and verify the geometric hypotheses.
 
-The Katz interface and the geometric specialization in Lemma 2.7 are a
-separate branch. They are needed for the remaining size clause of Lemma 5.9
-and the global trace contribution to Lemma 4.4. Trusted published inputs may
-be assumed at their exact scope; the manuscript's hypotheses and deductions
-remain to be verified.
+The Katz interface and its geometric specialization in Lemma 2.7 remain a
+separate branch. They provide the global trace bound needed for the remaining
+clauses of Lemmas 4.4 and 5.9.

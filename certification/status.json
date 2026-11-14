@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Integrality and divisibility of the projective quadratic trace",
+  "checkpoint": "Univariate Weil input and the projective-line character-sum bound",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -39,12 +39,20 @@
       "checked_exports": []
     },
     "lem:weil": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.weil_bound"
+      ],
+      "correspondence_record": "certification/correspondence/weil_input.md",
+      "scope_note": "All clauses match the exact registered cited input EXT.WEIL. This is source-relative certification, not a reproof of the published Weil estimate."
     },
     "cor:weilline": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.projective_weil_bound"
+      ],
+      "correspondence_record": "certification/correspondence/projective_weil.md",
+      "scope_note": "Complete bound for the actual projective-line sum. The charts, dehomogenization, degree drop, distinct-root condition, and contribution at infinity are proved; only EXT.WEIL is an external premise."
     },
     "lem:katz": {
       "status": "Pending",
@@ -913,9 +921,416 @@
         "Classical.choice",
         "Quot.sound"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryVector_eq_vec",
+      "file": "QuaternaryQuadraticForms/ProjectiveLine.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Agreement of the literal binary-vector definition with two-coordinate vector notation.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveLinePoint_injective",
+      "file": "QuaternaryQuadraticForms/ProjectiveLine.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Distinct affine points and infinity give distinct actual projective-line points.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveLinePoint_surjective",
+      "file": "QuaternaryQuadraticForms/ProjectiveLine.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Every actual projective-line point has an affine representative (z,1) or the representative (1,0).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveLinePoint_weight",
+      "file": "QuaternaryQuadraticForms/ProjectiveLine.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "A scalar-invariant weight on projective representatives equals its value on the standard chart representatives.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_projectiveLine",
+      "file": "QuaternaryQuadraticForms/ProjectiveLine.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The actual projective-line sum is the affine-chart sum plus its value at infinity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveLinePoint_predicate",
+      "file": "QuaternaryQuadraticForms/ProjectiveLine.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "A scalar-stable zero condition is equivalent on chosen and standard chart representatives.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_eval",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Evaluation of the literal substitution g(X,1) agrees with evaluation of the binary form at (z,1).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_map",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Dehomogenization commutes with coefficient extension.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_homogenize",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Homogenizing the affine polynomial to the original homogeneous degree recovers the literal binary form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_ne_zero",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "A nonzero homogeneous binary form has a nonzero affine polynomial.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_natDegree_le",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The affine degree is at most the homogeneous degree.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.homogenize_eval_infinity",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Evaluation of a homogenization at (1,0) is the corresponding top coefficient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_coeff_top",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The degree-n affine coefficient is exactly the binary form value at infinity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_natDegree_eq_iff",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "For a nonzero homogeneous form, affine degree n is equivalent to nonvanishing at infinity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_natDegree_lt_of_infinity_zero",
+      "file": "QuaternaryQuadraticForms/BinaryForms.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Vanishing at infinity strictly lowers the affine degree of a nonzero homogeneous form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rootSet_card_le_natDegree",
+      "file": "QuaternaryQuadraticForms/GeometricRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:weil"
+      ],
+      "scope": "The actual distinct root count over any field extension is at most the polynomial degree.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.geometricRootCount_eq_natDegree_iff",
+      "file": "QuaternaryQuadraticForms/GeometricRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:weil"
+      ],
+      "scope": "For a nonzero polynomial, full distinct-root count over the algebraic closure is equivalent to separability.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.geometricRootCount_eq_natDegree",
+      "file": "QuaternaryQuadraticForms/GeometricRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:weil"
+      ],
+      "scope": "A separable polynomial has degree-many distinct geometric roots.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.homogeneous_binary_zero_units_smul",
+      "file": "QuaternaryQuadraticForms/BinaryFormRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The zero condition of a homogeneous binary form is independent of nonzero scalar representatives.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryProjectiveZeros_card",
+      "file": "QuaternaryQuadraticForms/BinaryFormRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The literal projective zero count is the affine distinct-root count plus the possible point at infinity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_degree_and_rootCount",
+      "file": "QuaternaryQuadraticForms/BinaryFormRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "For n distinct projective zeros, the affine degree is n or n-1 according to infinity, is positive, and equals its distinct-root count.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_geometric_data",
+      "file": "QuaternaryQuadraticForms/BinaryFormRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The manuscript geometric-root hypothesis implies every affine polynomial hypothesis of the univariate Weil input.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binaryDehom_geometric_separable",
+      "file": "QuaternaryQuadraticForms/BinaryFormRoots.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The affine polynomial is separable, derived from the literal projective geometric zeros.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weil_bound",
+      "file": "QuaternaryQuadraticForms/WeilBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:weil"
+      ],
+      "scope": "Lemma 2.5 with its explicit degree parameter and distinct geometric roots; exact specialization of the registered literature input.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weil_bound_of_separable",
+      "file": "QuaternaryQuadraticForms/WeilBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:weil"
+      ],
+      "scope": "The univariate character-sum bound after proving the geometric root-count condition from separability.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveLineCharacterSum_chart",
+      "file": "QuaternaryQuadraticForms/ProjectiveWeil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The literal projective character sum splits into the value at infinity and the sum of the literal affine polynomial character weight.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveLineCharacterSum_bound_of_affine_roots",
+      "file": "QuaternaryQuadraticForms/ProjectiveWeil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "The norm estimate after the affine root hypotheses have been checked, using the triangle inequality and the degree bound.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projective_weil_bound",
+      "file": "QuaternaryQuadraticForms/ProjectiveWeil.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "cor:weilline"
+      ],
+      "scope": "Complete Corollary 2.6 under the literal binary-form and distinct geometric projective-root hypotheses.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ]
     }
   ],
-  "accepted_lean_inputs": [],
+  "accepted_lean_inputs": [
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.weil_simple_roots",
+      "kind": "axiom",
+      "reference_id": "EXT.WEIL",
+      "file": "QuaternaryQuadraticForms/Trusted/Weil.lean",
+      "correspondence_record": "certification/correspondence/weil_input.md",
+      "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
+      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ),\n  ψ ≠ 1 →\n    ∀ (f : Polynomial (ZMod p)),\n      0 < f.natDegree →\n        Fintype.card ↑(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree →\n          ‖∑ z, ψ (Polynomial.eval z f)‖ ≤ (↑f.natDegree - 1) * √↑p",
+      "type_sha256": "b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85"
+    }
+  ],
   "whole_paper_certified": false,
   "completion_rule": "A numbered result is Certified only after successful kernel checking of every clause, explicit premise/dependency review and correspondence with the frozen statement; a supporting algebraic helper is not a completed numbered result."
 }

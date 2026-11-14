@@ -10,7 +10,7 @@
 <title>NumberedResults</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-1346.16 2201.66,-1346.16 2201.66,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="1090.75" y="-1303.6" font-family="DejaVu Serif" font-size="23.00">Dependency graph for the numbered results</text>
-<text text-anchor="middle" x="1090.75" y="-1278.6" font-family="DejaVu Serif" font-size="23.00">Frozen v35 | 2 partial; 40 pending</text>
+<text text-anchor="middle" x="1090.75" y="-1278.6" font-family="DejaVu Serif" font-size="23.00">Frozen v35 | 2 certified; 2 partial; 38 pending</text>
 <text text-anchor="middle" x="1090.75" y="-1253.6" font-family="DejaVu Serif" font-size="23.00">Literature inputs trusted; Lean interfaces pending registration</text>
 <g id="clust1" class="cluster">
 <title>cluster_sources</title>
@@ -625,10 +625,10 @@
 <g id="node15" class="node">
 <title>lem:weil</title>
 <g id="a_node15"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L908-L915" xlink:title="Weil bound (m&#45;1) sqrt(p) for a nonprincipal character and a degree&#45;m polynomial with simple geometric roots" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M1519.5,-1118C1519.5,-1118 1366.5,-1118 1366.5,-1118 1360.5,-1118 1354.5,-1112 1354.5,-1106 1354.5,-1106 1354.5,-1084 1354.5,-1084 1354.5,-1078 1360.5,-1072 1366.5,-1072 1366.5,-1072 1519.5,-1072 1519.5,-1072 1525.5,-1072 1531.5,-1078 1531.5,-1084 1531.5,-1084 1531.5,-1106 1531.5,-1106 1531.5,-1112 1525.5,-1118 1519.5,-1118"/>
+<path fill="#e1f5df" stroke="#408342" stroke-width="1.15" d="M1519.5,-1118C1519.5,-1118 1366.5,-1118 1366.5,-1118 1360.5,-1118 1354.5,-1112 1354.5,-1106 1354.5,-1106 1354.5,-1084 1354.5,-1084 1354.5,-1078 1360.5,-1072 1366.5,-1072 1366.5,-1072 1519.5,-1072 1519.5,-1072 1525.5,-1072 1531.5,-1078 1531.5,-1084 1531.5,-1084 1531.5,-1106 1531.5,-1106 1531.5,-1112 1525.5,-1118 1519.5,-1118"/>
 <text text-anchor="start" x="1405.5" y="-1103.4" font-family="DejaVu Serif" font-weight="bold" font-size="12.00">Lemma 2.5</text>
 <text text-anchor="start" x="1363.5" y="-1091.4" font-family="DejaVu Serif" font-size="12.00">Weil character&#45;sum bound</text>
-<text text-anchor="start" x="1418" y="-1081" font-family="DejaVu Serif" font-size="10.00" fill="#b88023">[Pending]</text>
+<text text-anchor="start" x="1417" y="-1081" font-family="DejaVu Serif" font-size="10.00" fill="#408342">[Certified]</text>
 </a>
 </g>
 </g>
@@ -636,10 +636,10 @@
 <g id="node16" class="node">
 <title>cor:weilline</title>
 <g id="a_node16"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L926-L933" xlink:title="Projective&#45;line character&#45;sum bound (n&#45;1) sqrt(p)+1" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M1494,-1018C1494,-1018 1372,-1018 1372,-1018 1366,-1018 1360,-1012 1360,-1006 1360,-1006 1360,-984 1360,-984 1360,-978 1366,-972 1372,-972 1372,-972 1494,-972 1494,-972 1500,-972 1506,-978 1506,-984 1506,-984 1506,-1006 1506,-1006 1506,-1012 1500,-1018 1494,-1018"/>
+<path fill="#e1f5df" stroke="#408342" stroke-width="1.15" d="M1494,-1018C1494,-1018 1372,-1018 1372,-1018 1366,-1018 1360,-1012 1360,-1006 1360,-1006 1360,-984 1360,-984 1360,-978 1366,-972 1372,-972 1372,-972 1494,-972 1494,-972 1500,-972 1506,-978 1506,-984 1506,-984 1506,-1006 1506,-1006 1506,-1012 1500,-1018 1494,-1018"/>
 <text text-anchor="start" x="1389" y="-1003.4" font-family="DejaVu Serif" font-weight="bold" font-size="12.00">Corollary 2.6</text>
 <text text-anchor="start" x="1369" y="-991.4" font-family="DejaVu Serif" font-size="12.00">Projective&#45;line bound</text>
-<text text-anchor="start" x="1408" y="-981" font-family="DejaVu Serif" font-size="10.00" fill="#b88023">[Pending]</text>
+<text text-anchor="start" x="1407" y="-981" font-family="DejaVu Serif" font-size="10.00" fill="#408342">[Certified]</text>
 </a>
 </g>
 </g>
@@ -1000,7 +1000,7 @@
 <title>legend</title>
 <text text-anchor="middle" x="1653" y="-39.2" font-family="DejaVu Serif" font-size="11.00">Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.</text>
 <text text-anchor="middle" x="1653" y="-27.2" font-family="DejaVu Serif" font-size="11.00">Purple dashed: trusted source. Transitive numbered edges are omitted.</text>
-<text text-anchor="middle" x="1653" y="-15.2" font-family="DejaVu Serif" font-size="11.00">2 partial; 40 pending. Partial means identified clauses checked; the full result is unfinished.</text>
+<text text-anchor="middle" x="1653" y="-15.2" font-family="DejaVu Serif" font-size="11.00">2 certified; 2 partial; 38 pending. Partial means identified clauses checked; the full result is unfinished.</text>
 <text text-anchor="middle" x="1653" y="-3.2" font-family="DejaVu Serif" font-size="11.00">Click a result for its manuscript statement. Full details are in the dependency inventory.</text>
 </g>
 </g>
