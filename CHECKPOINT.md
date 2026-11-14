@@ -514,15 +514,44 @@ scopes. The four registered premise records and all dependency revisions
 exactly match the preceding local report. The frozen manuscript and PDF
 remain unchanged.
 
-The local report has SHA-256
+The [local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6/certification/verification_report.json)
+has SHA-256
 `50606c6ea147df96a5905de201f9263396e037299d8ef3a1743c6d325d81a0b8`
 and contains 525,699 bytes. It records 9 Certified and 33 Pending numbered
 results, with zero Partial or Active results. All 33 auxiliary/supplementary
 groups remain Pending, and whole-paper certification remains false.
 
-The new GitHub Actions run is pending. Its exact proof commit, successful
-run, original artifact, and complete comparison with this local report
-will be recorded after independent execution.
+### Diagonal GitHub execution
+
+The published proof commit is
+[`09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6),
+whose tree is `1930ec532bb7f03a949da69bc49cafb78634c380`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43614640507, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43614640507).
+- Verification job: `132506910704`; every step succeeded.
+- Verification completed `2026-11-14T16:24:34Z`; the job completed `2026-11-14T16:24:36Z`.
+- Artifact: `14121901170`, 62,602 bytes, created `2026-11-14T16:24:34Z`.
+- [Preserved CI report](certification/ci/run_43614640507_attempt_1.json), 530,824 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43614640507_attempt_1.zip).
+- ZIP SHA-256: `a6ee78b674f2eb0d813e442e67b5d4d0ebac91ae98e26f2d9453db7c1b54dcc9`.
+- CI report SHA-256: `a9ca9c083e737b48257fbc01c3225782b61608e4a0ccc932de1d47e6d122cacd`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, and both archived files
+are byte-identical to the download and extracted member. The CI and
+local reports agree exactly on all 18 verification-content fields:
+all 349 full theorem records and their actual types and axiom dependencies,
+all four registered-premise records, all 93 input hashes, all nine pinned
+dependency revisions, the complete Lean export-inspection output, the
+Lean version, and all verification flags and scope counts. The only
+differing fields are `generated_at_utc` and `lake_build_output`.
+
+Every recorded input hash also matches the files at the proof commit and
+the current checked source. All 24 new export records have only
+`Classical.choice`, `Quot.sound`, and `propext` in their axiom lists.
+This evidence covers the complete 349-export diagonal milestone; the
+preceding runs below retain their original scopes.
 
 ## Earlier checked checkpoints
 
@@ -903,6 +932,17 @@ all four singular pencil members. Deduce the projective trace formula
 from zero frequency. Prove the generic `2p^(3/2)+4p` bound using the
 checked Weil estimate for separable cubics and an internal treatment of
 repeated-root cubics. Derive `p ≥ 5` from the four distinct `t_i`.
+
+The preparatory source audit found no sign or normalization discrepancy.
+Remove the zero Gauss parameter before the substitution `v = s t` and
+inversion of `s`. For a singular member, set
+`Δ_i = ∏ j ≠ i, (b_j + t_i a_j)` and prove the literal identities
+`-Δ_i = κ_i / a_i^4` and `w_i = ν_i / (a_i^2 Δ_i)` in the prime field.
+The second multiplier is a unit, so the Ramanujan value is unchanged and
+acquires no character factor. Retain `ν_i = 0`, whose contribution can
+have size `p(p−1)`. The cubic estimate needs the affine Weil theorem,
+followed by the explicit repeated-root cases. These are implementation
+targets; no clause of Lemma 4.6 is yet recorded as kernel checked.
 
 The full prime-power Gauss lemma, Lemma 3.2, remains Pending; this branch
 needs only its shared one-dimensional prime-field helper. The analytic

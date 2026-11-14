@@ -69,15 +69,23 @@ unchanged separately registered external Lean premises, and 20 mapped source gro
 All 33 auxiliary/supplementary groups remain Pending. This repository does
 not yet provide a certificate for the whole paper.
 
-**The full aggregate local verifier passed for the diagonal milestone.**
+**The full local and GitHub verifiers passed for the diagonal milestone.**
 All 71 modules and 349 theorem exports were checked under the pinned strict
 settings. All 93 input hashes matched the files checked. The 325 previously
 checked theorem records, including their actual types, axiom dependencies,
 source hashes and scopes, are unchanged, as are the four registered
 literature-input records and all nine pinned dependency revisions.
 All 24 new exports use only `Classical.choice`, `Quot.sound`, and `propext`.
-The new GitHub Actions run is pending; its artifact will be recorded after
-successful independent execution and comparison with the local report.
+[GitHub Actions run 43614640507, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43614640507)
+succeeded at [proof commit 09d7ea0](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6).
+Its [downloaded report](certification/ci/run_43614640507_attempt_1.json)
+and [original artifact ZIP](certification/ci/run_43614640507_attempt_1.zip)
+are preserved. The artifact digest matches GitHub's advertised digest.
+All 18 verification-content fields exactly match the local report,
+including all 349 theorem records, four premise records, 93 input hashes,
+nine dependency revisions, and the complete Lean inspection output.
+Only the run time and build log differ. The [execution checkpoint](CHECKPOINT.md)
+records the exact commit, run, artifact identifiers, digests, and scope.
 
 **The full local and GitHub verifiers passed for the preceding polynomial Fourier checkpoint at
 [proof commit 25dea29](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/25dea299d18e2a423404488ac1a923fded0cde7b):** all 66 modules and 325 theorem
