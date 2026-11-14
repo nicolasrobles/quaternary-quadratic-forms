@@ -38,4 +38,4 @@ The paper gives counterexamples to the following claims. They are comparison tar
 
 Other citations used only for attribution, background, or a description of related work are not automatically Lean assumptions. In particular, the square/power-sieve references motivate the method; the manuscript's actual sieve inequality is a deduction to be proved.
 
-The initial Lean helper has no literature-premise parameter. Future inputs must be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.
+The current Lean exports use no external literature premises. Future inputs must be listed separately from proved exports and appear explicitly in the inspected axiom dependencies.

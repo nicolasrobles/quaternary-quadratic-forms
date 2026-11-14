@@ -1,2 +1,5 @@
 import QuaternaryQuadraticForms.RayAlgebra
-
+import QuaternaryQuadraticForms.FiniteCharacters
+import QuaternaryQuadraticForms.PolynomialWeights
+import QuaternaryQuadraticForms.ProjectiveRays
+import QuaternaryQuadraticForms.FourierRays

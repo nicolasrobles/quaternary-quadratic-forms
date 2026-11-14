@@ -148,6 +148,7 @@ def verify(metadata_only: bool) -> dict:
     export_names = {entry["declaration"] for entry in exports}
     require(len(export_names) == len(exports), "Duplicate export")
     counts = Counter()
+    correspondence_records = set()
     claim_entries = list(status["numbered_results"].items()) + list(
         status["supplementary_groups"].items())
     for label, entry in claim_entries:
@@ -162,6 +163,10 @@ def verify(metadata_only: bool) -> dict:
             record = entry.get("correspondence_record")
             require(record and (ROOT / record).is_file(),
                     "Missing correspondence review: " + label)
+            correspondence_records.add(ROOT / record)
+        if entry["status"] == "Partial":
+            require(entry.get("completed_clauses") and entry.get("remaining_clauses"),
+                    "Partial claim needs completed and remaining clauses: " + label)
 
     # Initial checkpoint: no literature premise has been introduced into Lean.
     # Register and inspect its exact type before extending this gate.
@@ -197,7 +202,7 @@ def verify(metadata_only: bool) -> dict:
         "lean_executed": False,
         "input_sha256": {
             str(path.relative_to(ROOT)): digest(path)
-            for path in local_files + [
+            for path in local_files + sorted(correspondence_records) + [
                 ROOT / "lean-toolchain", ROOT / "lakefile.lean",
                 ROOT / "lake-manifest.json", ROOT / "certification/source.json",
                 ROOT / "certification/dependency_inventory.json",
@@ -224,8 +229,10 @@ def verify(metadata_only: bool) -> dict:
     report["dependency_revisions"] = package_revisions
     report["lake_build_output"] = command(["lake", "build"])
     for path in proof_files:
-        command(["lake", "env", "lean", "-DwarningAsError=true", str(path.relative_to(ROOT))])
-    output = command(["lake", "env", "lean", "-DwarningAsError=true", "Checks/Exports.lean"])
+        command(["lake", "env", "lean", "-DwarningAsError=true", "-DautoImplicit=false",
+                 str(path.relative_to(ROOT))])
+    output = command(["lake", "env", "lean", "-DwarningAsError=true", "-DautoImplicit=false",
+                      "Checks/Exports.lean"])
     found = re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", output)
     found_map = {name: sorted(a.strip() for a in axioms.split(",") if a.strip())
                  for name, axioms in found}
@@ -236,7 +243,7 @@ def verify(metadata_only: bool) -> dict:
         require(set(found_map[name]) <= FOUNDATIONS, "Unexpected axiom dependency: " + name)
         require(set(found_map[name]) <= set(entry["allowed_axioms"]),
                 "Export exceeds its recorded axiom allowance: " + name)
-        match = re.search(r"@" + re.escape(name) + r"\s*:\s*(.*?)\n'", output, re.S)
+        match = re.search(r"^@?" + re.escape(name) + r"\s*:\s*(.*?)\n'", output, re.S | re.M)
         require(match is not None, "Actual theorem type not printed: " + name)
         report["checked_exports"].append({
             "declaration": name, "kind": "theorem", "actual_type": match[1].strip(),

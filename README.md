@@ -12,19 +12,28 @@ included. The source SHA-256 is
 
 ## Current status
 
-**0 of 42 numbered results are certified; all 42 are Pending.**
-The initial dependency review also records 33 auxiliary/supplementary assertion
-groups. One supporting finite-sum identity has been checked in Lean; its scope
-is stated below. This repository does not yet provide a certificate for the paper.
+**Complete: 0 · Partial: 1 · Active: 0 · Pending: 41** — 42 numbered results.
+
+Lemma 4.4 is **Partial**. Its three weight properties, exact zero-frequency
+formula, and intermediate ray identity (4.5) are now checked locally for the
+actual finite-field and projective sums. Its pointwise Fourier bound remains
+pending. The ledger registers 19 checked supporting exports; all 33 separate
+auxiliary/supplementary groups remain Pending. This repository does not yet
+provide a certificate for the whole paper.
 
 - [Certification inventory, with links to checked exports](INVENTORY.md)
 - [Dependency graphs and the proof structure](DEPENDENCIES.md)
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
+- [Correspondence review for the Fourier ray identity](certification/correspondence/fourier_rays.md)
 - [Latest execution checkpoint](CHECKPOINT.md)
 
-![Principal proof dependencies](docs/dependency_overview.svg)
+![Principal proof dependencies](docs/dependency_overview.png)
+
+[Full dependency graph (PNG)](docs/dependency_graph.png) ·
+[Overview (PNG)](docs/dependency_overview.png) ·
+[Full graph as a zoomable PDF](docs/dependency_graph.pdf)
 
 ## Certification scope
 
@@ -39,10 +48,40 @@ frozen source. Counts refer to numbered results, not supporting declarations.
 Supplementary mathematical claims and a final whole-paper correspondence review
 are tracked separately.
 
-The first checked helper,
-[QuaternaryQuadraticForms.weighted_ray_sum](QuaternaryQuadraticForms/RayAlgebra.lean),
-proves the finite algebra behind the last step of (4.5). It does not yet identify
-the finite-field Fourier sum with that expression or certify Lemma 4.4.
+No external literature premise has been introduced into Lean at this checkpoint.
+
+## Checked finite-field branch
+
+The formalization uses four-coordinate vectors over `ZMod p`, the quadratic
+form `xᵀ A x`, actual homogeneous multivariate polynomials, multiplicative
+characters extended by zero, and the standard complex additive character.
+Projective points are mathlib's quotient by nonzero scalar multiplication.
+The quadric, hyperplane condition, and weight are proved independent of the
+chosen representative.
+
+| Module | Checked contribution |
+|---|---|
+| [PolynomialWeights](QuaternaryQuadraticForms/PolynomialWeights.lean) | Polynomial scaling, reduction of integral coefficients, and all three weight properties in (3.1) |
+| [FiniteCharacters](QuaternaryQuadraticForms/FiniteCharacters.lean) | The additive-character sum over nonzero scalars: `p − 1` at zero and `−1` otherwise |
+| [ProjectiveRays](QuaternaryQuadraticForms/ProjectiveRays.lean) | A proved parametrization of nonzero vectors by projective points and field units, and the resulting sum decomposition |
+| [RayAlgebra](QuaternaryQuadraticForms/RayAlgebra.lean) | Finite algebra combining the ray contributions |
+| [FourierRays](QuaternaryQuadraticForms/FourierRays.lean) | The literal identity (4.5), its zero-frequency case, and specialization to integral input data |
+
+Writing `a` for the projective trace and `a_u` for the hyperplane-section trace,
+the checked identity is
+
+$$C_p(u)=p a_u-a,$$
+
+including `a_0 = a`, hence $C_p(0)=(p-1)a$. Reduction of an integral frequency
+is proved to be zero exactly when `p` divides each coordinate.
+
+These identities require only positive degree and `ψ ^ n = 1`; nonsingularity,
+smoothness, and nonprincipality are unnecessary for this part of the proof.
+The manuscript's hypotheses therefore specialize the checked results. The
+remaining clause of Lemma 4.4 is the bound involving the exceptional polynomial
+`D_p`, including its generic and exceptional frequency cases. The
+[correspondence record](certification/correspondence/fourier_rays.md) separates
+the completed clauses from those obligations.
 
 ## Reproduce the checks
 
@@ -52,7 +91,16 @@ The complete transitive dependency lock is committed.
 
 With the official Lean toolchain manager and Python 3 available:
 
-    lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+    lake exe cache get \
+      Mathlib.Algebra.BigOperators.Ring.Finset \
+      Mathlib.Tactic.Ring \
+      Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
+      Mathlib.Data.Fintype.BigOperators \
+      Mathlib.LinearAlgebra.Projectivization.Cardinality \
+      Mathlib.Analysis.Complex.Basic \
+      Mathlib.NumberTheory.DirichletCharacter.Bounds \
+      Mathlib.RingTheory.MvPolynomial.Homogeneous \
+      Mathlib.Data.Matrix.Mul
     python3 scripts/verify_certificate.py
 
 The verifier checks the frozen source, every inventory entry, the dependency
@@ -67,9 +115,9 @@ To regenerate the readable inventory and graphs:
 
 Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
-## First substantive branch
+## Next proof branch
 
-The next work is to define the actual finite-field character sums, prove
-projective scaling invariance, and complete the ray identity (4.5).
-The polynomial power-sum argument in Lemma 5.9 is a natural subsequent target.
-The full dependency inventory determines the other proof branches.
+The next target is the polynomial power-sum argument proving the divisibility
+assertion in Lemma 5.9. Its separate size bound and the remaining geometric
+clauses of Lemma 4.4 remain tracked obligations. The full dependency inventory
+determines the other proof branches.

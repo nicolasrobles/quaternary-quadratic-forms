@@ -17,7 +17,26 @@ import textwrap
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / 'docs'
 SOURCE = ROOT / 'certification/dependency_inventory.json'
+STATUS = ROOT / 'certification/status.json'
 URL = 'https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/'
+
+STATUS_COLORS = {
+    'Pending': ('#fff4dc', '#b88023'),
+    'Active': ('#fff6b0', '#8b7516'),
+    'Partial': ('#e4f1ff', '#3676aa'),
+    'Certified': ('#e1f5df', '#408342'),
+}
+
+
+def status_summary(rows):
+    counts = collections.Counter(r.get('status', 'Pending') for r in rows)
+    return '; '.join(f'{counts[s]} {s.lower()}' for s in
+                     ['Certified', 'Partial', 'Active', 'Pending'] if counts[s])
+
+
+def status_attributes(status):
+    fill, border = STATUS_COLORS[status]
+    return ', fillcolor='+q(fill)+', color='+q(border)
 
 SHORT = {
  'lem:delta':'Delta identity and support',
@@ -206,7 +225,7 @@ def html_label(title, body, status=None, width=27):
     lines=textwrap.wrap(body,width=width,break_long_words=False,break_on_hyphens=False)
     text='<B>'+html.escape(title)+'</B>'
     if lines:text+='<BR/>'+ '<BR/>'.join(html.escape(x) for x in lines)
-    if status:text+='<BR/><FONT POINT-SIZE="10" COLOR="#78511a">['+html.escape(status)+']</FONT>'
+    if status:text+='<BR/><FONT POINT-SIZE="10" COLOR="'+STATUS_COLORS[status][1]+'">['+html.escape(status)+']</FONT>'
     return '<'+text+'>'
 
 
@@ -227,8 +246,7 @@ def header(name,title,subtitle,overview=False):
 def write_numbered(data, edges, sources, via_aux):
     rows=data['results']; rowmap={r['label']:r for r in rows}
     reduced=transitive_reduction(rowmap,edges)
-    counts=collections.Counter(r.get('status','Pending') for r in rows)
-    status='; '.join(f'{v} {k.lower()}' for k,v in sorted(counts.items()))
+    status=status_summary(rows)
     dot=header('NumberedResults','Dependency graph for the numbered results',
         'Frozen v35 | '+status+'\nLiterature inputs trusted; Lean interfaces pending registration')
     source_groups=sorted({group_of_external(k) for k,_ in sources})
@@ -239,7 +257,8 @@ def write_numbered(data, edges, sources, via_aux):
     dot.append('}')
     for r in rows:
         name=r['kind'].capitalize()+' '+r['number']; lab=r['label']
-        dot.append(q(lab)+' [label='+html_label(name,SHORT[lab],r.get('status','Pending'))+', URL='+q(source_link(r))+', target="_blank", tooltip='+q(r['content'])+'];')
+        current=r.get('status','Pending')
+        dot.append(q(lab)+' [label='+html_label(name,SHORT[lab],current)+status_attributes(current)+', URL='+q(source_link(r))+', target="_blank", tooltip='+q(r['content'])+'];')
     # These equal-rank layout constraints are not additional dependency edges.
     # Every displayed arrow below comes from the reviewed ledger.
     ranks=[
@@ -263,7 +282,7 @@ def write_numbered(data, edges, sources, via_aux):
     # Avoid repeated references within a source family at each target.
     for a,b in sorted({('source:'+group_of_external(k),target) for k,target in sources}):
         dot.append(q(a)+' -> '+q(b)+' [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];')
-    dot.append('legend [shape=plain, style="", label='+q('Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.\nPurple dashed: trusted source. Transitive numbered edges are omitted.\n'+status+'. Supporting algebra checks are recorded separately.\nClick a result for its manuscript statement. Full details are in the dependency inventory.')+', fontsize=11];')
+    dot.append('legend [shape=plain, style="", label='+q('Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.\nPurple dashed: trusted source. Transitive numbered edges are omitted.\n'+status+'. Partial means identified clauses checked; the full result is unfinished.\nClick a result for its manuscript statement. Full details are in the dependency inventory.')+', fontsize=11];')
     dot.append('{rank=sink; legend;}')
     for node in sorted(set(rowmap)-{a for a,b in reduced}):
         dot.append(q(node)+' -> legend [style=invis];')
@@ -280,13 +299,14 @@ def write_overview(data, edges, sources):
     gedges={(membership[a],membership[b]) for a,b in edges if membership[a]!=membership[b]}
     reduced=transitive_reduction(groupnodes,gedges)
     dot=header('Overview','Proof structure of the quadratic-forms paper',
-               'Frozen v35 | 42 numbered results pending | Source-relative Lean certification',True)
+               'Frozen v35 | '+status_summary(data['results'])+' | Source-relative Lean certification',True)
     dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil and Katz; Montgomery-Vaughan;\nLang; Hartshorne; Salberger')+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
     for group,title,subtitle,members in OVERVIEW_GROUPS:
-        pending=sum(rowmap[x].get('status','Pending')=='Pending' for x in members)
-        body=subtitle+'\n'+str(len(members))+' numbered '+('result' if len(members)==1 else 'results')
-        lab='<B>'+html.escape(title)+'</B><BR/>'+html.escape(subtitle)+'<BR/><FONT POINT-SIZE="12" COLOR="#78511a">'+str(pending)+' of '+str(len(members))+' pending</FONT>'
-        dot.append(q(group)+' [label=<'+lab+'>, URL='+q(URL+'INVENTORY.md')+', target="_blank"];')
+        member_rows=[rowmap[x] for x in members]
+        states={r.get('status','Pending') for r in member_rows}
+        current=next((s for s in ['Partial','Active','Pending','Certified'] if s in states))
+        lab='<B>'+html.escape(title)+'</B><BR/>'+html.escape(subtitle)+'<BR/><FONT POINT-SIZE="12" COLOR="'+STATUS_COLORS[current][1]+'">'+html.escape(status_summary(member_rows))+'</FONT>'
+        dot.append(q(group)+' [label=<'+lab+'>'+status_attributes(current)+', URL='+q(URL+'INVENTORY.md')+', target="_blank"];')
     for a,b in sorted(reduced):dot.append(q(a)+' -> '+q(b)+' [penwidth=1.4];')
     for group in sorted({membership[b] for _,b in sources}):
         dot.append('sources -> '+q(group)+' [style=dashed, color="#8d79bc", penwidth=1.0];')
@@ -305,7 +325,7 @@ def write_complete(data):
     for r in rows+aux:
         rid=row_id(r);nodes.add(rid)
         title=(r['kind'].capitalize()+' '+r['number']) if 'label' in r else rid
-        attr=', fillcolor="#edf3fb", color="#6c8eaf"' if 'id' in r else ''
+        attr=status_attributes(r.get('status','Pending'))
         dot.append(q(rid)+' [label='+html_label(title,SHORT.get(rid,r['content']),r.get('status','Pending'),width=34)+attr+', URL='+q(source_link(r))+'];')
         for dep in all_dependencies(r):edges.add((dep,rid))
     for key,item in external.items():
@@ -329,6 +349,11 @@ def render(path):
 def main():
     DOCS.mkdir(exist_ok=True)
     data=json.loads(SOURCE.read_text())
+    live=json.loads(STATUS.read_text())
+    for row in data['results']:
+        row['status']=live['numbered_results'][row['label']]['status']
+    for row in data['auxiliary_obligations']:
+        row['status']=live['supplementary_groups'][row['id']]['status']
     rows=data['results']
     if len(rows)!=42:raise ValueError('Expected the frozen v35 register of exactly 42 numbered results.')
     edges,sources,via_aux=project_numbered(rows,data['auxiliary_obligations'],data['external_input_catalog'])

@@ -2,9 +2,9 @@
 
 Frozen manuscript: v35, renamed without content changes for this repository.
 
-**0 of 42 numbered results are certified.** 0 are partial, 0 are active numbered targets, and 42 are pending.
+**0 of 42 numbered results are certified.** 1 are partial, 0 are active numbered targets, and 41 are pending.
 
-The initial checkpoint fixes the source, records the dependencies, and checks one supporting finite-sum identity. It does not certify a numbered theorem, lemma, proposition, or corollary. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
+The current checkpoint proves the literal finite-field ray identity (4.5), the three weight properties (3.1), and the exact zero-frequency clause of Lemma 4.4. Its pointwise estimate remains pending, so the lemma is Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
 
 [Manuscript source](manuscript/quadratic_character_sums_github.tex) · [PDF](manuscript/quadratic_character_sums_github.pdf) · [Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · [Live proof ledger](certification/status.json)
 
@@ -62,7 +62,7 @@ A successful build does not change these statuses. Imported literature theorems 
 | [Lemma 4.1](manuscript/quadratic_character_sums_github.tex#L1615-L1632) | Polynomial bound for bad-prime product and uniformly bounded-degree exceptional plane locus | Pending | Pending |
 | [Lemma 4.2](manuscript/quadratic_character_sums_github.tex#L1712-L1724) | Uniform conic parametrization by binary quadratics over every extension field, with independent derivative vectors | Pending | Pending |
 | [Lemma 4.3](manuscript/quadratic_character_sums_github.tex#L1756-L1765) | Transverse plane-section character-sum bound (2n-1) sqrt(p)+1 | Pending | Pending |
-| [Lemma 4.4](manuscript/quadratic_character_sums_github.tex#L1796-L1808) | Coefficient-uniform Fourier bounds with exceptional-locus term and exact zero-frequency projective identity | Pending | Pending |
+| [Lemma 4.4](manuscript/quadratic_character_sums_github.tex#L1796-L1808) | Coefficient-uniform Fourier bounds with exceptional-locus term and exact zero-frequency projective identity | Partial | [`QuaternaryQuadraticForms.polynomialCharacterWeight_properties`](QuaternaryQuadraticForms/PolynomialWeights.lean); [`QuaternaryQuadraticForms.fourierSum_zero`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.fourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.integralFourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean); [`QuaternaryQuadraticForms.integralFourierSum_of_dvd`](QuaternaryQuadraticForms/FourierRays.lean) |
 | [Lemma 4.5](manuscript/quadratic_character_sums_github.tex#L1862-L1866) | Exact bad-prime criterion for diagonal quadratic G and N_G=rad(2 alpha M) | Pending | Pending |
 | [Lemma 4.6](manuscript/quadratic_character_sums_github.tex#L1897-L1908) | Exact diagonal Fourier pencil formula, projective trace formula and generic 2p^(3/2)+4p bound | Pending | Pending |
 
@@ -89,13 +89,49 @@ A successful build does not change these statuses. Imported literature theorems 
 |---|---|---|---|
 | [Proposition 6.1](manuscript/quadratic_character_sums_github.tex#L2798-L2806) | Determinant-method bound for degree-r power values with explicit coefficient height | Pending | Pending |
 
-## Checked supporting exports
+## Scope of partially checked numbered results
+
+### Lemma 4.4
+
+[Statement correspondence review](certification/correspondence/fourier_rays.md)
+
+Checked clauses:
+
+- All three weight conditions in (3.1), with literal polynomial evaluation and multiplicative characters.
+- The exact zero-frequency identity in (4.4).
+- The complete intermediate ray identity (4.5), including integral coefficient and frequency reduction.
+
+Remaining clauses:
+
+- The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases.
+
+The geometric bounds from Lemmas 2.7, 4.1 and 4.3, and the plane-section counting step, have not been imported as assumptions or certified by this checkpoint.
+
+## Checked exports and supporting declarations
 
 | Export | Precise scope | Status |
 |---|---|---|
-| [`QuaternaryQuadraticForms.weighted_ray_sum`](QuaternaryQuadraticForms/RayAlgebra.lean) | Only the finite weighted-sum algebra after evaluating each nonzero ray. Does not formalize the finite-field/projective sum or certify Lemma 4.4. | Checked locally |
+| [`QuaternaryQuadraticForms.weighted_ray_sum`](QuaternaryQuadraticForms/RayAlgebra.lean) | Final finite-ring algebra combining evaluated ray contributions. | Checked locally |
+| [`QuaternaryQuadraticForms.primitiveAddChar_units_sum`](QuaternaryQuadraticForms/FiniteCharacters.lean) | Primitive additive-character sum over the actual nonzero scalars of a finite field. | Checked locally |
+| [`QuaternaryQuadraticForms.stdAddChar_units_sum`](QuaternaryQuadraticForms/FiniteCharacters.lean) | Standard complex additive character over F_p: the unit sum is p-1 at zero and -1 otherwise. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveRayVector_injective`](QuaternaryQuadraticForms/ProjectiveRays.lean) | The map (P,t) to t times the representative is injective for actual projective points and field units. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveRayVector_surjective`](QuaternaryQuadraticForms/ProjectiveRays.lean) | Every nonzero vector is a nonzero scalar multiple of a representative of its projective class. | Checked locally |
+| [`QuaternaryQuadraticForms.invariant_rep_mk`](QuaternaryQuadraticForms/ProjectiveRays.lean) | A scalar-invariant function takes the same value on a vector and the chosen representative of its projective class. | Checked locally |
+| [`QuaternaryQuadraticForms.cone_rep_mk`](QuaternaryQuadraticForms/ProjectiveRays.lean) | Membership of a scalar-stable cone is independent of projective representative. | Checked locally |
+| [`QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective`](QuaternaryQuadraticForms/ProjectiveRays.lean) | Actual affine-cone sum decomposed into projective points and nonzero scalars; partition proved from the quotient. | Checked locally |
+| [`QuaternaryQuadraticForms.homogeneous_eval_smul`](QuaternaryQuadraticForms/PolynomialWeights.lean) | Polynomial evaluation obeys G(tx)=t^n G(x), proved from homogeneity and monomial expansion. | Checked locally |
+| [`QuaternaryQuadraticForms.homogeneous_reduce_mod`](QuaternaryQuadraticForms/PolynomialWeights.lean) | Coefficient reduction of an integral homogeneous polynomial preserves its degree of homogeneity. | Checked locally |
+| [`QuaternaryQuadraticForms.polynomialCharacterWeight_properties`](QuaternaryQuadraticForms/PolynomialWeights.lean) | All three clauses of (3.1) for the literal weight psi(G(x)), including zero, norm and scalar invariance. | Checked locally |
+| [`QuaternaryQuadraticForms.mem_projectiveQuadric_mk`](QuaternaryQuadraticForms/FourierRays.lean) | Projective-quadric membership is equivalent to the actual equation x^T A x=0 on any nonzero representative. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveWeight_rep_mk`](QuaternaryQuadraticForms/FourierRays.lean) | The polynomial character weight is well-defined on actual projective points. | Checked locally |
+| [`QuaternaryQuadraticForms.hyperplane_rep_mk`](QuaternaryQuadraticForms/FourierRays.lean) | The condition u dot x=0 defining the projective section is independent of representative. | Checked locally |
+| [`QuaternaryQuadraticForms.fourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean) | The literal finite-field Fourier sum equals p*a_u-a for every reduced frequency, with a_0=a. | Checked locally |
+| [`QuaternaryQuadraticForms.fourierSum_zero`](QuaternaryQuadraticForms/FourierRays.lean) | Exact zero-frequency clause C_p(0)=(p-1)*a of Lemma 4.4; no Fourier estimate claimed. | Checked locally |
+| [`QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff`](QuaternaryQuadraticForms/FourierRays.lean) | An integral frequency reduces to zero exactly when p divides each of its four coordinates. | Checked locally |
+| [`QuaternaryQuadraticForms.integralFourierSum_ray_identity`](QuaternaryQuadraticForms/FourierRays.lean) | Equation (4.5) for integral matrix and polynomial coefficients and integral frequencies, after proved homogeneous reduction. | Checked locally |
+| [`QuaternaryQuadraticForms.integralFourierSum_of_dvd`](QuaternaryQuadraticForms/FourierRays.lean) | The p-divides-u clause of (4.5), with explicit coordinatewise integer divisibility. | Checked locally |
 
-The current helper uses only the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Its actual Lean type and axiom dependencies are in the [verification report](certification/verification_report.json). There are no registered external Lean premises at this checkpoint.
+These declarations use only the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). There are no registered external Lean premises at this checkpoint.
 
 ## Auxiliary and supplementary obligations
 
@@ -146,7 +182,7 @@ d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.
 
 ```sh
-lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
 python3 scripts/verify_certificate.py
 ```
 
@@ -154,4 +190,4 @@ The verifier checks source identities, all 42 statement locations, the dependenc
 
 ## Next proof target
 
-Define the literal finite-field character sums and projective scaling invariance, then complete the ray identity (4.5). The checked weighted-sum identity supplies only its final algebraic step. The polynomial power-sum argument for Lemma 5.9 is the next natural local branch; the source-relative interfaces for Lemmas 2.1 and 2.5 can be introduced without reproving their literature sources.
+The polynomial power-sum argument for the divisibility clause of Lemma 5.9 is the next local branch. Its size bound remains a separate clause. To finish Lemma 4.4, formalize the geometric and character-sum estimates on which its pointwise bound depends. Trusted literature interfaces must retain their exact hypotheses, and manuscript-specific deductions remain to be proved.

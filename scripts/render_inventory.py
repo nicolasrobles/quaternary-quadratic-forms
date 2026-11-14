@@ -34,10 +34,11 @@ lines = [
     f'**{counts["Certified"]} of 42 numbered results are certified.** '
     f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The initial checkpoint fixes the source, records the dependencies, and checks one "
-    "supporting finite-sum identity. It does not certify a numbered theorem, lemma, "
-    "proposition, or corollary. The 33 auxiliary and supplementary groups are tracked "
-    "separately; these are groups of assertions, not 33 additional numbered results.", "",
+    "The current checkpoint proves the literal finite-field ray identity (4.5), "
+    "the three weight properties (3.1), and the exact zero-frequency clause of "
+    "Lemma 4.4. Its pointwise estimate remains pending, so the lemma is Partial. "
+    "The 33 auxiliary and supplementary groups are tracked separately; these are "
+    "groups of assertions, not 33 additional numbered results.", "",
     "[Manuscript source](manuscript/quadratic_character_sums_github.tex) · "
     "[PDF](manuscript/quadratic_character_sums_github.pdf) · "
     "[Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · "
@@ -64,8 +65,20 @@ for section in sorted({r["number"].split(".")[0] for r in rows}, key=int):
         lines.append(f'| {source_link(row)} | {cell(row["content"])} | '
                      f'{current["status"]} | {exports} |')
     lines.append("")
+lines += ["## Scope of partially checked numbered results", ""]
+for row in rows:
+    current = status["numbered_results"][row["label"]]
+    if current["status"] != "Partial":
+        continue
+    lines += [f'### {row["display"]}', "",
+              "[Statement correspondence review](" + current["correspondence_record"] + ")", "",
+              "Checked clauses:", ""]
+    lines += ["- " + clause for clause in current["completed_clauses"]]
+    lines += ["", "Remaining clauses:", ""]
+    lines += ["- " + clause for clause in current["remaining_clauses"]]
+    lines += ["", current.get("scope_note", ""), ""]
 lines += [
-    "## Checked supporting exports", "",
+    "## Checked exports and supporting declarations", "",
     "| Export | Precise scope | Status |",
     "|---|---|---|",
 ]
@@ -73,9 +86,9 @@ for entry in status["supporting_exports"]:
     lines.append(f'| [{BT}{entry["declaration"]}{BT}]({entry["file"]}) | '
                  f'{cell(entry["scope"])} | {entry["status"]} |')
 lines += [
-    "", "The current helper uses only the standard logical foundations "
+    "", "These declarations use only the standard logical foundations "
     f'{BT}propext{BT}, {BT}Classical.choice{BT}, and {BT}Quot.sound{BT}. '
-    "Its actual Lean type and axiom dependencies are in the "
+    "Their actual Lean types and axiom dependencies are in the "
     "[verification report](certification/verification_report.json). "
     "There are no registered external Lean premises at this checkpoint.", "",
     "## Auxiliary and supplementary obligations", "",
@@ -98,7 +111,11 @@ lines += [
     BT + "f897ebcf72cd16f89ab4577d0c826cd14afaafc7" + BT +
     " are pinned; the Lake manifest locks the transitive dependencies.", "",
     BT * 3 + "sh",
-    "lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
+    "lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar "
+    "Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality "
+    "Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds "
+    "Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul "
+    "Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
     "python3 scripts/verify_certificate.py",
     BT * 3, "",
     "The verifier checks source identities, all 42 statement locations, the dependency "
@@ -107,11 +124,11 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Define the literal finite-field character sums and projective scaling invariance, "
-    "then complete the ray identity (4.5). The checked weighted-sum identity supplies "
-    "only its final algebraic step. The polynomial power-sum argument for Lemma 5.9 "
-    "is the next natural local branch; the source-relative interfaces for Lemmas 2.1 "
-    "and 2.5 can be introduced without reproving their literature sources.", "",
+    "The polynomial power-sum argument for the divisibility clause of Lemma 5.9 "
+    "is the next local branch. Its size bound remains a separate clause. To finish "
+    "Lemma 4.4, formalize the geometric and character-sum estimates on which its "
+    "pointwise bound depends. Trusted literature interfaces must retain their exact "
+    "hypotheses, and manuscript-specific deductions remain to be proved.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -144,7 +161,7 @@ trusted += [
     "related work are not automatically Lean assumptions. In particular, the "
     "square/power-sieve references motivate the method; the manuscript's actual "
     "sieve inequality is a deduction to be proved.", "",
-    "The initial Lean helper has no literature-premise parameter. Future inputs "
+    "The current Lean exports use no external literature premises. Future inputs "
     "must be listed separately from proved exports and appear explicitly in the "
     "inspected axiom dependencies.", "",
 ]

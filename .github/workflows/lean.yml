@@ -10,6 +10,7 @@ on:
       - 'scripts/verify_certificate.py'
       - 'certification/source.json'
       - 'certification/status.json'
+      - 'certification/correspondence/**'
       - 'certification/dependency_inventory.json'
       - 'certification/reference_inputs.json'
       - 'manuscript/**'
@@ -34,7 +35,17 @@ jobs:
           use-mathlib-cache: "false"
           use-github-cache: "false"
       - name: Fetch the required official mathlib cache
-        run: lake exe cache get Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+        run: |
+          lake exe cache get \
+            Mathlib.Algebra.BigOperators.Ring.Finset \
+            Mathlib.Tactic.Ring \
+            Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
+            Mathlib.Data.Fintype.BigOperators \
+            Mathlib.LinearAlgebra.Projectivization.Cardinality \
+            Mathlib.Analysis.Complex.Basic \
+            Mathlib.NumberTheory.DirichletCharacter.Bounds \
+            Mathlib.RingTheory.MvPolynomial.Homogeneous \
+            Mathlib.Data.Matrix.Mul
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

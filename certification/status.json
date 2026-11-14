@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Initial dependency inventory and finite ray-sum algebra",
+  "checkpoint": "Literal finite-field Fourier ray identity and weight properties",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -107,8 +107,24 @@
       "checked_exports": []
     },
     "lem:fourier": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Partial",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.polynomialCharacterWeight_properties",
+        "QuaternaryQuadraticForms.fourierSum_zero",
+        "QuaternaryQuadraticForms.fourierSum_ray_identity",
+        "QuaternaryQuadraticForms.integralFourierSum_ray_identity",
+        "QuaternaryQuadraticForms.integralFourierSum_of_dvd"
+      ],
+      "correspondence_record": "certification/correspondence/fourier_rays.md",
+      "completed_clauses": [
+        "All three weight conditions in (3.1), with literal polynomial evaluation and multiplicative characters.",
+        "The exact zero-frequency identity in (4.4).",
+        "The complete intermediate ray identity (4.5), including integral coefficient and frequency reduction."
+      ],
+      "remaining_clauses": [
+        "The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases."
+      ],
+      "scope_note": "The geometric bounds from Lemmas 2.7, 4.1 and 4.3, and the plane-section counting step, have not been imported as assumptions or certified by this checkpoint."
     },
     "lem:diagbad": {
       "status": "Pending",
@@ -313,7 +329,264 @@
       "source_labels": [
         "eq:rays"
       ],
-      "scope": "Only the finite weighted-sum algebra after evaluating each nonzero ray. Does not formalize the finite-field/projective sum or certify Lemma 4.4.",
+      "scope": "Final finite-ring algebra combining evaluated ray contributions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primitiveAddChar_units_sum",
+      "file": "QuaternaryQuadraticForms/FiniteCharacters.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Primitive additive-character sum over the actual nonzero scalars of a finite field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.stdAddChar_units_sum",
+      "file": "QuaternaryQuadraticForms/FiniteCharacters.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Standard complex additive character over F_p: the unit sum is p-1 at zero and -1 otherwise.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveRayVector_injective",
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "The map (P,t) to t times the representative is injective for actual projective points and field units.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveRayVector_surjective",
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Every nonzero vector is a nonzero scalar multiple of a representative of its projective class.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.invariant_rep_mk",
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "A scalar-invariant function takes the same value on a vector and the chosen representative of its projective class.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.cone_rep_mk",
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Membership of a scalar-stable cone is independent of projective representative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_cone_weighted_eq_sum_projective",
+      "file": "QuaternaryQuadraticForms/ProjectiveRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Actual affine-cone sum decomposed into projective points and nonzero scalars; partition proved from the quotient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.homogeneous_eval_smul",
+      "file": "QuaternaryQuadraticForms/PolynomialWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:weightproperties"
+      ],
+      "scope": "Polynomial evaluation obeys G(tx)=t^n G(x), proved from homogeneity and monomial expansion.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.homogeneous_reduce_mod",
+      "file": "QuaternaryQuadraticForms/PolynomialWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:weightproperties",
+        "eq:rays"
+      ],
+      "scope": "Coefficient reduction of an integral homogeneous polynomial preserves its degree of homogeneity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialCharacterWeight_properties",
+      "file": "QuaternaryQuadraticForms/PolynomialWeights.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:weightproperties",
+        "lem:fourier"
+      ],
+      "scope": "All three clauses of (3.1) for the literal weight psi(G(x)), including zero, norm and scalar invariance.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_projectiveQuadric_mk",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Projective-quadric membership is equivalent to the actual equation x^T A x=0 on any nonzero representative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveWeight_rep_mk",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "The polynomial character weight is well-defined on actual projective points.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hyperplane_rep_mk",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "The condition u dot x=0 defining the projective section is independent of representative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_ray_identity",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:Cpsi",
+        "eq:rays"
+      ],
+      "scope": "The literal finite-field Fourier sum equals p*a_u-a for every reduced frequency, with a_0=a.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourierSum_zero",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:fourier",
+        "eq:fourier",
+        "eq:rays"
+      ],
+      "scope": "Exact zero-frequency clause C_p(0)=(p-1)*a of Lemma 4.4; no Fourier estimate claimed.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.reduceFrequency_eq_zero_iff",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "An integral frequency reduces to zero exactly when p divides each of its four coordinates.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralFourierSum_ray_identity",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "Equation (4.5) for integral matrix and polynomial coefficients and integral frequencies, after proved homogeneous reduction.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralFourierSum_of_dvd",
+      "file": "QuaternaryQuadraticForms/FourierRays.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "eq:rays"
+      ],
+      "scope": "The p-divides-u clause of (4.5), with explicit coordinatewise integer divisibility.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",

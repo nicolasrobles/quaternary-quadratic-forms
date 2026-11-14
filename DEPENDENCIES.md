@@ -71,10 +71,16 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-All **42 numbered results** and all **33 auxiliary or supplementary groups**
-are currently **Pending**. The extra groups include proof steps needed by the
-main argument and mathematical assertions outside numbered theorem
-environments. They are not added to the numbered-result count.
+The numbered-result counts are **Complete: 0 · Partial: 1 · Active: 0 · Pending:
+41**. Lemma 4.4 is Partial: all three weight properties (3.1), the exact
+zero-frequency clause of (4.4), and the full intermediate ray identity (4.5)
+have been checked locally. Its pointwise Fourier estimate remains pending.
+
+All **33 auxiliary or supplementary groups** remain Pending. These groups
+include proof steps needed by the main argument and mathematical assertions
+outside numbered theorem environments. They are not added to the
+numbered-result count. The 19 registered checked supporting exports are also
+counted separately.
 
 Two examples matter throughout the analytic argument: the scaled integral
 estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
@@ -88,8 +94,8 @@ Section 7.2. The open questions in the conclusion are not assertions to prove.
 
 We accept the exact literature statements used in the proofs and verify their
 hypotheses and the manuscript's deductions. The [source registry](TRUSTED_INPUTS.md)
-records these inputs. Its 18 mapped groups are not 18 Lean axioms: at the initial
-checkpoint, no external literature premise has yet been introduced into Lean.
+records these inputs. Its 18 mapped groups are not 18 Lean axioms: no external
+literature premise has been introduced into Lean at the current checkpoint.
 Existing results from official Lean and the pinned official
 [mathlib4](https://github.com/leanprover-community/mathlib4) may be reused.
 
@@ -99,15 +105,37 @@ bound in [M, Proposition 2.1]. Their exclusion is recorded in the same registry.
 Trusting a reference does not require assuming an assertion that the paper
 itself disproves.
 
-## First proof branch
+## Completed ray identity and next branch
 
-The next target is the literal finite-field setup: define the character sums,
-prove invariance under projective rescaling, evaluate the additive-character
-sum along each nonzero ray, and obtain (4.5). The checked helper
-[`weighted_ray_sum`](QuaternaryQuadraticForms/RayAlgebra.lean) supplies only the
-final finite algebra after those evaluations; the identification with the
-paper's sums remains pending. The polynomial power-sum argument in Lemma 5.9
-is a useful subsequent target.
+The first branch now proves (4.5) for the actual sums. Its dependencies are:
+
+1. [Polynomial weights](QuaternaryQuadraticForms/PolynomialWeights.lean):
+   homogeneous evaluation, reduction of integral coefficients, vanishing at
+   zero, norm at most one, and invariance under nonzero scalar multiplication.
+2. [Projective rays](QuaternaryQuadraticForms/ProjectiveRays.lean): a proved
+   bijective parametrization of nonzero vectors by actual projective points
+   and field units, giving the sum decomposition.
+3. [Finite characters](QuaternaryQuadraticForms/FiniteCharacters.lean): the
+   standard additive-character sum on each ray is `p − 1` when the phase
+   coefficient is zero and `−1` otherwise.
+4. [Fourier assembly](QuaternaryQuadraticForms/FourierRays.lean), using the
+   [finite algebra](QuaternaryQuadraticForms/RayAlgebra.lean):
+   `C_p(u) = p a_u − a`, the zero-frequency formula, and the specialization to
+   integral matrices, polynomials, and frequencies. Quadric membership, the
+   hyperplane condition, and the character weight are proved independent of
+   projective representative.
+
+Positive degree and `ψ ^ n = 1` suffice for this identity; the manuscript's
+nonsingularity, smoothness, and nonprincipality hypotheses are not needed at
+this stage. The
+[correspondence record](certification/correspondence/fourier_rays.md) identifies
+the precise clauses checked. The `D_p`-dependent bound in Lemma 4.4 still needs
+the geometric estimates of Lemmas 2.7, 4.1 and 4.3 and the exceptional
+plane-section count. Those steps have not been assumed as additional premises.
+
+The next target is the polynomial power-sum divisibility argument in Lemma 5.9.
+Its separate size estimate remains an obligation; proving divisibility alone
+will not complete that lemma.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;
