@@ -39,10 +39,12 @@ remain Pending. This repository does not yet provide a certificate for the
 whole paper. The execution checkpoint records the exact scope and evidence
 for each verification run.
 
-**The full local verifier passed for this milestone:** all 31 modules, 162
-proved exports, the exact literature premise, and 47 recorded input hashes
-were checked. GitHub Actions verification for this new scope is pending
-publication and will be recorded in the execution checkpoint.
+**This checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43553749446)**
+at [proof commit 0fccf53](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0fccf5379e067d349cb0f14b6dc226bc8096033b): all 31 modules, 162 proved exports,
+the exact literature premise, and 47 recorded input hashes were checked.
+The [downloaded CI report](certification/ci/run_43553749446_attempt_1.json) and its
+[original artifact ZIP](certification/ci/run_43553749446_attempt_1.zip) are preserved.
+Their types, axiom dependencies, and input hashes match the local verification.
 
 The preceding Weil and projective-line checkpoint passed locally and in
 [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447)

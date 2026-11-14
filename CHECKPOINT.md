@@ -15,7 +15,7 @@ checked in Lean.
 forms over every field extension. The plane-section estimate uses the literal
 geometric rank-three hypothesis and the actual projective character sum.
 The full local verifier and source correspondence review have passed.
-GitHub Actions verification for this milestone is pending publication.
+The same verifier also passed in GitHub Actions at the exact proof commit recorded below.
 
 Lemma 4.4 retains its checked weight properties, ray identity (4.5), and exact
 zero-frequency clause; its pointwise estimate remains pending. Lemma 5.9
@@ -144,8 +144,28 @@ found no missing clause or strengthened manuscript hypothesis.
 
 ### GitHub execution
 
-Publication and GitHub Actions verification for this checkpoint are pending.
-The successful runs below are retained as evidence for their earlier scopes.
+The same verifier passed at the exact proof commit
+[0fccf5379e067d349cb0f14b6dc226bc8096033b](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0fccf5379e067d349cb0f14b6dc226bc8096033b).
+
+- [Successful run 43553749446, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43553749446).
+- Verification job: 132321811531.
+- Artifact: 14096304719.
+- [Preserved CI report](certification/ci/run_43553749446_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43553749446_attempt_1.zip).
+- ZIP SHA-256: `e9ce332145032f0079ca8bc538cb72cf77b9d242d157d618d1d8db68546bfe0c`.
+- Report SHA-256: `74cdccb5f5777b9d9460d7a560b47fc74661e1d35bed3784c80652e5a9a7001b`.
+
+The original artifact was downloaded and its digest matched GitHub's recorded
+SHA-256. The ZIP contains the verification report alone. All 47 input hashes
+match the local verified files, including the six correspondence reviews.
+All 162 theorem records, the separately inspected literature-input record,
+and the pinned dependency revisions match the local report. The CI report
+records four Certified, two Partial, and 36 Pending numbered results; it
+explicitly leaves whole-paper certification false.
+
+The subsequent evidence commit changes only README, this checkpoint, and the
+preserved CI JSON and ZIP. The Lean sources, verifier, statement ledger, and
+correspondence records remain identical to the checked proof commit.
 
 ## Earlier checked checkpoints
 
