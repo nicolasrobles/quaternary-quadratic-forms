@@ -28,26 +28,36 @@ def export_links(exports):
 
 
 counts = Counter(r["status"] for r in status["numbered_results"].values())
+numbered_total = len(rows)
+auxiliary_total = len(graph["auxiliary_obligations"])
+premise_total = len(status["accepted_lean_inputs"])
+premise_phrase = "premise is" if premise_total == 1 else "premises are"
+premise_declaration_phrase = "premise declaration is" if premise_total == 1 else "premise declarations are"
+weil_exports = sum("QuaternaryQuadraticForms.Trusted.weil_simple_roots" in e["allowed_axioms"]
+                   for e in status["supporting_exports"])
+katz_exports = sum("QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data" in e["allowed_axioms"]
+                   for e in status["supporting_exports"])
 lines = [
     "# Certification inventory", "",
     "Frozen manuscript: v35, renamed without content changes for this repository.", "",
-    f'**{counts["Certified"]} of 42 numbered results are certified.** '
+    f'**{counts["Certified"]} of {numbered_total} numbered results are certified.** '
     f'{counts["Partial"]} are partial, {counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint proves the complete conic parametrization in Lemma 4.2 "
-    "and the transverse plane-section bound in Lemma 4.3. One tuple of actual "
-    "binary quadratic forms works over every extension field; the projective "
-    "bijection, independent derivatives, transversality deduction, and distinct "
-    "geometric roots are proved. Lemma 2.5 remains certified relative to its "
-    "exact cited Weil input, and the complete projective-line Corollary 2.6 "
-    "remains proved. No further external premise has been added. The earlier "
-    "integrality and divisibility clauses of Lemma 5.9 "
-    "remain checked; its size bound remains pending. The weight properties, "
+    "The current checkpoint proves the complete quadric character-sum bound in "
+    "Lemma 2.7. The quadric's actual geometric smoothness and irreducibility are "
+    "proved from the matrix hypotheses. A general spectral input combines Katz's "
+    "theorem with explicitly registered general hypersurface geometry, adjunction, "
+    "and degree formulas; the quadric coefficient and scalar norm bound are proved "
+    "deductions. The earlier Lemma 2.5, Corollary 2.6, and Lemmas 4.2–4.3 remain "
+    "certified. The degree-two size bound in Lemma 5.9 is now checked under actual "
+    "geometric good reduction, alongside its integrality and divisibility. Its "
+    "literal N_G wrappers still require a proof that the exact bad-prime set is "
+    "finite, so the numbered lemma remains Partial. The weight properties, "
     "ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; "
     "that lemma's pointwise estimate remains pending. Both numbered lemmas "
     "remain Partial. "
-    "The 33 auxiliary and supplementary groups are tracked separately; these are "
-    "groups of assertions, not 33 additional numbered results.", "",
+    f"The {auxiliary_total} auxiliary and supplementary groups are tracked separately; "
+    "these are groups of assertions, not additional numbered results.", "",
     "[Manuscript source](manuscript/quadratic_character_sums_github.tex) · "
     "[PDF](manuscript/quadratic_character_sums_github.pdf) · "
     "[Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · "
@@ -108,10 +118,10 @@ lines += [
     "Individual exports may additionally use only the exact literature "
     "premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the "
     "[verification report](certification/verification_report.json). "
-    f'{len(status["accepted_lean_inputs"])} external Lean premise is registered '
+    f'{premise_total} external Lean {premise_phrase} registered '
     "separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).", "",
     "## Auxiliary and supplementary obligations", "",
-    "The following 33 groups retain their own correspondence review. "
+    f"The following {auxiliary_total} groups retain their own correspondence review. "
     "The single numbered Remark 4.1 is represented by four of these groups. "
     "Final completion also requires a whole-manuscript correspondence review; "
     "the present grouping is not a reason to omit a subsequently identified assertion.", "",
@@ -144,21 +154,25 @@ lines += [
     "Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm "
     "Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank "
     "Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.Tactic.FieldSimp "
+    "Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex "
+    "Mathlib.Data.Nat.Factorization.Basic Mathlib.Algebra.Polynomial.Coeff "
+    "Mathlib.Tactic.IntervalCases Mathlib.Tactic.NormNum "
     "Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring",
     "python3 scripts/verify_certificate.py",
     BT * 3, "",
-    "The verifier checks source identities, all 42 statement locations, the dependency "
+    f"The verifier checks source identities, all {numbered_total} statement locations, the dependency "
     "graph, status accounting, locked toolchain and dependency checkouts, every local "
     "proof module, declaration kinds, actual types, and permitted axioms. "
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Register the exact Katz source interface and prove its manuscript-specific "
-    "geometric specialization in Lemma 2.7. This supplies the global trace bound "
-    "needed for the remaining size clause of Lemma 5.9. The exceptional polynomial "
-    "in Lemma 4.1 and the remaining exceptional-frequency counting and assembly "
-    "steps in Lemma 4.4 are separate obligations. Retain the checked conic and "
-    "plane-section deductions, exact identities, and divisibility result as inputs.", "",
+    "Construct the nonzero elimination value in Lemma 4.1(i) and prove that every "
+    "bad-reduction prime divides it. The checked arithmetic then proves finiteness "
+    "of the actual bad-prime set and supplies the missing argument to the literal "
+    "N_G wrappers in Lemma 5.9. The exceptional-plane construction in Lemma 4.1 "
+    "and the remaining exceptional-section count and Fourier-bound assembly in "
+    "Lemma 4.4 are separate obligations. Retain the checked Katz, conic, "
+    "plane-section, exact-identity, and quadratic-trace results as inputs.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -169,8 +183,8 @@ trusted = [
     "hypotheses, source locators, and Lean declarations must be registered before use. "
     "All specializations, hypothesis checks, coefficient uniformity, and deductions "
     "made in this manuscript remain proof obligations.", "",
-    f'**18 input groups are mapped; {len(status["accepted_lean_inputs"])} external '
-    "premise declaration is currently registered in Lean.** "
+    f'**{len(graph["external_input_catalog"])} input groups are mapped; {premise_total} external '
+    f"{premise_declaration_phrase} currently registered in Lean.** "
     "Mapping an input is not the same as formalizing its interface. "
     "Use a suitable official mathlib result where available.", "",
     "| Input | Source locator | Accepted mathematical scope | Lean interface |",
@@ -178,8 +192,14 @@ trusted = [
 ]
 for key, entry in graph["external_input_catalog"].items():
     registered = [r for r in status["accepted_lean_inputs"] if r["reference_id"] == key]
-    interfaces = "; ".join(f'[{BT}{r["declaration"]}{BT}]({r["file"]})'
-                           for r in registered) or "Pending"
+    components = [r for r in status["accepted_lean_inputs"]
+                  if r["reference_id"] != key and
+                  (key in r.get("source_components", []) or
+                   r["declaration"] in entry.get("composite_declarations", []))]
+    links = [f'[{BT}{r["declaration"]}{BT}]({r["file"]})' for r in registered]
+    links += [f'Component of [{BT}{r["declaration"]}{BT}]({r["file"]}) '
+              "(no separate premise declaration)" for r in components]
+    interfaces = "; ".join(links) or "Pending"
     trusted.append(f'| {BT}{key}{BT} | [{cell(entry["reference"])}], '
                    f'{cell(entry["locator"])} | {cell(entry["scope"])} | {interfaces} |')
 trusted += ["", "## Registered premise inspection", ""]
@@ -189,6 +209,13 @@ for entry in status["accepted_lean_inputs"]:
                 "The verifier checks the declaration kind, inspected Lean type, type hash, "
                 "and actual axiom dependencies separately from proved exports.", "",
                 "Expected type hash: " + BT + entry["type_sha256"] + BT + ".", ""]
+    components = entry.get("source_components", [])
+    if len(components) > 1:
+        trusted += ["This is a composite interface with source components " +
+                    ", ".join(BT + component + BT for component in components) + ". "
+                    "Their combined statement is one registered Lean premise. The "
+                    "correspondence review identifies the general geometric translations "
+                    "and formulas included in that statement.", ""]
 trusted += [
     "", "## Cited claims excluded from the premise registry", "",
     "The paper gives counterexamples to the following claims. They are comparison "
@@ -202,11 +229,18 @@ trusted += [
     "related work are not automatically Lean assumptions. In particular, the "
     "square/power-sieve references motivate the method; the manuscript's actual "
     "sieve inequality is a deduction to be proved.", "",
-    "The geometric and algebraic supporting exports use no external literature "
-    "premises. The univariate, projective-line, and plane-section character-sum bounds additionally "
-    "use the single registered Weil premise. Every future input must likewise "
-    "be listed separately from proved exports and appear explicitly in the "
-    "inspected axiom dependencies.", "",
+    "The matrix geometry, polynomial calculations, and finite-product supporting exports use no external literature "
+    "premises. The ledger records " + str(weil_exports) + " exports with the exact "
+    "Weil premise, for the univariate, projective-line, and plane-section bounds, "
+    "and " + str(katz_exports) + " with the general Katz surface premise, for "
+    "Lemma 2.7 and the quadratic-trace bounds. Their actual axiom dependencies "
+    "are inspected separately in the verification report.", "",
+    "The Katz premise explicitly combines its spectral theorem and trace formula "
+    "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
+    "formulas. The matrix-quadric geometry, the numerical coefficient "
+    "2n²−4n+4, and the final scalar norm estimate are proved internally. "
+    "Every future input must likewise be listed separately from proved exports "
+    "and appear explicitly in the inspected axiom dependencies.", "",
 ]
 (ROOT / "TRUSTED_INPUTS.md").write_text("\n".join(trusted))
 print("Rendered INVENTORY.md and TRUSTED_INPUTS.md")

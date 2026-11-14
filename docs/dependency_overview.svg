@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-793.16 986.16,-793.16 986.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="483" y="-750.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="483" y="-725.6" font-family="DejaVu Serif" font-size="23.00">Frozen v35 | 4 certified; 2 partial; 36 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="483" y="-725.6" font-family="DejaVu Serif" font-size="23.00">Frozen v35 | 5 certified; 2 partial; 35 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -119,10 +119,10 @@
 <!-- sources -->
 <g id="node1" class="node">
 <title>sources</title>
-<path fill="#eeeafd" stroke="#7762b4" stroke-width="1.15" d="M575.5,-715C575.5,-715 208.5,-715 208.5,-715 202.5,-715 196.5,-709 196.5,-703 196.5,-703 196.5,-670 196.5,-670 196.5,-664 202.5,-658 208.5,-658 208.5,-658 575.5,-658 575.5,-658 581.5,-658 587.5,-664 587.5,-670 587.5,-670 587.5,-703 587.5,-703 587.5,-709 581.5,-715 575.5,-715"/>
+<path fill="#eeeafd" stroke="#7762b4" stroke-width="1.15" d="M575,-715C575,-715 209,-715 209,-715 203,-715 197,-709 197,-703 197,-703 197,-670 197,-670 197,-664 203,-658 209,-658 209,-658 575,-658 575,-658 581,-658 587,-664 587,-670 587,-670 587,-703 587,-703 587,-709 581,-715 575,-715"/>
 <text text-anchor="middle" x="392" y="-697.8" font-family="DejaVu Serif" font-size="14.00">Trusted reference inputs</text>
-<text text-anchor="middle" x="392" y="-682.8" font-family="DejaVu Serif" font-size="14.00">Heath&#45;Brown; Weil and Katz; Montgomery&#45;Vaughan;</text>
-<text text-anchor="middle" x="392" y="-667.8" font-family="DejaVu Serif" font-size="14.00">Lang; Hartshorne; Salberger</text>
+<text text-anchor="middle" x="392" y="-682.8" font-family="DejaVu Serif" font-size="14.00">Heath&#45;Brown; Weil, Katz and Fulton;</text>
+<text text-anchor="middle" x="392" y="-667.8" font-family="DejaVu Serif" font-size="14.00">Montgomery&#45;Vaughan; Lang; Hartshorne; Salberger</text>
 </g>
 <!-- prelim -->
 <g id="node2" class="node">
@@ -138,11 +138,11 @@
 <!-- finite -->
 <g id="node3" class="node">
 <title>finite</title>
-<g id="a_node3"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Finite&#45;field estimates&lt;/B&gt;&lt;BR/&gt;Lemmas 2.5, 2.7; Corollary 2.6&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;2 certified; 1 pending&lt;/FONT&gt;" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M576.5,-616C576.5,-616 361.5,-616 361.5,-616 355.5,-616 349.5,-610 349.5,-604 349.5,-604 349.5,-576 349.5,-576 349.5,-570 355.5,-564 361.5,-564 361.5,-564 576.5,-564 576.5,-564 582.5,-564 588.5,-570 588.5,-576 588.5,-576 588.5,-604 588.5,-604 588.5,-610 582.5,-616 576.5,-616"/>
+<g id="a_node3"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Finite&#45;field estimates&lt;/B&gt;&lt;BR/&gt;Lemmas 2.5, 2.7; Corollary 2.6&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#408342&quot;&gt;3 certified&lt;/FONT&gt;" target="_blank">
+<path fill="#e1f5df" stroke="#408342" stroke-width="1.15" d="M576.5,-616C576.5,-616 361.5,-616 361.5,-616 355.5,-616 349.5,-610 349.5,-604 349.5,-604 349.5,-576 349.5,-576 349.5,-570 355.5,-564 361.5,-564 361.5,-564 576.5,-564 576.5,-564 582.5,-564 588.5,-570 588.5,-576 588.5,-576 588.5,-604 588.5,-604 588.5,-610 582.5,-616 576.5,-616"/>
 <text text-anchor="start" x="384.5" y="-599.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Finite&#45;field estimates</text>
 <text text-anchor="start" x="358.5" y="-585.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 2.5, 2.7; Corollary 2.6</text>
-<text text-anchor="start" x="404.5" y="-573.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">2 certified; 1 pending</text>
+<text text-anchor="start" x="438" y="-573.4" font-family="DejaVu Serif" font-size="12.00" fill="#408342">3 certified</text>
 </a>
 </g>
 </g>

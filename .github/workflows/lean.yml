@@ -63,7 +63,12 @@ jobs:
             Mathlib.LinearAlgebra.Matrix.Dual \
             Mathlib.LinearAlgebra.Matrix.Rank \
             Mathlib.RingTheory.MvPolynomial.EulerIdentity \
-            Mathlib.Tactic.FieldSimp
+            Mathlib.Tactic.FieldSimp \
+            Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
+            Mathlib.Data.Nat.Factorization.Basic \
+            Mathlib.Algebra.Polynomial.Coeff \
+            Mathlib.Tactic.IntervalCases \
+            Mathlib.Tactic.NormNum
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

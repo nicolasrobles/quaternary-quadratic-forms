@@ -1,10 +1,14 @@
-# Source correspondence: integrality and divisibility of the quadratic trace
+# Source correspondence: integrality, divisibility, and size of the quadratic trace
 
 ## Scope and source
 
-This review covers the assertions that the trace in Lemma 5.9 is an integer
-and is divisible by the prime. The remaining assertion, `|a_p(G)| ≤ 4p`, is
-outside this checkpoint. The appropriate status for Lemma 5.9 is **Partial**.
+This review covers the integrality and divisibility of the trace in Lemma
+5.9, the bound `|a_p(G)| ≤ 4p` under the actual finite-field transversality
+hypothesis, and their combination under the literal `N_G` condition with an
+explicit proof that the bad-prime set is finite. Lemma 5.9 remains
+**Partial**: the missing deduction is finiteness of that set from the
+characteristic-zero smoothness assumption, as supplied by Lemma 4.1(i).
+The size estimate itself is proved.
 
 The source is the frozen v35
 [manuscript](../../manuscript/quadratic_character_sums_github.tex), with SHA-256
@@ -16,9 +20,10 @@ The equation numbers below agree with the compiled labels in
 | --- | --- | --- |
 | `eq:forms`, (1.1), lines 157–161 | The integral matrix expression `F(x) = xᵀ A x` | `matrixQuadraticPolynomial`, `eval_matrixQuadraticPolynomial_quadraticValue` |
 | Lines 195–198 | The character is the Jacobi symbol, hence the Legendre symbol at an odd prime | `complexQuadraticChar`, `complexQuadraticChar_intCast` |
-| `eq:smooth`, (1.9), lines 281–289; `eq:NG`, (1.10), lines 291–300 | Smoothness and the excluded primes | These stronger hypotheses belong to the full lemma; oddness is sufficient for its divisibility clause |
+| `eq:smooth`, (1.9), lines 281–289; `eq:NG`, (1.10), lines 291–300 | Smoothness and the excluded primes | `GoodReductionAt`, `badReductionPrimes`, `polynomialBadPrimeModulus`, `not_dvd_polynomialBadPrimeModulus_iff`; characteristic-zero smoothness still has to supply the finiteness proof |
 | `eq:apdef`, (1.11), lines 307–314 | The projective trace `a_p(G)` and independence of representatives | `projectiveQuadraticTrace`, `quadraticTraceWeight_rep_mk`, `projectiveQuadraticTrace_complex` |
-| `lem:divisible`, Lemma 5.9, lines 2686–2690 | Integrality, divisibility by `p`, and the separate size bound | `projectiveTrace_quadratic_integral_dvd`, `integralProjectiveTrace_quadratic_dvd`; size bound pending |
+| `lem:divisible`, Lemma 5.9, lines 2686–2690 | Integrality, divisibility by `p`, and the size bound | `projectiveTrace_quadratic_integral_dvd_bound`, `integralProjectiveTrace_quadratic_integral_dvd_bound`, and `integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus`; the last retains explicit `hfinite` |
+| First sentence of the proof of Lemma 5.9 | The degree-two specialization of Lemma 2.7 | `projectiveQuadraticTrace_abs_le`, using `katz_quadric_bound_prime_field` |
 | Proof of Lemma 5.9, lines 2694–2706 | Euler criterion, the polynomial zero-locus indicator, and the vanishing polynomial sum | `quadraticZeroIndicator_eval`, `quadraticCharacterPolynomial_sum_zero`, `affineQuadraticCharacterSum_dvd` |
 | Proof of Lemma 5.9, lines 2706–2708; (4.4) and (4.5) | Passage from the affine sum to the projective trace | `affineQuadraticTrace_eq`, `projectiveQuadraticTrace_dvd` |
 
@@ -26,8 +31,10 @@ The files reviewed are
 [AffineDivisibility.lean](../../QuaternaryQuadraticForms/AffineDivisibility.lean),
 [MatrixPolynomial.lean](../../QuaternaryQuadraticForms/MatrixPolynomial.lean),
 [QuadraticCharacter.lean](../../QuaternaryQuadraticForms/QuadraticCharacter.lean),
-and [QuadraticTrace.lean](../../QuaternaryQuadraticForms/QuadraticTrace.lean).
-The last file uses the previously checked zero-frequency identity. Its
+[QuadraticTrace.lean](../../QuaternaryQuadraticForms/QuadraticTrace.lean),
+[QuadraticTraceBound.lean](../../QuaternaryQuadraticForms/QuadraticTraceBound.lean),
+and [GoodReduction.lean](../../QuaternaryQuadraticForms/GoodReduction.lean).
+`QuadraticTrace.lean` uses the previously checked zero-frequency identity. Its
 [earlier correspondence review](fourier_rays.md) remains applicable.
 
 ## The character and the integer sums
@@ -48,7 +55,7 @@ nonprincipality at an odd prime. The divisibility argument itself uses the
 integer character and Euler criterion; the square identity supplies the
 character hypothesis of the previously proved ray formula.
 
-Both new traces have codomain `ℤ`:
+Both integer traces have codomain `ℤ`:
 
 $$
 C_{\mathbb Z}=
@@ -176,6 +183,74 @@ previously proved `homogeneous_reduce_mod`. Consequently the caller supplies
 homogeneity of the original integral form, without an extra unproved
 homogeneity premise for its reduction.
 
+## The finite-field size estimate
+
+`projectiveQuadraticTrace_abs_le` specializes the proved prime-field form of
+Lemma 2.7 to `n = 2` and `ψ = complexQuadraticChar p`.
+`complexQuadraticChar_ne_one` verifies nonprincipality for the odd prime,
+and `complexQuadraticChar_sq` verifies the required square identity. The
+remaining inputs are the actual symmetric invertible matrix, homogeneous
+quadratic `G`, and `ProjectiveIntersectionTransverseRank` over the algebraic
+closure. The constant specializes exactly to
+
+$$
+2\cdot2^2-4\cdot2+4=4.
+$$
+
+The equality `projectiveQuadraticTrace_complex` identifies the complex sum
+bounded by Katz with the cast of the defined integer trace. The library
+identity `Complex.norm_intCast` and the checked cast conversion then give
+
+$$
+|\operatorname{projectiveQuadraticTrace}(A,G)|\le4p
+\qquad\text{in }\mathbf Z.
+$$
+
+`projectiveTrace_quadratic_integral_dvd_bound` combines this estimate with
+the existing integrality and divisibility proof. Its witness is the same
+defined integer trace, and its conclusion is
+
+```text
+∃ a : ℤ, projectiveTrace A (complexQuadraticChar p) G = (a : ℂ)
+         ∧ (p : ℤ) ∣ a ∧ |a| ≤ 4 * (p : ℤ).
+```
+
+The integral-coefficient exports
+`integralProjectiveQuadraticTrace_abs_le` and
+`integralProjectiveTrace_quadratic_integral_dvd_bound` accept
+`p ∤ quadraticBadPrimeModulus A` and the literal predicate
+`GoodReductionAt p A G`. Coefficient reduction, oddness, matrix symmetry,
+and the nonzero reduced determinant are supplied by the existing proved
+adapters. The review of the full Katz specialization and its explicit
+composite literature boundary is in [katz_quadric.md](katz_quadric.md);
+the size estimate is not introduced as a new premise.
+
+## The literal good-reduction modulus
+
+`badReductionPrimes A G` is the actual set of primes outside `N_F` at which
+the reductions fail the geometric rank-two condition.
+`polynomialBadPrimeModulus A G hfinite` is the product in (1.10):
+
+$$
+\operatorname{rad}(N_F)
+\prod_{\substack{p\nmid N_F\\G\text{ has bad reduction at }p}}p.
+$$
+
+Its definition takes
+`hfinite : (badReductionPrimes A G).Finite`. This is explicit proved data
+required by the wrapper, not an axiom asserting that every polynomial has
+finitely many bad primes. For `det A ≠ 0`,
+`not_dvd_polynomialBadPrimeModulus_iff` proves that excluding this exact
+modulus is equivalent to excluding `N_F` and having `GoodReductionAt p A G`.
+The proof uses the prime divisors of the radical and of the actual finite
+bad-prime product; it does not substitute an arbitrary larger modulus.
+
+`integralProjectiveQuadraticTrace_dvd_bound_of_modulus` consequently gives
+divisibility and the size bound for the defined integer trace.
+`integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus` gives all
+three clauses for the existing complex trace, using that integer as its
+witness. Both wrappers retain `hfinite` as an explicit argument.
+
 ## Hypotheses and remaining scope
 
 The final divisibility theorem assumes an odd prime and a homogeneous
@@ -186,10 +261,10 @@ restrictions and are unnecessary for these two clauses.
 
 | Manuscript hypothesis | Role in the completed clauses |
 | --- | --- |
-| A nonsingular symmetric integral matrix `A` | Arbitrary matrix coefficients suffice for the polynomial identity and divisibility |
+| A nonsingular symmetric integral matrix `A` | Symmetry and nonsingularity are used for the size bound; arbitrary matrix coefficients suffice for the polynomial identity and divisibility |
 | A quadratic integral form `G` | Homogeneity of degree two is retained and preserved under reduction |
-| Smoothness in (1.9) and good reduction at `p` | Not used in the integrality or divisibility proof; retained for the pending size estimate |
-| `p` prime with `p ∤ N_G` | The completed theorem applies to every odd prime |
+| Smoothness in (1.9) and good reduction at `p` | Good reduction is the actual geometric hypothesis of the proved size bound; characteristic-zero smoothness still has to imply finiteness of the bad-prime set |
+| `p` prime with `p ∤ N_G` | The literal-modulus wrappers deduce oddness and good reduction, with the defining finiteness proof explicit; divisibility alone applies to every odd prime |
 | The prime-field quadratic character | The actual integer-valued quadratic character is used, with an explicit Legendre-symbol identification |
 
 Allowing singular matrices or a polynomial whose reduction becomes zero
@@ -199,22 +274,21 @@ still vanish at the origin and are invariant under nonzero scaling. This
 larger range of validity does not extend the claimed range of the separate
 bound `|a_p(G)| ≤ 4p`.
 
-No mathematical or source-correspondence defect was found in the reviewed
-integrality and divisibility statements. Lemma 5.9 should therefore be
-**Partial**, with those two clauses checked and its size estimate pending.
-That estimate is the `n=2` specialization of Lemma 2.7, together with the
-required geometric hypotheses and their verification. It has not been
-inserted as an assumption in these proofs.
+The precise remaining obligation for Lemma 5.9 is to prove
+`(badReductionPrimes A G).Finite` from the characteristic-zero rank condition
+in (1.9), with the manuscript's integral homogeneous equations. This is
+the finiteness part of Lemma 4.1(i). The elimination argument must provide
+the missing proof; it cannot be replaced by the explicit `hfinite` argument
+already accepted by the wrappers. The quantitative height bound in Lemma
+4.1(i) is a further obligation of that lemma, but is not required to close
+Lemma 5.9 once finiteness is proved.
 
-The resulting numbered counts are **Complete 0 / Partial 2 / Active 0 /
-Pending 40**. Lemma 4.4 retains its previous Partial scope; all 33 auxiliary
-or supplementary groups remain Pending. The present proof reuses the
-completed zero-frequency identity and does not close the remaining Fourier
-estimate or any main theorem.
+Thus all three trace conclusions are proved under explicit finite-field
+good reduction, and they are combined under the actual `N_G` condition
+conditional on its defining finite bad-prime set. This is not yet the full
+statement of Lemma 5.9 from characteristic-zero smoothness. The appropriate
+classification remains **Partial** for that precise reason.
 
-The new root assembly module compiled with `warningAsError=true` and
-`autoImplicit=false` in the pinned environment. This review records its
-mathematical correspondence and scope. The repository verifier and execution
-records provide the actual theorem types, axiom dependencies, file hashes,
-and exact checked commit and CI run; no CI success is asserted by this
-correspondence review alone.
+This review records mathematical correspondence and scope. Numbered-result
+counts, build results, axiom reports, file hashes, checked commits, and CI
+evidence belong to the status and execution records.

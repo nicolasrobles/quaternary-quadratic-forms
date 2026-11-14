@@ -50,13 +50,23 @@
     },
     "EXT.KATZ": {
       "reference": "K",
-      "locator": "Theorem 8.1(1), with trace identity (5.3)",
-      "scope": "Cohomological vanishing, Frobenius magnitude and Euler-characteristic/Chern expression under the precise smoothness/transversality and character hypotheses; scalar trace bound is deduced.",
-      "status": "Trusted literature input; precise Lean interface pending",
+      "locator": "Published Theorem 8.1(1) and (5.3); directly inspected author-version Theorem 18(1), printed p.12, trace formula p.5; composite hypersurface interpretation uses EXT.HYPERSURFACE_CHERN",
+      "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
+      "status": "Trusted literature input; general surface spectral interface registered",
       "id": "EXT.KATZ",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "Composite literature premise: Katz cohomology and trace formula, together with the explicitly registered general hypersurface geometry and Chern/degree formulas. The actual quadric geometry, coefficient specialization, and scalar norm estimate remain proved deductions.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ],
+      "interface_status": "Registered composite literature interface; actual Lean axiom type inspected and hashed. Katz supplies the spectral theorem and EXT.HYPERSURFACE_CHERN supplies the general geometric/adjunction interpretation. The quadric specialization is proved in KatzBound.lean.",
+      "source_url": "https://web.math.princeton.edu/~nmk/multp5.pdf",
+      "published_doi": "10.1155/S1073792802106088",
+      "correspondence_record": "certification/correspondence/katz_input.md",
+      "lean_statement": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
+      "source_components": [
+        "EXT.KATZ",
+        "EXT.HYPERSURFACE_CHERN"
+      ]
     },
     "EXT.MV_GAUSS": {
       "reference": "MV",
@@ -211,6 +221,29 @@
       "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
       "lean_declarations": [],
       "interface_status": "Pending"
+    },
+    "EXT.HYPERSURFACE_CHERN": {
+      "id": "EXT.HYPERSURFACE_CHERN",
+      "reference": "Fulton; Stacks Project",
+      "locator": "Fulton, Intersection Theory, 2nd ed., Examples 2.5.1-2.5.2 (p.42), 3.2.11-3.2.12 (pp.59-60); Stacks tags 0FMH, 01V4, 02UF, 00T1, 089X",
+      "scope": "For a smooth degree-m hypersurface X in P^3, c(T_X)=(1+L)^4/(1+mL) through degree two and integral_X L^2=m, over arbitrary fields. The standard homogeneous hypersurface/Jacobian interpretation identifies actual geometric irreducibility and rank predicates with the scheme hypotheses of Katz.",
+      "status": "Explicit component of the registered general Katz surface interface",
+      "trust": "General published geometric translation and intersection formulas used jointly in EXT.KATZ. No separate Lean premise is introduced; no quadric-specific geometry, Chern coefficient, or scalar estimate is assumed.",
+      "lean_declarations": [],
+      "interface_status": "Used in composite EXT.KATZ interface",
+      "composite_declarations": [
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ],
+      "source_url": "https://link.springer.com/book/10.1007/978-1-4612-1700-8",
+      "supporting_source_urls": [
+        "https://stacks.math.columbia.edu/tag/0FMH",
+        "https://stacks.math.columbia.edu/tag/01V4",
+        "https://stacks.math.columbia.edu/tag/02UF",
+        "https://stacks.math.columbia.edu/tag/00T1",
+        "https://stacks.math.columbia.edu/tag/089X"
+      ],
+      "correspondence_record": "certification/correspondence/katz_input.md",
+      "lean_statement": "The general geometric and Chern/degree interpretation in Trusted.katz_surface_spectral_data, as detailed in the shared correspondence review."
     }
   },
   "excluded_comparison_claims": [

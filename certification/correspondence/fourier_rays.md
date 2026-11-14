@@ -197,24 +197,28 @@ $$
 $$
 
 That bound, at source lines 1803–1805 and in the proof at lines 1823–1847, is
-not established by these exports. Its remaining dependencies include:
+not established by these exports. Two of its local inputs are now proved:
+`katz_quadric_bound` supplies Lemma 2.7 for the complete projective trace,
+and `plane_section_bound` supplies Lemma 4.3 for the transverse section
+trace, including the internally constructed parametrization of Lemma 4.2.
+Their source correspondence and hypotheses are documented in
+[katz_quadric.md](katz_quadric.md) and [plane_section.md](plane_section.md).
+The remaining deductions for the full Fourier estimate include:
 
-- Lemma 2.7 (`lem:katz`): the bound for the complete projective trace, with
-  the manuscript's smoothness hypotheses and explicit constant;
 - Lemma 4.1 (`lem:exceptional`): construction of `D_p`, its degree bound,
   good-reduction conditions, and the required transversality consequence;
-- Lemma 4.3 (`lem:section`), including its Lemma 4.2 parametrization and
-  finite-field curve inputs: the bound on the transverse section trace;
 - the exceptional-section counting argument at lines 1833–1842, including
   nonvanishing of the restricted quadratic form and the bound `2p+2`;
 - the specialization and arithmetic combination of these bounds with the
-  newly proved ray identity, including the final constant `2n²`.
+  proved ray identity, including the final constant `2n²`.
 
 Exact cited literature inputs may be trusted under the project's policy once
 their interfaces and locators are registered. The manuscript's own Lemmas
 2.7, 4.1 and 4.3, and its geometric specializations and deductions, cannot be
 introduced as replacement axioms. None of those literature interfaces or
-internal estimates is needed as a premise of the present identities.
+internal estimates is needed as a premise of the present identities. The
+proved Katz and plane-section bounds are available for the subsequent
+estimate; their availability alone does not complete its remaining steps.
 
 The recommended numbered-result status is consequently **Partial for Lemma
 4.4**, covering all three weight properties and its exact zero-frequency

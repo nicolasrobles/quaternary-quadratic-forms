@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 4 · Partial: 2 · Active: 0 · Pending: 36** — 42 numbered results.
+**Complete: 5 · Partial: 2 · Active: 0 · Pending: 35** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -27,24 +27,40 @@ Lemma 4.3 deduces the simple-root condition from the manuscript's geometric
 rank-three hypothesis and proves the bound for the actual projective section
 sum. No restriction that the characteristic be prime to the degree is added.
 
+**Lemma 2.7 is now Certified.**
+The exact quadric trace bound follows from the registered general Katz/Fulton
+spectral interface, with the quadric geometry, coefficient calculation, and
+scalar estimate proved internally. The full local verifier passed; GitHub
+Actions verification for this milestone is pending publication.
+
 Lemma 4.4 remains **Partial**: its three weight properties, exact zero-frequency
 formula, and intermediate ray identity (4.5) are checked; its pointwise Fourier
-bound remains pending. Lemma 5.9 remains **Partial**: integrality and divisibility
-of the actual quadratic projective trace are checked; the bound
-`|a_p(G)| ≤ 4p` remains pending.
+bound remains pending. Lemma 5.9 remains **Partial**: the actual integer trace
+now satisfies `|a_p(G)| ≤ 4p` under the literal good-reduction condition, and
+its integrality and divisibility remain checked. The final `p ∤ N_G` wrappers
+retain an explicit proof that the bad-prime set is finite. Deriving that
+finiteness from the manuscript's characteristic-zero smoothness hypothesis
+is still required.
 
-This milestone covers 162 theorem exports and one separate trusted
-literature premise across 31 Lean modules. All 33 auxiliary/supplementary groups
+This milestone covers 207 theorem exports across 38 Lean modules, two
+separately inspected external Lean premises, 56 verification input hashes,
+and 19 mapped source groups. All 33 auxiliary/supplementary groups
 remain Pending. This repository does not yet provide a certificate for the
 whole paper. The execution checkpoint records the exact scope and evidence
 for each verification run.
 
-**This checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43553749446)**
+**The full local verifier passed for this milestone:** all 38 modules, 207
+proved exports, both exact literature premises, and 56 recorded input hashes
+were checked. GitHub Actions verification for this new scope is pending
+publication and will be recorded in the execution checkpoint.
+
+**The preceding conic and plane-section checkpoint passed locally and in [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43553749446)**
 at [proof commit 0fccf53](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0fccf5379e067d349cb0f14b6dc226bc8096033b): all 31 modules, 162 proved exports,
 the exact literature premise, and 47 recorded input hashes were checked.
 The [downloaded CI report](certification/ci/run_43553749446_attempt_1.json) and its
 [original artifact ZIP](certification/ci/run_43553749446_attempt_1.zip) are preserved.
-Their types, axiom dependencies, and input hashes match the local verification.
+Their types, axiom dependencies, and input hashes matched the local verification
+at that checkpoint.
 
 The preceding Weil and projective-line checkpoint passed locally and in
 [GitHub Actions](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447)
@@ -57,11 +73,13 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
 - [Correspondence review for the Fourier ray identity](certification/correspondence/fourier_rays.md)
-- [Correspondence review for quadratic-trace divisibility](certification/correspondence/quadratic_trace.md)
+- [Correspondence review for the quadratic trace](certification/correspondence/quadratic_trace.md)
 - [Correspondence review for the Weil input](certification/correspondence/weil_input.md)
 - [Correspondence review for the projective-line bound](certification/correspondence/projective_weil.md)
 - [Correspondence review for the uniform conic parametrization](certification/correspondence/conic_parametrization.md)
 - [Correspondence review for the plane-section bound](certification/correspondence/plane_section.md)
+- [Source review for the composite Katz/Fulton interface](certification/correspondence/katz_input.md)
+- [Correspondence review for the quadric Katz bound](certification/correspondence/katz_quadric.md)
 - [Latest execution checkpoint](CHECKPOINT.md)
 
 ![Principal proof dependencies](docs/dependency_overview.png)
@@ -83,13 +101,22 @@ frozen source. Counts refer to numbered results, not supporting declarations.
 Supplementary mathematical claims and a final whole-paper correspondence review
 are tracked separately.
 
-One external premise is registered: the simple-root univariate Weil estimate
-from [K, equation (1.2)], specialized to the prime field. Its exact type,
-source correspondence, and type hash are inspected separately from proved
-exports. The projective-line deductions use this input and the official library;
-they are not included among the trusted assumptions. The conic geometry and
-transversality deductions are also proved internally. The plane-section
-estimate uses the same Weil input through the proved projective-line bound.
+Two external Lean premises are registered. The first is the simple-root
+univariate Weil estimate from [K, equation (1.2)]. The second is the general
+surface spectral interface in [Trusted/Katz.lean](QuaternaryQuadraticForms/Trusted/Katz.lean).
+That interface is explicitly composite: Katz's concentration, purity, and
+trace formula are combined with the general hypersurface geometry,
+adjunction, and degree formulas documented from Fulton and the standard
+Jacobian interpretation. It is registered against both `EXT.KATZ` and
+`EXT.HYPERSURFACE_CHERN`. Its conclusion supplies spectral data and an
+unevaluated general Chern coefficient for arbitrary hypersurface degree.
+
+The [source review](certification/correspondence/katz_input.md) records this
+boundary. The repository does not formalize schemes, Chern classes, or
+étale cohomology. It does prove the actual quadric's geometric hypotheses,
+the coefficient `2n²−4n+4`, and the triangle-inequality deduction. The
+projective-line and plane-section estimates use the separate Weil input.
+The geometric and arithmetic deductions are internal proofs.
 
 ## The projective-line estimate
 
@@ -162,6 +189,47 @@ the required parametrizations inside the proof.
 | [BinaryNonsingular](QuaternaryQuadraticForms/BinaryNonsingular.lean) | Distinct geometric projective zeros, including infinity, with no characteristic-degree restriction |
 | [PlaneSectionBound](QuaternaryQuadraticForms/PlaneSectionBound.lean), [PlaneSectionTheorem](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) | Transport of the literal character sum and complete Lemma 4.3 under the manuscript hypotheses |
 
+## The quadric Katz estimate
+
+Lemma 2.7 is proved for the actual projective trace:
+
+$$\left|\sum_{P\in\mathcal Q(\mathbf F_p)}\psi(G(P))\right|
+\le (2n^2-4n+4)p.$$
+
+The final theorem starts with the integral symmetric matrix, the condition
+`p ∤ 2 |det A|`, the homogeneous form `G` of degree `n ≥ 2`, and the actual
+rank-two gradient condition over the algebraic closure. The character is
+nonprincipal and satisfies `ψ ^ n = 1`. There is no assumption that the
+characteristic be prime to `n`.
+
+The formal gradient is proved to be `2 A x`, which gives geometric
+smoothness from nonsingularity of the reduced matrix. Geometric
+irreducibility is also proved: a factorization of the quadratic polynomial
+into affine-linear factors would force its gradient image into the span of
+two fixed vectors, contradicting nonsingularity in four dimensions. The
+transverse polynomial is proved nonzero using an actual nonzero quadric
+point and the rank-two condition.
+
+The general source input then supplies complex numbers of norm `p` whose
+sum is the actual projective trace. Its dimension is the unevaluated Chern
+coefficient. Integer polynomial arithmetic proves
+
+$$2[T^2]\big((1+2T+2T^2)(1-nT+n^2T^2)\big)=2n^2-4n+4,$$
+
+and the finite-sum triangle inequality gives the bound. The identification
+of the general hypersurface sum with the matrix-quadric trace is proved
+explicitly. These quadric deductions are not part of the trusted premise.
+
+| Module | Contribution |
+|---|---|
+| [QuadricSmooth](QuaternaryQuadraticForms/QuadricSmooth.lean) | Actual formal gradient, exact degree, and smoothness and irreducibility over every extension field |
+| [ProjectiveSurfaceTrace](QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean) | Actual projective hypersurface points and sum, identification with the quadric trace, and nonvanishing of the transverse polynomial |
+| [SurfaceChern](QuaternaryQuadraticForms/SurfaceChern.lean) | General coefficient algebra, the exact quadric coefficient, and the finite complex-sum norm bound |
+| [Trusted/Katz](QuaternaryQuadraticForms/Trusted/Katz.lean) | The separately registered composite literature interface for general hypersurfaces |
+| [KatzBound](QuaternaryQuadraticForms/KatzBound.lean) | Complete Lemma 2.7 from the manuscript's literal hypotheses |
+| [GoodReduction](QuaternaryQuadraticForms/GoodReduction.lean) | The exact bad-prime set and `N_G`, its prime-divisor characterization, and arithmetic finiteness from a nonzero elimination witness |
+| [QuadraticTraceBound](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | The bound `4p` and its combination with integrality and divisibility, including the explicit finiteness condition for the `N_G` wrappers |
+
 ## Checked finite-field branch
 
 The formalization uses four-coordinate vectors over `ZMod p`, the quadratic
@@ -199,7 +267,7 @@ remaining clause of Lemma 4.4 is the bound involving the exceptional polynomial
 [correspondence record](certification/correspondence/fourier_rays.md) separates
 the completed clauses from those obligations.
 
-## Quadratic-trace divisibility
+## Quadratic trace and good reduction
 
 For an odd prime and a quadratic homogeneous `G`, the checked branch proves
 
@@ -211,11 +279,20 @@ used in the Fourier identities. Euler's criterion and mathlib's polynomial-sum
 vanishing theorem show that the affine trace is zero modulo `p`. The checked
 identity `C_p(0) = (p-1)a_p(G)` then gives projective divisibility.
 
-This argument needs neither nonsingularity nor smoothness. Those hypotheses
-belong to the separate size estimate in Lemma 5.9, which is still pending.
+This divisibility argument needs neither nonsingularity nor smoothness.
+The new degree-two Katz specialization proves `|a_p(G)| ≤ 4p` for the actual
+integer trace under good reduction. The exact `N_G` bridge proves
+`p ∤ N_G` equivalent to `p ∤ N_F` and the literal geometric rank condition,
+once a proof that the bad-prime set is finite has been supplied.
+
+The remaining source obligation is to obtain that finiteness from the
+characteristic-zero rank condition. Lemma 4.1(i) does so by producing a
+nonzero integer `P_i(G)` divisible by every bad prime. The arithmetic
+consequences of such a witness are already proved: inclusion in its finite
+prime-divisor set and `N_G ≤ rad(N_F) * |P_i(G)|`. Constructing the witness
+from elimination remains pending, so Lemma 5.9 remains Partial.
 The [correspondence review](certification/correspondence/quadratic_trace.md)
-records the exact integer and complex statements and their specialization to
-the manuscript.
+records this distinction and the actual integer and complex statements.
 
 ## Reproduce the checks
 
@@ -252,7 +329,12 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.LinearAlgebra.Matrix.Dual \
       Mathlib.LinearAlgebra.Matrix.Rank \
       Mathlib.RingTheory.MvPolynomial.EulerIdentity \
-      Mathlib.Tactic.FieldSimp
+      Mathlib.Tactic.FieldSimp \
+      Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
+      Mathlib.Data.Nat.Factorization.Basic \
+      Mathlib.Algebra.Polynomial.Coeff \
+      Mathlib.Tactic.IntervalCases \
+      Mathlib.Tactic.NormNum
     python3 scripts/verify_certificate.py
 
 The verifier checks the frozen source, every inventory entry, the dependency
@@ -269,11 +351,13 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next target is the exact Katz literature interface and its geometric
-specialization in Lemma 2.7. The resulting global trace estimate is needed to
-complete the remaining size clause `|a_p(G)| ≤ 4p` in Lemma 5.9.
+The next target is the elimination witness in Lemma 4.1(i): from the
+characteristic-zero smoothness hypothesis, produce a nonzero integer value
+`P_i(G)` divisible by every bad prime. The existing arithmetic bridge then
+gives finiteness of the exact bad-prime set and supplies the final missing
+input to the literal `N_G` formulation of Lemma 5.9.
 
-The exceptional-polynomial construction in Lemma 4.1 and the pointwise Fourier
-bound in Lemma 4.4 remain separate proof obligations. Completing the
-plane-section estimate supplies one of their needed inputs; it does not
-certify the exceptional-plane construction or the remaining Fourier argument.
+The coefficient-height bound in Lemma 4.1(i), the exceptional-polynomial
+construction in Lemma 4.1(ii), and the exceptional-section count and Fourier
+assembly in Lemma 4.4 remain further obligations. The Katz bound, plane-section
+bound, and exact ray identity are available as proved inputs.

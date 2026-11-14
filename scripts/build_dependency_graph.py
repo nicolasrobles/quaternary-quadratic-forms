@@ -91,7 +91,7 @@ SECTION_NAMES = {
 EXTERNAL_GROUPS = {
  'HB':'Heath-Brown\nDelta symbol, integrals, Poisson',
  'MV':'Montgomery-Vaughan\nGauss, Ramanujan, L-series, primes',
- 'FINITE':'Weil and Katz\nFinite-field character sums',
+ 'FINITE':'Weil, Katz and Fulton\nFinite-field sums and surface geometry',
  'GEOMETRY':'Lang and Hartshorne\nElimination, Bertini, cyclotomic fields',
  'S':'Salberger\nComplete intersections and lines',
 }
@@ -146,7 +146,7 @@ def source_link(row):
 def group_of_external(key):
     if key.startswith('EXT.HB') or key == 'EXT.POISSON_R4': return 'HB'
     if key.startswith('EXT.MV'): return 'MV'
-    if key in ['EXT.WEIL','EXT.KATZ']: return 'FINITE'
+    if key in ['EXT.WEIL','EXT.KATZ','EXT.HYPERSURFACE_CHERN']: return 'FINITE'
     if key.startswith('EXT.LANG') or key.startswith('EXT.HARTSHORNE'): return 'GEOMETRY'
     if key.startswith('EXT.SALBERGER'): return 'S'
     return key
@@ -247,8 +247,11 @@ def write_numbered(data, edges, sources, via_aux):
     rows=data['results']; rowmap={r['label']:r for r in rows}
     reduced=transitive_reduction(rowmap,edges)
     status=status_summary(rows)
+    premise_count=data['registered_lean_input_count']
+    premise_word='premise' if premise_count==1 else 'premises'
     dot=header('NumberedResults','Dependency graph for the numbered results',
-        'Frozen v35 | '+status+'\nLiterature inputs trusted; Lean interfaces pending registration')
+        'Frozen v35 | '+status+'\nLiterature inputs trusted; '+
+        str(premise_count)+' Lean '+premise_word+' registered')
     source_groups=sorted({group_of_external(k) for k,_ in sources})
     dot.append('subgraph cluster_sources { label="Trusted reference inputs (assumed, not reproved)"; fontsize=15; color="#a59adc"; style="rounded"; rank=same;')
     for group in source_groups:
@@ -300,7 +303,7 @@ def write_overview(data, edges, sources):
     reduced=transitive_reduction(groupnodes,gedges)
     dot=header('Overview','Proof structure of the quadratic-forms paper',
                'Frozen v35 | '+status_summary(data['results'])+' | Source-relative Lean certification',True)
-    dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil and Katz; Montgomery-Vaughan;\nLang; Hartshorne; Salberger')+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
+    dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger')+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
     for group,title,subtitle,members in OVERVIEW_GROUPS:
         member_rows=[rowmap[x] for x in members]
         states={r.get('status','Pending') for r in member_rows}
@@ -350,6 +353,7 @@ def main():
     DOCS.mkdir(exist_ok=True)
     data=json.loads(SOURCE.read_text())
     live=json.loads(STATUS.read_text())
+    data['registered_lean_input_count']=len(live['accepted_lean_inputs'])
     for row in data['results']:
         row['status']=live['numbered_results'][row['label']]['status']
     for row in data['auxiliary_obligations']:

@@ -29,3 +29,10 @@ import QuaternaryQuadraticForms.GoodPrime
 import QuaternaryQuadraticForms.ConicParametrization
 import QuaternaryQuadraticForms.PlaneSectionBound
 import QuaternaryQuadraticForms.PlaneSectionTheorem
+import QuaternaryQuadraticForms.GoodReduction
+import QuaternaryQuadraticForms.QuadricSmooth
+import QuaternaryQuadraticForms.SurfaceChern
+import QuaternaryQuadraticForms.ProjectiveSurfaceTrace
+import QuaternaryQuadraticForms.Trusted.Katz
+import QuaternaryQuadraticForms.KatzBound
+import QuaternaryQuadraticForms.QuadraticTraceBound

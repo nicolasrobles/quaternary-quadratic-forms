@@ -211,6 +211,21 @@ def verify(metadata_only: bool) -> dict:
         require(entry["reference_id"] in refs["inputs"], "Unknown premise source: " + name)
         reference = refs["inputs"][entry["reference_id"]]
         require(name in reference["lean_declarations"], "Premise registered to wrong source")
+        components = entry.get("source_components", [entry["reference_id"]])
+        require(isinstance(components, list) and components and
+                len(components) == len(set(components)) and
+                entry["reference_id"] in components and
+                set(components) <= set(refs["inputs"]),
+                "Invalid premise source components: " + name)
+        require(components == reference.get("source_components", [entry["reference_id"]]),
+                "Composite premise source registries disagree: " + name)
+        for component in components:
+            component_record = refs["inputs"][component]
+            require(component_record.get("source_url") and component_record.get("locator"),
+                    "Premise component needs an exact source locator: " + component)
+            if component != entry["reference_id"]:
+                require(name in component_record.get("composite_declarations", []),
+                        "Premise component does not register the combined declaration: " + component)
         record = entry.get("correspondence_record")
         require(record == reference.get("correspondence_record") and
                 record and (ROOT / record).is_file(), "Missing premise correspondence review")
@@ -305,6 +320,7 @@ def verify(metadata_only: bool) -> dict:
         report["checked_external_inputs"].append({
             "declaration": name, "kind": "axiom", "actual_type": actual_type,
             "type_sha256": actual_hash, "reference_id": entry["reference_id"],
+            "source_components": entry.get("source_components", [entry["reference_id"]]),
             "axioms": found_map[name], "file": entry["file"],
             "source_sha256": digest(entry["file"]), "scope": entry["scope"],
         })

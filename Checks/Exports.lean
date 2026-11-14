@@ -165,13 +165,59 @@ run_cmd do
     `QuaternaryQuadraticForms.projectiveSectionTrace_eq_projectiveLine,
     `QuaternaryQuadraticForms.plane_section_bound_of_parametrization,
     `QuaternaryQuadraticForms.plane_section_bound_prime_field,
-    `QuaternaryQuadraticForms.plane_section_bound]
+    `QuaternaryQuadraticForms.plane_section_bound,
+    `QuaternaryQuadraticForms.rank_two_iff_linearIndependent,
+    `QuaternaryQuadraticForms.projectiveIntersectionTransverseRank_iff,
+    `QuaternaryQuadraticForms.mem_badReductionPrimes,
+    `QuaternaryQuadraticForms.prime_dvd_primeRadical_iff,
+    `QuaternaryQuadraticForms.primeRadical_pos,
+    `QuaternaryQuadraticForms.quadraticBadPrimeModulus_ne_zero,
+    `QuaternaryQuadraticForms.polynomialBadPrimeModulus_pos,
+    `QuaternaryQuadraticForms.prime_dvd_product_primes_iff,
+    `QuaternaryQuadraticForms.not_dvd_polynomialBadPrimeModulus_iff,
+    `QuaternaryQuadraticForms.badReductionPrimes_subset_primeFactors_of_common_divisor,
+    `QuaternaryQuadraticForms.badReductionPrimes_finite_of_common_divisor,
+    `QuaternaryQuadraticForms.badReductionPrimeProduct_dvd_common_divisor,
+    `QuaternaryQuadraticForms.polynomialBadPrimeModulus_le_of_common_divisor,
+    `QuaternaryQuadraticForms.eval_pderiv_matrixQuadraticPolynomial,
+    `QuaternaryQuadraticForms.polynomialGradient_matrixQuadraticPolynomial,
+    `QuaternaryQuadraticForms.matrixQuadratic_gradient_ne_zero,
+    `QuaternaryQuadraticForms.matrixQuadratic_projective_smooth,
+    `QuaternaryQuadraticForms.matrixQuadratic_projective_smooth_map,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_ne_zero,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree,
+    `QuaternaryQuadraticForms.eval_pderiv_eq_of_totalDegree_le_one,
+    `QuaternaryQuadraticForms.polynomialGradient_eq_of_totalDegree_le_one,
+    `QuaternaryQuadraticForms.matrixQuadratic_not_mul_affine,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible,
+    `QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible_map,
+    `QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_coeff,
+    `QuaternaryQuadraticForms.surfaceChernRelation_coefficients,
+    `QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_of_relation,
+    `QuaternaryQuadraticForms.quadricChernPolynomial_relation,
+    `QuaternaryQuadraticForms.quadric_surfaceSectionEulerCoefficient,
+    `QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_quadric_of_relation,
+    `QuaternaryQuadraticForms.norm_sum_le_card_mul,
+    `QuaternaryQuadraticForms.mem_projectiveHypersurfacePoints_mk,
+    `QuaternaryQuadraticForms.projectiveHypersurfacePoints_matrix,
+    `QuaternaryQuadraticForms.projectiveHypersurfaceTrace_matrix,
+    `QuaternaryQuadraticForms.transverse_polynomial_ne_zero,
+    `QuaternaryQuadraticForms.quadric_transverse_polynomial_ne_zero,
+    `QuaternaryQuadraticForms.katz_quadric_bound_prime_field,
+    `QuaternaryQuadraticForms.katz_quadric_bound,
+    `QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le,
+    `QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound,
+    `QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le,
+    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound,
+    `QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus,
+    `QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
     | _ => Lean.throwError "Expected a theorem declaration for {name}"
   let inputNames : List Lean.Name := [
-    `QuaternaryQuadraticForms.Trusted.weil_simple_roots]
+    `QuaternaryQuadraticForms.Trusted.weil_simple_roots,
+    `QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data]
   for name in inputNames do
     match environment.find? name with
     | some (.axiomInfo _) => pure ()
@@ -189,6 +235,9 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.Trusted.weil_simple_roots
 #print axioms QuaternaryQuadraticForms.Trusted.weil_simple_roots
+
+#check @QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data
+#print axioms QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data
 
 #check @QuaternaryQuadraticForms.weighted_ray_sum
 #print axioms QuaternaryQuadraticForms.weighted_ray_sum
@@ -675,3 +724,138 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.plane_section_bound
 #print axioms QuaternaryQuadraticForms.plane_section_bound
+
+#check @QuaternaryQuadraticForms.rank_two_iff_linearIndependent
+#print axioms QuaternaryQuadraticForms.rank_two_iff_linearIndependent
+
+#check @QuaternaryQuadraticForms.projectiveIntersectionTransverseRank_iff
+#print axioms QuaternaryQuadraticForms.projectiveIntersectionTransverseRank_iff
+
+#check @QuaternaryQuadraticForms.mem_badReductionPrimes
+#print axioms QuaternaryQuadraticForms.mem_badReductionPrimes
+
+#check @QuaternaryQuadraticForms.prime_dvd_primeRadical_iff
+#print axioms QuaternaryQuadraticForms.prime_dvd_primeRadical_iff
+
+#check @QuaternaryQuadraticForms.primeRadical_pos
+#print axioms QuaternaryQuadraticForms.primeRadical_pos
+
+#check @QuaternaryQuadraticForms.quadraticBadPrimeModulus_ne_zero
+#print axioms QuaternaryQuadraticForms.quadraticBadPrimeModulus_ne_zero
+
+#check @QuaternaryQuadraticForms.polynomialBadPrimeModulus_pos
+#print axioms QuaternaryQuadraticForms.polynomialBadPrimeModulus_pos
+
+#check @QuaternaryQuadraticForms.prime_dvd_product_primes_iff
+#print axioms QuaternaryQuadraticForms.prime_dvd_product_primes_iff
+
+#check @QuaternaryQuadraticForms.not_dvd_polynomialBadPrimeModulus_iff
+#print axioms QuaternaryQuadraticForms.not_dvd_polynomialBadPrimeModulus_iff
+
+#check @QuaternaryQuadraticForms.badReductionPrimes_subset_primeFactors_of_common_divisor
+#print axioms QuaternaryQuadraticForms.badReductionPrimes_subset_primeFactors_of_common_divisor
+
+#check @QuaternaryQuadraticForms.badReductionPrimes_finite_of_common_divisor
+#print axioms QuaternaryQuadraticForms.badReductionPrimes_finite_of_common_divisor
+
+#check @QuaternaryQuadraticForms.badReductionPrimeProduct_dvd_common_divisor
+#print axioms QuaternaryQuadraticForms.badReductionPrimeProduct_dvd_common_divisor
+
+#check @QuaternaryQuadraticForms.polynomialBadPrimeModulus_le_of_common_divisor
+#print axioms QuaternaryQuadraticForms.polynomialBadPrimeModulus_le_of_common_divisor
+
+#check @QuaternaryQuadraticForms.eval_pderiv_matrixQuadraticPolynomial
+#print axioms QuaternaryQuadraticForms.eval_pderiv_matrixQuadraticPolynomial
+
+#check @QuaternaryQuadraticForms.polynomialGradient_matrixQuadraticPolynomial
+#print axioms QuaternaryQuadraticForms.polynomialGradient_matrixQuadraticPolynomial
+
+#check @QuaternaryQuadraticForms.matrixQuadratic_gradient_ne_zero
+#print axioms QuaternaryQuadraticForms.matrixQuadratic_gradient_ne_zero
+
+#check @QuaternaryQuadraticForms.matrixQuadratic_projective_smooth
+#print axioms QuaternaryQuadraticForms.matrixQuadratic_projective_smooth
+
+#check @QuaternaryQuadraticForms.matrixQuadratic_projective_smooth_map
+#print axioms QuaternaryQuadraticForms.matrixQuadratic_projective_smooth_map
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_ne_zero
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_ne_zero
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree
+
+#check @QuaternaryQuadraticForms.eval_pderiv_eq_of_totalDegree_le_one
+#print axioms QuaternaryQuadraticForms.eval_pderiv_eq_of_totalDegree_le_one
+
+#check @QuaternaryQuadraticForms.polynomialGradient_eq_of_totalDegree_le_one
+#print axioms QuaternaryQuadraticForms.polynomialGradient_eq_of_totalDegree_le_one
+
+#check @QuaternaryQuadraticForms.matrixQuadratic_not_mul_affine
+#print axioms QuaternaryQuadraticForms.matrixQuadratic_not_mul_affine
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible
+
+#check @QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible_map
+#print axioms QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible_map
+
+#check @QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_coeff
+#print axioms QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_coeff
+
+#check @QuaternaryQuadraticForms.surfaceChernRelation_coefficients
+#print axioms QuaternaryQuadraticForms.surfaceChernRelation_coefficients
+
+#check @QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_of_relation
+#print axioms QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_of_relation
+
+#check @QuaternaryQuadraticForms.quadricChernPolynomial_relation
+#print axioms QuaternaryQuadraticForms.quadricChernPolynomial_relation
+
+#check @QuaternaryQuadraticForms.quadric_surfaceSectionEulerCoefficient
+#print axioms QuaternaryQuadraticForms.quadric_surfaceSectionEulerCoefficient
+
+#check @QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_quadric_of_relation
+#print axioms QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_quadric_of_relation
+
+#check @QuaternaryQuadraticForms.norm_sum_le_card_mul
+#print axioms QuaternaryQuadraticForms.norm_sum_le_card_mul
+
+#check @QuaternaryQuadraticForms.mem_projectiveHypersurfacePoints_mk
+#print axioms QuaternaryQuadraticForms.mem_projectiveHypersurfacePoints_mk
+
+#check @QuaternaryQuadraticForms.projectiveHypersurfacePoints_matrix
+#print axioms QuaternaryQuadraticForms.projectiveHypersurfacePoints_matrix
+
+#check @QuaternaryQuadraticForms.projectiveHypersurfaceTrace_matrix
+#print axioms QuaternaryQuadraticForms.projectiveHypersurfaceTrace_matrix
+
+#check @QuaternaryQuadraticForms.transverse_polynomial_ne_zero
+#print axioms QuaternaryQuadraticForms.transverse_polynomial_ne_zero
+
+#check @QuaternaryQuadraticForms.quadric_transverse_polynomial_ne_zero
+#print axioms QuaternaryQuadraticForms.quadric_transverse_polynomial_ne_zero
+
+#check @QuaternaryQuadraticForms.katz_quadric_bound_prime_field
+#print axioms QuaternaryQuadraticForms.katz_quadric_bound_prime_field
+
+#check @QuaternaryQuadraticForms.katz_quadric_bound
+#print axioms QuaternaryQuadraticForms.katz_quadric_bound
+
+#check @QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le
+#print axioms QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le
+
+#check @QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound
+#print axioms QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound
+
+#check @QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le
+#print axioms QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le
+
+#check @QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound
+#print axioms QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound
+
+#check @QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus
+#print axioms QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus
+
+#check @QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus
+#print axioms QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus

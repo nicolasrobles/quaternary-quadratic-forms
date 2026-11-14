@@ -1,14 +1,14 @@
 digraph Overview {
 graph [rankdir=TB, newrank=true, compound=true, outputorder=edgesfirst,
   bgcolor="white", fontname="DejaVu Serif", fontsize=23, labelloc=t,
-  label="Proof structure of the quadratic-forms paper\nFrozen v35 | 4 certified; 2 partial; 36 pending | Source-relative Lean certification",
+  label="Proof structure of the quadratic-forms paper\nFrozen v35 | 5 certified; 2 partial; 35 pending | Source-relative Lean certification",
   nodesep=0.30, ranksep=0.58, pad=0.28, splines=polyline];
 node [shape=box, style="rounded,filled", fillcolor="#fff4dc", color="#b88023",
   fontname="DejaVu Serif", fontsize=14, penwidth=1.15, margin="0.12,0.09"];
 edge [color="#4b5563", arrowsize=0.70, penwidth=1.05];
-sources [label="Trusted reference inputs\nHeath-Brown; Weil and Katz; Montgomery-Vaughan;\nLang; Hartshorne; Salberger", fillcolor="#eeeafd", color="#7762b4", fontsize=14];
+sources [label="Trusted reference inputs\nHeath-Brown; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger", fillcolor="#eeeafd", color="#7762b4", fontsize=14];
 "prelim" [label=<<B>Preliminary tools</B><BR/>Lemmas 2.1-2.4<BR/><FONT POINT-SIZE="12" COLOR="#b88023">4 pending</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
-"finite" [label=<<B>Finite-field estimates</B><BR/>Lemmas 2.5, 2.7; Corollary 2.6<BR/><FONT POINT-SIZE="12" COLOR="#b88023">2 certified; 1 pending</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
+"finite" [label=<<B>Finite-field estimates</B><BR/>Lemmas 2.5, 2.7; Corollary 2.6<BR/><FONT POINT-SIZE="12" COLOR="#408342">3 certified</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
 "local" [label=<<B>Local arithmetic</B><BR/>Lemmas 3.1-3.11<BR/><FONT POINT-SIZE="12" COLOR="#b88023">11 pending</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
 "fourier" [label=<<B>Geometric Fourier bounds</B><BR/>Lemmas 4.1-4.6<BR/><FONT POINT-SIZE="12" COLOR="#3676aa">2 certified; 1 partial; 3 pending</FONT>>, fillcolor="#e4f1ff", color="#3676aa", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];
 "analytic" [label=<<B>Analytic assembly</B><BR/>Proposition 5.1; Lemmas 5.1-5.5<BR/><FONT POINT-SIZE="12" COLOR="#b88023">6 pending</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md", target="_blank"];

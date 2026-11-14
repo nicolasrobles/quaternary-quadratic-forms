@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Uniform conic parametrization and the transverse plane-section bound",
+  "checkpoint": "Katz quadric bound and the quadratic trace size estimate",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -55,8 +55,12 @@
       "scope_note": "Complete bound for the actual projective-line sum. The charts, dehomogenization, degree drop, distinct-root condition, and contribution at infinity are proved; only EXT.WEIL is an external premise."
     },
     "lem:katz": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.katz_quadric_bound"
+      ],
+      "correspondence_record": "certification/correspondence/katz_quadric.md",
+      "scope_note": "Complete Lemma 2.7 for the actual projective trace under the literal geometric rank-two condition. Quadric smoothness, geometric polynomial irreducibility, nonvanishing, the exact Chern coefficient, and the scalar norm estimate are proved internally. The registered composite input combines Katz spectral data with the separately attributed general hypersurface geometry, adjunction, and degree formulas."
     },
     "lem:crt": {
       "status": "Pending",
@@ -140,7 +144,7 @@
       "remaining_clauses": [
         "The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases."
       ],
-      "scope_note": "Lemma 4.3 is now available as a proved input. The global trace estimate from Lemma 2.7, the exceptional polynomial from Lemma 4.1, and the remaining exceptional-frequency counting and assembly steps are still pending. None has been imported as a replacement axiom."
+      "scope_note": "Lemmas 2.7 and 4.3 now supply the global and transverse plane-section trace bounds. The exceptional polynomial from Lemma 4.1, the remaining exceptional-frequency counting, and the assembly of the full bound are still pending. None has been imported as a replacement axiom."
     },
     "lem:diagbad": {
       "status": "Pending",
@@ -192,17 +196,25 @@
         "QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd",
         "QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd",
         "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd",
-        "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd"
+        "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd",
+        "QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le",
+        "QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound",
+        "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le",
+        "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound",
+        "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus",
+        "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus"
       ],
       "correspondence_record": "certification/correspondence/quadratic_trace.md",
       "completed_clauses": [
         "The projective quadratic-character trace a_p(G) is an integer, identified explicitly with the existing complex-valued trace.",
-        "The odd prime p divides that actual integer trace, for both finite-field forms and reductions of the manuscript's integral coefficients."
+        "The odd prime p divides that actual integer trace, for both finite-field forms and reductions of the manuscript's integral coefficients.",
+        "The bound |a_p(G)| ≤ 4p under the literal geometric good-reduction hypothesis, by the proved degree-two Katz specialization.",
+        "The combined integrality, divisibility, and size conclusions under p not dividing the literal N_G, with finiteness of its actual bad-prime set still explicit."
       ],
       "remaining_clauses": [
-        "The bound |a_p(G)| ≤ 4p, requiring the n=2 specialization of Lemma 2.7 and its geometric hypotheses."
+        "Derive finiteness of the actual bad-reduction prime set from the manuscript's characteristic-zero smoothness hypothesis, via the elimination deduction in Lemma 4.1(i), and discharge that explicit argument in the N_G wrapper."
       ],
-      "scope_note": "The checked divisibility statement only needs an odd prime and a homogeneous quadratic G. Nonsingularity and smoothness are not assumed for this clause. The pending size bound and Lemma 2.7 have not been imported as replacement axioms."
+      "scope_note": "The divisibility proof needs only an odd prime and a homogeneous quadratic G. The size bound now follows from the completed Lemma 2.7. The exact N_G arithmetic is proved, but its finite-set argument has not yet been derived from characteristic-zero smoothness. That internal finiteness deduction is not a trusted input; Lemma 5.9 remains Partial."
     },
     "lem:lowerbeta": {
       "status": "Pending",
@@ -2716,6 +2728,672 @@
         "Quot.sound",
         "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rank_two_iff_linearIndependent",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The rank-two condition is exactly independence of the two actual rows.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveIntersectionTransverseRank_iff",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The literal geometric rank condition is equivalent to independence of the evaluated gradient vectors at every nonzero common zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_badReductionPrimes",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "For a prime, membership in the bad-prime set is exactly bad reduction away from the quadratic bad-prime modulus.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.prime_dvd_primeRadical_iff",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "A prime divides the radical of a nonzero natural number exactly when it divides that number.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeRadical_pos",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The radical product is positive, including at zero under the library's empty prime-factor convention. The manuscript uses it only for nonzero `N_F`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticBadPrimeModulus_ne_zero",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "A nonsingular integral matrix has a nonzero quadratic bad-prime modulus.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBadPrimeModulus_pos",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The actual finite bad-prime product is a positive integer.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.prime_dvd_product_primes_iff",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "A prime divides a finite product of distinct primes exactly when it is one of its factors.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.not_dvd_polynomialBadPrimeModulus_iff",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "Excluding the actual `N_G` is equivalent to excluding `N_F` and having the literal geometric good-reduction property. Finiteness is an explicit proved-data argument, not a replacement premise for its elimination proof.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.badReductionPrimes_subset_primeFactors_of_common_divisor",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "A nonzero integer divisible by every bad prime contains the exact bad-prime set among its prime divisors.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.badReductionPrimes_finite_of_common_divisor",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The arithmetic finiteness deduction used after elimination supplies a single nonzero integer divisible by every bad prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.badReductionPrimeProduct_dvd_common_divisor",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The product of the actual bad primes divides any nonzero integer that is divisible by each of them.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBadPrimeModulus_le_of_common_divisor",
+      "file": "QuaternaryQuadraticForms/GoodReduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "The resulting modulus bound before the elimination value is bounded in terms of the coefficient height.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_pderiv_matrixQuadraticPolynomial",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A formal partial derivative of the matrix quadratic polynomial evaluates to the sum of the corresponding row and column pairings.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialGradient_matrixQuadraticPolynomial",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "For a symmetric matrix, the actual formal gradient is twice `A x`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadratic_gradient_ne_zero",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A nonsingular symmetric quadratic matrix in odd characteristic has no nonzero vector at which all formal partial derivatives vanish.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadratic_projective_smooth",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The nonsingular matrix implies the literal projective Jacobian condition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadratic_projective_smooth_map",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A nonsingular symmetric matrix remains so after extending its field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_ne_zero",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The actual quadric polynomial is nonzero under the nonsingularity and odd-characteristic hypotheses.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The nonsingular matrix polynomial has the exact degree two.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eval_pderiv_eq_of_totalDegree_le_one",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "Every formal derivative of an affine-linear polynomial is constant as a function of its evaluation point.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialGradient_eq_of_totalDegree_le_one",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The actual gradient of an affine-linear polynomial is the same at every point, including the origin.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadratic_not_mul_affine",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A nonsingular quaternary quadratic polynomial cannot be a product of two affine-linear polynomials. Their two constant gradients cannot span the gradient image of a nonsingular four-dimensional quadratic form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A nonsingular quaternary quadratic form in odd characteristic is an irreducible polynomial over its coefficient field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible_map",
+      "file": "QuaternaryQuadraticForms/QuadricSmooth.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "Irreducibility persists over every field extension, so the projective quadric is geometrically irreducible in its polynomial presentation.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_coeff",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "Only the first three coefficients of the Chern polynomial enter the surface section coefficient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceChernRelation_coefficients",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "Adjunction determines the constant, linear, and quadratic coefficients without imposing any condition on the higher coefficients.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_of_relation",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The surface coefficient obtained from the general adjunction relation.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadricChernPolynomial_relation",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The explicit quadric polynomial satisfies the adjunction relation.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadric_surfaceSectionEulerCoefficient",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The manuscript's exact quadric coefficient, with no asymptotic estimate.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_quadric_of_relation",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The same quadric coefficient follows from any polynomial satisfying the degree-two adjunction relation.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.norm_sum_le_card_mul",
+      "file": "QuaternaryQuadraticForms/SurfaceChern.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A finite sum of complex numbers bounded by p has norm at most r p.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_projectiveHypersurfacePoints_mk",
+      "file": "QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The homogeneous equation descends to the actual projective quotient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveHypersurfacePoints_matrix",
+      "file": "QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The general projective hypersurface set agrees with the literal matrix quadric set when its defining polynomial is the matrix polynomial.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveHypersurfaceTrace_matrix",
+      "file": "QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The general literature sum is exactly the manuscript's projective trace.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.transverse_polynomial_ne_zero",
+      "file": "QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "A rank-two transverse polynomial cannot vanish identically if the first equation has a nonzero geometric zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadric_transverse_polynomial_ne_zero",
+      "file": "QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz"
+      ],
+      "scope": "The literal nonzero zero of a prime-field quadric supplies the geometric point needed to exclude the zero transverse polynomial.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.katz_quadric_bound_prime_field",
+      "file": "QuaternaryQuadraticForms/KatzBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "Lemma 2.7 over the prime field, with all geometric hypotheses supplied by the actual matrix and the manuscript's rank-two condition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.katz_quadric_bound",
+      "file": "QuaternaryQuadraticForms/KatzBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:katz",
+        "lem:divisible"
+      ],
+      "scope": "Complete Lemma 2.7 for the actual projective trace, with the integral good-prime condition and the geometric rank-two hypothesis. Every quadric-specific condition of the registered general spectral input and the exact constant are proved internally.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le",
+      "file": "QuaternaryQuadraticForms/QuadraticTraceBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The degree-two Katz bound for the actual integer-valued projective trace.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound",
+      "file": "QuaternaryQuadraticForms/QuadraticTraceBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "Integrality, divisibility, and the size bound for the actual complex quadratic trace over the prime field.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le",
+      "file": "QuaternaryQuadraticForms/QuadraticTraceBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The integer trace bound for integral coefficients and the actual geometric good-reduction condition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound",
+      "file": "QuaternaryQuadraticForms/QuadraticTraceBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The three quadratic-trace conclusions with integral input coefficients and explicit good reduction, tied to the existing complex trace.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus",
+      "file": "QuaternaryQuadraticForms/QuadraticTraceBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The literal `N_G` condition gives divisibility and the size bound for the actual integer trace once the finite bad-prime set has been proved.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus",
+      "file": "QuaternaryQuadraticForms/QuadraticTraceBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:divisible"
+      ],
+      "scope": "The full integrality, divisibility, and size conclusions for the actual complex trace under the literal N_G condition, conditional on the explicitly supplied finiteness proof. This is not full Lemma 5.9 until the characteristic-zero elimination bridge is proved.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound",
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ]
     }
   ],
   "accepted_lean_inputs": [
@@ -2728,6 +3406,20 @@
       "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
       "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ),\n  ψ ≠ 1 →\n    ∀ (f : Polynomial (ZMod p)),\n      0 < f.natDegree →\n        Fintype.card ↑(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree →\n          ‖∑ z, ψ (Polynomial.eval z f)‖ ≤ (↑f.natDegree - 1) * √↑p",
       "type_sha256": "b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data",
+      "kind": "axiom",
+      "reference_id": "EXT.KATZ",
+      "source_components": [
+        "EXT.KATZ",
+        "EXT.HYPERSURFACE_CHERN"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/Katz.lean",
+      "correspondence_record": "certification/correspondence/katz_input.md",
+      "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
+      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : ℕ),\n  0 < m →\n    0 < n →\n      F.IsHomogeneous m →\n        F ≠ 0 →\n          G.IsHomogeneous n →\n            G ≠ 0 →\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) →\n                    ∀ (ψ : MulChar (ZMod p) ℂ),\n                      ψ ≠ 1 →\n                        ψ ^ n = 1 →\n                          ∀ (c : Polynomial ℤ),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c →\n                              ∃ r eigenvalues,\n                                ↑r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c ∧\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F ψ G = ∑ i, eigenvalues i ∧\n                                    ∀ (i : Fin r), ‖eigenvalues i‖ = ↑p",
+      "type_sha256": "0841ce91d4525dc10d64c991df75e176c85f1b67c77823926abf82cbf4d6a722"
     }
   ],
   "whole_paper_certified": false,

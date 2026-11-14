@@ -2,9 +2,9 @@
 
 Frozen manuscript: v35, renamed without content changes for this repository.
 
-**4 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 36 are pending.
+**5 of 42 numbered results are certified.** 2 are partial, 0 are active numbered targets, and 35 are pending.
 
-The current checkpoint proves the complete conic parametrization in Lemma 4.2 and the transverse plane-section bound in Lemma 4.3. One tuple of actual binary quadratic forms works over every extension field; the projective bijection, independent derivatives, transversality deduction, and distinct geometric roots are proved. Lemma 2.5 remains certified relative to its exact cited Weil input, and the complete projective-line Corollary 2.6 remains proved. No further external premise has been added. The earlier integrality and divisibility clauses of Lemma 5.9 remain checked; its size bound remains pending. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas remain Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not 33 additional numbered results.
+The current checkpoint proves the complete quadric character-sum bound in Lemma 2.7. The quadric's actual geometric smoothness and irreducibility are proved from the matrix hypotheses. A general spectral input combines Katz's theorem with explicitly registered general hypersurface geometry, adjunction, and degree formulas; the quadric coefficient and scalar norm bound are proved deductions. The earlier Lemma 2.5, Corollary 2.6, and Lemmas 4.2–4.3 remain certified. The degree-two size bound in Lemma 5.9 is now checked under actual geometric good reduction, alongside its integrality and divisibility. Its literal N_G wrappers still require a proof that the exact bad-prime set is finite, so the numbered lemma remains Partial. The weight properties, ray identity (4.5), and zero-frequency clause of Lemma 4.4 remain checked; that lemma's pointwise estimate remains pending. Both numbered lemmas remain Partial. The 33 auxiliary and supplementary groups are tracked separately; these are groups of assertions, not additional numbered results.
 
 [Manuscript source](manuscript/quadratic_character_sums_github.tex) · [PDF](manuscript/quadratic_character_sums_github.pdf) · [Dependency graphs](DEPENDENCIES.md) · [Trusted inputs](TRUSTED_INPUTS.md) · [Live proof ledger](certification/status.json)
 
@@ -37,7 +37,7 @@ A successful build does not change these statuses. Imported literature theorems 
 | [Lemma 2.4](manuscript/quadratic_character_sums_github.tex#L832-L843) | Coefficient-uniform simultaneous polynomial-congruence count for squarefree moduli, exact constant C_(n,E) | Pending | Pending |
 | [Lemma 2.5](manuscript/quadratic_character_sums_github.tex#L908-L915) | Weil bound (m-1) sqrt(p) for a nonprincipal character and a degree-m polynomial with simple geometric roots | Certified | [`QuaternaryQuadraticForms.weil_bound`](QuaternaryQuadraticForms/WeilBound.lean) |
 | [Corollary 2.6](manuscript/quadratic_character_sums_github.tex#L926-L933) | Projective-line character-sum bound (n-1) sqrt(p)+1 | Certified | [`QuaternaryQuadraticForms.projective_weil_bound`](QuaternaryQuadraticForms/ProjectiveWeil.lean) |
-| [Lemma 2.7](manuscript/quadratic_character_sums_github.tex#L951-L964) | Quadric character-sum bound (2n^2-4n+4)p under smooth branch divisor | Pending | Pending |
+| [Lemma 2.7](manuscript/quadratic_character_sums_github.tex#L951-L964) | Quadric character-sum bound (2n^2-4n+4)p under smooth branch divisor | Certified | [`QuaternaryQuadraticForms.katz_quadric_bound`](QuaternaryQuadraticForms/KatzBound.lean) |
 
 ## Section 3
 
@@ -79,7 +79,7 @@ A successful build does not change these statuses. Imported literature theorems 
 | [Lemma 5.6](manuscript/quadratic_character_sums_github.tex#L2429-L2453) | Uniform general character-sum asymptotic and explicit local factors | Pending | Pending |
 | [Corollary 5.7](manuscript/quadratic_character_sums_github.tex#L2543-L2552) | Centered quadratic-character product has no main term | Pending | Pending |
 | [Lemma 5.8](manuscript/quadratic_character_sums_github.tex#L2582-L2591) | Square and power sieve with coefficient height retained | Pending | Pending |
-| [Lemma 5.9](manuscript/quadratic_character_sums_github.tex#L2686-L2690) | Quadratic local trace is integral, divisible by p, and bounded by4p | Partial | [`QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean) |
+| [Lemma 5.9](manuscript/quadratic_character_sums_github.tex#L2686-L2690) | Quadratic local trace is integral, divisible by p, and bounded by4p | Partial | [`QuaternaryQuadraticForms.projectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_dvd`](QuaternaryQuadraticForms/QuadraticTrace.lean); [`QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le`](QuaternaryQuadraticForms/QuadraticTraceBound.lean); [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound`](QuaternaryQuadraticForms/QuadraticTraceBound.lean); [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le`](QuaternaryQuadraticForms/QuadraticTraceBound.lean); [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound`](QuaternaryQuadraticForms/QuadraticTraceBound.lean); [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus`](QuaternaryQuadraticForms/QuadraticTraceBound.lean); [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) |
 | [Lemma 5.10](manuscript/quadratic_character_sums_github.tex#L2710-L2722) | Lower bounds for nonzero local factors using integrality and cyclotomic norms | Pending | Pending |
 | [Corollary 5.11](manuscript/quadratic_character_sums_github.tex#L2753-L2768) | Relative asymptotics in quadratic/general/cyclic cases | Pending | Pending |
 
@@ -102,6 +102,12 @@ All clauses match the exact registered cited input EXT.WEIL. This is source-rela
 [Statement correspondence review](certification/correspondence/projective_weil.md)
 
 Complete bound for the actual projective-line sum. The charts, dehomogenization, degree drop, distinct-root condition, and contribution at infinity are proved; only EXT.WEIL is an external premise.
+
+### Lemma 2.7
+
+[Statement correspondence review](certification/correspondence/katz_quadric.md)
+
+Complete Lemma 2.7 for the actual projective trace under the literal geometric rank-two condition. Quadric smoothness, geometric polynomial irreducibility, nonvanishing, the exact Chern coefficient, and the scalar norm estimate are proved internally. The registered composite input combines Katz spectral data with the separately attributed general hypersurface geometry, adjunction, and degree formulas.
 
 ### Lemma 4.2
 
@@ -131,7 +137,7 @@ Remaining clauses:
 
 - The coefficient-uniform pointwise estimate in (4.4), including the exceptional polynomial D_p and all generic and exceptional frequency cases.
 
-Lemma 4.3 is now available as a proved input. The global trace estimate from Lemma 2.7, the exceptional polynomial from Lemma 4.1, and the remaining exceptional-frequency counting and assembly steps are still pending. None has been imported as a replacement axiom.
+Lemmas 2.7 and 4.3 now supply the global and transverse plane-section trace bounds. The exceptional polynomial from Lemma 4.1, the remaining exceptional-frequency counting, and the assembly of the full bound are still pending. None has been imported as a replacement axiom.
 
 ### Lemma 5.9
 
@@ -141,12 +147,14 @@ Checked clauses:
 
 - The projective quadratic-character trace a_p(G) is an integer, identified explicitly with the existing complex-valued trace.
 - The odd prime p divides that actual integer trace, for both finite-field forms and reductions of the manuscript's integral coefficients.
+- The bound |a_p(G)| ≤ 4p under the literal geometric good-reduction hypothesis, by the proved degree-two Katz specialization.
+- The combined integrality, divisibility, and size conclusions under p not dividing the literal N_G, with finiteness of its actual bad-prime set still explicit.
 
 Remaining clauses:
 
-- The bound |a_p(G)| ≤ 4p, requiring the n=2 specialization of Lemma 2.7 and its geometric hypotheses.
+- Derive finiteness of the actual bad-reduction prime set from the manuscript's characteristic-zero smoothness hypothesis, via the elimination deduction in Lemma 4.1(i), and discharge that explicit argument in the N_G wrapper.
 
-The checked divisibility statement only needs an odd prime and a homogeneous quadratic G. Nonsingularity and smoothness are not assumed for this clause. The pending size bound and Lemma 2.7 have not been imported as replacement axioms.
+The divisibility proof needs only an odd prime and a homogeneous quadratic G. The size bound now follows from the completed Lemma 2.7. The exact N_G arithmetic is proved, but its finite-set argument has not yet been derived from characteristic-zero smoothness. That internal finiteness deduction is not a trusted input; Lemma 5.9 remains Partial.
 
 ## Checked exports and supporting declarations
 
@@ -314,8 +322,53 @@ The checked divisibility statement only needs an odd prime and a homogeneous qua
 | [`QuaternaryQuadraticForms.plane_section_bound_of_parametrization`](QuaternaryQuadraticForms/PlaneSectionBound.lean) | Lemma 4.3 after the conic parametrizations have been constructed over the prime field and its algebraic closure. All simple-root conditions are deductions. | Checked locally |
 | [`QuaternaryQuadraticForms.plane_section_bound_prime_field`](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) | Lemma 4.3 over the prime field, with the actual geometric matrix-rank condition and with the required parametrizations constructed in the proof. | Checked locally |
 | [`QuaternaryQuadraticForms.plane_section_bound`](QuaternaryQuadraticForms/PlaneSectionTheorem.lean) | Complete Lemma 4.3 for the literal projective section trace, using the integral good-prime condition and the actual geometric rank-three transversality hypothesis. | Checked locally |
+| [`QuaternaryQuadraticForms.rank_two_iff_linearIndependent`](QuaternaryQuadraticForms/GoodReduction.lean) | The rank-two condition is exactly independence of the two actual rows. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveIntersectionTransverseRank_iff`](QuaternaryQuadraticForms/GoodReduction.lean) | The literal geometric rank condition is equivalent to independence of the evaluated gradient vectors at every nonzero common zero. | Checked locally |
+| [`QuaternaryQuadraticForms.mem_badReductionPrimes`](QuaternaryQuadraticForms/GoodReduction.lean) | For a prime, membership in the bad-prime set is exactly bad reduction away from the quadratic bad-prime modulus. | Checked locally |
+| [`QuaternaryQuadraticForms.prime_dvd_primeRadical_iff`](QuaternaryQuadraticForms/GoodReduction.lean) | A prime divides the radical of a nonzero natural number exactly when it divides that number. | Checked locally |
+| [`QuaternaryQuadraticForms.primeRadical_pos`](QuaternaryQuadraticForms/GoodReduction.lean) | The radical product is positive, including at zero under the library's empty prime-factor convention. The manuscript uses it only for nonzero `N_F`. | Checked locally |
+| [`QuaternaryQuadraticForms.quadraticBadPrimeModulus_ne_zero`](QuaternaryQuadraticForms/GoodReduction.lean) | A nonsingular integral matrix has a nonzero quadratic bad-prime modulus. | Checked locally |
+| [`QuaternaryQuadraticForms.polynomialBadPrimeModulus_pos`](QuaternaryQuadraticForms/GoodReduction.lean) | The actual finite bad-prime product is a positive integer. | Checked locally |
+| [`QuaternaryQuadraticForms.prime_dvd_product_primes_iff`](QuaternaryQuadraticForms/GoodReduction.lean) | A prime divides a finite product of distinct primes exactly when it is one of its factors. | Checked locally |
+| [`QuaternaryQuadraticForms.not_dvd_polynomialBadPrimeModulus_iff`](QuaternaryQuadraticForms/GoodReduction.lean) | Excluding the actual `N_G` is equivalent to excluding `N_F` and having the literal geometric good-reduction property. Finiteness is an explicit proved-data argument, not a replacement premise for its elimination proof. | Checked locally |
+| [`QuaternaryQuadraticForms.badReductionPrimes_subset_primeFactors_of_common_divisor`](QuaternaryQuadraticForms/GoodReduction.lean) | A nonzero integer divisible by every bad prime contains the exact bad-prime set among its prime divisors. | Checked locally |
+| [`QuaternaryQuadraticForms.badReductionPrimes_finite_of_common_divisor`](QuaternaryQuadraticForms/GoodReduction.lean) | The arithmetic finiteness deduction used after elimination supplies a single nonzero integer divisible by every bad prime. | Checked locally |
+| [`QuaternaryQuadraticForms.badReductionPrimeProduct_dvd_common_divisor`](QuaternaryQuadraticForms/GoodReduction.lean) | The product of the actual bad primes divides any nonzero integer that is divisible by each of them. | Checked locally |
+| [`QuaternaryQuadraticForms.polynomialBadPrimeModulus_le_of_common_divisor`](QuaternaryQuadraticForms/GoodReduction.lean) | The resulting modulus bound before the elimination value is bounded in terms of the coefficient height. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_pderiv_matrixQuadraticPolynomial`](QuaternaryQuadraticForms/QuadricSmooth.lean) | A formal partial derivative of the matrix quadratic polynomial evaluates to the sum of the corresponding row and column pairings. | Checked locally |
+| [`QuaternaryQuadraticForms.polynomialGradient_matrixQuadraticPolynomial`](QuaternaryQuadraticForms/QuadricSmooth.lean) | For a symmetric matrix, the actual formal gradient is twice `A x`. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadratic_gradient_ne_zero`](QuaternaryQuadraticForms/QuadricSmooth.lean) | A nonsingular symmetric quadratic matrix in odd characteristic has no nonzero vector at which all formal partial derivatives vanish. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadratic_projective_smooth`](QuaternaryQuadraticForms/QuadricSmooth.lean) | The nonsingular matrix implies the literal projective Jacobian condition. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadratic_projective_smooth_map`](QuaternaryQuadraticForms/QuadricSmooth.lean) | A nonsingular symmetric matrix remains so after extending its field. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_ne_zero`](QuaternaryQuadraticForms/QuadricSmooth.lean) | The actual quadric polynomial is nonzero under the nonsingularity and odd-characteristic hypotheses. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_totalDegree`](QuaternaryQuadraticForms/QuadricSmooth.lean) | The nonsingular matrix polynomial has the exact degree two. | Checked locally |
+| [`QuaternaryQuadraticForms.eval_pderiv_eq_of_totalDegree_le_one`](QuaternaryQuadraticForms/QuadricSmooth.lean) | Every formal derivative of an affine-linear polynomial is constant as a function of its evaluation point. | Checked locally |
+| [`QuaternaryQuadraticForms.polynomialGradient_eq_of_totalDegree_le_one`](QuaternaryQuadraticForms/QuadricSmooth.lean) | The actual gradient of an affine-linear polynomial is the same at every point, including the origin. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadratic_not_mul_affine`](QuaternaryQuadraticForms/QuadricSmooth.lean) | A nonsingular quaternary quadratic polynomial cannot be a product of two affine-linear polynomials. Their two constant gradients cannot span the gradient image of a nonsingular four-dimensional quadratic form. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible`](QuaternaryQuadraticForms/QuadricSmooth.lean) | A nonsingular quaternary quadratic form in odd characteristic is an irreducible polynomial over its coefficient field. | Checked locally |
+| [`QuaternaryQuadraticForms.matrixQuadraticPolynomial_irreducible_map`](QuaternaryQuadraticForms/QuadricSmooth.lean) | Irreducibility persists over every field extension, so the projective quadric is geometrically irreducible in its polynomial presentation. | Checked locally |
+| [`QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_coeff`](QuaternaryQuadraticForms/SurfaceChern.lean) | Only the first three coefficients of the Chern polynomial enter the surface section coefficient. | Checked locally |
+| [`QuaternaryQuadraticForms.surfaceChernRelation_coefficients`](QuaternaryQuadraticForms/SurfaceChern.lean) | Adjunction determines the constant, linear, and quadratic coefficients without imposing any condition on the higher coefficients. | Checked locally |
+| [`QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_of_relation`](QuaternaryQuadraticForms/SurfaceChern.lean) | The surface coefficient obtained from the general adjunction relation. | Checked locally |
+| [`QuaternaryQuadraticForms.quadricChernPolynomial_relation`](QuaternaryQuadraticForms/SurfaceChern.lean) | The explicit quadric polynomial satisfies the adjunction relation. | Checked locally |
+| [`QuaternaryQuadraticForms.quadric_surfaceSectionEulerCoefficient`](QuaternaryQuadraticForms/SurfaceChern.lean) | The manuscript's exact quadric coefficient, with no asymptotic estimate. | Checked locally |
+| [`QuaternaryQuadraticForms.surfaceSectionEulerCoefficient_quadric_of_relation`](QuaternaryQuadraticForms/SurfaceChern.lean) | The same quadric coefficient follows from any polynomial satisfying the degree-two adjunction relation. | Checked locally |
+| [`QuaternaryQuadraticForms.norm_sum_le_card_mul`](QuaternaryQuadraticForms/SurfaceChern.lean) | A finite sum of complex numbers bounded by p has norm at most r p. | Checked locally |
+| [`QuaternaryQuadraticForms.mem_projectiveHypersurfacePoints_mk`](QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean) | The homogeneous equation descends to the actual projective quotient. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveHypersurfacePoints_matrix`](QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean) | The general projective hypersurface set agrees with the literal matrix quadric set when its defining polynomial is the matrix polynomial. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveHypersurfaceTrace_matrix`](QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean) | The general literature sum is exactly the manuscript's projective trace. | Checked locally |
+| [`QuaternaryQuadraticForms.transverse_polynomial_ne_zero`](QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean) | A rank-two transverse polynomial cannot vanish identically if the first equation has a nonzero geometric zero. | Checked locally |
+| [`QuaternaryQuadraticForms.quadric_transverse_polynomial_ne_zero`](QuaternaryQuadraticForms/ProjectiveSurfaceTrace.lean) | The literal nonzero zero of a prime-field quadric supplies the geometric point needed to exclude the zero transverse polynomial. | Checked locally |
+| [`QuaternaryQuadraticForms.katz_quadric_bound_prime_field`](QuaternaryQuadraticForms/KatzBound.lean) | Lemma 2.7 over the prime field, with all geometric hypotheses supplied by the actual matrix and the manuscript's rank-two condition. | Checked locally |
+| [`QuaternaryQuadraticForms.katz_quadric_bound`](QuaternaryQuadraticForms/KatzBound.lean) | Complete Lemma 2.7 for the actual projective trace, with the integral good-prime condition and the geometric rank-two hypothesis. Every quadric-specific condition of the registered general spectral input and the exact constant are proved internally. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveQuadraticTrace_abs_le`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | The degree-two Katz bound for the actual integer-valued projective trace. | Checked locally |
+| [`QuaternaryQuadraticForms.projectiveTrace_quadratic_integral_dvd_bound`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | Integrality, divisibility, and the size bound for the actual complex quadratic trace over the prime field. | Checked locally |
+| [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_abs_le`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | The integer trace bound for integral coefficients and the actual geometric good-reduction condition. | Checked locally |
+| [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | The three quadratic-trace conclusions with integral input coefficients and explicit good reduction, tied to the existing complex trace. | Checked locally |
+| [`QuaternaryQuadraticForms.integralProjectiveQuadraticTrace_dvd_bound_of_modulus`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | The literal `N_G` condition gives divisibility and the size bound for the actual integer trace once the finite bad-prime set has been proved. | Checked locally |
+| [`QuaternaryQuadraticForms.integralProjectiveTrace_quadratic_integral_dvd_bound_of_modulus`](QuaternaryQuadraticForms/QuadraticTraceBound.lean) | The full integrality, divisibility, and size conclusions for the actual complex trace under the literal N_G condition, conditional on the explicitly supplied finiteness proof. This is not full Lemma 5.9 until the characteristic-zero elimination bridge is proved. | Checked locally |
 
-The allowed dependencies are the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Individual exports may additionally use only the exact literature premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). 1 external Lean premise is registered separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).
+The allowed dependencies are the standard logical foundations `propext`, `Classical.choice`, and `Quot.sound`. Individual exports may additionally use only the exact literature premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the [verification report](certification/verification_report.json). 2 external Lean premises are registered separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).
 
 ## Auxiliary and supplementary obligations
 
@@ -366,7 +419,7 @@ d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.
 
 ```sh
-lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.LinearAlgebra.Basis.VectorSpace Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas Mathlib.LinearAlgebra.FiniteDimensional.Lemmas Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.Tactic.FieldSimp Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
+lake exe cache get Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar Mathlib.Data.Fintype.BigOperators Mathlib.LinearAlgebra.Projectivization.Cardinality Mathlib.Analysis.Complex.Basic Mathlib.NumberTheory.DirichletCharacter.Bounds Mathlib.RingTheory.MvPolynomial.Homogeneous Mathlib.Data.Matrix.Mul Mathlib.FieldTheory.ChevalleyWarning Mathlib.NumberTheory.LegendreSymbol.Basic Mathlib.Algebra.Polynomial.Homogenize Mathlib.Data.Fin.VecNotation Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure Mathlib.Algebra.MvPolynomial.PDeriv Mathlib.LinearAlgebra.Basis.VectorSpace Mathlib.LinearAlgebra.BilinearForm.Orthogonal Mathlib.LinearAlgebra.Dual.Lemmas Mathlib.LinearAlgebra.FiniteDimensional.Lemmas Mathlib.LinearAlgebra.LinearIndependent.Basic Mathlib.LinearAlgebra.LinearIndependent.Lemmas Mathlib.LinearAlgebra.Matrix.Adjugate Mathlib.LinearAlgebra.Matrix.BilinearForm Mathlib.LinearAlgebra.Matrix.Dual Mathlib.LinearAlgebra.Matrix.Rank Mathlib.RingTheory.MvPolynomial.EulerIdentity Mathlib.Tactic.FieldSimp Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex Mathlib.Data.Nat.Factorization.Basic Mathlib.Algebra.Polynomial.Coeff Mathlib.Tactic.IntervalCases Mathlib.Tactic.NormNum Mathlib.Algebra.BigOperators.Ring.Finset Mathlib.Tactic.Ring
 python3 scripts/verify_certificate.py
 ```
 
@@ -374,4 +427,4 @@ The verifier checks source identities, all 42 statement locations, the dependenc
 
 ## Next proof target
 
-Register the exact Katz source interface and prove its manuscript-specific geometric specialization in Lemma 2.7. This supplies the global trace bound needed for the remaining size clause of Lemma 5.9. The exceptional polynomial in Lemma 4.1 and the remaining exceptional-frequency counting and assembly steps in Lemma 4.4 are separate obligations. Retain the checked conic and plane-section deductions, exact identities, and divisibility result as inputs.
+Construct the nonzero elimination value in Lemma 4.1(i) and prove that every bad-reduction prime divides it. The checked arithmetic then proves finiteness of the actual bad-prime set and supplies the missing argument to the literal N_G wrappers in Lemma 5.9. The exceptional-plane construction in Lemma 4.1 and the remaining exceptional-section count and Fourier-bound assembly in Lemma 4.4 are separate obligations. Retain the checked Katz, conic, plane-section, exact-identity, and quadratic-trace results as inputs.
