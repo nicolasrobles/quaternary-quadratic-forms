@@ -142,10 +142,29 @@ contains 833,730 bytes and has SHA-256
 It records 14 Certified, zero Partial or Active, and 28 Pending numbered
 results; all 33 auxiliary/supplementary groups remain Pending.
 
-**GitHub CI for this 571-export scope is pending.** The successful
-GitHub runs below retain their exact historical scopes. The
-[execution checkpoint](CHECKPOINT.md) records the new local result
-and its comparison with the preceding 553-export report.
+**The local and GitHub verifiers passed for the complete 571-export
+scope.** [GitHub Actions run 43641041601, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43641041601)
+succeeded at [proof commit 169218f](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/169218f4b525d0433c2b53fdd49483f47623c1e8),
+with verification job `132588460975`. Its artifact `14131744612`
+is preserved as the [original ZIP](certification/ci/run_43641041601_attempt_1.zip)
+and [downloaded report](certification/ci/run_43641041601_attempt_1.json).
+The ZIP contains 98,115 bytes and has SHA-256
+`5544d79a2d678768bd00f19c8d55dd17b0dd60d7ec4010facee04f753fd1c2d2`;
+the report contains 843,140 bytes and has SHA-256
+`d6df7af8763ac77898b40940c71b3905c7371b8483f23138a74f53c6a087d0b6`.
+
+The ZIP digest matches GitHub's advertised artifact digest, and its
+sole member is byte-identical to the archived report. Independent
+comparisons agree on all 18 verification-content fields, including
+all 571 complete theorem records, four premise records, 155 input
+hashes, nine dependency revisions, and the complete Lean inspection
+output. Only `generated_at_utc` and `lake_build_output` differ.
+All 155 hashes match the current inspected files and the exact proof
+tree `008f5c69b8e7d04c4345eea285aa1e571b90cb23`. The installed local report remains
+unchanged at 833,730 bytes, with the digest recorded above.
+The [execution checkpoint](CHECKPOINT.md) records the exact proof,
+run, job, artifact, timestamps, and complete 571-export scope. The
+older evidence below retains its original scopes.
 
 ### Earlier Lemma 3.3 verification
 
