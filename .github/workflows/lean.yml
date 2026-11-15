@@ -56,10 +56,13 @@ jobs:
             Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Complex.Basic \
+            Mathlib.Analysis.PSeries \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
             Mathlib.Analysis.SpecialFunctions.Log.Base \
+            Mathlib.Analysis.SpecialFunctions.Log.Summable \
             Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
             Mathlib.Analysis.SpecialFunctions.Pow.Real \
+            Mathlib.Analysis.SpecificLimits.Normed \
             Mathlib.Data.Fin.VecNotation \
             Mathlib.Data.Finset.Prod \
             Mathlib.Data.Finsupp.Weight \
@@ -68,6 +71,7 @@ jobs:
             Mathlib.Data.Nat.Factorization.Basic \
             Mathlib.Data.Nat.Factorization.Induction \
             Mathlib.Data.Nat.GCD.Basic \
+            Mathlib.Data.Nat.Prime.Basic \
             Mathlib.Data.Nat.PrimeFin \
             Mathlib.Data.Nat.Squarefree \
             Mathlib.Data.Nat.Totient \
@@ -117,7 +121,9 @@ jobs:
             Mathlib.Tactic.Linarith \
             Mathlib.Tactic.LinearCombination \
             Mathlib.Tactic.NormNum \
-            Mathlib.Tactic.Ring
+            Mathlib.Tactic.Ring \
+            Mathlib.Topology.Order.Basic
+
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

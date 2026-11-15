@@ -1,9 +1,9 @@
-# Uniform dual-cone modulus cancellation checkpoint
+# Local densities and corrected Euler product checkpoint
 
 ## Numbered-result status
 
-Complete: **17**. Partial: **0**. Active numbered targets: **0**.
-Pending: **25**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **18**. Partial: **0**. Active numbered targets: **0**.
+Pending: **24**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -128,9 +128,98 @@ an exact bad/good factorization preserve cancellation in the modulus
 sum. The stronger core theorem also removes squarefreeness.
 No literature premise is added or used.
 
-The next bounded target is complete Lemma 3.8, the local-density limits and corrected Euler product.
+**Lemma 3.8 is Certified.** The actual normalized zero counts modulo
+`p^k` converge at every prime, and the literal local complete-sum
+series converges absolutely to that real density. At `p ∤ N_F`,
+the density is `(1−χ(p)/p²)/(1−χ(p)/p)`, with a proved nonzero
+denominator. The corrected product `∏_p (1−χ(p)/p)σ_p` has summable
+absolute deviations from one. Its original character and actual
+density remain in every bad-prime factor, including a factor that
+vanishes. The finite counting identity includes exponent zero,
+the prime two, and all bad primes. No literature premise is added or used.
+
+The next bounded target is complete Lemma 3.9, the restricted singular-series identity and uniform tail estimate.
 
 ## Mathematical scope
+
+### Complete Lemma 3.8
+
+The complete source endpoint is
+[`source_local_density`](QuaternaryQuadraticForms/LocalDensityTheorem.lean).
+For a symmetric nonsingular integral matrix $A$, it proves every
+local assertion for every prime $p$, followed by absolute convergence
+of the corrected product with the original supplied Dirichlet character.
+
+The finite count is the cardinality of all vectors modulo $p^k$
+whose actual integral quadratic value is zero modulo $p^k$:
+
+$$
+N_{p,k}=\#\{x\bmod p^k:F(x)\equiv0\pmod{p^k}\}.
+$$
+
+Composite-modulus additive orthogonality and an explicit partition
+of scalar residues into units and multiples of $p$ prove
+
+$$
+p^{-3k}N_{p,k}=\sum_{j=0}^{k}\frac{S_{p^j}(0)}{p^{4j}}.
+$$
+
+The scalar partition uses actual residue-digit bijections. Removing
+one common factor from the scalar coefficient and modulus leaves
+exactly $p^4$ vector lifts. This yields the same finite identity as
+the source's valuation grouping, with no nonsingularity assumption
+needed at this stage. The proof includes $k=0$, with one vector
+modulo one and the existing identity $S_1(0)=1$.
+
+The complete Lemma 3.3 supplies the geometric majorant
+
+$$
+\left|\frac{S_{p^k}(0)}{p^{4k}}\right|
+\le4\sqrt{|\det A|}\,p^{-k}.
+$$
+
+Since every prime is at least two, the series converges absolutely,
+including at $p=2$ and every prime dividing $N_F$. The finite identity
+therefore proves convergence of the actual normalized real counts.
+The density is defined from that counting limit; continuity and
+uniqueness of limits identify the full complex series with its real value:
+
+$$
+\sigma_p=\lim_{k\to\infty}p^{-3k}N_{p,k}
+=\sum_{k\ge0}\frac{S_{p^k}(0)}{p^{4k}}.
+$$
+
+For $p\nmid N_F$, the already checked prime-power evaluation and the
+exact totient formula give the geometric series with ratio $\chi(p)/p$.
+Its norm is strictly below one, proving the denominator nonzero and giving
+
+$$
+\sigma_p=\frac{1-\chi(p)p^{-2}}{1-\chi(p)p^{-1}}.
+$$
+
+Finally, let $E_p=(1-\chi(p)/p)\sigma_p$, the actual factor of
+`eq:SF`. At a good prime, the formula proves
+$E_p=1-\chi(p)/p^2$ and $|E_p-1|\le p^{-2}$.
+The primes dividing the nonzero integer $N_F$ form a finite set,
+so comparison with the convergent prime-restricted $p^{-2}$ series proves
+
+$$
+\sum_p|E_p-1|<\infty.
+$$
+
+This explicit summability proves absolute convergence of the corrected
+product and convergence of the product of its norms. Every bad-prime
+factor retains the original supplied character and the actual density.
+No strict positivity or nonvanishing of those densities is assumed;
+a zero exceptional factor is permitted. The good-prime character
+agreement is exactly the source's stated Legendre value property.
+
+The nine modules contain 30 public theorem exports. The
+[correspondence review](certification/correspondence/local_density.md)
+maps the definitions, each proof stage, all four source clauses,
+and the boundary cases. Every new export uses only the standard
+logical foundations, with no additional literature premise.
+Lemma 3.9 and the global analytic conclusions remain Pending.
 
 ### Complete Lemma 3.7
 
@@ -1422,6 +1511,11 @@ assumed as an internal premise.
 
 ### Checked exports and correspondence
 
+- [Complete Lemma 3.8 with the original source character](QuaternaryQuadraticForms/LocalDensityTheorem.lean).
+- [Exact finite prime-power counting identity](QuaternaryQuadraticForms/LocalDensityCounting.lean).
+- [Actual local-density limit and absolute series](QuaternaryQuadraticForms/LocalDensityConvergence.lean).
+- [Corrected Euler product with every bad factor retained](QuaternaryQuadraticForms/LocalDensityEulerProduct.lean).
+- [Complete Lemma 3.8 correspondence review](certification/correspondence/local_density.md).
 - [Complete Lemma 3.7 and its uniform source endpoint](QuaternaryQuadraticForms/ConeModulusTheorem.lean).
 - [Exact dual-cone divisor/logarithm bound](QuaternaryQuadraticForms/ConeModulusBound.lean).
 - [Complete Lemma 3.7 correspondence review](certification/correspondence/cone_modulus_bound.md).
@@ -1520,7 +1614,85 @@ assumed as an internal premise.
 
 ## Current verification
 
-The current Lemma 3.7 milestone contains 677 theorem exports across
+<!-- BEGIN LEMMA_3_8_VERIFICATION -->
+
+The current Lemma 3.8 milestone contains 707 theorem exports across
+174 project Lean modules and 20 mapped source groups: 30 new public
+theorem exports in nine new modules. Its complete aggregate scope
+contains 205 inspected inputs, adding those nine modules and
+`certification/correspondence/local_density.md` to the preceding
+195-input scope. Four registered literature premises and all nine
+pinned dependency revisions remain unchanged. Only Lemma 3.8 is
+promoted in this milestone; all 33 auxiliary/supplementary groups
+remain Pending, and whole-paper certification remains false.
+
+All nine modules passed strict compilation under official Lean
+4.24.0 and the pinned mathlib revision, with `warningAsError=true`
+and `autoImplicit=false`. The final `LocalDensityTheorem` target
+build passed with 3,144 jobs. The unified inspection of all 30 actual
+theorem types and axiom lists passed. Every new export uses exactly
+`Classical.choice`, `Quot.sound`, and `propext`; none depends on a
+literature premise. The source correspondence review and independent
+review of the final actual endpoint types cover all four clauses.
+
+The actual-type review checked the original integral quadratic form,
+all residue vectors and scalar units, exponent zero, every prime
+including two and the bad primes, and the real counting-limit
+definition. It also checked the full complex series equality,
+absolute norm summability, the proved nonzero good-prime denominator,
+and the original supplied character in every corrected product factor.
+Summability of the absolute deviations from one is explicit, including
+when a bad density vanishes. No finite counting identity, convergence
+statement, character-value substitution at bad primes, or analytic
+bound remains as an internal premise of `source_local_density`.
+
+### Local-density local execution
+
+**The full local aggregate verifier passed for all 174 project
+modules, 707 theorem exports, and 205 inspected inputs.** The resumed
+execution completed on 15 November 2026 using official Lean 4.24.0
+and the nine pinned dependency revisions. It checked the frozen
+manuscript and PDF, all 42 numbered statement identities, the dependency
+ledger, the full build, every project module with strict settings,
+and the actual declaration kinds, types, and axiom dependencies of
+all registered exports and four literature premises.
+
+All 205 input hashes match the frozen candidate. The complete records
+of the 677 earlier exports, all four literature inputs, and every
+pinned dependency revision are unchanged. The 30 new exports agree
+with the separately inspected final types and use exactly the three
+standard foundational axioms. Independent review of the source
+correspondence and preservation of the preceding proof scope passed.
+
+- [Local verification report](certification/verification_report.json).
+- Report SHA-256: `0712a8eec668f9f44c87b1c318252ee424004af18f4f50d7bbbbbcc2b2659a56`.
+- Locally checked proof commit: `addc512e830aba4109a7ddf16a398622ec759dca`.
+- Proof tree: `26ed9749963393e36fabe99aeb2213aae9c82a9b`.
+- Numbered results: 18 Certified, 0 Partial, 0 Active, 24 Pending.
+- All 33 auxiliary/supplementary groups remain Pending.
+- Whole-paper certification remains false.
+
+The interrupted predecessor run left an empty output file and is not
+used as execution evidence. The saved recovery candidate was restored
+without changing its proof inputs; the completed resumed report above
+provides the aggregate evidence. Its `generated_at_utc` field records
+report initialization before Lean execution, rather than completion.
+The earlier 677-export report remains at its immutable proof-commit
+link below and retains its original scope.
+
+### Local-density GitHub execution
+
+**The exact-proof-commit GitHub verification is pending for this
+milestone.** The published proof commit, successful run and attempt,
+job, original artifact, report hashes, and exact local/CI comparison
+will be recorded here when established. Earlier successful runs below
+do not certify the new aggregate.
+
+<!-- END LEMMA_3_8_VERIFICATION -->
+
+## Earlier Lemma 3.7 execution
+
+The preceding Lemma 3.7 milestone contained 677 theorem exports across
 165 project Lean modules and 20 mapped source groups: 40 new public
 theorem exports in fourteen new modules. The completed aggregate report
 records 195 input hashes, adding those fourteen modules and
@@ -1581,17 +1753,18 @@ any supplied analytic bound. The derived period mean, cubic
 cancellation, and divisor-log bound were checked against their full
 actual types as well.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at proof commit 5918e83](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/5918e83d0705f4c0ab3b24a3324da18b0ab5e027/certification/verification_report.json)
 contains 996,216 bytes and has SHA-256
 `17b3f004491f1a6cd601960232f86e467de2bece9d8df6531207a93722b6b4a5`.
 It records 17 Certified and 25 Pending numbered results, with zero
 Partial or Active results. All 33 auxiliary/supplementary groups remain
 Pending, and whole-paper certification remains false.
 
-These subsequent README and checkpoint updates record successful local
-execution. They do not change any inspected proof input. The installed
-report preserves the exact bytes of the successfully compared aggregate
-output, and all 33 other frozen paths remain unchanged.
+At that milestone the subsequent README and checkpoint updates recorded
+successful local execution without changing any inspected proof input.
+The report at that proof commit preserves the exact bytes of the
+successfully compared aggregate output; the other 33 frozen paths
+were unchanged through that publication.
 
 ### Dual-cone modulus GitHub execution
 
@@ -1630,18 +1803,20 @@ retains its uniform constant order, nonsquare determinant, literal
 integral dual-cone condition, real cutoff, and the norm outside the
 actual gcd-restricted complex sum.
 
-All 195 input hashes match the current inspected files and the exact
-proof tree. All 33 frozen nondocument paths, including the workflow,
-remain unchanged and match their blobs in that same tree. The installed
-local report remains byte-for-byte unchanged at 996,216 bytes,
-with SHA-256 `17b3f004491f1a6cd601960232f86e467de2bece9d8df6531207a93722b6b4a5`, and equals the report at the proof commit.
-The frozen manuscript and PDF are unchanged.
+At that checkpoint all 195 input hashes matched its inspected files
+and the exact proof tree. All 33 frozen nondocument paths, including
+the workflow, were checked against their blobs in that same tree.
+The accepted local report at that proof commit has 996,216 bytes,
+with SHA-256 `17b3f004491f1a6cd601960232f86e467de2bece9d8df6531207a93722b6b4a5`.
+The frozen manuscript and PDF were unchanged.
 
-This evidence covers complete Lemma 3.7. The numbered status remains
+This evidence covers complete Lemma 3.7. Its numbered status was
 17 Certified, zero Partial or Active, and 25 Pending; all 33
 auxiliary/supplementary groups remain Pending, and whole-paper
 certification remains false. Earlier local and CI reports and the
 separate interruption-recovery checkpoints retain their own scopes.
+
+This historical Lemma 3.7 execution evidence does not cover the new 707-export Lemma 3.8 milestone.
 
 ## Earlier Lemma 3.6 execution
 
@@ -1844,15 +2019,15 @@ exactly `Classical.choice`, `Quot.sound`, and `propext`, while
 `gcd_mul_blocks_coprime` uses only `propext`. No new export uses a
 literature premise.
 
-All 167 input hashes match the current inspected files and the exact
-proof tree. All 30 frozen nondocument paths, including the workflow,
-remain unchanged and match their blobs in that same tree. The
-installed local report remains unchanged at
+At that checkpoint all 167 input hashes matched its inspected files
+and the exact proof tree. All 30 frozen nondocument paths, including
+the workflow, were checked against their blobs in that same tree.
+The local report at the published proof commit has
 879,086 bytes with SHA-256
-`307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`,
-byte-identical to the report at the published proof commit. The frozen
-manuscript and PDF are unchanged. This evidence covers the complete
-598-export Lemma 3.5 milestone. The numbered status remains 15 Certified,
+`307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`.
+Those exact bytes are preserved at the published proof commit. The frozen
+manuscript and PDF were unchanged. This evidence covers the complete
+598-export Lemma 3.5 milestone. Its numbered status was 15 Certified,
 zero Partial or Active, and 27 Pending; all 33 auxiliary/supplementary
 groups remain Pending and whole-paper certification remains false.
 The earlier local and CI reports below retain their original scopes.
@@ -1948,7 +2123,7 @@ The original artifact and report were preserved in
 [evidence commit 77acba81d1aa6024d8132500464fd66290b2665c](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/77acba81d1aa6024d8132500464fd66290b2665c),
 whose tree is `3c3eca9779da8b87d9b3ab844e6c09eb41ae419b`.
 The frozen manuscript and PDF are unchanged. This evidence covers the
-complete 571-export Lemma 3.4 milestone; it does not cover the current
+complete 571-export Lemma 3.4 milestone; it does not cover the subsequent
 598-export Lemma 3.5 milestone. At that checkpoint the numbered status
 was 14 Certified, zero Partial or Active, and 28 Pending; all 33
 auxiliary/supplementary groups were Pending and whole-paper
@@ -2733,36 +2908,58 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The next bounded target is complete Lemma 3.8, `lem:density`,
-source lines 1409–1446. For every prime $p$, establish the existence
-of the actual local-density limit and the absolutely convergent series
+The next bounded target is complete Lemma 3.9, `lem:singseries`,
+source lines 1446–1513. For every positive squarefree $q$ with
+$(q,N_F)=1$, prove convergence of the actual restricted series and
+its identity
 
 $$
-\sigma_p
-=\lim_{k\to\infty}p^{-3k}
-\#\{x\bmod p^k:F(x)\equiv0\pmod{p^k}\}
-=\sum_{j\ge0}\frac{S_{p^j}(0)}{p^{4j}}.
+\sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^4}
+=\mathfrak S_F\prod_{p\mid q}\sigma_p^{-1}.
 $$
 
-The finite starting identity must use the actual residue-class count,
-additive orthogonality, and the partition of the scalar parameter by
-its $p$-adic valuation. The uniform complete-sum bound supplies
-absolute convergence at every prime, including bad primes and $2$.
-For $p\nmid N_F$, the actual unramified formula should give
+Also prove, for every real $X\ge1$ and every $\varepsilon>0$,
 
 $$
-\sigma_p=\frac{1-\chi(p)p^{-2}}{1-\chi(p)p^{-1}}.
+\left|\sum_{\substack{c>X\\(c,q)=1}}\frac{S_c(0)}{c^4}\right|
+\le C_{F,\varepsilon}q^\varepsilon X^{-1+\varepsilon},
 $$
 
-The last clause concerns the corrected Euler product in `eq:SF`,
-$\prod_p(1-\chi(p)/p)\sigma_p$, whose good-prime factors are
-$1-\chi(p)p^{-2}$. Absolute convergence must be proved for that
-corrected product. The raw product of the local densities is not
-the product asserted in Lemma 3.8. The prime-power modulus-one term,
-all-prime limit, good-prime denominator, and finite bad-prime factors
-must be included in the complete source correspondence.
+with one constant chosen before the varying modulus and cutoff.
+The completed Lemma 3.7 supplies cancellation of the actual partial
+sums at zero frequency; the completed Lemma 3.8 supplies the actual
+local limits and corrected Euler factors. The next proof must carry
+these through partial summation, the absolutely convergent shifted
+Euler product, and the limit as the shift tends to zero. The factors
+inverted at primes dividing $q$ are good-prime densities, whose
+nonvanishing must be deduced from the proved formula.
 
-Lemma 3.8 remains Pending. Lemmas 3.1–3.7 and all Section 4 lemmas
+Any cited $L$-function continuity input must retain its exact source
+statement, hypotheses, and locator, including the manuscript's
+Montgomery–Vaughan Section 4.3 citation. Partial summation and the
+manuscript-specific Euler-product assembly remain internal deductions.
+
+At zero shift, formulate convergence by `Tendsto` of the actual
+partial sums in increasing modulus order. This generally conditional
+series must not be represented by unconditional `Summable`, `HasSum`,
+or a raw `tsum`. For the same reason, use
+`DirichletCharacter.LFunction χ 1` for the source's $L(1,χ)$:
+the pinned library's naive `LSeries χ 1` takes the default value zero
+outside its absolute-convergence range. The existing library provides
+the agreement with `LSeries` for real part greater than one, Euler
+products there, and continuity of `LFunction` for a nonprincipal
+character. The mapped group `EXT.MV_DIRICHLET_L` is already accepted,
+but has no registered Lean premise; a new premise may be unnecessary.
+
+The first useful bounded step is the ordered convergence and uniform
+tail estimate from Lemma 3.7. Choose an internal exponent smaller
+than one, for example $\eta=\min(\varepsilon/2,1/2)$, before partial
+summation; then enlarge its bound to the requested epsilon exponents.
+Keep the original source character when identifying the final
+singular series. Only good-prime densities at primes dividing $q$
+are inverted.
+
+Lemma 3.9 remains Pending. Lemmas 3.1–3.8 and all Section 4 lemmas
 are complete. Theorem 1.3's global asymptotic, the analytic assembly,
 Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
 Pending.

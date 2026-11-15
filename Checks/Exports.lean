@@ -680,7 +680,37 @@ run_cmd do
     `QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic,
     `QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log,
     `QuaternaryQuadraticForms.totient_eq_sum_moebius,
-    `QuaternaryQuadraticForms.totient_mul_eq_sum_moebius]
+    `QuaternaryQuadraticForms.totient_mul_eq_sum_moebius,
+    `QuaternaryQuadraticForms.localQuadraticDensity_eq_tsum_re,
+    `QuaternaryQuadraticForms.tendsto_normalizedPrimePowerZeroCount,
+    `QuaternaryQuadraticForms.hasSum_localDensityTerm,
+    `QuaternaryQuadraticForms.localQuadraticDensity_nonneg,
+    `QuaternaryQuadraticForms.primePowerZeroCount_additive,
+    `QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_fullGauss,
+    `QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_recurrence,
+    `QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_zero,
+    `QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_sum,
+    `QuaternaryQuadraticForms.localQuadraticDensity_goodPrime,
+    `QuaternaryQuadraticForms.source_localQuadraticDensity_goodPrime,
+    `QuaternaryQuadraticForms.correctedLocalDensityFactor_goodPrime,
+    `QuaternaryQuadraticForms.correctedLocalDensityFactor_sub_one_norm_le,
+    `QuaternaryQuadraticForms.eventually_prime_not_dvd_quadraticBadPrimeModulus,
+    `QuaternaryQuadraticForms.summable_norm_correctedLocalDensityFactor_sub_one,
+    `QuaternaryQuadraticForms.multipliable_correctedLocalDensityFactor,
+    `QuaternaryQuadraticForms.multipliable_norm_correctedLocalDensityFactor,
+    `QuaternaryQuadraticForms.integralQuadraticGaussSum_scaled_modulus,
+    `QuaternaryQuadraticForms.primePower_fullGauss_recurrence,
+    `QuaternaryQuadraticForms.localDensityTerm_zero,
+    `QuaternaryQuadraticForms.legendreSym_complex_norm_le_one,
+    `QuaternaryQuadraticForms.localDensity_goodPrime_ratio_norm_lt_one,
+    `QuaternaryQuadraticForms.localDensityTerm_goodPrime_succ,
+    `QuaternaryQuadraticForms.localDensityTerm_hasSum_goodPrime,
+    `QuaternaryQuadraticForms.localDensityTerm_norm_le,
+    `QuaternaryQuadraticForms.summable_norm_localDensityTerm,
+    `QuaternaryQuadraticForms.summable_localDensityTerm,
+    `QuaternaryQuadraticForms.local_density,
+    `QuaternaryQuadraticForms.source_local_density,
+    `QuaternaryQuadraticForms.sum_primePower_scalars]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2747,3 +2777,93 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.totient_mul_eq_sum_moebius
 #print axioms QuaternaryQuadraticForms.totient_mul_eq_sum_moebius
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_eq_tsum_re
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_eq_tsum_re
+
+#check @QuaternaryQuadraticForms.tendsto_normalizedPrimePowerZeroCount
+#print axioms QuaternaryQuadraticForms.tendsto_normalizedPrimePowerZeroCount
+
+#check @QuaternaryQuadraticForms.hasSum_localDensityTerm
+#print axioms QuaternaryQuadraticForms.hasSum_localDensityTerm
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_nonneg
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_nonneg
+
+#check @QuaternaryQuadraticForms.primePowerZeroCount_additive
+#print axioms QuaternaryQuadraticForms.primePowerZeroCount_additive
+
+#check @QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_fullGauss
+#print axioms QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_fullGauss
+
+#check @QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_recurrence
+#print axioms QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_recurrence
+
+#check @QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_zero
+#print axioms QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_zero
+
+#check @QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_sum
+#print axioms QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_sum
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_goodPrime
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_goodPrime
+
+#check @QuaternaryQuadraticForms.source_localQuadraticDensity_goodPrime
+#print axioms QuaternaryQuadraticForms.source_localQuadraticDensity_goodPrime
+
+#check @QuaternaryQuadraticForms.correctedLocalDensityFactor_goodPrime
+#print axioms QuaternaryQuadraticForms.correctedLocalDensityFactor_goodPrime
+
+#check @QuaternaryQuadraticForms.correctedLocalDensityFactor_sub_one_norm_le
+#print axioms QuaternaryQuadraticForms.correctedLocalDensityFactor_sub_one_norm_le
+
+#check @QuaternaryQuadraticForms.eventually_prime_not_dvd_quadraticBadPrimeModulus
+#print axioms QuaternaryQuadraticForms.eventually_prime_not_dvd_quadraticBadPrimeModulus
+
+#check @QuaternaryQuadraticForms.summable_norm_correctedLocalDensityFactor_sub_one
+#print axioms QuaternaryQuadraticForms.summable_norm_correctedLocalDensityFactor_sub_one
+
+#check @QuaternaryQuadraticForms.multipliable_correctedLocalDensityFactor
+#print axioms QuaternaryQuadraticForms.multipliable_correctedLocalDensityFactor
+
+#check @QuaternaryQuadraticForms.multipliable_norm_correctedLocalDensityFactor
+#print axioms QuaternaryQuadraticForms.multipliable_norm_correctedLocalDensityFactor
+
+#check @QuaternaryQuadraticForms.integralQuadraticGaussSum_scaled_modulus
+#print axioms QuaternaryQuadraticForms.integralQuadraticGaussSum_scaled_modulus
+
+#check @QuaternaryQuadraticForms.primePower_fullGauss_recurrence
+#print axioms QuaternaryQuadraticForms.primePower_fullGauss_recurrence
+
+#check @QuaternaryQuadraticForms.localDensityTerm_zero
+#print axioms QuaternaryQuadraticForms.localDensityTerm_zero
+
+#check @QuaternaryQuadraticForms.legendreSym_complex_norm_le_one
+#print axioms QuaternaryQuadraticForms.legendreSym_complex_norm_le_one
+
+#check @QuaternaryQuadraticForms.localDensity_goodPrime_ratio_norm_lt_one
+#print axioms QuaternaryQuadraticForms.localDensity_goodPrime_ratio_norm_lt_one
+
+#check @QuaternaryQuadraticForms.localDensityTerm_goodPrime_succ
+#print axioms QuaternaryQuadraticForms.localDensityTerm_goodPrime_succ
+
+#check @QuaternaryQuadraticForms.localDensityTerm_hasSum_goodPrime
+#print axioms QuaternaryQuadraticForms.localDensityTerm_hasSum_goodPrime
+
+#check @QuaternaryQuadraticForms.localDensityTerm_norm_le
+#print axioms QuaternaryQuadraticForms.localDensityTerm_norm_le
+
+#check @QuaternaryQuadraticForms.summable_norm_localDensityTerm
+#print axioms QuaternaryQuadraticForms.summable_norm_localDensityTerm
+
+#check @QuaternaryQuadraticForms.summable_localDensityTerm
+#print axioms QuaternaryQuadraticForms.summable_localDensityTerm
+
+#check @QuaternaryQuadraticForms.local_density
+#print axioms QuaternaryQuadraticForms.local_density
+
+#check @QuaternaryQuadraticForms.source_local_density
+#print axioms QuaternaryQuadraticForms.source_local_density
+
+#check @QuaternaryQuadraticForms.sum_primePower_scalars
+#print axioms QuaternaryQuadraticForms.sum_primePower_scalars

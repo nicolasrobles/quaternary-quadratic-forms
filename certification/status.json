@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete uniform dual-cone modulus cancellation from the actual nonsquare quadratic character",
+  "checkpoint": "Complete actual local-density limits, absolutely convergent local series, and the original-character corrected Euler product",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -166,11 +166,23 @@
         "The source cancellation is proved for the actual arithmetic coefficient: nonsquareness implies actual nonprincipality and zero period mean, exact Möbius/totient and gcd rearrangements give the good-modulus bound, and exact bad/good CRT preserves that cancellation through the complete finite modulus sum. The stronger core theorem proves the same estimate without squarefreeness."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, Möbius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. Lemma 3.8 and the global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, Möbius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. The global analytic theorems remain Pending."
     },
     "lem:density": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_local_density",
+        "QuaternaryQuadraticForms.local_density"
+      ],
+      "correspondence_record": "certification/correspondence/local_density.md",
+      "completed_clauses": [
+        "For every prime, the actual real normalized number of zeros of the integral quadratic form modulo p^k converges to its counting-defined local density.",
+        "The literal local complete-sum series S_(p^k)(0)/p^(4*k) converges absolutely and has sum exactly the actual real density embedded in complex numbers, including exponent zero and every bad prime.",
+        "At every prime outside the actual N_F, the density equals (1-chi(p)/p^2)/(1-chi(p)/p), with the original supplied character and nonvanishing of the geometric denominator proved.",
+        "The absolute deviations of the actual corrected factors (1-chi(p)/p) sigma_p from one are summable over all primes, and both the corrected product and the product of its norms converge; the original bad-prime factors are retained without nonvanishing assumptions."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.8 for the actual symmetric nonsingular integral quaternary matrix. The density is defined as limUnder of the actual real normalized residue-zero counts, not as an assumed series value. Composite-modulus additive orthogonality and an actual scalar unit/multiple digit partition prove the exact finite identity with range(k+1); cancellation of a common scalar/modulus factor counts exactly four free residue digits. The finite identity requires no symmetry or nonsingularity, covers p=2, and proves the modulus-one base case. The established uniform complete-sum bound supplies the exact geometric majorant 4 sqrt(|det A|) p^(-k) at every prime. Continuity and uniqueness of limits identify the full complex series with the real counting density and also prove nonnegativity. The actual good-prime-power evaluation and totient formula yield the geometric series; its ratio has norm below one, so its denominator is proved nonzero. The original supplied Dirichlet character occurs in the good-prime rational formula and in every corrected factor, including bad primes. Only its source Legendre values at good primes are assumed. Nonsingularity makes the actual bad-prime set finite, and the good-prime deviation is bounded by p^(-2). Absolute-deviation summability is explicit before deriving product convergence, so a finite zero factor cannot trivialize the absolute-convergence assertion. No local density is divided out or assumed positive. The source nonsquare and primitivity assumptions are unnecessary for this stronger local result once the supplied character and its stated good-prime values are present. All 30 new public exports in nine modules use exactly Classical.choice, Quot.sound, and propext. No literature premise is added or used. Lemma 3.9, the global analytic theorems, and all 33 separately tracked auxiliary groups remain Pending."
     },
     "lem:singseries": {
       "status": "Pending",
@@ -10988,6 +11000,473 @@
       "source_labels": [
         "lem:conemod",
         "eq:conegood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_eq_tsum_re",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "scope": "The density defined from the actual real counting limit equals the real part of the absolutely convergent complex complete-sum series.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_normalizedPrimePowerZeroCount",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "scope": "The actual normalized real zero counts converge to their counting-defined local density at every prime, with no good-prime condition.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasSum_localDensityTerm",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "scope": "The literal complex complete-sum series has sum exactly the real counting density embedded in complex numbers; reality is derived from uniqueness of the actual counting limit.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_nonneg",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "scope": "The counting-defined local density is nonnegative, as the proved limit of nonnegative actual normalized zero counts. Strict positivity is not asserted.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primePowerZeroCount_additive",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "scope": "Additive orthogonality expresses the actual zero count modulo p^k through the full scalar Gauss sum, including modulus one and arbitrary integral matrices.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_fullGauss",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "scope": "The real normalized actual zero count, coerced to complex numbers, equals the full scalar Gauss sum divided by p^(4*k).",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_recurrence",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "scope": "Increasing the counting exponent appends exactly the next literal complete-sum coefficient. No condition on the integral matrix is imposed.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_zero",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "scope": "The exponent-zero actual count and its normalization equal one, using the single residue vector modulo one.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_sum",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "scope": "The normalized count of all actual quadratic zeros modulo p^k equals the sum of the literal local coefficients over range(k+1), for every prime including two and k=0.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The actual real counting density at a good prime, embedded in complex numbers, equals the exact rational Legendre-symbol expression.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_localQuadraticDensity_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The good-prime density formula uses the original supplied Dirichlet character through its exact source Legendre values, with the actual counting density.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.correctedLocalDensityFactor_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The original-character corrected factor (1-chi(p)/p) sigma_p equals 1-chi(p)/p^2 at every good prime, with nonvanishing of the cancelled denominator proved.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.correctedLocalDensityFactor_sub_one_norm_le",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "At every good prime the norm of the actual corrected-factor deviation from one is at most p^(-2).",
+      "source_labels": [
+        "lem:density",
+        "eq:SF"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eventually_prime_not_dvd_quadraticBadPrimeModulus",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The actual prime divisors of the nonzero bad-prime modulus are finite, giving the good-prime property in the cofinite filter on all primes.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_norm_correctedLocalDensityFactor_sub_one",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The absolute deviations of the original-character corrected density factors from one are summable over every prime, retaining all finite bad factors without nonvanishing assumptions.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.multipliable_correctedLocalDensityFactor",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The actual corrected product in eq:SF converges from proved absolute-deviation summability, allowing any finite zero bad-prime factors.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.multipliable_norm_correctedLocalDensityFactor",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "scope": "The product of the norms of the actual original-character corrected density factors converges, including finite zero bad factors.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_scaled_modulus",
+      "file": "QuaternaryQuadraticForms/LocalDensityGaussReduction.lean",
+      "scope": "Cancelling a common scalar and modulus factor in the actual integral Gauss sum leaves exactly n^4 vector lifts. No coprimality, symmetry, or nonsingularity hypothesis is required.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primePower_fullGauss_recurrence",
+      "file": "QuaternaryQuadraticForms/LocalDensityGaussReduction.lean",
+      "scope": "The full scalar Gauss sum at p^(k+1) is the actual unit complete sum plus p^4 times the preceding full scalar Gauss sum, at every prime and exponent.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_zero",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "scope": "The exponent-zero local coefficient is one, from the actual modulus-one complete sum.",
+      "source_labels": [
+        "lem:density",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.legendreSym_complex_norm_le_one",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "scope": "The actual Legendre symbol embedded in complex numbers has norm at most one at every prime and integer argument.",
+      "source_labels": [
+        "lem:density",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensity_goodPrime_ratio_norm_lt_one",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "scope": "The actual Legendre coefficient divided by the prime has complex norm strictly below one, supplying a convergent geometric series and a nonzero denominator.",
+      "source_labels": [
+        "lem:density",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_goodPrime_succ",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "scope": "At a good prime every positive-exponent actual local coefficient equals (1-1/p) times the (k+1)-st power of the Legendre coefficient divided by p.",
+      "source_labels": [
+        "lem:density",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_hasSum_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "scope": "The actual good-prime local series has sum (1-Legendre/p^2)/(1-Legendre/p), from the exact coefficient evaluation and the separate modulus-one term.",
+      "source_labels": [
+        "lem:density",
+        "eq:sigmagood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_norm_le",
+      "file": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "scope": "The actual coefficient S_(p^k)(0)/p^(4*k) has norm at most 4 sqrt(|det A|) (1/p)^k under integral symmetry and nonsingularity, at every nonzero base p and k=0 included.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_norm_localDensityTerm",
+      "file": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "scope": "The norms of the literal local complete-sum coefficients are summable at every prime, including all bad primes and two, from the uniform complete-sum bound.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_localDensityTerm",
+      "file": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "scope": "The literal complex local complete-sum series is summable at every prime under the original symmetry and nonsingularity hypotheses.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.local_density",
+      "file": "QuaternaryQuadraticForms/LocalDensityTheorem.lean",
+      "scope": "All local clauses of Lemma 3.8: every-prime actual count limit, absolute complete-sum series with exact real-density value, and the exact good-prime rational formula.",
+      "source_labels": [
+        "lem:density"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_local_density",
+      "file": "QuaternaryQuadraticForms/LocalDensityTheorem.lean",
+      "scope": "Complete Lemma 3.8 with the original supplied character: every actual local counting limit, exact absolutely convergent local series, good-prime rational formula, absolute corrected-factor deviation sum, and corrected product and norm-product convergence.",
+      "source_labels": [
+        "lem:density",
+        "eq:SF"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_primePower_scalars",
+      "file": "QuaternaryQuadraticForms/PrimePowerScalarDecomposition.lean",
+      "scope": "Every actual scalar residue modulo p^(k+1) is partitioned into the units and unique multiples of p lifted from modulo p^k, including k=0 and p=2.",
+      "source_labels": [
+        "lem:density",
+        "eq:singint",
+        "eq:densityseries"
       ],
       "status": "Checked locally",
       "allowed_axioms": [
