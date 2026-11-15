@@ -1,0 +1,17 @@
+QuaternaryQuadraticForms.periodic_sum_range_norm_le : ∀ (f : ℕ → ℂ) (P : ℕ),
+  0 < P →
+    Function.Periodic f P →
+      ∑ n ∈ Finset.range P, f n = 0 → (∀ (n : ℕ), ‖f n‖ ≤ 1) → ∀ (T : ℕ), ‖∑ n ∈ Finset.range T, f n‖ ≤ ↑P
+'QuaternaryQuadraticForms.periodic_sum_range_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.periodic_cubic_sum_norm_le : ∀ (f : ℕ → ℂ) (P : ℕ),
+  0 < P →
+    Function.Periodic f P →
+      ∑ n ∈ Finset.range P, f n = 0 →
+        (∀ (n : ℕ), ‖f n‖ ≤ 1) → ∀ (T : ℕ), ‖∑ n ∈ Finset.Icc 1 T, f n * ↑n ^ 3‖ ≤ 2 * ↑P * ↑T ^ 3
+'QuaternaryQuadraticForms.periodic_cubic_sum_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le : ∀ (f : ℕ → ℂ) (P : ℕ),
+  0 < P →
+    Function.Periodic f P →
+      ∑ n ∈ Finset.range P, f n = 0 →
+        (∀ (n : ℕ), ‖f n‖ ≤ 1) → ∀ (Z : ℝ), 0 ≤ Z → ‖∑ n ∈ Finset.Icc 1 ⌊Z⌋₊, f n * ↑n ^ 3‖ ≤ 2 * ↑P * Z ^ 3
+'QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]

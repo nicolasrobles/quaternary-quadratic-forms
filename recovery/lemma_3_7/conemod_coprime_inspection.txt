@@ -1,0 +1,22 @@
+QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div : ∀ (d T : ℕ),
+  0 < d → ∀ (g : ℕ → ℂ), ∑ n ∈ Finset.Icc 1 T with d ∣ n, g n = ∑ k ∈ Finset.Icc 1 (T / d), g (d * k)
+'QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum : ∀ (n M : ℕ),
+  M ≠ 0 → (if n.Coprime M then 1 else 0) = ∑ d ∈ M.divisors, if d ∣ n then ↑(ArithmeticFunction.moebius d) else 0
+'QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples : ∀ (g : ℕ → ℂ) (M T : ℕ),
+  M ≠ 0 →
+    ∑ n ∈ Finset.Icc 1 T with n.Coprime M, g n =
+      ∑ d ∈ M.divisors, ↑(ArithmeticFunction.moebius d) * ∑ k ∈ Finset.Icc 1 (T / d), g (d * k)
+'QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.moebius_complex_norm_le_one : ∀ (n : ℕ), ‖↑(ArithmeticFunction.moebius n)‖ ≤ 1
+'QuaternaryQuadraticForms.moebius_complex_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.coprime_cubic_sum_norm_le : ∀ (f : ℕ →* ℂ),
+  (∀ (n : ℕ), ‖f n‖ ≤ 1) →
+    ∀ (B : ℝ),
+      0 ≤ B →
+        (∀ (T : ℕ), ‖∑ n ∈ Finset.Icc 1 T, f n * ↑n ^ 3‖ ≤ B * ↑T ^ 3) →
+          ∀ (M T : ℕ), M ≠ 0 → ‖∑ n ∈ Finset.Icc 1 T with n.Coprime M, f n * ↑n ^ 3‖ ≤ B * ↑M.divisors.card * ↑T ^ 3
+'QuaternaryQuadraticForms.coprime_cubic_sum_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]

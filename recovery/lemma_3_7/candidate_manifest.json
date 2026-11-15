@@ -1,0 +1,58 @@
+{
+  "checkpoint": 1,
+  "target": "Lemma 3.7 (lem:conemod)",
+  "baseline_commit": "1283e49a1a165e8d1d8fb32b0905ff032412baad",
+  "baseline_tree": "f08267415cdc355706804cbac072da42e3353026",
+  "stage": "Eight supporting exports in three modules passed strict local Lean checks and actual type/axiom inspection. Complete source theorem, correspondence review, full aggregate verifier, and exact-commit CI remain pending.",
+  "numbered_result_status": "Pending",
+  "numbered_counts": {
+    "Certified": 16,
+    "Partial": 0,
+    "Active": 0,
+    "Pending": 26
+  },
+  "whole_paper_certified": false,
+  "source_files": [
+    {
+      "restore_path": "QuaternaryQuadraticForms/PeriodicSumBound.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/PeriodicSumBound.lean.snapshot",
+      "bytes": 1728,
+      "sha256": "61c3017afb1916cbaccd3c1f2c4a798a18d45da8cbf97ea0a15d18b594dac371"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/CharacterCubicBound.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/CharacterCubicBound.lean.snapshot",
+      "bytes": 4350,
+      "sha256": "06464ac29d5c8fd4954b3ec8ce02726a0c3ddcb949ca844ea64060af044a285e"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/CoprimeCubicBound.lean.snapshot",
+      "bytes": 6160,
+      "sha256": "98d9e29fd2b2f2d262c0e84a2e69cfdabfe8cd0b34bfc26dc13c21b2a0f54df6"
+    }
+  ],
+  "checked_supporting_exports": [
+    "QuaternaryQuadraticForms.periodic_sum_range_norm_le",
+    "QuaternaryQuadraticForms.periodic_cubic_sum_norm_le",
+    "QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le",
+    "QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div",
+    "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum",
+    "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples",
+    "QuaternaryQuadraticForms.moebius_complex_norm_le_one",
+    "QuaternaryQuadraticForms.coprime_cubic_sum_norm_le"
+  ],
+  "axioms_for_each_new_export": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "no_new_literature_premises": true,
+  "restore_instructions": "Restore snapshots to their restore_path on the baseline commit, then use the pinned Lean toolchain. These snapshots do not change the active certification ledger or assert completion of Lemma 3.7.",
+  "remaining": [
+    "Derive actual nonsquare quadratic-character mean-zero period.",
+    "Prove relative totient divisor identity and exact finite rearrangement.",
+    "Assemble good-modulus cancellation and actual bad/good factorization sum.",
+    "Prove uniform final source endpoint, review correspondence, run complete local and exact-commit GitHub verification."
+  ]
+}
