@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 15 · Partial: 0 · Active: 0 · Pending: 27** — 42 numbered results.
+**Complete: 16 · Partial: 0 · Active: 0 · Pending: 26** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -125,7 +125,62 @@ possibly zero bad-part sum multiplicatively. Agreement of the Jacobi
 coefficient with the supplied character is proved from the source's
 good-prime values. No literature premise is used.
 
-The current scope covers 598 theorem exports across 139 Lean modules,
+**Lemma 3.6 is Certified.** For every real cutoff `X ≥ 1` and
+nonzero integral dual value `m = F*(u)`, the actual sum of
+`|𝒮_(q,c)(u)|/c³` over positive `c ≤ X` with `gcd(c,q)=q₁` has
+the bound `C_(F,ε) |C_(q₂)(u)| q₁² 1_(q₁∣m) (X|m|)^ε`.
+The positive constant is chosen before `N`, the local functions,
+`q,q₁,q₂`, the frequency, and the cutoff. Actual Ramanujan values,
+CRT, the bad-prime bound, finite factor-pair summation, and elementary
+divisor/logarithm estimates prove the result. The actual sum is zero
+when `q₁ ∤ m`. No literature premise is added or used.
+
+The current scope covers 637 theorem exports across 151 Lean modules,
+four unchanged separately registered external Lean premises, and 20 mapped
+source groups. All 33 auxiliary/supplementary groups remain Pending.
+This repository does not yet provide a certificate for the whole paper.
+
+The Lemma 3.6 milestone adds 39 public theorem exports in twelve new
+modules and one correspondence review, with 180 recorded aggregate
+input hashes. The twelve modules passed strict compilation, and the
+final source-theorem target build passed with 3,158 jobs. The unified
+inspection of all 39 actual theorem types and axiom lists passed;
+every new dependency is a standard logical foundation. The
+[source correspondence review](certification/correspondence/generic_modulus_bound.md)
+records the precise statement, uniformity, and stronger intermediate bound.
+
+**The full local aggregate verifier passed for all 637 theorem
+exports and 151 project Lean modules.** All 180 input hashes
+match the checked files. The independent comparison preserved all
+598 preceding complete theorem records and all 598 earlier support
+records, including actual types, axiom lists, source hashes, and scopes.
+All 39 new full types and axiom lists match the prior unified
+inspection; every new export uses exactly `Classical.choice`,
+`Quot.sound`, and `propext`. No new export uses a literature premise.
+
+The four registered premise records and nine pinned dependency
+revisions are unchanged. All 33 frozen changed-file hashes were
+preserved through verification, including the workflow, which is
+outside the report's 180 input hashes. The frozen manuscript and
+PDF remain unchanged. The independent audit also checked the actual
+source endpoint's quantifier order, real cutoff, literal gcd set,
+constrained Fourier factor, and exact divisibility indicator.
+
+The [local verification report](certification/verification_report.json)
+contains 942,183 bytes and has SHA-256
+`ae070fa70d8f1f02efa7c5e2ee0496d396c7fded6c65fa66ec5946b36d3d90de`.
+It records 16 Certified, zero Partial or Active, and 26 Pending
+numbered results; all 33 auxiliary/supplementary groups remain Pending.
+
+**GitHub CI for the 637-export scope is pending.** The new local
+result covers the complete Lemma 3.6 scope. The exact proof commit and
+its independently compared GitHub report will be recorded in the
+[execution checkpoint](CHECKPOINT.md) when that separate gate passes.
+Earlier local and GitHub evidence below retains its historical scope.
+
+### Earlier Lemma 3.5 verification
+
+The preceding Lemma 3.5 scope covered 598 theorem exports across 139 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
@@ -147,7 +202,7 @@ and nine pinned dependency revisions are unchanged. All 32 frozen
 changed-file hashes were preserved through verification, and the
 frozen manuscript and PDF remain unchanged.
 
-The [local verification report](certification/verification_report.json)
+The [local verification report at proof commit 5d052df](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/5d052dfa49810e4456dfb6de6e30577493658496/certification/verification_report.json)
 contains 879,086 bytes and has SHA-256
 `307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`.
 It records 15 Certified, zero Partial or Active, and 27 Pending numbered
@@ -170,13 +225,15 @@ comparisons agree on all 18 verification-content fields, including
 all 598 complete theorem records, four premise records, 167 input
 hashes, nine dependency revisions, and the complete Lean inspection
 output. Only `generated_at_utc` and `lake_build_output` differ.
-All 167 hashes match the current inspected files and the exact proof
+At that checkpoint all 167 hashes matched its inspected files and the exact proof
 tree `c1fc351aa09bac693b50db3d1f45d8f10efec08d`. All 30 frozen nondocument paths, including the
-workflow, remain unchanged and are bound to that proof tree. The installed local report remains
-unchanged at 879,086 bytes, with the digest recorded above.
+workflow, were checked against that proof tree. That accepted local report has
+879,086 bytes, with the digest recorded above.
 The [execution checkpoint](CHECKPOINT.md) records the exact proof,
 run, job, artifact, timestamps, and complete 598-export scope. The
 older evidence below retains its original scopes.
+
+This historical Lemma 3.5 evidence does not cover the new 637-export Lemma 3.6 milestone.
 
 ### Earlier Lemma 3.4 verification
 
@@ -280,7 +337,7 @@ whose tree is `91ed8165569569a763e5e9fc364da5e4a17c8657`.
 The [execution checkpoint](CHECKPOINT.md) records the exact proof,
 run, job, artifact, timestamps, and complete 553-export scope. This
 evidence does not cover the subsequent 571-export ramified milestone
-or the current 598-export Lemma 3.5 milestone. The older evidence
+or the preceding 598-export Lemma 3.5 milestone. The older evidence
 below retains its original scopes.
 
 The preceding Lemma 3.2 milestone added 54 public theorem exports in
@@ -330,7 +387,7 @@ The report and original artifact were preserved in
 The [execution checkpoint](CHECKPOINT.md) records the job, artifact,
 timestamps, digests, and full 536-export scope. This evidence does not
 cover the subsequent 553-export bound and 571-export ramified
-milestones or the current 598-export Lemma 3.5 milestone. The older
+milestones or the preceding 598-export Lemma 3.5 milestone. The older
 evidence below retains its original scopes.
 
 **The full local and GitHub verifiers passed for the preceding 482-export
@@ -485,6 +542,7 @@ The downloaded CI report and original artifact are preserved in the repository.
 - [Trusted literature inputs and excluded comparison claims](TRUSTED_INPUTS.md)
 - [Live proof ledger](certification/status.json)
 - [Actual Lean types and axiom dependencies](certification/verification_report.json)
+- [Correspondence review for complete Lemma 3.6 and its uniform modulus bound](certification/correspondence/generic_modulus_bound.md)
 - [Correspondence review for both clauses of Lemma 3.5 and the actual global complete sums](certification/correspondence/good_global_complete_sum.md)
 - [Correspondence review for complete Lemma 3.4 and the actual ramified complete sum](certification/correspondence/ramified_complete_sum.md)
 - [Correspondence review for complete Lemma 3.3 and the uniform complete-sum bound](certification/correspondence/bad_prime_bound.md)
@@ -712,6 +770,117 @@ is proved to be zero exactly when `p` divides each coordinate.
 These identities require only positive degree and `ψ ^ n = 1`; nonsingularity,
 smoothness, and nonprincipality are unnecessary for this part of the proof.
 The manuscript's hypotheses therefore specialize the checked results.
+
+## The absolute modulus estimate away from the dual cone
+
+The source endpoint is
+[`source_generic_modulus_bound`](QuaternaryQuadraticForms/GenericModulusTheorem.lean).
+For a fixed symmetric nonsingular integral matrix `A` and each
+$\varepsilon>0$, it chooses one positive constant before all varying
+source data. With $m=u^T\operatorname{adj}(A)u\ne0$,
+$q=q_1q_2$ positive and squarefree, $(q,N)=1$, and
+$\operatorname{rad}(N_F)\mid N$, the conclusion is
+
+$$
+\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\le C_{A,\varepsilon}\,|C_{q_2}(u)|\,q_1^2\,
+\mathbf 1_{q_1\mid m}\,(X|m|)^\varepsilon,
+\qquad X\ge1.
+$$
+
+The original local functions need only nonzero scalar invariance and
+norm at most one. The constant is independent of `N`, that family,
+`q,q₁,q₂`, `u`, and the real cutoff. This quantifier order is visible
+in the actual theorem type. The source radical condition derives
+`q.Coprime (quadraticBadPrimeModulus A)`; the source extension uses
+only the supplied functions at primes outside `N` in both actual sums.
+The constrained Fourier factor remains the existing sum at `q₂`, and
+its possible zero value is included.
+
+**The actual finite sum.** `gcdModuliUpTo q q₁ ⌊X⌋₊` contains exactly
+the positive natural moduli below the real cutoff with the source
+gcd condition. `normalizedMixedCompleteSum` equals the norm of the
+existing mixed complete sum divided by `c³` at every positive modulus;
+its zero extension at `c=0` never enters the summation set.
+`modulusNormSum` is the literal finite sum of these terms. From
+`q=q₁*q₂` and positivity, division by `q₁` recovers the original `q₂`.
+
+**Ramanujan estimates and the indicator.** The actual unit-digit
+recurrences prove every positive prime-power Ramanujan value. Their
+combination with actual CRT gives
+
+$$|R_n(m)|\le\gcd(n,|m|),\qquad
+|R_{dg}(m)|\le d\gcd(g,|m|).$$
+
+For squarefree `d∣g`, a prime dividing `d` occurs at least twice in
+`dg`. If it does not divide `m`, the actual Ramanujan sum vanishes.
+This proves the shared-factor divisibility support, and the actual
+good-modulus formula and bad/good CRT factorization transfer it to
+the mixed sum. Consequently `modulusNormSum_eq_zero_of_not_dvd`
+proves that the whole left-hand sum is zero whenever `q₁∤m`.
+No local norm hypothesis is needed for this vanishing theorem.
+
+**The stronger divisor/logarithm bound.** The existing uniform bound
+controls the bad-prime factor `S_b(u)` in `c=b*g`. The weight norm
+bound and actual Jacobi trichotomy give
+
+$$
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\le 4\sqrt{|\det A|}\,|C_{q_2}(u)|\,q_1^2
+\frac{\gcd(g,|m|)}g.
+$$
+
+The factor-pair map is injective because multiplication recovers `c`.
+Thus the actual gcd-restricted sum embeds into a finite rectangle of
+bad-supported `b` and positive `g`, with nonnegative summands. Actual
+factorization vectors bound the number of possible `b` by
+$(1+\log X/\log2)^{\omega(N_F)}$. The finite divisor argument and
+the harmonic estimate give
+
+$$\sum_{1\le g\le X}\frac{\gcd(g,|m|)}g
+\le\tau(|m|)(1+\log X).$$
+
+The resulting `modulusNormSum_le_divisor_log` has one divisor-count
+factor, with logarithm exponent `1+ω(N_F)`. This is a stronger
+intermediate bound than the manuscript's two-divisor-factor route.
+The proof does not require a separate formalization of the displayed
+infinite local series in `eq:ramsplit`; no such identity is assumed.
+The broader auxiliary group `aux:ramanujan`, including agreement
+with the Möbius divisor definition, remains separately Pending.
+
+For every prescribed positive exponent, `divisors_card_le_rpow`
+provides a positive constant uniform over all positive integers, and
+`one_add_log_pow_le_rpow` provides a positive constant uniform over
+all real `X≥1`. Applying them separately to `|m|` and `X` yields
+$|m|^\varepsilon X^\varepsilon=(X|m|)^\varepsilon$.
+The fixed prime-support exponent and determinant factor depend only
+on `A`. The exact zero theorem inserts the divisibility indicator.
+This proves the complete source estimate with the required uniformity.
+
+The boundary cases `q=q₁=q₂=1`, `X=1`, and `|m|=1` are included.
+The final estimate requires `m≠0`; its supporting Ramanujan gcd
+bounds also cover zero frequency. The source weight's zero-value
+condition and Fourier stratification bounds are unused. No
+Dirichlet character, nonprincipal-character cancellation, or
+nonsquare-determinant hypothesis is needed for this absolute bound.
+
+| New modules | Checked role |
+| --- | --- |
+| [RamanujanPrimePower](QuaternaryQuadraticForms/RamanujanPrimePower.lean), [RamanujanGcdBound](QuaternaryQuadraticForms/RamanujanGcdBound.lean) | Actual prime-power evaluations, global gcd bound, and shared-factor vanishing |
+| [MixedSumNormBounds](QuaternaryQuadraticForms/MixedSumNormBounds.lean), [MixedSumGcdBound](QuaternaryQuadraticForms/MixedSumGcdBound.lean) | Source weight norms, exact bad/good CRT, normalized bound, and mixed-sum divisibility support |
+| [PrimeSupportCount](QuaternaryQuadraticForms/PrimeSupportCount.lean), [GcdHarmonicBound](QuaternaryQuadraticForms/GcdHarmonicBound.lean) | Actual prime-support count and the finite gcd/divisor/harmonic estimate |
+| [ModulusNormSum](QuaternaryQuadraticForms/ModulusNormSum.lean), [FactorizationSumBound](QuaternaryQuadraticForms/FactorizationSumBound.lean) | Real-cutoff source sum and injective factor-pair summation |
+| [DivisorPowerBound](QuaternaryQuadraticForms/DivisorPowerBound.lean), [LogPowerBound](QuaternaryQuadraticForms/LogPowerBound.lean) | Uniform bounds for every positive exponent |
+| [GenericModulusBound](QuaternaryQuadraticForms/GenericModulusBound.lean), [GenericModulusTheorem](QuaternaryQuadraticForms/GenericModulusTheorem.lean) | Actual finite-sum estimate, exact zero, uniform power bound, and original-source endpoint |
+
+The [source correspondence review](certification/correspondence/generic_modulus_bound.md)
+distinguishes the 39 supporting exports from the numbered result and
+records the actual theorem types and dependencies. All 39 new exports
+use only standard logical foundations; no literature premise is added
+or used. Strict compilation and actual inspection have passed. The
+full aggregate and exact-proof-commit CI outcomes are tracked separately
+in the execution checkpoint.
 
 ## The global complete-sum identities
 
@@ -1382,26 +1551,45 @@ With the official Lean toolchain manager and Python 3 available:
 
     lake exe cache get \
       Mathlib.Algebra.BigOperators.Ring.Finset \
-      Mathlib.Tactic.Ring \
-      Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
-      Mathlib.Data.Fintype.BigOperators \
-      Mathlib.LinearAlgebra.Projectivization.Cardinality \
-      Mathlib.Analysis.Complex.Basic \
-      Mathlib.NumberTheory.DirichletCharacter.Bounds \
-      Mathlib.NumberTheory.DirichletCharacter.Basic \
-      Mathlib.NumberTheory.GaussSum \
-      Mathlib.FieldTheory.Perfect \
-      Mathlib.Algebra.Polynomial.BigOperators \
-      Mathlib.RingTheory.MvPolynomial.Homogeneous \
-      Mathlib.Data.Matrix.Mul \
-      Mathlib.FieldTheory.ChevalleyWarning \
-      Mathlib.NumberTheory.LegendreSymbol.Basic \
-      Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
-      Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
-      Mathlib.Algebra.Polynomial.Homogenize \
-      Mathlib.Data.Fin.VecNotation \
-      Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
+      Mathlib.Algebra.Group.Units.Equiv \
+      Mathlib.Algebra.MvPolynomial.Degrees \
+      Mathlib.Algebra.MvPolynomial.Eval \
       Mathlib.Algebra.MvPolynomial.PDeriv \
+      Mathlib.Algebra.MvPolynomial.SchwartzZippel \
+      Mathlib.Algebra.MvPolynomial.Variables \
+      Mathlib.Algebra.Order.BigOperators.Group.Finset \
+      Mathlib.Algebra.Order.Ring.Pow \
+      Mathlib.Algebra.Polynomial.BigOperators \
+      Mathlib.Algebra.Polynomial.Coeff \
+      Mathlib.Algebra.Polynomial.Homogenize \
+      Mathlib.Algebra.Star.BigOperators \
+      Mathlib.Analysis.Complex.Basic \
+      Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
+      Mathlib.Analysis.SpecialFunctions.Log.Base \
+      Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
+      Mathlib.Analysis.SpecialFunctions.Pow.Real \
+      Mathlib.Data.Fin.VecNotation \
+      Mathlib.Data.Finset.Prod \
+      Mathlib.Data.Finsupp.Weight \
+      Mathlib.Data.Fintype.BigOperators \
+      Mathlib.Data.Matrix.Mul \
+      Mathlib.Data.Nat.Factorization.Basic \
+      Mathlib.Data.Nat.Factorization.Induction \
+      Mathlib.Data.Nat.GCD.Basic \
+      Mathlib.Data.Nat.PrimeFin \
+      Mathlib.Data.Nat.Squarefree \
+      Mathlib.Data.Nat.Totient \
+      Mathlib.Data.Real.Archimedean \
+      Mathlib.Data.Real.Basic \
+      Mathlib.Data.Real.Sqrt \
+      Mathlib.Data.ZMod.Basic \
+      Mathlib.Data.ZMod.Coprime \
+      Mathlib.FieldTheory.ChevalleyWarning \
+      Mathlib.FieldTheory.Finite.Basic \
+      Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
+      Mathlib.FieldTheory.IsAlgClosed.Basic \
+      Mathlib.FieldTheory.Perfect \
+      Mathlib.GroupTheory.Index \
       Mathlib.LinearAlgebra.Basis.VectorSpace \
       Mathlib.LinearAlgebra.BilinearForm.Orthogonal \
       Mathlib.LinearAlgebra.Dual.Lemmas \
@@ -1413,34 +1601,31 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.LinearAlgebra.Matrix.BilinearForm \
       Mathlib.LinearAlgebra.Matrix.Dual \
       Mathlib.LinearAlgebra.Matrix.Rank \
+      Mathlib.LinearAlgebra.Matrix.ToLin \
+      Mathlib.LinearAlgebra.Projectivization.Cardinality \
       Mathlib.LinearAlgebra.QuadraticForm.Basic \
-      Mathlib.RingTheory.MvPolynomial.EulerIdentity \
-      Mathlib.Tactic.FieldSimp \
-      Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
-      Mathlib.Data.Nat.Factorization.Basic \
-      Mathlib.Data.Nat.Factorization.Induction \
-      Mathlib.Data.Nat.GCD.Basic \
-      Mathlib.Data.Nat.Totient \
-      Mathlib.Data.Nat.PrimeFin \
-      Mathlib.Data.Nat.Squarefree \
-      Mathlib.Data.ZMod.Coprime \
-      Mathlib.Algebra.Group.Units.Equiv \
-      Mathlib.Logic.Equiv.Prod \
       Mathlib.Logic.Equiv.Fin.Basic \
-      Mathlib.Algebra.Polynomial.Coeff \
-      Mathlib.Algebra.MvPolynomial.Eval \
-      Mathlib.Algebra.MvPolynomial.Degrees \
-      Mathlib.Algebra.MvPolynomial.Variables \
-      Mathlib.Algebra.MvPolynomial.SchwartzZippel \
-      Mathlib.FieldTheory.Finite.Basic \
-      Mathlib.Analysis.SpecialFunctions.Pow.Real \
-      Mathlib.Algebra.Order.BigOperators.Group.Finset \
-      Mathlib.Data.Finsupp.Weight \
-      Mathlib.Tactic.IntervalCases \
+      Mathlib.Logic.Equiv.Prod \
+      Mathlib.NumberTheory.ArithmeticFunction \
+      Mathlib.NumberTheory.DirichletCharacter.Basic \
+      Mathlib.NumberTheory.DirichletCharacter.Bounds \
+      Mathlib.NumberTheory.Divisors \
+      Mathlib.NumberTheory.GaussSum \
+      Mathlib.NumberTheory.Harmonic.Bounds \
+      Mathlib.NumberTheory.LegendreSymbol.Basic \
+      Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
+      Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
+      Mathlib.RingTheory.MvPolynomial.EulerIdentity \
+      Mathlib.RingTheory.MvPolynomial.Homogeneous \
+      Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
+      Mathlib.Tactic.FieldSimp \
       Mathlib.Tactic.FinCases \
-      Mathlib.Tactic.LinearCombination \
+      Mathlib.Tactic.GCongr \
+      Mathlib.Tactic.IntervalCases \
       Mathlib.Tactic.Linarith \
-      Mathlib.Tactic.NormNum
+      Mathlib.Tactic.LinearCombination \
+      Mathlib.Tactic.NormNum \
+      Mathlib.Tactic.Ring
     python3 scripts/verify_certificate.py
 
 The verifier checks the frozen source, every inventory entry, the dependency
@@ -1457,33 +1642,36 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next bounded target is complete Lemma 3.6, `lem:genericmod`, source
-lines 1292–1342. For squarefree $q=q_1q_2$ with $(q,N)=1$, every
-integral $u$ with $m=F^*(u)\ne0$, $X\ge1$, and $\varepsilon>0$,
-the required estimate is
+The next bounded target is complete Lemma 3.7, `lem:conemod`:
+statement at source lines 1348–1354 and proof at 1356–1404. For
+positive squarefree $q=q_1q_2$ with $(q,N_F)=1$, an integral frequency
+on the dual cone $F^*(u)=0$, and $X\ge1$, the required estimate is
 
-$$\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}
-\frac{|\mathcal S_{q,c}(u)|}{c^3}
-\ll_{F,\varepsilon}|C_{q_2}(u)|\,q_1^2\,
-\mathbf 1_{q_1\mid F^*(u)}\,(X|F^*(u)|)^\varepsilon.$$
+$$
+\left|\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}S_c(u)\right|
+\ll_{F,\varepsilon} X^3(Xq)^\varepsilon.
+$$
 
-The constant must depend only on the fixed form `F` and `ε`, with
-the actual gcd condition and quotient factor preserved throughout.
-The divisibility indicator is part of the conclusion: the sum must
-vanish when `q₁ ∤ F*(u)`.
+This is a cancellation estimate for the actual unweighted complete
+sums. Its hypotheses and constant must remain independent of the
+prime-weight family and the larger excluded-prime modulus `N`.
+The source uses the actual nonprincipal quadratic character supplied
+by the standing nonsquare determinant. Correctly deriving or
+instantiating that nonprincipality, rather than assuming an internal
+cancellation bound, is part of the next proof.
 
-The source argument combines the proved bad/good modulus split and
-Lemma 3.3 with the new good-modulus identity and the source weight
-norm bound. The remaining work includes the exact prime-power
-Ramanujan values and their local series, the divisor/harmonic estimate
-for $\sum_{n\le X}|R_n(m)|/n$, and the count of bad-prime-supported
-factors. The resulting bound
-$\tau(|m|)^2(1+\log X)^{1+\omega(N_F)}$ must be absorbed into
-$(X|m|)^\varepsilon$ with the required uniform constant. This entire
-Lemma 3.6 target remains Pending; no proof of it is part of the
-current milestone.
+The remaining steps include period-sum cancellation, the weighted
+partial-summation estimate for `Σ χ(j)j³`, Möbius detection of
+coprimality, and the precise totient divisor expansion for
+`φ(q₁n)`. The finite sum must be rearranged with its actual gcd
+restriction and the good-prime condition. The good-modulus identity,
+CRT factorization, uniform bad-prime bound, prime-support count, and
+uniform divisor/logarithm tools are already available. The final
+assembly must preserve the constant's dependence only on `F,ε`,
+including the factor arising from the character conductor and the
+subpower bound for the prime-support factor of `q`.
 
-Lemmas 3.1–3.5 and all Section 4 lemmas are complete. The global
-asymptotic in Theorem 1.3, the analytic assembly, and Theorems 1.1 and
-1.4 remain Pending. All 33 auxiliary/supplementary groups remain
+Lemma 3.7 remains Pending. Lemmas 3.1–3.6 and all Section 4 lemmas
+are complete. Theorem 1.3's global asymptotic, the analytic assembly,
+Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
 Pending.

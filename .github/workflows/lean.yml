@@ -38,66 +38,81 @@ jobs:
         run: |
           lake exe cache get \
             Mathlib.Algebra.BigOperators.Ring.Finset \
-            Mathlib.Tactic.Ring \
-            Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
-            Mathlib.Data.Fintype.BigOperators \
-            Mathlib.LinearAlgebra.Projectivization.Cardinality \
-            Mathlib.Analysis.Complex.Basic \
-            Mathlib.NumberTheory.DirichletCharacter.Bounds \
-            Mathlib.RingTheory.MvPolynomial.Homogeneous \
-            Mathlib.Data.Matrix.Mul \
-            Mathlib.FieldTheory.ChevalleyWarning \
-            Mathlib.NumberTheory.LegendreSymbol.Basic \
-            Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
-            Mathlib.Algebra.Polynomial.Homogenize \
-            Mathlib.Data.Fin.VecNotation \
-            Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
+            Mathlib.Algebra.Group.Units.Equiv \
+            Mathlib.Algebra.MvPolynomial.Degrees \
+            Mathlib.Algebra.MvPolynomial.Eval \
             Mathlib.Algebra.MvPolynomial.PDeriv \
+            Mathlib.Algebra.MvPolynomial.SchwartzZippel \
+            Mathlib.Algebra.MvPolynomial.Variables \
+            Mathlib.Algebra.Order.BigOperators.Group.Finset \
+            Mathlib.Algebra.Order.Ring.Pow \
+            Mathlib.Algebra.Polynomial.BigOperators \
+            Mathlib.Algebra.Polynomial.Coeff \
+            Mathlib.Algebra.Polynomial.Homogenize \
+            Mathlib.Algebra.Star.BigOperators \
+            Mathlib.Analysis.Complex.Basic \
+            Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
+            Mathlib.Analysis.SpecialFunctions.Log.Base \
+            Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
+            Mathlib.Analysis.SpecialFunctions.Pow.Real \
+            Mathlib.Data.Fin.VecNotation \
+            Mathlib.Data.Finset.Prod \
+            Mathlib.Data.Finsupp.Weight \
+            Mathlib.Data.Fintype.BigOperators \
+            Mathlib.Data.Matrix.Mul \
+            Mathlib.Data.Nat.Factorization.Basic \
+            Mathlib.Data.Nat.Factorization.Induction \
+            Mathlib.Data.Nat.GCD.Basic \
+            Mathlib.Data.Nat.PrimeFin \
+            Mathlib.Data.Nat.Squarefree \
+            Mathlib.Data.Nat.Totient \
+            Mathlib.Data.Real.Archimedean \
+            Mathlib.Data.Real.Basic \
+            Mathlib.Data.Real.Sqrt \
+            Mathlib.Data.ZMod.Basic \
+            Mathlib.Data.ZMod.Coprime \
+            Mathlib.FieldTheory.ChevalleyWarning \
+            Mathlib.FieldTheory.Finite.Basic \
+            Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
+            Mathlib.FieldTheory.IsAlgClosed.Basic \
+            Mathlib.FieldTheory.Perfect \
+            Mathlib.GroupTheory.Index \
             Mathlib.LinearAlgebra.Basis.VectorSpace \
             Mathlib.LinearAlgebra.BilinearForm.Orthogonal \
             Mathlib.LinearAlgebra.Dual.Lemmas \
             Mathlib.LinearAlgebra.FiniteDimensional.Lemmas \
+            Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient \
             Mathlib.LinearAlgebra.LinearIndependent.Basic \
             Mathlib.LinearAlgebra.LinearIndependent.Lemmas \
             Mathlib.LinearAlgebra.Matrix.Adjugate \
             Mathlib.LinearAlgebra.Matrix.BilinearForm \
             Mathlib.LinearAlgebra.Matrix.Dual \
             Mathlib.LinearAlgebra.Matrix.Rank \
-            Mathlib.RingTheory.MvPolynomial.EulerIdentity \
-            Mathlib.Tactic.FieldSimp \
-            Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
-            Mathlib.Data.Nat.Factorization.Basic \
-            Mathlib.Algebra.Polynomial.Coeff \
-            Mathlib.Tactic.IntervalCases \
-            Mathlib.Tactic.FinCases \
-            Mathlib.Tactic.NormNum \
-            Mathlib.FieldTheory.IsAlgClosed.Basic \
-            Mathlib.Algebra.MvPolynomial.Eval \
-            Mathlib.Algebra.MvPolynomial.Degrees \
-            Mathlib.Algebra.MvPolynomial.Variables \
-            Mathlib.Algebra.Order.BigOperators.Group.Finset \
-            Mathlib.Data.Finsupp.Weight \
-            Mathlib.Algebra.MvPolynomial.SchwartzZippel \
-            Mathlib.FieldTheory.Finite.Basic \
-            Mathlib.Analysis.SpecialFunctions.Pow.Real \
-            Mathlib.Tactic.Linarith \
-            Mathlib.Tactic.LinearCombination \
-            Mathlib.Data.Nat.PrimeFin \
-            Mathlib.NumberTheory.GaussSum \
-            Mathlib.Algebra.Polynomial.BigOperators \
-            Mathlib.FieldTheory.Perfect \
-            Mathlib.Data.ZMod.Coprime \
-            Mathlib.Data.Nat.Squarefree \
-            Mathlib.Algebra.Group.Units.Equiv \
+            Mathlib.LinearAlgebra.Matrix.ToLin \
+            Mathlib.LinearAlgebra.Projectivization.Cardinality \
             Mathlib.LinearAlgebra.QuadraticForm.Basic \
             Mathlib.Logic.Equiv.Fin.Basic \
-            Mathlib.LinearAlgebra.FreeModule.Finite.CardQuotient \
             Mathlib.Logic.Equiv.Prod \
-            Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
+            Mathlib.NumberTheory.ArithmeticFunction \
             Mathlib.NumberTheory.DirichletCharacter.Basic \
-            Mathlib.Data.Nat.Factorization.Induction \
-            Mathlib.Data.Nat.GCD.Basic \
-            Mathlib.Data.Nat.Totient
+            Mathlib.NumberTheory.DirichletCharacter.Bounds \
+            Mathlib.NumberTheory.Divisors \
+            Mathlib.NumberTheory.GaussSum \
+            Mathlib.NumberTheory.Harmonic.Bounds \
+            Mathlib.NumberTheory.LegendreSymbol.Basic \
+            Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
+            Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
+            Mathlib.RingTheory.MvPolynomial.EulerIdentity \
+            Mathlib.RingTheory.MvPolynomial.Homogeneous \
+            Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
+            Mathlib.Tactic.FieldSimp \
+            Mathlib.Tactic.FinCases \
+            Mathlib.Tactic.GCongr \
+            Mathlib.Tactic.IntervalCases \
+            Mathlib.Tactic.Linarith \
+            Mathlib.Tactic.LinearCombination \
+            Mathlib.Tactic.NormNum \
+            Mathlib.Tactic.Ring
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

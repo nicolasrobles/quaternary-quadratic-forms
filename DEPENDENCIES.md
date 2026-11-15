@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 15 · Partial: 0 · Active: 0 · Pending:
-27**. Lemmas 2.5, 2.7 and 3.1–3.5, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 16 · Partial: 0 · Active: 0 · Pending:
+26**. Lemmas 2.5, 2.7 and 3.1–3.6, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -160,12 +160,22 @@ exports in 11 modules use only standard logical foundations and
 introduce no literature premise. Aggregate verification and CI
 execution evidence are recorded separately in the checkpoint.
 
+**Lemma 3.6 is Certified.** For every real cutoff `X ≥ 1` and
+nonzero integral dual value `m = F*(u)`, the actual sum of
+`|𝒮_(q,c)(u)|/c³` over positive `c ≤ X` with `gcd(c,q)=q₁` has
+the bound `C_(F,ε) |C_(q₂)(u)| q₁² 1_(q₁∣m) (X|m|)^ε`.
+The positive constant is chosen before `N`, the local functions,
+`q,q₁,q₂`, the frequency, and the cutoff. Actual Ramanujan values,
+CRT, the bad-prime bound, finite factor-pair summation, and elementary
+divisor/logarithm estimates prove the result. The actual sum is zero
+when `q₁ ∤ m`. No literature premise is added or used.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 598 theorem exports across 139 Lean modules are
+numbered-result count. The 637 theorem exports across 151 Lean modules are
 also counted separately from the four external Lean premises. The current
-expected verification scope includes 167 hashed inputs and nine pinned dependency
+expected verification scope includes 180 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
 The whole-paper certification flag remains false.
@@ -277,6 +287,13 @@ The source's supplied Dirichlet character is an actual
 with the Jacobi coefficient from exactly the given Legendre values.
 No equality at composite moduli, CRT factorization, or nonvanishing
 of the bad-part sum is assumed in either final source clause.
+
+The absolute modulus bound in Lemma 3.6 also uses no registered literature
+premise. Its Ramanujan recurrences, gcd estimate, divisibility support,
+finite factor-pair transport, prime-support count, and uniform divisor and
+logarithm estimates are internal proofs over the pinned library. It does
+not assume the source local series or a bound for the complete modulus
+sum. The broader Ramanujan auxiliary group remains separately Pending.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -944,7 +961,7 @@ dependency list is exactly `Classical.choice`, `Quot.sound`, and
 `propext`. Aggregate verification and CI execution evidence are
 recorded separately in the checkpoint.
 That completed milestone covered 571 exports, 128 proof modules and
-155 inspected input hashes; the current totals include Lemma 3.5.
+155 inspected input hashes; the current totals include Lemmas 3.5 and 3.6.
 
 ## Completed global mixed-sum and dual-cone identities
 
@@ -1064,54 +1081,152 @@ No registered literature premise is added or used. Aggregate
 verification and CI execution evidence are recorded separately
 in the checkpoint.
 
+## Completed off-dual-cone modulus estimate
+
+The source endpoint is
+[`source_generic_modulus_bound`](QuaternaryQuadraticForms/GenericModulusTheorem.lean).
+For a fixed symmetric nonsingular integral matrix `A` and each
+$\varepsilon>0$, it chooses one positive constant before all varying
+source data. With $m=u^T\operatorname{adj}(A)u\ne0$,
+$q=q_1q_2$ positive and squarefree, $(q,N)=1$, and
+$\operatorname{rad}(N_F)\mid N$, the conclusion is
+
+$$
+\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\le C_{A,\varepsilon}\,|C_{q_2}(u)|\,q_1^2\,
+\mathbf 1_{q_1\mid m}\,(X|m|)^\varepsilon,
+\qquad X\ge1.
+$$
+
+The original local functions need only nonzero scalar invariance and
+norm at most one. The constant is independent of `N`, that family,
+`q,q₁,q₂`, `u`, and the real cutoff. This quantifier order is visible
+in the actual theorem type. The source radical condition derives
+`q.Coprime (quadraticBadPrimeModulus A)`; the source extension uses
+only the supplied functions at primes outside `N` in both actual sums.
+The constrained Fourier factor remains the existing sum at `q₂`, and
+its possible zero value is included.
+
+**The actual finite sum.** `gcdModuliUpTo q q₁ ⌊X⌋₊` contains exactly
+the positive natural moduli below the real cutoff with the source
+gcd condition. `normalizedMixedCompleteSum` equals the norm of the
+existing mixed complete sum divided by `c³` at every positive modulus;
+its zero extension at `c=0` never enters the summation set.
+`modulusNormSum` is the literal finite sum of these terms. From
+`q=q₁*q₂` and positivity, division by `q₁` recovers the original `q₂`.
+
+**Ramanujan estimates and the indicator.** The actual unit-digit
+recurrences prove every positive prime-power Ramanujan value. Their
+combination with actual CRT gives
+
+$$|R_n(m)|\le\gcd(n,|m|),\qquad
+|R_{dg}(m)|\le d\gcd(g,|m|).$$
+
+For squarefree `d∣g`, a prime dividing `d` occurs at least twice in
+`dg`. If it does not divide `m`, the actual Ramanujan sum vanishes.
+This proves the shared-factor divisibility support, and the actual
+good-modulus formula and bad/good CRT factorization transfer it to
+the mixed sum. Consequently `modulusNormSum_eq_zero_of_not_dvd`
+proves that the whole left-hand sum is zero whenever `q₁∤m`.
+No local norm hypothesis is needed for this vanishing theorem.
+
+**The stronger divisor/logarithm bound.** The existing uniform bound
+controls the bad-prime factor `S_b(u)` in `c=b*g`. The weight norm
+bound and actual Jacobi trichotomy give
+
+$$
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\le 4\sqrt{|\det A|}\,|C_{q_2}(u)|\,q_1^2
+\frac{\gcd(g,|m|)}g.
+$$
+
+The factor-pair map is injective because multiplication recovers `c`.
+Thus the actual gcd-restricted sum embeds into a finite rectangle of
+bad-supported `b` and positive `g`, with nonnegative summands. Actual
+factorization vectors bound the number of possible `b` by
+$(1+\log X/\log2)^{\omega(N_F)}$. The finite divisor argument and
+the harmonic estimate give
+
+$$\sum_{1\le g\le X}\frac{\gcd(g,|m|)}g
+\le\tau(|m|)(1+\log X).$$
+
+The resulting `modulusNormSum_le_divisor_log` has one divisor-count
+factor, with logarithm exponent `1+ω(N_F)`. This is a stronger
+intermediate bound than the manuscript's two-divisor-factor route.
+The proof does not require a separate formalization of the displayed
+infinite local series in `eq:ramsplit`; no such identity is assumed.
+The broader auxiliary group `aux:ramanujan`, including agreement
+with the Möbius divisor definition, remains separately Pending.
+
+For every prescribed positive exponent, `divisors_card_le_rpow`
+provides a positive constant uniform over all positive integers, and
+`one_add_log_pow_le_rpow` provides a positive constant uniform over
+all real `X≥1`. Applying them separately to `|m|` and `X` yields
+$|m|^\varepsilon X^\varepsilon=(X|m|)^\varepsilon$.
+The fixed prime-support exponent and determinant factor depend only
+on `A`. The exact zero theorem inserts the divisibility indicator.
+This proves the complete source estimate with the required uniformity.
+
+The boundary cases `q=q₁=q₂=1`, `X=1`, and `|m|=1` are included.
+The final estimate requires `m≠0`; its supporting Ramanujan gcd
+bounds also cover zero frequency. The source weight's zero-value
+condition and Fourier stratification bounds are unused. No
+Dirichlet character, nonprincipal-character cancellation, or
+nonsquare-determinant hypothesis is needed for this absolute bound.
+
+| New modules | Checked role |
+| --- | --- |
+| [RamanujanPrimePower](QuaternaryQuadraticForms/RamanujanPrimePower.lean), [RamanujanGcdBound](QuaternaryQuadraticForms/RamanujanGcdBound.lean) | Actual prime-power evaluations, global gcd bound, and shared-factor vanishing |
+| [MixedSumNormBounds](QuaternaryQuadraticForms/MixedSumNormBounds.lean), [MixedSumGcdBound](QuaternaryQuadraticForms/MixedSumGcdBound.lean) | Source weight norms, exact bad/good CRT, normalized bound, and mixed-sum divisibility support |
+| [PrimeSupportCount](QuaternaryQuadraticForms/PrimeSupportCount.lean), [GcdHarmonicBound](QuaternaryQuadraticForms/GcdHarmonicBound.lean) | Actual prime-support count and the finite gcd/divisor/harmonic estimate |
+| [ModulusNormSum](QuaternaryQuadraticForms/ModulusNormSum.lean), [FactorizationSumBound](QuaternaryQuadraticForms/FactorizationSumBound.lean) | Real-cutoff source sum and injective factor-pair summation |
+| [DivisorPowerBound](QuaternaryQuadraticForms/DivisorPowerBound.lean), [LogPowerBound](QuaternaryQuadraticForms/LogPowerBound.lean) | Uniform bounds for every positive exponent |
+| [GenericModulusBound](QuaternaryQuadraticForms/GenericModulusBound.lean), [GenericModulusTheorem](QuaternaryQuadraticForms/GenericModulusTheorem.lean) | Actual finite-sum estimate, exact zero, uniform power bound, and original-source endpoint |
+
+The [source correspondence review](certification/correspondence/generic_modulus_bound.md)
+distinguishes the 39 supporting exports from the numbered result and
+records the actual theorem types and dependencies. All 39 new exports
+use only standard logical foundations; no literature premise is added
+or used. Strict compilation and actual inspection have passed. The
+full aggregate and exact-proof-commit CI outcomes are tracked separately
+in the execution checkpoint.
+
 ## Next proof branch
 
-Full Lemma 3.6, `lem:genericmod`, at source lines 1292–1342 remains
-Pending and is the next target. For squarefree `q=q₁q₂` with
-`(q,N)=1`, an integral frequency with `m=F*(u)≠0`, every `X≥1`,
-and each `ε>0`, the complete target is
+The next bounded target is complete Lemma 3.7, `lem:conemod`:
+statement at source lines 1348–1354 and proof at 1356–1404. For
+positive squarefree $q=q_1q_2$ with $(q,N_F)=1$, an integral frequency
+on the dual cone $F^*(u)=0$, and $X\ge1$, the required estimate is
 
 $$
-\sum_{\substack{1\le c\le X\\(c,q)=q_1}}
- \frac{|\mathcal S_{q,c}(u)|}{c^3}
-\ll_{F,\varepsilon}
- |C_{q_2}(u)|\,q_1^2\,
- \mathbf 1_{q_1\mid m}\,(X|m|)^\varepsilon.
+\left|\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}S_c(u)\right|
+\ll_{F,\varepsilon} X^3(Xq)^\varepsilon.
 $$
 
-The implicit constant must depend only on `F` and `ε`, uniformly
-in `q`, `u`, and `X`. The divisibility indicator and the whole
-sum over the exact gcd condition are part of the target.
+This is a cancellation estimate for the actual unweighted complete
+sums. Its hypotheses and constant must remain independent of the
+prime-weight family and the larger excluded-prime modulus `N`.
+The source uses the actual nonprincipal quadratic character supplied
+by the standing nonsquare determinant. Correctly deriving or
+instantiating that nonprincipality, rather than assuming an internal
+cancellation bound, is part of the next proof.
 
-The proof still needs the count of moduli supported on bad primes,
-stated immediately before the lemma at source lines 1288–1290:
-at most `(1+log X/log 2)^ω(N_F)`. Lemma 3.3 controls their actual
-unweighted sums, while the completed good-modulus formula and the
-source weight norm bound reduce the good part to the literal
-Ramanujan sums. The prime-power valuation calculation must prove
+The remaining steps include period-sum cancellation, the weighted
+partial-summation estimate for `Σ χ(j)j³`, Möbius detection of
+coprimality, and the precise totient divisor expansion for
+`φ(q₁n)`. The finite sum must be rearranged with its actual gcd
+restriction and the good-prime condition. The good-modulus identity,
+CRT factorization, uniform bad-prime bound, prime-support count, and
+uniform divisor/logarithm tools are already available. The final
+assembly must preserve the constant's dependence only on `F,ε`,
+including the factor arising from the character conductor and the
+subpower bound for the prime-support factor of `q`.
 
-$$
-p\sum_{k\ge1}\frac{|R_{p^{k+1}}(m)|}{p^k}
-=\begin{cases}
-0,&v_p(m)=0,\\
-p\big((v_p(m)-1)(p-1)+1\big),&v_p(m)\ge1,
-\end{cases}
-$$
-
-and the upper bound `p²v_p(m)`. This supplies the exact zero when
-`q₁∤m` and the product bound `q₁²τ(|m|)` otherwise. The remaining
-Ramanujan divisor and harmonic-sum estimate is
-`∑_{n≤X}|R_n(m)|/n ≤ τ(|m|)(1+log X)`. Combining these estimates
-must give the source intermediate bound with
-`τ(|m|)²(1+log X)^(1+ω(N_F))`, followed by the uniform divisor and
-logarithm bound required for the final `ε` power. These actual
-summation, valuation, counting and uniformity statements remain
-proof obligations; no Lemma 3.6 proof is claimed at this checkpoint.
-
-The main analytic theorems remain Pending.
-In particular, the first two assertions of Theorem 1.3 now have checked
-inputs from Lemmas 4.5 and 4.6, while its asymptotic and explicit global
-factor clause still require Theorem 1.1; Theorem 1.3 remains Pending.
+Lemma 3.7 remains Pending. Lemmas 3.1–3.6 and all Section 4 lemmas
+are complete. Theorem 1.3's global asymptotic, the analytic assembly,
+Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
+Pending.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

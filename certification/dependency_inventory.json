@@ -1060,8 +1060,11 @@
       ],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "The indicator q1 | F*(u) follows from the exact p-adic Ramanujan values and must be kept.",
-        "The prime-power absolute sum equals p((v-1)(p-1)+1) for v>=1 and zero for v=0."
+        "Complete source theorem for the literal positive-modulus sum with real cutoff and exact gcd condition. The positive constant is chosen after A and \u03b5, and before N, the original prime functions, q,q\u2081,q\u2082,u,X. It retains the actual constrained Fourier sum, q\u2081\u00b2, the exact divisibility indicator, and (X|F*(u)|)^\u03b5.",
+        "Actual unit-digit Ramanujan recurrences prove prime-power values. Actual CRT yields the global gcd bound and the multiplied-modulus estimate; repeated shared prime factors prove exact vanishing outside q\u2081\u2223F*(u). No internal character-sum estimate is assumed.",
+        "The proved bad/good split and uniform bad-prime bound give the pointwise mixed-sum estimate. Multiplication recovers each source modulus from its chosen factor pair, proving the injective transport to a finite rectangle. Actual factorization vectors supply the prime-support count.",
+        "The finite gcd/divisor/harmonic estimate gives one divisor-count factor and logarithm exponent 1+\u03c9(N_F), strengthening the source proof's two-divisor-factor intermediate bound. Uniform divisor and logarithm power bounds provide the full \u03b5 estimate. The displayed infinite local series in eq:ramsplit is not required or asserted by this alternative proof.",
+        "The source wrapper uses exactly rad(N_F)\u2223N, (q,N)=1, original prime-family invariance and norm bounds. It includes modulus one, X=1, |F*(u)|=1 and zero Fourier factors. No literature premise is added or used; all 39 new exports use standard logical foundations. Lemma 3.7, the broader auxiliary groups, and global analytic theorems remain Pending."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

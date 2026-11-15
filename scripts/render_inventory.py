@@ -86,7 +86,8 @@ lines = [
     f'{counts["Partial"]} {"is" if counts["Partial"] == 1 else "are"} partial, '
     f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
-    "The current checkpoint completes both clauses of Lemma 3.5, with "
+    "The current checkpoint completes Lemma 3.6 for the actual gcd-restricted absolute modulus sum at every real X≥1 and nonzero integral dual value m. For each fixed symmetric nonsingular integral A and ε>0, one positive constant is chosen before N, the original local functions, q=q₁q₂, the frequency, and X. The conclusion retains |C_(q₂)(u)| q₁² 1_(q₁∣m) (X|m|)^ε. Actual Ramanujan prime-power recurrences and CRT give the gcd bound and repeated-prime vanishing. The actual bad/good factorization and uniform bound are transported through an injective finite factor-pair map. The prime-support count and gcd harmonic bound give a stronger intermediate factor τ(|m|)(1+log X)^(1+ω(N_F)); uniform divisor and logarithm power estimates finish the theorem. The exact zero outside q₁∣m is proved for the actual sum. The source wrapper uses the literal prime family and radical condition; no character-cancellation premise is used. All 39 new exports in 12 modules passed strict compilation and actual type/axiom inspection using only standard logical foundations. No literature premise is added or used. [Source correspondence review](certification/correspondence/generic_modulus_bound.md). The expected aggregate scope is 637 exports, 151 modules, and 180 inputs; aggregate and exact-proof-commit CI outcomes are recorded separately in the checkpoint.", "",
+    "The completed Lemma 3.5 covers both clauses, with "
     "the actual q₁=gcd(q,c) and q₂=q/q₁. The source matrix is "
     "symmetric and nonsingular over the integers, q≥1 is squarefree "
     "with (q,N)=1, rad(N_F)∣N, and the supplied prime weights are "
@@ -299,22 +300,7 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Next proof target", "",
-    "Full Lemma 3.6 (lem:genericmod), source lines 1292–1342, remains "
-    "Pending and is the next target. For squarefree q=q₁q₂ with "
-    "(q,N)=1, m=F*(u)≠0, X≥1 and each ε>0, prove the complete sum over "
-    "1≤c≤X and gcd(c,q)=q₁ of |𝒮_{q,c}(u)|/c³ is at most "
-    "a constant depending only on F and ε times "
-    "|C_{q₂}(u)| q₁² 1_{q₁∣m} (X|m|)^ε, uniformly in q,u,X. "
-    "The proof includes the bad-prime-supported modulus count from "
-    "source lines 1288–1290, the actual Ramanujan prime-power "
-    "valuation calculation, the local factor bound p²v_p(m), and "
-    "the exact vanishing unless q₁∣m. The remaining divisor and "
-    "harmonic-sum estimate is ∑_{n≤X}|R_n(m)|/n≤τ(|m|)(1+log X). "
-    "Together these must give the intermediate factor "
-    "τ(|m|)²(1+log X)^(1+ω(N_F)) and its uniform absorption into "
-    "the final ε power. These summation, valuation, counting, "
-    "indicator and uniformity claims remain proof obligations. "
-    "Theorem 1.3 and the global analytic theorems remain Pending.", "",
+    "Full Lemma 3.7 (lem:conemod), statement lines 1348–1354 and proof lines 1356–1404, remains Pending and is the next target. For squarefree q=q₁q₂ with (q,N_F)=1, F*(u)=0, and X≥1, prove |Σ_(c≤X,(c,q)=q₁) S_c(u)| ≪_(F,ε) X³(Xq)^ε for the actual unweighted sums. The scope is independent of the prime-weight family and N. It requires the actual source character's nonprincipality from the standing nonsquare determinant, period cancellation, weighted partial summation, Möbius coprimality detection, the totient expansion, and finite rearrangement with the literal gcd condition. The good-modulus formula, CRT, uniform bad-prime bound, prime-support count, and divisor/logarithm power tools are already available. The conductor and prime-support factors must be absorbed with constants depending only on F and ε. Lemmas 3.1–3.6 and all Section 4 lemmas are complete. The main analytic theorems and all 33 auxiliary groups remain Pending.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 
@@ -527,6 +513,7 @@ trusted += [
     "and the other 26 use the standard triplet. No internal "
     "factorization or global evaluation remains assumed in the "
     "combined source endpoint.", "",
+    "The complete Lemma 3.6 also uses none of the registered literature premises. Actual unit-digit recurrence and CRT prove the Ramanujan gcd bound and the shared-factor vanishing. The bad/good modulus split, source weight bounds, finite factor-pair injection, prime-support count, gcd harmonic estimate, and uniform divisor/logarithm power bounds are all internal proofs. The final positive constant is chosen before N, all local functions, q,q₁,q₂,u, and X; the exact divisibility indicator is retained. The stronger one-divisor-factor proof does not assume the manuscript's local infinite series. Its 39 new exports use only standard logical foundations. The full auxiliary Ramanujan-definition agreement remains separately Pending.", "",
     "The Katz premise explicitly combines its spectral theorem and trace formula "
     "with Fulton/Stacks general hypersurface geometry, adjunction, and degree "
     "formulas. The matrix-quadric geometry, the numerical coefficient "

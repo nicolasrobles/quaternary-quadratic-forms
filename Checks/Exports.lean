@@ -601,7 +601,46 @@ run_cmd do
     `QuaternaryQuadraticForms.squarefree_gcd_factors,
     `QuaternaryQuadraticForms.gcd_mul_blocks_coprime,
     `QuaternaryQuadraticForms.squarefree_shared_gcd_factors,
-    `QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime]
+    `QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime,
+    `QuaternaryQuadraticForms.divisors_card_le_rpow,
+    `QuaternaryQuadraticForms.sum_le_product_of_factorization,
+    `QuaternaryQuadraticForms.sum_divisor_multiples_div_le_harmonic,
+    `QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_harmonic,
+    `QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_log,
+    `QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_not_dvd,
+    `QuaternaryQuadraticForms.modulusNormSum_le_divisor_log,
+    `QuaternaryQuadraticForms.modulusNormSum_le_rpow,
+    `QuaternaryQuadraticForms.source_generic_modulus_bound,
+    `QuaternaryQuadraticForms.one_add_log_pow_le_rpow,
+    `QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd,
+    `QuaternaryQuadraticForms.mixedCompleteSum_eq_zero_of_gcd_not_dvd,
+    `QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_of_prime_split,
+    `QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split,
+    `QuaternaryQuadraticForms.globalQuadraticChar_norm_le,
+    `QuaternaryQuadraticForms.compositeWeight_norm_le,
+    `QuaternaryQuadraticForms.primeWeightsNorm_le_extend,
+    `QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_norm_le,
+    `QuaternaryQuadraticForms.mixedCompleteSum_eq_bad_mul_good,
+    `QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_of_prime_split,
+    `QuaternaryQuadraticForms.mem_gcdModuliUpTo,
+    `QuaternaryQuadraticForms.normalizedMixedCompleteSum_of_neZero,
+    `QuaternaryQuadraticForms.normalizedMixedCompleteSum_nonneg,
+    `QuaternaryQuadraticForms.modulusNormSum_nonneg,
+    `QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_vanishing,
+    `QuaternaryQuadraticForms.mem_primeSupportModuliUpTo,
+    `QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le,
+    `QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log,
+    `QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log_normalized,
+    `QuaternaryQuadraticForms.integralRamanujanSum_prime_power_norm_le_gcd,
+    `QuaternaryQuadraticForms.integralRamanujanSum_norm_le_gcd,
+    `QuaternaryQuadraticForms.integralRamanujanSum_mul_norm_le,
+    `QuaternaryQuadraticForms.integralRamanujanSum_eq_zero_of_prime_sq_dvd,
+    `QuaternaryQuadraticForms.integralRamanujanSum_shared_eq_zero,
+    `QuaternaryQuadraticForms.integralRamanujanSum_shared_norm_le,
+    `QuaternaryQuadraticForms.integralRamanujanSum_prime_eq,
+    `QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero,
+    `QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul,
+    `QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2431,3 +2470,120 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime
 #print axioms QuaternaryQuadraticForms.squarefree_dvd_prime_pow_eq_one_or_prime
+
+#check @QuaternaryQuadraticForms.divisors_card_le_rpow
+#print axioms QuaternaryQuadraticForms.divisors_card_le_rpow
+
+#check @QuaternaryQuadraticForms.sum_le_product_of_factorization
+#print axioms QuaternaryQuadraticForms.sum_le_product_of_factorization
+
+#check @QuaternaryQuadraticForms.sum_divisor_multiples_div_le_harmonic
+#print axioms QuaternaryQuadraticForms.sum_divisor_multiples_div_le_harmonic
+
+#check @QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_harmonic
+#print axioms QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_harmonic
+
+#check @QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_log
+#print axioms QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_log
+
+#check @QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_not_dvd
+#print axioms QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_not_dvd
+
+#check @QuaternaryQuadraticForms.modulusNormSum_le_divisor_log
+#print axioms QuaternaryQuadraticForms.modulusNormSum_le_divisor_log
+
+#check @QuaternaryQuadraticForms.modulusNormSum_le_rpow
+#print axioms QuaternaryQuadraticForms.modulusNormSum_le_rpow
+
+#check @QuaternaryQuadraticForms.source_generic_modulus_bound
+#print axioms QuaternaryQuadraticForms.source_generic_modulus_bound
+
+#check @QuaternaryQuadraticForms.one_add_log_pow_le_rpow
+#print axioms QuaternaryQuadraticForms.one_add_log_pow_le_rpow
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_eq_zero_of_gcd_not_dvd
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_eq_zero_of_gcd_not_dvd
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_of_prime_split
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_of_prime_split
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split
+
+#check @QuaternaryQuadraticForms.globalQuadraticChar_norm_le
+#print axioms QuaternaryQuadraticForms.globalQuadraticChar_norm_le
+
+#check @QuaternaryQuadraticForms.compositeWeight_norm_le
+#print axioms QuaternaryQuadraticForms.compositeWeight_norm_le
+
+#check @QuaternaryQuadraticForms.primeWeightsNorm_le_extend
+#print axioms QuaternaryQuadraticForms.primeWeightsNorm_le_extend
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_norm_le
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_norm_le
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_eq_bad_mul_good
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_eq_bad_mul_good
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_of_prime_split
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_of_prime_split
+
+#check @QuaternaryQuadraticForms.mem_gcdModuliUpTo
+#print axioms QuaternaryQuadraticForms.mem_gcdModuliUpTo
+
+#check @QuaternaryQuadraticForms.normalizedMixedCompleteSum_of_neZero
+#print axioms QuaternaryQuadraticForms.normalizedMixedCompleteSum_of_neZero
+
+#check @QuaternaryQuadraticForms.normalizedMixedCompleteSum_nonneg
+#print axioms QuaternaryQuadraticForms.normalizedMixedCompleteSum_nonneg
+
+#check @QuaternaryQuadraticForms.modulusNormSum_nonneg
+#print axioms QuaternaryQuadraticForms.modulusNormSum_nonneg
+
+#check @QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_vanishing
+#print axioms QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_vanishing
+
+#check @QuaternaryQuadraticForms.mem_primeSupportModuliUpTo
+#print axioms QuaternaryQuadraticForms.mem_primeSupportModuliUpTo
+
+#check @QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le
+#print axioms QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le
+
+#check @QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log
+#print axioms QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log
+
+#check @QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log_normalized
+#print axioms QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log_normalized
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_prime_power_norm_le_gcd
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_prime_power_norm_le_gcd
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_norm_le_gcd
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_norm_le_gcd
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_mul_norm_le
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_mul_norm_le
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_eq_zero_of_prime_sq_dvd
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_eq_zero_of_prime_sq_dvd
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_shared_eq_zero
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_shared_eq_zero
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_shared_norm_le
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_shared_norm_le
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_prime_eq
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_prime_eq
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul
+
+#check @QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq
+#print axioms QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq

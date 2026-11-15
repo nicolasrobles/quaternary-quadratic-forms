@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete good-modulus and arbitrary-modulus dual-cone identities for the actual mixed complete sums",
+  "checkpoint": "Complete uniform off-dual-cone absolute modulus estimate with the exact divisibility indicator",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -134,11 +134,23 @@
         "On the actual integral dual cone, the existing mixed complete sum at every positive modulus c, including arbitrary bad-prime factors, equals the actual constrained sum at q/gcd(q,c), times gcd(q,c)^2, the original supplied character at gcd(q,c), the original composite weight at the adjugate frequency, and the actual unweighted complete sum S_c."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.5, including both clauses and the literal source factors q1=gcd(q,c), q2=q/q1. Squarefreeness supplies the exact positive gcd and quotient, their coprimality with the full shared CRT block, and the split of a squarefree divisor across coprime moduli. Prime-power induction proves the shared-support formula for actual mixed sums when q divides c; its prime-power branches use the already proved unramified and ramified evaluations. Actual CRT then separates precisely the constrained Fourier sum at q2. The Ramanujan product is proved through the actual unit CRT bijection, and its value at zero is the actual unit count. The totient identity phi(d*c)=d*phi(c) is proved for d dividing c. The intermediate coefficient is the actual Jacobi symbol. The original source Dirichlet character is supplied with exactly its stated Legendre values at good primes; prime induction proves its equality with that coefficient at every needed good positive composite modulus. No composite-character equality, primitive-character construction, or identity at bad moduli is assumed. The right-hand weight is the literal product of the original supplied functions. Every prime occurring in the constrained Fourier factor also lies outside N, since the quotient divides q. For the dual-cone clause, an actual positive bad-prime/good-prime decomposition c=b*g is constructed, q is proved coprime to b, and gcd(q,c)=gcd(q,g) is proved. Both actual CRT identities retain the factor S_b multiplicatively; no character sum, weight, or character value is cancelled or assumed nonzero. Integer nonsingularity and the source radical divisibility derive q coprime to N_F from q coprime to N for the arbitrary-modulus clause. Modulus one and zero frequency are included. The separate source condition N>=1 is unused, and is not inferred from q coprime to N; the additional N=0 case forces q=1. The weight zero-value, norm and stratified Fourier bounds, and character primitivity and nonsquareness are unnecessary once the supplied character and its source good-prime values are available. All 27 new theorem exports use only standard logical foundations: 26 have exactly Classical.choice, Quot.sound, and propext; gcd_mul_blocks_coprime uses only propext. No literature premise is added or used. Lemma 3.6 and the global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.5, including both clauses and the literal source factors q1=gcd(q,c), q2=q/q1. Squarefreeness supplies the exact positive gcd and quotient, their coprimality with the full shared CRT block, and the split of a squarefree divisor across coprime moduli. Prime-power induction proves the shared-support formula for actual mixed sums when q divides c; its prime-power branches use the already proved unramified and ramified evaluations. Actual CRT then separates precisely the constrained Fourier sum at q2. The Ramanujan product is proved through the actual unit CRT bijection, and its value at zero is the actual unit count. The totient identity phi(d*c)=d*phi(c) is proved for d dividing c. The intermediate coefficient is the actual Jacobi symbol. The original source Dirichlet character is supplied with exactly its stated Legendre values at good primes; prime induction proves its equality with that coefficient at every needed good positive composite modulus. No composite-character equality, primitive-character construction, or identity at bad moduli is assumed. The right-hand weight is the literal product of the original supplied functions. Every prime occurring in the constrained Fourier factor also lies outside N, since the quotient divides q. For the dual-cone clause, an actual positive bad-prime/good-prime decomposition c=b*g is constructed, q is proved coprime to b, and gcd(q,c)=gcd(q,g) is proved. Both actual CRT identities retain the factor S_b multiplicatively; no character sum, weight, or character value is cancelled or assumed nonzero. Integer nonsingularity and the source radical divisibility derive q coprime to N_F from q coprime to N for the arbitrary-modulus clause. Modulus one and zero frequency are included. The separate source condition N>=1 is unused, and is not inferred from q coprime to N; the additional N=0 case forces q=1. The weight zero-value, norm and stratified Fourier bounds, and character primitivity and nonsquareness are unnecessary once the supplied character and its source good-prime values are available. All 27 new theorem exports use only standard logical foundations: 26 have exactly Classical.choice, Quot.sound, and propext; gcd_mul_blocks_coprime uses only propext. No literature premise is added or used. The global analytic theorems remain Pending."
     },
     "lem:genericmod": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_generic_modulus_bound",
+        "QuaternaryQuadraticForms.modulusNormSum_le_rpow",
+        "QuaternaryQuadraticForms.modulusNormSum_le_divisor_log",
+        "QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_not_dvd"
+      ],
+      "correspondence_record": "certification/correspondence/generic_modulus_bound.md",
+      "completed_clauses": [
+        "For each fixed symmetric nonsingular integral matrix and every positive exponent, one positive constant works for every source modulus N, original admissible prime family, positive squarefree factorization q=q₁q₂, nonzero integral dual value, and real cutoff X≥1. The actual gcd-restricted absolute modulus sum is bounded by that constant times the existing |C_(q₂)(u)|, q₁², the exact divisibility indicator, and (X|F*(u)|)^ε.",
+        "The actual complete sums and the entire finite modulus sum vanish when q₁ does not divide the integral dual value; the indicator is proved, with no local norm hypothesis needed for the vanishing statement."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c≤X with gcd(c,q)=q₁, every real X≥1, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and ε>0, but before N, the source prime family, q,q₁,q₂, the frequency, and X. It retains the existing constrained Fourier factor at q₂, q₁², the exact indicator 1_(q₁∣m), and (X|m|)^ε. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|≤gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with τ(|m|), rather than the manuscript route's τ(|m|)², and logarithm exponent 1+ω(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q₁ does not divide m. The boundary cases q=q₁=q₂=1, X=1, and |m|=1 are included; the final theorem requires m≠0. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. Lemma 3.7 and the global analytic theorems remain Pending."
     },
     "lem:conemod": {
       "status": "Pending",
@@ -9704,6 +9716,631 @@
         "lem:goodglobal",
         "eq:goodglobal",
         "eq:coneratio"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.divisors_card_le_rpow",
+      "file": "QuaternaryQuadraticForms/DivisorPowerBound.lean",
+      "scope": "The number of positive divisors grows more slowly than every prescribed positive real power, with a positive constant uniform in `n`.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_le_product_of_factorization",
+      "file": "QuaternaryQuadraticForms/FactorizationSumBound.lean",
+      "scope": "An actual factor-pair map bounds a finite sum by the product of a factor count and an unrestricted nonnegative sum over the second factor.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_divisor_multiples_div_le_harmonic",
+      "file": "QuaternaryQuadraticForms/GcdHarmonicBound.lean",
+      "scope": "Positive multiples of a fixed divisor contribute at most the ordinary harmonic sum after division by that divisor.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_harmonic",
+      "file": "QuaternaryQuadraticForms/GcdHarmonicBound.lean",
+      "scope": "The finite gcd sum is bounded by the actual divisor count times the ordinary harmonic sum, uniformly in both natural parameters.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_log",
+      "file": "QuaternaryQuadraticForms/GcdHarmonicBound.lean",
+      "scope": "The real-cutoff gcd estimate has one divisor factor and a logarithm, including the boundary cutoff `X=1`.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_not_dvd",
+      "file": "QuaternaryQuadraticForms/GenericModulusBound.lean",
+      "scope": "The actual modulus sum vanishes outside the source's integral divisibility condition, for every real cutoff.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulusNormSum_le_divisor_log",
+      "file": "QuaternaryQuadraticForms/GenericModulusBound.lean",
+      "scope": "The actual finite modulus sum has a uniform explicit bound with one divisor-count factor and the bad-prime logarithmic exponent.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulusNormSum_le_rpow",
+      "file": "QuaternaryQuadraticForms/GenericModulusTheorem.lean",
+      "scope": "The full nonzero-dual modulus estimate, with a positive constant depending only on the fixed matrix and exponent. All varying arithmetic data and local functions occur after the existential constant.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:weightproperties"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_generic_modulus_bound",
+      "file": "QuaternaryQuadraticForms/GenericModulusTheorem.lean",
+      "scope": "Lemma 3.6 for the source's original family of local functions. The same constant works for every excluded-prime modulus `N`, every admissible squarefree factorization `q = d * e`, every nonzero integral dual value, and every real cutoff at least one.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:weightproperties"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.one_add_log_pow_le_rpow",
+      "file": "QuaternaryQuadraticForms/LogPowerBound.lean",
+      "scope": "A fixed power of `1 + log X` is absorbed by any prescribed positive power of `X`, with one positive constant uniform for every `X ≥ 1`.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd",
+      "file": "QuaternaryQuadraticForms/MixedSumGcdBound.lean",
+      "scope": "The actual good-modulus mixed sum vanishes unless its shared squarefree factor divides the integral dual value.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:ramanujan"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_eq_zero_of_gcd_not_dvd",
+      "file": "QuaternaryQuadraticForms/MixedSumGcdBound.lean",
+      "scope": "The source's divisibility support holds at every positive modulus, including arbitrary bad-prime factors and without a norm assumption.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:ramanujan"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_of_prime_split",
+      "file": "QuaternaryQuadraticForms/MixedSumGcdBound.lean",
+      "scope": "The actual Ramanujan gcd estimate turns the normalized mixed-sum bound into the arithmetic expression summed in Lemma 3.6.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:ramanujan"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split",
+      "file": "QuaternaryQuadraticForms/MixedSumGcdBound.lean",
+      "scope": "The normalized arithmetic bound with the exact shared-factor indicator, derived from the actual mixed sum's vanishing.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:ramanujan"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.globalQuadraticChar_norm_le",
+      "file": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "scope": "The actual Jacobi coefficient has norm at most one at every modulus.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compositeWeight_norm_le",
+      "file": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "scope": "The source's local norm bounds control its actual composite weight.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeWeightsNorm_le_extend",
+      "file": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "scope": "The source family's norm bound is inherited at every prime of a modulus coprime to its excluded-prime modulus.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_norm_le",
+      "file": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "scope": "Taking norms in the actual good-modulus evaluation removes just the two factors whose norms are at most one.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_eq_bad_mul_good",
+      "file": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "scope": "The actual CRT factorization for a bad-prime part and its coprime good-prime complement. It includes possible zero complete-sum values.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_of_prime_split",
+      "file": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "scope": "The uniform bad-prime bound and the actual good-modulus identity give a normalized bound for every positive bad/good prime-support split.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_gcdModuliUpTo",
+      "file": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "scope": "The finite summation set retains positivity, the cutoff, and the gcd.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:Snewdef",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedMixedCompleteSum_of_neZero",
+      "file": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "scope": "At every positive modulus the summand is exactly the source term.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:Snewdef",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedMixedCompleteSum_nonneg",
+      "file": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "scope": "Every summand in the absolute modulus sum is nonnegative.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:Snewdef",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulusNormSum_nonneg",
+      "file": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "scope": "The actual absolute modulus sum is nonnegative.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:Snewdef",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_vanishing",
+      "file": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "scope": "Pointwise vanishing on the actual summation set gives the zero sum.",
+      "source_labels": [
+        "lem:genericmod",
+        "eq:genericmod",
+        "eq:Snewdef",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_primeSupportModuliUpTo",
+      "file": "QuaternaryQuadraticForms/PrimeSupportCount.lean",
+      "scope": "Membership retains positivity, the cutoff, and the literal condition on every prime divisor.",
+      "source_labels": [
+        "sec:moduli",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le",
+      "file": "QuaternaryQuadraticForms/PrimeSupportCount.lean",
+      "scope": "Actual exponent vectors give the finite-box bound for all positive moduli supported on the primes dividing `N`.",
+      "source_labels": [
+        "sec:moduli",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log",
+      "file": "QuaternaryQuadraticForms/PrimeSupportCount.lean",
+      "scope": "The exact logarithmic bound in the source, with an arbitrary real cutoff at least one and the actual finite prime support of `N`.",
+      "source_labels": [
+        "sec:moduli",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log_normalized",
+      "file": "QuaternaryQuadraticForms/PrimeSupportCount.lean",
+      "scope": "A normalized logarithmic count with a constant depending only on the fixed prime support, suitable for uniform power absorption.",
+      "source_labels": [
+        "sec:moduli",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_prime_power_norm_le_gcd",
+      "file": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "scope": "The exact prime-power evaluation implies the gcd bound, including zero frequency and the modulus-one boundary.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_norm_le_gcd",
+      "file": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "scope": "The norm of the literal Ramanujan unit sum is bounded by the actual gcd of the modulus and frequency. No coprimality or nonzero-frequency condition is imposed.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_mul_norm_le",
+      "file": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "scope": "Multiplying the modulus by a positive integer costs at most that integer in the gcd estimate.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_eq_zero_of_prime_sq_dvd",
+      "file": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "scope": "A squared prime factor of the modulus forces the literal unit sum to vanish unless that prime divides the frequency.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_shared_eq_zero",
+      "file": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "scope": "For a squarefree shared factor, the repeated-prime vanishing gives the exact divisibility condition used in Lemma 3.6.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_shared_norm_le",
+      "file": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "scope": "The norm estimate with the full shared-factor divisibility indicator.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod",
+        "eq:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_prime_eq",
+      "file": "QuaternaryQuadraticForms/RamanujanPrimePower.lean",
+      "scope": "The two exact values of the actual integral Ramanujan sum at a prime.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero",
+      "file": "QuaternaryQuadraticForms/RamanujanPrimePower.lean",
+      "scope": "A repeated modulus factor kills the actual unit sum when it does not divide the frequency. Primality of the factor is unnecessary.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul",
+      "file": "QuaternaryQuadraticForms/RamanujanPrimePower.lean",
+      "scope": "Divisibility of the frequency gives the exact unit-digit recurrence. The proof uses the literal positive standard character at both moduli.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq",
+      "file": "QuaternaryQuadraticForms/RamanujanPrimePower.lean",
+      "scope": "The exact prime-power unit sum, with no valuation convention required at zero frequency. The exponent is every positive integer.",
+      "source_labels": [
+        "eq:ramanujan",
+        "lem:genericmod"
       ],
       "status": "Checked locally",
       "allowed_axioms": [
