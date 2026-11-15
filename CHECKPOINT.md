@@ -55,7 +55,7 @@ hashes match the frozen checked candidate, and all 28 changed files were
 preserved throughout verification. The earlier 190 proof modules and nine
 dependency pins are unchanged.
 
-- [Local verification report](certification/verification_report.json).
+- [Local report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/70775d9c614707e135cbea1f03d2a94bebe0cf8e/certification/verification_report.json).
 - Local report SHA-256: `e39e55bfe2dbcd4358eb53deb691928fe19c94f1b26a74fb61c69cdc94b1ed63`.
 - Local report bytes: 1,238,027.
 - Locally checked candidate: `ccb9a0fe7a6119c9419cdd0051da9f2880c21108`.
@@ -67,9 +67,25 @@ dependency pins are unchanged.
 The report's generation timestamp is its initialization before Lean
 execution, not the completion time.
 
-**Exact-commit GitHub verification is pending.** The successful run,
-original artifact, and exact comparison with the local report will be
-recorded here after inspection. Earlier evidence retains its historical scope.
+**Independent GitHub verification passed for the exact published
+proof commit [70775d9c6147](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/70775d9c614707e135cbea1f03d2a94bebe0cf8e).**
+[Run 43750306023, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43750306023) completed
+successfully, and every verification-job step succeeded.
+
+- Published proof tree: `8e9394dd729dc11219ab7e6890da8ef73f100dcb`.
+- Verification job: `132922568789`; artifact: `14176209696`.
+- [Preserved CI report](certification/ci/run_43750306023_attempt_1.json), 1,238,732 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43750306023_attempt_1.zip), 145,236 bytes.
+- ZIP SHA-256: `2a09bf10b847d4786253e86b8b64f9d729f096ea7dce1fa539d2569b40a04c6f`.
+- CI report SHA-256: `300e24c963bb18db0a6ee5b5697b003dc1434e73092c3bf121e7abb1a85f7c4e`.
+
+The original ZIP digest matches GitHub's recorded digest. Independent
+comparison matches the local and CI reports on all 18 verification-content
+fields, including 838 complete theorem records, 232 inspected input hashes,
+four unchanged literature-premise records, and nine dependency revisions.
+All inspected files match the exact published proof commit. The only
+execution-specific fields are the generation timestamp and build log.
+Earlier records below retain their historical scopes.
 
 <!-- END LEMMA_2_4_VERIFICATION -->
 
