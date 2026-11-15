@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 18 · Partial: 0 · Active: 0 · Pending: 24** — 42 numbered results.
+**Complete: 19 · Partial: 0 · Active: 0 · Pending: 23** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -159,12 +159,73 @@ the norms of its factors minus one are summable. The original supplied
 character and the actual density remain in every bad-prime factor,
 including a factor that vanishes. No literature premise is added or used.
 
-The current scope covers 707 theorem exports across 174 Lean modules,
+**Lemma 3.9 is Certified.** The actual restricted series converges in
+increasing modulus order and equals the original-character singular-series
+constant times the reciprocal good densities at primes dividing `q`.
+Its literal real-cutoff tail satisfies `C_(F,epsilon) q^epsilon X^(-1+epsilon)`.
+The final theorem chooses the positive constant before the supplied
+character data, `q`, and `X`. The boundary uses the analytic `LFunction`
+at one and a finite corrected Euler comparison. Original bad-prime
+character values and possibly zero bad densities are retained.
+No literature premise is added or used.
+
+The current scope covers 789 theorem exports across 190 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-### Current Lemma 3.8 verification
+### Current Lemma 3.9 verification
+
+<!-- BEGIN LEMMA_3_9_VERIFICATION -->
+
+The complete Lemma 3.9 milestone adds **82 public theorem exports in
+sixteen modules**, bringing the aggregate scope to **789 theorem
+exports, 190 project Lean modules, and 222 inspected inputs**.
+The final source-theorem target build passed with 3,326 jobs under
+official Lean 4.24.0 and the pinned mathlib revision.
+
+All 82 new actual theorem types and axiom dependencies have been
+inspected under strict settings. They use only the standard logical
+foundations; none uses a literature premise. Independent source review
+checked ordered convergence, the literal real-cutoff tail, constant
+uniformity, the original character at bad primes, all necessary
+nonvanishing, and the boundary limit. The
+[source correspondence review](certification/correspondence/singular_series.md)
+records the complete argument and its boundary cases.
+
+**The full local aggregate verifier passed for all 789 theorem
+exports, 190 project Lean modules, and 222 inspected inputs.** It checked
+the frozen source, numbered statements and dependency ledger, the full
+build, each project module under strict settings, and every actual
+export type and axiom dependency.
+
+All 707 earlier complete theorem records and four literature-premise
+records are unchanged. The 82 new records match their independent
+actual-type audit; each uses exactly `Classical.choice`, `Quot.sound`,
+and `propext`. All 222 input hashes match the checked candidate, and
+all 37 frozen changed files were preserved through verification.
+The manuscript, PDF, verifier, previous 174 proof modules, and all
+nine dependency pins are unchanged.
+
+- [Local verification report](certification/verification_report.json).
+- Report SHA-256: `6174ae2b7486297ee025ff4ca91dbee47294492ee9d99469928cff26c6d41f24`.
+- Report bytes: 1,160,012.
+- Locally checked candidate: `44fcc9c14069ed6b4302e5f7dfacb1e55a65d427`.
+- Current inventory: 19 Certified, 0 Partial, 0 Active, 23 Pending.
+- All 33 supplementary groups remain Pending; whole-paper certification
+  remains false.
+
+The report's `generated_at_utc` is its initialization time before Lean
+execution. It does not purport to be the completion time.
+
+**Exact-commit GitHub verification is pending.** Its successful run,
+original artifact, and comparison with this local report will be recorded
+here after they have been checked. Earlier execution records below retain
+their historical scopes.
+
+<!-- END LEMMA_3_9_VERIFICATION -->
+
+### Earlier Lemma 3.8 verification
 
 <!-- BEGIN LEMMA_3_8_VERIFICATION -->
 

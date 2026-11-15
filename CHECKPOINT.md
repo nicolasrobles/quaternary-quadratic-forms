@@ -1,9 +1,9 @@
-# Local densities and corrected Euler product checkpoint
+# Ordered singular series checkpoint
 
 ## Numbered-result status
 
-Complete: **18**. Partial: **0**. Active numbered targets: **0**.
-Pending: **24**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **19**. Partial: **0**. Active numbered targets: **0**.
+Pending: **23**. All 33 auxiliary/supplementary groups remain Pending.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -138,9 +138,65 @@ density remain in every bad-prime factor, including a factor that
 vanishes. The finite counting identity includes exponent zero,
 the prime two, and all bad primes. No literature premise is added or used.
 
-The next bounded target is complete Lemma 3.9, the restricted singular-series identity and uniform tail estimate.
+**Lemma 3.9 is Certified.** The actual restricted series converges in
+increasing modulus order and equals the original-character singular-series
+constant times the reciprocal good densities at primes dividing `q`.
+Its literal real-cutoff tail satisfies `C_(F,epsilon) q^epsilon X^(-1+epsilon)`.
+The final theorem chooses the positive constant before the supplied
+character data, `q`, and `X`. The boundary uses the analytic `LFunction`
+at one and a finite corrected Euler comparison. Original bad-prime
+character values and possibly zero bad densities are retained.
+No literature premise is added or used.
+
+The next dependency to complete for Lemma 3.10 is Lemma 2.4, the coefficient-uniform polynomial-congruence box count.
 
 ## Mathematical scope
+
+### Complete Lemma 3.9
+
+The complete endpoint is
+[`source_singular_series`](QuaternaryQuadraticForms/SingularSeriesTheorem.lean).
+It proves increasing-modulus convergence, the exact identity
+
+$$
+\sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^4}
+=\mathfrak S_F\prod_{p\mid q}\sigma_p^{-1},
+$$
+
+and the uniform real-cutoff remainder estimate for every positive
+squarefree `q` coprime to `N_F`. Its positive constant is fixed after
+`A,epsilon` and before the supplied character data, modulus, and cutoff.
+The supporting estimate is stronger: it is uniform in every real shift
+`z>=0` and does not require squarefreeness.
+
+The actual Lemma 3.7 supplies coefficient cancellation. Exact Abel
+summation and an integrable power majorant prove ordered convergence,
+the correctly signed tail identity, and right continuity at zero shift.
+Choosing `eta=min(epsilon,1/2)` yields `C=9K` from the coefficient bound.
+The finite-tail bridge identifies the floor interval with `X<c<=Y`.
+
+At positive shift, the actual Lemma 3.3 and CRT give absolute convergence
+and the Euler product. The shifted local series have uniform summable
+domination on nonnegative shifts and tend to the actual counting densities.
+The nonsquare determinant proves that the original supplied character is
+nonprincipal. Official mathlib supplies its Euler products in `Re(s)>1`,
+nonvanishing at `2+z`, and continuity of its analytic `LFunction` at one.
+
+A finite correction over primes dividing `q*N_F` compares the product
+with the exponent-two character product. Its denominators are proved
+nonzero character Euler factors and `L(2+z,chi)`, never bad densities.
+The final removal product inverts only good densities at primes dividing
+`q`, whose nonvanishing is proved. Original character values at bad
+primes and zero bad densities are preserved. No conditional global series
+is represented as an unconditional sum at zero.
+
+The [complete correspondence review](certification/correspondence/singular_series.md)
+records all sixteen modules, 82 public exports, actual definitions,
+all source clauses, exact quantifier order, and independent reviews.
+No new or existing literature premise enters this milestone.
+
+Historical descriptions below retain the scope of their own milestones.
+Their then-pending statements do not override the current inventory.
 
 ### Complete Lemma 3.8
 
@@ -1614,6 +1670,57 @@ assumed as an internal premise.
 
 ## Current verification
 
+<!-- BEGIN LEMMA_3_9_VERIFICATION -->
+
+The complete Lemma 3.9 milestone adds **82 public theorem exports in
+sixteen modules**, bringing the aggregate scope to **789 theorem
+exports, 190 project Lean modules, and 222 inspected inputs**.
+The final source-theorem target build passed with 3,326 jobs under
+official Lean 4.24.0 and the pinned mathlib revision.
+
+All 82 new actual theorem types and axiom dependencies have been
+inspected under strict settings. They use only the standard logical
+foundations; none uses a literature premise. Independent source review
+checked ordered convergence, the literal real-cutoff tail, constant
+uniformity, the original character at bad primes, all necessary
+nonvanishing, and the boundary limit. The
+[source correspondence review](certification/correspondence/singular_series.md)
+records the complete argument and its boundary cases.
+
+**The full local aggregate verifier passed for all 789 theorem
+exports, 190 project Lean modules, and 222 inspected inputs.** It checked
+the frozen source, numbered statements and dependency ledger, the full
+build, each project module under strict settings, and every actual
+export type and axiom dependency.
+
+All 707 earlier complete theorem records and four literature-premise
+records are unchanged. The 82 new records match their independent
+actual-type audit; each uses exactly `Classical.choice`, `Quot.sound`,
+and `propext`. All 222 input hashes match the checked candidate, and
+all 37 frozen changed files were preserved through verification.
+The manuscript, PDF, verifier, previous 174 proof modules, and all
+nine dependency pins are unchanged.
+
+- [Local verification report](certification/verification_report.json).
+- Report SHA-256: `6174ae2b7486297ee025ff4ca91dbee47294492ee9d99469928cff26c6d41f24`.
+- Report bytes: 1,160,012.
+- Locally checked candidate: `44fcc9c14069ed6b4302e5f7dfacb1e55a65d427`.
+- Current inventory: 19 Certified, 0 Partial, 0 Active, 23 Pending.
+- All 33 supplementary groups remain Pending; whole-paper certification
+  remains false.
+
+The report's `generated_at_utc` is its initialization time before Lean
+execution. It does not purport to be the completion time.
+
+**Exact-commit GitHub verification is pending.** Its successful run,
+original artifact, and comparison with this local report will be recorded
+here after they have been checked. Earlier execution records below retain
+their historical scopes.
+
+<!-- END LEMMA_3_9_VERIFICATION -->
+
+## Earlier Lemma 3.8 execution
+
 <!-- BEGIN LEMMA_3_8_VERIFICATION -->
 
 The current Lemma 3.8 milestone contains 707 theorem exports across
@@ -2935,58 +3042,32 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The next bounded target is complete Lemma 3.9, `lem:singseries`,
-source lines 1446–1513. For every positive squarefree $q$ with
-$(q,N_F)=1$, prove convergence of the actual restricted series and
-its identity
+The immediate supplementary follow-on to Lemma 3.9 is `aux:Sxi` and
+`aux:Sxibound`: identify the weighted main coefficient with its finite
+local product and prove its `q^(-1+epsilon)` bound. These also require
+closing the existing `aux:Cfactor` correspondence, and the bound uses
+the good-prime inequality `sigma_p^(-1)<=2`. They remain separately
+tracked Pending obligations and are not included in Lemma 3.9's status.
 
-$$
-\sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^4}
-=\mathfrak S_F\prod_{p\mid q}\sigma_p^{-1}.
-$$
+Lemma 3.10 (`lem:box`) is the next numbered result in Section 3, but its
+principal prerequisite, Lemma 2.4 (`lem:polynomialbox`), remains Pending.
+The next bounded proof target is therefore complete Lemma 2.4, source
+lines 832–898, followed by its separately tracked epsilon absorption
+`aux:polynomialbox_epsilon` and then complete Lemma 3.10.
 
-Also prove, for every real $X\ge1$ and every $\varepsilon>0$,
+Lemma 2.4 requires the literal coefficient-uniform count for simultaneous
+polynomial congruences at squarefree moduli. The polynomials may differ
+at different prime divisors. Its exact constant `C_(n,E)=E+...+E^n`,
+the case `m=1`, interval cardinalities, and degenerate fibers all belong
+to the proof obligation; a common nonvanishing direction cannot be assumed.
 
-$$
-\left|\sum_{\substack{c>X\\(c,q)=1}}\frac{S_c(0)}{c^4}\right|
-\le C_{F,\varepsilon}q^\varepsilon X^{-1+\varepsilon},
-$$
+Lemma 3.10 then applies that count to the actual exceptional-frequency
+congruences and proves both the unweighted count and inverse-norm-weighted
+form. Its auxiliary polynomials are the explicit Section 3 hypotheses;
+it does not require reopening the completed Section 4 construction.
+Lemma 3.11 follows using the weighted estimate and the separately tracked
+finite factorization obligation `aux:Cfactor`.
 
-with one constant chosen before the varying modulus and cutoff.
-The completed Lemma 3.7 supplies cancellation of the actual partial
-sums at zero frequency; the completed Lemma 3.8 supplies the actual
-local limits and corrected Euler factors. The next proof must carry
-these through partial summation, the absolutely convergent shifted
-Euler product, and the limit as the shift tends to zero. The factors
-inverted at primes dividing $q$ are good-prime densities, whose
-nonvanishing must be deduced from the proved formula.
-
-Any cited $L$-function continuity input must retain its exact source
-statement, hypotheses, and locator, including the manuscript's
-Montgomery–Vaughan Section 4.3 citation. Partial summation and the
-manuscript-specific Euler-product assembly remain internal deductions.
-
-At zero shift, formulate convergence by `Tendsto` of the actual
-partial sums in increasing modulus order. This generally conditional
-series must not be represented by unconditional `Summable`, `HasSum`,
-or a raw `tsum`. For the same reason, use
-`DirichletCharacter.LFunction χ 1` for the source's $L(1,χ)$:
-the pinned library's naive `LSeries χ 1` takes the default value zero
-outside its absolute-convergence range. The existing library provides
-the agreement with `LSeries` for real part greater than one, Euler
-products there, and continuity of `LFunction` for a nonprincipal
-character. The mapped group `EXT.MV_DIRICHLET_L` is already accepted,
-but has no registered Lean premise; a new premise may be unnecessary.
-
-The first useful bounded step is the ordered convergence and uniform
-tail estimate from Lemma 3.7. Choose an internal exponent smaller
-than one, for example $\eta=\min(\varepsilon/2,1/2)$, before partial
-summation; then enlarge its bound to the requested epsilon exponents.
-Keep the original source character when identifying the final
-singular series. Only good-prime densities at primes dividing $q$
-are inverted.
-
-Lemma 3.9 remains Pending. Lemmas 3.1–3.8 and all Section 4 lemmas
-are complete. Theorem 1.3's global asymptotic, the analytic assembly,
-Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
-Pending.
+Lemmas 3.1–3.9 and every Section 4 lemma are complete. The global analytic
+assembly, Theorems 1.1, 1.3, and 1.4, and all 33 auxiliary/supplementary
+groups remain Pending. The whole paper is not certified.

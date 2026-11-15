@@ -92,15 +92,23 @@
       "reference": "MV",
       "locator": "Section 4.3",
       "scope": "Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums.",
-      "status": "Trusted literature input or verified library result; precise interface pending",
+      "status": "Needed facts supplied by verified official mathlib results",
       "id": "EXT.MV_DIRICHLET_L",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "trust": "No external Lean premise is registered or used. The pinned official library proves the general L-function facts; all original-character hypotheses and manuscript-specific deductions are proved internally.",
       "lean_declarations": [],
-      "interface_status": "Pending"
+      "interface_status": "Verified library results with checked source specialization",
+      "correspondence_record": "certification/correspondence/singular_series.md",
+      "verified_library_results": [
+        "DirichletCharacter.LSeries_eulerProduct_hasProd",
+        "DirichletCharacter.LFunction_eq_LSeries",
+        "DirichletCharacter.differentiable_LFunction",
+        "DirichletCharacter.LSeries_ne_zero_of_one_lt_re"
+      ],
+      "library_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7"
     },
     "EXT.LANG_ELIMINATION": {
       "reference": "La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002",
-      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404\u2013405",
+      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
       "status": "Registered trusted literature input",
       "id": "EXT.LANG_ELIMINATION",

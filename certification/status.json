@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete actual local-density limits, absolutely convergent local series, and the original-character corrected Euler product",
+  "checkpoint": "Complete ordered singular series, original-character Euler identity, and uniform real-cutoff tail",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -185,8 +185,20 @@
       "scope_note": "Complete Lemma 3.8 for the actual symmetric nonsingular integral quaternary matrix. The density is defined as limUnder of the actual real normalized residue-zero counts, not as an assumed series value. Composite-modulus additive orthogonality and an actual scalar unit/multiple digit partition prove the exact finite identity with range(k+1); cancellation of a common scalar/modulus factor counts exactly four free residue digits. The finite identity requires no symmetry or nonsingularity, covers p=2, and proves the modulus-one base case. The established uniform complete-sum bound supplies the exact geometric majorant 4 sqrt(|det A|) p^(-k) at every prime. Continuity and uniqueness of limits identify the full complex series with the real counting density and also prove nonnegativity. The actual good-prime-power evaluation and totient formula yield the geometric series; its ratio has norm below one, so its denominator is proved nonzero. The original supplied Dirichlet character occurs in the good-prime rational formula and in every corrected factor, including bad primes. Only its source Legendre values at good primes are assumed. Nonsingularity makes the actual bad-prime set finite, and the good-prime deviation is bounded by p^(-2). Absolute-deviation summability is explicit before deriving product convergence, so a finite zero factor cannot trivialize the absolute-convergence assertion. No local density is divided out or assumed positive. The source nonsquare and primitivity assumptions are unnecessary for this stronger local result once the supplied character and its stated good-prime values are present. All 30 new public exports in nine modules use exactly Classical.choice, Quot.sound, and propext. No literature premise is added or used. Lemma 3.9, the global analytic theorems, and all 33 separately tracked auxiliary groups remain Pending."
     },
     "lem:singseries": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_singular_series",
+        "QuaternaryQuadraticForms.singularSeriesValue_zero_eq",
+        "QuaternaryQuadraticForms.tendsto_singularSeriesTail_Ioc"
+      ],
+      "correspondence_record": "certification/correspondence/singular_series.md",
+      "completed_clauses": [
+        "The actual coprimality-restricted complete-sum series converges in increasing modulus order, using arbitrary real cutoffs, for every positive squarefree modulus coprime to the actual N_F.",
+        "Its ordered value equals the original-character constant L(1,chi) times the actual corrected density product and the exact finite product of reciprocal good densities at primes dividing q.",
+        "The literal tail over X<c<=Y has the asserted ordered limit, and one positive constant depending only on the fixed matrix and epsilon bounds its norm by C*q^epsilon*X^(-1+epsilon) for all good q and real X>=1."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.9 for the actual symmetric nonsingular integral quaternary matrix with nonsquare determinant. At shift zero the global series is defined and proved as an ordered real-cutoff limit, never as an unconditional tsum. The general Abel identity and its exact tail are specialized using the already proved actual Lemma 3.7 at d=1, e=q, u=0. The final theorem chooses C after A and epsilon but before the supplied character level, character, good-prime agreement, q, and X; the supporting estimate is additionally uniform in all real shifts z>=0. Actual CRT and Lemma 3.3 prove absolute Euler factorization only for z>0. Every shifted local series has summable domination and its boundary value is the actual counting density. Nonprincipality of the original supplied character is derived from nonsquareness and good-prime Legendre values, with all bad-prime values retained. Official pinned mathlib supplies Euler products in Re(s)>1, agreement with the analytic LFunction there, nonvanishing at 2+z, and continuity of the nonprincipal LFunction at one. A finite correction over primes dividing q*N_F passes to the boundary without dividing by any bad density or by the singular-series constant. Only good densities at primes dividing q are removed, and their nonvanishing is proved. The right-limit uniqueness uses a nontrivial filter. No new or existing literature premise is used by the 82 new public exports. The source squarefree hypothesis is retained by the final wrapper; the supporting identities hold without it. All later numbered results and separately tracked supplementary obligations retain their prior statuses."
     },
     "lem:box": {
       "status": "Pending",
@@ -11473,6 +11485,1248 @@
         "Classical.choice",
         "Quot.sound",
         "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.orderedCoeffSum_eq_Icc_one",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries"
+      ],
+      "scope": "For a complex coefficient sequence with a(0)=0, the floor-cutoff coefficient sum over 0 <= n <= floor(X) equals the sum over 1 <= n <= floor(X).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.orderedDirichletPartial_four",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "At real exponent four, the ordered cpow partial sum for a(0)=0 is exactly the finite sum of a(n)/n^4 over 1 <= n <= floor(X).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.norm_orderedDirichlet_integrand_le",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "A coefficient-sum bound ||A(v)|| <= K*v^(3+eta) for every v >= 1 implies ||A(t)*t^(-(s+1))|| <= K*t^(2+eta-s) for t >= 1 and every real s.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.orderedDirichlet_integrable",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "Under the coefficient-sum bound, eta <= 1/2 and real exponent s >= 4, the complex Abel integrand A(t)*t^(-(s+1)) is integrable on (1,infinity).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.orderedDirichlet_integral_norm_le",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "Under the coefficient-sum bound, eta <= 1/2, s >= 4 and X >= 1, the norm of the Abel integral over (X,infinity) is at most K*X^(3+eta-s)/(s-3-eta).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_orderedDirichletPartial",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a(0)=0, 0 < eta <= 1/2 and the stated coefficient cancellation bound, the real-cutoff ordered finite Dirichlet sums at every s >= 4 tend to s times their Abel integral.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.orderedDirichletPartial_eq_boundary_add_integral",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "Finite Abel summation for a(0)=0 and s >= 4 identifies the ordered partial sum at any real X with X^(-s)*A(X) plus s times the Abel integral over (1,X].",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.orderedDirichletValue_sub_partial",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For X >= 1, eta <= 1/2 and s >= 4, the ordered remainder equals s times the Abel integral over (X,infinity) minus X^(-s)*A(X), under the coefficient-sum bound and a(0)=0.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.norm_orderedDirichletValue_sub_partial_le",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For a(0)=0, K >= 0, eta <= 1/2 and the coefficient-sum bound, the ordered remainder is at most 9*K*X^(-1+eta), uniformly for all real s >= 4 and X >= 1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.continuousWithinAt_orderedDirichletValue_four",
+      "file": "QuaternaryQuadraticForms/OrderedSeriesTail.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The Abel-integral value is continuous within [4,infinity) at exponent four when K >= 0, eta <= 1/2 and the coefficient-sum bound holds.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_damping_norm_le_one",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At every prime p and nonnegative real shift z, the complex norm of the real damping factor p^(-z) is at most one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensityTerm_norm_le",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "Every prime-power coefficient at a nonnegative shift has norm at most its actual unshifted local-density coefficient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_norm_shiftedLocalDensityTerm",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form, the norms of the shifted prime-power coefficients are summable at every prime and every z >= 0, using the unshifted majorant.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_shiftedLocalDensityTerm",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form, the actual shifted local-density coefficient sequence is summable at every prime and every z >= 0.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.continuous_shiftedLocalDensityTerm",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For any nonzero natural p, form A and prime-power index k, the individual shifted local coefficient is continuous as a function of the real shift.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.continuousOn_shiftedLocalDensity",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form, the actual shifted local-density sum is continuous on the closed half-line z >= 0 at every prime, including exceptional primes.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_zero",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:densityseries"
+      ],
+      "scope": "At every prime, the zero-shift local series equals the actual normalized-counting density for a symmetric nonsingular integral form, without assuming that density is nonzero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_shiftedLocalDensity_zero",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:densityseries"
+      ],
+      "scope": "The shifted local factor tends to the actual counting density as z tends to zero within the nonnegative half-line, at every prime for a symmetric nonsingular integral form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_exponent",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For every nonzero p, form A and real shift, the shifted local coefficient at the zeroth prime power is one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_shift",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:densityseries"
+      ],
+      "scope": "For every nonzero p, form A and index k, the shifted local coefficient at shift zero equals the existing unshifted local-density coefficient.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensityTerm_eq_primePower",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For nonzero p, every real shift z and k >= 0, the damped local coefficient is exactly S_(p^k)(0)/(p^k)^(4+z), with the real-power denominator explicitly embedded in the complex numbers.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.div_natCast_rpow_nat_add",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For nonzero natural p, a complex numerator w, natural n and real z, division by p^(n+z) splits exactly as division by p^n followed by multiplication by the real damping factor p^(-z).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ratio_norm_lt_one",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At any prime p and nonnegative shift z, the damped Legendre-symbol geometric ratio (legendreSym(p,det A)/p)*p^(-z) has complex norm strictly below one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_div_norm_lt_one",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At any prime p and nonnegative shift z, legendreSym(p,det A)/p^(1+z) has complex norm strictly below one in the real-power normalization.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_den_ne_zero",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At any prime p and nonnegative shift z, the prospective good-prime denominator 1-legendreSym(p,det A)/p^(1+z) is nonzero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensityTerm_goodPrime_succ",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric form and a prime not dividing N_F, every positive prime-power shifted local coefficient is exactly (1-1/p) times the corresponding power of the damped Legendre-symbol ratio, for every real shift.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensityTerm_hasSum_goodPrime",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At every prime not dividing N_F for a symmetric form and every z >= 0, the actual shifted prime-power series has sum (1-legendreSym(p,det A)/p^(2+z))/(1-legendreSym(p,det A)/p^(1+z)).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The actual shifted local factor at a good prime equals the exact quotient of its exponent-(2+z) and exponent-(1+z) Legendre-symbol Euler factors for all z >= 0.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_num_ne_zero",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At every prime and every z >= 0, the prospective good-prime numerator 1-legendreSym(p,det A)/p^(2+z) is nonzero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ne_zero",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric form, the actual shifted local factor is nonzero at every prime not dividing N_F and every z >= 0.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_shiftedLocalDensity_goodPrime",
+      "file": "QuaternaryQuadraticForms/ShiftedLocalGoodPrime.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "Using the original supplied Dirichlet character and its stipulated values at good primes, the actual good-prime shifted density is (1-chi(p)/p^(2+z))/(1-chi(p)/p^(1+z)) for every z >= 0.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprimeCompleteSumValue_one",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For every q and integral form, the actual complete-sum coefficient with the coprimality restriction takes the value one at modulus one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprimeCompleteSumValue_mul",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For coprime natural m and n, including zero cases, the actual coefficient with the restriction gcd(c,q)=1 is multiplicative in m and n.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprimeCompleteSumValue_norm_le",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form and every q and c, the restricted actual complete-sum coefficient has norm at most 4*sqrt(|det A|)*c^3.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_one",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The actual shifted singular-series summand equals one at modulus one for every q, form and real shift.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_mul",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For every real shift and coprime natural m,n, including zero cases, the actual shifted coprime-restricted summand is multiplicative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_norm_le",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular form and any real shift z, the actual restricted summand has norm at most 4*sqrt(|det A|)*c^(-1-z) for every natural q and c.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_norm_singularSeriesTerm",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form and each positive real shift, the norms of the actual shifted restricted summands are summable for every natural q.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_singularSeriesTerm",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The actual coprime-restricted shifted singular-series summand is summable for each positive real shift, every natural q and every symmetric nonsingular integral form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_eulerProduct_hasProd",
+      "file": "QuaternaryQuadraticForms/SingularEulerAbsolute.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At every positive real shift, the Euler product of the actual prime-power summand series has product equal to the absolutely convergent actual singular series, for every q and symmetric nonsingular form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesPartialSum_eq_sum_range",
+      "file": "QuaternaryQuadraticForms/SingularEulerOrdered.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "For every q, form, shift and real cutoff, the manuscript partial sum over 1 <= c <= floor(X) equals the range sum through floor(X), because the totalized zeroth summand is zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesPartialSum_sub_eq_sum_Ioc",
+      "file": "QuaternaryQuadraticForms/SingularEulerOrdered.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For real 1 <= X <= Y, the difference of actual shifted partial sums equals the literal finite sum over floor(X) < c <= floor(Y).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_singularSeries_tail_interval",
+      "file": "QuaternaryQuadraticForms/SingularEulerOrdered.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For 1 <= X <= Y and a natural c, membership in the finite interval (floor(X),floor(Y)] is equivalent to the exact real inequalities X < c <= Y.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_tsum",
+      "file": "QuaternaryQuadraticForms/SingularEulerOrdered.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At each positive real shift, the actual real-cutoff partial sums converge to the absolutely convergent sum used in the Euler product, for every q and symmetric nonsingular form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesValue_eq_tsum",
+      "file": "QuaternaryQuadraticForms/SingularEulerOrdered.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular form and each positive real shift, the ordered singular-series value equals the ordinary absolutely convergent sum for every q.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_not_dvd",
+      "file": "QuaternaryQuadraticForms/SingularEulerProduct.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At a prime not dividing q, each actual global prime-power summand equals the corresponding shifted local-density coefficient for every real shift.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_dvd",
+      "file": "QuaternaryQuadraticForms/SingularEulerProduct.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At a prime dividing q, the actual global prime-power summand is one at exponent zero and zero at every positive exponent, for every real shift.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tsum_singularSeriesTerm_primePower",
+      "file": "QuaternaryQuadraticForms/SingularEulerProduct.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The local sum of the actual restricted global prime-power terms is exactly one at primes dividing q and the actual shifted local-density sum at every other prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeries_eulerProduct_hasProd",
+      "file": "QuaternaryQuadraticForms/SingularEulerProduct.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At positive real shift, the actual shifted singular series has Euler product with factor one at primes dividing q and the actual shifted local density at all remaining primes.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesEulerCorrection_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesBoundary.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a positive modulus q coprime to N_F and the original character with its prescribed good-prime values, the zero-shift finite Euler correction equals the convergent corrected density product times the finite reciprocal-density product at primes dividing q.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesValue_zero_eq",
+      "file": "QuaternaryQuadraticForms/SingularSeriesBoundary.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form with nonsquare determinant and the original supplied character, the actual zero-shift ordered value equals the manuscript singular-series constant times the exact reciprocal-density product at primes dividing any positive q coprime to N_F.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.correctedLocalDensityFactor_eq_dirichletRealEulerFactor",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConstant.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At every prime, the existing corrected local-density factor equals the exponent-one Euler factor of the original supplied character multiplied by the actual local counting density.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_ne_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConstant.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form, the actual counting density is nonzero at every prime not dividing N_F, as a consequence of the explicit good-prime formula.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasProd_removedCorrectedLocalDensityFactor",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConstant.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "Removing the density factors at prime divisors of a positive q coprime to N_F multiplies the convergent corrected density product by exactly the finite reciprocal good-density product; the original character is retained.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesPartialSum_eq_orderedDirichletPartial",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "The actual shifted real-rpow partial sum equals the generic ordered cpow partial sum at exponent 4+z, for every q, form, real shift and real cutoff.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_coprimeCompleteSumValue_bound",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "lem:conemod",
+        "eq:seriestail"
+      ],
+      "scope": "For a symmetric nonsingular form with nonsquare determinant and every eta > 0, Lemma 3.7 supplies a positive constant before q and X bounding the actual restricted coefficient sum by C*q^eta*X^(3+eta) whenever q is positive, coprime to N_F, and X >= 1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesValue_eq_orderedDirichletValue_of_bound",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "A coefficient cancellation bound with 0 < eta <= 1/2 identifies the actual ordered singular-series value at every z >= 0 with its generic Abel-integral value at exponent 4+z.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular integral form with nonsquare determinant and a positive q coprime to N_F, the actual real-cutoff partial sums converge in increasing modulus order to their defined value for every real z >= 0, including zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.continuousWithinAt_singularSeriesValue_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular form with nonsquare determinant and a positive q coprime to N_F, the actual ordered singular-series value is continuous within z >= 0 at shift zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeries_uniform_tail",
+      "file": "QuaternaryQuadraticForms/SingularSeriesConvergence.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For each symmetric nonsingular form with nonsquare determinant and epsilon > 0, a positive constant chosen before every positive q, nonnegative shift z and real cutoff X bounds the actual ordered remainder by C*q^epsilon*X^(-1+epsilon) whenever gcd(q,N_F)=1 and X >= 1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprimeCompleteSumValue_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "The totalized actual complete-sum coefficient with the literal coprimality restriction is zero at modulus zero for every q and integral form.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "The totalized actual shifted singular-series summand is zero at modulus zero for every q, integral form and real shift.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_coprimeCompleteSumValue",
+      "file": "QuaternaryQuadraticForms/SingularSeriesDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "lem:conemod",
+        "eq:seriestail"
+      ],
+      "scope": "The finite actual coefficient sum over 1 <= c <= floor(X) with coprimality restriction equals the unweighted modulus sum of Lemma 3.7 specialized to gcd class one and zero frequency.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesTerm_at_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "At shift zero the actual summand is exactly the restricted complete-sum coefficient divided by the ordinary fourth power of the modulus.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.restrictedCorrectedShiftedFactor_goodPrime",
+      "file": "QuaternaryQuadraticForms/SingularSeriesEulerComparison.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At every prime dividing neither q nor N_F, multiplication of the actual shifted density by the exponent-(1+z) Euler factor gives precisely the exponent-(2+z) factor of the original character for all z >= 0.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasProd_restrictedCorrectedShiftedFactor",
+      "file": "QuaternaryQuadraticForms/SingularSeriesEulerComparison.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For every nonnegative shift and positive q, the restricted corrected shifted Euler product equals the explicit inverse-L(2+z) value times its finite correction over primes dividing q*N_F.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tsum_singularSeriesTerm_eq_LFunction_mul_correction",
+      "file": "QuaternaryQuadraticForms/SingularSeriesEulerComparison.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "At each positive real shift, the actual absolutely convergent restricted series equals the original character analytic L-function at 1+z multiplied by the explicit finite Euler correction.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.continuousWithinAt_singularSeriesEulerCorrection_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesEulerComparison.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a symmetric nonsingular form, the finite Euler correction is continuous within the nonnegative real shifts at zero, using nonvanishing of the exponent-two character factors and continuity of all actual local densities.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_cpow",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The real-power Euler factor 1-chi(p)*p^(-s) of the supplied character agrees exactly with mathlib's complex-power normalization for every real s.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_div",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The supplied character real Euler factor equals 1-chi(p)/p^s with the real power embedded in the complex numbers.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dirichletRealEulerFactor_ne_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a Dirichlet character of positive modulus, each prime Euler factor 1-chi(p)*p^(-s) is nonzero for every real s >= 1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.continuous_dirichletRealEulerFactor",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For every supplied Dirichlet character and prime, the real-axis Euler factor is continuous as a function of its real exponent.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasProd_inv_dirichletRealEulerFactor",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a Dirichlet character of positive modulus and real s > 1, the product of reciprocal prime Euler factors converges to the analytic L-function at s.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.LFunction_real_ne_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "The analytic L-function of every Dirichlet character of positive modulus is nonzero at every real exponent strictly greater than one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasProd_dirichletRealEulerFactor",
+      "file": "QuaternaryQuadraticForms/SingularSeriesLFactors.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a Dirichlet character of positive modulus and real s > 1, the product of the prime Euler factors converges to the reciprocal of the nonzero analytic L-value at s.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_singularSeriesPrimeDivisors",
+      "file": "QuaternaryQuadraticForms/SingularSeriesPrimeSets.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a nonzero natural n and an actual prime p, membership in the finite prime-subtype set of divisors of n is exactly divisibility p divides n.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For the source form and original character, and every positive q coprime to N_F, the actual zero-shift real-cutoff partial sums tend in increasing modulus order to S_F times the reciprocal local-density product at primes dividing q.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_singularSeriesTail_zero",
+      "file": "QuaternaryQuadraticForms/SingularSeriesTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For the source form, original character and positive good modulus, subtracting any fixed real-cutoff partial sum from the later partial sums converges to the exact singular-series constant minus that fixed partial sum.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_singularSeriesTail_Ioc",
+      "file": "QuaternaryQuadraticForms/SingularSeriesTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriestail"
+      ],
+      "scope": "For the source form, original character, positive good modulus and X >= 1, the literal increasing-modulus finite tails over floor(X) < c <= floor(Y) tend to the exact singular-series value minus the partial sum through X.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_singular_series",
+      "file": "QuaternaryQuadraticForms/SingularSeriesTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor",
+        "eq:seriestail"
+      ],
+      "scope": "Complete Lemma 3.9 for actual complete sums, counting densities and the original character: ordered real-cutoff convergence, equality with S_F times the reciprocal good-density product, and the remainder bound C*q^epsilon*X^(-1+epsilon). The positive C is chosen after the fixed form and epsilon, before the supplied character level and character, every squarefree positive q coprime to N_F, and every real X >= 1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceDirichletCharacter_exists_neg_one",
+      "file": "QuaternaryQuadraticForms/SourceDirichletCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "For a nonzero nonsquare integer determinant and any supplied Dirichlet character agreeing with its Legendre symbols at good primes, there is a nonzero natural modulus coprime to 2*abs(det A) on which that original character takes the value -1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one",
+      "file": "QuaternaryQuadraticForms/SourceDirichletCharacter.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:singseries",
+        "eq:seriesfactor"
+      ],
+      "scope": "Nonsquareness of the nonzero determinant and the stipulated good-prime values imply nonprincipality of the original supplied Dirichlet character, without imposing any additional condition on its bad-prime values.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
       ]
     }
   ],

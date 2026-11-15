@@ -710,7 +710,89 @@ run_cmd do
     `QuaternaryQuadraticForms.summable_localDensityTerm,
     `QuaternaryQuadraticForms.local_density,
     `QuaternaryQuadraticForms.source_local_density,
-    `QuaternaryQuadraticForms.sum_primePower_scalars]
+    `QuaternaryQuadraticForms.sum_primePower_scalars,
+    `QuaternaryQuadraticForms.orderedCoeffSum_eq_Icc_one,
+    `QuaternaryQuadraticForms.orderedDirichletPartial_four,
+    `QuaternaryQuadraticForms.norm_orderedDirichlet_integrand_le,
+    `QuaternaryQuadraticForms.orderedDirichlet_integrable,
+    `QuaternaryQuadraticForms.orderedDirichlet_integral_norm_le,
+    `QuaternaryQuadraticForms.tendsto_orderedDirichletPartial,
+    `QuaternaryQuadraticForms.orderedDirichletPartial_eq_boundary_add_integral,
+    `QuaternaryQuadraticForms.orderedDirichletValue_sub_partial,
+    `QuaternaryQuadraticForms.norm_orderedDirichletValue_sub_partial_le,
+    `QuaternaryQuadraticForms.continuousWithinAt_orderedDirichletValue_four,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_damping_norm_le_one,
+    `QuaternaryQuadraticForms.shiftedLocalDensityTerm_norm_le,
+    `QuaternaryQuadraticForms.summable_norm_shiftedLocalDensityTerm,
+    `QuaternaryQuadraticForms.summable_shiftedLocalDensityTerm,
+    `QuaternaryQuadraticForms.continuous_shiftedLocalDensityTerm,
+    `QuaternaryQuadraticForms.continuousOn_shiftedLocalDensity,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_zero,
+    `QuaternaryQuadraticForms.tendsto_shiftedLocalDensity_zero,
+    `QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_exponent,
+    `QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_shift,
+    `QuaternaryQuadraticForms.shiftedLocalDensityTerm_eq_primePower,
+    `QuaternaryQuadraticForms.div_natCast_rpow_nat_add,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ratio_norm_lt_one,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_div_norm_lt_one,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_den_ne_zero,
+    `QuaternaryQuadraticForms.shiftedLocalDensityTerm_goodPrime_succ,
+    `QuaternaryQuadraticForms.shiftedLocalDensityTerm_hasSum_goodPrime,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_num_ne_zero,
+    `QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ne_zero,
+    `QuaternaryQuadraticForms.source_shiftedLocalDensity_goodPrime,
+    `QuaternaryQuadraticForms.coprimeCompleteSumValue_one,
+    `QuaternaryQuadraticForms.coprimeCompleteSumValue_mul,
+    `QuaternaryQuadraticForms.coprimeCompleteSumValue_norm_le,
+    `QuaternaryQuadraticForms.singularSeriesTerm_one,
+    `QuaternaryQuadraticForms.singularSeriesTerm_mul,
+    `QuaternaryQuadraticForms.singularSeriesTerm_norm_le,
+    `QuaternaryQuadraticForms.summable_norm_singularSeriesTerm,
+    `QuaternaryQuadraticForms.summable_singularSeriesTerm,
+    `QuaternaryQuadraticForms.singularSeriesTerm_eulerProduct_hasProd,
+    `QuaternaryQuadraticForms.singularSeriesPartialSum_eq_sum_range,
+    `QuaternaryQuadraticForms.singularSeriesPartialSum_sub_eq_sum_Ioc,
+    `QuaternaryQuadraticForms.mem_singularSeries_tail_interval,
+    `QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_tsum,
+    `QuaternaryQuadraticForms.singularSeriesValue_eq_tsum,
+    `QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_not_dvd,
+    `QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_dvd,
+    `QuaternaryQuadraticForms.tsum_singularSeriesTerm_primePower,
+    `QuaternaryQuadraticForms.singularSeries_eulerProduct_hasProd,
+    `QuaternaryQuadraticForms.singularSeriesEulerCorrection_zero,
+    `QuaternaryQuadraticForms.singularSeriesValue_zero_eq,
+    `QuaternaryQuadraticForms.correctedLocalDensityFactor_eq_dirichletRealEulerFactor,
+    `QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_ne_zero,
+    `QuaternaryQuadraticForms.hasProd_removedCorrectedLocalDensityFactor,
+    `QuaternaryQuadraticForms.singularSeriesPartialSum_eq_orderedDirichletPartial,
+    `QuaternaryQuadraticForms.exists_coprimeCompleteSumValue_bound,
+    `QuaternaryQuadraticForms.singularSeriesValue_eq_orderedDirichletValue_of_bound,
+    `QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum,
+    `QuaternaryQuadraticForms.continuousWithinAt_singularSeriesValue_zero,
+    `QuaternaryQuadraticForms.singularSeries_uniform_tail,
+    `QuaternaryQuadraticForms.coprimeCompleteSumValue_zero,
+    `QuaternaryQuadraticForms.singularSeriesTerm_zero,
+    `QuaternaryQuadraticForms.sum_coprimeCompleteSumValue,
+    `QuaternaryQuadraticForms.singularSeriesTerm_at_zero,
+    `QuaternaryQuadraticForms.restrictedCorrectedShiftedFactor_goodPrime,
+    `QuaternaryQuadraticForms.hasProd_restrictedCorrectedShiftedFactor,
+    `QuaternaryQuadraticForms.tsum_singularSeriesTerm_eq_LFunction_mul_correction,
+    `QuaternaryQuadraticForms.continuousWithinAt_singularSeriesEulerCorrection_zero,
+    `QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_cpow,
+    `QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_div,
+    `QuaternaryQuadraticForms.dirichletRealEulerFactor_ne_zero,
+    `QuaternaryQuadraticForms.continuous_dirichletRealEulerFactor,
+    `QuaternaryQuadraticForms.hasProd_inv_dirichletRealEulerFactor,
+    `QuaternaryQuadraticForms.LFunction_real_ne_zero,
+    `QuaternaryQuadraticForms.hasProd_dirichletRealEulerFactor,
+    `QuaternaryQuadraticForms.mem_singularSeriesPrimeDivisors,
+    `QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_zero,
+    `QuaternaryQuadraticForms.tendsto_singularSeriesTail_zero,
+    `QuaternaryQuadraticForms.tendsto_singularSeriesTail_Ioc,
+    `QuaternaryQuadraticForms.source_singular_series,
+    `QuaternaryQuadraticForms.sourceDirichletCharacter_exists_neg_one,
+    `QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2867,3 +2949,249 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.sum_primePower_scalars
 #print axioms QuaternaryQuadraticForms.sum_primePower_scalars
+
+#check @QuaternaryQuadraticForms.orderedCoeffSum_eq_Icc_one
+#print axioms QuaternaryQuadraticForms.orderedCoeffSum_eq_Icc_one
+
+#check @QuaternaryQuadraticForms.orderedDirichletPartial_four
+#print axioms QuaternaryQuadraticForms.orderedDirichletPartial_four
+
+#check @QuaternaryQuadraticForms.norm_orderedDirichlet_integrand_le
+#print axioms QuaternaryQuadraticForms.norm_orderedDirichlet_integrand_le
+
+#check @QuaternaryQuadraticForms.orderedDirichlet_integrable
+#print axioms QuaternaryQuadraticForms.orderedDirichlet_integrable
+
+#check @QuaternaryQuadraticForms.orderedDirichlet_integral_norm_le
+#print axioms QuaternaryQuadraticForms.orderedDirichlet_integral_norm_le
+
+#check @QuaternaryQuadraticForms.tendsto_orderedDirichletPartial
+#print axioms QuaternaryQuadraticForms.tendsto_orderedDirichletPartial
+
+#check @QuaternaryQuadraticForms.orderedDirichletPartial_eq_boundary_add_integral
+#print axioms QuaternaryQuadraticForms.orderedDirichletPartial_eq_boundary_add_integral
+
+#check @QuaternaryQuadraticForms.orderedDirichletValue_sub_partial
+#print axioms QuaternaryQuadraticForms.orderedDirichletValue_sub_partial
+
+#check @QuaternaryQuadraticForms.norm_orderedDirichletValue_sub_partial_le
+#print axioms QuaternaryQuadraticForms.norm_orderedDirichletValue_sub_partial_le
+
+#check @QuaternaryQuadraticForms.continuousWithinAt_orderedDirichletValue_four
+#print axioms QuaternaryQuadraticForms.continuousWithinAt_orderedDirichletValue_four
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_damping_norm_le_one
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_damping_norm_le_one
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensityTerm_norm_le
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensityTerm_norm_le
+
+#check @QuaternaryQuadraticForms.summable_norm_shiftedLocalDensityTerm
+#print axioms QuaternaryQuadraticForms.summable_norm_shiftedLocalDensityTerm
+
+#check @QuaternaryQuadraticForms.summable_shiftedLocalDensityTerm
+#print axioms QuaternaryQuadraticForms.summable_shiftedLocalDensityTerm
+
+#check @QuaternaryQuadraticForms.continuous_shiftedLocalDensityTerm
+#print axioms QuaternaryQuadraticForms.continuous_shiftedLocalDensityTerm
+
+#check @QuaternaryQuadraticForms.continuousOn_shiftedLocalDensity
+#print axioms QuaternaryQuadraticForms.continuousOn_shiftedLocalDensity
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_zero
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_zero
+
+#check @QuaternaryQuadraticForms.tendsto_shiftedLocalDensity_zero
+#print axioms QuaternaryQuadraticForms.tendsto_shiftedLocalDensity_zero
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_exponent
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_exponent
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_shift
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensityTerm_zero_shift
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensityTerm_eq_primePower
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensityTerm_eq_primePower
+
+#check @QuaternaryQuadraticForms.div_natCast_rpow_nat_add
+#print axioms QuaternaryQuadraticForms.div_natCast_rpow_nat_add
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ratio_norm_lt_one
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ratio_norm_lt_one
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_div_norm_lt_one
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_div_norm_lt_one
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_den_ne_zero
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_den_ne_zero
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensityTerm_goodPrime_succ
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensityTerm_goodPrime_succ
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensityTerm_hasSum_goodPrime
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensityTerm_hasSum_goodPrime
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_num_ne_zero
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_num_ne_zero
+
+#check @QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ne_zero
+#print axioms QuaternaryQuadraticForms.shiftedLocalDensity_goodPrime_ne_zero
+
+#check @QuaternaryQuadraticForms.source_shiftedLocalDensity_goodPrime
+#print axioms QuaternaryQuadraticForms.source_shiftedLocalDensity_goodPrime
+
+#check @QuaternaryQuadraticForms.coprimeCompleteSumValue_one
+#print axioms QuaternaryQuadraticForms.coprimeCompleteSumValue_one
+
+#check @QuaternaryQuadraticForms.coprimeCompleteSumValue_mul
+#print axioms QuaternaryQuadraticForms.coprimeCompleteSumValue_mul
+
+#check @QuaternaryQuadraticForms.coprimeCompleteSumValue_norm_le
+#print axioms QuaternaryQuadraticForms.coprimeCompleteSumValue_norm_le
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_one
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_one
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_mul
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_mul
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_norm_le
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_norm_le
+
+#check @QuaternaryQuadraticForms.summable_norm_singularSeriesTerm
+#print axioms QuaternaryQuadraticForms.summable_norm_singularSeriesTerm
+
+#check @QuaternaryQuadraticForms.summable_singularSeriesTerm
+#print axioms QuaternaryQuadraticForms.summable_singularSeriesTerm
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_eulerProduct_hasProd
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_eulerProduct_hasProd
+
+#check @QuaternaryQuadraticForms.singularSeriesPartialSum_eq_sum_range
+#print axioms QuaternaryQuadraticForms.singularSeriesPartialSum_eq_sum_range
+
+#check @QuaternaryQuadraticForms.singularSeriesPartialSum_sub_eq_sum_Ioc
+#print axioms QuaternaryQuadraticForms.singularSeriesPartialSum_sub_eq_sum_Ioc
+
+#check @QuaternaryQuadraticForms.mem_singularSeries_tail_interval
+#print axioms QuaternaryQuadraticForms.mem_singularSeries_tail_interval
+
+#check @QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_tsum
+#print axioms QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_tsum
+
+#check @QuaternaryQuadraticForms.singularSeriesValue_eq_tsum
+#print axioms QuaternaryQuadraticForms.singularSeriesValue_eq_tsum
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_not_dvd
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_not_dvd
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_dvd
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_primePower_of_dvd
+
+#check @QuaternaryQuadraticForms.tsum_singularSeriesTerm_primePower
+#print axioms QuaternaryQuadraticForms.tsum_singularSeriesTerm_primePower
+
+#check @QuaternaryQuadraticForms.singularSeries_eulerProduct_hasProd
+#print axioms QuaternaryQuadraticForms.singularSeries_eulerProduct_hasProd
+
+#check @QuaternaryQuadraticForms.singularSeriesEulerCorrection_zero
+#print axioms QuaternaryQuadraticForms.singularSeriesEulerCorrection_zero
+
+#check @QuaternaryQuadraticForms.singularSeriesValue_zero_eq
+#print axioms QuaternaryQuadraticForms.singularSeriesValue_zero_eq
+
+#check @QuaternaryQuadraticForms.correctedLocalDensityFactor_eq_dirichletRealEulerFactor
+#print axioms QuaternaryQuadraticForms.correctedLocalDensityFactor_eq_dirichletRealEulerFactor
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_ne_zero
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_ne_zero
+
+#check @QuaternaryQuadraticForms.hasProd_removedCorrectedLocalDensityFactor
+#print axioms QuaternaryQuadraticForms.hasProd_removedCorrectedLocalDensityFactor
+
+#check @QuaternaryQuadraticForms.singularSeriesPartialSum_eq_orderedDirichletPartial
+#print axioms QuaternaryQuadraticForms.singularSeriesPartialSum_eq_orderedDirichletPartial
+
+#check @QuaternaryQuadraticForms.exists_coprimeCompleteSumValue_bound
+#print axioms QuaternaryQuadraticForms.exists_coprimeCompleteSumValue_bound
+
+#check @QuaternaryQuadraticForms.singularSeriesValue_eq_orderedDirichletValue_of_bound
+#print axioms QuaternaryQuadraticForms.singularSeriesValue_eq_orderedDirichletValue_of_bound
+
+#check @QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum
+#print axioms QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum
+
+#check @QuaternaryQuadraticForms.continuousWithinAt_singularSeriesValue_zero
+#print axioms QuaternaryQuadraticForms.continuousWithinAt_singularSeriesValue_zero
+
+#check @QuaternaryQuadraticForms.singularSeries_uniform_tail
+#print axioms QuaternaryQuadraticForms.singularSeries_uniform_tail
+
+#check @QuaternaryQuadraticForms.coprimeCompleteSumValue_zero
+#print axioms QuaternaryQuadraticForms.coprimeCompleteSumValue_zero
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_zero
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_zero
+
+#check @QuaternaryQuadraticForms.sum_coprimeCompleteSumValue
+#print axioms QuaternaryQuadraticForms.sum_coprimeCompleteSumValue
+
+#check @QuaternaryQuadraticForms.singularSeriesTerm_at_zero
+#print axioms QuaternaryQuadraticForms.singularSeriesTerm_at_zero
+
+#check @QuaternaryQuadraticForms.restrictedCorrectedShiftedFactor_goodPrime
+#print axioms QuaternaryQuadraticForms.restrictedCorrectedShiftedFactor_goodPrime
+
+#check @QuaternaryQuadraticForms.hasProd_restrictedCorrectedShiftedFactor
+#print axioms QuaternaryQuadraticForms.hasProd_restrictedCorrectedShiftedFactor
+
+#check @QuaternaryQuadraticForms.tsum_singularSeriesTerm_eq_LFunction_mul_correction
+#print axioms QuaternaryQuadraticForms.tsum_singularSeriesTerm_eq_LFunction_mul_correction
+
+#check @QuaternaryQuadraticForms.continuousWithinAt_singularSeriesEulerCorrection_zero
+#print axioms QuaternaryQuadraticForms.continuousWithinAt_singularSeriesEulerCorrection_zero
+
+#check @QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_cpow
+#print axioms QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_cpow
+
+#check @QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_div
+#print axioms QuaternaryQuadraticForms.dirichletRealEulerFactor_eq_div
+
+#check @QuaternaryQuadraticForms.dirichletRealEulerFactor_ne_zero
+#print axioms QuaternaryQuadraticForms.dirichletRealEulerFactor_ne_zero
+
+#check @QuaternaryQuadraticForms.continuous_dirichletRealEulerFactor
+#print axioms QuaternaryQuadraticForms.continuous_dirichletRealEulerFactor
+
+#check @QuaternaryQuadraticForms.hasProd_inv_dirichletRealEulerFactor
+#print axioms QuaternaryQuadraticForms.hasProd_inv_dirichletRealEulerFactor
+
+#check @QuaternaryQuadraticForms.LFunction_real_ne_zero
+#print axioms QuaternaryQuadraticForms.LFunction_real_ne_zero
+
+#check @QuaternaryQuadraticForms.hasProd_dirichletRealEulerFactor
+#print axioms QuaternaryQuadraticForms.hasProd_dirichletRealEulerFactor
+
+#check @QuaternaryQuadraticForms.mem_singularSeriesPrimeDivisors
+#print axioms QuaternaryQuadraticForms.mem_singularSeriesPrimeDivisors
+
+#check @QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_zero
+#print axioms QuaternaryQuadraticForms.tendsto_singularSeriesPartialSum_zero
+
+#check @QuaternaryQuadraticForms.tendsto_singularSeriesTail_zero
+#print axioms QuaternaryQuadraticForms.tendsto_singularSeriesTail_zero
+
+#check @QuaternaryQuadraticForms.tendsto_singularSeriesTail_Ioc
+#print axioms QuaternaryQuadraticForms.tendsto_singularSeriesTail_Ioc
+
+#check @QuaternaryQuadraticForms.source_singular_series
+#print axioms QuaternaryQuadraticForms.source_singular_series
+
+#check @QuaternaryQuadraticForms.sourceDirichletCharacter_exists_neg_one
+#print axioms QuaternaryQuadraticForms.sourceDirichletCharacter_exists_neg_one
+
+#check @QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one
+#print axioms QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one

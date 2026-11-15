@@ -336,6 +336,14 @@ for key, entry in graph["external_input_catalog"].items():
             "(QuaternaryQuadraticForms/PrimeQuadraticGauss.lean); "
             "no external premise declaration"
         )
+    if key == "EXT.MV_DIRICHLET_L" and not links:
+        interfaces = (
+            "Euler products, analytic continuation, and boundary continuity "
+            "[supplied by official mathlib](QuaternaryQuadraticForms/SingularSeriesLFactors.lean); "
+            "[source specialization and boundary assembly]"
+            "(certification/correspondence/singular_series.md) proved internally; "
+            "no external premise declaration"
+        )
     trusted.append(f'| {BT}{key}{BT} | [{cell(entry["reference"])}], '
                    f'{cell(entry["locator"])} | {cell(entry["scope"])} | {interfaces} |')
 trusted += ["", "## Registered premise inspection", ""]

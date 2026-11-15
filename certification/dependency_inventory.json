@@ -1060,11 +1060,11 @@
       ],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "Complete source theorem for the literal positive-modulus sum with real cutoff and exact gcd condition. The positive constant is chosen after A and \u03b5, and before N, the original prime functions, q,q\u2081,q\u2082,u,X. It retains the actual constrained Fourier sum, q\u2081\u00b2, the exact divisibility indicator, and (X|F*(u)|)^\u03b5.",
-        "Actual unit-digit Ramanujan recurrences prove prime-power values. Actual CRT yields the global gcd bound and the multiplied-modulus estimate; repeated shared prime factors prove exact vanishing outside q\u2081\u2223F*(u). No internal character-sum estimate is assumed.",
+        "Complete source theorem for the literal positive-modulus sum with real cutoff and exact gcd condition. The positive constant is chosen after A and ε, and before N, the original prime functions, q,q₁,q₂,u,X. It retains the actual constrained Fourier sum, q₁², the exact divisibility indicator, and (X|F*(u)|)^ε.",
+        "Actual unit-digit Ramanujan recurrences prove prime-power values. Actual CRT yields the global gcd bound and the multiplied-modulus estimate; repeated shared prime factors prove exact vanishing outside q₁∣F*(u). No internal character-sum estimate is assumed.",
         "The proved bad/good split and uniform bad-prime bound give the pointwise mixed-sum estimate. Multiplication recovers each source modulus from its chosen factor pair, proving the injective transport to a finite rectangle. Actual factorization vectors supply the prime-support count.",
-        "The finite gcd/divisor/harmonic estimate gives one divisor-count factor and logarithm exponent 1+\u03c9(N_F), strengthening the source proof's two-divisor-factor intermediate bound. Uniform divisor and logarithm power bounds provide the full \u03b5 estimate. The displayed infinite local series in eq:ramsplit is not required or asserted by this alternative proof.",
-        "The source wrapper uses exactly rad(N_F)\u2223N, (q,N)=1, original prime-family invariance and norm bounds. It includes modulus one, X=1, |F*(u)|=1 and zero Fourier factors. No literature premise is added or used; all 39 new exports use standard logical foundations. Lemma 3.7, the broader auxiliary groups, and global analytic theorems remain Pending."
+        "The finite gcd/divisor/harmonic estimate gives one divisor-count factor and logarithm exponent 1+ω(N_F), strengthening the source proof's two-divisor-factor intermediate bound. Uniform divisor and logarithm power bounds provide the full ε estimate. The displayed infinite local series in eq:ramsplit is not required or asserted by this alternative proof.",
+        "The source wrapper uses exactly rad(N_F)∣N, (q,N)=1, original prime-family invariance and norm bounds. It includes modulus one, X=1, |F*(u)|=1 and zero Fourier factors. No literature premise is added or used; all 39 new exports use standard logical foundations. Lemma 3.7, the broader auxiliary groups, and global analytic theorems remain Pending."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [
@@ -1132,7 +1132,7 @@
       "formalization_notes": [
         "Complete source theorem for the norm of the literal gcd-restricted finite sum of unweighted complete sums at every real X>=1 and F*(u)=0. The positive constant is chosen after the fixed symmetric nonsingular matrix with nonsquare determinant and epsilon>0, before q,d,e,u,X. The source wrapper retains squarefree q=d*e and (q,N_F)=1; the stronger core removes squarefreeness.",
         "The actual good Jacobi coefficient is extended by zero outside indices coprime to N_F. Complete multiplicativity, norm at most one, period 4|det A|, and its realization as an actual Dirichlet character are proved. An actual negative Jacobi witness from the original nonsquare determinant proves nonprincipality and zero period sum. The primitive conductor and an internal cancellation bound are not assumed.",
-        "Finite summation by parts proves cubic cancellation. Actual M\u00f6bius detection, positive-multiple reindexing, the relative totient expansion, and exact finite divisor/gcd rearrangements preserve all arithmetic conditions and natural quotient cutoffs. The good-modulus bound has one divisor-count factor tau(e) and one harmonic factor.",
+        "Finite summation by parts proves cubic cancellation. Actual Möbius detection, positive-multiple reindexing, the relative totient expansion, and exact finite divisor/gcd rearrangements preserve all arithmetic conditions and natural quotient cutoffs. The good-modulus bound has one divisor-count factor tau(e) and one harmonic factor.",
         "The unique bad-supported and good factors give an exact finite bijection for the actual complex modulus sum. Actual CRT keeps cancellation inside the good-modulus sum before taking norms of bad factors. The uniform bad-prime estimate and established prime-support count give a fixed determinant constant times tau(e) X^3 (1+log X)^(1+omega(N_F)); uniform divisor and logarithm power bounds finish the epsilon estimate.",
         "The fixed period 4|det A| and tau(e) replace the source conductor and 2^omega(e*N_F) within the allowed dependence on the fixed form and epsilon. The proof includes q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative determinant cases, and arbitrary bad-prime powers. There is no prime-weight family or c^(-3) normalization.",
         "Forty new supporting theorem exports in fourteen modules use only standard logical foundations: 39 standard triplets and the propext-only goodQuadraticChar_coprime_four_iff. No literature premise is added or used. Lemma 3.8, all 33 auxiliary groups, and the global analytic theorems remain Pending. Aggregate and exact-proof-commit CI execution outcomes are recorded separately in CHECKPOINT.md."
@@ -3642,15 +3642,23 @@
       "reference": "MV",
       "locator": "Section 4.3",
       "scope": "Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums.",
-      "status": "Trusted literature input or verified library result; precise interface pending",
+      "status": "Needed facts supplied by verified official mathlib results",
       "id": "EXT.MV_DIRICHLET_L",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "trust": "No external Lean premise is registered or used. The pinned official library proves the general L-function facts; all original-character hypotheses and manuscript-specific deductions are proved internally.",
       "lean_declarations": [],
-      "interface_status": "Pending"
+      "interface_status": "Verified library results with checked source specialization",
+      "correspondence_record": "certification/correspondence/singular_series.md",
+      "verified_library_results": [
+        "DirichletCharacter.LSeries_eulerProduct_hasProd",
+        "DirichletCharacter.LFunction_eq_LSeries",
+        "DirichletCharacter.differentiable_LFunction",
+        "DirichletCharacter.LSeries_ne_zero_of_one_lt_re"
+      ],
+      "library_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7"
     },
     "EXT.LANG_ELIMINATION": {
       "reference": "La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002",
-      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404\u2013405",
+      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
       "status": "Registered trusted literature input",
       "id": "EXT.LANG_ELIMINATION",

@@ -56,12 +56,15 @@ jobs:
             Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Complex.Basic \
+            Mathlib.Analysis.Normed.Group.FunctionSeries \
             Mathlib.Analysis.PSeries \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
             Mathlib.Analysis.SpecialFunctions.Log.Base \
             Mathlib.Analysis.SpecialFunctions.Log.Summable \
+            Mathlib.Analysis.SpecialFunctions.Pow.Continuity \
             Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
             Mathlib.Analysis.SpecialFunctions.Pow.Real \
+            Mathlib.Analysis.SpecificLimits.Basic \
             Mathlib.Analysis.SpecificLimits.Normed \
             Mathlib.Data.Fin.VecNotation \
             Mathlib.Data.Finset.Prod \
@@ -69,6 +72,7 @@ jobs:
             Mathlib.Data.Fintype.BigOperators \
             Mathlib.Data.Matrix.Mul \
             Mathlib.Data.Nat.Factorization.Basic \
+            Mathlib.Data.Nat.Factorization.Defs \
             Mathlib.Data.Nat.Factorization.Induction \
             Mathlib.Data.Nat.GCD.Basic \
             Mathlib.Data.Nat.Prime.Basic \
@@ -106,8 +110,12 @@ jobs:
             Mathlib.NumberTheory.DirichletCharacter.Basic \
             Mathlib.NumberTheory.DirichletCharacter.Bounds \
             Mathlib.NumberTheory.Divisors \
+            Mathlib.NumberTheory.EulerProduct.Basic \
             Mathlib.NumberTheory.GaussSum \
             Mathlib.NumberTheory.Harmonic.Bounds \
+            Mathlib.NumberTheory.LSeries.Dirichlet \
+            Mathlib.NumberTheory.LSeries.DirichletContinuation \
+            Mathlib.NumberTheory.LSeries.SumCoeff \
             Mathlib.NumberTheory.LegendreSymbol.Basic \
             Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
             Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
@@ -123,7 +131,6 @@ jobs:
             Mathlib.Tactic.NormNum \
             Mathlib.Tactic.Ring \
             Mathlib.Topology.Order.Basic
-
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report
