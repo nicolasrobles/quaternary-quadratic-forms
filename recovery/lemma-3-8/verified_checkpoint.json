@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "target": "Lemma 3.8 / lem:density",
+  "base_commit": "2b6391fb6fe00eae08c35c823d3642f670c35385",
+  "created_at_utc": "2026-11-15T14:11:51.656599+00:00",
+  "status": "All nine modules strict-compiled; all thirty actual types/axiom lists and source correspondence independently checked. Integrated aggregate verification running; exact-commit CI not yet run. main unchanged.",
+  "restore": "Decompress candidate.patch.gz and apply the resulting patch to a clean checkout of base_commit. It includes all frozen proof, ledger, correspondence and documentation changes.",
+  "candidate_patch_sha256": "7c9c57a5c967e6328aca2d228b4b95d204df9adf4cdb139face601046febf931",
+  "frozen_changed_files": [
+    {
+      "path": ".github/workflows/lean.yml",
+      "bytes": 5809,
+      "sha256": "1bbeea767eb377058cf2084f2946061886c2667bc32e98f8be2149dc33ae2db4"
+    },
+    {
+      "path": "CHECKPOINT.md",
+      "bytes": 162408,
+      "sha256": "f04f717d745bbd8ae2d3ff877717b45ea1bcc0e607b368db10794ae8c0cfd3e2"
+    },
+    {
+      "path": "Checks/Exports.lean",
+      "bytes": 143016,
+      "sha256": "c3296adeecb42592817f4305668f61b814addb1291addfc70d069f310ac436aa"
+    },
+    {
+      "path": "INVENTORY.md",
+      "bytes": 231073,
+      "sha256": "612a1de518a85f79cb24d88f8582ff5ed291502f6a7506b602b9302a8f89a155"
+    },
+    {
+      "path": "QuaternaryQuadraticForms.lean",
+      "bytes": 8857,
+      "sha256": "16c64d3a0132dab05b28ab865c4590e6c4c47c87c4c9ea127c2607a0e627631d"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "bytes": 3703,
+      "sha256": "424531b687475a8af4feb5b0a3c3aba838edf64b85db24ae878f81b3fc6344f4"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "bytes": 4058,
+      "sha256": "d1ad05688df7e8bda016d28a042724c506461b79df6f4fa26df1f34148cd9aa5"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityDefinitions.lean",
+      "bytes": 1588,
+      "sha256": "3a8d3932175256442d3a51c5567bd7f3f0d0dd6462ecda40eecdd99c3acdfaee"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "bytes": 7131,
+      "sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityGaussReduction.lean",
+      "bytes": 3130,
+      "sha256": "f80bc6c7bce5f92ccc536dfc42f67e28e9d76c87491e40941a7e2f0c9fa1412c"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "bytes": 4262,
+      "sha256": "a912853320076f72edf9ac25d8dffdc1e6814fd8a9c47a0f263e19a11d56fae9"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "bytes": 2806,
+      "sha256": "4ca9195db64552e1a95ba902af9d080c5911e65cded29f7a293913ed2f8834e5"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/LocalDensityTheorem.lean",
+      "bytes": 3251,
+      "sha256": "eccf517d6aec64273696f3a2c448e38b399b982acc20f1a8b12ccbad9c47c95a"
+    },
+    {
+      "path": "QuaternaryQuadraticForms/PrimePowerScalarDecomposition.lean",
+      "bytes": 3804,
+      "sha256": "1a56a5ba37f299e4119422cd63bc96b042cda107b76b23ab78ab97a9950630ae"
+    },
+    {
+      "path": "README.md",
+      "bytes": 124476,
+      "sha256": "2b867fbc0643f14fe089bb355bc7a670ec197d96f3d2a5d20bea73a3526362e0"
+    },
+    {
+      "path": "TRUSTED_INPUTS.md",
+      "bytes": 24799,
+      "sha256": "88c88c6cbb6b79424703d980fe242af8bd0403faa08af93be30d5efeb1badfb9"
+    },
+    {
+      "path": "certification/correspondence/local_density.md",
+      "bytes": 21860,
+      "sha256": "714cbd0936d088a925c7925d068bca561f862841c362c7650084d6ddc0484fb2"
+    },
+    {
+      "path": "certification/status.json",
+      "bytes": 413067,
+      "sha256": "2f455f142fbbc86336bd721ed998c24da4a7101cb55627cac9d31b3fa1492a75"
+    },
+    {
+      "path": "docs/dependency_complete.dot",
+      "bytes": 37114,
+      "sha256": "db5e5061ff7b1fe3d3bec63acadd0c9f762b41e33c1f9246a8c0e84cd525ef30"
+    },
+    {
+      "path": "docs/dependency_graph.dot",
+      "bytes": 25003,
+      "sha256": "2dc3728fa201aa1868cd01da9a7bb065b86a0d308ca7d55b396cc4f832a72628"
+    },
+    {
+      "path": "docs/dependency_graph.pdf",
+      "bytes": 42937,
+      "sha256": "6067956ff414fc27ed16ed25b79584aec81418b8f472216ba890b2e52b82e95c"
+    },
+    {
+      "path": "docs/dependency_graph.png",
+      "bytes": 733176,
+      "sha256": "b9fc6e41ca608895b4622ddfc5a67d2cd43320675fd2f3427579fd2bc5fdc374"
+    },
+    {
+      "path": "docs/dependency_graph.svg",
+      "bytes": 85065,
+      "sha256": "706c5fb4fc5e0737bba3b9c19e4cba1c6417d9d52247a55c3c15776d8f1a9b21"
+    },
+    {
+      "path": "docs/dependency_overview.dot",
+      "bytes": 5303,
+      "sha256": "f56d682a21bbbf1d597a48c4eaa1b9b1302b97b5b76a1fbb479eaa3464104305"
+    },
+    {
+      "path": "docs/dependency_overview.pdf",
+      "bytes": 32607,
+      "sha256": "ad01f7563ce6c752e2cefe8c50c63f8f216f08d8fd778fa4d22047d9c6ca8765"
+    },
+    {
+      "path": "docs/dependency_overview.png",
+      "bytes": 267410,
+      "sha256": "3db17047139339c38b72e2349c95fc57e55c00fb467e4b1ad8dcf2d52b54c19a"
+    },
+    {
+      "path": "docs/dependency_overview.svg",
+      "bytes": 21425,
+      "sha256": "49e2152401f38847736deecdd008cc61be4b0d5a7f3cbf3d7e37346fac9e0974"
+    },
+    {
+      "path": "scripts/render_inventory.py",
+      "bytes": 40671,
+      "sha256": "4ce06eeac12d1cfa4ef1cbb5a979cc2f3c6f7d15b7d69641866fd20644621ec4"
+    }
+  ],
+  "new_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_eq_tsum_re",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "source_sha256": "424531b687475a8af4feb5b0a3c3aba838edf64b85db24ae878f81b3fc6344f4",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      QuaternaryQuadraticForms.localQuadraticDensity p A =\n        (∑' (k : ℕ), QuaternaryQuadraticForms.localDensityTerm p A k).re",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tendsto_normalizedPrimePowerZeroCount",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "source_sha256": "424531b687475a8af4feb5b0a3c3aba838edf64b85db24ae878f81b3fc6344f4",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      Filter.Tendsto (QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A) Filter.atTop\n        (nhds (QuaternaryQuadraticForms.localQuadraticDensity p A))",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasSum_localDensityTerm",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "source_sha256": "424531b687475a8af4feb5b0a3c3aba838edf64b85db24ae878f81b3fc6344f4",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      HasSum (QuaternaryQuadraticForms.localDensityTerm p A) ↑(QuaternaryQuadraticForms.localQuadraticDensity p A)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_nonneg",
+      "file": "QuaternaryQuadraticForms/LocalDensityConvergence.lean",
+      "source_sha256": "424531b687475a8af4feb5b0a3c3aba838edf64b85db24ae878f81b3fc6344f4",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ), A.transpose = A → A.det ≠ 0 → 0 ≤ QuaternaryQuadraticForms.localQuadraticDensity p A",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primePowerZeroCount_additive",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "source_sha256": "d1ad05688df7e8bda016d28a042724c506461b79df6f4fa26df1f34148cd9aa5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : NeZero p] (A : Matrix (Fin 4) (Fin 4) ℤ),\n  ↑p ^ k * ↑(QuaternaryQuadraticForms.primePowerZeroCount p k A) =\n    ∑ a, QuaternaryQuadraticForms.quadraticGaussSum (p ^ k) (A.map ⇑(Int.castRingHom (ZMod (p ^ k)))) a 0",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_fullGauss",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "source_sha256": "d1ad05688df7e8bda016d28a042724c506461b79df6f4fa26df1f34148cd9aa5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : NeZero p]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  ↑(QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A k) =\n    (∑ a, QuaternaryQuadraticForms.quadraticGaussSum (p ^ k) (A.map ⇑(Int.castRingHom (ZMod (p ^ k)))) a 0) /\n      ↑p ^ (4 * k)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_recurrence",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "source_sha256": "d1ad05688df7e8bda016d28a042724c506461b79df6f4fa26df1f34148cd9aa5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  ↑(QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A (k + 1)) =\n    ↑(QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A k) +\n      QuaternaryQuadraticForms.localDensityTerm p A (k + 1)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_zero",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "source_sha256": "d1ad05688df7e8bda016d28a042724c506461b79df6f4fa26df1f34148cd9aa5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : NeZero p]\n  (A : Matrix (Fin 4) (Fin 4) ℤ), QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A 0 = 1",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.normalizedPrimePowerZeroCount_eq_sum",
+      "file": "QuaternaryQuadraticForms/LocalDensityCounting.lean",
+      "source_sha256": "d1ad05688df7e8bda016d28a042724c506461b79df6f4fa26df1f34148cd9aa5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  ↑(QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A k) =\n    ∑ j ∈ Finset.range (k + 1), QuaternaryQuadraticForms.localDensityTerm p A j",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      ¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n        ↑(QuaternaryQuadraticForms.localQuadraticDensity p A) =\n          (1 - ↑(legendreSym p A.det) / ↑p ^ 2) / (1 - ↑(legendreSym p A.det) / ↑p)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_localQuadraticDensity_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M) (p : ℕ)\n  [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (ℓ : ℕ) [inst : Fact (Nat.Prime ℓ)],\n          ¬ℓ ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑ℓ = ↑(legendreSym ℓ A.det)) →\n        ¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n          ↑(QuaternaryQuadraticForms.localQuadraticDensity p A) = (1 - χ ↑p / ↑p ^ 2) / (1 - χ ↑p / ↑p)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.correctedLocalDensityFactor_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M)\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (ℓ : ℕ) [inst : Fact (Nat.Prime ℓ)],\n          ¬ℓ ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑ℓ = ↑(legendreSym ℓ A.det)) →\n        ∀ (p : Nat.Primes),\n          ¬↑p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n            QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A p = 1 - χ ↑↑p / ↑↑p ^ 2",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.correctedLocalDensityFactor_sub_one_norm_le",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M)\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (ℓ : ℕ) [inst : Fact (Nat.Prime ℓ)],\n          ¬ℓ ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑ℓ = ↑(legendreSym ℓ A.det)) →\n        ∀ (p : Nat.Primes),\n          ¬↑p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n            ‖QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A p - 1‖ ≤ 1 / ↑↑p ^ 2",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.eventually_prime_not_dvd_quadraticBadPrimeModulus",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.det ≠ 0 → ∀ᶠ (p : Nat.Primes) in Filter.cofinite, ¬↑p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_norm_correctedLocalDensityFactor_sub_one",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M)\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (ℓ : ℕ) [inst : Fact (Nat.Prime ℓ)],\n          ¬ℓ ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑ℓ = ↑(legendreSym ℓ A.det)) →\n        Summable fun p => ‖QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A p - 1‖",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.multipliable_correctedLocalDensityFactor",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M)\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (ℓ : ℕ) [inst : Fact (Nat.Prime ℓ)],\n          ¬ℓ ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑ℓ = ↑(legendreSym ℓ A.det)) →\n        Multipliable (QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.multipliable_norm_correctedLocalDensityFactor",
+      "file": "QuaternaryQuadraticForms/LocalDensityEulerProduct.lean",
+      "source_sha256": "d662de707ef5e703f3fa327a689a8410a419a291a92baa357629503bd1168cf9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M)\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (ℓ : ℕ) [inst : Fact (Nat.Prime ℓ)],\n          ¬ℓ ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑ℓ = ↑(legendreSym ℓ A.det)) →\n        Multipliable fun p => ‖QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A p‖",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integralQuadraticGaussSum_scaled_modulus",
+      "file": "QuaternaryQuadraticForms/LocalDensityGaussReduction.lean",
+      "source_sha256": "f80bc6c7bce5f92ccc536dfc42f67e28e9d76c87491e40941a7e2f0c9fa1412c",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (m n : ℕ) [inst : NeZero m] [inst_1 : NeZero n]\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (a : ℤ),\n  QuaternaryQuadraticForms.integralQuadraticGaussSum (m * n) A (↑n * a) 0 =\n    ↑n ^ 4 * QuaternaryQuadraticForms.integralQuadraticGaussSum m A a 0",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primePower_fullGauss_recurrence",
+      "file": "QuaternaryQuadraticForms/LocalDensityGaussReduction.lean",
+      "source_sha256": "f80bc6c7bce5f92ccc536dfc42f67e28e9d76c87491e40941a7e2f0c9fa1412c",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  ∑ a, QuaternaryQuadraticForms.quadraticGaussSum (p ^ (k + 1)) (A.map ⇑(Int.castRingHom (ZMod (p ^ (k + 1))))) a 0 =\n    QuaternaryQuadraticForms.unweightedCompleteSum (p ^ (k + 1)) A 0 +\n      ↑p ^ 4 * ∑ b, QuaternaryQuadraticForms.quadraticGaussSum (p ^ k) (A.map ⇑(Int.castRingHom (ZMod (p ^ k)))) b 0",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_zero",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "source_sha256": "a912853320076f72edf9ac25d8dffdc1e6814fd8a9c47a0f263e19a11d56fae9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : NeZero p] (A : Matrix (Fin 4) (Fin 4) ℤ),\n  QuaternaryQuadraticForms.localDensityTerm p A 0 = 1",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.legendreSym_complex_norm_le_one",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "source_sha256": "a912853320076f72edf9ac25d8dffdc1e6814fd8a9c47a0f263e19a11d56fae9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (a : ℤ),\n  ‖↑(legendreSym p a)‖ ≤ 1",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensity_goodPrime_ratio_norm_lt_one",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "source_sha256": "a912853320076f72edf9ac25d8dffdc1e6814fd8a9c47a0f263e19a11d56fae9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ), ‖↑(legendreSym p A.det) / ↑p‖ < 1",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_goodPrime_succ",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "source_sha256": "a912853320076f72edf9ac25d8dffdc1e6814fd8a9c47a0f263e19a11d56fae9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    ¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n      QuaternaryQuadraticForms.localDensityTerm p A (k + 1) = (1 - 1 / ↑p) * (↑(legendreSym p A.det) / ↑p) ^ (k + 1)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_hasSum_goodPrime",
+      "file": "QuaternaryQuadraticForms/LocalDensityGoodPrime.lean",
+      "source_sha256": "a912853320076f72edf9ac25d8dffdc1e6814fd8a9c47a0f263e19a11d56fae9",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    ¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n      HasSum (QuaternaryQuadraticForms.localDensityTerm p A)\n        ((1 - ↑(legendreSym p A.det) / ↑p ^ 2) / (1 - ↑(legendreSym p A.det) / ↑p))",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localDensityTerm_norm_le",
+      "file": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "source_sha256": "4ca9195db64552e1a95ba902af9d080c5911e65cded29f7a293913ed2f8834e5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : NeZero p] (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 → ∀ (k : ℕ), ‖QuaternaryQuadraticForms.localDensityTerm p A k‖ ≤ 4 * √|↑A.det| * (1 / ↑p) ^ k",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_norm_localDensityTerm",
+      "file": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "source_sha256": "4ca9195db64552e1a95ba902af9d080c5911e65cded29f7a293913ed2f8834e5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A → A.det ≠ 0 → Summable fun k => ‖QuaternaryQuadraticForms.localDensityTerm p A k‖",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.summable_localDensityTerm",
+      "file": "QuaternaryQuadraticForms/LocalDensitySummability.lean",
+      "source_sha256": "4ca9195db64552e1a95ba902af9d080c5911e65cded29f7a293913ed2f8834e5",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (A : Matrix (Fin 4) (Fin 4) ℤ), A.transpose = A → A.det ≠ 0 → Summable (QuaternaryQuadraticForms.localDensityTerm p A)",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.local_density",
+      "file": "QuaternaryQuadraticForms/LocalDensityTheorem.lean",
+      "source_sha256": "eccf517d6aec64273696f3a2c448e38b399b982acc20f1a8b12ccbad9c47c95a",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      Filter.Tendsto (QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A) Filter.atTop\n          (nhds (QuaternaryQuadraticForms.localQuadraticDensity p A)) ∧\n        (Summable fun k => ‖QuaternaryQuadraticForms.localDensityTerm p A k‖) ∧\n          HasSum (QuaternaryQuadraticForms.localDensityTerm p A) ↑(QuaternaryQuadraticForms.localQuadraticDensity p A) ∧\n            (¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n              ↑(QuaternaryQuadraticForms.localQuadraticDensity p A) =\n                (1 - ↑(legendreSym p A.det) / ↑p ^ 2) / (1 - ↑(legendreSym p A.det) / ↑p))",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_local_density",
+      "file": "QuaternaryQuadraticForms/LocalDensityTheorem.lean",
+      "source_sha256": "eccf517d6aec64273696f3a2c448e38b399b982acc20f1a8b12ccbad9c47c95a",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (M : ℕ) (χ : DirichletCharacter ℂ M) (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      (∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n          ¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A → χ ↑p = ↑(legendreSym p A.det)) →\n        (∀ (p : ℕ) [inst : Fact (Nat.Prime p)],\n            Filter.Tendsto (QuaternaryQuadraticForms.normalizedPrimePowerZeroCount p A) Filter.atTop\n                (nhds (QuaternaryQuadraticForms.localQuadraticDensity p A)) ∧\n              (Summable fun k => ‖QuaternaryQuadraticForms.localDensityTerm p A k‖) ∧\n                HasSum (QuaternaryQuadraticForms.localDensityTerm p A)\n                    ↑(QuaternaryQuadraticForms.localQuadraticDensity p A) ∧\n                  (¬p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A →\n                    ↑(QuaternaryQuadraticForms.localQuadraticDensity p A) = (1 - χ ↑p / ↑p ^ 2) / (1 - χ ↑p / ↑p))) ∧\n          (Summable fun p => ‖QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A p - 1‖) ∧\n            Multipliable (QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A) ∧\n              Multipliable fun p => ‖QuaternaryQuadraticForms.correctedLocalDensityFactor M χ A p‖",
+      "kind": "theorem"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_primePower_scalars",
+      "file": "QuaternaryQuadraticForms/PrimePowerScalarDecomposition.lean",
+      "source_sha256": "1a56a5ba37f299e4119422cd63bc96b042cda107b76b23ab78ab97a9950630ae",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "actual_type": "∀ (p k : ℕ) [inst : Fact (Nat.Prime p)] (f : ZMod (p ^ k * p) → ℂ),\n  ∑ a, f a = ∑ a, f ↑a + ∑ b, f (↑p * ↑b.val)",
+      "kind": "theorem"
+    }
+  ],
+  "unified_inspection_sha256": "c476ba1f264b7c32bf8e78c932d5315df7d6172c7cd1434416f1daa59ee651bc",
+  "candidate_gzip_sha256": "253bc7fbef58e11ba689a5f362d9972e0481c5da998a630d282a6370f63fbec8"
+}
