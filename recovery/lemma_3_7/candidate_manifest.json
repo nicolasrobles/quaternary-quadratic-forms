@@ -1,11 +1,11 @@
 {
-  "checkpoint": 1,
-  "target": "Lemma 3.7 (lem:conemod)",
+  "checkpoint": 2,
+  "target": "Complete Lemma 3.7 (lem:conemod)",
   "baseline_commit": "1283e49a1a165e8d1d8fb32b0905ff032412baad",
   "baseline_tree": "f08267415cdc355706804cbac072da42e3353026",
-  "stage": "Eight supporting exports in three modules passed strict local Lean checks and actual type/axiom inspection. Complete source theorem, correspondence review, full aggregate verifier, and exact-commit CI remain pending.",
-  "numbered_result_status": "Pending",
-  "numbered_counts": {
+  "stage": "All forty supporting exports, including both complete uniform endpoints, passed strict compilation, a 3151-job target build, and unified actual type/axiom inspection. Independent mathematical/source correspondence and root review accepted. Registration, the full aggregate verifier, and exact-proof-commit CI are still pending.",
+  "numbered_result_status_in_active_ledger": "Pending",
+  "baseline_numbered_counts": {
     "Certified": 16,
     "Partial": 0,
     "Active": 0,
@@ -14,45 +14,462 @@
   "whole_paper_certified": false,
   "source_files": [
     {
-      "restore_path": "QuaternaryQuadraticForms/PeriodicSumBound.lean",
-      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/PeriodicSumBound.lean.snapshot",
-      "bytes": 1728,
-      "sha256": "61c3017afb1916cbaccd3c1f2c4a798a18d45da8cbf97ea0a15d18b594dac371"
-    },
-    {
       "restore_path": "QuaternaryQuadraticForms/CharacterCubicBound.lean",
       "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/CharacterCubicBound.lean.snapshot",
-      "bytes": 4350,
       "sha256": "06464ac29d5c8fd4954b3ec8ce02726a0c3ddcb949ca844ea64060af044a285e"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/ConeModulusBound.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/ConeModulusBound.lean.snapshot",
+      "sha256": "a9c97182d12784740b480052d7dbe2893696d0b4564407adac9c7737ecba6eee"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/ConeModulusFormula.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/ConeModulusFormula.lean.snapshot",
+      "sha256": "a3d9319d902f2013e5a53305485916f48549ecf29ef09dd5ca35ba65ec81b4cb"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/ConeModulusTheorem.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/ConeModulusTheorem.lean.snapshot",
+      "sha256": "6c128f2ca53f4c38dcbd747b35e350fac80c99eb9677fee12649197239e2ee56"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/ConeTotientReindex.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/ConeTotientReindex.lean.snapshot",
+      "sha256": "86d17626ef7b230289aef9d73a53f3239369ac6bd61121d0bb924ed32e9724b9"
     },
     {
       "restore_path": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
       "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/CoprimeCubicBound.lean.snapshot",
-      "bytes": 6160,
       "sha256": "98d9e29fd2b2f2d262c0e84a2e69cfdabfe8cd0b34bfc26dc13c21b2a0f54df6"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/DivisorSumReindex.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/DivisorSumReindex.lean.snapshot",
+      "sha256": "8547ab18338872dd9403dc3866a714179df237e27e89ae0e2f234ddb050c687e"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/ModulusSumFactorization.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/ModulusSumFactorization.lean.snapshot",
+      "sha256": "a1b6296d1dde9604bb3a264a034f470e0d22f5c469025c9b0b77a0d6de83862c"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/PeriodicSumBound.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/PeriodicSumBound.lean.snapshot",
+      "sha256": "61c3017afb1916cbaccd3c1f2c4a798a18d45da8cbf97ea0a15d18b594dac371"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean.snapshot",
+      "sha256": "3ffe7ebe6b57a19547874790dade8720c96741122e0e71429a51d46fa6361cf4"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean.snapshot",
+      "sha256": "5f991676a05de71d17de266cb908aee5df5d13e46b9e187393267413397592be"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/QuadraticJacobiWitness.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/QuadraticJacobiWitness.lean.snapshot",
+      "sha256": "eaeddec205e110a2d9971677226f026c341a7b9708c8dc647022adfbc7360aef"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/TotientCancellationBound.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/TotientCancellationBound.lean.snapshot",
+      "sha256": "fb439bf18bd8f42ff7991d5e0dc4fb6ea7d1dd52debd4ee8db7dc4a0c51e4c96"
+    },
+    {
+      "restore_path": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean",
+      "snapshot_path": "recovery/lemma_3_7/candidate/QuaternaryQuadraticForms/TotientDivisorExpansion.lean.snapshot",
+      "sha256": "ba0c3970f2a6c2f940f4d80a684a3ca8162eeec0cb82b1d34b4d98c9f31a8170"
+    },
+    {
+      "restore_path": "certification/correspondence/cone_modulus_bound.md",
+      "snapshot_path": "recovery/lemma_3_7/candidate/certification/correspondence/cone_modulus_bound.md.snapshot",
+      "sha256": "4c9bcb590f5e589a139891d6739295c6a227af340facb0388ccda9e79c80eb1c"
     }
   ],
   "checked_supporting_exports": [
-    "QuaternaryQuadraticForms.periodic_sum_range_norm_le",
-    "QuaternaryQuadraticForms.periodic_cubic_sum_norm_le",
-    "QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le",
-    "QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div",
-    "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum",
-    "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples",
-    "QuaternaryQuadraticForms.moebius_complex_norm_le_one",
-    "QuaternaryQuadraticForms.coprime_cubic_sum_norm_le"
+    {
+      "declaration": "QuaternaryQuadraticForms.periodic_cubic_sum_norm_le",
+      "file": "QuaternaryQuadraticForms/CharacterCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le",
+      "file": "QuaternaryQuadraticForms/CharacterCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic",
+      "file": "QuaternaryQuadraticForms/ConeModulusBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log",
+      "file": "QuaternaryQuadraticForms/ConeModulusBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone",
+      "file": "QuaternaryQuadraticForms/ConeModulusFormula.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient",
+      "file": "QuaternaryQuadraticForms/ConeModulusFormula.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedModulusSum_le_rpow",
+      "file": "QuaternaryQuadraticForms/ConeModulusTheorem.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_cone_modulus_bound",
+      "file": "QuaternaryQuadraticForms/ConeModulusTheorem.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius",
+      "file": "QuaternaryQuadraticForms/ConeTotientReindex.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.moebius_complex_norm_le_one",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprime_cubic_sum_norm_le",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul",
+      "file": "QuaternaryQuadraticForms/DivisorSumReindex.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime",
+      "file": "QuaternaryQuadraticForms/DivisorSumReindex.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul",
+      "file": "QuaternaryQuadraticForms/DivisorSumReindex.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulus_prime_split_unique",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedModulusSum_prime_split",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.periodic_sum_range_norm_le",
+      "file": "QuaternaryQuadraticForms/PeriodicSumBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_of_coprime",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_mul",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_mod",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_periodic",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree",
+      "file": "QuaternaryQuadraticForms/QuadraticJacobiWitness.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic",
+      "file": "QuaternaryQuadraticForms/TotientCancellationBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log",
+      "file": "QuaternaryQuadraticForms/TotientCancellationBound.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totient_eq_sum_moebius",
+      "file": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totient_mul_eq_sum_moebius",
+      "file": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean"
+    }
   ],
-  "axioms_for_each_new_export": [
-    "Classical.choice",
-    "Quot.sound",
-    "propext"
-  ],
-  "no_new_literature_premises": true,
-  "restore_instructions": "Restore snapshots to their restore_path on the baseline commit, then use the pinned Lean toolchain. These snapshots do not change the active certification ledger or assert completion of Lemma 3.7.",
+  "actual_axioms": {
+    "QuaternaryQuadraticForms.periodic_cubic_sum_norm_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.unweightedModulusSum_le_rpow": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.source_cone_modulus_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.moebius_complex_norm_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.coprime_cubic_sum_norm_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.modulus_prime_split_unique": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.unweightedModulusSum_prime_split": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.periodic_sum_range_norm_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_of_coprime": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff": [
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_mod": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticChar_periodic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.totient_eq_sum_moebius": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "QuaternaryQuadraticForms.totient_mul_eq_sum_moebius": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "root_scope_acceptance": {
+    "baseline_commit": "1283e49a1a165e8d1d8fb32b0905ff032412baad",
+    "complete_endpoint": true,
+    "source_correspondence": true,
+    "review_sha256": "4c9bcb590f5e589a139891d6739295c6a227af340facb0388ccda9e79c80eb1c",
+    "inspection_sha256": "0648140a5459788ece973aed370292063c4661603f0fa15ed5be4cc371f77fbf",
+    "endpoint_type_sha256": {
+      "QuaternaryQuadraticForms.unweightedModulusSum_le_rpow": "381cbb09326f5218f99ace118059f8b0c94cc7ff70041be191a3527780fa618d",
+      "QuaternaryQuadraticForms.source_cone_modulus_bound": "d0530b9a2e3214431874f93277a446bedcbfc92f2a28a681e20a45c2ffc397df"
+    },
+    "new_modules": 14,
+    "new_exports": 40,
+    "full_aggregate_verification": "pending",
+    "exact_proof_ci": "pending"
+  },
+  "restore_instructions": "Restore all snapshot files at restore_path on the baseline commit. This preserves the complete checked source proof and correspondence review; supporting registrations, documentation, aggregate verification, and CI must still be completed before publishing a new certification milestone on main.",
   "remaining": [
-    "Derive actual nonsquare quadratic-character mean-zero period.",
-    "Prove relative totient divisor identity and exact finite rearrangement.",
-    "Assemble good-modulus cancellation and actual bad/good factorization sum.",
-    "Prove uniform final source endpoint, review correspondence, run complete local and exact-commit GitHub verification."
+    "Complete exact registration, inventory, documentation and cache-root integration.",
+    "Run the full aggregate verifier and independent baseline/source/type comparison.",
+    "Publish reviewed proof tree, verify its exact GitHub CI report and original artifact, and archive evidence."
   ]
 }

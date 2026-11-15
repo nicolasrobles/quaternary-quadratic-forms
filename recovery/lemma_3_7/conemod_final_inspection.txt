@@ -1,0 +1,265 @@
+QuaternaryQuadraticForms.periodic_cubic_sum_norm_le : ∀ (f : ℕ → ℂ) (P : ℕ),
+  0 < P →
+    Function.Periodic f P →
+      ∑ n ∈ Finset.range P, f n = 0 →
+        (∀ (n : ℕ), ‖f n‖ ≤ 1) → ∀ (T : ℕ), ‖∑ n ∈ Finset.Icc 1 T, f n * ↑n ^ 3‖ ≤ 2 * ↑P * ↑T ^ 3
+'QuaternaryQuadraticForms.periodic_cubic_sum_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le : ∀ (f : ℕ → ℂ) (P : ℕ),
+  0 < P →
+    Function.Periodic f P →
+      ∑ n ∈ Finset.range P, f n = 0 →
+        (∀ (n : ℕ), ‖f n‖ ≤ 1) → ∀ (Z : ℝ), 0 ≤ Z → ‖∑ n ∈ Finset.Icc 1 ⌊Z⌋₊, f n * ↑n ^ 3‖ ≤ 2 * ↑P * Z ^ 3
+'QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic : ∀ (q d e T : ℕ),
+  0 < d →
+    e ≠ 0 →
+      q = d * e →
+        ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+          A.transpose = A →
+            A.det ≠ 0 →
+              ¬IsSquare A.det →
+                ∀ (u : Fin 4 → ℤ),
+                  u ⬝ᵥ A.adjugate.mulVec u = 0 →
+                    ‖∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T with
+                          c.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A),
+                          QuaternaryQuadraticForms.unweightedCompleteSumValue c A u‖ ≤
+                      2 * ↑(4 * A.det.natAbs) * ↑e.divisors.card * ↑T ^ 3 * ↑(harmonic T)
+'QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log : ∀ (q d e : ℕ),
+  0 < d →
+    e ≠ 0 →
+      q = d * e →
+        ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+          A.transpose = A →
+            A.det ≠ 0 →
+              ¬IsSquare A.det →
+                q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                  ∀ (u : Fin 4 → ℤ),
+                    u ⬝ᵥ A.adjugate.mulVec u = 0 →
+                      ∀ (X : ℝ),
+                        1 ≤ X →
+                          ‖QuaternaryQuadraticForms.unweightedModulusSum q d A u X‖ ≤
+                            4 * √↑A.det.natAbs * (2 * ↑(4 * A.det.natAbs)) *
+                                    (1 + (Real.log 2)⁻¹) ^
+                                      (QuaternaryQuadraticForms.quadraticBadPrimeModulus A).primeFactors.card *
+                                  ↑e.divisors.card *
+                                X ^ 3 *
+                              (1 + Real.log X) ^
+                                ((QuaternaryQuadraticForms.quadraticBadPrimeModulus A).primeFactors.card + 1)
+'QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone : ∀ (c : ℕ) [inst : NeZero c]
+  (A : Matrix (Fin 4) (Fin 4) ℤ),
+  A.transpose = A →
+    c.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+      ∀ (u : Fin 4 → ℤ),
+        u ⬝ᵥ A.adjugate.mulVec u = 0 →
+          QuaternaryQuadraticForms.unweightedCompleteSum c A u =
+            QuaternaryQuadraticForms.globalQuadraticChar A.det c * ↑c ^ 2 * ↑c.totient
+'QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient : ∀ (q d T : ℕ) (A : Matrix (Fin 4) (Fin 4) ℤ),
+  A.transpose = A →
+    ∀ (u : Fin 4 → ℤ),
+      u ⬝ᵥ A.adjugate.mulVec u = 0 →
+        ∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T with
+            c.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A),
+            QuaternaryQuadraticForms.unweightedCompleteSumValue c A u =
+          ∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T,
+            QuaternaryQuadraticForms.goodQuadraticChar A.det c * ↑c ^ 2 * ↑c.totient
+'QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.unweightedModulusSum_le_rpow : ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+  A.transpose = A →
+    A.det ≠ 0 →
+      ¬IsSquare A.det →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ C,
+              0 < C ∧
+                ∀ (q d e : ℕ) [NeZero q] [NeZero d] [NeZero e],
+                  q = d * e →
+                    q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                      ∀ (u : Fin 4 → ℤ),
+                        u ⬝ᵥ A.adjugate.mulVec u = 0 →
+                          ∀ (X : ℝ),
+                            1 ≤ X → ‖QuaternaryQuadraticForms.unweightedModulusSum q d A u X‖ ≤ C * X ^ 3 * (X * ↑q) ^ ε
+'QuaternaryQuadraticForms.unweightedModulusSum_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.source_cone_modulus_bound : ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+  A.transpose = A →
+    A.det ≠ 0 →
+      ¬IsSquare A.det →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ C,
+              0 < C ∧
+                ∀ (q d e : ℕ) [NeZero q] [NeZero d] [NeZero e],
+                  Squarefree q →
+                    q = d * e →
+                      q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                        ∀ (u : Fin 4 → ℤ),
+                          u ⬝ᵥ A.adjugate.mulVec u = 0 →
+                            ∀ (X : ℝ),
+                              1 ≤ X →
+                                ‖QuaternaryQuadraticForms.unweightedModulusSum q d A u X‖ ≤ C * X ^ 3 * (X * ↑q) ^ ε
+'QuaternaryQuadraticForms.source_cone_modulus_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius : ∀ (f : ℕ →* ℂ) (q d e T : ℕ),
+  0 < d →
+    q = d * e →
+      ∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T, f c * ↑c ^ 2 * ↑c.totient =
+        f d * ↑d ^ 2 * ↑d.totient *
+          ∑ h ∈ Finset.Icc 1 (T / d) with h.Coprime q,
+            ↑(ArithmeticFunction.moebius h) * f h * ↑h ^ 2 *
+              ∑ k ∈ Finset.Icc 1 (T / (d * h)) with k.Coprime e, f k * ↑k ^ 3
+'QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div : ∀ (d T : ℕ),
+  0 < d → ∀ (g : ℕ → ℂ), ∑ n ∈ Finset.Icc 1 T with d ∣ n, g n = ∑ k ∈ Finset.Icc 1 (T / d), g (d * k)
+'QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum : ∀ (n M : ℕ),
+  M ≠ 0 → (if n.Coprime M then 1 else 0) = ∑ d ∈ M.divisors, if d ∣ n then ↑(ArithmeticFunction.moebius d) else 0
+'QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples : ∀ (g : ℕ → ℂ) (M T : ℕ),
+  M ≠ 0 →
+    ∑ n ∈ Finset.Icc 1 T with n.Coprime M, g n =
+      ∑ d ∈ M.divisors, ↑(ArithmeticFunction.moebius d) * ∑ k ∈ Finset.Icc 1 (T / d), g (d * k)
+'QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.moebius_complex_norm_le_one : ∀ (n : ℕ), ‖↑(ArithmeticFunction.moebius n)‖ ≤ 1
+'QuaternaryQuadraticForms.moebius_complex_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.coprime_cubic_sum_norm_le : ∀ (f : ℕ →* ℂ),
+  (∀ (n : ℕ), ‖f n‖ ≤ 1) →
+    ∀ (B : ℝ),
+      0 ≤ B →
+        (∀ (T : ℕ), ‖∑ n ∈ Finset.Icc 1 T, f n * ↑n ^ 3‖ ≤ B * ↑T ^ 3) →
+          ∀ (M T : ℕ), M ≠ 0 → ‖∑ n ∈ Finset.Icc 1 T with n.Coprime M, f n * ↑n ^ 3‖ ≤ B * ↑M.divisors.card * ↑T ^ 3
+'QuaternaryQuadraticForms.coprime_cubic_sum_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul : ∀ (T : ℕ) (F : ℕ → ℕ → ℂ),
+  ∑ n ∈ Finset.Icc 1 T, ∑ h ∈ n.divisors, F n h = ∑ h ∈ Finset.Icc 1 T, ∑ k ∈ Finset.Icc 1 (T / h), F (h * k) h
+'QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime : ∀ (q d e T : ℕ),
+  0 < d →
+    q = d * e →
+      ∀ (F : ℕ → ℂ),
+        ∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T, F c = ∑ n ∈ Finset.Icc 1 (T / d) with n.Coprime e, F (d * n)
+'QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul : ∀ (T d e : ℕ) (F : ℕ → ℕ → ℂ),
+  ∑ n ∈ Finset.Icc 1 T with n.Coprime e, ∑ h ∈ n.divisors with h.Coprime d, F h (n / h) =
+    ∑ h ∈ Finset.Icc 1 T with h.Coprime (d * e), ∑ k ∈ Finset.Icc 1 (T / h) with k.Coprime e, F h k
+'QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.modulus_prime_split_unique : ∀ (N b g b' g' : ℕ),
+  0 < b →
+    (∀ (p : ℕ), Nat.Prime p → p ∣ b → p ∣ N) →
+      (∀ (p : ℕ), Nat.Prime p → p ∣ b' → p ∣ N) → g.Coprime N → g'.Coprime N → b * g = b' * g' → b = b' ∧ g = g'
+'QuaternaryQuadraticForms.modulus_prime_split_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split : ∀ (q d N T : ℕ),
+  q.Coprime N →
+    ∀ (f : ℕ → ℂ),
+      ∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T, f c =
+        ∑ b ∈ QuaternaryQuadraticForms.primeSupportModuliUpTo N T,
+          ∑ g ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d (T / b) with g.Coprime N, f (b * g)
+'QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero : ∀ (c : ℕ) [inst : NeZero c]
+  (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ),
+  QuaternaryQuadraticForms.unweightedCompleteSumValue c A u = QuaternaryQuadraticForms.unweightedCompleteSum c A u
+'QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.unweightedModulusSum_prime_split : ∀ (q d : ℕ) (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ),
+  q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+    ∀ (X : ℝ),
+      QuaternaryQuadraticForms.unweightedModulusSum q d A u X =
+        ∑
+          b ∈
+            QuaternaryQuadraticForms.primeSupportModuliUpTo (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) ⌊X⌋₊,
+          QuaternaryQuadraticForms.unweightedCompleteSumValue b A u *
+            ∑ g ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d (⌊X⌋₊ / b) with
+              g.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A),
+              QuaternaryQuadraticForms.unweightedCompleteSumValue g A u
+'QuaternaryQuadraticForms.unweightedModulusSum_prime_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.periodic_sum_range_norm_le : ∀ (f : ℕ → ℂ) (P : ℕ),
+  0 < P →
+    Function.Periodic f P →
+      ∑ n ∈ Finset.range P, f n = 0 → (∀ (n : ℕ), ‖f n‖ ≤ 1) → ∀ (T : ℕ), ‖∑ n ∈ Finset.range T, f n‖ ≤ ↑P
+'QuaternaryQuadraticForms.periodic_sum_range_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one : ∀ (α : ℤ),
+  α ≠ 0 → ¬IsSquare α → ∃ n, n.Coprime (2 * α.natAbs) ∧ jacobiSym α n = -1
+'QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one : ∀ (α : ℤ) (hα : α ≠ 0),
+  ¬IsSquare α → QuaternaryQuadraticForms.goodQuadraticDirichletChar α hα ≠ 1
+'QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero : ∀ (α : ℤ),
+  α ≠ 0 → ¬IsSquare α → ∑ n ∈ Finset.range (4 * α.natAbs), QuaternaryQuadraticForms.goodQuadraticChar α n = 0
+'QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_one : ∀ (α : ℤ), QuaternaryQuadraticForms.goodQuadraticChar α 1 = 1
+'QuaternaryQuadraticForms.goodQuadraticChar_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_zero : ∀ (α : ℤ), QuaternaryQuadraticForms.goodQuadraticChar α 0 = 0
+'QuaternaryQuadraticForms.goodQuadraticChar_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_of_coprime : ∀ (α : ℤ) (n : ℕ),
+  n.Coprime (2 * α.natAbs) →
+    QuaternaryQuadraticForms.goodQuadraticChar α n = QuaternaryQuadraticForms.globalQuadraticChar α n
+'QuaternaryQuadraticForms.goodQuadraticChar_of_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime : ∀ (α : ℤ) (n : ℕ),
+  ¬n.Coprime (2 * α.natAbs) → QuaternaryQuadraticForms.goodQuadraticChar α n = 0
+'QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_mul : ∀ (α : ℤ) (m n : ℕ),
+  QuaternaryQuadraticForms.goodQuadraticChar α (m * n) =
+    QuaternaryQuadraticForms.goodQuadraticChar α m * QuaternaryQuadraticForms.goodQuadraticChar α n
+'QuaternaryQuadraticForms.goodQuadraticChar_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one : ∀ (α : ℤ) (n : ℕ),
+  ‖QuaternaryQuadraticForms.goodQuadraticChar α n‖ ≤ 1
+'QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff : ∀ (α : ℤ) (n : ℕ),
+  n.Coprime (4 * α.natAbs) ↔ n.Coprime (2 * α.natAbs)
+'QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff' depends on axioms: [propext]
+QuaternaryQuadraticForms.goodQuadraticChar_mod : ∀ (α : ℤ) (n : ℕ),
+  QuaternaryQuadraticForms.goodQuadraticChar α (n % (4 * α.natAbs)) = QuaternaryQuadraticForms.goodQuadraticChar α n
+'QuaternaryQuadraticForms.goodQuadraticChar_mod' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticChar_periodic : ∀ (α : ℤ),
+  Function.Periodic (QuaternaryQuadraticForms.goodQuadraticChar α) (4 * α.natAbs)
+'QuaternaryQuadraticForms.goodQuadraticChar_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast : ∀ (α : ℤ) (hα : α ≠ 0) (n : ℕ),
+  (QuaternaryQuadraticForms.goodQuadraticDirichletChar α hα) ↑n = QuaternaryQuadraticForms.goodQuadraticChar α n
+'QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree : ∀ (s p : ℕ),
+  Squarefree s → Nat.Prime p → p ≠ 2 → p ∣ s → ∃ n, n % 8 = 1 ∧ n.Coprime s ∧ jacobiSym (↑n) s = -1
+'QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic : ∀ (f : ℕ →* ℂ),
+  (∀ (n : ℕ), ‖f n‖ ≤ 1) →
+    ∀ (B : ℝ),
+      0 ≤ B →
+        (∀ (T : ℕ), ‖∑ n ∈ Finset.Icc 1 T, f n * ↑n ^ 3‖ ≤ B * ↑T ^ 3) →
+          ∀ (q d e T : ℕ),
+            0 < d →
+              e ≠ 0 →
+                q = d * e →
+                  ‖∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T, f c * ↑c ^ 2 * ↑c.totient‖ ≤
+                    B * ↑e.divisors.card * ↑T ^ 3 * ↑(harmonic T)
+'QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log : ∀ (f : ℕ →* ℂ),
+  (∀ (n : ℕ), ‖f n‖ ≤ 1) →
+    ∀ (B : ℝ),
+      0 ≤ B →
+        (∀ (T : ℕ), ‖∑ n ∈ Finset.Icc 1 T, f n * ↑n ^ 3‖ ≤ B * ↑T ^ 3) →
+          ∀ (q d e : ℕ),
+            0 < d →
+              e ≠ 0 →
+                q = d * e →
+                  ∀ (X : ℝ),
+                    1 ≤ X →
+                      ‖∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d ⌊X⌋₊, f c * ↑c ^ 2 * ↑c.totient‖ ≤
+                        B * ↑e.divisors.card * X ^ 3 * (1 + Real.log X)
+'QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuaternaryQuadraticForms.totient_eq_sum_moebius : ∀ {R : Type u_1} [inst : CommRing R] (n : ℕ),
+  ↑n.totient = ∑ h ∈ n.divisors, ↑(ArithmeticFunction.moebius h) * ↑(n / h)
+'QuaternaryQuadraticForms.totient_eq_sum_moebius' depends on axioms: [propext, Classical.choice, Quot.sound]
+@QuaternaryQuadraticForms.totient_mul_eq_sum_moebius : ∀ {R : Type u_1} [inst : CommRing R] (d n : ℕ),
+  d ≠ 0 →
+    ↑(d * n).totient =
+      ↑d.totient * ∑ h ∈ n.divisors, if h.Coprime d then ↑(ArithmeticFunction.moebius h) * ↑(n / h) else 0
+'QuaternaryQuadraticForms.totient_mul_eq_sum_moebius' depends on axioms: [propext, Classical.choice, Quot.sound]
