@@ -316,7 +316,7 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Continuation status", "",
-    'The requested **Lemma 2.3** is complete at the proof and source-review level. The current verification block records the aggregate execution evidence. This session stops here; no additional proof target is started.  All numbered results in Section 2 (Lemmas 2.1–2.7), Lemmas 3.1–3.11, and all Section 4 lemmas are complete. The numbered inventory is **25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups remain **5 Certified, 28 Pending**, including Pending **aux:conecount**. The scaled-integral, Poisson, and three-frequency contributions and the general cone-vertex singular-integral obligation remain for the later analytic assembly. The global proposition and main theorems are not certified.', "",
+    'The requested **Lemma 2.3** is complete at the proof and source-review level. The current verification block records the aggregate execution evidence. This session stops here; no additional proof target is started.  All numbered results in Section 2 (results 2.1–2.7), Lemmas 3.1–3.11, and all Section 4 lemmas are complete. The numbered inventory is **25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups remain **5 Certified, 28 Pending**, including Pending **aux:conecount**. The scaled-integral, Poisson, and three-frequency contributions and the general cone-vertex singular-integral obligation remain for the later analytic assembly. The global proposition and main theorems are not certified.', "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 

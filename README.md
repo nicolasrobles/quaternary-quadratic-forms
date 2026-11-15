@@ -37,12 +37,43 @@ Pending**. Work stops after Lemma 2.3 for this session.
 
 <!-- BEGIN LEMMA_2_3_VERIFICATION -->
 
-Strict targeted builds and inspection of all 28 new theorem declarations
-have passed, with actual types matching the source review and axiom sets
-contained in `propext`, `Classical.choice`, and `Quot.sound`.
-The full local aggregate verifier and the matching GitHub Actions run are
-the remaining execution gates for this proof tree. This block will record
-their exact commit, run, report hashes, and comparison when complete.
+**The complete local aggregate verifier and independent GitHub verification
+both passed for the exact Lemma 2.3 proof tree.** They check the frozen source,
+all project modules under strict options, declaration kinds, complete types,
+axiom dependencies, status accounting, and pinned dependency revisions.
+
+- Checked proof commit: [ae42d40d67d1](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/ae42d40d67d1b27bc8cd8d16547ff7719786ea50).
+- Proof tree: `bad4a56956eca148afec8e08af8519503b7c2cc9`.
+- [GitHub run 43773643293, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43773643293), completed successfully at 2026-11-15T23:36:01Z.
+- Verification job: `132994865473`; artifact: `14186516176`.
+- Local build: `Build completed successfully (3495 jobs).`.
+- CI build: `Build completed successfully (3495 jobs).`.
+
+| Preserved evidence | Bytes | SHA-256 |
+| --- | ---: | --- |
+| [Local report](certification/verification_report.json) | 1,682,646 | `1cdf5856d7900ccfe63b5e850b5516484039f2205016af0fbda96a756a6658d8` |
+| [CI report](certification/ci/run_43773643293_attempt_1.json) | 1,701,939 | `c0749173104d750e1003feecdfff7de9c251de5e4c82ee0838846c6247bb883e` |
+| [Original CI artifact ZIP](certification/ci/run_43773643293_attempt_1.zip) | 198,838 | `37c311009867d07e0832d93396a11efabba9b1bda830acc3e9367bf51662a1a9` |
+
+The reports agree on **all 18 verification-content fields**, including
+**1,115 complete theorem records, 296 inspected input hashes, 11 registered
+literature premises, and nine pinned dependency revisions**. Every inspected
+input and export source hash matches the exact proof commit. Only the
+generation timestamp and build log differ; report initialization timestamps
+are not completion times. The original ZIP digest matches GitHub's digest.
+
+All **1,087 prior theorem records and all 11 prior premise records are
+unchanged**. The 28 new theorem types and axiom sets match their separate
+strict inspection; each uses only `propext`, `Classical.choice`, and
+`Quot.sound`. Independent source correspondence found no gap or mismatch.
+No new literature premise is added or used by Lemma 2.3.
+
+The evidence archive changes only documentation and its inventory generator,
+the local report, and the preserved CI report and ZIP. The frozen manuscript, PDF, Lean proofs,
+verifier, and inspected metadata remain those of the checked proof commit.
+The numbered status is **25 Complete, 0 Partial, 0 Active, 17 Pending**;
+supplementary status remains **5 Certified, 28 Pending**. The whole paper
+is not certified. Work stops here; `aux:conecount` remains Pending.
 
 <!-- END LEMMA_2_3_VERIFICATION -->
 
@@ -2695,7 +2726,7 @@ The requested **Lemma 2.3** is complete at the proof and source-review level.
 The current verification block records the aggregate execution evidence.
 This session stops here; no additional proof target is started.
 
-All numbered results in Section 2 (Lemmas 2.1–2.7), Lemmas 3.1–3.11,
+All numbered results in Section 2 (results 2.1–2.7), Lemmas 3.1–3.11,
 and all Section 4 lemmas are complete. The numbered inventory is
 **25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
 remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.

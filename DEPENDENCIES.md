@@ -161,7 +161,7 @@ of their bounds at the end of Section 6 is tracked separately.
 ## Auxiliary claims and coverage
 
 The numbered-result counts are **Complete: 25 · Partial: 0 · Active: 0 · Pending:
-17**. Lemmas 2.1–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6 and 5.9
+17**. Results 2.1–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6 and 5.9
 have complete source-relative proofs (including Corollary 2.6). Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -1492,7 +1492,7 @@ The requested **Lemma 2.3** is complete at the proof and source-review level.
 The current verification block records the aggregate execution evidence.
 This session stops here; no additional proof target is started.
 
-All numbered results in Section 2 (Lemmas 2.1–2.7), Lemmas 3.1–3.11,
+All numbered results in Section 2 (results 2.1–2.7), Lemmas 3.1–3.11,
 and all Section 4 lemmas are complete. The numbered inventory is
 **25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
 remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.
