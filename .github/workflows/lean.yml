@@ -60,6 +60,7 @@ jobs:
             Mathlib.Algebra.Polynomial.Roots \
             Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
+            Mathlib.Analysis.Calculus.ContDiff.Basic \
             Mathlib.Analysis.Complex.Basic \
             Mathlib.Analysis.InnerProductSpace.PiL2 \
             Mathlib.Analysis.Normed.Group.FunctionSeries \
@@ -90,6 +91,8 @@ jobs:
             Mathlib.Data.Nat.PrimeFin \
             Mathlib.Data.Nat.Squarefree \
             Mathlib.Data.Nat.Totient \
+            Mathlib.Data.PNat.Basic \
+            Mathlib.Data.PNat.Interval \
             Mathlib.Data.Real.Archimedean \
             Mathlib.Data.Real.Basic \
             Mathlib.Data.Real.Sqrt \
@@ -118,6 +121,7 @@ jobs:
             Mathlib.LinearAlgebra.QuadraticForm.Basic \
             Mathlib.Logic.Equiv.Fin.Basic \
             Mathlib.Logic.Equiv.Prod \
+            Mathlib.MeasureTheory.Integral.Bochner.Basic \
             Mathlib.NumberTheory.ArithmeticFunction \
             Mathlib.NumberTheory.DirichletCharacter.Basic \
             Mathlib.NumberTheory.DirichletCharacter.Bounds \
@@ -144,7 +148,11 @@ jobs:
             Mathlib.Tactic.NormNum \
             Mathlib.Tactic.Positivity \
             Mathlib.Tactic.Ring \
-            Mathlib.Topology.Order.Basic
+            Mathlib.Topology.Algebra.InfiniteSum.NatInt \
+            Mathlib.Topology.Algebra.InfiniteSum.Order \
+            Mathlib.Topology.Instances.Real.Lemmas \
+            Mathlib.Topology.Order.Basic \
+            Mathlib.Topology.Order.Compact
       - name: Verify manuscript, dependencies, proofs, and status
         run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
       - name: Publish verification report

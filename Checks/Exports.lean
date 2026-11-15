@@ -892,7 +892,36 @@ run_cmd do
     `QuaternaryQuadraticForms.sourceConstrainedFourierSum_one,
     `QuaternaryQuadraticForms.sourceConstrainedFourierSum_primeFactors,
     `QuaternaryQuadraticForms.source_average_frequency_natDegree,
-    `QuaternaryQuadraticForms.source_average_frequency_bound]
+    `QuaternaryQuadraticForms.source_average_frequency_bound,
+    `QuaternaryQuadraticForms.bumpSamplingSum_finite_support,
+    `QuaternaryQuadraticForms.bumpSamplingSum_summable,
+    `QuaternaryQuadraticForms.bumpSamplingSum_uniform_pos,
+    `QuaternaryQuadraticForms.bumpNormalization_error_bound,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_eq_unit_sum,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_eq_exponential_sum,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_modulus_one,
+    `QuaternaryQuadraticForms.deltaSymbolKernel_eq_zero_of_modulus_bound,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_modulus_bound,
+    `QuaternaryQuadraticForms.deltaSymbol_modulus_bound_eq_max,
+    `QuaternaryQuadraticForms.mem_deltaSymbolModuli,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_not_mem,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_finite_support,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_summable,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_norm_summable,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_hasSum,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum,
+    `QuaternaryQuadraticForms.deltaSymbolModuli_sum_eq_sum_range,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum_range,
+    `QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_unit_sum,
+    `QuaternaryQuadraticForms.heathBrownDeltaKernel_properties,
+    `QuaternaryQuadraticForms.heathBrownSamplingSum_uniform_pos,
+    `QuaternaryQuadraticForms.heathBrownSamplingSum_pos,
+    `QuaternaryQuadraticForms.heathBrownNormalization_pos,
+    `QuaternaryQuadraticForms.heathBrownNormalization_error_bound,
+    `QuaternaryQuadraticForms.heathBrownNormalization_error_bound_real,
+    `QuaternaryQuadraticForms.heathBrown_delta_identity,
+    `QuaternaryQuadraticForms.heathBrown_delta_finite_identity,
+    `QuaternaryQuadraticForms.source_delta_symbol]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -901,7 +930,8 @@ run_cmd do
     `QuaternaryQuadraticForms.Trusted.weil_simple_roots,
     `QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data,
     `QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants,
-    `QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent]
+    `QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent,
+    `QuaternaryQuadraticForms.Trusted.heathBrown_delta_data]
   for name in inputNames do
     match environment.find? name with
     | some (.axiomInfo _) => pure ()
@@ -3595,3 +3625,93 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.source_average_frequency_bound
 #print axioms QuaternaryQuadraticForms.source_average_frequency_bound
+
+#check @QuaternaryQuadraticForms.Trusted.heathBrown_delta_data
+#print axioms QuaternaryQuadraticForms.Trusted.heathBrown_delta_data
+
+#check @QuaternaryQuadraticForms.bumpSamplingSum_finite_support
+#print axioms QuaternaryQuadraticForms.bumpSamplingSum_finite_support
+
+#check @QuaternaryQuadraticForms.bumpSamplingSum_summable
+#print axioms QuaternaryQuadraticForms.bumpSamplingSum_summable
+
+#check @QuaternaryQuadraticForms.bumpSamplingSum_uniform_pos
+#print axioms QuaternaryQuadraticForms.bumpSamplingSum_uniform_pos
+
+#check @QuaternaryQuadraticForms.bumpNormalization_error_bound
+#print axioms QuaternaryQuadraticForms.bumpNormalization_error_bound
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_eq_unit_sum
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_eq_unit_sum
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_eq_exponential_sum
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_eq_exponential_sum
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_modulus_one
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_modulus_one
+
+#check @QuaternaryQuadraticForms.deltaSymbolKernel_eq_zero_of_modulus_bound
+#print axioms QuaternaryQuadraticForms.deltaSymbolKernel_eq_zero_of_modulus_bound
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_modulus_bound
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_modulus_bound
+
+#check @QuaternaryQuadraticForms.deltaSymbol_modulus_bound_eq_max
+#print axioms QuaternaryQuadraticForms.deltaSymbol_modulus_bound_eq_max
+
+#check @QuaternaryQuadraticForms.mem_deltaSymbolModuli
+#print axioms QuaternaryQuadraticForms.mem_deltaSymbolModuli
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_not_mem
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_not_mem
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_finite_support
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_finite_support
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_summable
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_summable
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_norm_summable
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_norm_summable
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_hasSum
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_hasSum
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum
+
+#check @QuaternaryQuadraticForms.deltaSymbolModuli_sum_eq_sum_range
+#print axioms QuaternaryQuadraticForms.deltaSymbolModuli_sum_eq_sum_range
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum_range
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum_range
+
+#check @QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_unit_sum
+#print axioms QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_unit_sum
+
+#check @QuaternaryQuadraticForms.heathBrownDeltaKernel_properties
+#print axioms QuaternaryQuadraticForms.heathBrownDeltaKernel_properties
+
+#check @QuaternaryQuadraticForms.heathBrownSamplingSum_uniform_pos
+#print axioms QuaternaryQuadraticForms.heathBrownSamplingSum_uniform_pos
+
+#check @QuaternaryQuadraticForms.heathBrownSamplingSum_pos
+#print axioms QuaternaryQuadraticForms.heathBrownSamplingSum_pos
+
+#check @QuaternaryQuadraticForms.heathBrownNormalization_pos
+#print axioms QuaternaryQuadraticForms.heathBrownNormalization_pos
+
+#check @QuaternaryQuadraticForms.heathBrownNormalization_error_bound
+#print axioms QuaternaryQuadraticForms.heathBrownNormalization_error_bound
+
+#check @QuaternaryQuadraticForms.heathBrownNormalization_error_bound_real
+#print axioms QuaternaryQuadraticForms.heathBrownNormalization_error_bound_real
+
+#check @QuaternaryQuadraticForms.heathBrown_delta_identity
+#print axioms QuaternaryQuadraticForms.heathBrown_delta_identity
+
+#check @QuaternaryQuadraticForms.heathBrown_delta_finite_identity
+#print axioms QuaternaryQuadraticForms.heathBrown_delta_finite_identity
+
+#check @QuaternaryQuadraticForms.source_delta_symbol
+#print axioms QuaternaryQuadraticForms.source_delta_symbol

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete exceptional-frequency average and source complete-sum factorization",
+  "checkpoint": "Complete delta symbol with the fixed Heath-Brown kernel and uniform real-scale normalization",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -23,8 +23,34 @@
       "checked_exports": []
     },
     "lem:delta": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_delta_symbol",
+        "QuaternaryQuadraticForms.heathBrown_delta_identity",
+        "QuaternaryQuadraticForms.heathBrown_delta_finite_identity",
+        "QuaternaryQuadraticForms.heathBrownDeltaKernel_properties",
+        "QuaternaryQuadraticForms.heathBrownNormalization_pos",
+        "QuaternaryQuadraticForms.heathBrownNormalization_error_bound",
+        "QuaternaryQuadraticForms.heathBrownNormalization_error_bound_real",
+        "QuaternaryQuadraticForms.heathBrownSamplingSum_uniform_pos",
+        "QuaternaryQuadraticForms.deltaSymbolTerm_finite_support",
+        "QuaternaryQuadraticForms.deltaSymbolTerm_norm_summable",
+        "QuaternaryQuadraticForms.deltaSymbolTerm_eq_exponential_sum",
+        "QuaternaryQuadraticForms.deltaSymbolTerm_modulus_one",
+        "QuaternaryQuadraticForms.deltaSymbol_modulus_bound_eq_max"
+      ],
+      "correspondence_record": "certification/correspondence/delta_symbol.md",
+      "completed_clauses": [
+        "One common real kernel, explicitly defined by the Heath-Brown construction before Q and n, is C-infinity on (0,infinity) times R.",
+        "The actual normalization c(Q)=Q/S(Q) is positive for every real Q>=3, with one uniform positive denominator bound proved internally.",
+        "The exact source delta identity holds for every real Q>=3 and every integer n, with the original positive-modulus and residue-unit exponential sums, including modulus one.",
+        "For every real j>=1 there exists C_j>0 chosen before all Q>=3 with |c(Q)-1|<=C_j*Q^(-j). The natural-order version is also proved.",
+        "One global B>0 bounds the absolute value of the fixed kernel by B/x for every x>0 and every real y.",
+        "The fixed kernel vanishes whenever x>max(1,2*|y|).",
+        "The outer modulus sum has finite support and is absolutely summable; it equals the literal finite sum with c<=floor(max(Q,2*|n|/Q))."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 2.1 relative to the separately registered Heath-Brown construction input EXT.HB_DELTA. The premise concerns the actual fixed source bump, sampling sum and kernel; it supplies their elementary source properties, the unnormalized identity T(Q,n)=Q*S(Q)*1_(n=0), and the raw sampling error for Q>1. It does not assume the manuscript-specific normalized statement or uniformity down to Q=3. The compact interval [7/12,11/12] and an explicitly rounded sample give one positive denominator bound throughout Q>=3. Raw order j+1 gives the integer-order normalization error, and a natural ceiling supplies every real j>=1. Actual residue phases, modulus one, all integer frequencies, and the finite support cutoff are proved internally. Smoothness is scoped Lean order infinity (the coercion of ENat.top), not the outer analytic top order. No normalized formula at Q=2 or uniform normalized bound as Q approaches 2 is imported. Twenty generic new exports use no literature premise; the nine source-specific exports use only the one registered HB input. All earlier completed claims and four earlier literature declarations are preserved."
     },
     "lem:integrals": {
       "status": "Pending",
@@ -157,11 +183,11 @@
       ],
       "correspondence_record": "certification/correspondence/generic_modulus_bound.md",
       "completed_clauses": [
-        "For each fixed symmetric nonsingular integral matrix and every positive exponent, one positive constant works for every source modulus N, original admissible prime family, positive squarefree factorization q=q₁q₂, nonzero integral dual value, and real cutoff X≥1. The actual gcd-restricted absolute modulus sum is bounded by that constant times the existing |C_(q₂)(u)|, q₁², the exact divisibility indicator, and (X|F*(u)|)^ε.",
-        "The actual complete sums and the entire finite modulus sum vanish when q₁ does not divide the integral dual value; the indicator is proved, with no local norm hypothesis needed for the vanishing statement."
+        "For each fixed symmetric nonsingular integral matrix and every positive exponent, one positive constant works for every source modulus N, original admissible prime family, positive squarefree factorization q=q\u2081q\u2082, nonzero integral dual value, and real cutoff X\u22651. The actual gcd-restricted absolute modulus sum is bounded by that constant times the existing |C_(q\u2082)(u)|, q\u2081\u00b2, the exact divisibility indicator, and (X|F*(u)|)^\u03b5.",
+        "The actual complete sums and the entire finite modulus sum vanish when q\u2081 does not divide the integral dual value; the indicator is proved, with no local norm hypothesis needed for the vanishing statement."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c≤X with gcd(c,q)=q₁, every real X≥1, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and ε>0, but before N, the source prime family, q,q₁,q₂, the frequency, and X. It retains the existing constrained Fourier factor at q₂, q₁², the exact indicator 1_(q₁∣m), and (X|m|)^ε. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|≤gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with τ(|m|), rather than the manuscript route's τ(|m|)², and logarithm exponent 1+ω(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q₁ does not divide m. The boundary cases q=q₁=q₂=1, X=1, and |m|=1 are included; the final theorem requires m≠0. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. The global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c\u2264X with gcd(c,q)=q\u2081, every real X\u22651, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and \u03b5>0, but before N, the source prime family, q,q\u2081,q\u2082, the frequency, and X. It retains the existing constrained Fourier factor at q\u2082, q\u2081\u00b2, the exact indicator 1_(q\u2081\u2223m), and (X|m|)^\u03b5. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|\u2264gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with \u03c4(|m|), rather than the manuscript route's \u03c4(|m|)\u00b2, and logarithm exponent 1+\u03c9(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q\u2081 does not divide m. The boundary cases q=q\u2081=q\u2082=1, X=1, and |m|=1 are included; the final theorem requires m\u22600. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. The global analytic theorems remain Pending."
     },
     "lem:conemod": {
       "status": "Certified",
@@ -174,10 +200,10 @@
       "correspondence_record": "certification/correspondence/cone_modulus_bound.md",
       "completed_clauses": [
         "For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every positive exponent, one positive constant bounds the norm of the actual sum of unweighted S_c(u) over positive c<=X with gcd(c,q)=d by C X^3 (Xq)^epsilon, uniformly over all positive squarefree factorizations q=d*e coprime to N_F, integral frequencies with F*(u)=0, and real cutoffs X>=1. The constant is chosen before q,d,e,u,X.",
-        "The source cancellation is proved for the actual arithmetic coefficient: nonsquareness implies actual nonprincipality and zero period mean, exact Möbius/totient and gcd rearrangements give the good-modulus bound, and exact bad/good CRT preserves that cancellation through the complete finite modulus sum. The stronger core theorem proves the same estimate without squarefreeness."
+        "The source cancellation is proved for the actual arithmetic coefficient: nonsquareness implies actual nonprincipality and zero period mean, exact M\u00f6bius/totient and gcd rearrangements give the good-modulus bound, and exact bad/good CRT preserves that cancellation through the complete finite modulus sum. The stronger core theorem proves the same estimate without squarefreeness."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, Möbius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. The global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, M\u00f6bius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. The global analytic theorems remain Pending."
     },
     "lem:density": {
       "status": "Certified",
@@ -3775,7 +3801,7 @@
         "lem:exceptional",
         "lem:divisible"
       ],
-      "scope": "All prescribed degrees are positive when the manuscript's `n ≥ 2` hypothesis holds.",
+      "scope": "All prescribed degrees are positive when the manuscript's `n \u2265 2` hypothesis holds.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
@@ -3903,7 +3929,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff",
+      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval\u2082_zero_iff",
       "file": "QuaternaryQuadraticForms/BadReductionSystem.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4074,7 +4100,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4088,7 +4114,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4102,7 +4128,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4665,7 +4691,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4679,7 +4705,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4693,7 +4719,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4707,7 +4733,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval\u2082Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4881,7 +4907,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one",
+      "declaration": "QuaternaryQuadraticForms.totalDegree_eval\u2082_le_of_degree_one",
       "file": "QuaternaryQuadraticForms/ParameterSpecialization.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -5823,7 +5849,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "Evaluation of `Φ_u` is the source sum of complementary coefficient products.",
+      "scope": "Evaluation of `\u03a6_u` is the source sum of complementary coefficient products.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -5853,7 +5879,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "Coefficient homomorphisms preserve the source `κ_i`.",
+      "scope": "Coefficient homomorphisms preserve the source `\u03ba_i`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -5869,7 +5895,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "The formal polynomial `Φ_u` commutes with coefficient maps.",
+      "scope": "The formal polynomial `\u03a6_u` commutes with coefficient maps.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -5885,7 +5911,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "Coefficient homomorphisms preserve the actual forms `ν_i`.",
+      "scope": "Coefficient homomorphisms preserve the actual forms `\u03bd_i`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6055,7 +6081,7 @@
         "eq:kappadef",
         "eq:exactpencil"
       ],
-      "scope": "The surviving product is the three pair differences divided by `a_i³`.",
+      "scope": "The surviving product is the three pair differences divided by `a_i\u00b3`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6106,7 +6132,7 @@
         "eq:kappadef",
         "eq:exactpencil"
       ],
-      "scope": "The singular reciprocal phase equals the actual source form `ν_i` divided by its explicit nonzero scalar denominator.",
+      "scope": "The singular reciprocal phase equals the actual source form `\u03bd_i` divided by its explicit nonzero scalar denominator.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6236,7 +6262,7 @@
         "eq:pencilforms",
         "eq:diagbound"
       ],
-      "scope": "At each parameter, `Φ_u(t)` is the dual quadratic form of `G + t F`.",
+      "scope": "At each parameter, `\u03a6_u(t)` is the dual quadratic form of `G + t F`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6284,7 +6310,7 @@
         "eq:pencilsum",
         "eq:exactpencil"
       ],
-      "scope": "The exact contribution of every singular pencil member. The formula keeps the full Ramanujan sum when `ν_i(u)` is zero.",
+      "scope": "The exact contribution of every singular pencil member. The formula keeps the full Ramanujan sum when `\u03bd_i(u)` is zero.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6645,7 +6671,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "The fourth power is `p²`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
+      "scope": "The fourth power is `p\u00b2`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -7138,7 +7164,7 @@
         "eq:crt",
         "eq:Snewdef"
       ],
-      "scope": "The source mixed summand factors in the actual scaled CRT coordinates. The local unit parameters still carry the source factors `c₂ n₂` and `c₁ n₁`.",
+      "scope": "The source mixed summand factors in the actual scaled CRT coordinates. The local unit parameters still carry the source factors `c\u2082 n\u2082` and `c\u2081 n\u2081`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -7154,7 +7180,7 @@
         "eq:crt",
         "eq:Snewdef"
       ],
-      "scope": "Full CRT multiplicativity of the actual mixed complete sum. Only scalar invariance at primes dividing `q₁*q₂` is assumed.",
+      "scope": "Full CRT multiplicativity of the actual mixed complete sum. Only scalar invariance at primes dividing `q\u2081*q\u2082` is assumed.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -8975,7 +9001,7 @@
         "eq:forms",
         "eq:badbound"
       ],
-      "scope": "The actual inner Gauss sum has norm at most `4 sqrt(|det A|) n²` for every unit scalar and every residue frequency.",
+      "scope": "The actual inner Gauss sum has norm at most `4 sqrt(|det A|) n\u00b2` for every unit scalar and every residue frequency.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9026,7 +9052,7 @@
         "eq:forms",
         "eq:badbound"
       ],
-      "scope": "Lemma 3.3 for the manuscript's actual complete sum: every positive modulus, every integral frequency, and the exact real constant `4 sqrt(|α|)`.",
+      "scope": "Lemma 3.3 for the manuscript's actual complete sum: every positive modulus, every integral frequency, and the exact real constant `4 sqrt(|\u03b1|)`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9094,7 +9120,7 @@
         "eq:weightproperties",
         "eq:forms"
       ],
-      "scope": "Lemma 3.4 for the manuscript's supplied local functions: `p ∤ N` and `rad(N_F) ∣ N` supply every good-prime condition, and the final weight is the original supplied function at the actual adjugate vector.",
+      "scope": "Lemma 3.4 for the manuscript's supplied local functions: `p \u2224 N` and `rad(N_F) \u2223 N` supply every good-prime condition, and the final weight is the original supplied function at the actual adjugate vector.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9128,7 +9154,7 @@
         "eq:Snewdef",
         "eq:ramified"
       ],
-      "scope": "The exact source bridge `𝒰_(k+1) = p * 𝒮_(p,p^k)` for every `k ≥ 1`. There is no symmetry, nonsingularity, weight-invariance, or parity premise.",
+      "scope": "The exact source bridge `\ud835\udcb0_(k+1) = p * \ud835\udcae_(p,p^k)` for every `k \u2265 1`. There is no symmetry, nonsingularity, weight-invariance, or parity premise.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9144,7 +9170,7 @@
         "sec:local",
         "eq:forms"
       ],
-      "scope": "The source condition `rad(N_F) ∣ N` implies that every prime not dividing `N` is a good prime for the actual integral quadratic form.",
+      "scope": "The source condition `rad(N_F) \u2223 N` implies that every prime not dividing `N` is a good prime for the actual integral quadratic form.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9198,7 +9224,7 @@
         "eq:unram",
         "eq:ramanujan"
       ],
-      "scope": "The exact formula `𝒰_j` from the proof of Lemma 3.4, with the actual weight, Legendre symbol, adjugate dual value, and Ramanujan sum.",
+      "scope": "The exact formula `\ud835\udcb0_j` from the proof of Lemma 3.4, with the actual weight, Legendre symbol, adjugate dual value, and Ramanujan sum.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9469,7 +9495,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.monoidHom_eq_globalQuadraticChar",
       "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
-      "scope": "Good-prime values determine every positive value coprime to `2*|α|` of an actual multiplicative map on the natural numbers.",
+      "scope": "Good-prime values determine every positive value coprime to `2*|\u03b1|` of an actual multiplicative map on the natural numbers.",
       "source_labels": [
         "eq:forms",
         "lem:goodglobal",
@@ -9700,7 +9726,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_shared_support",
       "file": "QuaternaryQuadraticForms/SharedSupportCompleteSum.lean",
-      "scope": "The source closed formula for every squarefree `q ∣ c` at a good positive modulus, with the actual local weights and every integral frequency.",
+      "scope": "The source closed formula for every squarefree `q \u2223 c` at a good positive modulus, with the actual local weights and every integral frequency.",
       "source_labels": [
         "lem:goodglobal",
         "eq:goodglobal",
@@ -9962,7 +9988,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.one_add_log_pow_le_rpow",
       "file": "QuaternaryQuadraticForms/LogPowerBound.lean",
-      "scope": "A fixed power of `1 + log X` is absorbed by any prescribed positive power of `X`, with one positive constant uniform for every `X ≥ 1`.",
+      "scope": "A fixed power of `1 + log X` is absorbed by any prescribed positive power of `X`, with one positive constant uniform for every `X \u2265 1`.",
       "source_labels": [
         "lem:genericmod",
         "eq:genericmod"
@@ -10578,7 +10604,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius",
       "file": "QuaternaryQuadraticForms/ConeTotientReindex.lean",
-      "scope": "The exact finite double sum for a multiplicative function times `c^2 * φ(c)`, retaining the actual gcd restriction and quotient cutoffs. The identity holds without squarefreeness or analytic hypotheses.",
+      "scope": "The exact finite double sum for a multiplicative function times `c^2 * \u03c6(c)`, retaining the actual gcd restriction and quotient cutoffs. The identity holds without squarefreeness or analytic hypotheses.",
       "source_labels": [
         "lem:conemod",
         "eq:conegood",
@@ -10609,7 +10635,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum",
       "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
-      "scope": "The literal Möbius divisor sum detects coprimality with a positive modulus.",
+      "scope": "The literal M\u00f6bius divisor sum detects coprimality with a positive modulus.",
       "source_labels": [
         "lem:conemod",
         "eq:chicoprime"
@@ -10624,7 +10650,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples",
       "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
-      "scope": "Möbius detection followed by exact finite reindexing of multiples.",
+      "scope": "M\u00f6bius detection followed by exact finite reindexing of multiples.",
       "source_labels": [
         "lem:conemod",
         "eq:chicoprime"
@@ -10639,7 +10665,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.moebius_complex_norm_le_one",
       "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
-      "scope": "The actual integer Möbius values have complex norm at most one.",
+      "scope": "The actual integer M\u00f6bius values have complex norm at most one.",
       "source_labels": [
         "lem:conemod",
         "eq:chicoprime"
@@ -10800,7 +10826,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one",
       "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean",
-      "scope": "Every nonzero nonsquare integer has an actual negative Jacobi value at a positive modulus coprime to `2 * |α|`. Square factors are removed and the witness is lifted back to a unit at the full modulus.",
+      "scope": "Every nonzero nonsquare integer has an actual negative Jacobi value at a positive modulus coprime to `2 * |\u03b1|`. Square factors are removed and the witness is lifted back to a unit at the full modulus.",
       "source_labels": [
         "lem:conemod",
         "eq:forms",
@@ -11053,7 +11079,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.totient_eq_sum_moebius",
       "file": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean",
-      "scope": "Möbius inversion of the actual totient divisor sum, in any commutative ring and including the zero argument.",
+      "scope": "M\u00f6bius inversion of the actual totient divisor sum, in any commutative ring and including the zero argument.",
       "source_labels": [
         "lem:conemod",
         "eq:conegood"
@@ -13901,7 +13927,7 @@
         "eq:box",
         "eq:weightedbox"
       ],
-      "scope": "Each coordinate interval contains at most `3 U` integers for `U ≥ 1`.",
+      "scope": "Each coordinate interval contains at most `3 U` integers for `U \u2265 1`.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
@@ -14333,6 +14359,450 @@
         "Classical.choice",
         "Quot.sound"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.bumpSamplingSum_finite_support",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolNormalization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "A real bump vanishing at and above one has finite positive-integer sampling support at every positive real scale.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.bumpSamplingSum_summable",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolNormalization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual positive-integer sampling series is summable by the proved finite support, without a Poisson or convergence premise.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.bumpSamplingSum_uniform_pos",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolNormalization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "For a fixed continuous nonnegative bump positive on (1/2,1) and zero at and above one, one positive lower bound precedes every real scale Q>=3. A rounded sample in [7/12,11/12] proves this uniformly.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.bumpNormalization_error_bound",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolNormalization.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "For every integer j>=1, a raw sampling error of order j+1 and the proved positive denominator bound give one C_j>0 with |Q/S(Q)-1|<=C_j/Q^j uniformly for all real Q>=3.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_eq_unit_sum",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual delta summand equals the literal sum over invertible residue classes, including modulus one and every integer frequency.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_eq_exponential_sum",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual unit-residue summand agrees with the source positive-sign exponential exp(2*pi*i*a*n/c), using canonical integer representatives and all integer frequencies.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_modulus_one",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual modulus-one term is the single trivial phase multiplied by the kernel value at (1/Q,n/Q^2).",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolKernel_eq_zero_of_modulus_bound",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "For any kernel with the source support, its value at (c/Q,y) vanishes whenever c>Q*max(1,2*|y|), for every positive real Q and positive integer c.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_modulus_bound",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The literal modulus term vanishes above Q*max(1,2*|n/Q^2|), from the source support condition alone.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbol_modulus_bound_eq_max",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "For Q>0 and every integer n, the scaled kernel support Q*max(1,2*|n/Q^2|) equals the source cutoff max(Q,2*|n|/Q).",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_deltaSymbolModuli",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "Membership in the explicit finite set of positive moduli is exactly the integer inequality c<=floor(Q*max(1,2*|n/Q^2|)).",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_eq_zero_of_not_mem",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "Every modulus term outside the explicit finite cutoff set is zero, for an arbitrary kernel with the source support.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_finite_support",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual positive-modulus series has finite support for every positive real Q and every integer n, proved from the kernel support condition.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_summable",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "Ordinary summability of the actual modulus series follows internally from the explicit finite cutoff.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_norm_summable",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "Absolute summability of the actual modulus series follows internally from its explicit finite cutoff.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_hasSum",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual positive-modulus series has sum equal to the literal sum over the finite set of admissible positive moduli.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual positive-modulus tsum equals its explicit finite-cutoff sum; no summation convention or convergence hypothesis is changed.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolModuli_sum_eq_sum_range",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The finite sum over positive moduli is reindexed exactly by c=k+1 for k below the natural floor cutoff.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_sum_range",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual modulus tsum agrees with the finite natural-range presentation using c=k+1 and the source support cutoff.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaSymbolTerm_tsum_eq_unit_sum",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolSupport.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The explicit finite-cutoff presentation retains the original inner sum over residue units and its actual standard additive character.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownDeltaKernel_properties",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The one fixed, explicitly defined Heath-Brown kernel is C-infinity on the positive half-plane, has a global absolute B/x bound, and vanishes off x<=max(1,2*|y|), by the registered source construction input.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownSamplingSum_uniform_pos",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual fixed Heath-Brown sampling denominator S(Q) has one strictly positive lower bound chosen before every real Q>=3, using the internally proved compact-sample argument.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownSamplingSum_pos",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual normalization denominator S(Q) is positive for every real Q>=3, deduced from the uniform lower bound.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownNormalization_pos",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The actual source coefficient c(Q)=Q/S(Q) is positive for every real Q>=3; its denominator positivity is proved internally.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownNormalization_error_bound",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "For every natural j>=1, one C_j>0 precedes every real Q>=3 in the bound |c(Q)-1|<=C_j/Q^j for the actual source coefficient.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownNormalization_error_bound_real",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "For every real j>=1, one C_j>0 precedes every real Q>=3 in |c(Q)-1|<=C_j*Q^(-j); rounding j up proves the real-order clause from the natural-order estimate.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrown_delta_identity",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "Equation (2.1) holds for the actual common Heath-Brown kernel and coefficient, every real Q>=3, and every integer n. Division in the unnormalized identity occurs only after positivity of Q and S(Q) is proved.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrown_delta_finite_identity",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "The normalized delta identity is expressed as the literal finite sum over the support cutoff and the original residue-unit phases, for every real Q>=3 and integer n.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_delta_symbol",
+      "file": "QuaternaryQuadraticForms/DeltaSymbolTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:delta",
+        "eq:delta"
+      ],
+      "scope": "Complete Lemma 2.1: one common C-infinity real kernel and normalization function give positivity for every real Q>=3, the exact integer delta identity, uniformly rapid error for every real order j>=1, a global absolute inverse-x bound, the exact kernel support, and the proved finite outer support. Only the separately registered Heath-Brown construction input is used beyond the standard foundations.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
@@ -14343,7 +14813,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Weil.lean",
       "correspondence_record": "certification/correspondence/weil_input.md",
       "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
-      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ),\n  ψ ≠ 1 →\n    ∀ (f : Polynomial (ZMod p)),\n      0 < f.natDegree →\n        Fintype.card ↑(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree →\n          ‖∑ z, ψ (Polynomial.eval z f)‖ ≤ (↑f.natDegree - 1) * √↑p",
+      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)] (\u03c8 : MulChar (ZMod p) \u2102),\n  \u03c8 \u2260 1 \u2192\n    \u2200 (f : Polynomial (ZMod p)),\n      0 < f.natDegree \u2192\n        Fintype.card \u2191(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree \u2192\n          \u2016\u2211 z, \u03c8 (Polynomial.eval z f)\u2016 \u2264 (\u2191f.natDegree - 1) * \u221a\u2191p",
       "type_sha256": "b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85"
     },
     {
@@ -14357,7 +14827,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Katz.lean",
       "correspondence_record": "certification/correspondence/katz_input.md",
       "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
-      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : ℕ),\n  0 < m →\n    0 < n →\n      F.IsHomogeneous m →\n        F ≠ 0 →\n          G.IsHomogeneous n →\n            G ≠ 0 →\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) →\n                    ∀ (ψ : MulChar (ZMod p) ℂ),\n                      ψ ≠ 1 →\n                        ψ ^ n = 1 →\n                          ∀ (c : Polynomial ℤ),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c →\n                              ∃ r eigenvalues,\n                                ↑r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c ∧\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F ψ G = ∑ i, eigenvalues i ∧\n                                    ∀ (i : Fin r), ‖eigenvalues i‖ = ↑p",
+      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : \u2115),\n  0 < m \u2192\n    0 < n \u2192\n      F.IsHomogeneous m \u2192\n        F \u2260 0 \u2192\n          G.IsHomogeneous n \u2192\n            G \u2260 0 \u2192\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) \u2192\n                    \u2200 (\u03c8 : MulChar (ZMod p) \u2102),\n                      \u03c8 \u2260 1 \u2192\n                        \u03c8 ^ n = 1 \u2192\n                          \u2200 (c : Polynomial \u2124),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c \u2192\n                              \u2203 r eigenvalues,\n                                \u2191r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c \u2227\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F \u03c8 G = \u2211 i, eigenvalues i \u2227\n                                    \u2200 (i : Fin r), \u2016eigenvalues i\u2016 = \u2191p",
       "type_sha256": "0841ce91d4525dc10d64c991df75e176c85f1b67c77823926abf82cbf4d6a722"
     },
     {
@@ -14367,7 +14837,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Elimination.lean",
       "correspondence_record": "certification/correspondence/elimination_input.md",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
-      "expected_type": "∀ (N : ℕ),\n  0 < N →\n    ∀ (ι : Type) [Fintype ι] [Nonempty ι] (d : ι → ℕ),\n      (∀ (i : ι), 0 < d i) →\n        ∃ s R,\n          ∀ (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d → K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) ↔\n              ∀ (j : Fin s), MvPolynomial.eval₂ (Int.castRingHom K) w (R j) = 0",
+      "expected_type": "\u2200 (N : \u2115),\n  0 < N \u2192\n    \u2200 (\u03b9 : Type) [Fintype \u03b9] [Nonempty \u03b9] (d : \u03b9 \u2192 \u2115),\n      (\u2200 (i : \u03b9), 0 < d i) \u2192\n        \u2203 s R,\n          \u2200 (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d \u2192 K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) \u2194\n              \u2200 (j : Fin s), MvPolynomial.eval\u2082 (Int.castRingHom K) w (R j) = 0",
       "type_sha256": "5b055036c52e02383dce3540c86432f6756ed153d264cc1e3667088f45199c10"
     },
     {
@@ -14381,8 +14851,18 @@
       "file": "QuaternaryQuadraticForms/Trusted/Bertini.lean",
       "correspondence_record": "certification/correspondence/bertini_input.md",
       "scope": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
-      "expected_type": "∀ (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : ℕ),\n  c + 2 ≤ N →\n    ∀ (P : Fin c → MvPolynomial (Fin N) K) (d : Fin c → ℕ),\n      (∀ (i : Fin c), 0 < d i) →\n        (∀ (i : Fin c), (P i).IsHomogeneous (d i)) →\n          (∀ (x : Fin N → K),\n              x ≠ 0 →\n                (∀ (i : Fin c), (MvPolynomial.eval x) (P i) = 0) →\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) →\n            ∃ u,\n              u ≠ 0 ∧\n                ∀ (x : Fin N → K),\n                  x ≠ 0 →\n                    (∀ (i : Fin c), (MvPolynomial.eval x) (P i) = 0) →\n                      u ⬝ᵥ x = 0 →\n                        ∃ v, (∀ (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x ⬝ᵥ v = 0) ∧ u ⬝ᵥ v ≠ 0",
+      "expected_type": "\u2200 (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : \u2115),\n  c + 2 \u2264 N \u2192\n    \u2200 (P : Fin c \u2192 MvPolynomial (Fin N) K) (d : Fin c \u2192 \u2115),\n      (\u2200 (i : Fin c), 0 < d i) \u2192\n        (\u2200 (i : Fin c), (P i).IsHomogeneous (d i)) \u2192\n          (\u2200 (x : Fin N \u2192 K),\n              x \u2260 0 \u2192\n                (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) \u2192\n            \u2203 u,\n              u \u2260 0 \u2227\n                \u2200 (x : Fin N \u2192 K),\n                  x \u2260 0 \u2192\n                    (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                      u \u2b1d\u1d65 x = 0 \u2192\n                        \u2203 v, (\u2200 (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x \u2b1d\u1d65 v = 0) \u2227 u \u2b1d\u1d65 v \u2260 0",
       "type_sha256": "dd54ac5f90f102a6351991ddeda32af07e27a39aef27950f7b8ac390f60b92e2"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+      "kind": "axiom",
+      "reference_id": "EXT.HB_DELTA",
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrown.lean",
+      "correspondence_record": "certification/correspondence/delta_symbol.md",
+      "scope": "For the actual fixed Heath-Brown bump, sampling sum and kernel defined from Sections 2-3, the bump is continuous, nonnegative, positive on (1/2,1), and zero outside; the kernel is C-infinity on x>0, bounded by B/x, and has the stated support; its unnormalized unit-residue sum equals Q*S(Q)*1_(n=0) for Q>1; for each integer m>=2 the raw error |S(Q)-Q| is at most A_m*Q/Q^m uniformly for Q>1. Positivity and uniform rapid approximation of Q/S(Q) on Q>=3, normalized delta identity, phase conversion and finite outer support are internal deductions.",
+      "expected_type": "Continuous QuaternaryQuadraticForms.heathBrownBump \u2227\n  (\u2200 (t : \u211d), 0 \u2264 QuaternaryQuadraticForms.heathBrownBump t) \u2227\n    (\u2200 (t : \u211d), 1 / 2 < t \u2192 t < 1 \u2192 0 < QuaternaryQuadraticForms.heathBrownBump t) \u2227\n      (\u2200 (t : \u211d), \u00ac(1 / 2 < t \u2227 t < 1) \u2192 QuaternaryQuadraticForms.heathBrownBump t = 0) \u2227\n        ContDiffOn \u211d (\u2191\u22a4) QuaternaryQuadraticForms.heathBrownDeltaKernel {z | 0 < z.1} \u2227\n          (\u2203 B, 0 < B \u2227 \u2200 (x y : \u211d), 0 < x \u2192 |QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y)| \u2264 B / x) \u2227\n            (\u2200 (x y : \u211d), 0 < x \u2192 max 1 (2 * |y|) < x \u2192 QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y) = 0) \u2227\n              (\u2200 (Q : \u211d),\n                  1 < Q \u2192\n                    \u2200 (n : \u2124),\n                      \u2211' (c : \u2115+),\n                          QuaternaryQuadraticForms.deltaSymbolTerm QuaternaryQuadraticForms.heathBrownDeltaKernel Q n\n                            c =\n                        \u2191(Q * QuaternaryQuadraticForms.heathBrownSamplingSum Q) * if n = 0 then 1 else 0) \u2227\n                \u2200 (m : \u2115),\n                  2 \u2264 m \u2192\n                    \u2203 A,\n                      0 < A \u2227 \u2200 (Q : \u211d), 1 < Q \u2192 |QuaternaryQuadraticForms.heathBrownSamplingSum Q - Q| \u2264 A * Q / Q ^ m",
+      "type_sha256": "24ef58f136425e7a4557d8d3e5a240690a9378d1223986d58a0eb08f5b8939b7"
     }
   ],
   "whole_paper_certified": false,

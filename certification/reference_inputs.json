@@ -4,13 +4,19 @@
   "inputs": {
     "EXT.HB_DELTA": {
       "reference": "HB",
-      "locator": "Theorem 1; Section 3, equation (3.3)",
-      "scope": "Delta-symbol identity, common smooth h, support and size, and c_Q=1+O_j(Q^-j); use the manuscript-safe range Q>=3.",
-      "status": "Trusted literature input; precise Lean interface pending",
+      "locator": "Theorem 1, author PDF p.3; Section 2 equations (2.1),(2.4), pp.14-15; Section 3 equations (3.1)-(3.3) and the unnormalized divisor/orthogonality calculation, pp.17-19",
+      "scope": "For the actual fixed Heath-Brown bump, sampling sum and kernel defined from Sections 2-3, the bump is continuous, nonnegative, positive on (1/2,1), and zero outside; the kernel is C-infinity on x>0, bounded by B/x, and has the stated support; its unnormalized unit-residue sum equals Q*S(Q)*1_(n=0) for Q>1; for each integer m>=2 the raw error |S(Q)-Q| is at most A_m*Q/Q^m uniformly for Q>1. Positivity and uniform rapid approximation of Q/S(Q) on Q>=3, normalized delta identity, phase conversion and finite outer support are internal deductions.",
+      "status": "Trusted literature input; fixed-construction interface registered",
       "id": "EXT.HB_DELTA",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "The cited Heath-Brown analytic construction and raw Poisson estimate are accepted. The manuscript Q>=3 normalization, uniform constants, positive denominators and actual finite-sum interpretation are proved internally. The erroneous positive-normalizer endpoint Q=2 is not assumed.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data"
+      ],
+      "interface_status": "Registered construction-level interface; actual type inspection and manuscript deductions are recorded separately.",
+      "source_url": "https://ora.ox.ac.uk/objects/uuid%3Abbd3c62f-f010-44b5-8be5-87e903fb0084/files/m7ec02df6e1b8303a66e7a6015ecb6044",
+      "published_doi": "10.1515/crll.1996.481.149",
+      "correspondence_record": "certification/correspondence/delta_symbol.md",
+      "lean_statement": "Continuous QuaternaryQuadraticForms.heathBrownBump ∧\n  (∀ t : ℝ, 0 ≤ QuaternaryQuadraticForms.heathBrownBump t) ∧\n  (∀ t : ℝ, 1 / 2 < t → t < 1 → 0 < QuaternaryQuadraticForms.heathBrownBump t) ∧\n  (∀ t : ℝ, ¬(1 / 2 < t ∧ t < 1) → QuaternaryQuadraticForms.heathBrownBump t = 0) ∧\n  ContDiffOn ℝ ∞ QuaternaryQuadraticForms.heathBrownDeltaKernel {z : ℝ × ℝ | 0 < z.1} ∧\n  (∃ B : ℝ, 0 < B ∧ ∀ x y : ℝ, 0 < x →\n    |QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y)| ≤ B / x) ∧\n  (∀ x y : ℝ, 0 < x → max 1 (2 * |y|) < x →\n    QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y) = 0) ∧\n  (∀ Q : ℝ, 1 < Q → ∀ n : ℤ,\n    (∑' c : ℕ+, QuaternaryQuadraticForms.deltaSymbolTerm\n      QuaternaryQuadraticForms.heathBrownDeltaKernel Q n c) =\n      ((Q * QuaternaryQuadraticForms.heathBrownSamplingSum Q : ℝ) : ℂ) *\n        (if n = 0 then 1 else 0 : ℂ)) ∧\n  (∀ m : ℕ, 2 ≤ m → ∃ A : ℝ, 0 < A ∧ ∀ Q : ℝ, 1 < Q →\n    |QuaternaryQuadraticForms.heathBrownSamplingSum Q - Q| ≤ A * Q / Q ^ m)"
     },
     "EXT.HB_WEIGHT_LOCALIZATION": {
       "reference": "HB",

@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-823.16 1060.16,-823.16 1060.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="520" y="-780.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="520" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 22 certified; 20 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="520" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 23 certified; 19 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -119,21 +119,21 @@
 <!-- sources -->
 <g id="node1" class="node">
 <title>sources</title>
-<path fill="#eeeafd" stroke="#7762b4" stroke-width="1.15" d="M633.5,-745C633.5,-745 224.5,-745 224.5,-745 218.5,-745 212.5,-739 212.5,-733 212.5,-733 212.5,-670 212.5,-670 212.5,-664 218.5,-658 224.5,-658 224.5,-658 633.5,-658 633.5,-658 639.5,-658 645.5,-664 645.5,-670 645.5,-670 645.5,-733 645.5,-733 645.5,-739 639.5,-745 633.5,-745"/>
+<path fill="#eeeafd" stroke="#7762b4" stroke-width="1.15" d="M692.5,-745C692.5,-745 165.5,-745 165.5,-745 159.5,-745 153.5,-739 153.5,-733 153.5,-733 153.5,-670 153.5,-670 153.5,-664 159.5,-658 165.5,-658 165.5,-658 692.5,-658 692.5,-658 698.5,-658 704.5,-664 704.5,-670 704.5,-670 704.5,-733 704.5,-733 704.5,-739 698.5,-745 692.5,-745"/>
 <text text-anchor="middle" x="429" y="-727.8" font-family="DejaVu Serif" font-size="14.00">Trusted reference inputs</text>
 <text text-anchor="middle" x="429" y="-712.8" font-family="DejaVu Serif" font-size="14.00">Heath&#45;Brown; Weil, Katz and Fulton;</text>
 <text text-anchor="middle" x="429" y="-697.8" font-family="DejaVu Serif" font-size="14.00">Montgomery&#45;Vaughan; Lang; Hartshorne; Salberger</text>
 <text text-anchor="middle" x="429" y="-682.8" font-family="DejaVu Serif" font-size="14.00">Registered Lean premises:</text>
-<text text-anchor="middle" x="429" y="-667.8" font-family="DejaVu Serif" font-size="14.00">Weil; composite Katz; Lang elimination; composite Bertini</text>
+<text text-anchor="middle" x="429" y="-667.8" font-family="DejaVu Serif" font-size="14.00">Weil; composite Katz; Lang elimination; composite Bertini; EXT.HB_DELTA</text>
 </g>
 <!-- prelim -->
 <g id="node2" class="node">
 <title>prelim</title>
-<g id="a_node2"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Preliminary tools&lt;/B&gt;&lt;BR/&gt;Lemmas 2.1&#45;2.4&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;1 certified; 3 pending&lt;/FONT&gt;" target="_blank">
+<g id="a_node2"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Preliminary tools&lt;/B&gt;&lt;BR/&gt;Lemmas 2.1&#45;2.4&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;2 certified; 2 pending&lt;/FONT&gt;" target="_blank">
 <path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M306,-616C306,-616 176,-616 176,-616 170,-616 164,-610 164,-604 164,-604 164,-576 164,-576 164,-570 170,-564 176,-564 176,-564 306,-564 306,-564 312,-564 318,-570 318,-576 318,-576 318,-604 318,-604 318,-610 312,-616 306,-616"/>
 <text text-anchor="start" x="173" y="-599.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Preliminary tools</text>
 <text text-anchor="start" x="183.5" y="-585.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 2.1&#45;2.4</text>
-<text text-anchor="start" x="176.5" y="-573.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">1 certified; 3 pending</text>
+<text text-anchor="start" x="176.5" y="-573.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">2 certified; 2 pending</text>
 </a>
 </g>
 </g>

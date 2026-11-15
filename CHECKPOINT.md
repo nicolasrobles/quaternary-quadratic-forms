@@ -1,11 +1,60 @@
-# Exceptional Fourier average checkpoint
+# Delta-symbol checkpoint
 
 ## Numbered-result status
 
-Complete: **22**. Partial: **0**. Active numbered targets: **0**.
-Pending: **20**. Supplementary groups: **2 Certified, 31 Pending**.
+Complete: **23**. Partial: **0**. Active numbered targets: **0**.
+Pending: **19**. Supplementary groups: **2 Certified, 31 Pending**.
 
-### Complete Lemma 3.11 and the exact factorization
+### Complete Lemma 2.1 and uniform normalization
+
+**Lemma 2.1 is Certified relative to the registered Heath–Brown input.**
+The one fixed, explicitly defined source kernel is smooth on the positive
+half-plane and has the source size and support bounds. The actual coefficient
+`c(Q)=Q/S(Q)` is positive for every real `Q>=3`, and the exact delta identity
+holds for every integer frequency, including zero and negative frequencies.
+For every real `j>=1`, one positive constant is chosen before all `Q>=3`
+in `|c(Q)-1| <= C_j Q^(-j)`. The outer sum is proved finite, with cutoff
+`c<=floor(max(Q,2*|n|/Q))`, and retains the original residue-unit phases.
+The complete endpoint is
+[source_delta_symbol](QuaternaryQuadraticForms/DeltaSymbolTheorem.lean).
+The single new literature premise records the exact source construction;
+uniform positive normalization, the rapid normalized error, division in
+the identity, phase agreement, and finite support are internal deductions.
+See the [complete source review](certification/correspondence/delta_symbol.md).
+
+### Current Lemma 2.1 verification
+
+<!-- BEGIN LEMMA_2_1_VERIFICATION -->
+
+This milestone adds **29 public theorem exports in five modules**, bringing
+the scope to **918 theorem exports, 220 project Lean modules, and 256
+inspected inputs**. The one new, separately registered Heath–Brown
+construction premise brings the total to five; the four earlier premises
+and 20 mapped source groups are preserved.
+
+All 29 new declarations passed strict actual-kind, full-type, and axiom
+inspection. Twenty generic normalization/support exports use exactly the
+three standard logical foundations. Nine source-specific exports use those
+foundations and only `Trusted.heathBrown_delta_data`. The axiom's actual
+type is separately inspected and hashed in `certification/status.json`.
+Independent source review covers the common fixed kernel, smoothness,
+real scales and decay orders, denominator positivity and uniformity,
+all integer frequencies, modulus one, literal phases, and finite support.
+
+The metadata verifier passed for all 256 inspected inputs. A fresh full
+local aggregate verification is running on the frozen proof inputs.
+Independent GitHub verification of the exact published proof commit is
+still to be observed. Earlier aggregate reports retain their historical
+scope and are not presented as execution evidence for these new inputs.
+
+The ledger has **23 Complete, 0 Partial, 0 Active, 19 Pending** numbered
+results. Supplementary groups remain **2 Certified and 31 Pending**.
+Whole-paper certification remains false. The next numbered target is
+Lemma 2.2, followed by Lemma 2.3.
+
+<!-- END LEMMA_2_1_VERIFICATION -->
+
+### Earlier complete Lemma 3.11 and the exact factorization
 
 **Lemma 3.11 is Certified in full.** For the literal positive squarefree
 factorization q=q1*q2 with (q,N)=1, the actual source Fourier sums satisfy
@@ -20,7 +69,7 @@ S_c also complete the separate aux:Cfactor obligation. No literature
 premise is added or used. See the
 [complete source review](certification/correspondence/average_frequency.md).
 
-### Current Lemma 3.11 verification
+### Earlier Lemma 3.11 verification
 
 <!-- BEGIN LEMMA_3_11_VERIFICATION -->
 
@@ -40,7 +89,7 @@ kind, complete type, and axiom inspection of all registered exports.
 
 - Checked proof commit: [0bcf01359690](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/0bcf0135969035a759d7ea9a56e79fb362179101).
 - Proof tree: `8136404ff6777f6555f29f1f2c905c9b31e63492`.
-- [Preserved local report](certification/verification_report.json), 1,320,495 bytes.
+- [Preserved local report](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/84b92dce0609ec93cea109b44739f01fcca8a86d/certification/verification_report.json), 1,320,495 bytes.
 - Local report SHA-256: `12857f5c9f2ad46dbc7b0b66923343ae3620a81895d1c311105b1bcbffb2f292`.
 - Local build: `Build completed successfully (3439 jobs).`.
 
@@ -3276,12 +3325,36 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The next targets are the supplementary coefficient identity **aux:Sxi**
-and its uniform bound **aux:Sxibound**. They must retain the original
-local functions, actual zero-frequency Fourier sums, local densities,
-and singular-series constant while using the completed Lemmas 3.8–3.9.
-These two obligations remain Pending and are not implied solely by the
-certification of Lemma 3.9.
+The next numbered target is **Lemma 2.2**, followed by **Lemma 2.3**,
+continuing sequentially through the preliminary lemmas. Lemma 2.2 must use
+the same fixed Heath–Brown kernel now defined for Lemma 2.1. Its cited
+integral estimates still require exact registered interfaces and the
+manuscript's specialization, including family-uniform localization,
+the actual singular-integral normalization, and differentiation with
+frequency held fixed. No integral estimate is supplied by the delta
+construction premise alone.
+
+Lemma 2.3 can be paired with the separate auxiliary cone-counting
+obligation. The rational four-dimensional splitting, anisotropic binary
+complement, denominator-cleared lattice injection, and signed-divisor
+fibre count still require proofs. Its weighted consequence must use the
+actual adjugate form and transfer `T^(2+epsilon)` to `U^(1+epsilon)`.
+
+The supplementary coefficient identity **aux:Sxi** and its uniform bound
+**aux:Sxibound** remain Pending for later assembly. They retain the
+original local functions, actual zero-frequency Fourier sums, local
+densities, and singular-series constant from the completed Lemmas 3.8–3.9.
+Their status is not implied by those completed numbered lemmas.
+
+Lemma 2.1, Lemmas 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas
+are complete. The polynomial-box epsilon consequence and aux:Cfactor
+are the two Certified supplementary groups; the other 31 remain Pending.
+The remaining localization, integral, and Poisson obligations must be
+completed before assembling Proposition 5.1 and the main theorems.
+The four-dimensional Poisson step needs its own exact interface or a
+proved iteration with convergence control.
+
+### Later coefficient continuation notes
 
 The next coefficient must use the actual increasing-modulus value
 `singularSeriesValue q A 0`, multiplied by the original `C_q(0)/q^3`.
@@ -3303,28 +3376,3 @@ prime densities are inverted, and no division by S_F or C_p(0) is needed.
 The completed singular-series theorem and the q=1 identity allow the
 constant to depend on F rather than on supplied character presentation.
 No new literature premise appears necessary for these two obligations.
-
-Lemma 2.4, Lemmas 3.1–3.11, and all Section 4 lemmas are complete.
-The polynomial-box epsilon consequence and aux:Cfactor are the two
-Certified supplementary groups; the other 31 remain Pending. Subsequent
-analytic work requires the remaining preliminary Lemmas 2.1–2.3 and the
-explicit localization and integral obligations before the Poisson and
-three-frequency contributions can assemble Proposition 5.1. The global
-analytic proposition and main theorems are not yet certified.
-
-The next preliminary counting milestone can pair Lemma 2.3 with
-aux:conecount. The available hyperbolic-partner and divisor estimates
-support the source proof, but the rational four-dimensional splitting,
-anisotropic binary complement, denominator-cleared injective lattice
-map, and signed-divisor fibre count still need proofs. The separate
-weighted dual-cone consequence must use the actual adjugate form and
-the exponent transfer T^(2+epsilon) to U^(1+epsilon).
-
-For Lemmas 2.1-2.2, the accepted HB catalogue entries still need exact
-Lean declarations and manuscript-specific specialization. Keep the one
-common delta kernel, the Q>=3 normalization, family-uniform localization
-parameters, the actual singular-integral normalization, and derivatives
-with frequency held fixed. The four-dimensional Poisson step requires
-its own exact interface or a proved iteration with convergence control;
-the inspected one-dimensional Schwartz identity alone does not close it.
-These are continuation notes, not additional checked claims or premises.
