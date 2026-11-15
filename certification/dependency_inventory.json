@@ -386,7 +386,8 @@
       ],
       "external_inputs": [
         "EXT.HB_WEIGHT_LOCALIZATION",
-        "EXT.HB_INTEGRAL_ESTIMATES"
+        "EXT.HB_INTEGRAL_ESTIMATES",
+        "EXT.SIMON_GRAPH_AREA"
       ],
       "foundation_requirements": [
         "foundation:multivariable_calculus",
@@ -400,15 +401,34 @@
       "formalization_notes": [
         "Preserve uniform derivative bounds across the entire family of weights, not merely individual constants.",
         "Small-support membership requires finite signed coordinate permutations, gradient lower bound on the annulus, and invariance of norms/Jacobian under those maps.",
-        "The r derivative is taken with v fixed."
+        "The r derivative is taken with v fixed.",
+        "The actual Euclidean surface normalization is proved from a separately attributed general graph area formula; it is not imported from HB."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [
         "eq:Istar",
         "eq:singint"
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_delta_integrals",
+        "QuaternaryQuadraticForms.source_delta_integrals_real",
+        "QuaternaryQuadraticForms.localizedWeight_alternative",
+        "QuaternaryQuadraticForms.localizedIsometryWeightFamily_uniform_control",
+        "QuaternaryQuadraticForms.deltaIntegral_uniform_cutoff",
+        "QuaternaryQuadraticForms.hasDerivAt_deltaIntegral_zero",
+        "QuaternaryQuadraticForms.gradient_realQuadraticValue_annulus_lower_bound",
+        "QuaternaryQuadraticForms.realQuadraticValue_hessian_uniform_lower_bound",
+        "QuaternaryQuadraticForms.quadraticPositiveRoot_characterization",
+        "QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_norm",
+        "QuaternaryQuadraticForms.quadraticC0_thinSlabSingularIntegral_eq_singularIntegral",
+        "QuaternaryQuadraticForms.quadraticFamily_singularIntegral_integrable_of_isometry_cover",
+        "QuaternaryQuadraticForms.deltaIntegral_comp_realIsometry",
+        "QuaternaryQuadraticForms.singularIntegral_comp_realIsometry",
+        "QuaternaryQuadraticForms.heathBrown_local_deltaIntegralBounds",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.of_isometry_cover",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.extend_of_cutoff"
+      ],
       "page": 7,
       "explicit_source_references": [
         "lem:delta",
@@ -2705,8 +2725,42 @@
       "notes": [
         "This is a proved/verify-library auxiliary identity, not a numbered result and not a new trusted axiom."
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.heathBrownBaseBump_eq_expNegInvGlue",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_contDiff",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_nonneg",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_ne_zero_iff",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_hasCompactSupport",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_integrable",
+        "QuaternaryQuadraticForms.heathBrownBumpMass_pos",
+        "QuaternaryQuadraticForms.heathBrownTheta_nonneg",
+        "QuaternaryQuadraticForms.heathBrownTheta_contDiff",
+        "QuaternaryQuadraticForms.heathBrownTheta_coordinates_lt_one",
+        "QuaternaryQuadraticForms.heathBrownTheta_tsupport_subset_cube",
+        "QuaternaryQuadraticForms.heathBrownTheta_norm_le_two_of_mem_tsupport",
+        "QuaternaryQuadraticForms.heathBrownTheta_hasCompactSupport",
+        "QuaternaryQuadraticForms.heathBrownTheta_integrable",
+        "QuaternaryQuadraticForms.heathBrownTheta_integral",
+        "QuaternaryQuadraticForms.UniformCoordinateDerivatives.uniformWeightDerivatives",
+        "QuaternaryQuadraticForms.UniformWeightDerivatives.uniformCoordinateDerivatives",
+        "QuaternaryQuadraticForms.uniformCoordinateDerivatives_iff_uniformWeightDerivatives",
+        "QuaternaryQuadraticForms.heathBrownTheta_uniform_translate_derivatives",
+        "QuaternaryQuadraticForms.UniformWeightDerivatives.localizedWeight",
+        "QuaternaryQuadraticForms.UniformCoordinateDerivatives.localizedWeight",
+        "QuaternaryQuadraticForms.UniformWeightDerivatives.comp_realIsometry",
+        "QuaternaryQuadraticForms.UniformCoordinateDerivatives.comp_realIsometry",
+        "QuaternaryQuadraticForms.localizedWeight_contDiff",
+        "QuaternaryQuadraticForms.localizedWeight_tsupport_subset",
+        "QuaternaryQuadraticForms.localizedWeight_tsupport_subset_closedBall",
+        "QuaternaryQuadraticForms.localizedWeight_hasCompactSupport",
+        "QuaternaryQuadraticForms.localizedWeight_isSmoothWeight",
+        "QuaternaryQuadraticForms.localizedWeight_nonzero_imp_near_support",
+        "QuaternaryQuadraticForms.heathBrownTheta_integral_scaled_translate",
+        "QuaternaryQuadraticForms.localizedWeight_integrable_in_center",
+        "QuaternaryQuadraticForms.localizedWeight_integral_center",
+        "QuaternaryQuadraticForms.localizedWeight_reconstruction"
+      ],
       "source_ranges": [
         [
           647,
@@ -2914,8 +2968,16 @@
       "auxiliary_dependencies": [
         "aux:Cfactor"
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.singularSeriesRemovalFactor_eq_primeFactors",
+        "QuaternaryQuadraticForms.singularSeriesRemovalFactor_one",
+        "QuaternaryQuadraticForms.singularSeriesConstant_eq_orderedValue",
+        "QuaternaryQuadraticForms.singularSeriesConstant_eq_of_goodPrimeAgreement",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_one",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_one_eq_singularSeriesConstant",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_eq_prime_product"
+      ],
       "source_ranges": [
         [
           1515,
@@ -2950,8 +3012,16 @@
       "notes": [
         "Uses sigma_p^-1 <= 2 at good primes. The Fourier estimate is the abstract hypothesis (3.3); it is verified geometrically only at the later specialization."
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_pos",
+        "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_norm_le_two",
+        "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_le_two",
+        "QuaternaryQuadraticForms.sourceConstrainedFourierSum_zero_norm_le_two_mul_sq",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_local_norm_le",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_norm_le",
+        "QuaternaryQuadraticForms.source_main_coefficient_bound"
+      ],
       "source_ranges": [
         [
           1522,
@@ -3570,23 +3640,45 @@
     },
     "EXT.HB_WEIGHT_LOCALIZATION": {
       "reference": "HB",
-      "locator": "Sections 2 and 6; Lemmas 2 and 12",
-      "scope": "Uniform small-support localization of a bounded smooth family with gradient bounded below; coordinate permutations/sign changes and membership in the admissible local weight class.",
-      "status": "Trusted literature input; precise Lean interface pending",
+      "locator": "Section 2 Lemma 2, author PDF p.16; Section 6 class C0 and Lemma 12 with its explicit common-scale construction, author PDF pp.28,30-31",
+      "scope": "For a fixed real coefficient quadratic form and fixed common support, coordinate-partial and positive gradient bounds, choose one positive delta<=1, interval radius and positive first-derivative bound before the weight and center. Every actual localized piece is away from the zero set or satisfies the literal C0 interval geometry after a finite signed coordinate permutation. No global root, singular integral, oscillatory estimate, annular nondegeneracy proof or weight reconstruction is imported.",
+      "status": "Trusted literature input; exact quantitative interface registered",
       "id": "EXT.HB_WEIGHT_LOCALIZATION",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "The precisely located general source statement is accepted; all manuscript-specific hypotheses and deductions remain internal.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization"
+      ],
+      "interface_status": "Exact proposition elaborated and recorded before premise introduction; aggregate verification pending.",
+      "source_url": "https://ora.ox.ac.uk/objects/uuid%3Abbd3c62f-f010-44b5-8be5-87e903fb0084/files/m7ec02df6e1b8303a66e7a6015ecb6044",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "lean_statement": "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization :\n∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ) (L : ℝ),\n    0 < B → (∀ k, 0 < D k) → 0 < L →\n      ∃ δ a lam : ℝ, 0 < δ ∧ δ ≤ 1 ∧ 0 < a ∧ 0 < lam ∧\n        ∀ W : RealVector4 → ℂ, HBWeightControl B D W →\n          (∀ x ∈ tsupport W, L ≤ ‖gradient (realQuadraticValue A) x‖) →\n          ∀ y : RealVector4,\n            (∀ x ∈ tsupport (localizedWeight W δ y), realQuadraticValue A x ≠ 0) ∨\n            ∃ s : SignedCoordinateChange,\n              HBC0Geometry\n                (fun x => realQuadraticValue A (signedCoordinateIsometry s x)) a lam\n                (fun x => localizedWeight W δ y (signedCoordinateIsometry s x))",
+      "declaration_locators": {
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization": "Section 2 Lemma 2, author PDF p.16; Section 6 class C0 and Lemma 12 with its explicit common-scale construction, author PDF pp.28,30-31"
+      }
     },
     "EXT.HB_INTEGRAL_ESTIMATES": {
       "reference": "HB",
-      "locator": "Theorem 3; Lemmas 13, 14, 15, 18 and 22",
-      "scope": "Singular integral normalization, zero-frequency approximation, derivative reduction and decay estimates for the local oscillatory integrals.",
-      "status": "Trusted literature input; precise Lean interfaces pending",
+      "locator": "Theorem 3, author PDF pp.6-7; Section 6 Lemma 11 and proof, author PDF pp.28-29; Section 7 Lemma 13 and proof, author PDF pp.32-33; Section 7 Lemma 14 and proof, author PDF pp.33-34; Section 7 Lemmas 15 and 18, author PDF pp.34-36; Section 8 Lemma 22, author PDF pp.39-40",
+      "scope": "For the fixed quadratic form and a quantitatively controlled C0 weight, every consistent selector of the prescribed interval roots gives an integrable graph-coordinate density and the actual thin-slab limit converges to its integral. The source functional is not identified with Euclidean surface measure by this premise. For the fixed quadratic form and common C0 control, each positive natural order has one error constant before the weight and scale. On every fixed bounded range 0<r<=R the actual zero-frequency delta integral differs from its actual thin-slab limit by at most C*r^j. No unbounded-scale extension or surface-integral identification is imported. For the fixed quadratic form and common C0 control on a fixed bounded positive scale range, choose modified derivative controls, amplitude controls and a positive constant before the weight, r and v. The actual integral is differentiable with the original v fixed. Separate modified weight/amplitude witnesses, supported in the original weight, bound the actual value by C/r times the actual auxiliary integral and the actual derivative by C/r^2 times such an integral. The homogeneity used by the source is satisfied by the quadratic expression; no rescaled final estimate is assumed. For a fixed real coefficient quadratic form and fixed common C0/H controls and bounded positive scale range, the actual auxiliary integral satisfies the three separate estimates of HB Lemmas 15,18,22 uniformly in weight, amplitude, scale and frequency. The final estimate includes an explicit positive uniform lower bound on the actual derivative-defined Hessian determinant. The dimension-four power is -1. No Hessian identification, nondegeneracy proof, final frequency rescaling or combination with the actual delta derivative is imported.",
+      "status": "Trusted literature input; exact quantitative interface registered",
       "id": "EXT.HB_INTEGRAL_ESTIMATES",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "The precisely located general source statement is accepted; all manuscript-specific hypotheses and deductions remain internal.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds"
+      ],
+      "interface_status": "Exact proposition elaborated and recorded before premise introduction; aggregate verification pending.",
+      "source_url": "https://ora.ox.ac.uk/objects/uuid%3Abbd3c62f-f010-44b5-8be5-87e903fb0084/files/m7ec02df6e1b8303a66e7a6015ecb6044",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "lean_statement": "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph :\n∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n    (a lam : ℝ), 0 < B → (∀ k, 0 < D k) → 0 < a → 0 < lam →\n      ∀ w : RealVector4 → ℂ,\n        HBC0Control (realQuadraticValue A) B D a lam w →\n        ∀ φ : RealVector3 → ℝ,\n          HBGraphSelector (realQuadraticValue A) w a φ →\n          IntegrableOn\n            (fun y => w (surfaceGraph φ y) /\n              (gradient (realQuadraticValue A) (surfaceGraph φ y) 0 : ℂ))\n            (weightTailSupport w) ∧\n          Filter.Tendsto (thinSlabIntegral (realQuadraticValue A) w)\n            (𝓝[>] (0 : ℝ)) (𝓝 (hbGraphIntegral (realQuadraticValue A) w φ))\n\nQuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation :\n∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n    (a lam R : ℝ), 0 < B → (∀ k, 0 < D k) → 0 < a → 0 < lam → 0 < R →\n      ∀ j : ℕ, 1 ≤ j → ∃ C : ℝ, 0 < C ∧\n        ∀ w : RealVector4 → ℂ,\n          HBC0Control (realQuadraticValue A) B D a lam w →\n          ∀ r : ℝ, 0 < r → r ≤ R →\n            ‖deltaIntegral (realQuadraticValue A) w r 0 -\n              thinSlabSingularIntegral (realQuadraticValue A) w‖ ≤ C * r ^ j\n\nQuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction :\n∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n    (a lam R : ℝ), 0 < B → (∀ k, 0 < D k) → 0 < a → 0 < lam → 0 < R →\n      ∃ (D' : ℕ → ℝ) (K : ℕ → ℕ → ℝ) (C : ℝ),\n        (∀ k, 0 < D' k) ∧ (∀ j N, 0 < K j N) ∧ 0 < C ∧\n        ∀ w : RealVector4 → ℂ,\n          HBC0Control (realQuadraticValue A) B D a lam w →\n          ∀ r : ℝ, 0 < r → r ≤ R → ∀ v : RealVector4,\n            DifferentiableAt ℝ (fun t => deltaIntegral (realQuadraticValue A) w t v) r ∧\n            (∃ (w₁ : RealVector4 → ℂ) (f₁ : ℝ × ℝ → ℂ),\n              HBC0Control (realQuadraticValue A) B D' a lam w₁ ∧\n              tsupport w₁ ⊆ tsupport w ∧ HBAmplitudeControl K f₁ ∧\n              ‖deltaIntegral (realQuadraticValue A) w r v‖ ≤\n                C * r⁻¹ *\n                  ‖hbOscillatoryIntegral (realQuadraticValue A) w₁ f₁ r (r⁻¹ • v)‖) ∧\n            (∃ (w₂ : RealVector4 → ℂ) (f₂ : ℝ × ℝ → ℂ),\n              HBC0Control (realQuadraticValue A) B D' a lam w₂ ∧\n              tsupport w₂ ⊆ tsupport w ∧ HBAmplitudeControl K f₂ ∧\n              ‖deriv (fun t => deltaIntegral (realQuadraticValue A) w t v) r‖ ≤\n                C * r⁻¹ ^ 2 *\n                  ‖hbOscillatoryIntegral (realQuadraticValue A) w₂ f₂ r (r⁻¹ • v)‖)\n\nQuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds :\n∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n    (a lam R : ℝ) (K : ℕ → ℕ → ℝ),\n    0 < B → (∀ k, 0 < D k) → 0 < a → 0 < lam → 0 < R →\n    (∀ j N, 0 < K j N) →\n      (∃ C : ℝ, 0 < C ∧ ∀ (w : RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n        HBC0Control (realQuadraticValue A) B D a lam w → HBAmplitudeControl K f →\n        ∀ r : ℝ, 0 < r → r ≤ R → ∀ u : RealVector4,\n          ‖hbOscillatoryIntegral (realQuadraticValue A) w f r u‖ ≤ C * r) ∧\n      (∀ j : ℕ, 1 ≤ j → ∃ C : ℝ, 0 < C ∧\n        ∀ (w : RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n          HBC0Control (realQuadraticValue A) B D a lam w → HBAmplitudeControl K f →\n          ∀ r : ℝ, 0 < r → r ≤ R → ∀ u : RealVector4, u ≠ 0 →\n            ‖hbOscillatoryIntegral (realQuadraticValue A) w f r u‖ ≤\n              C * (r⁻¹ ^ j * ‖u‖⁻¹ ^ j)) ∧\n      ∀ η ε : ℝ, 0 < η → 0 < ε → ε < 1 / 2 → ∃ C : ℝ, 0 < C ∧\n        ∀ (w : RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n          HBC0Control (realQuadraticValue A) B D a lam w → HBAmplitudeControl K f →\n          (∀ x ∈ tsupport w, η ≤ |(realHessian (realQuadraticValue A) x).det|) →\n          ∀ r : ℝ, 0 < r → r ≤ R → ∀ u : RealVector4, u ≠ 0 →\n            ‖hbOscillatoryIntegral (realQuadraticValue A) w f r u‖ ≤\n              C * ((r⁻¹ * ‖u‖) ^ ε * r * ‖u‖⁻¹)",
+      "declaration_locators": {
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph": "Theorem 3, author PDF pp.6-7; Section 6 Lemma 11 and proof, author PDF pp.28-29",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation": "Section 7 Lemma 13 and proof, author PDF pp.32-33",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction": "Section 7 Lemma 14 and proof, author PDF pp.33-34",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds": "Section 7 Lemmas 15 and 18, author PDF pp.34-36; Section 8 Lemma 22, author PDF pp.39-40"
+      }
     },
     "EXT.WEIL": {
       "reference": "K",
@@ -3851,6 +3943,24 @@
       ],
       "correspondence_record": "certification/correspondence/bertini_input.md",
       "lean_statement": "The general projective-Jacobian, dimension, component and tangent-space interpretation in Trusted.bertini_homogeneous_tangent, as derived in the shared source-correspondence review."
+    },
+    "EXT.SIMON_GRAPH_AREA": {
+      "id": "EXT.SIMON_GRAPH_AREA",
+      "reference": "Leon Simon, Introduction to Geometric Measure Theory, author text, 2017/2018",
+      "locator": "Chapter 1 Section 2 equations (2.1)-(2.2), printed p.11; Chapter 2 Section 3 Theorem 3.3, Remark 3.4(2), Example 3.5(2),(3), printed pp.57-61",
+      "scope": "General measure identity for a C1 scalar graph on an open subset of Euclidean three-space, embedded in Euclidean four-space. Normalized Hausdorff measure restricted to the graph equals pushforward of Lebesgue measure weighted by sqrt(1+norm(gradient phi)^2). The function is globally measurable, and C1 only on the open domain. No quadratic form, weight, delta kernel, thin-slab limit, or manuscript singular integral is mentioned.",
+      "status": "Trusted literature input; exact quantitative interface registered",
+      "trust": "The precisely located general source statement is accepted; all manuscript-specific hypotheses and deductions remain internal.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area"
+      ],
+      "interface_status": "Exact proposition elaborated and recorded before premise introduction; aggregate verification pending.",
+      "source_url": "https://math.stanford.edu/~lms/ntu-gmt-text.pdf",
+      "correspondence_record": "certification/correspondence/surface_area_formula.md",
+      "lean_statement": "QuaternaryQuadraticForms.Trusted.simon_graph_area :\n∀ (U : Set RealVector3) (φ : RealVector3 → ℝ),\n    IsOpen U → Measurable φ → ContDiffOn ℝ 1 φ U →\n      euclideanSurfaceMeasure.restrict (surfaceGraph φ '' U) =\n        Measure.map (surfaceGraph φ)\n          ((volume.restrict U).withDensity\n            (fun y => ENNReal.ofReal (graphAreaFactor φ y)))",
+      "declaration_locators": {
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area": "Chapter 1 Section 2 equations (2.1)-(2.2), printed p.11; Chapter 2 Section 3 Theorem 3.3, Remark 3.4(2), Example 3.5(2),(3), printed pp.57-61"
+      }
     }
   },
   "excluded_comparison_claims": [

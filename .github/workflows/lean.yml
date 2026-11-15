@@ -61,9 +61,19 @@ jobs:
             Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Calculus.ContDiff.Basic \
+            Mathlib.Analysis.Calculus.ContDiff.Bounds \
+            Mathlib.Analysis.Calculus.ContDiff.WithLp \
+            Mathlib.Analysis.Calculus.Deriv.Basic \
+            Mathlib.Analysis.Calculus.FDeriv.Add \
+            Mathlib.Analysis.Calculus.FDeriv.Measurable \
+            Mathlib.Analysis.Calculus.Gradient.Basic \
+            Mathlib.Analysis.Calculus.IteratedDeriv.Defs \
             Mathlib.Analysis.Complex.Basic \
+            Mathlib.Analysis.InnerProductSpace.Calculus \
             Mathlib.Analysis.InnerProductSpace.PiL2 \
+            Mathlib.Analysis.Normed.Group.Bounded \
             Mathlib.Analysis.Normed.Group.FunctionSeries \
+            Mathlib.Analysis.Normed.Module.FiniteDimension \
             Mathlib.Analysis.PSeries \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
             Mathlib.Analysis.SpecialFunctions.Log.Base \
@@ -71,6 +81,8 @@ jobs:
             Mathlib.Analysis.SpecialFunctions.Pow.Continuity \
             Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
             Mathlib.Analysis.SpecialFunctions.Pow.Real \
+            Mathlib.Analysis.SpecialFunctions.SmoothTransition \
+            Mathlib.Analysis.SpecialFunctions.Sqrt \
             Mathlib.Analysis.SpecificLimits.Basic \
             Mathlib.Analysis.SpecificLimits.Normed \
             Mathlib.Data.Fin.Tuple.Finset \
@@ -79,6 +91,7 @@ jobs:
             Mathlib.Data.Finset.Prod \
             Mathlib.Data.Finsupp.Weight \
             Mathlib.Data.Fintype.BigOperators \
+            Mathlib.Data.Fintype.Perm \
             Mathlib.Data.Int.Interval \
             Mathlib.Data.Int.ModEq \
             Mathlib.Data.Matrix.Mul \
@@ -114,14 +127,27 @@ jobs:
             Mathlib.LinearAlgebra.LinearIndependent.Lemmas \
             Mathlib.LinearAlgebra.Matrix.Adjugate \
             Mathlib.LinearAlgebra.Matrix.BilinearForm \
+            Mathlib.LinearAlgebra.Matrix.Determinant.Basic \
             Mathlib.LinearAlgebra.Matrix.Dual \
+            Mathlib.LinearAlgebra.Matrix.Hermitian \
+            Mathlib.LinearAlgebra.Matrix.NonsingularInverse \
             Mathlib.LinearAlgebra.Matrix.Rank \
             Mathlib.LinearAlgebra.Matrix.ToLin \
+            Mathlib.LinearAlgebra.Multilinear.Basis \
             Mathlib.LinearAlgebra.Projectivization.Cardinality \
             Mathlib.LinearAlgebra.QuadraticForm.Basic \
             Mathlib.Logic.Equiv.Fin.Basic \
             Mathlib.Logic.Equiv.Prod \
+            Mathlib.MeasureTheory.Constructions.Polish.Basic \
+            Mathlib.MeasureTheory.Group.Integral \
             Mathlib.MeasureTheory.Integral.Bochner.Basic \
+            Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap \
+            Mathlib.MeasureTheory.Integral.Bochner.Set \
+            Mathlib.MeasureTheory.Integral.Pi \
+            Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace \
+            Mathlib.MeasureTheory.Measure.Haar.NormedSpace \
+            Mathlib.MeasureTheory.Measure.Hausdorff \
+            Mathlib.MeasureTheory.Measure.WithDensity \
             Mathlib.NumberTheory.ArithmeticFunction \
             Mathlib.NumberTheory.DirichletCharacter.Basic \
             Mathlib.NumberTheory.DirichletCharacter.Bounds \

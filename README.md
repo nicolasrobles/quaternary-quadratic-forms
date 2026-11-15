@@ -12,7 +12,67 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 23 · Partial: 0 · Active: 0 · Pending: 19** — 42 numbered results.
+**Complete: 24 · Partial: 0 · Active: 0 · Pending: 18** — 42 numbered results.
+
+**Lemma 2.2 is Certified relative to its registered literature inputs.**
+For a fixed symmetric nonsingular form and a smooth complex weight family
+with common annular support and coordinate derivative bounds, the actual
+delta integral uses the same fixed Heath–Brown kernel as Lemma 2.1 and the
+actual localized weights. One positive localization scale and one cutoff
+are selected before every weight and center. Above the cutoff,
+both the integral and its derivative with frequency held fixed vanish for
+every piece. For the pieces whose closed support meets the zero set, all
+positive scales satisfy the zero-frequency approximation, derivative bound,
+rapid nonzero-frequency decay, and combined epsilon estimate, with constants
+uniform over the family. The singular integral is the actual normalized
+Euclidean surface integral, and its absolute integrability is proved for
+these pieces. The complete source endpoint is
+[source_delta_integrals](QuaternaryQuadraticForms/DeltaIntegralTheorem.lean).
+
+The separate **aux:weight_pieces is also Certified**, using no literature
+premise: the fixed normalized four-dimensional bump has unit integral, the
+pieces reconstruct the original weight, their supports lie in the original
+support and within Euclidean distance `2*delta` of the center, and their
+derivatives have common bounds.
+Five precise Heath–Brown analytic inputs and Simon's general graph area
+formula are newly registered. The quadratic chart, its Jacobian and gradient
+ratio, surface normalization, coordinate transport, finite choice of common
+constants, and extension to all positive scales are internal deductions.
+See the [complete source review](certification/correspondence/delta_integrals.md)
+and the [surface-measure review](certification/correspondence/surface_area_formula.md).
+
+**The requested coefficient identity and bound, aux:Sxi and aux:Sxibound,
+are also proved.** For a fixed symmetric nonsingular integral form with
+nonsquare determinant, positive squarefree `q` coprime to the source excluded
+modulus, and the original supplied local functions, the actual coefficient
+satisfies
+
+$$
+\mathfrak S_\xi(q)
+=\frac{C_q(0)}{q^3}
+ \lim_{X\to\infty}\sum_{\substack{1\le c\le X\\(c,q)=1}}
+ \frac{S_c(0)}{c^4}
+=\mathfrak S_F\prod_{p\mid q}\frac{C_p(0)}{p^3\sigma_p}.
+$$
+
+Under the original local Fourier bound with `K>=1`, the explicit estimate is
+
+$$
+|\mathfrak S_\xi(q)|
+\le |\mathfrak S_F|\frac{(4K)^{\omega(q)}}q
+\le C_{F,K,\varepsilon}q^{-1+\varepsilon}.
+$$
+
+For every `epsilon>0`, the positive constant is chosen before the character
+level `M`, character `chi`, excluded modulus `N`, local functions `xi`,
+polynomials `D`, and `q`. The proof retains the actual increasing-modulus
+series, proves the prime-index bridge, and covers `q=1` and `S_F=0`.
+Only good-prime densities are inverted; no division by the global coefficient
+or a Fourier value is used. The fourteen new exports in three modules use no
+literature premise. See the
+[identity](QuaternaryQuadraticForms/SourceMainCoefficient.lean),
+[uniform bound](QuaternaryQuadraticForms/SourceMainCoefficientBound.lean),
+and [source correspondence](certification/correspondence/main_coefficient.md).
 
 **Lemma 2.1 is Certified relative to the registered Heath–Brown input.**
 The one fixed, explicitly defined source kernel is smooth on the positive
@@ -24,7 +84,7 @@ in `|c(Q)-1| <= C_j Q^(-j)`. The outer sum is proved finite, with cutoff
 `c<=floor(max(Q,2*|n|/Q))`, and retains the original residue-unit phases.
 The complete endpoint is
 [source_delta_symbol](QuaternaryQuadraticForms/DeltaSymbolTheorem.lean).
-The single new literature premise records the exact source construction;
+Its registered literature premise records the exact source construction;
 uniform positive normalization, the rapid normalized error, division in
 the identity, phase agreement, and finite support are internal deductions.
 See the [complete source review](certification/correspondence/delta_symbol.md).
@@ -221,12 +281,77 @@ No literature premise is added or used. The full source endpoint is
 [`source_polynomial_box`](QuaternaryQuadraticForms/PolynomialBoxTheorem.lean),
 with a [complete correspondence review](certification/correspondence/polynomial_box.md).
 
-The current scope covers 918 theorem exports across 220 Lean modules,
-five separately registered external Lean premises, and 20 mapped
-source groups. Two auxiliary/supplementary groups are Certified and 31 remain Pending.
+The current scope covers 1,087 theorem exports across 247 Lean modules,
+11 separately registered external Lean premises, and 21 mapped source groups.
+Five auxiliary/supplementary groups are Certified and 28 remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-### Current Lemma 2.1 verification
+### Current Lemma 2.2 and main coefficient verification
+
+<!-- BEGIN LEMMA_2_2_VERIFICATION -->
+
+This combined milestone adds **169 public theorem exports in 27 modules**:
+155 exports for Lemma 2.2 and weight localization, followed by fourteen for
+the requested coefficient identity and bound. The registered scope becomes
+**1,087 theorem exports, 247 project Lean modules, and 286 inspected inputs**.
+The new scope includes the fixed kernel, actual complex weight pieces,
+shared localization constants, fixed-frequency differentiation, all four
+integral estimates at all positive scales, and the normalized Euclidean
+surface integral and its integrability. It also includes the actual
+ordered-series coefficient, exact prime product, explicit finite-prime
+bound, and uniform epsilon estimate.
+
+**The combined 169-export declaration and axiom audit has passed.**
+All six new premise types match their preregistered type hashes, and every
+new export has the inspected theorem kind and allowed axiom profile.
+Both the analytic endpoint and the coefficient endpoint have compiled in
+the primary checkout, and independent mathematical and source reviews have
+passed. The complete local aggregate verifier and exact-commit GitHub
+verification are pending. Observed gate results, the proof commit, report
+hashes, and CI artifact will be recorded here after execution.
+
+There are **11 separately registered literature premises across 21 mapped
+source groups**. The five earlier premises are retained. The six new inputs
+are Heath–Brown's uniform localization, thin-slab graph limit,
+zero-frequency approximation, fixed-frequency integral reduction, and
+auxiliary oscillatory estimates, together with Simon's general graph area
+formula. Each premise has its own recorded type and source locator; these
+premises are counted separately from the proved exports. The coefficient
+identity and bound add and use no literature premise.
+
+The actual bump normalization and weight reconstruction, family derivative
+bounds, quadratic gradient and Hessian calculations, positive-root chart,
+area-to-gradient ratio, actual surface transport, finite family of common
+constants, and cutoff extension are proved internally. The normalized
+surface measure uses the three-dimensional unit-ball volume divided by
+`2^3`, accounting for mathlib's raw diameter-cubed Hausdorff convention.
+The general area formula is the separately disclosed geometric input;
+Heath–Brown's thin-slab statement is not silently identified with a surface
+integral.
+
+The coefficient proof preserves the increasing-modulus series and original
+local functions. It proves
+`S_xi(q)=S_F*prod_(p|q) C_p(0)/(p^3*sigma_p)` and
+`|S_xi(q)|<=|S_F|*(4K)^omega(q)/q<=C_(F,K,epsilon)*q^(-1+epsilon)`.
+The positive constant precedes `M, chi, N, xi, D, q`. The modulus-one
+identity and character independence of `S_F` are explicit; zero global
+coefficients are retained multiplicatively, and only good-prime densities
+are inverted.
+
+The combined ledger scope has **24 Complete, 0 Partial, 0 Active, 18 Pending**
+numbered results and **5 Certified, 28 Pending** supplementary groups.
+This milestone completes `lem:integrals`, `aux:weight_pieces`, `aux:Sxi`,
+and `aux:Sxibound`. The requested Lemma 2.2 work and return to both
+coefficient obligations are complete at the proof level; the combined
+verification gates above remain to run. The general cone-vertex
+integrability obligation, remaining analytic assembly, global proposition,
+and main theorems remain Pending. No further proof target is started or
+automatically selected by this checkpoint. Earlier execution evidence below
+retains its historical scope.
+
+<!-- END LEMMA_2_2_VERIFICATION -->
+
+### Earlier Lemma 2.1 verification
 
 <!-- BEGIN LEMMA_2_1_VERIFICATION -->
 
@@ -244,7 +369,7 @@ kind, complete type, and axiom inspection of all registered exports.
 
 - Checked proof commit: [5f6eee91f968](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/5f6eee91f968a2fe855d2b18b7820ba4511c9245).
 - Proof tree: `c0c92a68668b04eda13c05d2e0506df1a65b99c5`.
-- [Preserved local report](certification/verification_report.json), 1,362,455 bytes.
+- [Preserved local report](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/ae84e9ff0539e0451121ea630781920cd21ac684/certification/verification_report.json), 1,362,455 bytes.
 - Local report SHA-256: `f812afe8927558a565228abfb35002330e1fd30393c035e2d8921e949e57532e`.
 - Local build: `Build completed successfully (3445 jobs).`.
 
@@ -283,13 +408,13 @@ the delta identity, phase agreement, and finite support are internal
 deductions. In particular the proof divides by S(Q) only after proving
 positivity throughout Q>=3; no normalized formula at Q=2 is imported.
 
-The frozen manuscript and PDF, all earlier 215 project modules, and the
-pinned verifier remain unchanged. The live ledger has **23 Complete,
-0 Partial, 0 Active, 19 Pending** numbered results, with **2 Certified
-and 31 Pending** supplementary groups. Only lem:delta is promoted by
-this milestone; whole-paper certification remains false. Earlier evidence
-retains its historical scope. The next numbered target is Lemma 2.2,
-followed by Lemma 2.3.
+At that milestone, the frozen manuscript and PDF, all earlier 215 project
+modules, and the pinned verifier remained unchanged. The ledger then had
+**23 Complete, 0 Partial, 0 Active, 19 Pending** numbered results, with
+**2 Certified and 31 Pending** supplementary groups. Only lem:delta was
+promoted by that milestone; whole-paper certification remained false.
+Its announced next numbered targets were Lemmas 2.2 and 2.3. This evidence
+retains its historical scope; the current continuation status is recorded below.
 
 <!-- END LEMMA_2_1_VERIFICATION -->
 
@@ -2366,9 +2491,19 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Algebra.Ring.Periodic \
       Mathlib.Algebra.Star.BigOperators \
       Mathlib.Analysis.Calculus.ContDiff.Basic \
+      Mathlib.Analysis.Calculus.ContDiff.Bounds \
+      Mathlib.Analysis.Calculus.ContDiff.WithLp \
+      Mathlib.Analysis.Calculus.Deriv.Basic \
+      Mathlib.Analysis.Calculus.FDeriv.Add \
+      Mathlib.Analysis.Calculus.FDeriv.Measurable \
+      Mathlib.Analysis.Calculus.Gradient.Basic \
+      Mathlib.Analysis.Calculus.IteratedDeriv.Defs \
       Mathlib.Analysis.Complex.Basic \
+      Mathlib.Analysis.InnerProductSpace.Calculus \
       Mathlib.Analysis.InnerProductSpace.PiL2 \
+      Mathlib.Analysis.Normed.Group.Bounded \
       Mathlib.Analysis.Normed.Group.FunctionSeries \
+      Mathlib.Analysis.Normed.Module.FiniteDimension \
       Mathlib.Analysis.PSeries \
       Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
       Mathlib.Analysis.SpecialFunctions.Log.Base \
@@ -2376,6 +2511,8 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Analysis.SpecialFunctions.Pow.Continuity \
       Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
       Mathlib.Analysis.SpecialFunctions.Pow.Real \
+      Mathlib.Analysis.SpecialFunctions.SmoothTransition \
+      Mathlib.Analysis.SpecialFunctions.Sqrt \
       Mathlib.Analysis.SpecificLimits.Basic \
       Mathlib.Analysis.SpecificLimits.Normed \
       Mathlib.Data.Fin.Tuple.Finset \
@@ -2384,6 +2521,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Data.Finset.Prod \
       Mathlib.Data.Finsupp.Weight \
       Mathlib.Data.Fintype.BigOperators \
+      Mathlib.Data.Fintype.Perm \
       Mathlib.Data.Int.Interval \
       Mathlib.Data.Int.ModEq \
       Mathlib.Data.Matrix.Mul \
@@ -2419,14 +2557,27 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.LinearAlgebra.LinearIndependent.Lemmas \
       Mathlib.LinearAlgebra.Matrix.Adjugate \
       Mathlib.LinearAlgebra.Matrix.BilinearForm \
+      Mathlib.LinearAlgebra.Matrix.Determinant.Basic \
       Mathlib.LinearAlgebra.Matrix.Dual \
+      Mathlib.LinearAlgebra.Matrix.Hermitian \
+      Mathlib.LinearAlgebra.Matrix.NonsingularInverse \
       Mathlib.LinearAlgebra.Matrix.Rank \
       Mathlib.LinearAlgebra.Matrix.ToLin \
+      Mathlib.LinearAlgebra.Multilinear.Basis \
       Mathlib.LinearAlgebra.Projectivization.Cardinality \
       Mathlib.LinearAlgebra.QuadraticForm.Basic \
       Mathlib.Logic.Equiv.Fin.Basic \
       Mathlib.Logic.Equiv.Prod \
+      Mathlib.MeasureTheory.Constructions.Polish.Basic \
+      Mathlib.MeasureTheory.Group.Integral \
       Mathlib.MeasureTheory.Integral.Bochner.Basic \
+      Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap \
+      Mathlib.MeasureTheory.Integral.Bochner.Set \
+      Mathlib.MeasureTheory.Integral.Pi \
+      Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace \
+      Mathlib.MeasureTheory.Measure.Haar.NormedSpace \
+      Mathlib.MeasureTheory.Measure.Hausdorff \
+      Mathlib.MeasureTheory.Measure.WithDensity \
       Mathlib.NumberTheory.ArithmeticFunction \
       Mathlib.NumberTheory.DirichletCharacter.Basic \
       Mathlib.NumberTheory.DirichletCharacter.Bounds \
@@ -2472,33 +2623,26 @@ To regenerate the readable inventory and graphs:
 
 Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
-## Next proof branch
+## Continuation status
 
-The next numbered target is **Lemma 2.2**, followed by **Lemma 2.3**,
-continuing sequentially through the preliminary lemmas. Lemma 2.2 must use
-the same fixed Heath–Brown kernel now defined for Lemma 2.1. Its cited
-integral estimates still require exact registered interfaces and the
-manuscript's specialization, including family-uniform localization,
-the actual singular-integral normalization, and differentiation with
-frequency held fixed. No integral estimate is supplied by the delta
-construction premise alone.
+The requested work on **Lemma 2.2** and the return to **aux:Sxi** and
+**aux:Sxibound** is complete at the proof level. The combined declaration
+inspection, local aggregate verifier, and exact-commit CI gates are recorded
+in the current verification block. No further proof target is started or
+automatically selected by this checkpoint.
 
-Lemma 2.3 can be paired with the separate auxiliary cone-counting
-obligation. The rational four-dimensional splitting, anisotropic binary
-complement, denominator-cleared lattice injection, and signed-divisor
-fibre count still require proofs. Its weighted consequence must use the
-actual adjugate form and transfer `T^(2+epsilon)` to `U^(1+epsilon)`.
+The coefficient now uses the original local functions and zero-frequency
+Fourier sums, the actual local counting densities, and the increasing-modulus
+singular-series value. Its exact product and uniform bound include `q=1`,
+possible zero global coefficients, and constants chosen before the supplied
+character data, local functions, exceptional polynomials, and modulus.
 
-The supplementary coefficient identity **aux:Sxi** and its uniform bound
-**aux:Sxibound** remain Pending for later assembly. They retain the
-original local functions, actual zero-frequency Fourier sums, local
-densities, and singular-series constant from the completed Lemmas 3.8–3.9.
-Their status is not implied by those completed numbered lemmas.
-
-Lemma 2.1, Lemmas 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas
-are complete. The polynomial-box epsilon consequence and aux:Cfactor
-are the two Certified supplementary groups; the other 31 remain Pending.
-The remaining localization, integral, and Poisson obligations must be
-completed before assembling Proposition 5.1 and the main theorems.
-The four-dimensional Poisson step needs its own exact interface or a
-proved iteration with convergence control.
+Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas are
+complete. The polynomial-box epsilon consequence, aux:Cfactor,
+aux:weight_pieces, aux:Sxi, and aux:Sxibound are the five Certified
+supplementary groups; the other 28 remain Pending. Lemma 2.3 and the
+separate inverse-norm cone-counting consequence retain their own Pending
+status. The scaled-integral, Poisson, and three-frequency contributions are
+still required for Proposition 5.1, as is the separately tracked absolute
+singular-integral obligation for general weights meeting the cone vertex.
+The global analytic proposition and main theorems are not yet certified.

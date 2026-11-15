@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete delta symbol with the fixed Heath-Brown kernel and uniform real-scale normalization",
+  "checkpoint": "Complete Lemma 2.2 with actual surface normalization and uniform estimates; complete main-coefficient identity and bound",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -53,8 +53,41 @@
       "scope_note": "Complete Lemma 2.1 relative to the separately registered Heath-Brown construction input EXT.HB_DELTA. The premise concerns the actual fixed source bump, sampling sum and kernel; it supplies their elementary source properties, the unnormalized identity T(Q,n)=Q*S(Q)*1_(n=0), and the raw sampling error for Q>1. It does not assume the manuscript-specific normalized statement or uniformity down to Q=3. The compact interval [7/12,11/12] and an explicitly rounded sample give one positive denominator bound throughout Q>=3. Raw order j+1 gives the integer-order normalization error, and a natural ceiling supplies every real j>=1. Actual residue phases, modulus one, all integer frequencies, and the finite support cutoff are proved internally. Smoothness is scoped Lean order infinity (the coercion of ENat.top), not the outer analytic top order. No normalized formula at Q=2 or uniform normalized bound as Q approaches 2 is imported. Twenty generic new exports use no literature premise; the nine source-specific exports use only the one registered HB input. All earlier completed claims and four earlier literature declarations are preserved."
     },
     "lem:integrals": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_delta_integrals",
+        "QuaternaryQuadraticForms.source_delta_integrals_real",
+        "QuaternaryQuadraticForms.localizedWeight_alternative",
+        "QuaternaryQuadraticForms.localizedIsometryWeightFamily_uniform_control",
+        "QuaternaryQuadraticForms.deltaIntegral_uniform_cutoff",
+        "QuaternaryQuadraticForms.hasDerivAt_deltaIntegral_zero",
+        "QuaternaryQuadraticForms.gradient_realQuadraticValue_annulus_lower_bound",
+        "QuaternaryQuadraticForms.realQuadraticValue_hessian_uniform_lower_bound",
+        "QuaternaryQuadraticForms.quadraticPositiveRoot_characterization",
+        "QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_norm",
+        "QuaternaryQuadraticForms.quadraticC0_thinSlabSingularIntegral_eq_singularIntegral",
+        "QuaternaryQuadraticForms.quadraticFamily_singularIntegral_integrable_of_isometry_cover",
+        "QuaternaryQuadraticForms.deltaIntegral_comp_realIsometry",
+        "QuaternaryQuadraticForms.singularIntegral_comp_realIsometry",
+        "QuaternaryQuadraticForms.heathBrown_local_deltaIntegralBounds",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.of_isometry_cover",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.extend_of_cutoff"
+      ],
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "completed_clauses": [
+        "One positive localization scale delta<=1 and one cutoff r0>=1 are selected before every original weight and center.",
+        "The original family has literal common coordinate-partial bounds and closed annular support; the positive gradient lower bound and localized derivative control are internal deductions.",
+        "Every actual localized piece has zero delta integral at every r>=r0 and every frequency; actual fixed-frequency derivative zero follows from local vanishing with a strict cutoff margin.",
+        "The estimated family is exactly the actual pieces whose closed support meets F=0. The complementary nonvanishing alternative is proved for every piece.",
+        "For each natural j>=1 one positive constant precedes the entire family and all r>0 in the zero-frequency error bound C_j*r^j, with the literal normalized Euclidean surface integral.",
+        "One positive constant bounds the actual fixed-frequency derivative at v=0 by C/r for every positive r and every estimated piece.",
+        "For each natural j>=1 the actual nonzero-frequency integral is bounded by C_j*r^-1*norm(v)^-j uniformly in every piece, r and v.",
+        "For each 0<epsilon<1/2 the actual value plus r times its actual fixed-v derivative has the uniform bound C_epsilon*r^(1-2epsilon)*norm(v)^(-1+epsilon).",
+        "Actual differentiability is established at every positive r for every fixed frequency. The actual surface integrand is explicitly IntegrableOn for every estimated piece.",
+        "The integral matrix is embedded literally into the reals; symmetry, nonsingularity, actual Hessian, finite signed-coordinate changes and all required transports are proved internally."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 2.2 relative to separately registered precise HB localization and analytic inputs and the separately attributed general Simon graph area formula. The original fixed kernel from Lemma 2.1 is retained. No final manuscript estimate is assumed as a premise: actual bump normalization, pieces and reconstruction, coordinate/operator derivative equivalence, annular gradient bound, actual Hessian nondegeneracy, root consistency, surface normalization and integrability, orthogonal transport, finite-family constants, r/v rescaling and all-positive-scale extension are internal. Five new HB declarations and one general area declaration are separately inspected. The stronger real-matrix endpoint needs only symmetry/nonsingularity; the nonsquare global determinant condition is unnecessary here. The absolute convergence obligation for arbitrary weights meeting the cone vertex remains separately Pending."
     },
     "lem:quadriccount": {
       "status": "Pending",
@@ -183,11 +216,11 @@
       ],
       "correspondence_record": "certification/correspondence/generic_modulus_bound.md",
       "completed_clauses": [
-        "For each fixed symmetric nonsingular integral matrix and every positive exponent, one positive constant works for every source modulus N, original admissible prime family, positive squarefree factorization q=q\u2081q\u2082, nonzero integral dual value, and real cutoff X\u22651. The actual gcd-restricted absolute modulus sum is bounded by that constant times the existing |C_(q\u2082)(u)|, q\u2081\u00b2, the exact divisibility indicator, and (X|F*(u)|)^\u03b5.",
-        "The actual complete sums and the entire finite modulus sum vanish when q\u2081 does not divide the integral dual value; the indicator is proved, with no local norm hypothesis needed for the vanishing statement."
+        "For each fixed symmetric nonsingular integral matrix and every positive exponent, one positive constant works for every source modulus N, original admissible prime family, positive squarefree factorization q=q₁q₂, nonzero integral dual value, and real cutoff X≥1. The actual gcd-restricted absolute modulus sum is bounded by that constant times the existing |C_(q₂)(u)|, q₁², the exact divisibility indicator, and (X|F*(u)|)^ε.",
+        "The actual complete sums and the entire finite modulus sum vanish when q₁ does not divide the integral dual value; the indicator is proved, with no local norm hypothesis needed for the vanishing statement."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c\u2264X with gcd(c,q)=q\u2081, every real X\u22651, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and \u03b5>0, but before N, the source prime family, q,q\u2081,q\u2082, the frequency, and X. It retains the existing constrained Fourier factor at q\u2082, q\u2081\u00b2, the exact indicator 1_(q\u2081\u2223m), and (X|m|)^\u03b5. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|\u2264gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with \u03c4(|m|), rather than the manuscript route's \u03c4(|m|)\u00b2, and logarithm exponent 1+\u03c9(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q\u2081 does not divide m. The boundary cases q=q\u2081=q\u2082=1, X=1, and |m|=1 are included; the final theorem requires m\u22600. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. The global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c≤X with gcd(c,q)=q₁, every real X≥1, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and ε>0, but before N, the source prime family, q,q₁,q₂, the frequency, and X. It retains the existing constrained Fourier factor at q₂, q₁², the exact indicator 1_(q₁∣m), and (X|m|)^ε. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|≤gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with τ(|m|), rather than the manuscript route's τ(|m|)², and logarithm exponent 1+ω(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q₁ does not divide m. The boundary cases q=q₁=q₂=1, X=1, and |m|=1 are included; the final theorem requires m≠0. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. The global analytic theorems remain Pending."
     },
     "lem:conemod": {
       "status": "Certified",
@@ -200,10 +233,10 @@
       "correspondence_record": "certification/correspondence/cone_modulus_bound.md",
       "completed_clauses": [
         "For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every positive exponent, one positive constant bounds the norm of the actual sum of unweighted S_c(u) over positive c<=X with gcd(c,q)=d by C X^3 (Xq)^epsilon, uniformly over all positive squarefree factorizations q=d*e coprime to N_F, integral frequencies with F*(u)=0, and real cutoffs X>=1. The constant is chosen before q,d,e,u,X.",
-        "The source cancellation is proved for the actual arithmetic coefficient: nonsquareness implies actual nonprincipality and zero period mean, exact M\u00f6bius/totient and gcd rearrangements give the good-modulus bound, and exact bad/good CRT preserves that cancellation through the complete finite modulus sum. The stronger core theorem proves the same estimate without squarefreeness."
+        "The source cancellation is proved for the actual arithmetic coefficient: nonsquareness implies actual nonprincipality and zero period mean, exact Möbius/totient and gcd rearrangements give the good-modulus bound, and exact bad/good CRT preserves that cancellation through the complete finite modulus sum. The stronger core theorem proves the same estimate without squarefreeness."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, M\u00f6bius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. The global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, Möbius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. The global analytic theorems remain Pending."
     },
     "lem:density": {
       "status": "Certified",
@@ -422,8 +455,52 @@
   },
   "supplementary_groups": {
     "aux:weight_pieces": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.heathBrownBaseBump_eq_expNegInvGlue",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_contDiff",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_nonneg",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_ne_zero_iff",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_hasCompactSupport",
+        "QuaternaryQuadraticForms.heathBrownBaseBump_integrable",
+        "QuaternaryQuadraticForms.heathBrownBumpMass_pos",
+        "QuaternaryQuadraticForms.heathBrownTheta_nonneg",
+        "QuaternaryQuadraticForms.heathBrownTheta_contDiff",
+        "QuaternaryQuadraticForms.heathBrownTheta_coordinates_lt_one",
+        "QuaternaryQuadraticForms.heathBrownTheta_tsupport_subset_cube",
+        "QuaternaryQuadraticForms.heathBrownTheta_norm_le_two_of_mem_tsupport",
+        "QuaternaryQuadraticForms.heathBrownTheta_hasCompactSupport",
+        "QuaternaryQuadraticForms.heathBrownTheta_integrable",
+        "QuaternaryQuadraticForms.heathBrownTheta_integral",
+        "QuaternaryQuadraticForms.UniformCoordinateDerivatives.uniformWeightDerivatives",
+        "QuaternaryQuadraticForms.UniformWeightDerivatives.uniformCoordinateDerivatives",
+        "QuaternaryQuadraticForms.uniformCoordinateDerivatives_iff_uniformWeightDerivatives",
+        "QuaternaryQuadraticForms.heathBrownTheta_uniform_translate_derivatives",
+        "QuaternaryQuadraticForms.UniformWeightDerivatives.localizedWeight",
+        "QuaternaryQuadraticForms.UniformCoordinateDerivatives.localizedWeight",
+        "QuaternaryQuadraticForms.UniformWeightDerivatives.comp_realIsometry",
+        "QuaternaryQuadraticForms.UniformCoordinateDerivatives.comp_realIsometry",
+        "QuaternaryQuadraticForms.localizedWeight_contDiff",
+        "QuaternaryQuadraticForms.localizedWeight_tsupport_subset",
+        "QuaternaryQuadraticForms.localizedWeight_tsupport_subset_closedBall",
+        "QuaternaryQuadraticForms.localizedWeight_hasCompactSupport",
+        "QuaternaryQuadraticForms.localizedWeight_isSmoothWeight",
+        "QuaternaryQuadraticForms.localizedWeight_nonzero_imp_near_support",
+        "QuaternaryQuadraticForms.heathBrownTheta_integral_scaled_translate",
+        "QuaternaryQuadraticForms.localizedWeight_integrable_in_center",
+        "QuaternaryQuadraticForms.localizedWeight_integral_center",
+        "QuaternaryQuadraticForms.localizedWeight_reconstruction"
+      ],
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "completed_clauses": [
+        "The actual fixed source bump is smooth and has positive integral; its four-dimensional normalized product is nonnegative, smooth, compactly supported in the coordinate cube, and has Euclidean integral one.",
+        "Actual localized pieces are smooth and compactly supported, with closed support in the original support and in the Euclidean radius-2*delta ball about the center.",
+        "A nonzero piece has its center within distance 2*delta of the original support.",
+        "Center dependence is integrable and the exact identity delta^-4*integral_y W_y(x)=W(x) holds for every positive scale.",
+        "For each fixed positive scale, every coordinate derivative is uniformly bounded before selecting the weight and center; all linear-isometry precompositions are uniformly controlled as well."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "The actual w0, c0, theta and W_y are used throughout. Every claim in this auxiliary is proved from official mathlib and the standard logical foundations, with no literature premise."
     },
     "aux:singint_absolute": {
       "status": "Pending",
@@ -471,12 +548,48 @@
       "checked_exports": []
     },
     "aux:Sxi": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.singularSeriesRemovalFactor_eq_primeFactors",
+        "QuaternaryQuadraticForms.singularSeriesRemovalFactor_one",
+        "QuaternaryQuadraticForms.singularSeriesConstant_eq_orderedValue",
+        "QuaternaryQuadraticForms.singularSeriesConstant_eq_of_goodPrimeAgreement",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_one",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_one_eq_singularSeriesConstant",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_eq_prime_product"
+      ],
+      "correspondence_record": "certification/correspondence/main_coefficient.md",
+      "completed_clauses": [
+        "The actual coefficient C_q(0)/q^3 times the increasing-modulus coprime singular-series value equals S_F times the literal product C_p(0)/(p^3*sigma_p) over prime divisors of squarefree q coprime to N.",
+        "The original good-prime functions and supplied character are retained; radical/coprimality conditions verify the good-prime density hypotheses.",
+        "Finite prime-subtype reindexing and the squarefree product of primes are proved internally.",
+        "The modulus-one coefficient equals S_F, including the empty product and a possibly zero global constant.",
+        "Every admissible source character produces the same constant, the actual ordered series value at modulus one."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Exact equation Sxi, with the already certified ordered series and source Fourier factorization. No unordered-series replacement or new literature input. All seven exports use only the standard logical foundations."
     },
     "aux:Sxibound": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_pos",
+        "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_norm_le_two",
+        "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_le_two",
+        "QuaternaryQuadraticForms.sourceConstrainedFourierSum_zero_norm_le_two_mul_sq",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_local_norm_le",
+        "QuaternaryQuadraticForms.sourceMainCoefficient_norm_le",
+        "QuaternaryQuadraticForms.source_main_coefficient_bound"
+      ],
+      "correspondence_record": "certification/correspondence/main_coefficient.md",
+      "completed_clauses": [
+        "The actual good-prime density is positive and its reciprocal has norm at most two; the real inverse inequality is also proved.",
+        "The source Fourier-stratum hypothesis at zero gives norm(C_p(0))<=2*K*p^2 without assuming D_p(0)=0.",
+        "The actual local quotient has norm at most 4*K/p, giving the exact global bound norm(S_F)*(4*K)^omega(q)/q.",
+        "For every fixed A,K and epsilon>0, one positive constant is selected before M,chi,N,xi,D,q in the q^(-1+epsilon) bound.",
+        "The constant uses the character-independent ordered value at modulus one and remains positive when S_F=0; the q=1 case is included."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete equation Sxibound under the original Fourier-stratum hypothesis. The geometric verification of that hypothesis remains in its separately completed source branch; no character classification, D(0)=0 assertion, degree assumption, nonzero global coefficient, or new literature premise is used. All seven local/global bound exports have only the standard logical foundations."
     },
     "aux:fourier_instantiation": {
       "status": "Pending",
@@ -3801,7 +3914,7 @@
         "lem:exceptional",
         "lem:divisible"
       ],
-      "scope": "All prescribed degrees are positive when the manuscript's `n \u2265 2` hypothesis holds.",
+      "scope": "All prescribed degrees are positive when the manuscript's `n ≥ 2` hypothesis holds.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
@@ -3929,7 +4042,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval\u2082_zero_iff",
+      "declaration": "QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff",
       "file": "QuaternaryQuadraticForms/BadReductionSystem.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4100,7 +4213,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4114,7 +4227,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4128,7 +4241,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/GenericQuadricFamily.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4691,7 +4804,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4705,7 +4818,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4719,7 +4832,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4733,7 +4846,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval\u2082Hom",
+      "declaration": "QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom",
       "file": "QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -4907,7 +5020,7 @@
       ]
     },
     {
-      "declaration": "QuaternaryQuadraticForms.totalDegree_eval\u2082_le_of_degree_one",
+      "declaration": "QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one",
       "file": "QuaternaryQuadraticForms/ParameterSpecialization.lean",
       "status": "Checked locally",
       "source_labels": [
@@ -5849,7 +5962,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "Evaluation of `\u03a6_u` is the source sum of complementary coefficient products.",
+      "scope": "Evaluation of `Φ_u` is the source sum of complementary coefficient products.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -5879,7 +5992,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "Coefficient homomorphisms preserve the source `\u03ba_i`.",
+      "scope": "Coefficient homomorphisms preserve the source `κ_i`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -5895,7 +6008,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "The formal polynomial `\u03a6_u` commutes with coefficient maps.",
+      "scope": "The formal polynomial `Φ_u` commutes with coefficient maps.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -5911,7 +6024,7 @@
         "eq:pencilforms",
         "eq:kappadef"
       ],
-      "scope": "Coefficient homomorphisms preserve the actual forms `\u03bd_i`.",
+      "scope": "Coefficient homomorphisms preserve the actual forms `ν_i`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6081,7 +6194,7 @@
         "eq:kappadef",
         "eq:exactpencil"
       ],
-      "scope": "The surviving product is the three pair differences divided by `a_i\u00b3`.",
+      "scope": "The surviving product is the three pair differences divided by `a_i³`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6132,7 +6245,7 @@
         "eq:kappadef",
         "eq:exactpencil"
       ],
-      "scope": "The singular reciprocal phase equals the actual source form `\u03bd_i` divided by its explicit nonzero scalar denominator.",
+      "scope": "The singular reciprocal phase equals the actual source form `ν_i` divided by its explicit nonzero scalar denominator.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6262,7 +6375,7 @@
         "eq:pencilforms",
         "eq:diagbound"
       ],
-      "scope": "At each parameter, `\u03a6_u(t)` is the dual quadratic form of `G + t F`.",
+      "scope": "At each parameter, `Φ_u(t)` is the dual quadratic form of `G + t F`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6310,7 +6423,7 @@
         "eq:pencilsum",
         "eq:exactpencil"
       ],
-      "scope": "The exact contribution of every singular pencil member. The formula keeps the full Ramanujan sum when `\u03bd_i(u)` is zero.",
+      "scope": "The exact contribution of every singular pencil member. The formula keeps the full Ramanujan sum when `ν_i(u)` is zero.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -6671,7 +6784,7 @@
         "eq:pencilsum",
         "lem:gauss"
       ],
-      "scope": "The fourth power is `p\u00b2`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
+      "scope": "The fourth power is `p²`, with no choice of a square root of `p`. This is a shared one-dimensional prime-field helper; the complete prime-power and counting clauses are proved separately.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -7164,7 +7277,7 @@
         "eq:crt",
         "eq:Snewdef"
       ],
-      "scope": "The source mixed summand factors in the actual scaled CRT coordinates. The local unit parameters still carry the source factors `c\u2082 n\u2082` and `c\u2081 n\u2081`.",
+      "scope": "The source mixed summand factors in the actual scaled CRT coordinates. The local unit parameters still carry the source factors `c₂ n₂` and `c₁ n₁`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -7180,7 +7293,7 @@
         "eq:crt",
         "eq:Snewdef"
       ],
-      "scope": "Full CRT multiplicativity of the actual mixed complete sum. Only scalar invariance at primes dividing `q\u2081*q\u2082` is assumed.",
+      "scope": "Full CRT multiplicativity of the actual mixed complete sum. Only scalar invariance at primes dividing `q₁*q₂` is assumed.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9001,7 +9114,7 @@
         "eq:forms",
         "eq:badbound"
       ],
-      "scope": "The actual inner Gauss sum has norm at most `4 sqrt(|det A|) n\u00b2` for every unit scalar and every residue frequency.",
+      "scope": "The actual inner Gauss sum has norm at most `4 sqrt(|det A|) n²` for every unit scalar and every residue frequency.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9052,7 +9165,7 @@
         "eq:forms",
         "eq:badbound"
       ],
-      "scope": "Lemma 3.3 for the manuscript's actual complete sum: every positive modulus, every integral frequency, and the exact real constant `4 sqrt(|\u03b1|)`.",
+      "scope": "Lemma 3.3 for the manuscript's actual complete sum: every positive modulus, every integral frequency, and the exact real constant `4 sqrt(|α|)`.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9120,7 +9233,7 @@
         "eq:weightproperties",
         "eq:forms"
       ],
-      "scope": "Lemma 3.4 for the manuscript's supplied local functions: `p \u2224 N` and `rad(N_F) \u2223 N` supply every good-prime condition, and the final weight is the original supplied function at the actual adjugate vector.",
+      "scope": "Lemma 3.4 for the manuscript's supplied local functions: `p ∤ N` and `rad(N_F) ∣ N` supply every good-prime condition, and the final weight is the original supplied function at the actual adjugate vector.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9154,7 +9267,7 @@
         "eq:Snewdef",
         "eq:ramified"
       ],
-      "scope": "The exact source bridge `\ud835\udcb0_(k+1) = p * \ud835\udcae_(p,p^k)` for every `k \u2265 1`. There is no symmetry, nonsingularity, weight-invariance, or parity premise.",
+      "scope": "The exact source bridge `𝒰_(k+1) = p * 𝒮_(p,p^k)` for every `k ≥ 1`. There is no symmetry, nonsingularity, weight-invariance, or parity premise.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9170,7 +9283,7 @@
         "sec:local",
         "eq:forms"
       ],
-      "scope": "The source condition `rad(N_F) \u2223 N` implies that every prime not dividing `N` is a good prime for the actual integral quadratic form.",
+      "scope": "The source condition `rad(N_F) ∣ N` implies that every prime not dividing `N` is a good prime for the actual integral quadratic form.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9224,7 +9337,7 @@
         "eq:unram",
         "eq:ramanujan"
       ],
-      "scope": "The exact formula `\ud835\udcb0_j` from the proof of Lemma 3.4, with the actual weight, Legendre symbol, adjugate dual value, and Ramanujan sum.",
+      "scope": "The exact formula `𝒰_j` from the proof of Lemma 3.4, with the actual weight, Legendre symbol, adjugate dual value, and Ramanujan sum.",
       "allowed_axioms": [
         "Classical.choice",
         "Quot.sound",
@@ -9495,7 +9608,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.monoidHom_eq_globalQuadraticChar",
       "file": "QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean",
-      "scope": "Good-prime values determine every positive value coprime to `2*|\u03b1|` of an actual multiplicative map on the natural numbers.",
+      "scope": "Good-prime values determine every positive value coprime to `2*|α|` of an actual multiplicative map on the natural numbers.",
       "source_labels": [
         "eq:forms",
         "lem:goodglobal",
@@ -9726,7 +9839,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_shared_support",
       "file": "QuaternaryQuadraticForms/SharedSupportCompleteSum.lean",
-      "scope": "The source closed formula for every squarefree `q \u2223 c` at a good positive modulus, with the actual local weights and every integral frequency.",
+      "scope": "The source closed formula for every squarefree `q ∣ c` at a good positive modulus, with the actual local weights and every integral frequency.",
       "source_labels": [
         "lem:goodglobal",
         "eq:goodglobal",
@@ -9988,7 +10101,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.one_add_log_pow_le_rpow",
       "file": "QuaternaryQuadraticForms/LogPowerBound.lean",
-      "scope": "A fixed power of `1 + log X` is absorbed by any prescribed positive power of `X`, with one positive constant uniform for every `X \u2265 1`.",
+      "scope": "A fixed power of `1 + log X` is absorbed by any prescribed positive power of `X`, with one positive constant uniform for every `X ≥ 1`.",
       "source_labels": [
         "lem:genericmod",
         "eq:genericmod"
@@ -10604,7 +10717,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius",
       "file": "QuaternaryQuadraticForms/ConeTotientReindex.lean",
-      "scope": "The exact finite double sum for a multiplicative function times `c^2 * \u03c6(c)`, retaining the actual gcd restriction and quotient cutoffs. The identity holds without squarefreeness or analytic hypotheses.",
+      "scope": "The exact finite double sum for a multiplicative function times `c^2 * φ(c)`, retaining the actual gcd restriction and quotient cutoffs. The identity holds without squarefreeness or analytic hypotheses.",
       "source_labels": [
         "lem:conemod",
         "eq:conegood",
@@ -10635,7 +10748,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum",
       "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
-      "scope": "The literal M\u00f6bius divisor sum detects coprimality with a positive modulus.",
+      "scope": "The literal Möbius divisor sum detects coprimality with a positive modulus.",
       "source_labels": [
         "lem:conemod",
         "eq:chicoprime"
@@ -10650,7 +10763,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples",
       "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
-      "scope": "M\u00f6bius detection followed by exact finite reindexing of multiples.",
+      "scope": "Möbius detection followed by exact finite reindexing of multiples.",
       "source_labels": [
         "lem:conemod",
         "eq:chicoprime"
@@ -10665,7 +10778,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.moebius_complex_norm_le_one",
       "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
-      "scope": "The actual integer M\u00f6bius values have complex norm at most one.",
+      "scope": "The actual integer Möbius values have complex norm at most one.",
       "source_labels": [
         "lem:conemod",
         "eq:chicoprime"
@@ -10826,7 +10939,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one",
       "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean",
-      "scope": "Every nonzero nonsquare integer has an actual negative Jacobi value at a positive modulus coprime to `2 * |\u03b1|`. Square factors are removed and the witness is lifted back to a unit at the full modulus.",
+      "scope": "Every nonzero nonsquare integer has an actual negative Jacobi value at a positive modulus coprime to `2 * |α|`. Square factors are removed and the witness is lifted back to a unit at the full modulus.",
       "source_labels": [
         "lem:conemod",
         "eq:forms",
@@ -11079,7 +11192,7 @@
     {
       "declaration": "QuaternaryQuadraticForms.totient_eq_sum_moebius",
       "file": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean",
-      "scope": "M\u00f6bius inversion of the actual totient divisor sum, in any commutative ring and including the zero argument.",
+      "scope": "Möbius inversion of the actual totient divisor sum, in any commutative ring and including the zero argument.",
       "source_labels": [
         "lem:conemod",
         "eq:conegood"
@@ -13927,7 +14040,7 @@
         "eq:box",
         "eq:weightedbox"
       ],
-      "scope": "Each coordinate interval contains at most `3 U` integers for `U \u2265 1`.",
+      "scope": "Each coordinate interval contains at most `3 U` integers for `U ≥ 1`.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
@@ -14803,6 +14916,2728 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBaseBump_eq_expNegInvGlue",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The source bump is exactly the standard flat exponential cutoff.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBaseBump_contDiff",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "Infinite differentiability is the library's smooth order, with no analyticity claim at the support boundary.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBaseBump_nonneg",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The fixed source bump is nonnegative.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBaseBump_ne_zero_iff",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The exact nonzero set of the source bump is the open unit interval.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBaseBump_hasCompactSupport",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The source bump has its actual compact support in the closed unit interval.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBaseBump_integrable",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The literal normalization integral is an integral of an integrable function, rather than a default value assigned to a divergent integral.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownBumpMass_pos",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The source normalizing mass is strictly positive.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_nonneg",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The literal four-dimensional source bump is nonnegative.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_contDiff",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The source product bump is jointly infinitely differentiable in its four Euclidean coordinates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_coordinates_lt_one",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "A nonzero product bump forces every coordinate into the open unit interval.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_tsupport_subset_cube",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The closed source support is contained in the actual coordinate cube.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_norm_le_two_of_mem_tsupport",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The source cube has Euclidean radius two in four variables.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_hasCompactSupport",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The literal product bump has compact Euclidean support.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_integrable",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "The product bump is integrable with respect to canonical Euclidean Lebesgue measure.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_integral",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightBump.lean",
+      "scope": "Fubini and the volume-preserving Euclidean coordinate equivalence give the exact source normalization, including the power four.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.UniformCoordinateDerivatives.uniformWeightDerivatives",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "Uniform coordinate partial bounds imply uniform operator-norm bounds at every order. The conversion constant depends only on that order.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.UniformWeightDerivatives.uniformCoordinateDerivatives",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "Evaluating on standard unit vectors recovers the literal coordinate partial bounds from the operator-norm condition.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.uniformCoordinateDerivatives_iff_uniformWeightDerivatives",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "Using operator-norm derivatives in the analytic estimates preserves the source's family hypothesis exactly.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_uniform_translate_derivatives",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "A fixed positive scale of the actual product bump has bounded derivatives of every order, uniformly over all its translates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.UniformWeightDerivatives.localizedWeight",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "Localization at a fixed positive scale preserves uniform bounds on all derivatives. The constants are chosen before both the original weight and the centre of the piece.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.UniformCoordinateDerivatives.localizedWeight",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "The source coordinate-partial family condition is preserved by the actual localized weights at fixed scale.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.UniformWeightDerivatives.comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "Precomposing a uniformly bounded family with any collection of real linear isometries preserves the same operator-norm derivative bounds.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.UniformCoordinateDerivatives.comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightDerivativeBounds.lean",
+      "scope": "In particular the literal coordinate-partial bounds remain uniform after all the signed coordinate changes used in the source argument.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_contDiff",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "Localization preserves smoothness for every fixed scale and centre.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_tsupport_subset",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "The closed support of each piece is contained in the original closed support. No regularity of the original weight is needed for this fact.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_tsupport_subset_closedBall",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "The source coordinate cube gives the precise Euclidean radius `2δ` for every four-dimensional piece.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_hasCompactSupport",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "Each positive-scale piece has compact support, even before any compactness assumption is imposed on its original weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_isSmoothWeight",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "The source localized functions are actual smooth compactly supported weights.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_nonzero_imp_near_support",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "A nonzero piece has its centre within distance `2δ` of an actual point of the original support.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrownTheta_integral_scaled_translate",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "Translation, reflection and scaling give the exact normalization of the bump when integrating over its centre.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_integrable_in_center",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "For each fixed source point, the pieces are integrable as a function of their centre.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_integral_center",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "The unnormalized centre integral is exactly `δ^4 W(x)`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_reconstruction",
+      "file": "QuaternaryQuadraticForms/AnalyticWeightPieces.lean",
+      "scope": "The exact reconstruction formula of equation (2.3), with its source factor `δ⁻⁴` and the original complex weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticFamily_singularIntegral_integrable_of_isometry_cover",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralIntegrability.lean",
+      "scope": "A coordinate cover by controlled C₀ weights proves absolute integrability of the original, literal quadratic surface integrand.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_rescaledFrequency_norm",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRescaling.lean",
+      "scope": "The source frequency has exactly the manuscript's Euclidean scaling.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_rapid_scale_identity",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRescaling.lean",
+      "scope": "Natural-order rapid decay after the substitution `u = r⁻¹ • v`. Inverse natural powers also cover `j = 0` and `v = 0` without extra hypotheses.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_epsilon_scale_identity",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRescaling.lean",
+      "scope": "The four-dimensional Hessian estimate has the precise manuscript exponents. The algebra holds for every real exponent, so the analytic restriction on `ε` is needed only in the source estimate, not in this rescaling.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_add",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRescaling.lean",
+      "scope": "Multiplying the derivative estimate by `r` gives the same scale as the value estimate, with the two constants added.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_double",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRescaling.lean",
+      "scope": "Equal constants in the two source bounds produce a factor of two.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_combine_value_derivative_bounds",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRescaling.lean",
+      "scope": "Combine independently obtained bounds for a value and its derivative. The two source witness integrals need only share the numerical upper bound `B`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_zero_weight",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralSupport.lean",
+      "scope": "A zero weight has zero actual oscillatory integral at every parameter.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_eq_zero_of_support_bound",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralSupport.lean",
+      "scope": "The kernel support cuts off the actual integral once the scale exceeds the common bound on the quadratic value on the weight's support.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_eventually_zero",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralSupport.lean",
+      "scope": "The actual parameter function is locally constant zero above the cutoff.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasDerivAt_deltaIntegral_zero",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralSupport.lean",
+      "scope": "The derivative is with the original frequency fixed.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deriv_deltaIntegral_eq_zero_of_support_bound",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralSupport.lean",
+      "scope": "In particular the actual derivative vanishes above the cutoff.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_uniform_cutoff",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralSupport.lean",
+      "scope": "A single closed cutoff works for every weight sharing the bound `M`. The extra unit gives the strict neighborhood needed for derivatives.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_delta_integrals_real",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralTheorem.lean",
+      "scope": "The complete analytic statement for a real symmetric nonsingular form. The estimated family is exactly the set of pieces whose closed support meets the zero set. Its complement is the source's nonvanishing alternative. All constants in DeltaIntegralBounds precede every member of this family.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_delta_integrals",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralTheorem.lean",
+      "scope": "Lemma 2.2 for the actual integral coefficient matrix in the manuscript. The real form is evaluated by the literal coefficient embedding ℤ→ℝ.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.extend_of_cutoff",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralUniformity.lean",
+      "scope": "Vanishing of the actual integral and its derivative above a cutoff extends all simultaneous estimates to every positive scale.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.of_finite_cover",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralUniformity.lean",
+      "scope": "Finitely many subfamilies have common positive constants on positive scales. No nonemptiness assumption on the index or weight families is needed.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.of_realIsometry",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralUniformity.lean",
+      "scope": "Transport from one orthogonal coordinate system preserves every constant, including both fixed-frequency derivative estimates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.of_isometry_cover",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralUniformity.lean",
+      "scope": "A finite choice of signed coordinate systems can be made separately for every weight while retaining constants uniform over the original family.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.heathBrown_local_deltaIntegralBounds",
+      "file": "QuaternaryQuadraticForms/HeathBrownLocalBounds.lean",
+      "scope": "All local estimates on a fixed positive bounded scale range, uniformly over the quantitative source class. Value and derivative estimates retain their independent modified weights and amplitudes.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticGradient_hasFDerivAt",
+      "file": "QuaternaryQuadraticForms/HeathBrownQuadraticHypotheses.lean",
+      "scope": "The displayed linear gradient has its literal constant Fréchet derivative.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realHessian_realQuadraticValue",
+      "file": "QuaternaryQuadraticForms/HeathBrownQuadraticHypotheses.lean",
+      "scope": "The actual Hessian of a symmetric quadratic form is exactly `2 A`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.det_realHessian_realQuadraticValue",
+      "file": "QuaternaryQuadraticForms/HeathBrownQuadraticHypotheses.lean",
+      "scope": "Determinant of the actual four-dimensional Hessian.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.abs_det_realHessian_realQuadraticValue",
+      "file": "QuaternaryQuadraticForms/HeathBrownQuadraticHypotheses.lean",
+      "scope": "Its absolute determinant is independent of the point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_hessian_uniform_lower_bound",
+      "file": "QuaternaryQuadraticForms/HeathBrownQuadraticHypotheses.lean",
+      "scope": "Nonsingularity supplies one strictly positive Hessian determinant bound at every point, hence on every weight support.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_uniformHBWeightControl",
+      "file": "QuaternaryQuadraticForms/HeathBrownQuadraticHypotheses.lean",
+      "scope": "Extract a common positive bound sequence before selecting an individual weight. This is the quantitative source-class hypothesis needed for a family.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.IsSmoothWeight.comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "A linear isometry preserves the class of actual smooth weights.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.tsupport_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "Closed support under an isometry is its actual inverse image.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeightFamily_isSmoothWeight",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "Every fixed-scale localized piece remains an actual smooth weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeightFamily_support_bound",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "Localization retains the original common Euclidean support radius.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedIsometryWeightFamily_isSmoothWeight",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "Smoothness survives all the orthogonal choices simultaneously.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedIsometryWeightFamily_support_bound",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "The support radius is unchanged by all orthogonal choices.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedIsometryWeightFamily_uniform_control",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "One positive derivative-bound sequence controls every transformed piece; it is selected before the weight, center, and isometry.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localizedWeight_alternative",
+      "file": "QuaternaryQuadraticForms/LocalizedWeightFamilies.lean",
+      "scope": "Each actual piece satisfies precisely one of the relevant alternatives: its closed support avoids the zero set, or it belongs to the common family on which the analytic estimates are applied.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "aux:weight_pieces",
+        "eq:pieces"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_pos",
+      "file": "QuaternaryQuadraticForms/MainCoefficientLocalBounds.lean",
+      "scope": "The actual counting density is strictly positive at every good prime.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_norm_le_two",
+      "file": "QuaternaryQuadraticForms/MainCoefficientLocalBounds.lean",
+      "scope": "The reciprocal of the actual good-prime density has complex norm at most two. The bound follows from the exact formula and the Legendre norm.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_le_two",
+      "file": "QuaternaryQuadraticForms/MainCoefficientLocalBounds.lean",
+      "scope": "The real reciprocal satisfies the same uniform good-prime bound.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceConstrainedFourierSum_zero_norm_le_two_mul_sq",
+      "file": "QuaternaryQuadraticForms/MainCoefficientLocalBounds.lean",
+      "scope": "The actual zero-frequency sum is bounded in both source strata. In particular, no vanishing assumption on `D(0)` is needed.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMainCoefficient_local_norm_le",
+      "file": "QuaternaryQuadraticForms/MainCoefficientLocalBounds.lean",
+      "scope": "The actual local main-coefficient factor is bounded by `4K/p`, using only the stated source Fourier stratum estimate.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphPoint_contDiff",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The graph insertion is smooth in both arguments.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphPoint_continuous",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "In particular, graph insertion is continuous.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphPoint_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The first coordinate of graph insertion.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphPoint_succ",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The remaining coordinates of graph insertion.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphTail_apply",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The actual Euclidean tail projection evaluates at coordinate i to the original coordinate i.succ.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphTail_continuous",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The actual tail projection is continuous for the Euclidean norms.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphTail_graphPoint",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The actual last-three-coordinate projection of graphPoint t y is exactly y.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphPoint_graphTail",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "Every four-vector has the literal distinguished-coordinate decomposition.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.real_inner_graphPoint",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The Euclidean inner product splits into the first and remaining coordinates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realVector4_norm_sq_graphTail",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The Euclidean norm splits into the first and remaining coordinates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_graphPoint",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The exact quadratic expansion in the distinguished coordinate.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticGradient_graphPoint_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The first component of the explicit Euclidean gradient.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticLinearCoeff_contDiff",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The linear coefficient is smooth on the full three-dimensional space.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticConstantCoeff_contDiff",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The constant coefficient is a smooth restriction of the original form.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticDiscriminant_contDiff",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The discriminant is a smooth polynomial function.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_measurable",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The total explicit root formula is measurable, including outside its open smoothness domain.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRootDomain_isOpen",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The chart domain is genuinely open.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_contDiffOn",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The explicit positive root is smooth on its full open domain.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_firstDerivative",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The first derivative at the selected root has the explicit positive sign.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_value_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "Every point in the chart domain is an actual zero of the original form.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_zero_pos",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The actual first gradient coordinate is positive throughout the chart.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_unique",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "Every zero having positive first gradient coordinate belongs to this unique graph branch, including the case of a linear distinguished variable.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_characterization",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "Exact characterization of the positive-coordinate portion of the zero set.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_succ",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "Differentiating the actual graph equation relates every remaining gradient coordinate to the derivative of the selected root.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_norm",
+      "file": "QuaternaryQuadraticForms/QuadraticPositiveRootChart.lean",
+      "scope": "The full Euclidean gradient norm equals its positive first component times the actual Euclidean graph area factor.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_area_measure",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "Simon's general area formula applies to the explicit quadratic root on its actual open domain. No global smoothness of that root is needed.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_graph",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "The source graph expression is the literal normalized surface integral, with the general area premise now discharged by its registered source theorem.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable_of_geometry",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "Absolute convergence of the actual surface integral is proved from compact support and C₀ geometry after applying the general area formula.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_thinSlab_tendsto_singularIntegral",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "The registered source thin-slab limit converges to the actual Euclidean surface integral for a controlled C₀ quadratic weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_thinSlabSingularIntegral_eq_singularIntegral",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "The limiting functional used by the registered analytic estimates equals the actual surface integral, rather than defining a replacement for that integral.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.congr_sigma",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "Replacing a normalization functional by an equal one on the stated family preserves every estimate and its original common constants.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.quadraticC0_surface",
+      "file": "QuaternaryQuadraticForms/QuadraticSingularNormalization.lean",
+      "scope": "All uniform delta-integral conclusions on any scale set transfer from the source limiting value to the actual surface integral throughout an explicitly controlled C₀ family.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realVectorTail_continuous",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The source support projection is the actual continuous coordinate projection of Euclidean space.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realVectorTail_graphPoint",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "Taking the tail of a graph insertion recovers its three parameters.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphPoint_realVectorTail",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The source tail projection and first coordinate reconstruct every actual four-vector.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realVectorTail_surfaceGraph",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The parameters of the actual graph are recovered by source projection.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightTailSupport_isCompact",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The source's projected closed support is compact for a compactly supported weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_hbGraphSelector",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The root selected independently by the source intervals is the single explicit positive-coordinate root of the actual quadratic form.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightTailSupport_subset_quadraticPositiveRootDomain",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "Every projected point of the actual closed support lies inside the open smooth domain of the explicit quadratic chart.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_gradient_zero_pos_on_tsupport",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The source interval derivative lower bound holds in particular at the original support point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_zero_mem_graph_of_mem_tsupport",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "Every actual zero in the support of a C₀ weight belongs to the positive-coordinate graph branch.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weight_surfaceGraph_eq_zero_of_notMem_tailSupport",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The graph numerator vanishes outside the source projected support, for every graph function.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_area_div_gradient",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The actual Euclidean surface Jacobian cancels against the full gradient denominator, leaving the positive first coordinate derivative.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_continuousOn",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The graph integrand is continuous on its actual open chart domain. Only the original weight is globally smooth; the root is used locally.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_integrable",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The literal Heath--Brown graph integrand is integrable. Compactness of the actual projected support and continuity on the open chart prove convergence; this is not a default Bochner integral value.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_hbGraphIntegral",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "Identification of the actual normalized Hausdorff surface integral with the source graph expression. The sole external geometric input is the explicit general area measure identity.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable",
+      "file": "QuaternaryQuadraticForms/QuadraticSurfaceIntegral.lean",
+      "scope": "The actual surface-integral integrand is absolutely integrable for a smooth compact C₀ quadratic weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_eq_inner",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The literal matrix expression agrees with the Euclidean inner product.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_contDiff",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The actual real quadratic form is infinitely differentiable.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_continuous",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "In particular the matrix quadratic form is continuous.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_smul",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "Literal homogeneity of degree two for every real scaling factor.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_hasGradientAt",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The displayed vector `2 A x` is the actual derivative gradient.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gradient_realQuadraticValue",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "Equality with the gradient defined by the actual Fréchet derivative.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticGradient_continuous",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The explicit gradient vector depends continuously on the point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticGradient_ne_zero",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "A nonsingular matrix has no nonzero vector with vanishing displayed gradient.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realVector4_isCompact_annulus",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The closed annulus in the source Euclidean norm is compact.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticGradient_norm_annulus_lower_bound",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "One positive lower bound for `‖2 A x‖` works throughout a fixed closed annulus separated from the origin. The bound is chosen before the point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gradient_realQuadraticValue_annulus_lower_bound",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The source lower bound is for the actual gradient, with symmetry and nonsingularity checked on the actual matrix.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_abs_bound_closedBall",
+      "file": "QuaternaryQuadraticForms/RealQuadraticGeometry.lean",
+      "scope": "The absolute value of the actual form is uniformly bounded on every fixed closed ball. The positive bound is selected before the point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.signedCoordinateIsometry_apply",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The coordinates are exactly the stated permutation and signs.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.signedCoordinateChange_card",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "There are only 384 coordinate changes in the chosen finite family.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.signedCoordinateIsometry_norm",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The norm used in the source is unchanged by each signed permutation.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.signedCoordinateIsometry_symm_norm",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The inverse change preserves the frequency norm as well.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.signedCoordinateIsometry_measurePreserving",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Actual Lebesgue measure is preserved, with no Jacobian premise.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.real_inner_symm_isometry",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The dual frequency transforms by the inverse orthogonal map.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.hasGradientAt_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The actual gradient under an orthogonal change of variables.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gradient_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The derivative-defined gradient agrees with the inverse transform.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.norm_gradient_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The full gradient norm, not just one coordinate derivative, is invariant.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.gradient_realQuadraticValue_comp_isometry",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "For the actual symmetric quadratic form the inverse gradient is explicit.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realIsometryMatrix_apply",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Exact identification of the matrix action with the coordinate change.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realIsometryMatrix_det_ne_zero",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Every coordinate-change matrix is nonsingular.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_matrix_congruence",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Matrix congruence represents the literal pullback of the form.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticPullbackMatrix_value",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "The pullback matrix evaluates to the form composed with the actual map.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticPullbackMatrix_symmetric",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Symmetry of the original matrix is preserved by the literal pullback.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticPullbackMatrix_det_ne_zero",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Nonsingularity is preserved; no new nondegeneracy assumption is needed.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/SignedCoordinateChanges.lean",
+      "scope": "Change of variables for the actual delta integral, with the source frequency transformed by the inverse map. It holds at every real `r`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesRemovalFactor_eq_primeFactors",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "The reciprocal-density product can be indexed by the same finite prime subtype as the actual source Fourier product.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesRemovalFactor_one",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "With no prime factors removed, the correction is the empty product.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesConstant_eq_orderedValue",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "Every admissible supplied character yields the same source constant: the actual ordered complete-sum series at modulus one.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularSeriesConstant_eq_of_goodPrimeAgreement",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "The source constant is independent of the supplied character level and character whenever both satisfy the original good-prime agreement.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMainCoefficient_one",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "The modulus-one coefficient is the actual full ordered series, since its source Fourier sum is the empty prime product.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMainCoefficient_one_eq_singularSeriesConstant",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "In the source notation the empty-product coefficient is exactly `S_F`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMainCoefficient_eq_prime_product",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficient.lean",
+      "scope": "Equation `Sxi`: the actual global-series definition equals the product of the original source prime sums divided by their actual counting densities. Every factor belongs to a good prime; the empty product covers `q = 1`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxi",
+        "eq:Sxi"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMainCoefficient_norm_le",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficientBound.lean",
+      "scope": "The explicit inequality in equation Sxibound, for the actual coefficient and original supplied local functions.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_main_coefficient_bound",
+      "file": "QuaternaryQuadraticForms/SourceMainCoefficientBound.lean",
+      "scope": "The complete coefficient bound under the original Fourier-stratum hypothesis. One positive constant is selected after A,K,epsilon and before the character, its level, N, all local functions, polynomials, and q. The explicit finite-prime-factor inequality is retained in the same endpoint.",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Sxibound",
+        "eq:Sxibound"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceGraph_injective",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "The graph map is injective because its last three coordinates are the original point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceGraph_measurable",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "A measurable graph function gives a measurable actual Euclidean graph map, without any global differentiability assumption.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.surfaceGraph_measurableEmbedding",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "The actual graph is a measurable embedding. This permits change of variables for all complex integrands, including the integrability equivalence, without an additional ambient measurability premise.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphAreaFactor_pos",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "The Euclidean graph area factor is strictly positive everywhere.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphAreaFactor_nonneg",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "Nonnegativity is available for the real-to-extended-real density.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.graphAreaFactor_measurable",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "Mathlib's actual derivative is Borel measurable, so the area density is measurable even when smoothness is available only on a graph domain.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integral_surfaceGraph_image",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "The complex integral over the actual graph surface equals the Lebesgue graph integral, given the explicit general area measure identity.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integrable_surfaceGraph_image_iff",
+      "file": "QuaternaryQuadraticForms/SurfaceGraphIntegral.lean",
+      "scope": "Absolute integrability on the actual graph surface is equivalent to absolute integrability of the density-weighted graph integrand.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.euclideanSurfaceMeasure_realIsometry",
+      "file": "QuaternaryQuadraticForms/SurfaceIntegralTransport.lean",
+      "scope": "Orthogonal maps preserve the actual normalized Euclidean surface measure, by invariance of Hausdorff measure under isometries.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.euclideanSurfaceMeasure_restrict_realIsometry",
+      "file": "QuaternaryQuadraticForms/SurfaceIntegralTransport.lean",
+      "scope": "Restricting the actual surface measure commutes with the inverse image under an orthogonal map. This holds for every set.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularIntegral_integrable_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/SurfaceIntegralTransport.lean",
+      "scope": "Absolute integrability of the literal singular-integral integrand is equivalent before and after an orthogonal change of coordinates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.singularIntegral_comp_realIsometry",
+      "file": "QuaternaryQuadraticForms/SurfaceIntegralTransport.lean",
+      "scope": "The source singular integral is invariant under the actual orthogonal changes of variables used for localized weights.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:integrals",
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
@@ -14813,7 +17648,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Weil.lean",
       "correspondence_record": "certification/correspondence/weil_input.md",
       "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
-      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)] (\u03c8 : MulChar (ZMod p) \u2102),\n  \u03c8 \u2260 1 \u2192\n    \u2200 (f : Polynomial (ZMod p)),\n      0 < f.natDegree \u2192\n        Fintype.card \u2191(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree \u2192\n          \u2016\u2211 z, \u03c8 (Polynomial.eval z f)\u2016 \u2264 (\u2191f.natDegree - 1) * \u221a\u2191p",
+      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (ψ : MulChar (ZMod p) ℂ),\n  ψ ≠ 1 →\n    ∀ (f : Polynomial (ZMod p)),\n      0 < f.natDegree →\n        Fintype.card ↑(f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree →\n          ‖∑ z, ψ (Polynomial.eval z f)‖ ≤ (↑f.natDegree - 1) * √↑p",
       "type_sha256": "b0960f2d277d5160db6210e278adff703637d34f2bb29ee86470ddf64cba2f85"
     },
     {
@@ -14827,7 +17662,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Katz.lean",
       "correspondence_record": "certification/correspondence/katz_input.md",
       "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
-      "expected_type": "\u2200 (p : \u2115) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : \u2115),\n  0 < m \u2192\n    0 < n \u2192\n      F.IsHomogeneous m \u2192\n        F \u2260 0 \u2192\n          G.IsHomogeneous n \u2192\n            G \u2260 0 \u2192\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) \u2192\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) \u2192\n                    \u2200 (\u03c8 : MulChar (ZMod p) \u2102),\n                      \u03c8 \u2260 1 \u2192\n                        \u03c8 ^ n = 1 \u2192\n                          \u2200 (c : Polynomial \u2124),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c \u2192\n                              \u2203 r eigenvalues,\n                                \u2191r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c \u2227\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F \u03c8 G = \u2211 i, eigenvalues i \u2227\n                                    \u2200 (i : Fin r), \u2016eigenvalues i\u2016 = \u2191p",
+      "expected_type": "∀ (p : ℕ) [inst : Fact (Nat.Prime p)]\n  (F G : MvPolynomial (Fin 4) (ZMod p)) (m n : ℕ),\n  0 < m →\n    0 < n →\n      F.IsHomogeneous m →\n        F ≠ 0 →\n          G.IsHomogeneous n →\n            G ≠ 0 →\n              Irreducible ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                QuaternaryQuadraticForms.ProjectiveHypersurfaceSmooth\n                    ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F) →\n                  QuaternaryQuadraticForms.ProjectiveIntersectionTransverseRank\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) F)\n                      ((MvPolynomial.map (algebraMap (ZMod p) (AlgebraicClosure (ZMod p)))) G) →\n                    ∀ (ψ : MulChar (ZMod p) ℂ),\n                      ψ ≠ 1 →\n                        ψ ^ n = 1 →\n                          ∀ (c : Polynomial ℤ),\n                            QuaternaryQuadraticForms.SurfaceChernRelation m c →\n                              ∃ r eigenvalues,\n                                ↑r = QuaternaryQuadraticForms.surfaceSectionEulerCoefficient m n c ∧\n                                  QuaternaryQuadraticForms.projectiveHypersurfaceTrace F ψ G = ∑ i, eigenvalues i ∧\n                                    ∀ (i : Fin r), ‖eigenvalues i‖ = ↑p",
       "type_sha256": "0841ce91d4525dc10d64c991df75e176c85f1b67c77823926abf82cbf4d6a722"
     },
     {
@@ -14837,7 +17672,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Elimination.lean",
       "correspondence_record": "certification/correspondence/elimination_input.md",
       "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
-      "expected_type": "\u2200 (N : \u2115),\n  0 < N \u2192\n    \u2200 (\u03b9 : Type) [Fintype \u03b9] [Nonempty \u03b9] (d : \u03b9 \u2192 \u2115),\n      (\u2200 (i : \u03b9), 0 < d i) \u2192\n        \u2203 s R,\n          \u2200 (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d \u2192 K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) \u2194\n              \u2200 (j : Fin s), MvPolynomial.eval\u2082 (Int.castRingHom K) w (R j) = 0",
+      "expected_type": "∀ (N : ℕ),\n  0 < N →\n    ∀ (ι : Type) [Fintype ι] [Nonempty ι] (d : ι → ℕ),\n      (∀ (i : ι), 0 < d i) →\n        ∃ s R,\n          ∀ (K : Type) [inst : Field K] (w : QuaternaryQuadraticForms.HomogeneousCoefficient N d → K),\n            QuaternaryQuadraticForms.HasNonzeroGeometricZero (QuaternaryQuadraticForms.homogeneousSystem N d w) ↔\n              ∀ (j : Fin s), MvPolynomial.eval₂ (Int.castRingHom K) w (R j) = 0",
       "type_sha256": "5b055036c52e02383dce3540c86432f6756ed153d264cc1e3667088f45199c10"
     },
     {
@@ -14851,7 +17686,7 @@
       "file": "QuaternaryQuadraticForms/Trusted/Bertini.lean",
       "correspondence_record": "certification/correspondence/bertini_input.md",
       "scope": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
-      "expected_type": "\u2200 (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : \u2115),\n  c + 2 \u2264 N \u2192\n    \u2200 (P : Fin c \u2192 MvPolynomial (Fin N) K) (d : Fin c \u2192 \u2115),\n      (\u2200 (i : Fin c), 0 < d i) \u2192\n        (\u2200 (i : Fin c), (P i).IsHomogeneous (d i)) \u2192\n          (\u2200 (x : Fin N \u2192 K),\n              x \u2260 0 \u2192\n                (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) \u2192\n            \u2203 u,\n              u \u2260 0 \u2227\n                \u2200 (x : Fin N \u2192 K),\n                  x \u2260 0 \u2192\n                    (\u2200 (i : Fin c), (MvPolynomial.eval x) (P i) = 0) \u2192\n                      u \u2b1d\u1d65 x = 0 \u2192\n                        \u2203 v, (\u2200 (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x \u2b1d\u1d65 v = 0) \u2227 u \u2b1d\u1d65 v \u2260 0",
+      "expected_type": "∀ (K : Type u_1) [inst : Field K] [IsAlgClosed K]\n  (N c : ℕ),\n  c + 2 ≤ N →\n    ∀ (P : Fin c → MvPolynomial (Fin N) K) (d : Fin c → ℕ),\n      (∀ (i : Fin c), 0 < d i) →\n        (∀ (i : Fin c), (P i).IsHomogeneous (d i)) →\n          (∀ (x : Fin N → K),\n              x ≠ 0 →\n                (∀ (i : Fin c), (MvPolynomial.eval x) (P i) = 0) →\n                  (Matrix.rank fun i => QuaternaryQuadraticForms.polynomialGradient (P i) x) = c) →\n            ∃ u,\n              u ≠ 0 ∧\n                ∀ (x : Fin N → K),\n                  x ≠ 0 →\n                    (∀ (i : Fin c), (MvPolynomial.eval x) (P i) = 0) →\n                      u ⬝ᵥ x = 0 →\n                        ∃ v, (∀ (i : Fin c), QuaternaryQuadraticForms.polynomialGradient (P i) x ⬝ᵥ v = 0) ∧ u ⬝ᵥ v ≠ 0",
       "type_sha256": "dd54ac5f90f102a6351991ddeda32af07e27a39aef27950f7b8ac390f60b92e2"
     },
     {
@@ -14861,8 +17696,68 @@
       "file": "QuaternaryQuadraticForms/Trusted/HeathBrown.lean",
       "correspondence_record": "certification/correspondence/delta_symbol.md",
       "scope": "For the actual fixed Heath-Brown bump, sampling sum and kernel defined from Sections 2-3, the bump is continuous, nonnegative, positive on (1/2,1), and zero outside; the kernel is C-infinity on x>0, bounded by B/x, and has the stated support; its unnormalized unit-residue sum equals Q*S(Q)*1_(n=0) for Q>1; for each integer m>=2 the raw error |S(Q)-Q| is at most A_m*Q/Q^m uniformly for Q>1. Positivity and uniform rapid approximation of Q/S(Q) on Q>=3, normalized delta identity, phase conversion and finite outer support are internal deductions.",
-      "expected_type": "Continuous QuaternaryQuadraticForms.heathBrownBump \u2227\n  (\u2200 (t : \u211d), 0 \u2264 QuaternaryQuadraticForms.heathBrownBump t) \u2227\n    (\u2200 (t : \u211d), 1 / 2 < t \u2192 t < 1 \u2192 0 < QuaternaryQuadraticForms.heathBrownBump t) \u2227\n      (\u2200 (t : \u211d), \u00ac(1 / 2 < t \u2227 t < 1) \u2192 QuaternaryQuadraticForms.heathBrownBump t = 0) \u2227\n        ContDiffOn \u211d (\u2191\u22a4) QuaternaryQuadraticForms.heathBrownDeltaKernel {z | 0 < z.1} \u2227\n          (\u2203 B, 0 < B \u2227 \u2200 (x y : \u211d), 0 < x \u2192 |QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y)| \u2264 B / x) \u2227\n            (\u2200 (x y : \u211d), 0 < x \u2192 max 1 (2 * |y|) < x \u2192 QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y) = 0) \u2227\n              (\u2200 (Q : \u211d),\n                  1 < Q \u2192\n                    \u2200 (n : \u2124),\n                      \u2211' (c : \u2115+),\n                          QuaternaryQuadraticForms.deltaSymbolTerm QuaternaryQuadraticForms.heathBrownDeltaKernel Q n\n                            c =\n                        \u2191(Q * QuaternaryQuadraticForms.heathBrownSamplingSum Q) * if n = 0 then 1 else 0) \u2227\n                \u2200 (m : \u2115),\n                  2 \u2264 m \u2192\n                    \u2203 A,\n                      0 < A \u2227 \u2200 (Q : \u211d), 1 < Q \u2192 |QuaternaryQuadraticForms.heathBrownSamplingSum Q - Q| \u2264 A * Q / Q ^ m",
+      "expected_type": "Continuous QuaternaryQuadraticForms.heathBrownBump ∧\n  (∀ (t : ℝ), 0 ≤ QuaternaryQuadraticForms.heathBrownBump t) ∧\n    (∀ (t : ℝ), 1 / 2 < t → t < 1 → 0 < QuaternaryQuadraticForms.heathBrownBump t) ∧\n      (∀ (t : ℝ), ¬(1 / 2 < t ∧ t < 1) → QuaternaryQuadraticForms.heathBrownBump t = 0) ∧\n        ContDiffOn ℝ (↑⊤) QuaternaryQuadraticForms.heathBrownDeltaKernel {z | 0 < z.1} ∧\n          (∃ B, 0 < B ∧ ∀ (x y : ℝ), 0 < x → |QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y)| ≤ B / x) ∧\n            (∀ (x y : ℝ), 0 < x → max 1 (2 * |y|) < x → QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y) = 0) ∧\n              (∀ (Q : ℝ),\n                  1 < Q →\n                    ∀ (n : ℤ),\n                      ∑' (c : ℕ+),\n                          QuaternaryQuadraticForms.deltaSymbolTerm QuaternaryQuadraticForms.heathBrownDeltaKernel Q n\n                            c =\n                        ↑(Q * QuaternaryQuadraticForms.heathBrownSamplingSum Q) * if n = 0 then 1 else 0) ∧\n                ∀ (m : ℕ),\n                  2 ≤ m →\n                    ∃ A,\n                      0 < A ∧ ∀ (Q : ℝ), 1 < Q → |QuaternaryQuadraticForms.heathBrownSamplingSum Q - Q| ≤ A * Q / Q ^ m",
       "type_sha256": "24ef58f136425e7a4557d8d3e5a240690a9378d1223986d58a0eb08f5b8939b7"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+      "kind": "axiom",
+      "reference_id": "EXT.SIMON_GRAPH_AREA",
+      "file": "QuaternaryQuadraticForms/Trusted/SimonArea.lean",
+      "correspondence_record": "certification/correspondence/surface_area_formula.md",
+      "scope": "General measure identity for a C1 scalar graph on an open subset of Euclidean three-space, embedded in Euclidean four-space. Normalized Hausdorff measure restricted to the graph equals pushforward of Lebesgue measure weighted by sqrt(1+norm(gradient phi)^2). The function is globally measurable, and C1 only on the open domain. No quadratic form, weight, delta kernel, thin-slab limit, or manuscript singular integral is mentioned.",
+      "expected_type": "∀ (U : Set QuaternaryQuadraticForms.RealVector3)\n  (φ : QuaternaryQuadraticForms.RealVector3 → ℝ),\n  IsOpen U →\n    Measurable φ →\n      ContDiffOn ℝ 1 φ U →\n        QuaternaryQuadraticForms.euclideanSurfaceMeasure.restrict (QuaternaryQuadraticForms.surfaceGraph φ '' U) =\n          MeasureTheory.Measure.map (QuaternaryQuadraticForms.surfaceGraph φ)\n            ((MeasureTheory.volume.restrict U).withDensity fun y =>\n              ENNReal.ofReal (QuaternaryQuadraticForms.graphAreaFactor φ y))",
+      "type_sha256": "0322e06668e4ff716e9c0a72217d256fdb955e157bd8189df3d2b3b65a06f7f6"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+      "kind": "axiom",
+      "reference_id": "EXT.HB_WEIGHT_LOCALIZATION",
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "scope": "For a fixed real coefficient quadratic form and fixed common support, coordinate-partial and positive gradient bounds, choose one positive delta<=1, interval radius and positive first-derivative bound before the weight and center. Every actual localized piece is away from the zero set or satisfies the literal C0 interval geometry after a finite signed coordinate permutation. No global root, singular integral, oscillatory estimate, annular nondegeneracy proof or weight reconstruction is imported.",
+      "expected_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (L : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < L →\n        ∃ δ a lam,\n          0 < δ ∧\n            δ ≤ 1 ∧\n              0 < a ∧\n                0 < lam ∧\n                  ∀ (W : QuaternaryQuadraticForms.RealVector4 → ℂ),\n                    QuaternaryQuadraticForms.HBWeightControl B D W →\n                      (∀ x ∈ tsupport W, L ≤ ‖gradient (QuaternaryQuadraticForms.realQuadraticValue A) x‖) →\n                        ∀ (y : QuaternaryQuadraticForms.RealVector4),\n                          (∀ x ∈ tsupport (QuaternaryQuadraticForms.localizedWeight W δ y),\n                              QuaternaryQuadraticForms.realQuadraticValue A x ≠ 0) ∨\n                            ∃ s,\n                              QuaternaryQuadraticForms.HBC0Geometry\n                                (fun x =>\n                                  QuaternaryQuadraticForms.realQuadraticValue A\n                                    ((QuaternaryQuadraticForms.signedCoordinateIsometry s) x))\n                                a lam fun x =>\n                                QuaternaryQuadraticForms.localizedWeight W δ y\n                                  ((QuaternaryQuadraticForms.signedCoordinateIsometry s) x)",
+      "type_sha256": "c82b827b6526c2d7504b76fb08348bbac5e8a0e14cfaa3e7f7aa050c4f66f63d"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+      "kind": "axiom",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "scope": "For the fixed quadratic form and a quantitatively controlled C0 weight, every consistent selector of the prescribed interval roots gives an integrable graph-coordinate density and the actual thin-slab limit converges to its integral. The source functional is not identified with Euclidean surface measure by this premise.",
+      "expected_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ),\n            QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n              ∀ (φ : QuaternaryQuadraticForms.RealVector3 → ℝ),\n                QuaternaryQuadraticForms.HBGraphSelector (QuaternaryQuadraticForms.realQuadraticValue A) w a φ →\n                  MeasureTheory.IntegrableOn\n                      (fun y =>\n                        w (QuaternaryQuadraticForms.surfaceGraph φ y) /\n                          ↑(gradient (QuaternaryQuadraticForms.realQuadraticValue A)\n                              (QuaternaryQuadraticForms.surfaceGraph φ y) 0))\n                      (QuaternaryQuadraticForms.weightTailSupport w) MeasureTheory.volume ∧\n                    Filter.Tendsto\n                      (QuaternaryQuadraticForms.thinSlabIntegral (QuaternaryQuadraticForms.realQuadraticValue A) w)\n                      (nhdsWithin 0 (Set.Ioi 0))\n                      (nhds\n                        (QuaternaryQuadraticForms.hbGraphIntegral (QuaternaryQuadraticForms.realQuadraticValue A) w φ))",
+      "type_sha256": "3a8dc2089c2b4f98a926363ebfb23f8bbf032ecc5b95a0e09aa2aaff75ea6d80"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+      "kind": "axiom",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "scope": "For the fixed quadratic form and common C0 control, each positive natural order has one error constant before the weight and scale. On every fixed bounded range 0<r<=R the actual zero-frequency delta integral differs from its actual thin-slab limit by at most C*r^j. No unbounded-scale extension or surface-integral identification is imported.",
+      "expected_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            ∀ (j : ℕ),\n              1 ≤ j →\n                ∃ C,\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        ∀ (r : ℝ),\n                          0 < r →\n                            r ≤ R →\n                              ‖QuaternaryQuadraticForms.deltaIntegral (QuaternaryQuadraticForms.realQuadraticValue A) w\n                                      r 0 -\n                                    QuaternaryQuadraticForms.thinSlabSingularIntegral\n                                      (QuaternaryQuadraticForms.realQuadraticValue A) w‖ ≤\n                                C * r ^ j",
+      "type_sha256": "6f20a05a7938c8bad5c7e871952e85a2d689e447cce79906247fc4b12d622db2"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+      "kind": "axiom",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "scope": "For the fixed quadratic form and common C0 control on a fixed bounded positive scale range, choose modified derivative controls, amplitude controls and a positive constant before the weight, r and v. The actual integral is differentiable with the original v fixed. Separate modified weight/amplitude witnesses, supported in the original weight, bound the actual value by C/r times the actual auxiliary integral and the actual derivative by C/r^2 times such an integral. The homogeneity used by the source is satisfied by the quadratic expression; no rescaled final estimate is assumed.",
+      "expected_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            ∃ D' K C,\n              (∀ (k : ℕ), 0 < D' k) ∧\n                (∀ (j N : ℕ), 0 < K j N) ∧\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        ∀ (r : ℝ),\n                          0 < r →\n                            r ≤ R →\n                              ∀ (v : QuaternaryQuadraticForms.RealVector4),\n                                DifferentiableAt ℝ\n                                    (fun t =>\n                                      QuaternaryQuadraticForms.deltaIntegral\n                                        (QuaternaryQuadraticForms.realQuadraticValue A) w t v)\n                                    r ∧\n                                  (∃ w₁ f₁,\n                                      QuaternaryQuadraticForms.HBC0Control\n                                          (QuaternaryQuadraticForms.realQuadraticValue A) B D' a lam w₁ ∧\n                                        tsupport w₁ ⊆ tsupport w ∧\n                                          QuaternaryQuadraticForms.HBAmplitudeControl K f₁ ∧\n                                            ‖QuaternaryQuadraticForms.deltaIntegral\n                                                  (QuaternaryQuadraticForms.realQuadraticValue A) w r v‖ ≤\n                                              C * r⁻¹ *\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                    (QuaternaryQuadraticForms.realQuadraticValue A) w₁ f₁ r\n                                                    (r⁻¹ • v)‖) ∧\n                                    ∃ w₂ f₂,\n                                      QuaternaryQuadraticForms.HBC0Control\n                                          (QuaternaryQuadraticForms.realQuadraticValue A) B D' a lam w₂ ∧\n                                        tsupport w₂ ⊆ tsupport w ∧\n                                          QuaternaryQuadraticForms.HBAmplitudeControl K f₂ ∧\n                                            ‖deriv\n                                                  (fun t =>\n                                                    QuaternaryQuadraticForms.deltaIntegral\n                                                      (QuaternaryQuadraticForms.realQuadraticValue A) w t v)\n                                                  r‖ ≤\n                                              C * r⁻¹ ^ 2 *\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                    (QuaternaryQuadraticForms.realQuadraticValue A) w₂ f₂ r (r⁻¹ • v)‖",
+      "type_sha256": "d1b64cc0364519a1bf7906160ab57fd0b49b45f2597ec7b9aab2f6494765251d"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+      "kind": "axiom",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "correspondence_record": "certification/correspondence/delta_integrals.md",
+      "scope": "For a fixed real coefficient quadratic form and fixed common C0/H controls and bounded positive scale range, the actual auxiliary integral satisfies the three separate estimates of HB Lemmas 15,18,22 uniformly in weight, amplitude, scale and frequency. The final estimate includes an explicit positive uniform lower bound on the actual derivative-defined Hessian determinant. The dimension-four power is -1. No Hessian identification, nondegeneracy proof, final frequency rescaling or combination with the actual delta derivative is imported.",
+      "expected_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ) (K : ℕ → ℕ → ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            (∀ (j N : ℕ), 0 < K j N) →\n              (∃ C,\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                          ∀ (r : ℝ),\n                            0 < r →\n                              r ≤ R →\n                                ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                  ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                        (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                    C * r) ∧\n                (∀ (j : ℕ),\n                    1 ≤ j →\n                      ∃ C,\n                        0 < C ∧\n                          ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                            QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a\n                                lam w →\n                              QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                                ∀ (r : ℝ),\n                                  0 < r →\n                                    r ≤ R →\n                                      ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                        u ≠ 0 →\n                                          ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                            C * (r⁻¹ ^ j * ‖u‖⁻¹ ^ j)) ∧\n                  ∀ (η ε : ℝ),\n                    0 < η →\n                      0 < ε →\n                        ε < 1 / 2 →\n                          ∃ C,\n                            0 < C ∧\n                              ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                                QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D\n                                    a lam w →\n                                  QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                                    (∀ x ∈ tsupport w,\n                                        η ≤\n                                          |(QuaternaryQuadraticForms.realHessian\n                                                (QuaternaryQuadraticForms.realQuadraticValue A) x).det|) →\n                                      ∀ (r : ℝ),\n                                        0 < r →\n                                          r ≤ R →\n                                            ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                              u ≠ 0 →\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                      (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                                  C * ((r⁻¹ * ‖u‖) ^ ε * r * ‖u‖⁻¹)",
+      "type_sha256": "cd5d7f5bb0de555a7dc247da23e89919ff17a0128946cbac480c1820e2ef8f31"
     }
   ],
   "whole_paper_certified": false,

@@ -921,7 +921,176 @@ run_cmd do
     `QuaternaryQuadraticForms.heathBrownNormalization_error_bound_real,
     `QuaternaryQuadraticForms.heathBrown_delta_identity,
     `QuaternaryQuadraticForms.heathBrown_delta_finite_identity,
-    `QuaternaryQuadraticForms.source_delta_symbol]
+    `QuaternaryQuadraticForms.source_delta_symbol,
+    `QuaternaryQuadraticForms.heathBrownBaseBump_eq_expNegInvGlue,
+    `QuaternaryQuadraticForms.heathBrownBaseBump_contDiff,
+    `QuaternaryQuadraticForms.heathBrownBaseBump_nonneg,
+    `QuaternaryQuadraticForms.heathBrownBaseBump_ne_zero_iff,
+    `QuaternaryQuadraticForms.heathBrownBaseBump_hasCompactSupport,
+    `QuaternaryQuadraticForms.heathBrownBaseBump_integrable,
+    `QuaternaryQuadraticForms.heathBrownBumpMass_pos,
+    `QuaternaryQuadraticForms.heathBrownTheta_nonneg,
+    `QuaternaryQuadraticForms.heathBrownTheta_contDiff,
+    `QuaternaryQuadraticForms.heathBrownTheta_coordinates_lt_one,
+    `QuaternaryQuadraticForms.heathBrownTheta_tsupport_subset_cube,
+    `QuaternaryQuadraticForms.heathBrownTheta_norm_le_two_of_mem_tsupport,
+    `QuaternaryQuadraticForms.heathBrownTheta_hasCompactSupport,
+    `QuaternaryQuadraticForms.heathBrownTheta_integrable,
+    `QuaternaryQuadraticForms.heathBrownTheta_integral,
+    `QuaternaryQuadraticForms.UniformCoordinateDerivatives.uniformWeightDerivatives,
+    `QuaternaryQuadraticForms.UniformWeightDerivatives.uniformCoordinateDerivatives,
+    `QuaternaryQuadraticForms.uniformCoordinateDerivatives_iff_uniformWeightDerivatives,
+    `QuaternaryQuadraticForms.heathBrownTheta_uniform_translate_derivatives,
+    `QuaternaryQuadraticForms.UniformWeightDerivatives.localizedWeight,
+    `QuaternaryQuadraticForms.UniformCoordinateDerivatives.localizedWeight,
+    `QuaternaryQuadraticForms.UniformWeightDerivatives.comp_realIsometry,
+    `QuaternaryQuadraticForms.UniformCoordinateDerivatives.comp_realIsometry,
+    `QuaternaryQuadraticForms.localizedWeight_contDiff,
+    `QuaternaryQuadraticForms.localizedWeight_tsupport_subset,
+    `QuaternaryQuadraticForms.localizedWeight_tsupport_subset_closedBall,
+    `QuaternaryQuadraticForms.localizedWeight_hasCompactSupport,
+    `QuaternaryQuadraticForms.localizedWeight_isSmoothWeight,
+    `QuaternaryQuadraticForms.localizedWeight_nonzero_imp_near_support,
+    `QuaternaryQuadraticForms.heathBrownTheta_integral_scaled_translate,
+    `QuaternaryQuadraticForms.localizedWeight_integrable_in_center,
+    `QuaternaryQuadraticForms.localizedWeight_integral_center,
+    `QuaternaryQuadraticForms.localizedWeight_reconstruction,
+    `QuaternaryQuadraticForms.quadraticFamily_singularIntegral_integrable_of_isometry_cover,
+    `QuaternaryQuadraticForms.deltaIntegral_rescaledFrequency_norm,
+    `QuaternaryQuadraticForms.deltaIntegral_rapid_scale_identity,
+    `QuaternaryQuadraticForms.deltaIntegral_epsilon_scale_identity,
+    `QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_add,
+    `QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_double,
+    `QuaternaryQuadraticForms.deltaIntegral_combine_value_derivative_bounds,
+    `QuaternaryQuadraticForms.deltaIntegral_zero_weight,
+    `QuaternaryQuadraticForms.deltaIntegral_eq_zero_of_support_bound,
+    `QuaternaryQuadraticForms.deltaIntegral_eventually_zero,
+    `QuaternaryQuadraticForms.hasDerivAt_deltaIntegral_zero,
+    `QuaternaryQuadraticForms.deriv_deltaIntegral_eq_zero_of_support_bound,
+    `QuaternaryQuadraticForms.deltaIntegral_uniform_cutoff,
+    `QuaternaryQuadraticForms.source_delta_integrals_real,
+    `QuaternaryQuadraticForms.source_delta_integrals,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.extend_of_cutoff,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.of_finite_cover,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.of_realIsometry,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.of_isometry_cover,
+    `QuaternaryQuadraticForms.heathBrown_local_deltaIntegralBounds,
+    `QuaternaryQuadraticForms.realQuadraticGradient_hasFDerivAt,
+    `QuaternaryQuadraticForms.realHessian_realQuadraticValue,
+    `QuaternaryQuadraticForms.det_realHessian_realQuadraticValue,
+    `QuaternaryQuadraticForms.abs_det_realHessian_realQuadraticValue,
+    `QuaternaryQuadraticForms.realQuadraticValue_hessian_uniform_lower_bound,
+    `QuaternaryQuadraticForms.exists_uniformHBWeightControl,
+    `QuaternaryQuadraticForms.IsSmoothWeight.comp_realIsometry,
+    `QuaternaryQuadraticForms.tsupport_comp_realIsometry,
+    `QuaternaryQuadraticForms.localizedWeightFamily_isSmoothWeight,
+    `QuaternaryQuadraticForms.localizedWeightFamily_support_bound,
+    `QuaternaryQuadraticForms.localizedIsometryWeightFamily_isSmoothWeight,
+    `QuaternaryQuadraticForms.localizedIsometryWeightFamily_support_bound,
+    `QuaternaryQuadraticForms.localizedIsometryWeightFamily_uniform_control,
+    `QuaternaryQuadraticForms.localizedWeight_alternative,
+    `QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_pos,
+    `QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_norm_le_two,
+    `QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_le_two,
+    `QuaternaryQuadraticForms.sourceConstrainedFourierSum_zero_norm_le_two_mul_sq,
+    `QuaternaryQuadraticForms.sourceMainCoefficient_local_norm_le,
+    `QuaternaryQuadraticForms.graphPoint_contDiff,
+    `QuaternaryQuadraticForms.graphPoint_continuous,
+    `QuaternaryQuadraticForms.graphPoint_zero,
+    `QuaternaryQuadraticForms.graphPoint_succ,
+    `QuaternaryQuadraticForms.graphTail_apply,
+    `QuaternaryQuadraticForms.graphTail_continuous,
+    `QuaternaryQuadraticForms.graphTail_graphPoint,
+    `QuaternaryQuadraticForms.graphPoint_graphTail,
+    `QuaternaryQuadraticForms.real_inner_graphPoint,
+    `QuaternaryQuadraticForms.realVector4_norm_sq_graphTail,
+    `QuaternaryQuadraticForms.realQuadraticValue_graphPoint,
+    `QuaternaryQuadraticForms.realQuadraticGradient_graphPoint_zero,
+    `QuaternaryQuadraticForms.quadraticLinearCoeff_contDiff,
+    `QuaternaryQuadraticForms.quadraticConstantCoeff_contDiff,
+    `QuaternaryQuadraticForms.quadraticDiscriminant_contDiff,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_measurable,
+    `QuaternaryQuadraticForms.quadraticPositiveRootDomain_isOpen,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_contDiffOn,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_firstDerivative,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_value_zero,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_zero_pos,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_unique,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_characterization,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_succ,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_norm,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_area_measure,
+    `QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_graph,
+    `QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable_of_geometry,
+    `QuaternaryQuadraticForms.quadraticC0_thinSlab_tendsto_singularIntegral,
+    `QuaternaryQuadraticForms.quadraticC0_thinSlabSingularIntegral_eq_singularIntegral,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.congr_sigma,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.quadraticC0_surface,
+    `QuaternaryQuadraticForms.realVectorTail_continuous,
+    `QuaternaryQuadraticForms.realVectorTail_graphPoint,
+    `QuaternaryQuadraticForms.graphPoint_realVectorTail,
+    `QuaternaryQuadraticForms.realVectorTail_surfaceGraph,
+    `QuaternaryQuadraticForms.weightTailSupport_isCompact,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_hbGraphSelector,
+    `QuaternaryQuadraticForms.weightTailSupport_subset_quadraticPositiveRootDomain,
+    `QuaternaryQuadraticForms.quadraticC0_gradient_zero_pos_on_tsupport,
+    `QuaternaryQuadraticForms.quadraticC0_zero_mem_graph_of_mem_tsupport,
+    `QuaternaryQuadraticForms.weight_surfaceGraph_eq_zero_of_notMem_tailSupport,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_area_div_gradient,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_continuousOn,
+    `QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_integrable,
+    `QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_hbGraphIntegral,
+    `QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable,
+    `QuaternaryQuadraticForms.realQuadraticValue_eq_inner,
+    `QuaternaryQuadraticForms.realQuadraticValue_contDiff,
+    `QuaternaryQuadraticForms.realQuadraticValue_continuous,
+    `QuaternaryQuadraticForms.realQuadraticValue_smul,
+    `QuaternaryQuadraticForms.realQuadraticValue_hasGradientAt,
+    `QuaternaryQuadraticForms.gradient_realQuadraticValue,
+    `QuaternaryQuadraticForms.realQuadraticGradient_continuous,
+    `QuaternaryQuadraticForms.realQuadraticGradient_ne_zero,
+    `QuaternaryQuadraticForms.realVector4_isCompact_annulus,
+    `QuaternaryQuadraticForms.realQuadraticGradient_norm_annulus_lower_bound,
+    `QuaternaryQuadraticForms.gradient_realQuadraticValue_annulus_lower_bound,
+    `QuaternaryQuadraticForms.realQuadraticValue_abs_bound_closedBall,
+    `QuaternaryQuadraticForms.signedCoordinateIsometry_apply,
+    `QuaternaryQuadraticForms.signedCoordinateChange_card,
+    `QuaternaryQuadraticForms.signedCoordinateIsometry_norm,
+    `QuaternaryQuadraticForms.signedCoordinateIsometry_symm_norm,
+    `QuaternaryQuadraticForms.signedCoordinateIsometry_measurePreserving,
+    `QuaternaryQuadraticForms.real_inner_symm_isometry,
+    `QuaternaryQuadraticForms.hasGradientAt_comp_realIsometry,
+    `QuaternaryQuadraticForms.gradient_comp_realIsometry,
+    `QuaternaryQuadraticForms.norm_gradient_comp_realIsometry,
+    `QuaternaryQuadraticForms.gradient_realQuadraticValue_comp_isometry,
+    `QuaternaryQuadraticForms.realIsometryMatrix_apply,
+    `QuaternaryQuadraticForms.realIsometryMatrix_det_ne_zero,
+    `QuaternaryQuadraticForms.realQuadraticValue_matrix_congruence,
+    `QuaternaryQuadraticForms.realQuadraticPullbackMatrix_value,
+    `QuaternaryQuadraticForms.realQuadraticPullbackMatrix_symmetric,
+    `QuaternaryQuadraticForms.realQuadraticPullbackMatrix_det_ne_zero,
+    `QuaternaryQuadraticForms.deltaIntegral_comp_realIsometry,
+    `QuaternaryQuadraticForms.singularSeriesRemovalFactor_eq_primeFactors,
+    `QuaternaryQuadraticForms.singularSeriesRemovalFactor_one,
+    `QuaternaryQuadraticForms.singularSeriesConstant_eq_orderedValue,
+    `QuaternaryQuadraticForms.singularSeriesConstant_eq_of_goodPrimeAgreement,
+    `QuaternaryQuadraticForms.sourceMainCoefficient_one,
+    `QuaternaryQuadraticForms.sourceMainCoefficient_one_eq_singularSeriesConstant,
+    `QuaternaryQuadraticForms.sourceMainCoefficient_eq_prime_product,
+    `QuaternaryQuadraticForms.sourceMainCoefficient_norm_le,
+    `QuaternaryQuadraticForms.source_main_coefficient_bound,
+    `QuaternaryQuadraticForms.surfaceGraph_injective,
+    `QuaternaryQuadraticForms.surfaceGraph_measurable,
+    `QuaternaryQuadraticForms.surfaceGraph_measurableEmbedding,
+    `QuaternaryQuadraticForms.graphAreaFactor_pos,
+    `QuaternaryQuadraticForms.graphAreaFactor_nonneg,
+    `QuaternaryQuadraticForms.graphAreaFactor_measurable,
+    `QuaternaryQuadraticForms.integral_surfaceGraph_image,
+    `QuaternaryQuadraticForms.integrable_surfaceGraph_image_iff,
+    `QuaternaryQuadraticForms.euclideanSurfaceMeasure_realIsometry,
+    `QuaternaryQuadraticForms.euclideanSurfaceMeasure_restrict_realIsometry,
+    `QuaternaryQuadraticForms.singularIntegral_integrable_comp_realIsometry,
+    `QuaternaryQuadraticForms.singularIntegral_comp_realIsometry]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -931,7 +1100,13 @@ run_cmd do
     `QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data,
     `QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants,
     `QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent,
-    `QuaternaryQuadraticForms.Trusted.heathBrown_delta_data]
+    `QuaternaryQuadraticForms.Trusted.heathBrown_delta_data,
+    `QuaternaryQuadraticForms.Trusted.simon_graph_area,
+    `QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization,
+    `QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph,
+    `QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation,
+    `QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction,
+    `QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds]
   for name in inputNames do
     match environment.find? name with
     | some (.axiomInfo _) => pure ()
@@ -3715,3 +3890,528 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.source_delta_symbol
 #print axioms QuaternaryQuadraticForms.source_delta_symbol
+
+#check @QuaternaryQuadraticForms.Trusted.simon_graph_area
+#print axioms QuaternaryQuadraticForms.Trusted.simon_graph_area
+
+#check @QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization
+#print axioms QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization
+
+#check @QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph
+#print axioms QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph
+
+#check @QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation
+#print axioms QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation
+
+#check @QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction
+#print axioms QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction
+
+#check @QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds
+#print axioms QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds
+
+#check @QuaternaryQuadraticForms.heathBrownBaseBump_eq_expNegInvGlue
+#print axioms QuaternaryQuadraticForms.heathBrownBaseBump_eq_expNegInvGlue
+
+#check @QuaternaryQuadraticForms.heathBrownBaseBump_contDiff
+#print axioms QuaternaryQuadraticForms.heathBrownBaseBump_contDiff
+
+#check @QuaternaryQuadraticForms.heathBrownBaseBump_nonneg
+#print axioms QuaternaryQuadraticForms.heathBrownBaseBump_nonneg
+
+#check @QuaternaryQuadraticForms.heathBrownBaseBump_ne_zero_iff
+#print axioms QuaternaryQuadraticForms.heathBrownBaseBump_ne_zero_iff
+
+#check @QuaternaryQuadraticForms.heathBrownBaseBump_hasCompactSupport
+#print axioms QuaternaryQuadraticForms.heathBrownBaseBump_hasCompactSupport
+
+#check @QuaternaryQuadraticForms.heathBrownBaseBump_integrable
+#print axioms QuaternaryQuadraticForms.heathBrownBaseBump_integrable
+
+#check @QuaternaryQuadraticForms.heathBrownBumpMass_pos
+#print axioms QuaternaryQuadraticForms.heathBrownBumpMass_pos
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_nonneg
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_nonneg
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_contDiff
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_contDiff
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_coordinates_lt_one
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_coordinates_lt_one
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_tsupport_subset_cube
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_tsupport_subset_cube
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_norm_le_two_of_mem_tsupport
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_norm_le_two_of_mem_tsupport
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_hasCompactSupport
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_hasCompactSupport
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_integrable
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_integrable
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_integral
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_integral
+
+#check @QuaternaryQuadraticForms.UniformCoordinateDerivatives.uniformWeightDerivatives
+#print axioms QuaternaryQuadraticForms.UniformCoordinateDerivatives.uniformWeightDerivatives
+
+#check @QuaternaryQuadraticForms.UniformWeightDerivatives.uniformCoordinateDerivatives
+#print axioms QuaternaryQuadraticForms.UniformWeightDerivatives.uniformCoordinateDerivatives
+
+#check @QuaternaryQuadraticForms.uniformCoordinateDerivatives_iff_uniformWeightDerivatives
+#print axioms QuaternaryQuadraticForms.uniformCoordinateDerivatives_iff_uniformWeightDerivatives
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_uniform_translate_derivatives
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_uniform_translate_derivatives
+
+#check @QuaternaryQuadraticForms.UniformWeightDerivatives.localizedWeight
+#print axioms QuaternaryQuadraticForms.UniformWeightDerivatives.localizedWeight
+
+#check @QuaternaryQuadraticForms.UniformCoordinateDerivatives.localizedWeight
+#print axioms QuaternaryQuadraticForms.UniformCoordinateDerivatives.localizedWeight
+
+#check @QuaternaryQuadraticForms.UniformWeightDerivatives.comp_realIsometry
+#print axioms QuaternaryQuadraticForms.UniformWeightDerivatives.comp_realIsometry
+
+#check @QuaternaryQuadraticForms.UniformCoordinateDerivatives.comp_realIsometry
+#print axioms QuaternaryQuadraticForms.UniformCoordinateDerivatives.comp_realIsometry
+
+#check @QuaternaryQuadraticForms.localizedWeight_contDiff
+#print axioms QuaternaryQuadraticForms.localizedWeight_contDiff
+
+#check @QuaternaryQuadraticForms.localizedWeight_tsupport_subset
+#print axioms QuaternaryQuadraticForms.localizedWeight_tsupport_subset
+
+#check @QuaternaryQuadraticForms.localizedWeight_tsupport_subset_closedBall
+#print axioms QuaternaryQuadraticForms.localizedWeight_tsupport_subset_closedBall
+
+#check @QuaternaryQuadraticForms.localizedWeight_hasCompactSupport
+#print axioms QuaternaryQuadraticForms.localizedWeight_hasCompactSupport
+
+#check @QuaternaryQuadraticForms.localizedWeight_isSmoothWeight
+#print axioms QuaternaryQuadraticForms.localizedWeight_isSmoothWeight
+
+#check @QuaternaryQuadraticForms.localizedWeight_nonzero_imp_near_support
+#print axioms QuaternaryQuadraticForms.localizedWeight_nonzero_imp_near_support
+
+#check @QuaternaryQuadraticForms.heathBrownTheta_integral_scaled_translate
+#print axioms QuaternaryQuadraticForms.heathBrownTheta_integral_scaled_translate
+
+#check @QuaternaryQuadraticForms.localizedWeight_integrable_in_center
+#print axioms QuaternaryQuadraticForms.localizedWeight_integrable_in_center
+
+#check @QuaternaryQuadraticForms.localizedWeight_integral_center
+#print axioms QuaternaryQuadraticForms.localizedWeight_integral_center
+
+#check @QuaternaryQuadraticForms.localizedWeight_reconstruction
+#print axioms QuaternaryQuadraticForms.localizedWeight_reconstruction
+
+#check @QuaternaryQuadraticForms.quadraticFamily_singularIntegral_integrable_of_isometry_cover
+#print axioms QuaternaryQuadraticForms.quadraticFamily_singularIntegral_integrable_of_isometry_cover
+
+#check @QuaternaryQuadraticForms.deltaIntegral_rescaledFrequency_norm
+#print axioms QuaternaryQuadraticForms.deltaIntegral_rescaledFrequency_norm
+
+#check @QuaternaryQuadraticForms.deltaIntegral_rapid_scale_identity
+#print axioms QuaternaryQuadraticForms.deltaIntegral_rapid_scale_identity
+
+#check @QuaternaryQuadraticForms.deltaIntegral_epsilon_scale_identity
+#print axioms QuaternaryQuadraticForms.deltaIntegral_epsilon_scale_identity
+
+#check @QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_add
+#print axioms QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_add
+
+#check @QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_double
+#print axioms QuaternaryQuadraticForms.deltaIntegral_value_derivative_scale_double
+
+#check @QuaternaryQuadraticForms.deltaIntegral_combine_value_derivative_bounds
+#print axioms QuaternaryQuadraticForms.deltaIntegral_combine_value_derivative_bounds
+
+#check @QuaternaryQuadraticForms.deltaIntegral_zero_weight
+#print axioms QuaternaryQuadraticForms.deltaIntegral_zero_weight
+
+#check @QuaternaryQuadraticForms.deltaIntegral_eq_zero_of_support_bound
+#print axioms QuaternaryQuadraticForms.deltaIntegral_eq_zero_of_support_bound
+
+#check @QuaternaryQuadraticForms.deltaIntegral_eventually_zero
+#print axioms QuaternaryQuadraticForms.deltaIntegral_eventually_zero
+
+#check @QuaternaryQuadraticForms.hasDerivAt_deltaIntegral_zero
+#print axioms QuaternaryQuadraticForms.hasDerivAt_deltaIntegral_zero
+
+#check @QuaternaryQuadraticForms.deriv_deltaIntegral_eq_zero_of_support_bound
+#print axioms QuaternaryQuadraticForms.deriv_deltaIntegral_eq_zero_of_support_bound
+
+#check @QuaternaryQuadraticForms.deltaIntegral_uniform_cutoff
+#print axioms QuaternaryQuadraticForms.deltaIntegral_uniform_cutoff
+
+#check @QuaternaryQuadraticForms.source_delta_integrals_real
+#print axioms QuaternaryQuadraticForms.source_delta_integrals_real
+
+#check @QuaternaryQuadraticForms.source_delta_integrals
+#print axioms QuaternaryQuadraticForms.source_delta_integrals
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.extend_of_cutoff
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.extend_of_cutoff
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.of_finite_cover
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.of_finite_cover
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.of_realIsometry
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.of_realIsometry
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.of_isometry_cover
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.of_isometry_cover
+
+#check @QuaternaryQuadraticForms.heathBrown_local_deltaIntegralBounds
+#print axioms QuaternaryQuadraticForms.heathBrown_local_deltaIntegralBounds
+
+#check @QuaternaryQuadraticForms.realQuadraticGradient_hasFDerivAt
+#print axioms QuaternaryQuadraticForms.realQuadraticGradient_hasFDerivAt
+
+#check @QuaternaryQuadraticForms.realHessian_realQuadraticValue
+#print axioms QuaternaryQuadraticForms.realHessian_realQuadraticValue
+
+#check @QuaternaryQuadraticForms.det_realHessian_realQuadraticValue
+#print axioms QuaternaryQuadraticForms.det_realHessian_realQuadraticValue
+
+#check @QuaternaryQuadraticForms.abs_det_realHessian_realQuadraticValue
+#print axioms QuaternaryQuadraticForms.abs_det_realHessian_realQuadraticValue
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_hessian_uniform_lower_bound
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_hessian_uniform_lower_bound
+
+#check @QuaternaryQuadraticForms.exists_uniformHBWeightControl
+#print axioms QuaternaryQuadraticForms.exists_uniformHBWeightControl
+
+#check @QuaternaryQuadraticForms.IsSmoothWeight.comp_realIsometry
+#print axioms QuaternaryQuadraticForms.IsSmoothWeight.comp_realIsometry
+
+#check @QuaternaryQuadraticForms.tsupport_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.tsupport_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.localizedWeightFamily_isSmoothWeight
+#print axioms QuaternaryQuadraticForms.localizedWeightFamily_isSmoothWeight
+
+#check @QuaternaryQuadraticForms.localizedWeightFamily_support_bound
+#print axioms QuaternaryQuadraticForms.localizedWeightFamily_support_bound
+
+#check @QuaternaryQuadraticForms.localizedIsometryWeightFamily_isSmoothWeight
+#print axioms QuaternaryQuadraticForms.localizedIsometryWeightFamily_isSmoothWeight
+
+#check @QuaternaryQuadraticForms.localizedIsometryWeightFamily_support_bound
+#print axioms QuaternaryQuadraticForms.localizedIsometryWeightFamily_support_bound
+
+#check @QuaternaryQuadraticForms.localizedIsometryWeightFamily_uniform_control
+#print axioms QuaternaryQuadraticForms.localizedIsometryWeightFamily_uniform_control
+
+#check @QuaternaryQuadraticForms.localizedWeight_alternative
+#print axioms QuaternaryQuadraticForms.localizedWeight_alternative
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_pos
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_pos
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_norm_le_two
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_norm_le_two
+
+#check @QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_le_two
+#print axioms QuaternaryQuadraticForms.localQuadraticDensity_goodPrime_inv_le_two
+
+#check @QuaternaryQuadraticForms.sourceConstrainedFourierSum_zero_norm_le_two_mul_sq
+#print axioms QuaternaryQuadraticForms.sourceConstrainedFourierSum_zero_norm_le_two_mul_sq
+
+#check @QuaternaryQuadraticForms.sourceMainCoefficient_local_norm_le
+#print axioms QuaternaryQuadraticForms.sourceMainCoefficient_local_norm_le
+
+#check @QuaternaryQuadraticForms.graphPoint_contDiff
+#print axioms QuaternaryQuadraticForms.graphPoint_contDiff
+
+#check @QuaternaryQuadraticForms.graphPoint_continuous
+#print axioms QuaternaryQuadraticForms.graphPoint_continuous
+
+#check @QuaternaryQuadraticForms.graphPoint_zero
+#print axioms QuaternaryQuadraticForms.graphPoint_zero
+
+#check @QuaternaryQuadraticForms.graphPoint_succ
+#print axioms QuaternaryQuadraticForms.graphPoint_succ
+
+#check @QuaternaryQuadraticForms.graphTail_apply
+#print axioms QuaternaryQuadraticForms.graphTail_apply
+
+#check @QuaternaryQuadraticForms.graphTail_continuous
+#print axioms QuaternaryQuadraticForms.graphTail_continuous
+
+#check @QuaternaryQuadraticForms.graphTail_graphPoint
+#print axioms QuaternaryQuadraticForms.graphTail_graphPoint
+
+#check @QuaternaryQuadraticForms.graphPoint_graphTail
+#print axioms QuaternaryQuadraticForms.graphPoint_graphTail
+
+#check @QuaternaryQuadraticForms.real_inner_graphPoint
+#print axioms QuaternaryQuadraticForms.real_inner_graphPoint
+
+#check @QuaternaryQuadraticForms.realVector4_norm_sq_graphTail
+#print axioms QuaternaryQuadraticForms.realVector4_norm_sq_graphTail
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_graphPoint
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_graphPoint
+
+#check @QuaternaryQuadraticForms.realQuadraticGradient_graphPoint_zero
+#print axioms QuaternaryQuadraticForms.realQuadraticGradient_graphPoint_zero
+
+#check @QuaternaryQuadraticForms.quadraticLinearCoeff_contDiff
+#print axioms QuaternaryQuadraticForms.quadraticLinearCoeff_contDiff
+
+#check @QuaternaryQuadraticForms.quadraticConstantCoeff_contDiff
+#print axioms QuaternaryQuadraticForms.quadraticConstantCoeff_contDiff
+
+#check @QuaternaryQuadraticForms.quadraticDiscriminant_contDiff
+#print axioms QuaternaryQuadraticForms.quadraticDiscriminant_contDiff
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_measurable
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_measurable
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRootDomain_isOpen
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRootDomain_isOpen
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_contDiffOn
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_contDiffOn
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_firstDerivative
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_firstDerivative
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_value_zero
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_value_zero
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_zero_pos
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_zero_pos
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_unique
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_unique
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_characterization
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_characterization
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_succ
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_succ
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_norm
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_gradient_norm
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_area_measure
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_area_measure
+
+#check @QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_graph
+#print axioms QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_graph
+
+#check @QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable_of_geometry
+#print axioms QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable_of_geometry
+
+#check @QuaternaryQuadraticForms.quadraticC0_thinSlab_tendsto_singularIntegral
+#print axioms QuaternaryQuadraticForms.quadraticC0_thinSlab_tendsto_singularIntegral
+
+#check @QuaternaryQuadraticForms.quadraticC0_thinSlabSingularIntegral_eq_singularIntegral
+#print axioms QuaternaryQuadraticForms.quadraticC0_thinSlabSingularIntegral_eq_singularIntegral
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.congr_sigma
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.congr_sigma
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.quadraticC0_surface
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.quadraticC0_surface
+
+#check @QuaternaryQuadraticForms.realVectorTail_continuous
+#print axioms QuaternaryQuadraticForms.realVectorTail_continuous
+
+#check @QuaternaryQuadraticForms.realVectorTail_graphPoint
+#print axioms QuaternaryQuadraticForms.realVectorTail_graphPoint
+
+#check @QuaternaryQuadraticForms.graphPoint_realVectorTail
+#print axioms QuaternaryQuadraticForms.graphPoint_realVectorTail
+
+#check @QuaternaryQuadraticForms.realVectorTail_surfaceGraph
+#print axioms QuaternaryQuadraticForms.realVectorTail_surfaceGraph
+
+#check @QuaternaryQuadraticForms.weightTailSupport_isCompact
+#print axioms QuaternaryQuadraticForms.weightTailSupport_isCompact
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_hbGraphSelector
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_hbGraphSelector
+
+#check @QuaternaryQuadraticForms.weightTailSupport_subset_quadraticPositiveRootDomain
+#print axioms QuaternaryQuadraticForms.weightTailSupport_subset_quadraticPositiveRootDomain
+
+#check @QuaternaryQuadraticForms.quadraticC0_gradient_zero_pos_on_tsupport
+#print axioms QuaternaryQuadraticForms.quadraticC0_gradient_zero_pos_on_tsupport
+
+#check @QuaternaryQuadraticForms.quadraticC0_zero_mem_graph_of_mem_tsupport
+#print axioms QuaternaryQuadraticForms.quadraticC0_zero_mem_graph_of_mem_tsupport
+
+#check @QuaternaryQuadraticForms.weight_surfaceGraph_eq_zero_of_notMem_tailSupport
+#print axioms QuaternaryQuadraticForms.weight_surfaceGraph_eq_zero_of_notMem_tailSupport
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_area_div_gradient
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_area_div_gradient
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_continuousOn
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_continuousOn
+
+#check @QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_integrable
+#print axioms QuaternaryQuadraticForms.quadraticPositiveRoot_graphIntegrand_integrable
+
+#check @QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_hbGraphIntegral
+#print axioms QuaternaryQuadraticForms.quadraticC0_singularIntegral_eq_hbGraphIntegral
+
+#check @QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable
+#print axioms QuaternaryQuadraticForms.quadraticC0_singularIntegral_integrable
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_eq_inner
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_eq_inner
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_contDiff
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_contDiff
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_continuous
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_continuous
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_smul
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_smul
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_hasGradientAt
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_hasGradientAt
+
+#check @QuaternaryQuadraticForms.gradient_realQuadraticValue
+#print axioms QuaternaryQuadraticForms.gradient_realQuadraticValue
+
+#check @QuaternaryQuadraticForms.realQuadraticGradient_continuous
+#print axioms QuaternaryQuadraticForms.realQuadraticGradient_continuous
+
+#check @QuaternaryQuadraticForms.realQuadraticGradient_ne_zero
+#print axioms QuaternaryQuadraticForms.realQuadraticGradient_ne_zero
+
+#check @QuaternaryQuadraticForms.realVector4_isCompact_annulus
+#print axioms QuaternaryQuadraticForms.realVector4_isCompact_annulus
+
+#check @QuaternaryQuadraticForms.realQuadraticGradient_norm_annulus_lower_bound
+#print axioms QuaternaryQuadraticForms.realQuadraticGradient_norm_annulus_lower_bound
+
+#check @QuaternaryQuadraticForms.gradient_realQuadraticValue_annulus_lower_bound
+#print axioms QuaternaryQuadraticForms.gradient_realQuadraticValue_annulus_lower_bound
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_abs_bound_closedBall
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_abs_bound_closedBall
+
+#check @QuaternaryQuadraticForms.signedCoordinateIsometry_apply
+#print axioms QuaternaryQuadraticForms.signedCoordinateIsometry_apply
+
+#check @QuaternaryQuadraticForms.signedCoordinateChange_card
+#print axioms QuaternaryQuadraticForms.signedCoordinateChange_card
+
+#check @QuaternaryQuadraticForms.signedCoordinateIsometry_norm
+#print axioms QuaternaryQuadraticForms.signedCoordinateIsometry_norm
+
+#check @QuaternaryQuadraticForms.signedCoordinateIsometry_symm_norm
+#print axioms QuaternaryQuadraticForms.signedCoordinateIsometry_symm_norm
+
+#check @QuaternaryQuadraticForms.signedCoordinateIsometry_measurePreserving
+#print axioms QuaternaryQuadraticForms.signedCoordinateIsometry_measurePreserving
+
+#check @QuaternaryQuadraticForms.real_inner_symm_isometry
+#print axioms QuaternaryQuadraticForms.real_inner_symm_isometry
+
+#check @QuaternaryQuadraticForms.hasGradientAt_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.hasGradientAt_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.gradient_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.gradient_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.norm_gradient_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.norm_gradient_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.gradient_realQuadraticValue_comp_isometry
+#print axioms QuaternaryQuadraticForms.gradient_realQuadraticValue_comp_isometry
+
+#check @QuaternaryQuadraticForms.realIsometryMatrix_apply
+#print axioms QuaternaryQuadraticForms.realIsometryMatrix_apply
+
+#check @QuaternaryQuadraticForms.realIsometryMatrix_det_ne_zero
+#print axioms QuaternaryQuadraticForms.realIsometryMatrix_det_ne_zero
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_matrix_congruence
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_matrix_congruence
+
+#check @QuaternaryQuadraticForms.realQuadraticPullbackMatrix_value
+#print axioms QuaternaryQuadraticForms.realQuadraticPullbackMatrix_value
+
+#check @QuaternaryQuadraticForms.realQuadraticPullbackMatrix_symmetric
+#print axioms QuaternaryQuadraticForms.realQuadraticPullbackMatrix_symmetric
+
+#check @QuaternaryQuadraticForms.realQuadraticPullbackMatrix_det_ne_zero
+#print axioms QuaternaryQuadraticForms.realQuadraticPullbackMatrix_det_ne_zero
+
+#check @QuaternaryQuadraticForms.deltaIntegral_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.deltaIntegral_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.singularSeriesRemovalFactor_eq_primeFactors
+#print axioms QuaternaryQuadraticForms.singularSeriesRemovalFactor_eq_primeFactors
+
+#check @QuaternaryQuadraticForms.singularSeriesRemovalFactor_one
+#print axioms QuaternaryQuadraticForms.singularSeriesRemovalFactor_one
+
+#check @QuaternaryQuadraticForms.singularSeriesConstant_eq_orderedValue
+#print axioms QuaternaryQuadraticForms.singularSeriesConstant_eq_orderedValue
+
+#check @QuaternaryQuadraticForms.singularSeriesConstant_eq_of_goodPrimeAgreement
+#print axioms QuaternaryQuadraticForms.singularSeriesConstant_eq_of_goodPrimeAgreement
+
+#check @QuaternaryQuadraticForms.sourceMainCoefficient_one
+#print axioms QuaternaryQuadraticForms.sourceMainCoefficient_one
+
+#check @QuaternaryQuadraticForms.sourceMainCoefficient_one_eq_singularSeriesConstant
+#print axioms QuaternaryQuadraticForms.sourceMainCoefficient_one_eq_singularSeriesConstant
+
+#check @QuaternaryQuadraticForms.sourceMainCoefficient_eq_prime_product
+#print axioms QuaternaryQuadraticForms.sourceMainCoefficient_eq_prime_product
+
+#check @QuaternaryQuadraticForms.sourceMainCoefficient_norm_le
+#print axioms QuaternaryQuadraticForms.sourceMainCoefficient_norm_le
+
+#check @QuaternaryQuadraticForms.source_main_coefficient_bound
+#print axioms QuaternaryQuadraticForms.source_main_coefficient_bound
+
+#check @QuaternaryQuadraticForms.surfaceGraph_injective
+#print axioms QuaternaryQuadraticForms.surfaceGraph_injective
+
+#check @QuaternaryQuadraticForms.surfaceGraph_measurable
+#print axioms QuaternaryQuadraticForms.surfaceGraph_measurable
+
+#check @QuaternaryQuadraticForms.surfaceGraph_measurableEmbedding
+#print axioms QuaternaryQuadraticForms.surfaceGraph_measurableEmbedding
+
+#check @QuaternaryQuadraticForms.graphAreaFactor_pos
+#print axioms QuaternaryQuadraticForms.graphAreaFactor_pos
+
+#check @QuaternaryQuadraticForms.graphAreaFactor_nonneg
+#print axioms QuaternaryQuadraticForms.graphAreaFactor_nonneg
+
+#check @QuaternaryQuadraticForms.graphAreaFactor_measurable
+#print axioms QuaternaryQuadraticForms.graphAreaFactor_measurable
+
+#check @QuaternaryQuadraticForms.integral_surfaceGraph_image
+#print axioms QuaternaryQuadraticForms.integral_surfaceGraph_image
+
+#check @QuaternaryQuadraticForms.integrable_surfaceGraph_image_iff
+#print axioms QuaternaryQuadraticForms.integrable_surfaceGraph_image_iff
+
+#check @QuaternaryQuadraticForms.euclideanSurfaceMeasure_realIsometry
+#print axioms QuaternaryQuadraticForms.euclideanSurfaceMeasure_realIsometry
+
+#check @QuaternaryQuadraticForms.euclideanSurfaceMeasure_restrict_realIsometry
+#print axioms QuaternaryQuadraticForms.euclideanSurfaceMeasure_restrict_realIsometry
+
+#check @QuaternaryQuadraticForms.singularIntegral_integrable_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.singularIntegral_integrable_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.singularIntegral_comp_realIsometry
+#print axioms QuaternaryQuadraticForms.singularIntegral_comp_realIsometry

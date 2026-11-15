@@ -94,12 +94,17 @@ EXTERNAL_GROUPS = {
  'FINITE':'Weil, Katz and Fulton\nFinite-field sums and surface geometry',
  'GEOMETRY':'Lang and Hartshorne\nElimination, Bertini, cyclotomic fields',
  'S':'Salberger\nComplete intersections and lines',
+ 'AREA':'Simon\nEuclidean graph area formula',
 }
 PREMISE_NAMES = {
  'EXT.WEIL':'Weil',
  'EXT.KATZ':'composite Katz',
  'EXT.LANG_ELIMINATION':'Lang elimination',
  'EXT.HARTSHORNE_BERTINI':'composite Bertini',
+ 'EXT.HB_DELTA':'HB delta construction',
+ 'EXT.HB_WEIGHT_LOCALIZATION':'HB localization',
+ 'EXT.HB_INTEGRAL_ESTIMATES':'HB integral inputs',
+ 'EXT.SIMON_GRAPH_AREA':'Simon graph area',
 }
 OVERVIEW_GROUPS = [
  ('prelim','Preliminary tools','Lemmas 2.1-2.4',
@@ -150,6 +155,7 @@ def source_link(row):
 
 
 def group_of_external(key):
+    if key == 'EXT.SIMON_GRAPH_AREA': return 'AREA'
     if key.startswith('EXT.HB') or key == 'EXT.POISSON_R4': return 'HB'
     if key.startswith('EXT.MV'): return 'MV'
     if key in ['EXT.WEIL','EXT.KATZ','EXT.HYPERSURFACE_CHERN']: return 'FINITE'
@@ -159,22 +165,25 @@ def group_of_external(key):
 
 
 def premise_summary(data):
-    return '; '.join(PREMISE_NAMES.get(entry['reference_id'], entry['reference_id'])
-                     for entry in data['registered_lean_inputs'])
+    counts = collections.Counter(entry['reference_id'] for entry in data['registered_lean_inputs'])
+    labels = [PREMISE_NAMES.get(key, key) + (f' ({count})' if count > 1 else '')
+              for key, count in counts.items()]
+    return textwrap.fill('; '.join(labels), width=76)
 
 
 def external_group_label(data, group):
-    names = [PREMISE_NAMES.get(entry['reference_id'], entry['reference_id'])
-             for entry in data['registered_lean_inputs']
-             if group_of_external(entry['reference_id']) == group]
-    registration = 'Registered Lean: ' + '; '.join(names) if names else 'Mapped sources; no registered Lean premise'
+    counts = collections.Counter(entry['reference_id'] for entry in data['registered_lean_inputs']
+                                 if group_of_external(entry['reference_id']) == group)
+    names = [PREMISE_NAMES.get(key, key) + (f' ({count})' if count > 1 else '')
+             for key, count in counts.items()]
+    registration = textwrap.fill('Registered Lean: ' + '; '.join(names), width=48) if names else 'Mapped sources; no registered Lean premise'
     return EXTERNAL_GROUPS.get(group, group) + '\n' + registration
 
 
 def external_registration_label(data, key):
     direct = [entry for entry in data['registered_lean_inputs'] if entry['reference_id'] == key]
     if direct:
-        return 'Registered Lean premise'
+        return f'{len(direct)} registered Lean premises' if len(direct) > 1 else 'Registered Lean premise'
     components = [entry for entry in data['registered_lean_inputs']
                   if key in entry.get('source_components', [])]
     if components:
@@ -334,7 +343,7 @@ def write_overview(data, edges, sources):
     reduced=transitive_reduction(groupnodes,gedges)
     dot=header('Overview','Proof structure of the quadratic-forms paper',
                'Frozen github manuscript | '+status_summary(data['results'])+' | Source-relative Lean certification',True)
-    dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger\nRegistered Lean premises:\n'+premise_summary(data))+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
+    dot.append('sources [label='+q('Trusted reference inputs\nHeath-Brown; Simon; Weil, Katz and Fulton;\nMontgomery-Vaughan; Lang; Hartshorne; Salberger\nRegistered Lean premises:\n'+premise_summary(data))+', fillcolor="#eeeafd", color="#7762b4", fontsize=14];')
     for group,title,subtitle,members in OVERVIEW_GROUPS:
         member_rows=[rowmap[x] for x in members]
         states={r.get('status','Pending') for r in member_rows}

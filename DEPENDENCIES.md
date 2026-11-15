@@ -13,10 +13,10 @@ governs completion; a dependency in a graph is not a certification claim.
 |---|---|---|
 | Overview | The main proof branches, with related numbered results grouped together | [SVG](docs/dependency_overview.svg), [PDF](docs/dependency_overview.pdf), [PNG](docs/dependency_overview.png) |
 | Numbered results | All 42 theorem, lemma, proposition and corollary statements shown separately | [SVG](docs/dependency_graph.svg), [PDF](docs/dependency_graph.pdf), [PNG](docs/dependency_graph.png) |
-| Complete graph | The 42 numbered results, 33 auxiliary or supplementary groups, and 20 literature input groups | [Graphviz source](docs/dependency_complete.dot) |
+| Complete graph | The 42 numbered results, 33 auxiliary or supplementary groups, and 21 literature input groups | [Graphviz source](docs/dependency_complete.dot) |
 
 The [machine-readable dependency inventory](certification/dependency_inventory.json)
-is the detailed record: 75 internal nodes and 20 source-input nodes, with 137
+is the detailed record: 75 internal nodes and 21 source-input nodes, with 137
 edges between internal nodes. It retains the reasons for dependencies, exact
 source locations, statement text, and the inputs that need formal interfaces.
 There are 80 direct dependencies between numbered results.
@@ -27,6 +27,80 @@ Consequently, the number of visible arrows is smaller than the number in the
 detailed record. The overview additionally groups results. An arrow between
 groups means that a result in the first group supports a result in the second;
 it need not connect every member of the two groups.
+
+## Current analytic and coefficient checkpoint
+
+**Lemma 2.2 is Certified relative to its registered literature inputs.**
+For a fixed symmetric nonsingular form and a smooth complex weight family
+with common annular support and coordinate derivative bounds, the actual
+delta integral uses the same fixed Heath–Brown kernel as Lemma 2.1 and the
+actual localized weights. One positive localization scale and one cutoff
+are selected before every weight and center. Above the cutoff,
+both the integral and its derivative with frequency held fixed vanish for
+every piece. For the pieces whose closed support meets the zero set, all
+positive scales satisfy the zero-frequency approximation, derivative bound,
+rapid nonzero-frequency decay, and combined epsilon estimate, with constants
+uniform over the family. The singular integral is the actual normalized
+Euclidean surface integral, and its absolute integrability is proved for
+these pieces. The complete source endpoint is
+[source_delta_integrals](QuaternaryQuadraticForms/DeltaIntegralTheorem.lean).
+
+The separate **aux:weight_pieces is also Certified**, using no literature
+premise: the fixed normalized four-dimensional bump has unit integral, the
+pieces reconstruct the original weight, their supports lie in the original
+support and within Euclidean distance `2*delta` of the center, and their
+derivatives have common bounds.
+Five precise Heath–Brown analytic inputs and Simon's general graph area
+formula are newly registered. The quadratic chart, its Jacobian and gradient
+ratio, surface normalization, coordinate transport, finite choice of common
+constants, and extension to all positive scales are internal deductions.
+See the [complete source review](certification/correspondence/delta_integrals.md)
+and the [surface-measure review](certification/correspondence/surface_area_formula.md).
+
+**The requested coefficient identity and bound, aux:Sxi and aux:Sxibound,
+are also proved.** For a fixed symmetric nonsingular integral form with
+nonsquare determinant, positive squarefree `q` coprime to the source excluded
+modulus, and the original supplied local functions, the actual coefficient
+satisfies
+
+$$
+\mathfrak S_\xi(q)
+=\frac{C_q(0)}{q^3}
+ \lim_{X\to\infty}\sum_{\substack{1\le c\le X\\(c,q)=1}}
+ \frac{S_c(0)}{c^4}
+=\mathfrak S_F\prod_{p\mid q}\frac{C_p(0)}{p^3\sigma_p}.
+$$
+
+Under the original local Fourier bound with `K>=1`, the explicit estimate is
+
+$$
+|\mathfrak S_\xi(q)|
+\le |\mathfrak S_F|\frac{(4K)^{\omega(q)}}q
+\le C_{F,K,\varepsilon}q^{-1+\varepsilon}.
+$$
+
+For every `epsilon>0`, the positive constant is chosen before the character
+level `M`, character `chi`, excluded modulus `N`, local functions `xi`,
+polynomials `D`, and `q`. The proof retains the actual increasing-modulus
+series, proves the prime-index bridge, and covers `q=1` and `S_F=0`.
+Only good-prime densities are inverted; no division by the global coefficient
+or a Fourier value is used. The fourteen new exports in three modules use no
+literature premise. See the
+[identity](QuaternaryQuadraticForms/SourceMainCoefficient.lean),
+[uniform bound](QuaternaryQuadraticForms/SourceMainCoefficientBound.lean),
+and [source correspondence](certification/correspondence/main_coefficient.md).
+
+The shared weight family has common coordinate derivative bounds and support
+in a fixed annulus. The final theorem chooses the localization scale first,
+then uses the finite family of actual signed coordinate isometries to select
+common constants before every piece, scale, and frequency. The actual
+quadratic gradient and Hessian, uniform annular gradient lower bound,
+coordinate pullback, positive-root chart, and surface-integral transport are
+proved in Lean. The bounded-scale source estimates extend internally to all
+`r>0` using the common kernel cutoff, including the zero-frequency error.
+This completes Lemma 2.2 and aux:weight_pieces; the separate general
+cone-vertex integrability and scaled-integral obligations retain their own
+Pending status.
 
 ## How the proof is organized
 
@@ -71,9 +145,9 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 17 · Partial: 0 · Active: 0 · Pending:
-25**. Lemmas 2.5, 2.7 and 3.1–3.7, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
-complete source-relative proofs. Lemma 4.1 includes finiteness of
+The numbered-result counts are **Complete: 24 · Partial: 0 · Active: 0 · Pending:
+18**. Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6 and 5.9
+have complete source-relative proofs (including Corollary 2.6). Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
 Its part (i) also closes the reduction dependency in Lemma 5.9, whose final theorem
@@ -183,20 +257,24 @@ an exact bad/good factorization preserve cancellation in the modulus
 sum. The stronger core theorem also removes squarefreeness.
 No literature premise is added or used.
 
-All **33 auxiliary or supplementary groups** remain Pending. These groups
-include proof steps needed by the main argument and mathematical assertions
-outside numbered theorem environments. They are not added to the
-numbered-result count. The 677 theorem exports across 165 Lean modules are
-also counted separately from the four external Lean premises. The current
-expected verification scope includes 195 hashed inputs and nine pinned dependency
-revisions. The 20 mapped source groups and four registered premises are
-unchanged; aggregate execution evidence is recorded in the checkpoint.
-The whole-paper certification flag remains false.
+The **33 auxiliary or supplementary groups** comprise **5 Certified and
+28 Pending** claims. The polynomial-box epsilon consequence, aux:Cfactor,
+aux:weight_pieces, aux:Sxi, and aux:Sxibound are complete. These groups include
+proof steps needed by the main argument and mathematical assertions outside numbered theorem
+environments; they are not added to the numbered-result count. The current
+scope contains **1,087 theorem exports across 247 Lean modules**, counted
+separately from the **11 external Lean premises**. It includes **286 inspected
+inputs**, nine pinned dependency revisions, and **21 mapped source groups**.
+Strict declaration inspection, source review, and current local aggregate
+and exact-commit CI execution evidence for the combined scope are recorded
+separately in the checkpoint. Historical aggregate evidence retains
+its original scope. The whole-paper
+certification flag remains false.
 
-Two examples matter throughout the analytic argument: the scaled integral
-estimate (5.5), recorded as `aux:Ipiece`, and the weighted singular-series
-identity and bound (3.27)-(3.28), recorded as `aux:Sxi` and `aux:Sxibound`.
-These remain deductions to establish, not additional assumptions. The detailed
+The scaled integral estimate (5.5), recorded as `aux:Ipiece`, remains a
+deduction to establish. The weighted singular-series identity and bound
+(3.27)–(3.28), recorded as `aux:Sxi` and `aux:Sxibound`, are now proved
+internally from the completed Fourier-product and singular-series results. The detailed
 record also retains the counterexamples in Remark 4.1, the modulus-range
 consequences, the height thresholds, and the conditional calculation in
 Section 7.2. The open questions in the conclusion are not assertions to prove.
@@ -205,8 +283,8 @@ Section 7.2. The open questions in the conclusion are not assertions to prove.
 
 We accept the exact literature statements used in the proofs and verify their
 hypotheses and the manuscript's deductions. The [source registry](TRUSTED_INPUTS.md)
-records these inputs. It distinguishes 20 mapped source groups from the four
-registered external Lean premises. The first is the simple-root
+records these inputs. It distinguishes 21 mapped source groups from the
+11 registered external Lean premises. The first is the simple-root
 univariate Weil estimate from [K, equation (1.2)], specialized to the prime
 field; its [declaration](QuaternaryQuadraticForms/Trusted/Weil.lean) and
 [source correspondence](certification/correspondence/weil_input.md) fix its
@@ -249,12 +327,40 @@ to the actual quadric and form, resultant construction, descent to the prime
 field and uniform degree bound are internal proofs. This interface imposes
 no characteristic restriction or divisibility condition on the degrees.
 
+The fifth premise is the [fixed Heath–Brown delta construction](QuaternaryQuadraticForms/Trusted/HeathBrown.lean).
+Its [source review](certification/correspondence/delta_symbol.md) records the
+actual bump, sampling sum, kernel properties, unnormalized delta identity,
+and raw sampling estimate. The uniform positive normalization for real
+`Q>=3`, exact normalized identity, original residue phases, and finite outer
+support of Lemma 2.1 are internal deductions.
+
+Lemma 2.2 adds five [Heath–Brown analytic inputs](QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean):
+uniform localization, the thin-slab graph limit, zero-frequency approximation,
+fixed-frequency integral reduction, and auxiliary oscillatory estimates.
+Their [source review](certification/correspondence/delta_integrals.md) records
+all weight, derivative, amplitude, and geometric bounds before the individual
+weight, scale, and frequency, and keeps the cited estimates on a fixed bounded
+positive scale range. The real-coefficient scope is justified by the inspected
+analytic arguments. Their extension to all positive scales uses the actual
+kernel cutoff internally.
+
+The remaining new premise is [Simon's general graph area formula](QuaternaryQuadraticForms/Trusted/SimonArea.lean),
+registered as `EXT.SIMON_GRAPH_AREA`. Its
+[source review](certification/correspondence/surface_area_formula.md) fixes the
+normalization of Euclidean surface measure relative to mathlib's raw
+Hausdorff measure. Heath–Brown's graph-coordinate expression is connected to
+the manuscript's actual surface integral by a proved quadratic chart,
+Jacobian-to-gradient identity, support restriction, and complex integration
+argument. No manuscript-specific normalization or internal geometry is
+accepted as an extra premise. The newly Certified weight-piece construction
+uses only standard logical foundations.
+
 Existing results from official Lean and the pinned official
 [mathlib4](https://github.com/leanprover-community/mathlib4) may be reused.
 The prime-field quadratic Gauss identities needed for Lemma 4.6 are proved
 from those library results in
 [PrimeQuadraticGauss](QuaternaryQuadraticForms/PrimeQuadraticGauss.lean).
-The source's Gauss-sum citation does not introduce a fifth Lean premise.
+The source's Gauss-sum citation does not introduce an additional Lean premise.
 The exact pencil formula and trace use no literature premise, and the
 generic bound uses the already registered affine Weil estimate only in
 the separable cubic case.
@@ -1365,41 +1471,29 @@ analytic theorems retain their separate Pending status. Execution
 evidence for the complete 677-export aggregate and its exact proof
 commit is recorded separately from this mathematical scope.
 
-## Next proof branch
+## Continuation status
 
-The next bounded target is complete Lemma 3.8, `lem:density`,
-source lines 1409–1446. For every prime $p$, establish the existence
-of the actual local-density limit and the absolutely convergent series
+The requested work on **Lemma 2.2** and the return to **aux:Sxi** and
+**aux:Sxibound** is complete at the proof level. The combined declaration
+inspection, local aggregate verifier, and exact-commit CI gates are recorded
+in the current verification block. No further proof target is started or
+automatically selected by this checkpoint.
 
-$$
-\sigma_p
-=\lim_{k\to\infty}p^{-3k}
-\#\{x\bmod p^k:F(x)\equiv0\pmod{p^k}\}
-=\sum_{j\ge0}\frac{S_{p^j}(0)}{p^{4j}}.
-$$
+The coefficient now uses the original local functions and zero-frequency
+Fourier sums, the actual local counting densities, and the increasing-modulus
+singular-series value. Its exact product and uniform bound include `q=1`,
+possible zero global coefficients, and constants chosen before the supplied
+character data, local functions, exceptional polynomials, and modulus.
 
-The finite starting identity must use the actual residue-class count,
-additive orthogonality, and the partition of the scalar parameter by
-its $p$-adic valuation. The uniform complete-sum bound supplies
-absolute convergence at every prime, including bad primes and $2$.
-For $p\nmid N_F$, the actual unramified formula should give
-
-$$
-\sigma_p=\frac{1-\chi(p)p^{-2}}{1-\chi(p)p^{-1}}.
-$$
-
-The last clause concerns the corrected Euler product in `eq:SF`,
-$\prod_p(1-\chi(p)/p)\sigma_p$, whose good-prime factors are
-$1-\chi(p)p^{-2}$. Absolute convergence must be proved for that
-corrected product. The raw product of the local densities is not
-the product asserted in Lemma 3.8. The prime-power modulus-one term,
-all-prime limit, good-prime denominator, and finite bad-prime factors
-must be included in the complete source correspondence.
-
-Lemma 3.8 remains Pending. Lemmas 3.1–3.7 and all Section 4 lemmas
-are complete. Theorem 1.3's global asymptotic, the analytic assembly,
-Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
-Pending.
+Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas are
+complete. The polynomial-box epsilon consequence, aux:Cfactor,
+aux:weight_pieces, aux:Sxi, and aux:Sxibound are the five Certified
+supplementary groups; the other 28 remain Pending. Lemma 2.3 and the
+separate inverse-norm cone-counting consequence retain their own Pending
+status. The scaled-integral, Poisson, and three-frequency contributions are
+still required for Proposition 5.1, as is the separately tracked absolute
+singular-integral obligation for general weights meeting the cone vertex.
+The global analytic proposition and main theorems are not yet certified.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;
