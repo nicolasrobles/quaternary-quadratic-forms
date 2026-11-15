@@ -216,30 +216,55 @@ This repository does not yet provide a certificate for the whole paper.
 <!-- BEGIN LEMMA_3_11_VERIFICATION -->
 
 This milestone adds **14 public theorem exports in six modules**, bringing
-the aggregate scope to **889 theorem exports, 215 project Lean modules,
-and 250 inspected inputs**. The full source target compiled successfully
-with 3,082 jobs under the pinned Lean 4.24.0 and mathlib.
+the verified scope to **889 theorem exports, 215 project Lean modules,
+and 250 inspected inputs**. The complete source endpoint and independent
+source review cover the original Fourier sums, the actual adjugate form
+and Euclidean norm, the source-only prime families, real degree bounds
+and radii, and all modulus-one cases. The constant is chosen before all
+matrix, coefficient, weight, modulus, and radius data. Three epsilon/3
+factors give exactly q^epsilon, without an additional U^epsilon factor
+or logarithm.
 
-All fourteen actual declaration kinds, complete theorem types, and axiom
-dependencies passed separate strict inspection. Every new export uses
-exactly Classical.choice, Quot.sound, and propext; no literature premise
-is used. Independent source review covers the original Fourier sums,
-the actual adjugate form and Euclidean norm, both source-only prime
-families, the squarefree factorization, the exact divisor expansion,
-real degree bounds and radii, all modulus-one cases, and the constant's
-complete coefficient and weight uniformity. Three epsilon/3 factors
-combine to the exact q^epsilon; no U^epsilon or logarithm is introduced.
+**The complete local aggregate verifier passed**, including the full
+build, strict rechecking of every project module, and actual declaration
+kind, complete type, and axiom inspection of all registered exports.
 
-The earlier 209 proof modules and all 875 earlier export records are
-preserved, together with the frozen manuscript and PDF, pinned verifier,
-four literature premises, nine dependency pins, and earlier claim records
-except lem:average and aux:Cfactor. The live ledger has 22 Complete,
-0 Partial, 0 Active, 20 Pending numbered results; two supplementary
-groups are Certified and 31 remain Pending.
+- Checked proof commit: [0bcf01359690](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/0bcf0135969035a759d7ea9a56e79fb362179101).
+- Proof tree: `8136404ff6777f6555f29f1f2c905c9b31e63492`.
+- [Preserved local report](certification/verification_report.json), 1,320,495 bytes.
+- Local report SHA-256: `12857f5c9f2ad46dbc7b0b66923343ae3620a81895d1c311105b1bcbffb2f292`.
+- Local build: `Build completed successfully (3439 jobs).`.
 
-The complete local aggregate verifier and independent exact-commit
-GitHub verification are the remaining execution gates. Earlier reports
-and evidence retain their historical scopes.
+**Independent GitHub verification passed for the exact published proof
+commit.** [Run 43755523278, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43755523278)
+completed successfully at 2026-11-15T20:16:36Z; every job step
+succeeded. The report initialization timestamp precedes execution and
+is not the completion time.
+
+- Verification job: `132938665061`; artifact: `14179001450`.
+- CI build: `Build completed successfully (3439 jobs).`.
+- [Preserved CI report](certification/ci/run_43755523278_attempt_1.json), 1,336,550 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43755523278_attempt_1.zip), 156,076 bytes.
+- CI report SHA-256: `756151c4994cb8c66cfa346f6b5469e9d3fda2128cb2f0525ca7fb12ad5684c3`.
+- ZIP SHA-256: `09a16bfaf440b30e9321cb60f33261e460e3f1e95c5338a0e730b22861e6bae7`.
+
+The original ZIP digest agrees with GitHub's recorded digest. The local
+and CI reports agree on **all 18 verification-content fields**, including
+889 complete theorem records and 250 input hashes. Every inspected input
+and export source hash matches the exact published proof tree. The only
+execution-specific differences are the generation timestamp and build log.
+
+All **875 earlier complete theorem records**, the four literature-premise
+records, and nine dependency revisions are exactly preserved. All fourteen
+new complete types and axiom profiles match the separate strict export
+inspection. Each new export uses exactly Classical.choice, Quot.sound,
+and propext; no literature premise is added or used. The frozen manuscript,
+PDF, earlier 209 project modules, and pinned verifier remain unchanged.
+
+The live ledger has **22 Complete, 0 Partial, 0 Active, 20 Pending**
+numbered results. Two supplementary groups are Certified and 31 remain
+Pending. This milestone completes lem:average and aux:Cfactor; whole-paper
+certification remains false. Earlier evidence retains its historical scope.
 
 <!-- END LEMMA_3_11_VERIFICATION -->
 
@@ -278,10 +303,16 @@ the inventory was 21 Complete, 0 Partial, 0 Active, 21 Pending numbered
 results, with one Certified and 32 Pending supplementary groups.
 Whole-paper certification remained false.
 
-A fresh local reexecution of the complete verifier on this exact commit
-is also running. The successful independent CI evidence above is already
-preserved; its report initialization timestamp precedes execution and is
-not the completion time.
+**A fresh local execution of the complete verifier also passed on the
+exact Lemma 3.10 proof commit.** Its [preserved local report](certification/local/lemma_3_10_44f50a7.json)
+has 1,300,262 bytes and SHA-256
+`f4c17818b7d23b9df83ae378623de3a5661e6de854ef08a3e753e429ec7c67f7`.
+The local build ended with `Build completed successfully (3433 jobs).`.
+The local and CI reports agree on all 18 verification-content fields,
+including all 875 complete theorem records, 243 input hashes, four
+unchanged literature-premise records, and nine dependency revisions.
+Only the initialization timestamp and build log differ. The report's
+initialization timestamp is not the completion time.
 
 <!-- END LEMMA_3_10_VERIFICATION -->
 
