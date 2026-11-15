@@ -1,0 +1,134 @@
+QuaternaryQuadraticForms.globalQuadraticChar_norm_le : ∀ (α : ℤ) (n : ℕ),
+  ‖QuaternaryQuadraticForms.globalQuadraticChar α n‖ ≤ 1
+'QuaternaryQuadraticForms.globalQuadraticChar_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.compositeWeight_norm_le : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q : ℕ),
+  (∀ p ∈ q.primeFactors, ∀ (x : Fin 4 → ZMod p), ‖ξ p x‖ ≤ 1) →
+    ∀ (x : Fin 4 → ℤ), ‖QuaternaryQuadraticForms.compositeWeight ξ q x‖ ≤ 1
+'QuaternaryQuadraticForms.compositeWeight_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.primeWeightsNorm_le_extend : ∀ (N q : ℕ)
+  (ξ : (p : ℕ) → Nat.Prime p → ¬p ∣ N → (Fin 4 → ZMod p) → ℂ),
+  q.Coprime N →
+    (∀ (p : ℕ) (hp : Nat.Prime p) (hN : ¬p ∣ N) (x : Fin 4 → ZMod p), ‖ξ p hp hN x‖ ≤ 1) →
+      ∀ p ∈ q.primeFactors, ∀ (x : Fin 4 → ZMod p), ‖QuaternaryQuadraticForms.extendPrimeWeights N ξ p x‖ ≤ 1
+'QuaternaryQuadraticForms.primeWeightsNorm_le_extend' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_norm_le : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q c : ℕ)
+  [inst : NeZero q] [inst_1 : NeZero c],
+  Squarefree q →
+    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+      A.transpose = A →
+        c.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+          QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+            (∀ p ∈ q.primeFactors, ∀ (x : Fin 4 → ZMod p), ‖ξ p x‖ ≤ 1) →
+              ∀ (u : Fin 4 → ℤ),
+                ‖QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u‖ ≤
+                  ‖QuaternaryQuadraticForms.constrainedFourierSum ξ (q / q.gcd c) A u‖ * ↑(q.gcd c) * ↑c ^ 2 *
+                    ‖QuaternaryQuadraticForms.integralRamanujanSum (q.gcd c * c) (u ⬝ᵥ A.adjugate.mulVec u)‖
+'QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_norm_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_eq_bad_mul_good : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q c b g : ℕ)
+  [inst : NeZero q] [inst_1 : NeZero c] [inst_2 : NeZero b] [inst_3 : NeZero g] (A : Matrix (Fin 4) (Fin 4) ℤ),
+  q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+    c = b * g →
+      b.Coprime g →
+        (∀ (p : ℕ), Nat.Prime p → p ∣ b → p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+          QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+            ∀ (u : Fin 4 → ℤ),
+              QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u =
+                QuaternaryQuadraticForms.unweightedCompleteSum b A u *
+                  QuaternaryQuadraticForms.mixedCompleteSum ξ q g A u
+'QuaternaryQuadraticForms.mixedCompleteSum_eq_bad_mul_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_of_prime_split : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ)
+  (q c b g : ℕ) [inst : NeZero q] [inst_1 : NeZero c] [NeZero b] [inst_3 : NeZero g],
+  Squarefree q →
+    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+      A.transpose = A →
+        A.det ≠ 0 →
+          q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+            c = b * g →
+              b.Coprime g →
+                g.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                  (∀ (p : ℕ), Nat.Prime p → p ∣ b → p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                    QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+                      (∀ p ∈ q.primeFactors, ∀ (x : Fin 4 → ZMod p), ‖ξ p x‖ ≤ 1) →
+                        ∀ (u : Fin 4 → ℤ),
+                          ‖QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u‖ / ↑c ^ 3 ≤
+                            4 * √↑A.det.natAbs * ‖QuaternaryQuadraticForms.constrainedFourierSum ξ (q / q.gcd c) A u‖ *
+                                  ↑(q.gcd c) *
+                                ‖QuaternaryQuadraticForms.integralRamanujanSum (q.gcd c * g)
+                                    (u ⬝ᵥ A.adjugate.mulVec u)‖ /
+                              ↑g
+'QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_of_prime_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ)
+  (q c : ℕ) [inst : NeZero q] [inst_1 : NeZero c],
+  Squarefree q →
+    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+      A.transpose = A →
+        c.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+          QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+            ∀ (u : Fin 4 → ℤ),
+              ¬↑(q.gcd c) ∣ u ⬝ᵥ A.adjugate.mulVec u → QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u = 0
+'QuaternaryQuadraticForms.mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_eq_zero_of_gcd_not_dvd : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q c : ℕ)
+  [inst : NeZero q] [inst_1 : NeZero c],
+  Squarefree q →
+    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+      A.transpose = A →
+        q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+          QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+            ∀ (u : Fin 4 → ℤ),
+              ¬↑(q.gcd c) ∣ u ⬝ᵥ A.adjugate.mulVec u → QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u = 0
+'QuaternaryQuadraticForms.mixedCompleteSum_eq_zero_of_gcd_not_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_of_prime_split : ∀ (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ)
+  (q c b g : ℕ) [inst : NeZero q] [inst_1 : NeZero c] [NeZero b] [NeZero g],
+  Squarefree q →
+    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+      A.transpose = A →
+        A.det ≠ 0 →
+          q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+            c = b * g →
+              b.Coprime g →
+                g.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                  (∀ (p : ℕ), Nat.Prime p → p ∣ b → p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                    QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+                      (∀ p ∈ q.primeFactors, ∀ (x : Fin 4 → ZMod p), ‖ξ p x‖ ≤ 1) →
+                        ∀ (u : Fin 4 → ℤ),
+                          ‖QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u‖ / ↑c ^ 3 ≤
+                            4 * √↑A.det.natAbs * ‖QuaternaryQuadraticForms.constrainedFourierSum ξ (q / q.gcd c) A u‖ *
+                                  ↑(q.gcd c) ^ 2 *
+                                ↑(g.gcd (u ⬝ᵥ A.adjugate.mulVec u).natAbs) /
+                              ↑g
+'QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_of_prime_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split : ∀
+  (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q c b g : ℕ) [inst : NeZero q] [inst_1 : NeZero c] [NeZero b] [NeZero g],
+  Squarefree q →
+    ∀ (A : Matrix (Fin 4) (Fin 4) ℤ),
+      A.transpose = A →
+        A.det ≠ 0 →
+          q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+            c = b * g →
+              b.Coprime g →
+                g.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                  (∀ (p : ℕ), Nat.Prime p → p ∣ b → p ∣ QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →
+                    QuaternaryQuadraticForms.PrimeWeightsInvariant ξ q →
+                      (∀ p ∈ q.primeFactors, ∀ (x : Fin 4 → ZMod p), ‖ξ p x‖ ≤ 1) →
+                        ∀ (u : Fin 4 → ℤ),
+                          ‖QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u‖ / ↑c ^ 3 ≤
+                            if ↑(q.gcd c) ∣ u ⬝ᵥ A.adjugate.mulVec u then
+                              4 * √↑A.det.natAbs *
+                                      ‖QuaternaryQuadraticForms.constrainedFourierSum ξ (q / q.gcd c) A u‖ *
+                                    ↑(q.gcd c) ^ 2 *
+                                  ↑(g.gcd (u ⬝ᵥ A.adjugate.mulVec u).natAbs) /
+                                ↑g
+                            else 0
+'QuaternaryQuadraticForms.mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

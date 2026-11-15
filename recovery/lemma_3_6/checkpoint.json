@@ -1,11 +1,12 @@
 {
-  "schema": 1,
+  "schema": 2,
   "target": "Lemma 3.6 (lem:genericmod)",
   "lemma_complete": false,
   "published_main_status": "Pending",
   "baseline_commit": "4bc1de4e3d5e35c3482908a57f96b6ee465f5f4d",
-  "scope": "Six strictly compiled and inspected supporting theorems in three modules; full Lemma 3.6 assembly and aggregate verification remain outstanding.",
-  "axioms_for_all_six_exports": [
+  "previous_checkpoint_commit": "6e1277edd2068b27b2c78cff802de506d3f60d93",
+  "scope": "35 strictly compiled and inspected supporting theorems in 10 modules; full modulus aggregation, source theorem and aggregate certification remain outstanding.",
+  "axioms_for_all_exports": [
     "Classical.choice",
     "Quot.sound",
     "propext"
@@ -17,6 +18,9 @@
       "restore_path": "QuaternaryQuadraticForms/DivisorPowerBound.lean",
       "bytes": 5085,
       "sha256": "62c7db48e133d5680831952cae3b34183addded496fa5d899cb24eeb64b1c24a",
+      "public_exports": [
+        "divisors_card_le_rpow"
+      ],
       "strict_compilation_passed": true,
       "actual_type_and_axiom_inspection_passed": true
     },
@@ -25,6 +29,9 @@
       "restore_path": "QuaternaryQuadraticForms/LogPowerBound.lean",
       "bytes": 1782,
       "sha256": "0da487f2f674d596190394e45414391959dcae64039777982f879ac6735a65b7",
+      "public_exports": [
+        "one_add_log_pow_le_rpow"
+      ],
       "strict_compilation_passed": true,
       "actual_type_and_axiom_inspection_passed": true
     },
@@ -33,15 +40,118 @@
       "restore_path": "QuaternaryQuadraticForms/PrimeSupportCount.lean",
       "bytes": 5599,
       "sha256": "99d7603c55cf1a3b0c827f34be09baa2ce3a452364510e3ffff404a97d5c7f38",
+      "public_exports": [
+        "mem_primeSupportModuliUpTo",
+        "primeSupportModuliUpTo_card_le",
+        "primeSupportModuliUpTo_card_le_log",
+        "primeSupportModuliUpTo_card_le_log_normalized"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "RamanujanPrimePower.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/RamanujanPrimePower.lean",
+      "bytes": 5456,
+      "sha256": "74924d34ba48ccf27f04a81055f627a76315a4dde0848cad8ee919182cf520b3",
+      "public_exports": [
+        "integralRamanujanSum_prime_eq",
+        "integralRamanujanSum_mul_modulus_eq_zero",
+        "integralRamanujanSum_mul_modulus_mul",
+        "integralRamanujanSum_prime_power_eq"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "RamanujanGcdBound.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "bytes": 6536,
+      "sha256": "c32a11db319efc494817b6055a0937dd65a77be85d1870b313e6d379759b2dc6",
+      "public_exports": [
+        "integralRamanujanSum_prime_power_norm_le_gcd",
+        "integralRamanujanSum_norm_le_gcd",
+        "integralRamanujanSum_mul_norm_le",
+        "integralRamanujanSum_eq_zero_of_prime_sq_dvd",
+        "integralRamanujanSum_shared_eq_zero",
+        "integralRamanujanSum_shared_norm_le"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "GcdHarmonicBound.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/GcdHarmonicBound.lean",
+      "bytes": 4796,
+      "sha256": "d6fa5e6a3ab1eddf205dc6562072cdc39e77696fec9df7cd633ae1efcb244f15",
+      "public_exports": [
+        "sum_divisor_multiples_div_le_harmonic",
+        "sum_gcd_div_le_divisor_card_mul_harmonic",
+        "sum_gcd_div_le_divisor_card_mul_log"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "MixedSumNormBounds.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "bytes": 7222,
+      "sha256": "815445b0a378c87d5bc8aa94405c7580cc27dd5a9f2f021fc7c9b7d786081f2a",
+      "public_exports": [
+        "globalQuadraticChar_norm_le",
+        "compositeWeight_norm_le",
+        "primeWeightsNorm_le_extend",
+        "mixedCompleteSum_good_modulus_norm_le",
+        "mixedCompleteSum_eq_bad_mul_good",
+        "mixedCompleteSum_div_cube_le_of_prime_split"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "MixedSumGcdBound.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/MixedSumGcdBound.lean",
+      "bytes": 5882,
+      "sha256": "121c796cfff2df18f4b6d82714f51a5ff027a399be4a58d329a4950103c4d8ae",
+      "public_exports": [
+        "mixedCompleteSum_good_modulus_eq_zero_of_gcd_not_dvd",
+        "mixedCompleteSum_eq_zero_of_gcd_not_dvd",
+        "mixedCompleteSum_div_cube_le_gcd_of_prime_split",
+        "mixedCompleteSum_div_cube_le_gcd_indicator_of_prime_split"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "ModulusNormSum.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "bytes": 3726,
+      "sha256": "30528b58e2983ceb39d9ee66c56cd421520c4d0a8d3bfc833b95c930009cbb4f",
+      "public_exports": [
+        "mem_gcdModuliUpTo",
+        "normalizedMixedCompleteSum_of_neZero",
+        "normalizedMixedCompleteSum_nonneg",
+        "modulusNormSum_nonneg",
+        "modulusNormSum_eq_zero_of_vanishing"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "FactorizationSumBound.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/FactorizationSumBound.lean",
+      "bytes": 1927,
+      "sha256": "a65e9929364763404961450bcfa8a25bf9610fe80bb75e40f1ea4ed9ea222db7",
+      "public_exports": [
+        "sum_le_product_of_factorization"
+      ],
       "strict_compilation_passed": true,
       "actual_type_and_axiom_inspection_passed": true
     }
   ],
   "remaining": [
-    "Actual Ramanujan gcd norm bound and shared-factor vanishing",
-    "Finite gcd/harmonic summation",
-    "Mixed complete-sum norm and modulus-factor assembly",
-    "Full source theorem and source correspondence review",
+    "Actual finite modulus-sum aggregation and uniform source theorem",
+    "Final source correspondence review",
     "Aggregate verifier and exact-commit GitHub CI"
   ],
   "recovery": "Restore each source snapshot to restore_path only after checking sha256; these snapshots are not registered certification exports yet."

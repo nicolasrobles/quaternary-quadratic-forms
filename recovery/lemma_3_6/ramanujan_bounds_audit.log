@@ -1,0 +1,45 @@
+QuaternaryQuadraticForms.integralRamanujanSum_prime_eq (p : ℕ) [Fact (Nat.Prime p)] (m : ℤ) :
+  integralRamanujanSum p m = if ↑p ∣ m then ↑p - 1 else -1
+QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero (p c : ℕ) [NeZero p] [NeZero c] (hpc : p ∣ c) (m : ℤ)
+  (hpm : ¬↑p ∣ m) : integralRamanujanSum (p * c) m = 0
+QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul (p c : ℕ) [NeZero p] [NeZero c] (hpc : p ∣ c) (m : ℤ) :
+  integralRamanujanSum (p * c) (↑p * m) = ↑p * integralRamanujanSum c m
+QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq (p k : ℕ) [Fact (Nat.Prime p)] (m : ℤ) :
+  integralRamanujanSum (p ^ (k + 1)) m =
+    if ↑p ^ (k + 1) ∣ m then ↑p ^ k * (↑p - 1) else if ↑p ^ k ∣ m then -↑p ^ k else 0
+QuaternaryQuadraticForms.integralRamanujanSum_prime_power_norm_le_gcd (p k : ℕ) [Fact (Nat.Prime p)] (m : ℤ) :
+  ‖integralRamanujanSum (p ^ k) m‖ ≤ ↑((p ^ k).gcd m.natAbs)
+QuaternaryQuadraticForms.integralRamanujanSum_norm_le_gcd (n : ℕ) [NeZero n] (m : ℤ) :
+  ‖integralRamanujanSum n m‖ ≤ ↑(n.gcd m.natAbs)
+QuaternaryQuadraticForms.integralRamanujanSum_mul_norm_le (d c : ℕ) [NeZero d] [NeZero c] (m : ℤ) :
+  ‖integralRamanujanSum (d * c) m‖ ≤ ↑d * ↑(c.gcd m.natAbs)
+QuaternaryQuadraticForms.integralRamanujanSum_eq_zero_of_prime_sq_dvd (n : ℕ) [NeZero n] (m : ℤ) (p : ℕ)
+  (hp : Nat.Prime p) (hp2 : p ^ 2 ∣ n) (hpm : ¬↑p ∣ m) : integralRamanujanSum n m = 0
+QuaternaryQuadraticForms.integralRamanujanSum_shared_eq_zero (d c : ℕ) [NeZero d] [NeZero c] (hd : Squarefree d)
+  (hdc : d ∣ c) (m : ℤ) (hm : ¬↑d ∣ m) : integralRamanujanSum (d * c) m = 0
+QuaternaryQuadraticForms.integralRamanujanSum_shared_norm_le (d c : ℕ) [NeZero d] [NeZero c] (hd : Squarefree d)
+  (hdc : d ∣ c) (m : ℤ) : ‖integralRamanujanSum (d * c) m‖ ≤ if ↑d ∣ m then ↑d * ↑(c.gcd m.natAbs) else 0
+'QuaternaryQuadraticForms.integralRamanujanSum_prime_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_prime_power_norm_le_gcd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_norm_le_gcd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_mul_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_eq_zero_of_prime_sq_dvd' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_shared_eq_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'QuaternaryQuadraticForms.integralRamanujanSum_shared_norm_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

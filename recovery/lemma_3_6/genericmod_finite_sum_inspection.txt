@@ -1,0 +1,30 @@
+QuaternaryQuadraticForms.mem_gcdModuliUpTo (q d T c : ℕ) :
+  c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d T ↔ 1 ≤ c ∧ c ≤ T ∧ c.gcd q = d
+'QuaternaryQuadraticForms.mem_gcdModuliUpTo' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.normalizedMixedCompleteSum_of_neZero (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q c : ℕ) [NeZero q]
+  [NeZero c] (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ) :
+  QuaternaryQuadraticForms.normalizedMixedCompleteSum ξ q c A u =
+    ‖QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u‖ / ↑c ^ 3
+'QuaternaryQuadraticForms.normalizedMixedCompleteSum_of_neZero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.normalizedMixedCompleteSum_nonneg (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q : ℕ) [NeZero q]
+  (c : ℕ) (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ) :
+  0 ≤ QuaternaryQuadraticForms.normalizedMixedCompleteSum ξ q c A u
+'QuaternaryQuadraticForms.normalizedMixedCompleteSum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.modulusNormSum_nonneg (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q : ℕ) [NeZero q] (d : ℕ)
+  (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ) (X : ℝ) : 0 ≤ QuaternaryQuadraticForms.modulusNormSum ξ q d A u X
+'QuaternaryQuadraticForms.modulusNormSum_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_vanishing (ξ : (p : ℕ) → (Fin 4 → ZMod p) → ℂ) (q : ℕ) [NeZero q]
+  (d : ℕ) (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ) (X : ℝ)
+  (hz :
+    ∀ (c : ℕ) (hc : c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d ⌊X⌋₊),
+      QuaternaryQuadraticForms.mixedCompleteSum ξ q c A u = 0) :
+  QuaternaryQuadraticForms.modulusNormSum ξ q d A u X = 0
+'QuaternaryQuadraticForms.modulusNormSum_eq_zero_of_vanishing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.sum_le_product_of_factorization (S B G : Finset ℕ) (f : ℕ → ℕ × ℕ) (F H : ℕ → ℝ) (K : ℝ)
+  (hmem : ∀ c ∈ S, f c ∈ B ×ˢ G) (hfac : ∀ c ∈ S, c = (f c).1 * (f c).2) (hbound : ∀ c ∈ S, F c ≤ K * H (f c).2)
+  (hK : 0 ≤ K) (hH : ∀ g ∈ G, 0 ≤ H g) : ∑ c ∈ S, F c ≤ ↑B.card * K * ∑ g ∈ G, H g
+'QuaternaryQuadraticForms.sum_le_product_of_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,15 @@
+QuaternaryQuadraticForms.sum_divisor_multiples_div_le_harmonic : ∀ (d T : ℕ),
+  d ≠ 0 → (∑ n ∈ Finset.Icc 1 T, if d ∣ n then ↑d / ↑n else 0) ≤ ↑(harmonic T)
+'QuaternaryQuadraticForms.sum_divisor_multiples_div_le_harmonic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_harmonic : ∀ (T M : ℕ),
+  M ≠ 0 → ∑ n ∈ Finset.Icc 1 T, ↑(n.gcd M) / ↑n ≤ ↑M.divisors.card * ↑(harmonic T)
+'QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_harmonic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_log : ∀ (M : ℕ),
+  M ≠ 0 → ∀ (X : ℝ), 1 ≤ X → ∑ n ∈ Finset.Icc 1 ⌊X⌋₊, ↑(n.gcd M) / ↑n ≤ ↑M.divisors.card * (1 + Real.log X)
+'QuaternaryQuadraticForms.sum_gcd_div_le_divisor_card_mul_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
