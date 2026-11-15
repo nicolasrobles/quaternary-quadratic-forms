@@ -301,14 +301,45 @@ surface integral and its integrability. It also includes the actual
 ordered-series coefficient, exact prime product, explicit finite-prime
 bound, and uniform epsilon estimate.
 
-**The combined 169-export declaration and axiom audit has passed.**
-All six new premise types match their preregistered type hashes, and every
-new export has the inspected theorem kind and allowed axiom profile.
-Both the analytic endpoint and the coefficient endpoint have compiled in
-the primary checkout, and independent mathematical and source reviews have
-passed. The complete local aggregate verifier and exact-commit GitHub
-verification are pending. Observed gate results, the proof commit, report
-hashes, and CI artifact will be recorded here after execution.
+**The complete local aggregate verifier passed**, including the full
+build, strict rechecking of every project module, and actual declaration
+kind, complete type, and axiom inspection of all registered exports.
+
+- Checked proof commit: [a655331d5496](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/a655331d549669ffcc55c1a52bffee0ba623d62e).
+- Proof tree: `1b61ab12b17e0b7977c58fffb66c1a5f3565e3b2`.
+- [Preserved local report](certification/verification_report.json), 1,645,188 bytes.
+- Local report SHA-256: `66749d911cba345a4604abbe5604894accaaa314f8b99a46a377f0dbdf817d35`.
+- Local build: `Build completed successfully (3486 jobs).`.
+
+**Independent GitHub verification passed for the exact published proof
+commit.** [Run 43768884969, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43768884969)
+completed successfully at 2026-11-15T22:46:18Z; every job step succeeded.
+The reports' initialization timestamps precede execution and are not
+completion times. The interrupted earlier local invocation left an empty
+file; the preserved local report is from the successful continuation run.
+
+- Verification job: `132980085858`; artifact: `14184307877`.
+- CI build: `Build completed successfully (3486 jobs).`.
+- [Preserved CI report](certification/ci/run_43768884969_attempt_1.json), 1,663,820 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43768884969_attempt_1.zip), 192,872 bytes.
+- CI report SHA-256: `61a193b28a292046ea737ee0fad1226fb06d0d106e3ba0627010f0fa6bf541eb`.
+- ZIP SHA-256: `80ab1d142836d7caa30e9c29af41002e2c3fdcd192daf0cdf51d7b181d85e288`.
+
+The original ZIP digest agrees with GitHub's recorded digest. The local
+and CI reports agree on **all 18 verification-content fields**, including
+1,087 complete theorem records and 286 input hashes. Every inspected input
+and export source hash matches the exact published proof tree. The only
+execution-specific differences are the generation timestamp and build log.
+
+All **918 earlier complete theorem records**, the five earlier literature
+premise records, and nine dependency revisions are exactly preserved.
+All 169 new complete types and axiom profiles match the recovered separate
+strict inspection; the six new premise type hashes match their registered
+types. Independent source-correspondence reviews of Lemma 2.2 and both
+coefficient obligations passed. The evidence archive changes only README,
+CHECKPOINT.md, the local report, and the exact CI report and artifact.
+The frozen manuscript, PDF, proof files, verifier, and inspected metadata
+remain those of the checked proof commit.
 
 There are **11 separately registered literature premises across 21 mapped
 source groups**. The five earlier premises are retained. The six new inputs
@@ -342,9 +373,10 @@ The combined ledger scope has **24 Complete, 0 Partial, 0 Active, 18 Pending**
 numbered results and **5 Certified, 28 Pending** supplementary groups.
 This milestone completes `lem:integrals`, `aux:weight_pieces`, `aux:Sxi`,
 and `aux:Sxibound`. The requested Lemma 2.2 work and return to both
-coefficient obligations are complete at the proof level; the combined
-verification gates above remain to run. The general cone-vertex
-integrability obligation, remaining analytic assembly, global proposition,
+coefficient obligations are complete relative to the registered literature
+inputs, with matching successful local and GitHub verification of the exact
+proof commit. The general cone-vertex integrability obligation, remaining
+analytic assembly, global proposition,
 and main theorems remain Pending. No further proof target is started or
 automatically selected by this checkpoint. Earlier execution evidence below
 retains its historical scope.
