@@ -28,7 +28,22 @@ detailed record. The overview additionally groups results. An arrow between
 groups means that a result in the first group supports a result in the second;
 it need not connect every member of the two groups.
 
-## Current analytic and coefficient checkpoint
+## Current Lemma 2.3 checkpoint
+
+**Lemma 2.3 is Certified in full.** The actual finite set of integer zeros
+of a symmetric nonsingular rational quaternary form with nonsquare rational
+determinant satisfies the Euclidean `U^(2+epsilon)` bound. For every positive
+epsilon, one positive constant is selected before all real `U>=1`.
+The rational hyperbolic splitting, binary anisotropy from the determinant,
+positive denominator clearing, injective lattice map, signed-divisor count,
+and zero binary-coordinate slice are proved internally. All 28 new exports
+use only the standard logical foundations and add no literature premise.
+See the [source endpoint](QuaternaryQuadraticForms/QuadricCountingTheorem.lean),
+[source review](certification/correspondence/quadric_count.md), and
+[execution checkpoint](CHECKPOINT.md). The weighted consequence
+`aux:conecount` remains Pending; this session stops after Lemma 2.3.
+
+## Earlier analytic and coefficient checkpoint
 
 **Lemma 2.2 is Certified relative to its registered literature inputs.**
 For a fixed symmetric nonsingular form and a smooth complex weight family
@@ -145,8 +160,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 24 · Partial: 0 · Active: 0 · Pending:
-18**. Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6 and 5.9
+The numbered-result counts are **Complete: 25 · Partial: 0 · Active: 0 · Pending:
+17**. Lemmas 2.1–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6 and 5.9
 have complete source-relative proofs (including Corollary 2.6). Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -262,8 +277,8 @@ The **33 auxiliary or supplementary groups** comprise **5 Certified and
 aux:weight_pieces, aux:Sxi, and aux:Sxibound are complete. These groups include
 proof steps needed by the main argument and mathematical assertions outside numbered theorem
 environments; they are not added to the numbered-result count. The current
-scope contains **1,087 theorem exports across 247 Lean modules**, counted
-separately from the **11 external Lean premises**. It includes **286 inspected
+scope contains **1,115 theorem exports across 256 Lean modules**, counted
+separately from the **11 external Lean premises**. It includes **296 inspected
 inputs**, nine pinned dependency revisions, and **21 mapped source groups**.
 Strict declaration inspection, source review, and current local aggregate
 and exact-commit CI execution evidence for the combined scope are recorded
@@ -1473,27 +1488,17 @@ commit is recorded separately from this mathematical scope.
 
 ## Continuation status
 
-The requested work on **Lemma 2.2** and the return to **aux:Sxi** and
-**aux:Sxibound** is complete at the proof level. The combined declaration
-inspection, local aggregate verifier, and exact-commit CI gates are recorded
-in the current verification block. No further proof target is started or
-automatically selected by this checkpoint.
+The requested **Lemma 2.3** is complete at the proof and source-review level.
+The current verification block records the aggregate execution evidence.
+This session stops here; no additional proof target is started.
 
-The coefficient now uses the original local functions and zero-frequency
-Fourier sums, the actual local counting densities, and the increasing-modulus
-singular-series value. Its exact product and uniform bound include `q=1`,
-possible zero global coefficients, and constants chosen before the supplied
-character data, local functions, exceptional polynomials, and modulus.
-
-Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas are
-complete. The polynomial-box epsilon consequence, aux:Cfactor,
-aux:weight_pieces, aux:Sxi, and aux:Sxibound are the five Certified
-supplementary groups; the other 28 remain Pending. Lemma 2.3 and the
-separate inverse-norm cone-counting consequence retain their own Pending
-status. The scaled-integral, Poisson, and three-frequency contributions are
-still required for Proposition 5.1, as is the separately tracked absolute
-singular-integral obligation for general weights meeting the cone vertex.
-The global analytic proposition and main theorems are not yet certified.
+All numbered results in Section 2 (Lemmas 2.1–2.7), Lemmas 3.1–3.11,
+and all Section 4 lemmas are complete. The numbered inventory is
+**25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
+remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.
+The scaled-integral, Poisson, and three-frequency contributions and the
+general cone-vertex singular-integral obligation remain for the later
+analytic assembly. The global proposition and main theorems are not certified.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

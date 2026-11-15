@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete Lemma 2.2 with actual surface normalization and uniform estimates; complete main-coefficient identity and bound",
+  "checkpoint": "Complete Lemma 2.3: Euclidean count of integer zeros of nonsplit rational quaternary forms",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -90,8 +90,37 @@
       "scope_note": "Complete Lemma 2.2 relative to separately registered precise HB localization and analytic inputs and the separately attributed general Simon graph area formula. The original fixed kernel from Lemma 2.1 is retained. No final manuscript estimate is assumed as a premise: actual bump normalization, pieces and reconstruction, coordinate/operator derivative equivalence, annular gradient bound, actual Hessian nondegeneracy, root consistency, surface normalization and integrability, orthogonal transport, finite-family constants, r/v rescaling and all-positive-scale extension are internal. Five new HB declarations and one general area declaration are separately inspected. The stronger real-matrix endpoint needs only symmetry/nonsingularity; the nonsquare global determinant condition is unnecessary here. The absolute convergence obligation for arbitrary weights meeting the cone vertex remains separately Pending."
     },
     "lem:quadriccount": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_quadric_count",
+        "QuaternaryQuadraticForms.rationalQuadric_euclidean_bound",
+        "QuaternaryQuadraticForms.sourceQuadricZeroSet_eq",
+        "QuaternaryQuadraticForms.sourceQuadricZeroSet_finite",
+        "QuaternaryQuadraticForms.sourceQuadricZeroSet_ncard",
+        "QuaternaryQuadraticForms.integerQuadricZeros_card_le_one",
+        "QuaternaryQuadraticForms.exists_rational_quadric_normal_form",
+        "QuaternaryQuadraticForms.nonsquare_det_binary_anisotropic",
+        "QuaternaryQuadraticForms.rationalQuadric_integer_model",
+        "QuaternaryQuadraticForms.integerMatrix_coordinate_bound",
+        "QuaternaryQuadraticForms.splitQuadric_box_bound",
+        "QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le",
+        "QuaternaryQuadraticForms.splitQuadric_zero_fiber_card_le",
+        "QuaternaryQuadraticForms.integerQuadricZeros_bound_of_lattice_model"
+      ],
+      "correspondence_record": "certification/correspondence/quadric_count.md",
+      "completed_clauses": [
+        "The actual integer vectors are evaluated in the supplied rational symmetric 4-by-4 matrix, with nonsingularity and rational nonsquare determinant retained.",
+        "The literal Euclidean solution set is finite and its Set.ncard agrees exactly with the filtered integer-ball cardinality, including the origin.",
+        "For every fixed form and real epsilon>0, one positive constant is selected before all real radii U>=1 in the U^(2+epsilon) estimate.",
+        "The rationally anisotropic case has at most the origin; the isotropic case has an internally constructed invertible hyperbolic normal form.",
+        "The exact identity det(S)*det(T)^2=(b^2-4ac)/16 forces the binary complement to be anisotropic over the rationals.",
+        "A positive common denominator gives an injective integral linear map, the exact integral split equation, and a fixed coordinate bound in the actual Euclidean norm.",
+        "Each nonzero binary fibre is bounded by twice the divisor count, with both signs retained and the second coordinate uniquely determined.",
+        "The internal divisor bound at exponent epsilon/2 and two integer coordinate intervals give the U^(2+epsilon) nonzero-fibre count; the zero binary fibre consists of two axes and contributes at most 6U.",
+        "Fixed coordinate rescaling is absorbed into the constant before the radius is chosen."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 2.3 using only official mathlib and the standard logical foundations. All 28 new public theorem exports are internally proved; no literature premise is added or used. The rational form, integer lattice, Euclidean norm, finiteness, cardinality and constant quantifiers are literal. The subsequent weighted dual-cone consequence aux:conecount remains separately Pending and is not implemented in this checkpoint."
     },
     "lem:polynomialbox": {
       "status": "Certified",
@@ -17632,6 +17661,426 @@
         "lem:integrals",
         "eq:Istar",
         "eq:singint"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_integerQuadricZeros",
+      "file": "QuaternaryQuadraticForms/QuadricCountingDefinitions.lean",
+      "scope": "Membership removes the finite coordinate-box representation.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceQuadricZeroSet_eq",
+      "file": "QuaternaryQuadraticForms/QuadricCountingDefinitions.lean",
+      "scope": "The represented set is exactly the source's set of integer zeros.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceQuadricZeroSet_finite",
+      "file": "QuaternaryQuadraticForms/QuadricCountingDefinitions.lean",
+      "scope": "Finiteness holds for every real radius, before any estimate is applied.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceQuadricZeroSet_ncard",
+      "file": "QuaternaryQuadraticForms/QuadricCountingDefinitions.lean",
+      "scope": "The source set cardinality is the actual finite-solution count.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerQuadricZeros_card_le_one",
+      "file": "QuaternaryQuadraticForms/QuadricCountingDefinitions.lean",
+      "scope": "An anisotropic rational form has at most the origin among its integer zeros.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerQuadricZeros_bound_of_lattice_model",
+      "file": "QuaternaryQuadraticForms/QuadricCountingDefinitions.lean",
+      "scope": "An injective integer linear map transports a uniform model count back to the actual Euclidean zero set, with a constant independent of the radius.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rationalQuadric_euclidean_bound",
+      "file": "QuaternaryQuadraticForms/QuadricCountingTheorem.lean",
+      "scope": "The Euclidean finite count in Lemma 2.3. The constant is selected after the rational form and positive epsilon, before every real radius at least one.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_quadric_count",
+      "file": "QuaternaryQuadraticForms/QuadricCountingTheorem.lean",
+      "scope": "Complete source statement of Lemma 2.3: the literal set is finite and its actual cardinality is at most C times U^(2+epsilon), uniformly in U>=1.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.binary_zero_discriminant_isSquare",
+      "file": "QuaternaryQuadraticForms/RationalQuadricGeometryAlgebra.lean",
+      "scope": "A binary quadratic form with a nonzero rational zero has square discriminant.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.det_hyperbolic_binary",
+      "file": "QuaternaryQuadraticForms/RationalQuadricGeometryAlgebra.lean",
+      "scope": "The determinant of a hyperbolic plane plus a binary form.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.nonsquare_det_binary_anisotropic",
+      "file": "QuaternaryQuadraticForms/RationalQuadricGeometryAlgebra.lean",
+      "scope": "A square discriminant in a rational hyperbolic splitting would make the original determinant a square as well.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_hyperbolic_complement_basis",
+      "file": "QuaternaryQuadraticForms/RationalQuadricGeometryBasis.lean",
+      "scope": "The common orthogonal complement of a normalized hyperbolic pair has a basis whose union with the pair is linearly independent.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rational_congruence_apply",
+      "file": "QuaternaryQuadraticForms/RationalQuadricGeometryBasis.lean",
+      "scope": "Matrix congruence evaluates the bilinear form on the columns.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_rational_hyperbolic_matrix",
+      "file": "QuaternaryQuadraticForms/RationalQuadricGeometryBasis.lean",
+      "scope": "A rational isotropic quaternary form has a hyperbolic plane and a binary orthogonal complement, expressed by an invertible matrix.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rational_family_clear_denominators",
+      "file": "QuaternaryQuadraticForms/RationalQuadricLattice.lean",
+      "scope": "A finite family of rational numbers has a common positive integer denominator.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerMatrix_coordinate_bound",
+      "file": "QuaternaryQuadraticForms/RationalQuadricLattice.lean",
+      "scope": "A fixed integral matrix has uniformly bounded coordinate growth in the actual Euclidean norm of the integer lattice.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.rationalQuadric_integer_model",
+      "file": "QuaternaryQuadraticForms/RationalQuadricLattice.lean",
+      "scope": "Clear the denominators of an exact rational normal form, preserving injectivity of the change of lattice variables and binary anisotropy.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_rational_quadric_normal_form",
+      "file": "QuaternaryQuadraticForms/RationalQuadricNormalForm.lean",
+      "scope": "The exact rational normal form, with an anisotropic binary complement, used to count integral zeros of a quaternary form of nonsquare determinant.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_mem_interval",
+      "file": "QuaternaryQuadraticForms/SplitQuadricBoxBounds.lean",
+      "scope": "An integral coordinate with real absolute value at most `U` lies in the floor interval.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadricCoefficient_pos",
+      "file": "QuaternaryQuadraticForms/SplitQuadricBoxBounds.lean",
+      "scope": "The coefficient is strictly positive, including when every coefficient vanishes.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_binaryValue_natAbs_le",
+      "file": "QuaternaryQuadraticForms/SplitQuadricBoxBounds.lean",
+      "scope": "The binary value in a coordinate box has size at most a fixed multiple of `U²`.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_zero_fiber_card_le",
+      "file": "QuaternaryQuadraticForms/SplitQuadricBoxBounds.lean",
+      "scope": "The zero binary fibre consists of two coordinate axes.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_nonzero_fibers_uniform",
+      "file": "QuaternaryQuadraticForms/SplitQuadricCounting.lean",
+      "scope": "The divisor estimate is uniform over every nonzero binary value in the box.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_nonzero_box_card_le",
+      "file": "QuaternaryQuadraticForms/SplitQuadricCounting.lean",
+      "scope": "Summing the divisor estimate over the two free binary coordinates.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_box_bound",
+      "file": "QuaternaryQuadraticForms/SplitQuadricCounting.lean",
+      "scope": "Integral zeros of a split form with anisotropic binary part satisfy the `U^(2+ε)` estimate, uniformly over all finite subsets of its coordinate box.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_mem_signedDivisors",
+      "file": "QuaternaryQuadraticForms/SplitQuadricFibers.lean",
+      "scope": "A divisor of a nonzero integer belongs to the finite set of signed divisors.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_signedDivisors_card_le",
+      "file": "QuaternaryQuadraticForms/SplitQuadricFibers.lean",
+      "scope": "Counting both signs costs at most a factor two.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le",
+      "file": "QuaternaryQuadraticForms/SplitQuadricFibers.lean",
+      "scope": "A nonzero binary fibre has at most twice the positive-divisor count.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:quadriccount",
+        "eq:quadriccount"
       ],
       "allowed_axioms": [
         "Classical.choice",

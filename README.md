@@ -12,7 +12,39 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 24 · Partial: 0 · Active: 0 · Pending: 18** — 42 numbered results.
+**Complete: 25 · Partial: 0 · Active: 0 · Pending: 17** — 42 numbered results.
+
+**Lemma 2.3 is Certified in full, with no literature premise.**
+For every nonsingular symmetric rational `4 x 4` matrix with nonsquare
+rational determinant and every `epsilon>0`, one positive constant is chosen
+before all real `U>=1`, bounding the actual number of integer zeros in the
+Euclidean ball by `C*U^(2+epsilon)`. The proof includes the rationally
+anisotropic case, the exact hyperbolic normal form and discriminant identity,
+an injective integral change of variables, both signs of divisors, and the
+zero binary-coordinate slice. The endpoint also proves finiteness of the
+literal source set.
+See [source_quadric_count](QuaternaryQuadraticForms/QuadricCountingTheorem.lean)
+and the [source correspondence review](certification/correspondence/quadric_count.md).
+
+This milestone adds **28 theorem exports in nine modules**, bringing the
+registered total to **1,115 exports in 256 modules**, with **296 inspected
+inputs** and the same **11 registered literature premises**. All 28 new
+exports use only the standard logical foundations. The frozen manuscript
+is unchanged. The separate weighted consequence **aux:conecount remains
+Pending**. Work stops after Lemma 2.3 for this session.
+
+### Current Lemma 2.3 verification
+
+<!-- BEGIN LEMMA_2_3_VERIFICATION -->
+
+Strict targeted builds and inspection of all 28 new theorem declarations
+have passed, with actual types matching the source review and axiom sets
+contained in `propext`, `Classical.choice`, and `Quot.sound`.
+The full local aggregate verifier and the matching GitHub Actions run are
+the remaining execution gates for this proof tree. This block will record
+their exact commit, run, report hashes, and comparison when complete.
+
+<!-- END LEMMA_2_3_VERIFICATION -->
 
 **Lemma 2.2 is Certified relative to its registered literature inputs.**
 For a fixed symmetric nonsingular form and a smooth complex weight family
@@ -286,7 +318,7 @@ The current scope covers 1,087 theorem exports across 247 Lean modules,
 Five auxiliary/supplementary groups are Certified and 28 remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-### Current Lemma 2.2 and main coefficient verification
+### Earlier Lemma 2.2 and main coefficient verification
 
 <!-- BEGIN LEMMA_2_2_VERIFICATION -->
 
@@ -2624,6 +2656,8 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
       Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
       Mathlib.Order.Interval.Set.OrdConnected \
+      Mathlib.RingTheory.Localization.FractionRing \
+      Mathlib.RingTheory.Localization.Integer \
       Mathlib.RingTheory.MvPolynomial.EulerIdentity \
       Mathlib.RingTheory.MvPolynomial.Homogeneous \
       Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
@@ -2657,24 +2691,14 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Continuation status
 
-The requested work on **Lemma 2.2** and the return to **aux:Sxi** and
-**aux:Sxibound** is complete at the proof level. The combined declaration
-inspection, local aggregate verifier, and exact-commit CI gates are recorded
-in the current verification block. No further proof target is started or
-automatically selected by this checkpoint.
+The requested **Lemma 2.3** is complete at the proof and source-review level.
+The current verification block records the aggregate execution evidence.
+This session stops here; no additional proof target is started.
 
-The coefficient now uses the original local functions and zero-frequency
-Fourier sums, the actual local counting densities, and the increasing-modulus
-singular-series value. Its exact product and uniform bound include `q=1`,
-possible zero global coefficients, and constants chosen before the supplied
-character data, local functions, exceptional polynomials, and modulus.
-
-Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas are
-complete. The polynomial-box epsilon consequence, aux:Cfactor,
-aux:weight_pieces, aux:Sxi, and aux:Sxibound are the five Certified
-supplementary groups; the other 28 remain Pending. Lemma 2.3 and the
-separate inverse-norm cone-counting consequence retain their own Pending
-status. The scaled-integral, Poisson, and three-frequency contributions are
-still required for Proposition 5.1, as is the separately tracked absolute
-singular-integral obligation for general weights meeting the cone vertex.
-The global analytic proposition and main theorems are not yet certified.
+All numbered results in Section 2 (Lemmas 2.1–2.7), Lemmas 3.1–3.11,
+and all Section 4 lemmas are complete. The numbered inventory is
+**25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
+remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.
+The scaled-integral, Poisson, and three-frequency contributions and the
+general cone-vertex singular-integral obligation remain for the later
+analytic assembly. The global proposition and main theorems are not certified.

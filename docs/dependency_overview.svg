@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-838.16 1060.16,-838.16 1060.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="520" y="-795.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="520" y="-770.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 24 certified; 18 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="520" y="-770.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 25 certified; 17 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -130,11 +130,11 @@
 <!-- prelim -->
 <g id="node2" class="node">
 <title>prelim</title>
-<g id="a_node2"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Preliminary tools&lt;/B&gt;&lt;BR/&gt;Lemmas 2.1&#45;2.4&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;3 certified; 1 pending&lt;/FONT&gt;" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M306,-616C306,-616 176,-616 176,-616 170,-616 164,-610 164,-604 164,-604 164,-576 164,-576 164,-570 170,-564 176,-564 176,-564 306,-564 306,-564 312,-564 318,-570 318,-576 318,-576 318,-604 318,-604 318,-610 312,-616 306,-616"/>
+<g id="a_node2"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Preliminary tools&lt;/B&gt;&lt;BR/&gt;Lemmas 2.1&#45;2.4&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#408342&quot;&gt;4 certified&lt;/FONT&gt;" target="_blank">
+<path fill="#e1f5df" stroke="#408342" stroke-width="1.15" d="M306,-616C306,-616 176,-616 176,-616 170,-616 164,-610 164,-604 164,-604 164,-576 164,-576 164,-570 170,-564 176,-564 176,-564 306,-564 306,-564 312,-564 318,-570 318,-576 318,-576 318,-604 318,-604 318,-610 312,-616 306,-616"/>
 <text text-anchor="start" x="173" y="-599.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Preliminary tools</text>
 <text text-anchor="start" x="183.5" y="-585.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 2.1&#45;2.4</text>
-<text text-anchor="start" x="176.5" y="-573.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">3 certified; 1 pending</text>
+<text text-anchor="start" x="210" y="-573.4" font-family="DejaVu Serif" font-size="12.00" fill="#408342">4 certified</text>
 </a>
 </g>
 </g>

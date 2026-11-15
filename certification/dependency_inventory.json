@@ -525,8 +525,23 @@
       "definition_dependencies": [
         "eq:forms"
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_quadric_count",
+        "QuaternaryQuadraticForms.rationalQuadric_euclidean_bound",
+        "QuaternaryQuadraticForms.sourceQuadricZeroSet_eq",
+        "QuaternaryQuadraticForms.sourceQuadricZeroSet_finite",
+        "QuaternaryQuadraticForms.sourceQuadricZeroSet_ncard",
+        "QuaternaryQuadraticForms.integerQuadricZeros_card_le_one",
+        "QuaternaryQuadraticForms.exists_rational_quadric_normal_form",
+        "QuaternaryQuadraticForms.nonsquare_det_binary_anisotropic",
+        "QuaternaryQuadraticForms.rationalQuadric_integer_model",
+        "QuaternaryQuadraticForms.integerMatrix_coordinate_bound",
+        "QuaternaryQuadraticForms.splitQuadric_box_bound",
+        "QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le",
+        "QuaternaryQuadraticForms.splitQuadric_zero_fiber_card_le",
+        "QuaternaryQuadraticForms.integerQuadricZeros_bound_of_lattice_model"
+      ],
       "page": 8,
       "explicit_source_references": [],
       "explicit_source_citations": [],

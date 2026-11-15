@@ -1090,7 +1090,35 @@ run_cmd do
     `QuaternaryQuadraticForms.euclideanSurfaceMeasure_realIsometry,
     `QuaternaryQuadraticForms.euclideanSurfaceMeasure_restrict_realIsometry,
     `QuaternaryQuadraticForms.singularIntegral_integrable_comp_realIsometry,
-    `QuaternaryQuadraticForms.singularIntegral_comp_realIsometry]
+    `QuaternaryQuadraticForms.singularIntegral_comp_realIsometry,
+    `QuaternaryQuadraticForms.mem_integerQuadricZeros,
+    `QuaternaryQuadraticForms.sourceQuadricZeroSet_eq,
+    `QuaternaryQuadraticForms.sourceQuadricZeroSet_finite,
+    `QuaternaryQuadraticForms.sourceQuadricZeroSet_ncard,
+    `QuaternaryQuadraticForms.integerQuadricZeros_card_le_one,
+    `QuaternaryQuadraticForms.integerQuadricZeros_bound_of_lattice_model,
+    `QuaternaryQuadraticForms.rationalQuadric_euclidean_bound,
+    `QuaternaryQuadraticForms.source_quadric_count,
+    `QuaternaryQuadraticForms.binary_zero_discriminant_isSquare,
+    `QuaternaryQuadraticForms.det_hyperbolic_binary,
+    `QuaternaryQuadraticForms.nonsquare_det_binary_anisotropic,
+    `QuaternaryQuadraticForms.exists_hyperbolic_complement_basis,
+    `QuaternaryQuadraticForms.rational_congruence_apply,
+    `QuaternaryQuadraticForms.exists_rational_hyperbolic_matrix,
+    `QuaternaryQuadraticForms.rational_family_clear_denominators,
+    `QuaternaryQuadraticForms.integerMatrix_coordinate_bound,
+    `QuaternaryQuadraticForms.rationalQuadric_integer_model,
+    `QuaternaryQuadraticForms.exists_rational_quadric_normal_form,
+    `QuaternaryQuadraticForms.splitQuadric_mem_interval,
+    `QuaternaryQuadraticForms.splitQuadricCoefficient_pos,
+    `QuaternaryQuadraticForms.splitQuadric_binaryValue_natAbs_le,
+    `QuaternaryQuadraticForms.splitQuadric_zero_fiber_card_le,
+    `QuaternaryQuadraticForms.splitQuadric_nonzero_fibers_uniform,
+    `QuaternaryQuadraticForms.splitQuadric_nonzero_box_card_le,
+    `QuaternaryQuadraticForms.splitQuadric_box_bound,
+    `QuaternaryQuadraticForms.splitQuadric_mem_signedDivisors,
+    `QuaternaryQuadraticForms.splitQuadric_signedDivisors_card_le,
+    `QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -4415,3 +4443,87 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.singularIntegral_comp_realIsometry
 #print axioms QuaternaryQuadraticForms.singularIntegral_comp_realIsometry
+
+#check @QuaternaryQuadraticForms.mem_integerQuadricZeros
+#print axioms QuaternaryQuadraticForms.mem_integerQuadricZeros
+
+#check @QuaternaryQuadraticForms.sourceQuadricZeroSet_eq
+#print axioms QuaternaryQuadraticForms.sourceQuadricZeroSet_eq
+
+#check @QuaternaryQuadraticForms.sourceQuadricZeroSet_finite
+#print axioms QuaternaryQuadraticForms.sourceQuadricZeroSet_finite
+
+#check @QuaternaryQuadraticForms.sourceQuadricZeroSet_ncard
+#print axioms QuaternaryQuadraticForms.sourceQuadricZeroSet_ncard
+
+#check @QuaternaryQuadraticForms.integerQuadricZeros_card_le_one
+#print axioms QuaternaryQuadraticForms.integerQuadricZeros_card_le_one
+
+#check @QuaternaryQuadraticForms.integerQuadricZeros_bound_of_lattice_model
+#print axioms QuaternaryQuadraticForms.integerQuadricZeros_bound_of_lattice_model
+
+#check @QuaternaryQuadraticForms.rationalQuadric_euclidean_bound
+#print axioms QuaternaryQuadraticForms.rationalQuadric_euclidean_bound
+
+#check @QuaternaryQuadraticForms.source_quadric_count
+#print axioms QuaternaryQuadraticForms.source_quadric_count
+
+#check @QuaternaryQuadraticForms.binary_zero_discriminant_isSquare
+#print axioms QuaternaryQuadraticForms.binary_zero_discriminant_isSquare
+
+#check @QuaternaryQuadraticForms.det_hyperbolic_binary
+#print axioms QuaternaryQuadraticForms.det_hyperbolic_binary
+
+#check @QuaternaryQuadraticForms.nonsquare_det_binary_anisotropic
+#print axioms QuaternaryQuadraticForms.nonsquare_det_binary_anisotropic
+
+#check @QuaternaryQuadraticForms.exists_hyperbolic_complement_basis
+#print axioms QuaternaryQuadraticForms.exists_hyperbolic_complement_basis
+
+#check @QuaternaryQuadraticForms.rational_congruence_apply
+#print axioms QuaternaryQuadraticForms.rational_congruence_apply
+
+#check @QuaternaryQuadraticForms.exists_rational_hyperbolic_matrix
+#print axioms QuaternaryQuadraticForms.exists_rational_hyperbolic_matrix
+
+#check @QuaternaryQuadraticForms.rational_family_clear_denominators
+#print axioms QuaternaryQuadraticForms.rational_family_clear_denominators
+
+#check @QuaternaryQuadraticForms.integerMatrix_coordinate_bound
+#print axioms QuaternaryQuadraticForms.integerMatrix_coordinate_bound
+
+#check @QuaternaryQuadraticForms.rationalQuadric_integer_model
+#print axioms QuaternaryQuadraticForms.rationalQuadric_integer_model
+
+#check @QuaternaryQuadraticForms.exists_rational_quadric_normal_form
+#print axioms QuaternaryQuadraticForms.exists_rational_quadric_normal_form
+
+#check @QuaternaryQuadraticForms.splitQuadric_mem_interval
+#print axioms QuaternaryQuadraticForms.splitQuadric_mem_interval
+
+#check @QuaternaryQuadraticForms.splitQuadricCoefficient_pos
+#print axioms QuaternaryQuadraticForms.splitQuadricCoefficient_pos
+
+#check @QuaternaryQuadraticForms.splitQuadric_binaryValue_natAbs_le
+#print axioms QuaternaryQuadraticForms.splitQuadric_binaryValue_natAbs_le
+
+#check @QuaternaryQuadraticForms.splitQuadric_zero_fiber_card_le
+#print axioms QuaternaryQuadraticForms.splitQuadric_zero_fiber_card_le
+
+#check @QuaternaryQuadraticForms.splitQuadric_nonzero_fibers_uniform
+#print axioms QuaternaryQuadraticForms.splitQuadric_nonzero_fibers_uniform
+
+#check @QuaternaryQuadraticForms.splitQuadric_nonzero_box_card_le
+#print axioms QuaternaryQuadraticForms.splitQuadric_nonzero_box_card_le
+
+#check @QuaternaryQuadraticForms.splitQuadric_box_bound
+#print axioms QuaternaryQuadraticForms.splitQuadric_box_bound
+
+#check @QuaternaryQuadraticForms.splitQuadric_mem_signedDivisors
+#print axioms QuaternaryQuadraticForms.splitQuadric_mem_signedDivisors
+
+#check @QuaternaryQuadraticForms.splitQuadric_signedDivisors_card_le
+#print axioms QuaternaryQuadraticForms.splitQuadric_signedDivisors_card_le
+
+#check @QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le
+#print axioms QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le

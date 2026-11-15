@@ -1,11 +1,45 @@
-# Delta-integral and main coefficient checkpoint
+# Lemma 2.3 checkpoint
 
 ## Numbered-result status
 
-Complete: **24**. Partial: **0**. Active numbered targets: **0**.
-Pending: **18**. Supplementary groups: **5 Certified, 28 Pending**.
+Complete: **25**. Partial: **0**. Active numbered targets: **0**.
+Pending: **17**. Supplementary groups: **5 Certified, 28 Pending**.
 
-### Complete Lemma 2.2 and actual surface normalization
+### Complete Lemma 2.3
+
+**Lemma 2.3 is Certified in full, with no literature premise.**
+For every nonsingular symmetric rational `4 x 4` matrix with nonsquare
+rational determinant and every `epsilon>0`, one positive constant is chosen
+before all real `U>=1`, bounding the actual number of integer zeros in the
+Euclidean ball by `C*U^(2+epsilon)`. The proof includes the rationally
+anisotropic case, the exact hyperbolic normal form and discriminant identity,
+an injective integral change of variables, both signs of divisors, and the
+zero binary-coordinate slice. The endpoint also proves finiteness of the
+literal source set.
+See [source_quadric_count](QuaternaryQuadraticForms/QuadricCountingTheorem.lean)
+and the [source correspondence review](certification/correspondence/quadric_count.md).
+
+This milestone adds **28 theorem exports in nine modules**, bringing the
+registered total to **1,115 exports in 256 modules**, with **296 inspected
+inputs** and the same **11 registered literature premises**. All 28 new
+exports use only the standard logical foundations. The frozen manuscript
+is unchanged. The separate weighted consequence **aux:conecount remains
+Pending**. Work stops after Lemma 2.3 for this session.
+
+### Current Lemma 2.3 verification
+
+<!-- BEGIN LEMMA_2_3_VERIFICATION -->
+
+Strict targeted builds and inspection of all 28 new theorem declarations
+have passed, with actual types matching the source review and axiom sets
+contained in `propext`, `Classical.choice`, and `Quot.sound`.
+The full local aggregate verifier and the matching GitHub Actions run are
+the remaining execution gates for this proof tree. This block will record
+their exact commit, run, report hashes, and comparison when complete.
+
+<!-- END LEMMA_2_3_VERIFICATION -->
+
+### Earlier complete Lemma 2.2 and actual surface normalization
 
 **Lemma 2.2 is Certified relative to its registered literature inputs.**
 For a fixed symmetric nonsingular form and a smooth complex weight family
@@ -67,7 +101,7 @@ literature premise. See the
 [uniform bound](QuaternaryQuadraticForms/SourceMainCoefficientBound.lean),
 and [source correspondence](certification/correspondence/main_coefficient.md).
 
-### Current Lemma 2.2 and main coefficient verification
+### Earlier Lemma 2.2 and main coefficient verification
 
 <!-- BEGIN LEMMA_2_2_VERIFICATION -->
 
@@ -164,17 +198,11 @@ retains its historical scope.
 
 <!-- END LEMMA_2_2_VERIFICATION -->
 
-### Next proof target after this checkpoint
+### Session boundary
 
-The recommended continuation is **Lemma 2.3** (`lem:quadriccount`), followed
-by its separate **aux:conecount** consequence. This is the remaining
-numbered result of Section 2. The existing construction of a rational
-hyperbolic partner, divisor estimate, and Euclidean lattice-counting tools
-can be reused. The new internal work is the four-dimensional rational normal
-form, its anisotropic binary complement, denominator clearing with an
-injective lattice map, and the resulting count. A finite dyadic argument
-then gives the inverse-norm bound on the dual cone. No proof of this next
-target is claimed or started by the present verification milestone.
+The requested Lemma 2.3 is the last proof target of this session. The separate
+weighted dual-cone estimate `aux:conecount` remains Pending for future work.
+No further target is automatically selected or started.
 
 ### Earlier complete Lemma 2.1 and uniform normalization
 
@@ -3531,27 +3559,17 @@ The initial algebra-only report is also preserved as
 
 ## Continuation status
 
-The requested work on **Lemma 2.2** and the return to **aux:Sxi** and
-**aux:Sxibound** is complete at the proof level. The combined declaration
-inspection, local aggregate verifier, and exact-commit CI gates are recorded
-in the current verification block. No further proof target is started or
-automatically selected by this checkpoint.
+The requested **Lemma 2.3** is complete at the proof and source-review level.
+The current verification block records the aggregate execution evidence.
+This session stops here; no additional proof target is started.
 
-The coefficient now uses the original local functions and zero-frequency
-Fourier sums, the actual local counting densities, and the increasing-modulus
-singular-series value. Its exact product and uniform bound include `q=1`,
-possible zero global coefficients, and constants chosen before the supplied
-character data, local functions, exceptional polynomials, and modulus.
-
-Lemmas 2.1–2.2 and 2.4–2.7, Lemmas 3.1–3.11, and all Section 4 lemmas are
-complete. The polynomial-box epsilon consequence, aux:Cfactor,
-aux:weight_pieces, aux:Sxi, and aux:Sxibound are the five Certified
-supplementary groups; the other 28 remain Pending. Lemma 2.3 and the
-separate inverse-norm cone-counting consequence retain their own Pending
-status. The scaled-integral, Poisson, and three-frequency contributions are
-still required for Proposition 5.1, as is the separately tracked absolute
-singular-integral obligation for general weights meeting the cone vertex.
-The global analytic proposition and main theorems are not yet certified.
+All numbered results in Section 2 (Lemmas 2.1–2.7), Lemmas 3.1–3.11,
+and all Section 4 lemmas are complete. The numbered inventory is
+**25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
+remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.
+The scaled-integral, Poisson, and three-frequency contributions and the
+general cone-vertex singular-integral obligation remain for the later
+analytic assembly. The global proposition and main theorems are not certified.
 
 ### Completed coefficient continuation
 

@@ -120,7 +120,7 @@ The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruc
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 1016 |
+| None (standard logical foundations only) | 1044 |
 | Bertini with general projective geometry | 1 |
 | Heath–Brown fixed delta construction | 14 |
 | Katz with general hypersurface geometry | 10 |

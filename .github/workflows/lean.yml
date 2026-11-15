@@ -162,6 +162,8 @@ jobs:
             Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
             Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
             Mathlib.Order.Interval.Set.OrdConnected \
+            Mathlib.RingTheory.Localization.FractionRing \
+            Mathlib.RingTheory.Localization.Integer \
             Mathlib.RingTheory.MvPolynomial.EulerIdentity \
             Mathlib.RingTheory.MvPolynomial.Homogeneous \
             Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
