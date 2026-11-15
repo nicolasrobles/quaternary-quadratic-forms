@@ -10,7 +10,7 @@
 <title>Overview</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-823.16 1060.16,-823.16 1060.16,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="520" y="-780.6" font-family="DejaVu Serif" font-size="23.00">Proof structure of the quadratic&#45;forms paper</text>
-<text text-anchor="middle" x="520" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 20 certified; 22 pending | Source&#45;relative Lean certification</text>
+<text text-anchor="middle" x="520" y="-755.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 21 certified; 21 pending | Source&#45;relative Lean certification</text>
 <!-- sources&#45;&gt;prelim -->
 <g id="edge16" class="edge">
 <title>sources&#45;&gt;prelim</title>
@@ -26,8 +26,8 @@
 <!-- sources&#45;&gt;local -->
 <g id="edge15" class="edge">
 <title>sources&#45;&gt;local</title>
-<path fill="none" stroke="#8d79bc" stroke-dasharray="5,2" d="M397.63,-657.69C368.31,-617.65 329,-564 329,-564 329,-564 312.59,-545.36 297.07,-527.74"/>
-<polygon fill="#8d79bc" stroke="#8d79bc" points="298.77,-525.96 292.31,-522.33 295.09,-529.2 298.77,-525.96"/>
+<path fill="none" stroke="#8d79bc" stroke-dasharray="5,2" d="M397.63,-657.69C368.31,-617.65 329,-564 329,-564 329,-564 312.31,-545.36 296.53,-527.74"/>
+<polygon fill="#8d79bc" stroke="#8d79bc" points="298.18,-525.91 291.68,-522.33 294.53,-529.18 298.18,-525.91"/>
 </g>
 <!-- sources&#45;&gt;fourier -->
 <g id="edge14" class="edge">
@@ -38,8 +38,8 @@
 <!-- sources&#45;&gt;analytic -->
 <g id="edge10" class="edge">
 <title>sources&#45;&gt;analytic</title>
-<path fill="none" stroke="#8d79bc" stroke-dasharray="5,2" d="M289.79,-657.88C221.19,-636.88 153,-616 153,-616 153,-616 153,-564 153,-564 153,-564 185,-470 185,-470 185,-470 209.47,-450.71 232.15,-432.83"/>
-<polygon fill="#8d79bc" stroke="#8d79bc" points="233.88,-434.59 237.87,-428.33 230.85,-430.74 233.88,-434.59"/>
+<path fill="none" stroke="#8d79bc" stroke-dasharray="5,2" d="M289.79,-657.88C221.19,-636.88 153,-616 153,-616 153,-616 153,-564 153,-564 153,-564 181,-470 181,-470 181,-470 206.72,-450.42 230.35,-432.42"/>
+<polygon fill="#8d79bc" stroke="#8d79bc" points="231.9,-434.33 235.98,-428.14 228.93,-430.43 231.9,-434.33"/>
 </g>
 <!-- sources&#45;&gt;sieve -->
 <g id="edge17" class="edge">
@@ -62,8 +62,8 @@
 <!-- prelim&#45;&gt;local -->
 <g id="edge8" class="edge">
 <title>prelim&#45;&gt;local</title>
-<path fill="none" stroke="#4b5563" stroke-width="1.4" d="M248.92,-563.86C252.31,-553.11 256.31,-540.43 259.91,-529.02"/>
-<polygon fill="#4b5563" stroke="#4b5563" stroke-width="1.4" points="262.32,-529.52 262.09,-522.11 257.64,-528.05 262.32,-529.52"/>
+<path fill="none" stroke="#4b5563" stroke-width="1.4" d="M248.65,-563.86C251.92,-553.11 255.78,-540.43 259.25,-529.02"/>
+<polygon fill="#4b5563" stroke="#4b5563" stroke-width="1.4" points="261.66,-529.52 261.36,-522.11 256.98,-528.09 261.66,-529.52"/>
 </g>
 <!-- finite&#45;&gt;fourier -->
 <g id="edge4" class="edge">
@@ -74,8 +74,8 @@
 <!-- local&#45;&gt;analytic -->
 <g id="edge6" class="edge">
 <title>local&#45;&gt;analytic</title>
-<path fill="none" stroke="#4b5563" stroke-width="1.4" d="M270,-469.86C270,-459.21 270,-446.67 270,-435.34"/>
-<polygon fill="#4b5563" stroke="#4b5563" stroke-width="1.4" points="272.45,-435.11 270,-428.11 267.55,-435.11 272.45,-435.11"/>
+<path fill="none" stroke="#4b5563" stroke-width="1.4" d="M269,-469.86C269,-459.21 269,-446.67 269,-435.34"/>
+<polygon fill="#4b5563" stroke="#4b5563" stroke-width="1.4" points="271.45,-435.11 269,-428.11 266.55,-435.11 271.45,-435.11"/>
 </g>
 <!-- fourier&#45;&gt;characters -->
 <g id="edge5" class="edge">
@@ -86,8 +86,8 @@
 <!-- analytic&#45;&gt;characters -->
 <g id="edge1" class="edge">
 <title>analytic&#45;&gt;characters</title>
-<path fill="none" stroke="#4b5563" stroke-width="1.4" d="M328.74,-375.98C357.19,-363.86 391.45,-349.27 420.72,-336.8"/>
-<polygon fill="#4b5563" stroke="#4b5563" stroke-width="1.4" points="421.79,-339.01 427.27,-334.01 419.87,-334.5 421.79,-339.01"/>
+<path fill="none" stroke="#4b5563" stroke-width="1.4" d="M328.01,-375.98C356.6,-363.86 391.02,-349.27 420.42,-336.8"/>
+<polygon fill="#4b5563" stroke="#4b5563" stroke-width="1.4" points="421.51,-339 427,-334.01 419.6,-334.49 421.51,-339"/>
 </g>
 <!-- characters&#45;&gt;sieve -->
 <g id="edge3" class="edge">
@@ -151,11 +151,11 @@
 <!-- local -->
 <g id="node4" class="node">
 <title>local</title>
-<g id="a_node4"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Local arithmetic&lt;/B&gt;&lt;BR/&gt;Lemmas 3.1&#45;3.11&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;9 certified; 2 pending&lt;/FONT&gt;" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M332,-522C332,-522 208,-522 208,-522 202,-522 196,-516 196,-510 196,-510 196,-482 196,-482 196,-476 202,-470 208,-470 208,-470 332,-470 332,-470 338,-470 344,-476 344,-482 344,-482 344,-510 344,-510 344,-516 338,-522 332,-522"/>
-<text text-anchor="start" x="205" y="-505.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Local arithmetic</text>
-<text text-anchor="start" x="208" y="-491.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 3.1&#45;3.11</text>
-<text text-anchor="start" x="205.5" y="-479.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">9 certified; 2 pending</text>
+<g id="a_node4"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Local arithmetic&lt;/B&gt;&lt;BR/&gt;Lemmas 3.1&#45;3.11&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;10 certified; 1 pending&lt;/FONT&gt;" target="_blank">
+<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M334,-522C334,-522 204,-522 204,-522 198,-522 192,-516 192,-510 192,-510 192,-482 192,-482 192,-476 198,-470 204,-470 204,-470 334,-470 334,-470 340,-470 346,-476 346,-482 346,-482 346,-510 346,-510 346,-516 340,-522 334,-522"/>
+<text text-anchor="start" x="204" y="-505.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Local arithmetic</text>
+<text text-anchor="start" x="207" y="-491.8" font-family="DejaVu Serif" font-size="14.00">Lemmas 3.1&#45;3.11</text>
+<text text-anchor="start" x="201" y="-479.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">10 certified; 1 pending</text>
 </a>
 </g>
 </g>
@@ -174,10 +174,10 @@
 <g id="node6" class="node">
 <title>analytic</title>
 <g id="a_node6"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/INVENTORY.md" xlink:title="&lt;B&gt;Analytic assembly&lt;/B&gt;&lt;BR/&gt;Proposition 5.1; Lemmas 5.1&#45;5.5&lt;BR/&gt;&lt;FONT POINT&#45;SIZE=&quot;12&quot; COLOR=&quot;#b88023&quot;&gt;6 pending&lt;/FONT&gt;" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M383,-428C383,-428 157,-428 157,-428 151,-428 145,-422 145,-416 145,-416 145,-388 145,-388 145,-382 151,-376 157,-376 157,-376 383,-376 383,-376 389,-376 395,-382 395,-388 395,-388 395,-416 395,-416 395,-422 389,-428 383,-428"/>
-<text text-anchor="start" x="199" y="-411.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Analytic assembly</text>
-<text text-anchor="start" x="154" y="-397.8" font-family="DejaVu Serif" font-size="14.00">Proposition 5.1; Lemmas 5.1&#45;5.5</text>
-<text text-anchor="start" x="240" y="-385.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">6 pending</text>
+<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M382,-428C382,-428 156,-428 156,-428 150,-428 144,-422 144,-416 144,-416 144,-388 144,-388 144,-382 150,-376 156,-376 156,-376 382,-376 382,-376 388,-376 394,-382 394,-388 394,-388 394,-416 394,-416 394,-422 388,-428 382,-428"/>
+<text text-anchor="start" x="198" y="-411.8" font-family="DejaVu Serif" font-weight="bold" font-size="14.00">Analytic assembly</text>
+<text text-anchor="start" x="153" y="-397.8" font-family="DejaVu Serif" font-size="14.00">Proposition 5.1; Lemmas 5.1&#45;5.5</text>
+<text text-anchor="start" x="239" y="-385.4" font-family="DejaVu Serif" font-size="12.00" fill="#b88023">6 pending</text>
 </a>
 </g>
 </g>

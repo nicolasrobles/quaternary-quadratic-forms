@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete coefficient-uniform polynomial congruence box count with exact constant",
+  "checkpoint": "Complete Euclidean exceptional congruence count and inverse-norm weighted bound",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -212,8 +212,20 @@
       "scope_note": "Complete Lemma 3.9 for the actual symmetric nonsingular integral quaternary matrix with nonsquare determinant. At shift zero the global series is defined and proved as an ordered real-cutoff limit, never as an unconditional tsum. The general Abel identity and its exact tail are specialized using the already proved actual Lemma 3.7 at d=1, e=q, u=0. The final theorem chooses C after A and epsilon but before the supplied character level, character, good-prime agreement, q, and X; the supporting estimate is additionally uniform in all real shifts z>=0. Actual CRT and Lemma 3.3 prove absolute Euler factorization only for z>0. Every shifted local series has summable domination and its boundary value is the actual counting density. Nonprincipality of the original supplied character is derived from nonsquareness and good-prime Legendre values, with all bad-prime values retained. Official pinned mathlib supplies Euler products in Re(s)>1, agreement with the analytic LFunction there, nonvanishing at 2+z, and continuity of the nonprincipal LFunction at one. A finite correction over primes dividing q*N_F passes to the boundary without dividing by any bad density or by the singular-series constant. Only good densities at primes dividing q are removed, and their nonvanishing is proved. The right-limit uniqueness uses a nontrivial filter. No new or existing literature premise is used by the 82 new public exports. The source squarefree hypothesis is retained by the final wrapper; the supporting identities hold without it. All later numbered results and separately tracked supplementary obligations retain their prior statuses."
     },
     "lem:box": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_congruence_box",
+        "QuaternaryQuadraticForms.congruenceBox_bounds",
+        "QuaternaryQuadraticForms.congruenceEuclideanBall_card_le_rpow",
+        "QuaternaryQuadraticForms.inverseRadiusSum_le_of_sublevel_card"
+      ],
+      "correspondence_record": "certification/correspondence/congruence_box.md",
+      "completed_clauses": [
+        "For every real E>=1 and epsilon>0, one constant is fixed before all symmetric nonsingular integral A, source moduli N>=1 with rad(N_F)|N, independent nonzero prime polynomials of degree at most E, coprime positive squarefree q1,h with (q1*h,N)=1, and real U>=1. The literal Euclidean solution set is finite and its count is at most K*(q1*h)^epsilon*(U^4/(q1*h)+U^3).",
+        "The literal sum of Delta_h(u)/||u|| over nonzero integer vectors with Euclidean norm at most U and q1|F*(u) is at most the same K*(q1*h)^epsilon*(U^3/(q1*h)+U^2)."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.10, with both original assertions and one coefficient-independent constant. The actual EuclideanSpace norm has the square-root sum-of-squares identity; its finite integer ball lies in coordinate intervals containing at most 3U integers. At primes dividing q1 the actual reduced adjugate quadratic polynomial is nonzero by the source radical and coprimality hypotheses; at primes dividing h the original D_p is used. The combined prime conditions are exactly integral dual divisibility and the literal product indicator. Lemma 2.4 and its separately completed epsilon consequence give the count with degree max(2,ceil(E)). Finite dyadic halving on actual nonzero solutions, whose Euclidean norms are at least one, gives the weighted bound with absolute factor three. The source endpoint accepts polynomials only at primes outside N, proves actual-set finiteness, and retains the original indicator in the weighted sum. Modulus one, U=1, real U and E, zero-vector inclusion only in the unweighted count, nonzero constant polynomials, and small characteristics are covered. No Fourier-bound hypothesis, D_p(0)=0, counting premise, or literature premise is used. All 37 new exports in ten modules use exactly the standard three logical axioms; only this numbered status and aux:polynomialbox_epsilon are promoted."
     },
     "lem:average": {
       "status": "Pending",
@@ -380,8 +392,18 @@
       "checked_exports": []
     },
     "aux:polynomialbox_epsilon": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.primeFactor_pow_le_rpow",
+        "QuaternaryQuadraticForms.polynomialBox_squarefree_card_le_rpow",
+        "QuaternaryQuadraticForms.source_polynomial_box_epsilon"
+      ],
+      "correspondence_record": "certification/correspondence/congruence_box.md",
+      "completed_clauses": [
+        "For n,E>=1 and epsilon>0, a positive constant is chosen before the positive squarefree modulus, independent prime polynomials, arbitrary real intervals, and Y>=1, yielding the literal finite solution-set bound K*m^epsilon*(Y^n/m+Y^(n-1))."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "A finite small-prime correction proves C^omega(m)<=K(C,epsilon)*m^epsilon for every fixed real C>=1 and positive squarefree m. Applying it to Lemma 2.4 preserves coefficient and interval uniformity. Both integer-endpoint and exact source prime-only arbitrary-real-interval versions are proved, with explicit actual-set finiteness. No literature premise is used. This is one supplementary group, not another numbered result."
     },
     "aux:ramanujan": {
       "status": "Pending",
@@ -13469,6 +13491,595 @@
         "eq:polynomialbox"
       ],
       "scope": "Complete Lemma 2.4 for arbitrary real intervals with at most Y integer points, n,E,Y>=1, and every positive squarefree m: the literal simultaneous-congruence solution set is finite and its cardinality is at most (E+...+E^n)^omega(m)*(Y^n/m+Y^(n-1)), with independent nonzero polynomials of total degree at most E supplied only at the primes dividing m.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.congruenceEuclideanBall_subset_polynomialBox",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Every actual Euclidean solution is a solution of the combined prime polynomials in its containing integer coordinate box.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.congruenceEuclideanBall_card_le_rpow",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxCount.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The first clause of Lemma 3.10, with the constant uniform in every coefficient and modulus parameter.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalIndicator_eq_ite",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The product is exactly the indicator of all its prime congruences.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalIndicator_eq_one_iff",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The indicator equals one precisely when every required congruence holds.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalIndicator_eq_zero_of_ne_one",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Every indicator that is not one is zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalIndicator_one",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Modulus one has the empty product indicator one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_congruenceEuclideanBall",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Membership is exactly the unweighted source condition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_divisibleEuclideanBall",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Membership retains the positive Euclidean radius and literal divisibility.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedCongruenceEuclideanSum_eq",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The original weighted sum equals the reciprocal-radius sum over the nonzero congruence solutions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.boxCongruencePolynomial_ne_zero",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "At every prime of the combined modulus the selected polynomial is nonzero, using precisely the source's exclusion of primes dividing `N`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.boxCongruencePolynomial_totalDegree_le",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The selected polynomials have degree at most the source bound `max 2 E`, uniformly in the coefficients and the prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.squarefree_int_dvd_iff_primeFactors",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Divisibility by a squarefree natural modulus is exactly vanishing of the integer's reductions at all its prime divisors.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.boxCongruencePolynomial_eval_eq_zero_iff",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The combined prime-polynomial conditions are precisely the source divisibility condition and the vanishing of all supplied `D p` at `p | h`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.congruenceBox_bounds",
+      "file": "QuaternaryQuadraticForms/CongruenceBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Both source bounds with one constant chosen before every arithmetic, polynomial and radius parameter. The weighted expression is the literal sum of the original indicator divided by the Euclidean norm.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanNorm_eq_sqrt",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The source norm has the usual sum-of-squares expression.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanNorm_nonneg",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Euclidean radii are nonnegative.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coordinate_abs_le_integerEuclideanNorm",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Every coordinate is bounded by the actual Euclidean norm.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanNorm_eq_zero_iff",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The zero vector is exactly the vector with zero Euclidean norm.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.one_le_integerEuclideanNorm",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "A nonzero integer vector has Euclidean norm at least one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanNorm_pos_iff",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "A positive radius is equivalent to a nonzero integer vector.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanNorm_le_mem_box",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Euclidean boundedness puts every coordinate in the exact integer box.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_integerEuclideanBall",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Membership is exactly the source's Euclidean radius condition.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanBall_mono",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Larger real radii contain every point of a smaller ball.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclideanInterval_card_le_three_mul",
+      "file": "QuaternaryQuadraticForms/EuclideanIntegerBox.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Each coordinate interval contains at most `3 U` integers for `U ≥ 1`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.inverseRadiusSum_le_of_sublevel_card",
+      "file": "QuaternaryQuadraticForms/InverseNormBoxBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "An inverse-radius weighted sum follows from the four-dimensional sublevel count. The constant is absolute, and the radii may be real.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_squarefree_card_le_rpow",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxEpsilon.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:polynomialbox_epsilon",
+        "lem:polynomialbox"
+      ],
+      "scope": "The epsilon form of the polynomial-box estimate for integer endpoints, with one constant uniform in all modulus and coefficient data.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_polynomial_box_epsilon",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxEpsilon.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:polynomialbox_epsilon",
+        "lem:polynomialbox"
+      ],
+      "scope": "The complete source epsilon consequence immediately after Lemma 2.4. Its constant depends only on the dimension, degree bound and exponent.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeFactor_pow_le_rpow",
+      "file": "QuaternaryQuadraticForms/PrimeFactorEpsilon.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:polynomialbox_epsilon",
+        "lem:polynomialbox"
+      ],
+      "scope": "A fixed base to the number of prime factors has an arbitrarily small positive power bound, uniformly in the squarefree modulus.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceCongruenceEuclideanSet_eq",
+      "file": "QuaternaryQuadraticForms/SourceCongruenceBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The finite internal representation counts exactly the source set.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceWeightedCongruenceEuclideanSum_eq",
+      "file": "QuaternaryQuadraticForms/SourceCongruenceBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The finite internal weighted sum is the source's actual product-indicator sum.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_congruence_box_natDegree",
+      "file": "QuaternaryQuadraticForms/SourceCongruenceBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Both clauses of Lemma 3.10 for a natural degree bound, retaining the original good-prime polynomial domain and the literal indicator.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_congruence_box",
+      "file": "QuaternaryQuadraticForms/SourceCongruenceBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "Complete Lemma 3.10 with the source's real degree bound. The implied constant is fixed before the matrix, source modulus, local polynomials, coprime squarefree moduli, and radius. Both the literal count and the literal inverse-Euclidean-norm weighted sum are bounded.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendExceptionalPolynomials_apply",
+      "file": "QuaternaryQuadraticForms/SourceExceptionalPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "At each allowed prime the extended polynomial is the supplied one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendExceptionalPolynomials_ne_zero",
+      "file": "QuaternaryQuadraticForms/SourceExceptionalPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The source nonvanishing hypothesis is preserved at every good prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendExceptionalPolynomials_totalDegree_le",
+      "file": "QuaternaryQuadraticForms/SourceExceptionalPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The source degree bound is preserved at every good prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptionalIndicator_extend",
+      "file": "QuaternaryQuadraticForms/SourceExceptionalPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "No value at an excluded index enters the indicator of a coprime modulus.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceExceptionalIndicator_one",
+      "file": "QuaternaryQuadraticForms/SourceExceptionalPolynomials.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:box",
+        "eq:box",
+        "eq:weightedbox"
+      ],
+      "scope": "The empty-prime product gives the source convention `Delta_1(u)=1`.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",

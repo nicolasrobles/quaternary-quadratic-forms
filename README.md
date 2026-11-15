@@ -12,7 +12,20 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 20 · Partial: 0 · Active: 0 · Pending: 22** — 42 numbered results.
+**Complete: 21 · Partial: 0 · Active: 0 · Pending: 21** — 42 numbered results.
+
+**Lemma 3.10 is Certified in full.** For coprime positive squarefree
+q1,h with (q1*h,N)=1, both the actual Euclidean congruence count and
+the original inverse-norm weighted sum satisfy the manuscript bounds.
+One constant depending only on the real degree bound E>=1 and
+epsilon>0 is chosen before the matrix, source modulus, independently
+supplied prime polynomials, moduli, and real radius U>=1.
+The full source endpoint is
+[source_congruence_box](QuaternaryQuadraticForms/SourceCongruenceBoxTheorem.lean).
+The prerequisite aux:polynomialbox_epsilon is also Certified, with
+coefficient and interval uniformity preserved. No literature premise
+is added or used. See the
+[complete source review](certification/correspondence/congruence_box.md).
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -180,12 +193,42 @@ No literature premise is added or used. The full source endpoint is
 [`source_polynomial_box`](QuaternaryQuadraticForms/PolynomialBoxTheorem.lean),
 with a [complete correspondence review](certification/correspondence/polynomial_box.md).
 
-The current scope covers 838 theorem exports across 199 Lean modules,
+The current scope covers 875 theorem exports across 209 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
-source groups. All 33 auxiliary/supplementary groups remain Pending.
+source groups. One auxiliary/supplementary group is Certified and 32 remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-### Current Lemma 2.4 verification
+### Current Lemma 3.10 verification
+
+<!-- BEGIN LEMMA_3_10_VERIFICATION -->
+
+This milestone adds **37 public theorem exports in ten modules**, bringing
+the aggregate scope to **875 theorem exports, 209 project Lean modules,
+and 243 inspected inputs**. The complete source target compiled
+successfully with 3,070 jobs under the pinned Lean 4.24.0 and mathlib.
+
+All 37 declaration kinds, complete actual types, and axiom dependencies
+passed separate strict inspection. Every new export uses exactly
+Classical.choice, Quot.sound, and propext; no literature premise
+is used. Independent source review covers both inequalities, the literal
+Euclidean norm and product indicator, real degree bounds and radii,
+the source-only polynomial domain, all modulus-one cases, and the
+constant's complete coefficient uniformity.
+
+The earlier 199 proof modules and all 838 earlier complete theorem records
+are preserved, as are the frozen manuscript and PDF, pinned verifier,
+four literature premises, nine dependency pins, and all earlier claim
+records except the two newly completed obligations. The current ledger
+has 21 Complete, 0 Partial, 0 Active, 21 Pending numbered results; one
+supplementary group is Certified and 32 remain Pending.
+
+The complete local aggregate verifier and independent exact-commit
+GitHub verification are the remaining execution gates. Earlier reports
+and evidence retain their historical scopes.
+
+<!-- END LEMMA_3_10_VERIFICATION -->
+
+### Earlier Lemma 2.4 verification
 
 <!-- BEGIN LEMMA_2_4_VERIFICATION -->
 
@@ -2153,6 +2196,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Algebra.Ring.Periodic \
       Mathlib.Algebra.Star.BigOperators \
       Mathlib.Analysis.Complex.Basic \
+      Mathlib.Analysis.InnerProductSpace.PiL2 \
       Mathlib.Analysis.Normed.Group.FunctionSeries \
       Mathlib.Analysis.PSeries \
       Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
@@ -2252,22 +2296,16 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next step is the separately tracked consequence
-`aux:polynomialbox_epsilon`: prove uniformly that
-`C_(n,E)^omega(m) <= K_(n,E,epsilon) m^epsilon`, with one constant
-chosen before the varying modulus, polynomial family, intervals, and `Y`.
-This gives the epsilon form immediately after Lemma 2.4 in the manuscript.
+The next target is **Lemma 3.11** (lem:average), using the complete
+inverse-Euclidean-norm estimate in Lemma 3.10 and the separately tracked
+product-expansion obligation aux:Cfactor. The proof must retain the
+actual prime Fourier sums, their CRT product, and the original supplied
+D_p indicators, then sum over divisors of q2 and absorb the fixed-base
+prime-factor and divisor-count factors with a constant uniform in the
+coefficients and moduli.
 
-Then complete **Lemma 3.10** (`lem:box`), applying the checked polynomial
-box bound to the actual exceptional-frequency congruences and proving
-both the unweighted count and its inverse-norm-weighted form. The
-auxiliary polynomials in that lemma are the explicit Section 3 hypotheses;
-the completed Section 4 construction need not be reopened.
-
-**Lemma 3.11** follows using the weighted count and the separately tracked
-finite factorization obligation `aux:Cfactor`. The supplementary
-`aux:Sxi` and `aux:Sxibound` consequences of Lemma 3.9 also remain Pending.
-
-Lemma 2.4, Lemmas 3.1–3.9, and every Section 4 lemma are complete.
-The global analytic assembly, main theorems, and all 33 separately tracked
-auxiliary/supplementary groups remain Pending. The whole paper is not certified.
+The supplementary aux:Sxi and aux:Sxibound consequences of Lemma 3.9
+remain separate pending tasks. Lemma 2.4, Lemmas 3.1–3.10, and every
+Section 4 lemma are complete. The epsilon consequence after Lemma 2.4
+is the first Certified supplementary group; the other 32 remain Pending.
+The global analytic assembly and main theorems are not yet certified.

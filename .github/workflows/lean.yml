@@ -61,6 +61,7 @@ jobs:
             Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Complex.Basic \
+            Mathlib.Analysis.InnerProductSpace.PiL2 \
             Mathlib.Analysis.Normed.Group.FunctionSeries \
             Mathlib.Analysis.PSeries \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \

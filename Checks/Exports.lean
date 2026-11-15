@@ -841,7 +841,44 @@ run_cmd do
     `QuaternaryQuadraticForms.polynomialBox_squarefree_card_le,
     `QuaternaryQuadraticForms.extendPolynomialBoxFamily_apply,
     `QuaternaryQuadraticForms.sourcePolynomialBoxSet_eq_integer,
-    `QuaternaryQuadraticForms.source_polynomial_box]
+    `QuaternaryQuadraticForms.source_polynomial_box,
+    `QuaternaryQuadraticForms.congruenceEuclideanBall_subset_polynomialBox,
+    `QuaternaryQuadraticForms.congruenceEuclideanBall_card_le_rpow,
+    `QuaternaryQuadraticForms.exceptionalIndicator_eq_ite,
+    `QuaternaryQuadraticForms.exceptionalIndicator_eq_one_iff,
+    `QuaternaryQuadraticForms.exceptionalIndicator_eq_zero_of_ne_one,
+    `QuaternaryQuadraticForms.exceptionalIndicator_one,
+    `QuaternaryQuadraticForms.mem_congruenceEuclideanBall,
+    `QuaternaryQuadraticForms.mem_divisibleEuclideanBall,
+    `QuaternaryQuadraticForms.weightedCongruenceEuclideanSum_eq,
+    `QuaternaryQuadraticForms.boxCongruencePolynomial_ne_zero,
+    `QuaternaryQuadraticForms.boxCongruencePolynomial_totalDegree_le,
+    `QuaternaryQuadraticForms.squarefree_int_dvd_iff_primeFactors,
+    `QuaternaryQuadraticForms.boxCongruencePolynomial_eval_eq_zero_iff,
+    `QuaternaryQuadraticForms.congruenceBox_bounds,
+    `QuaternaryQuadraticForms.integerEuclideanNorm_eq_sqrt,
+    `QuaternaryQuadraticForms.integerEuclideanNorm_nonneg,
+    `QuaternaryQuadraticForms.coordinate_abs_le_integerEuclideanNorm,
+    `QuaternaryQuadraticForms.integerEuclideanNorm_eq_zero_iff,
+    `QuaternaryQuadraticForms.one_le_integerEuclideanNorm,
+    `QuaternaryQuadraticForms.integerEuclideanNorm_pos_iff,
+    `QuaternaryQuadraticForms.integerEuclideanNorm_le_mem_box,
+    `QuaternaryQuadraticForms.mem_integerEuclideanBall,
+    `QuaternaryQuadraticForms.integerEuclideanBall_mono,
+    `QuaternaryQuadraticForms.integerEuclideanInterval_card_le_three_mul,
+    `QuaternaryQuadraticForms.inverseRadiusSum_le_of_sublevel_card,
+    `QuaternaryQuadraticForms.polynomialBox_squarefree_card_le_rpow,
+    `QuaternaryQuadraticForms.source_polynomial_box_epsilon,
+    `QuaternaryQuadraticForms.primeFactor_pow_le_rpow,
+    `QuaternaryQuadraticForms.sourceCongruenceEuclideanSet_eq,
+    `QuaternaryQuadraticForms.sourceWeightedCongruenceEuclideanSum_eq,
+    `QuaternaryQuadraticForms.source_congruence_box_natDegree,
+    `QuaternaryQuadraticForms.source_congruence_box,
+    `QuaternaryQuadraticForms.extendExceptionalPolynomials_apply,
+    `QuaternaryQuadraticForms.extendExceptionalPolynomials_ne_zero,
+    `QuaternaryQuadraticForms.extendExceptionalPolynomials_totalDegree_le,
+    `QuaternaryQuadraticForms.exceptionalIndicator_extend,
+    `QuaternaryQuadraticForms.sourceExceptionalIndicator_one]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -3391,3 +3428,114 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.source_polynomial_box
 #print axioms QuaternaryQuadraticForms.source_polynomial_box
+
+#check @QuaternaryQuadraticForms.congruenceEuclideanBall_subset_polynomialBox
+#print axioms QuaternaryQuadraticForms.congruenceEuclideanBall_subset_polynomialBox
+
+#check @QuaternaryQuadraticForms.congruenceEuclideanBall_card_le_rpow
+#print axioms QuaternaryQuadraticForms.congruenceEuclideanBall_card_le_rpow
+
+#check @QuaternaryQuadraticForms.exceptionalIndicator_eq_ite
+#print axioms QuaternaryQuadraticForms.exceptionalIndicator_eq_ite
+
+#check @QuaternaryQuadraticForms.exceptionalIndicator_eq_one_iff
+#print axioms QuaternaryQuadraticForms.exceptionalIndicator_eq_one_iff
+
+#check @QuaternaryQuadraticForms.exceptionalIndicator_eq_zero_of_ne_one
+#print axioms QuaternaryQuadraticForms.exceptionalIndicator_eq_zero_of_ne_one
+
+#check @QuaternaryQuadraticForms.exceptionalIndicator_one
+#print axioms QuaternaryQuadraticForms.exceptionalIndicator_one
+
+#check @QuaternaryQuadraticForms.mem_congruenceEuclideanBall
+#print axioms QuaternaryQuadraticForms.mem_congruenceEuclideanBall
+
+#check @QuaternaryQuadraticForms.mem_divisibleEuclideanBall
+#print axioms QuaternaryQuadraticForms.mem_divisibleEuclideanBall
+
+#check @QuaternaryQuadraticForms.weightedCongruenceEuclideanSum_eq
+#print axioms QuaternaryQuadraticForms.weightedCongruenceEuclideanSum_eq
+
+#check @QuaternaryQuadraticForms.boxCongruencePolynomial_ne_zero
+#print axioms QuaternaryQuadraticForms.boxCongruencePolynomial_ne_zero
+
+#check @QuaternaryQuadraticForms.boxCongruencePolynomial_totalDegree_le
+#print axioms QuaternaryQuadraticForms.boxCongruencePolynomial_totalDegree_le
+
+#check @QuaternaryQuadraticForms.squarefree_int_dvd_iff_primeFactors
+#print axioms QuaternaryQuadraticForms.squarefree_int_dvd_iff_primeFactors
+
+#check @QuaternaryQuadraticForms.boxCongruencePolynomial_eval_eq_zero_iff
+#print axioms QuaternaryQuadraticForms.boxCongruencePolynomial_eval_eq_zero_iff
+
+#check @QuaternaryQuadraticForms.congruenceBox_bounds
+#print axioms QuaternaryQuadraticForms.congruenceBox_bounds
+
+#check @QuaternaryQuadraticForms.integerEuclideanNorm_eq_sqrt
+#print axioms QuaternaryQuadraticForms.integerEuclideanNorm_eq_sqrt
+
+#check @QuaternaryQuadraticForms.integerEuclideanNorm_nonneg
+#print axioms QuaternaryQuadraticForms.integerEuclideanNorm_nonneg
+
+#check @QuaternaryQuadraticForms.coordinate_abs_le_integerEuclideanNorm
+#print axioms QuaternaryQuadraticForms.coordinate_abs_le_integerEuclideanNorm
+
+#check @QuaternaryQuadraticForms.integerEuclideanNorm_eq_zero_iff
+#print axioms QuaternaryQuadraticForms.integerEuclideanNorm_eq_zero_iff
+
+#check @QuaternaryQuadraticForms.one_le_integerEuclideanNorm
+#print axioms QuaternaryQuadraticForms.one_le_integerEuclideanNorm
+
+#check @QuaternaryQuadraticForms.integerEuclideanNorm_pos_iff
+#print axioms QuaternaryQuadraticForms.integerEuclideanNorm_pos_iff
+
+#check @QuaternaryQuadraticForms.integerEuclideanNorm_le_mem_box
+#print axioms QuaternaryQuadraticForms.integerEuclideanNorm_le_mem_box
+
+#check @QuaternaryQuadraticForms.mem_integerEuclideanBall
+#print axioms QuaternaryQuadraticForms.mem_integerEuclideanBall
+
+#check @QuaternaryQuadraticForms.integerEuclideanBall_mono
+#print axioms QuaternaryQuadraticForms.integerEuclideanBall_mono
+
+#check @QuaternaryQuadraticForms.integerEuclideanInterval_card_le_three_mul
+#print axioms QuaternaryQuadraticForms.integerEuclideanInterval_card_le_three_mul
+
+#check @QuaternaryQuadraticForms.inverseRadiusSum_le_of_sublevel_card
+#print axioms QuaternaryQuadraticForms.inverseRadiusSum_le_of_sublevel_card
+
+#check @QuaternaryQuadraticForms.polynomialBox_squarefree_card_le_rpow
+#print axioms QuaternaryQuadraticForms.polynomialBox_squarefree_card_le_rpow
+
+#check @QuaternaryQuadraticForms.source_polynomial_box_epsilon
+#print axioms QuaternaryQuadraticForms.source_polynomial_box_epsilon
+
+#check @QuaternaryQuadraticForms.primeFactor_pow_le_rpow
+#print axioms QuaternaryQuadraticForms.primeFactor_pow_le_rpow
+
+#check @QuaternaryQuadraticForms.sourceCongruenceEuclideanSet_eq
+#print axioms QuaternaryQuadraticForms.sourceCongruenceEuclideanSet_eq
+
+#check @QuaternaryQuadraticForms.sourceWeightedCongruenceEuclideanSum_eq
+#print axioms QuaternaryQuadraticForms.sourceWeightedCongruenceEuclideanSum_eq
+
+#check @QuaternaryQuadraticForms.source_congruence_box_natDegree
+#print axioms QuaternaryQuadraticForms.source_congruence_box_natDegree
+
+#check @QuaternaryQuadraticForms.source_congruence_box
+#print axioms QuaternaryQuadraticForms.source_congruence_box
+
+#check @QuaternaryQuadraticForms.extendExceptionalPolynomials_apply
+#print axioms QuaternaryQuadraticForms.extendExceptionalPolynomials_apply
+
+#check @QuaternaryQuadraticForms.extendExceptionalPolynomials_ne_zero
+#print axioms QuaternaryQuadraticForms.extendExceptionalPolynomials_ne_zero
+
+#check @QuaternaryQuadraticForms.extendExceptionalPolynomials_totalDegree_le
+#print axioms QuaternaryQuadraticForms.extendExceptionalPolynomials_totalDegree_le
+
+#check @QuaternaryQuadraticForms.exceptionalIndicator_extend
+#print axioms QuaternaryQuadraticForms.exceptionalIndicator_extend
+
+#check @QuaternaryQuadraticForms.sourceExceptionalIndicator_one
+#print axioms QuaternaryQuadraticForms.sourceExceptionalIndicator_one
