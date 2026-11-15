@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete uniform off-dual-cone absolute modulus estimate with the exact divisibility indicator",
+  "checkpoint": "Complete uniform dual-cone modulus cancellation from the actual nonsquare quadratic character",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -150,11 +150,23 @@
         "The actual complete sums and the entire finite modulus sum vanish when q₁ does not divide the integral dual value; the indicator is proved, with no local norm hypothesis needed for the vanishing statement."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c≤X with gcd(c,q)=q₁, every real X≥1, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and ε>0, but before N, the source prime family, q,q₁,q₂, the frequency, and X. It retains the existing constrained Fourier factor at q₂, q₁², the exact indicator 1_(q₁∣m), and (X|m|)^ε. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|≤gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with τ(|m|), rather than the manuscript route's τ(|m|)², and logarithm exponent 1+ω(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q₁ does not divide m. The boundary cases q=q₁=q₂=1, X=1, and |m|=1 are included; the final theorem requires m≠0. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. Lemma 3.7 and the global analytic theorems remain Pending."
+      "scope_note": "Complete Lemma 3.6 for the actual finite sum of norms over positive natural c≤X with gcd(c,q)=q₁, every real X≥1, and nonzero integral dual value m=F*(u). The final source theorem chooses one positive constant after the fixed symmetric nonsingular matrix and ε>0, but before N, the source prime family, q,q₁,q₂, the frequency, and X. It retains the existing constrained Fourier factor at q₂, q₁², the exact indicator 1_(q₁∣m), and (X|m|)^ε. The source radical condition and (q,N)=1 derive the required coprimality with N_F. The real-cutoff sum is defined using the natural floor and the literal gcd filter; zero modulus never enters it. Actual prime-power Ramanujan values, unit-digit recurrences, and CRT prove |R_n(m)|≤gcd(n,|m|), the multiplied-modulus bound, and shared-factor vanishing. Actual bad/good CRT and the uniform bad-prime bound yield the pointwise estimate, with no cancellation or nonvanishing assumption on a sum. Multiplication recovers the original modulus, proving injectivity of the chosen factor-pair map and justifying the finite summation bound. Actual prime-factorization vectors count the bad-supported integers. The finite gcd/divisor/harmonic estimate gives a stronger intermediate bound with τ(|m|), rather than the manuscript route's τ(|m|)², and logarithm exponent 1+ω(N_F). Uniform divisor and logarithm power bounds give the required final product power. The actual sum vanishes when q₁ does not divide m. The boundary cases q=q₁=q₂=1, X=1, and |m|=1 are included; the final theorem requires m≠0. The weight zero-value and Fourier-stratification conditions, a supplied character, and nonsquareness are unnecessary for this absolute estimate. All 39 new public theorem exports use only standard logical foundations. No literature premise, source local-series identity, factorization-sum bound, or power-absorption estimate is assumed. The broader auxiliary Ramanujan-definition agreement remains Pending, as do all 33 auxiliary groups. The global analytic theorems remain Pending."
     },
     "lem:conemod": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_cone_modulus_bound",
+        "QuaternaryQuadraticForms.unweightedModulusSum_le_rpow",
+        "QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log",
+        "QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic"
+      ],
+      "correspondence_record": "certification/correspondence/cone_modulus_bound.md",
+      "completed_clauses": [
+        "For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every positive exponent, one positive constant bounds the norm of the actual sum of unweighted S_c(u) over positive c<=X with gcd(c,q)=d by C X^3 (Xq)^epsilon, uniformly over all positive squarefree factorizations q=d*e coprime to N_F, integral frequencies with F*(u)=0, and real cutoffs X>=1. The constant is chosen before q,d,e,u,X.",
+        "The source cancellation is proved for the actual arithmetic coefficient: nonsquareness implies actual nonprincipality and zero period mean, exact Möbius/totient and gcd rearrangements give the good-modulus bound, and exact bad/good CRT preserves that cancellation through the complete finite modulus sum. The stronger core theorem proves the same estimate without squarefreeness."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.7 for the norm of the actual complex sum of unweighted complete sums over positive natural c<=X with gcd(c,q)=d, every real X>=1, and integral dual-cone frequency F*(u)=0. For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every epsilon>0, the source endpoint chooses one positive constant before positive squarefree q=d*e coprime to N_F, d,e,u,X, and proves C_(A,epsilon) X^3 (Xq)^epsilon. The stronger core removes squarefreeness; the source wrapper retains it. The actual good Jacobi coefficient equals the Jacobi symbol at indices coprime to N_F and zero otherwise. It is completely multiplicative, norm bounded by one, and periodic with period 4|det A|. Nonsquareness of the original integer determinant gives an actual negative Jacobi witness, hence nonprincipality of the constructed Dirichlet character and an actual zero period sum. No supplied character or cancellation premise is used. Finite summation by parts, Möbius coprimality detection, the actual relative totient expansion, and exact divisor/gcd reindexing prove the good-modulus bound with tau(e), X^3, and one harmonic/logarithm factor. The bad-supported and good factors form an exact finite bijection; actual CRT retains each complex good-modulus sum before applying the triangle inequality over bad factors. The uniform bad-prime bound cancels the divided-cutoff cubic factor, and the established prime-support count yields a fixed constant times tau(e) X^3 (1+log X)^(1+omega(N_F)). Uniform divisor and logarithm power estimates give the source product power. The fixed period and tau(e) are valid alternatives to the source conductor and 2^omega(e*N_F), within the permitted dependence on A and epsilon. No primitive-conductor identity is asserted. Modulus one, q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative nonsquare determinants, and arbitrary bad-prime powers are included. The norm is after the actual unweighted sum, with no normalization by c^3 or prime-weight data. All 40 new public exports use only standard logical foundations: 39 use Classical.choice, Quot.sound, and propext, while goodQuadraticChar_coprime_four_iff uses only propext. No literature premise is added or used. All 33 auxiliary groups remain separately Pending. Lemma 3.8 and the global analytic theorems remain Pending."
     },
     "lem:density": {
       "status": "Pending",
@@ -10341,6 +10353,641 @@
       "source_labels": [
         "eq:ramanujan",
         "lem:genericmod"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.periodic_cubic_sum_norm_le",
+      "file": "QuaternaryQuadraticForms/CharacterCubicBound.lean",
+      "scope": "A zero-mean periodic sequence of norm at most one has cubic weighted sums bounded by twice its period times the cutoff cubed.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le",
+      "file": "QuaternaryQuadraticForms/CharacterCubicBound.lean",
+      "scope": "The same cubic estimate for a nonnegative real cutoff. In particular it includes cutoffs below one, whose sum is empty.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic",
+      "file": "QuaternaryQuadraticForms/ConeModulusBound.lean",
+      "scope": "The actual good-modulus complete-sum sum with gcd(c,q)=d and F*(u)=0 is bounded by twice the proved period 4|det A| times tau(e), T^3, and the ordinary harmonic sum at T, for q=d*e with d positive and e nonzero.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:conemod",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log",
+      "file": "QuaternaryQuadraticForms/ConeModulusBound.lean",
+      "scope": "The norm of the actual dual-cone modulus sum is bounded by 4 sqrt(|det A|) times twice the period 4|det A|, the fixed normalized prime-support factor, tau(e), X^3, and (1+log X)^(1+omega(N_F)); all varying moduli, cone frequencies, and real cutoffs are retained.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:conemod",
+        "lem:badprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone",
+      "file": "QuaternaryQuadraticForms/ConeModulusFormula.lean",
+      "scope": "The exact good-modulus evaluation on the integral dual cone.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:unram",
+        "eq:Sdef"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient",
+      "file": "QuaternaryQuadraticForms/ConeModulusFormula.lean",
+      "scope": "The sum of actual good complete sums is the totient sum twisted by the actual periodic quadratic coefficient, which vanishes at bad indices.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:unram",
+        "eq:Sdef"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedModulusSum_le_rpow",
+      "file": "QuaternaryQuadraticForms/ConeModulusTheorem.lean",
+      "scope": "For each fixed symmetric nonsingular integral matrix with nonsquare determinant and every positive real exponent, one positive constant bounds the norm of the actual unweighted complete-sum modulus sum by C X^3 (Xq)^epsilon, uniformly over positive factorizations q=d*e coprime to N_F, integral dual-cone frequencies, and real X>=1. Squarefreeness is unnecessary in this stronger core theorem.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conemod",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_cone_modulus_bound",
+      "file": "QuaternaryQuadraticForms/ConeModulusTheorem.lean",
+      "scope": "Complete Lemma 3.7 for the actual unweighted complete sums, real X>=1, literal gcd(c,q)=d restriction, and squarefree positive factorization q=d*e with q coprime to N_F and F*(u)=0. The positive constant is chosen after the fixed matrix and epsilon>0, before q,d,e,u,X, and the conclusion is the norm of the sum bounded by C X^3 (Xq)^epsilon. Nonprincipality is derived from the original nonsquare determinant.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conemod",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius",
+      "file": "QuaternaryQuadraticForms/ConeTotientReindex.lean",
+      "scope": "The exact finite double sum for a multiplicative function times `c^2 * φ(c)`, retaining the actual gcd restriction and quotient cutoffs. The identity holds without squarefreeness or analytic hypotheses.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
+      "scope": "Positive multiples of `d` in a finite interval are exactly `d*k` with a positive quotient at most the divided cutoff.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
+      "scope": "The literal Möbius divisor sum detects coprimality with a positive modulus.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
+      "scope": "Möbius detection followed by exact finite reindexing of multiples.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.moebius_complex_norm_le_one",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
+      "scope": "The actual integer Möbius values have complex norm at most one.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coprime_cubic_sum_norm_le",
+      "file": "QuaternaryQuadraticForms/CoprimeCubicBound.lean",
+      "scope": "A multiplicative cubic cancellation estimate retains the same power of the cutoff after imposing coprimality, with one divisor-count factor.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul",
+      "file": "QuaternaryQuadraticForms/DivisorSumReindex.lean",
+      "scope": "The finite divisor hyperbola rearrangement, with positive indices and the exact natural quotient cutoff.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime",
+      "file": "QuaternaryQuadraticForms/DivisorSumReindex.lean",
+      "scope": "A literal gcd-restricted interval is exactly the multiples of the shared factor whose quotient is coprime to the complementary factor.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul",
+      "file": "QuaternaryQuadraticForms/DivisorSumReindex.lean",
+      "scope": "The finite divisor rearrangement keeps both coprimality restrictions: the divisor is coprime to both fixed factors and the quotient to the second.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:q1q2"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.modulus_prime_split_unique",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean",
+      "scope": "A factor supported on `N` and a factor coprime to `N` are uniquely determined by their positive product.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conemod",
+        "sec:moduli",
+        "lem:crt"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean",
+      "scope": "The exact finite bad/good factorization, retaining the literal gcd restriction and divided cutoff.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conemod",
+        "sec:moduli",
+        "lem:crt"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean",
+      "scope": "At each positive modulus the total summand equals the source sum.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conemod",
+        "sec:moduli",
+        "lem:crt"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.unweightedModulusSum_prime_split",
+      "file": "QuaternaryQuadraticForms/ModulusSumFactorization.lean",
+      "scope": "Exact CRT factorization of the actual modulus sum, with all cancellation inside each good-modulus sum preserved.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conemod",
+        "sec:moduli",
+        "lem:crt"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.periodic_sum_range_norm_le",
+      "file": "QuaternaryQuadraticForms/PeriodicSumBound.lean",
+      "scope": "Removing complete periods bounds every initial partial sum by the fixed period. No condition on the value at zero is required.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean",
+      "scope": "Every nonzero nonsquare integer has an actual negative Jacobi value at a positive modulus coprime to `2 * |α|`. Square factors are removed and the witness is lifted back to a unit at the full modulus.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean",
+      "scope": "Nonsquareness of the original integer proves nonprincipality of the actual good-modulus Dirichlet character; this is not an extra premise.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean",
+      "scope": "The complete period of the actual good Jacobi coefficient cancels, with nonprincipality derived from nonsquareness of the original integer parameter.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "The actual good Jacobi coefficient equals one at the natural number one, for every integral determinant parameter.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_zero",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "The actual good Jacobi coefficient, extended by zero at noncoprime indices, equals zero at the natural number zero.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_of_coprime",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "At every index coprime to twice the absolute determinant parameter, the good quadratic coefficient equals the actual Jacobi coefficient.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "At every index not coprime to twice the absolute determinant parameter, the good quadratic coefficient is exactly zero.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_mul",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "The good Jacobi coefficient is completely multiplicative on all natural numbers, including zero; the bad-index zero extension is retained.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "The complex norm of every value of the actual good Jacobi coefficient is at most one, proved from the actual Jacobi trichotomy.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "Coprimality with four times the absolute determinant parameter is equivalent to coprimality with twice that parameter, including zero parameters.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_mod",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "Reduction of a natural index modulo four times the absolute determinant parameter preserves the actual good Jacobi coefficient.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticChar_periodic",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "The actual good Jacobi coefficient is periodic with period four times the absolute determinant parameter on all natural numbers.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast",
+      "file": "QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean",
+      "scope": "For every nonzero integral determinant parameter, the constructed Dirichlet character at level four times its absolute value agrees with the actual good Jacobi coefficient on every natural residue.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms",
+        "eq:chicube"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree",
+      "file": "QuaternaryQuadraticForms/QuadraticJacobiWitness.lean",
+      "scope": "A squarefree modulus with an odd prime divisor admits a coprime Jacobi numerator congruent to one modulo eight with symbol minus one.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:forms"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic",
+      "file": "QuaternaryQuadraticForms/TotientCancellationBound.lean",
+      "scope": "Cubic cancellation bounds the literal totient sum with a fixed gcd by one divisor count and the ordinary harmonic sum.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log",
+      "file": "QuaternaryQuadraticForms/TotientCancellationBound.lean",
+      "scope": "The same cancellation estimate at a real cutoff at least one, with the harmonic factor bounded by `1 + log X`.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood",
+        "eq:chicoprime"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totient_eq_sum_moebius",
+      "file": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean",
+      "scope": "Möbius inversion of the actual totient divisor sum, in any commutative ring and including the zero argument.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood"
+      ],
+      "status": "Checked locally",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.totient_mul_eq_sum_moebius",
+      "file": "QuaternaryQuadraticForms/TotientDivisorExpansion.lean",
+      "scope": "The relative totient expansion with the literal coprimality restriction on divisors. No squarefreeness assumption is needed.",
+      "source_labels": [
+        "lem:conemod",
+        "eq:conegood"
       ],
       "status": "Checked locally",
       "allowed_axioms": [

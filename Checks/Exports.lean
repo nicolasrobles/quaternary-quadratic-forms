@@ -640,7 +640,47 @@ run_cmd do
     `QuaternaryQuadraticForms.integralRamanujanSum_prime_eq,
     `QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_eq_zero,
     `QuaternaryQuadraticForms.integralRamanujanSum_mul_modulus_mul,
-    `QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq]
+    `QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq,
+    `QuaternaryQuadraticForms.periodic_cubic_sum_norm_le,
+    `QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le,
+    `QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic,
+    `QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log,
+    `QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone,
+    `QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient,
+    `QuaternaryQuadraticForms.unweightedModulusSum_le_rpow,
+    `QuaternaryQuadraticForms.source_cone_modulus_bound,
+    `QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius,
+    `QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div,
+    `QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum,
+    `QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples,
+    `QuaternaryQuadraticForms.moebius_complex_norm_le_one,
+    `QuaternaryQuadraticForms.coprime_cubic_sum_norm_le,
+    `QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul,
+    `QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime,
+    `QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul,
+    `QuaternaryQuadraticForms.modulus_prime_split_unique,
+    `QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split,
+    `QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero,
+    `QuaternaryQuadraticForms.unweightedModulusSum_prime_split,
+    `QuaternaryQuadraticForms.periodic_sum_range_norm_le,
+    `QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one,
+    `QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one,
+    `QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero,
+    `QuaternaryQuadraticForms.goodQuadraticChar_one,
+    `QuaternaryQuadraticForms.goodQuadraticChar_zero,
+    `QuaternaryQuadraticForms.goodQuadraticChar_of_coprime,
+    `QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime,
+    `QuaternaryQuadraticForms.goodQuadraticChar_mul,
+    `QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one,
+    `QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff,
+    `QuaternaryQuadraticForms.goodQuadraticChar_mod,
+    `QuaternaryQuadraticForms.goodQuadraticChar_periodic,
+    `QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast,
+    `QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree,
+    `QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic,
+    `QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log,
+    `QuaternaryQuadraticForms.totient_eq_sum_moebius,
+    `QuaternaryQuadraticForms.totient_mul_eq_sum_moebius]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -2587,3 +2627,123 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq
 #print axioms QuaternaryQuadraticForms.integralRamanujanSum_prime_power_eq
+
+#check @QuaternaryQuadraticForms.periodic_cubic_sum_norm_le
+#print axioms QuaternaryQuadraticForms.periodic_cubic_sum_norm_le
+
+#check @QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le
+#print axioms QuaternaryQuadraticForms.periodic_cubic_sum_floor_norm_le
+
+#check @QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic
+#print axioms QuaternaryQuadraticForms.good_modulus_sum_norm_le_harmonic
+
+#check @QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log
+#print axioms QuaternaryQuadraticForms.unweightedModulusSum_le_divisor_log
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSum_on_dual_cone
+
+#check @QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient
+#print axioms QuaternaryQuadraticForms.good_modulus_sum_eq_quadratic_totient
+
+#check @QuaternaryQuadraticForms.unweightedModulusSum_le_rpow
+#print axioms QuaternaryQuadraticForms.unweightedModulusSum_le_rpow
+
+#check @QuaternaryQuadraticForms.source_cone_modulus_bound
+#print axioms QuaternaryQuadraticForms.source_cone_modulus_bound
+
+#check @QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius
+#print axioms QuaternaryQuadraticForms.sum_gcd_totient_eq_moebius
+
+#check @QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div
+#print axioms QuaternaryQuadraticForms.sum_Icc_dvd_eq_sum_div
+
+#check @QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum
+#print axioms QuaternaryQuadraticForms.coprime_indicator_eq_moebius_sum
+
+#check @QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples
+#print axioms QuaternaryQuadraticForms.sum_coprime_eq_sum_moebius_multiples
+
+#check @QuaternaryQuadraticForms.moebius_complex_norm_le_one
+#print axioms QuaternaryQuadraticForms.moebius_complex_norm_le_one
+
+#check @QuaternaryQuadraticForms.coprime_cubic_sum_norm_le
+#print axioms QuaternaryQuadraticForms.coprime_cubic_sum_norm_le
+
+#check @QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul
+#print axioms QuaternaryQuadraticForms.sum_Icc_divisors_eq_sum_mul
+
+#check @QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime
+#print axioms QuaternaryQuadraticForms.sum_gcdModuliUpTo_eq_sum_coprime
+
+#check @QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul
+#print axioms QuaternaryQuadraticForms.sum_coprime_divisors_eq_sum_mul
+
+#check @QuaternaryQuadraticForms.modulus_prime_split_unique
+#print axioms QuaternaryQuadraticForms.modulus_prime_split_unique
+
+#check @QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split
+#print axioms QuaternaryQuadraticForms.sum_gcdModuli_eq_sum_prime_split
+
+#check @QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero
+#print axioms QuaternaryQuadraticForms.unweightedCompleteSumValue_of_neZero
+
+#check @QuaternaryQuadraticForms.unweightedModulusSum_prime_split
+#print axioms QuaternaryQuadraticForms.unweightedModulusSum_prime_split
+
+#check @QuaternaryQuadraticForms.periodic_sum_range_norm_le
+#print axioms QuaternaryQuadraticForms.periodic_sum_range_norm_le
+
+#check @QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one
+#print axioms QuaternaryQuadraticForms.exists_good_jacobiSym_neg_one
+
+#check @QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one
+#print axioms QuaternaryQuadraticForms.goodQuadraticDirichletChar_ne_one
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_sum_period_eq_zero
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_one
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_one
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_zero
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_zero
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_of_coprime
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_of_coprime
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_of_not_coprime
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_mul
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_mul
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_norm_le_one
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_coprime_four_iff
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_mod
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_mod
+
+#check @QuaternaryQuadraticForms.goodQuadraticChar_periodic
+#print axioms QuaternaryQuadraticForms.goodQuadraticChar_periodic
+
+#check @QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast
+#print axioms QuaternaryQuadraticForms.goodQuadraticDirichletChar_natCast
+
+#check @QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree
+#print axioms QuaternaryQuadraticForms.exists_jacobiSym_neg_one_mod_eight_of_squarefree
+
+#check @QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic
+#print axioms QuaternaryQuadraticForms.sum_gcd_totient_norm_le_harmonic
+
+#check @QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log
+#print axioms QuaternaryQuadraticForms.sum_gcd_totient_floor_norm_le_log
+
+#check @QuaternaryQuadraticForms.totient_eq_sum_moebius
+#print axioms QuaternaryQuadraticForms.totient_eq_sum_moebius
+
+#check @QuaternaryQuadraticForms.totient_mul_eq_sum_moebius
+#print axioms QuaternaryQuadraticForms.totient_mul_eq_sum_moebius

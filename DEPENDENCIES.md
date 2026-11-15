@@ -71,8 +71,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 16 · Partial: 0 · Active: 0 · Pending:
-26**. Lemmas 2.5, 2.7 and 3.1–3.6, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
+The numbered-result counts are **Complete: 17 · Partial: 0 · Active: 0 · Pending:
+25**. Lemmas 2.5, 2.7 and 3.1–3.7, Corollary 2.6, and Lemmas 4.1–4.6 and 5.9 have
 complete source-relative proofs. Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -170,12 +170,25 @@ CRT, the bad-prime bound, finite factor-pair summation, and elementary
 divisor/logarithm estimates prove the result. The actual sum is zero
 when `q₁ ∤ m`. No literature premise is added or used.
 
+**Lemma 3.7 is Certified.** For a fixed symmetric nonsingular
+integral matrix with nonsquare determinant, the actual unweighted
+complete sums satisfy
+`|Σ_(1≤c≤X, gcd(c,q)=q₁) S_c(u)| ≤ C_(F,ε) X³(Xq)^ε`
+on the integral dual cone `F*(u)=0`. The positive constant is chosen
+before the positive squarefree factorization `q=q₁q₂`, the frequency,
+and every real cutoff `X≥1`, with `(q,N_F)=1`. The actual quadratic
+coefficient is proved nonprincipal from the nonsquare determinant.
+Periodic cancellation, the exact Möbius/totient rearrangement, and
+an exact bad/good factorization preserve cancellation in the modulus
+sum. The stronger core theorem also removes squarefreeness.
+No literature premise is added or used.
+
 All **33 auxiliary or supplementary groups** remain Pending. These groups
 include proof steps needed by the main argument and mathematical assertions
 outside numbered theorem environments. They are not added to the
-numbered-result count. The 637 theorem exports across 151 Lean modules are
+numbered-result count. The 677 theorem exports across 165 Lean modules are
 also counted separately from the four external Lean premises. The current
-expected verification scope includes 180 hashed inputs and nine pinned dependency
+expected verification scope includes 195 hashed inputs and nine pinned dependency
 revisions. The 20 mapped source groups and four registered premises are
 unchanged; aggregate execution evidence is recorded in the checkpoint.
 The whole-paper certification flag remains false.
@@ -294,6 +307,14 @@ finite factor-pair transport, prime-support count, and uniform divisor and
 logarithm estimates are internal proofs over the pinned library. It does
 not assume the source local series or a bound for the complete modulus
 sum. The broader Ramanujan auxiliary group remains separately Pending.
+
+The dual-cone cancellation bound in Lemma 3.7 also uses no registered literature
+premise. The actual good Jacobi coefficient, derived nonprincipality, zero
+period sum, cubic cancellation, exact Möbius/totient rearrangement, and
+bad/good finite-sum factorization are internal proofs over the pinned library.
+The positive constant is uniform over q,d,e,u,X and depends only on the
+fixed form and the positive exponent. No primitive-conductor formula or
+internal cancellation estimate is added to the trusted-input registry.
 
 The estimates explicitly refuted by this manuscript are comparison targets,
 not trusted premises: [IM, Lemma 4.6], [M, Lemmas 5.3 and 5.4], and the claimed
@@ -961,7 +982,7 @@ dependency list is exactly `Classical.choice`, `Quot.sound`, and
 `propext`. Aggregate verification and CI execution evidence are
 recorded separately in the checkpoint.
 That completed milestone covered 571 exports, 128 proof modules and
-155 inspected input hashes; the current totals include Lemmas 3.5 and 3.6.
+155 inspected input hashes; the current totals include Lemmas 3.5, 3.6, and 3.7.
 
 ## Completed global mixed-sum and dual-cone identities
 
@@ -1192,38 +1213,190 @@ or used. Strict compilation and actual inspection have passed. The
 full aggregate and exact-proof-commit CI outcomes are tracked separately
 in the execution checkpoint.
 
+## Completed dual-cone modulus cancellation
+
+The source endpoint is
+[`source_cone_modulus_bound`](QuaternaryQuadraticForms/ConeModulusTheorem.lean).
+For a fixed symmetric nonsingular integral matrix $A$ with
+$\det A$ not a square and every $\varepsilon>0$, it chooses one
+constant $C_{A,\varepsilon}>0$ such that
+
+$$
+\left|\sum_{\substack{1\le c\le X\\(c,q)=d}}S_c(u)\right|
+\le C_{A,\varepsilon}X^3(Xq)^\varepsilon
+$$
+
+for every positive squarefree $q=de$ with $(q,N_F)=1$, every
+integral vector $u$ satisfying $u^T\operatorname{adj}(A)u=0$, and
+every real $X\ge1$. The constant is chosen before $q,d,e,u,X$.
+The core theorem `unweightedModulusSum_le_rpow` proves this bound
+for every positive factorization $q=de$, without squarefreeness;
+the source wrapper retains the manuscript's squarefree hypothesis.
+
+The left side is the norm of the actual complex sum of unweighted
+complete sums. The set `gcdModuliUpTo q d ⌊X⌋₊` contains precisely
+the positive natural moduli with $c\le X$ and $\gcd(c,q)=d$.
+`unweightedCompleteSumValue` agrees with the existing source sum
+at every such modulus. Its value at zero only makes the function
+total; zero is absent from the summation set. The theorem has no
+prime-weight family, auxiliary modulus $N$, constrained Fourier
+factor, or normalization by $c^3$.
+
+Put $a=|\det A|$, $P=4a$, $N_F=2a$, and
+$r=\omega(N_F)$. The auxiliary coefficient is the actual function
+
+$$
+\psi(n)=
+\begin{cases}
+\left(\dfrac{\det A}{n}\right),&(n,N_F)=1,\\
+0,&(n,N_F)\ne1.
+\end{cases}
+$$
+
+Jacobi identities prove complete multiplicativity,
+$|\psi(n)|\le1$, and period $P$. This function defines an actual
+Dirichlet character modulo $P$. The standing nonsquare hypothesis
+produces a positive good index with Jacobi value $-1$, by removing
+square factors, choosing a quadratic nonresidue, applying CRT, and
+handling the remaining sign and power-of-two cases. Thus the actual
+character is nonprincipal and its period sum is zero. This argument
+also covers negative determinants whose absolute values are squares.
+Neither a supplied mean-zero condition nor a supplied character
+cancellation estimate appears in the final theorem.
+
+Removing complete periods bounds partial sums by $P$. Finite
+summation by parts then proves the cubic estimate
+$|\sum_{j\le T}\psi(j)j^3|\le2PT^3$. Möbius detection of
+coprimality and an exact multiples reindex give the corresponding
+bound $2P\tau(M)T^3$ with $(j,M)=1$. The proof uses the fixed
+period $4a$, which is sufficient for a constant depending on $A$;
+it makes no unproved claim about the primitive conductor.
+
+The actual relative totient expansion is proved in the integral
+quotient form
+
+$$
+\varphi(dn)=\varphi(d)
+\sum_{\substack{h\mid n\\(h,d)=1}}\mu(h)\frac nh.
+$$
+
+Exact finite divisor and gcd rearrangements yield
+
+$$
+\begin{aligned}
+\sum_{\substack{c\le T\\(c,q)=d}}\psi(c)c^2\varphi(c)
+={}&\psi(d)d^2\varphi(d)
+\sum_{\substack{h\le T/d\\(h,q)=1}}\mu(h)\psi(h)h^2\\
+&\quad{}\times
+\sum_{\substack{k\le T/(dh)\\(k,e)=1}}\psi(k)k^3,
+\qquad q=de.
+\end{aligned}
+$$
+
+The quotient cutoffs are natural quotients in Lean. This identity
+holds without squarefreeness. The zero extension in $\psi$ retains
+the good-prime condition automatically. Cubic cancellation and
+$\varphi(d)\le d$ give $2P\tau(e)T^3H_T$, hence
+$2P\tau(e)X^3(1+\log X)$ at a real cutoff. On the dual cone the
+proved good-modulus evaluation is the actual identity
+$S_c(u)=\left(\frac{\det A}{c}\right)c^2\varphi(c)$, so this
+bound applies to the genuine good-modulus sum.
+
+For arbitrary moduli the bad-supported part $b$ and good part $g$
+form an exact finite bijection $c=bg$. The literal gcd condition is
+transported to the good part because $(q,N_F)=1$. Actual CRT gives
+
+$$
+\sum_{\substack{c\le X\\(c,q)=d}}S_c(u)
+=
+\sum_{\substack{b\le X\\p\mid b\Rightarrow p\mid N_F}}
+S_b(u)
+\sum_{\substack{g\le X/b\\(g,q)=d\\(g,N_F)=1}}S_g(u).
+$$
+
+Cancellation is retained inside each inner sum before applying the
+triangle inequality over $b$. The uniform estimate
+$|S_b(u)|\le4\sqrt a\,b^3$ cancels the cubic divided-cutoff factor.
+The already proved prime-support count then gives the explicit
+intermediate bound
+
+$$
+K_A\,\tau(e)X^3(1+\log X)^{r+1},
+\qquad
+K_A=8P\sqrt a\left(1+\frac1{\log2}\right)^r.
+$$
+
+Uniform divisor and logarithm power estimates, together with
+$e\le q$, produce the final $X^3(Xq)^\varepsilon$ bound.
+The divisor-count loss $\tau(e)$ and period $P$ are valid replacements
+for the manuscript's conductor and $2^{\omega(eN_F)}$ factors within
+the permitted dependence on the fixed form and $\varepsilon$.
+
+| New module | Public exports | Checked role |
+| --- | ---: | --- |
+| [PeriodicSumBound](QuaternaryQuadraticForms/PeriodicSumBound.lean) | 1 | Zero-mean periodic partial sums |
+| [CharacterCubicBound](QuaternaryQuadraticForms/CharacterCubicBound.lean) | 2 | Natural and real cubic weighted sums |
+| [QuadraticCharacterPeriod](QuaternaryQuadraticForms/QuadraticCharacterPeriod.lean) | 10 | Actual good Jacobi coefficient, period, and Dirichlet character |
+| [QuadraticJacobiWitness](QuaternaryQuadraticForms/QuadraticJacobiWitness.lean) | 1 | Quadratic nonresidue and CRT witness |
+| [QuadraticCharacterNonprincipal](QuaternaryQuadraticForms/QuadraticCharacterNonprincipal.lean) | 3 | Derived nonprincipality and zero period sum |
+| [CoprimeCubicBound](QuaternaryQuadraticForms/CoprimeCubicBound.lean) | 5 | Exact Möbius detection and coprime cubic bound |
+| [TotientDivisorExpansion](QuaternaryQuadraticForms/TotientDivisorExpansion.lean) | 2 | Actual ordinary and relative totient expansions |
+| [DivisorSumReindex](QuaternaryQuadraticForms/DivisorSumReindex.lean) | 3 | Positive finite divisor and gcd rearrangements |
+| [ConeTotientReindex](QuaternaryQuadraticForms/ConeTotientReindex.lean) | 1 | Exact gcd-restricted double sum |
+| [TotientCancellationBound](QuaternaryQuadraticForms/TotientCancellationBound.lean) | 2 | Harmonic and real logarithm bounds |
+| [ModulusSumFactorization](QuaternaryQuadraticForms/ModulusSumFactorization.lean) | 4 | Unique bad/good split and exact complex-sum CRT |
+| [ConeModulusFormula](QuaternaryQuadraticForms/ConeModulusFormula.lean) | 2 | Actual good complete sums as twisted totients |
+| [ConeModulusBound](QuaternaryQuadraticForms/ConeModulusBound.lean) | 2 | Full divisor/logarithm bound |
+| [ConeModulusTheorem](QuaternaryQuadraticForms/ConeModulusTheorem.lean) | 2 | Uniform core theorem and complete source endpoint |
+
+The complete scope includes modulus one, $q=d=e=1$, $X=1$,
+nonintegral real cutoffs, zero frequency $u=0$, and arbitrary powers
+of bad primes in the summed modulus. Nonsquareness of the original
+integer determinant is used to prove cancellation. No positivity
+assumption on the determinant or on the quadratic form is added.
+
+The [correspondence review](certification/correspondence/cone_modulus_bound.md)
+checks the complete actual endpoint types and every source clause.
+All 40 exports use only standard logical foundations; precisely one
+uses only `propext` and the other 39 use the standard triplet.
+No literature premise is added or used. All 637 earlier support
+records are preserved. All 33 auxiliary groups and the global
+analytic theorems retain their separate Pending status. Execution
+evidence for the complete 677-export aggregate and its exact proof
+commit is recorded separately from this mathematical scope.
+
 ## Next proof branch
 
-The next bounded target is complete Lemma 3.7, `lem:conemod`:
-statement at source lines 1348–1354 and proof at 1356–1404. For
-positive squarefree $q=q_1q_2$ with $(q,N_F)=1$, an integral frequency
-on the dual cone $F^*(u)=0$, and $X\ge1$, the required estimate is
+The next bounded target is complete Lemma 3.8, `lem:density`,
+source lines 1409–1446. For every prime $p$, establish the existence
+of the actual local-density limit and the absolutely convergent series
 
 $$
-\left|\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}S_c(u)\right|
-\ll_{F,\varepsilon} X^3(Xq)^\varepsilon.
+\sigma_p
+=\lim_{k\to\infty}p^{-3k}
+\#\{x\bmod p^k:F(x)\equiv0\pmod{p^k}\}
+=\sum_{j\ge0}\frac{S_{p^j}(0)}{p^{4j}}.
 $$
 
-This is a cancellation estimate for the actual unweighted complete
-sums. Its hypotheses and constant must remain independent of the
-prime-weight family and the larger excluded-prime modulus `N`.
-The source uses the actual nonprincipal quadratic character supplied
-by the standing nonsquare determinant. Correctly deriving or
-instantiating that nonprincipality, rather than assuming an internal
-cancellation bound, is part of the next proof.
+The finite starting identity must use the actual residue-class count,
+additive orthogonality, and the partition of the scalar parameter by
+its $p$-adic valuation. The uniform complete-sum bound supplies
+absolute convergence at every prime, including bad primes and $2$.
+For $p\nmid N_F$, the actual unramified formula should give
 
-The remaining steps include period-sum cancellation, the weighted
-partial-summation estimate for `Σ χ(j)j³`, Möbius detection of
-coprimality, and the precise totient divisor expansion for
-`φ(q₁n)`. The finite sum must be rearranged with its actual gcd
-restriction and the good-prime condition. The good-modulus identity,
-CRT factorization, uniform bad-prime bound, prime-support count, and
-uniform divisor/logarithm tools are already available. The final
-assembly must preserve the constant's dependence only on `F,ε`,
-including the factor arising from the character conductor and the
-subpower bound for the prime-support factor of `q`.
+$$
+\sigma_p=\frac{1-\chi(p)p^{-2}}{1-\chi(p)p^{-1}}.
+$$
 
-Lemma 3.7 remains Pending. Lemmas 3.1–3.6 and all Section 4 lemmas
+The last clause concerns the corrected Euler product in `eq:SF`,
+$\prod_p(1-\chi(p)/p)\sigma_p$, whose good-prime factors are
+$1-\chi(p)p^{-2}$. Absolute convergence must be proved for that
+corrected product. The raw product of the local densities is not
+the product asserted in Lemma 3.8. The prime-power modulus-one term,
+all-prime limit, good-prime denominator, and finite bad-prime factors
+must be included in the complete source correspondence.
+
+Lemma 3.8 remains Pending. Lemmas 3.1–3.7 and all Section 4 lemmas
 are complete. Theorem 1.3's global asymptotic, the analytic assembly,
 Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
 Pending.

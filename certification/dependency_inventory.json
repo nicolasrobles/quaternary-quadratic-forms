@@ -1130,9 +1130,12 @@
       "auxiliary_dependencies": [],
       "proof_character": "manuscript proof",
       "formalization_notes": [
-        "Cancellation uses nonprincipal chi, derived from alpha nonsquare in the global setup.",
-        "The statement assumes (q,N_F)=1, not the stronger (q,N)=1; keep this independent of xi.",
-        "It does not use the quaternary lattice-count statement of Lemma2.3."
+        "Complete source theorem for the norm of the literal gcd-restricted finite sum of unweighted complete sums at every real X>=1 and F*(u)=0. The positive constant is chosen after the fixed symmetric nonsingular matrix with nonsquare determinant and epsilon>0, before q,d,e,u,X. The source wrapper retains squarefree q=d*e and (q,N_F)=1; the stronger core removes squarefreeness.",
+        "The actual good Jacobi coefficient is extended by zero outside indices coprime to N_F. Complete multiplicativity, norm at most one, period 4|det A|, and its realization as an actual Dirichlet character are proved. An actual negative Jacobi witness from the original nonsquare determinant proves nonprincipality and zero period sum. The primitive conductor and an internal cancellation bound are not assumed.",
+        "Finite summation by parts proves cubic cancellation. Actual M\u00f6bius detection, positive-multiple reindexing, the relative totient expansion, and exact finite divisor/gcd rearrangements preserve all arithmetic conditions and natural quotient cutoffs. The good-modulus bound has one divisor-count factor tau(e) and one harmonic factor.",
+        "The unique bad-supported and good factors give an exact finite bijection for the actual complex modulus sum. Actual CRT keeps cancellation inside the good-modulus sum before taking norms of bad factors. The uniform bad-prime estimate and established prime-support count give a fixed determinant constant times tau(e) X^3 (1+log X)^(1+omega(N_F)); uniform divisor and logarithm power bounds finish the epsilon estimate.",
+        "The fixed period 4|det A| and tau(e) replace the source conductor and 2^omega(e*N_F) within the allowed dependence on the fixed form and epsilon. The proof includes q=d=e=1, X=1, arbitrary real cutoffs, u=0, negative determinant cases, and arbitrary bad-prime powers. There is no prime-weight family or c^(-3) normalization.",
+        "Forty new supporting theorem exports in fourteen modules use only standard logical foundations: 39 standard triplets and the propext-only goodQuadraticChar_coprime_four_iff. No literature premise is added or used. Lemma 3.8, all 33 auxiliary groups, and the global analytic theorems remain Pending. Aggregate and exact-proof-commit CI execution outcomes are recorded separately in CHECKPOINT.md."
       ],
       "shared_proof_references": [],
       "definition_dependencies": [

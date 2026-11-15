@@ -37,6 +37,9 @@ jobs:
       - name: Fetch the required official mathlib cache
         run: |
           lake exe cache get \
+            Mathlib.Algebra.BigOperators.Group.Finset.Sigma \
+            Mathlib.Algebra.BigOperators.Intervals \
+            Mathlib.Algebra.BigOperators.Module \
             Mathlib.Algebra.BigOperators.Ring.Finset \
             Mathlib.Algebra.Group.Units.Equiv \
             Mathlib.Algebra.MvPolynomial.Degrees \
@@ -45,10 +48,12 @@ jobs:
             Mathlib.Algebra.MvPolynomial.SchwartzZippel \
             Mathlib.Algebra.MvPolynomial.Variables \
             Mathlib.Algebra.Order.BigOperators.Group.Finset \
+            Mathlib.Algebra.Order.Floor.Ring \
             Mathlib.Algebra.Order.Ring.Pow \
             Mathlib.Algebra.Polynomial.BigOperators \
             Mathlib.Algebra.Polynomial.Coeff \
             Mathlib.Algebra.Polynomial.Homogenize \
+            Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Complex.Basic \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
