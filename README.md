@@ -172,11 +172,33 @@ contains 942,183 bytes and has SHA-256
 It records 16 Certified, zero Partial or Active, and 26 Pending
 numbered results; all 33 auxiliary/supplementary groups remain Pending.
 
-**GitHub CI for the 637-export scope is pending.** The new local
-result covers the complete Lemma 3.6 scope. The exact proof commit and
-its independently compared GitHub report will be recorded in the
-[execution checkpoint](CHECKPOINT.md) when that separate gate passes.
-Earlier local and GitHub evidence below retains its historical scope.
+**The local and GitHub verifiers passed for the complete 637-export
+scope.** [GitHub Actions run 43674573868, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43674573868)
+succeeded at [proof commit 8acdea4](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/8acdea4a607ce8c59e198373bf2d72daa9a62525),
+with verification job `132691791438`. Its artifact `14145627876`
+is preserved as the [original ZIP](certification/ci/run_43674573868_attempt_1.zip) and
+[downloaded report](certification/ci/run_43674573868_attempt_1.json).
+The ZIP contains 111,239 bytes and has SHA-256
+`64f3c79c1818b9a9518966e47c336f2c2e6339a82b7dbc8961faa7d55ce1dcff`;
+the report contains 953,313 bytes and has SHA-256
+`147b132a851d2f4601f1cafc9d7a6b9d65be7bc4d665959512c10b1c2912a61f`.
+
+The ZIP digest matches GitHub's advertised artifact digest, and its
+sole member is byte-identical to both independently inspected JSON
+copies and the archived report. The root and agent comparisons agree
+on all 18 verification-content fields: 637 complete theorem records,
+four premise records, 180 input hashes, nine dependency revisions,
+and the complete Lean inspection output. Only `generated_at_utc` and `lake_build_output` differ.
+
+All 180 hashes match the current inspected files and the exact proof
+tree `758abd225eb380a9fd88b7c11ab3097654ff4f46`. All 31 frozen nondocument paths, including the
+workflow, remain unchanged and match that proof tree. The installed
+local report remains unchanged at 942,183 bytes, with its
+SHA-256 recorded above. All 39 new exports retain exactly the standard
+logical foundations and use no literature premise.
+The [execution checkpoint](CHECKPOINT.md) records the proof, run, job,
+artifact, timestamps, and complete 637-export scope. Earlier evidence
+below retains its historical scope.
 
 ### Earlier Lemma 3.5 verification
 

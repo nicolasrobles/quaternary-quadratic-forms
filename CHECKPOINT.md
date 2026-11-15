@@ -1416,11 +1416,50 @@ output, and all 31 other frozen paths remain unchanged.
 
 ### Off-dual-cone modulus GitHub execution
 
-**GitHub CI for the 637-export scope is pending.** The new local
-result above covers complete Lemma 3.6. The exact proof commit must
-still receive a successful GitHub run, followed by comparison of its
-report, artifact, inspected inputs, and proof tree. Earlier runs and
-the separate interruption-recovery branch retain their own scopes.
+**The full local and GitHub verifiers passed for all 151 modules,
+637 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[8acdea4a607ce8c59e198373bf2d72daa9a62525](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/8acdea4a607ce8c59e198373bf2d72daa9a62525), whose tree is `758abd225eb380a9fd88b7c11ab3097654ff4f46`.
+The same verifier succeeded on the push of that exact proof commit.
+
+- [Successful run 43674573868, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43674573868).
+- Workflow: `417945069`; event: `push`; branch: `main`.
+- Verification job: `132691791438`; every step succeeded.
+- Verification completed `2026-11-15T04:12:52Z`; the job completed `2026-11-15T04:12:55Z`.
+- Artifact: `14145627876`, 111,239 bytes, created `2026-11-15T04:12:53Z`.
+- [Preserved CI report](certification/ci/run_43674573868_attempt_1.json), 953,313 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43674573868_attempt_1.zip).
+- ZIP SHA-256: `64f3c79c1818b9a9518966e47c336f2c2e6339a82b7dbc8961faa7d55ce1dcff`.
+- CI report SHA-256: `147b132a851d2f4601f1cafc9d7a6b9d65be7bc4d665959512c10b1c2912a61f`.
+
+The original ZIP digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived JSON and both independent report copies. Both strict audits
+confirm equality on all 18 verification-content fields: all 637
+complete theorem records and their actual types and axiom lists,
+four registered premise records, 180 input hashes, nine pinned
+dependency revisions, the complete Lean inspection output, the Lean
+version, and every verification flag and scope count.
+Only `generated_at_utc` and `lake_build_output` differ.
+
+All 598 preceding theorem records remain identical. The 39 new
+exports retain exactly `Classical.choice`, `Quot.sound`, and `propext`,
+and their complete actual types match the prior unified inspection.
+No new export uses a literature premise. The actual source endpoint
+retains its uniform constant order and exact arithmetic conclusion.
+
+All 180 input hashes match the current inspected files and the exact
+proof tree. All 31 frozen nondocument paths, including the workflow,
+remain unchanged and match their blobs in that same tree. The installed
+local report remains byte-for-byte unchanged at 942,183 bytes,
+with SHA-256 `ae070fa70d8f1f02efa7c5e2ee0496d396c7fded6c65fa66ec5946b36d3d90de`, and equals the report at the proof commit.
+The frozen manuscript and PDF are unchanged.
+
+This evidence covers complete Lemma 3.6. The numbered status remains
+16 Certified, zero Partial or Active, and 26 Pending; all 33
+auxiliary/supplementary groups remain Pending, and whole-paper
+certification remains false. Earlier local and CI reports and the
+separate interruption-recovery checkpoints retain their own scopes.
 
 ## Earlier Lemma 3.5 execution
 
