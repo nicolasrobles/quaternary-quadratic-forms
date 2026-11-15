@@ -1,0 +1,2389 @@
+# Uniform off-dual-cone modulus bound checkpoint
+
+## Numbered-result status
+
+Complete: **16**. Partial: **0**. Active numbered targets: **0**.
+Pending: **26**. All 33 auxiliary/supplementary groups remain Pending.
+
+**Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
+inputs.** The first is matched to the cited simple-root univariate Weil bound.
+The second is proved under the literal manuscript hypotheses, with the
+projective charts, affine polynomial, degree, and geometric-root deductions
+checked in Lean.
+
+**Lemmas 4.2 and 4.3 are Certified.** The conic parametrization uses one tuple of actual binary quadratic
+forms over every field extension. The plane-section estimate uses the literal
+geometric rank-three hypothesis and the actual projective character sum.
+Their earlier local and GitHub verification evidence is preserved below.
+
+**Lemma 2.7 is Certified.**
+The preceding Katz milestone includes the literal quadric geometry, the exact
+coefficient, and the scalar bound. The full local verifier passed. GitHub
+Actions verification also passed at the exact proof commit recorded below.
+
+**Lemma 5.9 is Certified.** Its final integer and complex trace theorems
+derive finiteness of the actual bad-prime set from characteristic-zero
+smoothness, then use the literal `p ∤ N_G` hypothesis to prove integrality,
+divisibility by `p`, and the bound `|a_p(G)| ≤ 4p`. No separate finiteness
+or good-reduction hypothesis remains.
+
+**Lemma 4.1 is Certified.** Part (i) proves finiteness of the actual bad-prime
+set and `N_G ≤ K H_G^C`, with constants fixed before `G`. Part (ii) now
+constructs `D_p ≠ 0`, proves `D_p(0)=0`, and bounds its degree by `E`
+chosen before both `G` and `p`. Nonvanishing implies `F*(u) ≠ 0` and the
+literal geometric rank-three condition.
+
+**Lemma 4.4 is Certified.** Its three weight properties, full pointwise
+Fourier estimate, and exact zero-frequency identity are proved for the
+actual integral data under the literal `p ∤ N_G` hypothesis. The uniform
+theorem chooses `E ≥ 1` before `G,p`, then `D_p` before the character.
+The elementary section count is proved for every nonzero normal, including
+tangent and singular sections. Theorem 1.1 and Theorem 1.4 remain Pending.
+
+**Lemma 4.5 is Certified.** All three clauses are proved for the actual
+diagonal forms: characteristic-zero smoothness, geometric bad reduction
+at `p ∤ N_F` if and only if `p ∣ M`, and the exact formula
+`N_G = rad(|2αM|)` for the existing modulus. Finiteness follows directly
+from `M ≠ 0`; no Lang or other literature premise is used.
+
+**Lemma 4.6 is Certified relative to the accepted Weil input.** Its
+complete integral theorem proves the exact pencil formula, the literal
+integer projective-trace identity, and the generic Fourier bound
+`2p^(3/2)+4p`. The prime hypothesis is precisely `p ∤ 2αM`, and the
+generic condition is precisely `p ∤ F*(u)u₁u₂u₃u₄`. The exact formula
+and trace use only the standard foundations; the bound additionally uses
+the existing Weil premise. All Section 4 lemmas are now complete.
+Theorem 1.3 remains Pending because its global asymptotic is not proved.
+
+**Lemma 3.1 is Certified.** The actual mixed complete sum satisfies both
+the CRT factorization and integer unit-frequency invariance. Integer
+lift independence, the source's prime-product weights, and the extension
+of functions supplied only at primes outside `N` are proved internally.
+The identities include modulus one and shared prime factors between `q`
+and `c`; the literal gcd condition also permits `t=0` when `qc=1`.
+The supporting prime-factor formula for `C_q`, multiplicativity of
+`S_c`, and exact prime Fourier bridge are proved. No literature premise
+is used.
+
+**Lemma 3.2 is Certified.** For every prime outside the literal
+`N_F = 2|det A|`, all three conclusions hold for the actual symmetric
+integral matrix: the shifted Gauss evaluation modulo `p^k`, the exact
+Ramanujan formula for the existing `S_{p^k}`, and the cardinality of
+the actual projective quadric. The final theorem covers every `k ≥ 1`,
+every integral frequency, and every integer scalar not divisible by
+`p`. The general-matrix prime base case, residue-digit recurrence,
+modular inverses, and unit permutation are proved internally. This
+branch uses no literature premise.
+
+**Lemma 3.3 is Certified.** The existing complete sum satisfies
+`|S_c(u)| ≤ 4 sqrt(|det A|) c³` for every positive modulus and every
+integral frequency. The proof covers arbitrary composite moduli,
+including modulus one and bad-prime factors. It proves the exact
+kernel phase in the squared Gauss norm, bounds the actual residue
+kernel through the integer matrix's determinant and range index, and
+sums over the actual residue units. The final theorem assumes symmetry
+and integer nonsingularity, without a good-prime or nonsquare condition.
+No literature premise is used.
+
+**Lemma 3.4 is Certified.** For every prime `p ∤ N`, every `k ≥ 1`,
+and every integral frequency, the existing mixed complete sum has the
+exact ramified formula with the original supplied weight evaluated at
+`adj(A)u` and Ramanujan modulus `p^(k+1)`. Actual residue digits and
+orthogonality prove the weighted Gauss extraction, and an actual unit
+digit bijection proves `𝒰_(k+1) = p 𝒮_(p,p^k)`. The source radical
+condition supplies good reduction; only the nonzero scalar `p` is
+cancelled in the final assembly. No nonvanishing assumption on a
+character sum, frequency restriction, or literature premise is used.
+
+**Lemma 3.5 is Certified.** Both identities use the literal
+`q₁ = gcd(q,c)` and `q₂ = q/q₁`, the actual complete sums, the
+original supplied weight product, and the source Dirichlet character.
+The good-modulus formula follows from actual prime-power and CRT
+assembly. On the dual cone, the second identity holds for every
+positive modulus, including bad-prime factors; the proof retains the
+possibly zero bad-part sum multiplicatively. Agreement of the Jacobi
+coefficient with the supplied character is proved from the source's
+good-prime values. No literature premise is used.
+
+**Lemma 3.6 is Certified.** For every real cutoff `X ≥ 1` and
+nonzero integral dual value `m = F*(u)`, the actual sum of
+`|𝒮_(q,c)(u)|/c³` over positive `c ≤ X` with `gcd(c,q)=q₁` has
+the bound `C_(F,ε) |C_(q₂)(u)| q₁² 1_(q₁∣m) (X|m|)^ε`.
+The positive constant is chosen before `N`, the local functions,
+`q,q₁,q₂`, the frequency, and the cutoff. Actual Ramanujan values,
+CRT, the bad-prime bound, finite factor-pair summation, and elementary
+divisor/logarithm estimates prove the result. The actual sum is zero
+when `q₁ ∤ m`. No literature premise is added or used.
+
+The next bounded target is complete Lemma 3.7, the dual-cone modulus sum.
+
+## Mathematical scope
+
+### Complete Lemma 3.6
+
+The source endpoint is
+[`source_generic_modulus_bound`](QuaternaryQuadraticForms/GenericModulusTheorem.lean).
+For a fixed symmetric nonsingular integral matrix `A` and each
+$\varepsilon>0$, it chooses one positive constant before all varying
+source data. With $m=u^T\operatorname{adj}(A)u\ne0$,
+$q=q_1q_2$ positive and squarefree, $(q,N)=1$, and
+$\operatorname{rad}(N_F)\mid N$, the conclusion is
+
+$$
+\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\le C_{A,\varepsilon}\,|C_{q_2}(u)|\,q_1^2\,
+\mathbf 1_{q_1\mid m}\,(X|m|)^\varepsilon,
+\qquad X\ge1.
+$$
+
+The original local functions need only nonzero scalar invariance and
+norm at most one. The constant is independent of `N`, that family,
+`q,q₁,q₂`, `u`, and the real cutoff. This quantifier order is visible
+in the actual theorem type. The source radical condition derives
+`q.Coprime (quadraticBadPrimeModulus A)`; the source extension uses
+only the supplied functions at primes outside `N` in both actual sums.
+The constrained Fourier factor remains the existing sum at `q₂`, and
+its possible zero value is included.
+
+**The actual finite sum.** `gcdModuliUpTo q q₁ ⌊X⌋₊` contains exactly
+the positive natural moduli below the real cutoff with the source
+gcd condition. `normalizedMixedCompleteSum` equals the norm of the
+existing mixed complete sum divided by `c³` at every positive modulus;
+its zero extension at `c=0` never enters the summation set.
+`modulusNormSum` is the literal finite sum of these terms. From
+`q=q₁*q₂` and positivity, division by `q₁` recovers the original `q₂`.
+
+**Ramanujan estimates and the indicator.** The actual unit-digit
+recurrences prove every positive prime-power Ramanujan value. Their
+combination with actual CRT gives
+
+$$|R_n(m)|\le\gcd(n,|m|),\qquad
+|R_{dg}(m)|\le d\gcd(g,|m|).$$
+
+For squarefree `d∣g`, a prime dividing `d` occurs at least twice in
+`dg`. If it does not divide `m`, the actual Ramanujan sum vanishes.
+This proves the shared-factor divisibility support, and the actual
+good-modulus formula and bad/good CRT factorization transfer it to
+the mixed sum. Consequently `modulusNormSum_eq_zero_of_not_dvd`
+proves that the whole left-hand sum is zero whenever `q₁∤m`.
+No local norm hypothesis is needed for this vanishing theorem.
+
+**The stronger divisor/logarithm bound.** The existing uniform bound
+controls the bad-prime factor `S_b(u)` in `c=b*g`. The weight norm
+bound and actual Jacobi trichotomy give
+
+$$
+\frac{|\mathcal S_{q,c}(u)|}{c^3}
+\le 4\sqrt{|\det A|}\,|C_{q_2}(u)|\,q_1^2
+\frac{\gcd(g,|m|)}g.
+$$
+
+The factor-pair map is injective because multiplication recovers `c`.
+Thus the actual gcd-restricted sum embeds into a finite rectangle of
+bad-supported `b` and positive `g`, with nonnegative summands. Actual
+factorization vectors bound the number of possible `b` by
+$(1+\log X/\log2)^{\omega(N_F)}$. The finite divisor argument and
+the harmonic estimate give
+
+$$\sum_{1\le g\le X}\frac{\gcd(g,|m|)}g
+\le\tau(|m|)(1+\log X).$$
+
+The resulting `modulusNormSum_le_divisor_log` has one divisor-count
+factor, with logarithm exponent `1+ω(N_F)`. This is a stronger
+intermediate bound than the manuscript's two-divisor-factor route.
+The proof does not require a separate formalization of the displayed
+infinite local series in `eq:ramsplit`; no such identity is assumed.
+The broader auxiliary group `aux:ramanujan`, including agreement
+with the Möbius divisor definition, remains separately Pending.
+
+For every prescribed positive exponent, `divisors_card_le_rpow`
+provides a positive constant uniform over all positive integers, and
+`one_add_log_pow_le_rpow` provides a positive constant uniform over
+all real `X≥1`. Applying them separately to `|m|` and `X` yields
+$|m|^\varepsilon X^\varepsilon=(X|m|)^\varepsilon$.
+The fixed prime-support exponent and determinant factor depend only
+on `A`. The exact zero theorem inserts the divisibility indicator.
+This proves the complete source estimate with the required uniformity.
+
+The boundary cases `q=q₁=q₂=1`, `X=1`, and `|m|=1` are included.
+The final estimate requires `m≠0`; its supporting Ramanujan gcd
+bounds also cover zero frequency. The source weight's zero-value
+condition and Fourier stratification bounds are unused. No
+Dirichlet character, nonprincipal-character cancellation, or
+nonsquare-determinant hypothesis is needed for this absolute bound.
+
+| New modules | Checked role |
+| --- | --- |
+| [RamanujanPrimePower](QuaternaryQuadraticForms/RamanujanPrimePower.lean), [RamanujanGcdBound](QuaternaryQuadraticForms/RamanujanGcdBound.lean) | Actual prime-power evaluations, global gcd bound, and shared-factor vanishing |
+| [MixedSumNormBounds](QuaternaryQuadraticForms/MixedSumNormBounds.lean), [MixedSumGcdBound](QuaternaryQuadraticForms/MixedSumGcdBound.lean) | Source weight norms, exact bad/good CRT, normalized bound, and mixed-sum divisibility support |
+| [PrimeSupportCount](QuaternaryQuadraticForms/PrimeSupportCount.lean), [GcdHarmonicBound](QuaternaryQuadraticForms/GcdHarmonicBound.lean) | Actual prime-support count and the finite gcd/divisor/harmonic estimate |
+| [ModulusNormSum](QuaternaryQuadraticForms/ModulusNormSum.lean), [FactorizationSumBound](QuaternaryQuadraticForms/FactorizationSumBound.lean) | Real-cutoff source sum and injective factor-pair summation |
+| [DivisorPowerBound](QuaternaryQuadraticForms/DivisorPowerBound.lean), [LogPowerBound](QuaternaryQuadraticForms/LogPowerBound.lean) | Uniform bounds for every positive exponent |
+| [GenericModulusBound](QuaternaryQuadraticForms/GenericModulusBound.lean), [GenericModulusTheorem](QuaternaryQuadraticForms/GenericModulusTheorem.lean) | Actual finite-sum estimate, exact zero, uniform power bound, and original-source endpoint |
+
+The [source correspondence review](certification/correspondence/generic_modulus_bound.md)
+distinguishes the 39 supporting exports from the numbered result and
+records the actual theorem types and dependencies. All 39 new exports
+use only standard logical foundations; no literature premise is added
+or used. Strict compilation and actual inspection have passed. The
+full aggregate and exact-proof-commit CI outcomes are tracked separately
+in the execution checkpoint.
+
+### Complete Lemma 3.5
+
+[GoodGlobalTheorem.lean](QuaternaryQuadraticForms/GoodGlobalTheorem.lean)
+proves the two source theorems `source_mixedCompleteSum_good_modulus`
+and `source_mixedCompleteSum_dual_cone`, and bundles them as
+`source_good_global_complete_sum`. Let $q\ge1$ be squarefree,
+$(q,N)=1$, and $c\ge1$, with the literal source factors
+
+$$q_1=\gcd(q,c),\qquad q_2=q/q_1.$$
+
+For a good modulus the first clause is
+
+$$\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1c^2\chi(q_1c)\,
+\xi_{q_1}(\operatorname{adj}(A)u)\,
+R_{q_1c}(F^*(u)),\qquad(c,N_F)=1.$$
+
+The second clause holds for every positive modulus:
+
+$$\mathcal S_{q,c}(u)
+=C_{q_2}(u)\,q_1^2\chi(q_1)\,
+\xi_{q_1}(\operatorname{adj}(A)u)\,S_c(u),
+\qquad F^*(u)=0.$$
+
+The left-hand side is the existing
+`mixedCompleteSum (extendPrimeWeights N ξ) q c A u`. The first factor
+on the right is the existing constrained Fourier sum at the actual
+quotient `q / q.gcd c`. The dual value is literally
+`dotProduct u (A.adjugate.mulVec u)`, and the weight is evaluated at
+the actual integral vector `A.adjugate.mulVec u`. Positive moduli are
+represented by `NeZero` instances. Modulus one, zero frequency, and
+zero values of any of the complete sums are included.
+
+**The original character and supplied weights.**
+`GlobalQuadraticCharacter.lean` defines the intermediate complex
+coefficient as the actual Jacobi symbol, and proves its value at one,
+multiplicativity at positive moduli, prime and prime-power Legendre
+values, and square-one value on coprime arguments. The source theorem
+accepts an actual `DirichletCharacter ℂ M` and precisely its stated
+Legendre values at primes not dividing `N_F`. Prime induction proves
+that this supplied character equals the Jacobi coefficient at every
+positive modulus coprime to `N_F`. Consequently, the final formulas
+contain the original `χ` evaluated at `q₁ c` and `q₁`, respectively.
+There is no hypothesis identifying the character at composite moduli;
+that agreement is proved internally.
+
+`SourceCompositeWeights.lean` defines `sourceCompositeWeight` as the
+literal product of the original supplied functions over the prime
+divisors of a modulus coprime to `N`. It proves that this product agrees
+with `compositeWeight (extendPrimeWeights N ξ)`. The final right-hand
+weight is therefore the source's supplied product, without imposing
+any condition on an undefined or excluded-prime function.
+
+**The actual local-to-global assembly.**
+`RamanujanMultiplicativity.lean` reindexes the actual unit sum by
+`scaledChineseRemainderUnits`. The standard character splits with
+unchanged integer frequency, proving
+
+$$R_{mn}(t)=R_m(t)R_n(t)\qquad((m,n)=1).$$
+
+At zero frequency the sum is the actual unit cardinality, hence
+$R_n(0)=\varphi(n)$. The identity
+$\varphi(dc)=d\varphi(c)$ for `d ∣ c` follows from the proved
+totient/gcd product identity, with the zero case handled separately.
+In its positive case only the nonzero natural number $\varphi(d)$
+is cancelled. No character sum is divided out.
+
+`GoodUnweightedCompleteSum.lean` combines the actual prime-power
+formula of Lemma 3.2 with CRT and Ramanujan multiplicativity to prove
+
+$$S_c(u)=\chi(c)c^2R_c(F^*(u))\qquad((c,N_F)=1).$$
+
+The intermediate coefficient is the proved Jacobi representative;
+the character agreement described above supplies the source `χ`.
+The proof includes the case `c=1`.
+
+`SquarefreeGcdFactors.lean` proves all arithmetic for the source's
+actual gcd and quotient: their product is `q`, they are positive and
+squarefree, `q₁ ∣ c`, and `(q₂,q₁ c)=1`. It also proves the gcd split
+for a squarefree divisor of a coprime product and proves that a
+squarefree divisor of a prime power is `1` or that prime.
+
+`SharedSupportCompleteSum.lean` treats squarefree `q ∣ c`. Induction
+over positive prime powers and coprime products reduces the prime-power
+case to `q=1` or `q=p`, where Lemmas 3.2 and 3.4 give the exact sums.
+For `c=mn`, it splits the weight modulus into `gcd(q,m)` and
+`gcd(q,n)` and proves coprimality of the full CRT blocks. The literal
+CRT formula, character, composite weights, and Ramanujan factors
+combine to give the exact coefficient `q c²` and modulus `q c`.
+`GoodGlobalCompleteSum.lean` then separates the actual factor
+$C_{q_2}(u)$ by CRT and applies that shared-support formula to `q₁`.
+This proves the complete good-modulus identity with the literal
+source factors, rather than assuming a suitable factorization.
+
+**The dual-cone clause at arbitrary moduli.**
+At a good modulus, `ConeCompleteSum.lean` uses `F*(u)=0`,
+$R_n(0)=\varphi(n)$, and
+$\varphi(q_1c)=q_1\varphi(c)$ to obtain the exact coefficient of
+$S_c(u)$. The identity is proved by multiplication of the displayed
+factors and does not require nonvanishing of $S_c(u)$.
+
+For every positive modulus, `ModulusPrimeSplit.lean` constructs
+positive coprime `b,g` such that `c = b*g`, every prime of `b` divides
+`N_F`, and `(g,N_F)=1`. Coprimality of `q` with `N_F` gives `(q,b)=1`
+and proves `gcd(q,c)=gcd(q,g)`. Both actual CRT factorizations are then
+used:
+
+$$\mathcal S_{q,c}(u)=S_b(u)\mathcal S_{q,g}(u),\qquad
+S_c(u)=S_b(u)S_g(u).$$
+
+The good-part cone formula is multiplied by the existing $S_b(u)$.
+This factor is retained throughout, so the full identity includes its
+possible vanishing and every bad-prime factor in `c`.
+
+`SourceGoodModulus.lean` proves `(q,N_F)=1` from the source radical
+condition `primeRadical N_F ∣ N`, `(q,N)=1`, and `A.det ≠ 0`.
+Nonsingularity ensures `N_F ≠ 0`, as required by the prime-divisor
+characterization of the literal radical. This supplies the good-prime
+condition needed for the arbitrary-modulus cone theorem. The final
+bundled source theorem assumes symmetry, nonsingularity, the radical
+condition, the supplied character's good-prime values, and scalar
+invariance of the supplied prime functions.
+
+The identities do not need the weight's value at zero or its norm
+bound, the Section 3 exceptional frequency strata, primitivity or a
+particular conductor of the supplied character, or nonsquareness of
+the determinant. The source's separate `N ≥ 1` condition is unused;
+it is not a consequence of `(q,N)=1`, since `q=1, N=0` satisfies
+that coprimality condition. The weaker formal assumptions retain both
+complete source conclusions.
+
+The [correspondence review](certification/correspondence/good_global_complete_sum.md)
+checks both clauses, the exact source character and weight interfaces,
+the gcd/quotient factors, and the arbitrary-modulus cone proof.
+No literature premise is used.
+
+### Complete Lemma 3.4
+
+[RamifiedCompleteSum.lean](QuaternaryQuadraticForms/RamifiedCompleteSum.lean)
+proves `ramified_complete_sum` at the literal quadratic good-prime
+modulus and `source_ramified_complete_sum` for the source's supplied
+local functions. The latter assumes a symmetric integral matrix with
+nonzero determinant, `primeRadical (quadraticBadPrimeModulus A) ∣ N`,
+`p ∤ N`, primality of `p`, `k ≥ 1`, and nonzero-scalar invariance of
+the supplied function at `p`. For every integral frequency, it proves
+
+$$\mathcal S_{p,p^k}(u)
+=\chi(p)^{k+1}p^{2k+1}\,
+\xi_p(\operatorname{adj}(A)u)\,
+R_{p^{k+1}}(F^*(u)).$$
+
+The left side is the existing `mixedCompleteSum (extendPrimeWeights N ξ)`.
+The right side contains the original supplied function
+`ξ p Fact.out hpN`, evaluated at
+`reduceFrequency p (A.adjugate.mulVec u)`. The character is the actual
+complex cast of `legendreSym p A.det`, and the Ramanujan sum is
+`integralRamanujanSum (p ^ (k + 1)) (dotProduct u (A.adjugate.mulVec u))`.
+Thus the formula uses the exact integral determinant, adjugate,
+frequency, and dual value from the source.
+
+`SourceGoodPrime.lean` derives `p ∤ quadraticBadPrimeModulus A`
+from the source radical divisibility and `p ∤ N`. The determinant
+hypothesis is used: it makes `N_F = 2 |det A|` nonzero, as required
+by the proved prime-divisor characterization of the literal radical.
+The empty-product radical at zero would not justify that deduction.
+The source's separate `N ≥ 1` condition is unnecessary in this
+wrapper, since `p ∤ N` already excludes `N = 0`. No good-reduction
+condition is left as an extra assumption in the source endpoint.
+
+`WeightedGaussSums.lean` defines the actual weighted inner sum using
+canonical integer lifts of residue vectors and their reduction modulo
+`p`. Its actual unit sum is the source's
+
+$$\mathcal U_j(u)=\sum_{a\bmod p^j}^{*}\sum_{x\bmod p^j}
+\xi_p(x)e_{p^j}(aF(x)+u\cdot x),\qquad j\ge2.$$
+
+Constant weight one recovers the existing integral Gauss and complete
+sums through proved bridges. The weight and character in these
+definitions use the same canonical representative of every residue
+vector; their agreement with the source sums is part of the proof.
+
+`WeightedGaussStationaryPhase.lean` first works at any positive
+modulus `m * p` with `p ∣ m`. The actual residue-digit equivalence
+reindexes vectors as $y+mz$. The high digit does not change the
+weight modulo `p`. Symmetry expands the exact quadratic phase, and
+`p ∣ m` makes its quadratic high-digit term divisible by `mp`.
+The remaining high-digit phase is
+
+$$e_p((2aAy+u)\cdot z).$$
+
+The four-coordinate character sum is $p^4$ precisely when
+$2aAy+u=0\pmod p$, and zero otherwise. This stationary expansion
+itself needs neither primality nor nonsingularity. It is an identity
+for the actual weighted sum, not a stationary-phase hypothesis.
+
+`WeightedGaussExtraction.lean` applies the actual adjugate to the
+stationary equation, obtaining
+
+$$\operatorname{adj}(A)u=-(2a\det A)y\pmod p.$$
+
+At a good prime with $p\nmid a$, the displayed scalar is nonzero.
+The supplied scalar invariance therefore identifies the weight on
+every surviving residue with $\xi_p(\operatorname{adj}(A)u)$.
+Comparison with the constant-weight-one stationary expansion proves
+
+$$\sum_{x\bmod p^j}\xi_p(x)e_{p^j}(aF(x)+u\cdot x)
+=\xi_p(\operatorname{adj}(A)u)
+\sum_{x\bmod p^j}e_{p^j}(aF(x)+u\cdot x).$$
+
+`WeightedCompleteSum.lean` proves that every actual residue unit's
+canonical integer value is not divisible by `p`. It sums the proved
+inner identity and applies the complete Lemma 3.2 formula, giving
+
+$$\mathcal U_j(u)=\chi(p)^j p^{2j}\,
+\xi_p(\operatorname{adj}(A)u)R_{p^j}(F^*(u))$$
+
+for every $j\ge2$. All unit hypotheses and weight factors in this
+assembly are proved for the actual summation parameters.
+
+`PrimePowerUnitDigits.lean` restricts the existing residue-digit
+bijection to a genuine equivalence
+
+$$(\mathbb Z/c\mathbb Z)^\times\times\mathbb Z/p\mathbb Z
+\simeq(\mathbb Z/pc\mathbb Z)^\times,\qquad(a,t)\mapsto a+c t,$$
+
+valid for positive moduli with $p\mid c$. Its proof identifies the
+canonical value with `a.val + c * t.val` and proves the exact
+coprimality condition. In `RamifiedUnitLift.lean`, the `t` sum of
+the literal phase contributes `p` precisely when $p\mid F(x)$.
+That condition is the existing indicator in `mixedIntegerSummand`,
+and the weight agrees by the prime specialization of the existing
+composite weight. This proves the exact identity
+
+$$\mathcal U_{k+1}(u)=p\mathcal S_{p,p^k}(u).$$
+
+The unit-lift identity needs no symmetry, nonsingularity, parity, or
+weight-invariance hypothesis. The final theorem combines it with the
+weighted evaluation and cancels only the nonzero complex scalar `p`.
+The resulting exponent is exactly `2k+1`, and the Ramanujan modulus
+is exactly `p^(k+1)`.
+
+Every $k\ge1$ and every integral frequency is covered, including
+$p\mid u$, $p\mid F^*(u)$, and zero frequency. The weight's
+vanishing at zero and its norm bound are not needed. Nor does the
+proof assume membership in one of the Section 3 exceptional frequency
+strata or nonsquareness of the determinant. No character sum or
+Ramanujan value is divided out. The
+[correspondence review](certification/correspondence/ramified_complete_sum.md)
+checks the full source statement and both actual digit arguments.
+No literature premise is used.
+
+### Complete Lemma 3.3
+
+[BadPrimeBound.lean](QuaternaryQuadraticForms/BadPrimeBound.lean)
+proves `bad_prime_bound` for the manuscript's actual complete sum:
+
+```lean
+(c : ℕ) [NeZero c]
+(A : Matrix (Fin 4) (Fin 4) ℤ)
+(hA : A.transpose = A) (hdet : A.det ≠ 0)
+(u : Fin 4 → ℤ) :
+  ‖unweightedCompleteSum c A u‖ ≤
+    4 * Real.sqrt |(A.det : ℝ)| * (c : ℝ) ^ 3
+```
+
+Thus every positive integer modulus and every integral frequency is
+covered. The assumptions are precisely symmetry and integer
+nonsingularity of the actual matrix. The proof does not impose
+nonsingularity modulo `c`, a good-prime restriction, nonsquareness of
+the determinant, or a condition on `u`. Modulus one is included.
+
+`GaussNorm.lean` works first over the actual residue ring `ZMod c`.
+For an arbitrary symmetric residue matrix and an actual unit parameter,
+it proves the exact product identity
+
+$$V_c(a,u)\overline{V_c(a,u)}
+=c^4\sum_{\substack{z\bmod c\\2Az=0\pmod c}}
+e_c(aF(z)+u\cdot z),$$
+
+where $V_c(a,u)$ is the existing `quadraticGaussSum`. The finite
+product of sums is reindexed by the translation $y=x+z$. Symmetry
+expands the quadratic phase into its value at `z` and the linear
+term $2a\,x^{\mathsf T}Az$. The standard character is primitive at
+every positive modulus; separating the four coordinates proves that
+the inner sum is `c⁴` exactly on the kernel of `2A`, and zero outside
+it. The unit property of `a` proves the exact kernel condition even
+when the residue ring has zero divisors.
+
+Taking norms of this proved identity and using the norm-one value of
+each character yields
+
+$$|V_c(a,u)|^2\le c^4\#\{z\bmod c:2Az=0\pmod c\}.$$
+
+`MatrixResidueKernel.lean` defines the finite set of vectors killed
+by the entrywise reduction of the actual integer `4 × 4` matrix `B`.
+`DoubledMatrixKernel.lean` proves that reduction commutes with doubling
+and identifies `matrixResidueKernel c (2 • A)` with precisely the
+filtered kernel in the Gauss estimate.
+
+`IntegerMatrixKernelBound.lean` proves the determinant bound through
+the actual range and index. For `B.det ≠ 0`, the integer map is
+injective. Applied to its range and the resulting linear equivalence,
+mathlib's proved `Submodule.natAbs_det_equiv` gives
+
+$$[\mathbb Z^4:B\mathbb Z^4]=|\det B|.$$
+
+The library proof uses Smith normal form. Coordinate reduction from
+$\mathbb Z^4$ onto $(\mathbb Z/c\mathbb Z)^4$ is proved surjective
+using canonical representatives, and it commutes with the integer
+matrix map. The image of the integer range is therefore exactly the
+range of the reduced matrix. The latter range index divides the
+former. For an endomorphism of the actual finite residue group, its
+range index equals its kernel cardinality, giving
+
+$$\#K_c(B)\mid|\det B|,\qquad \#K_c(B)\le|\det B|.$$
+
+This provides the kernel estimate needed by the source's Smith
+normal-form argument without any coprimality condition on `c`. All
+range, reduction, quotient, and kernel identifications are proved for
+the actual matrix; the kernel count is not supplied as a hypothesis.
+
+`GaussBoundConstants.lean` proves the exact quaternary identities
+
+$$\det(2A)=16\det A,\qquad |\det(2A)|=16|\det A|.$$
+
+`BadPrimeGaussBound.lean` combines the residue squared-norm inequality
+with this integer kernel bound. Taking nonnegative square roots gives
+
+$$|V_c(a,u)|\le4\sqrt{|\det A|}\,c^2.$$
+
+The inner bound is proved both for every actual residue unit and for
+integral scalar data whose reduction is a unit. Its integral wrapper
+uses the same matrix, coefficient, and frequency reductions as the
+source's representative sum.
+
+`CompleteSumNorm.lean` applies the triangle inequality to the existing
+`unweightedCompleteSum`, using its already proved identity as the sum
+of the actual Gauss sums over `(ZMod c)ˣ`. Injectivity of the unit-value
+map proves that there are at most `c` unit parameters, including when
+`c=1`. The final `BadPrimeBound.lean` theorem supplies the proved inner
+bound to this assembly, yielding the exact factor
+$4\sqrt{|\det A|}c^3$. Its final cast identity identifies the natural
+absolute determinant with the real absolute value displayed in the
+source statement.
+
+The [correspondence review](certification/correspondence/bad_prime_bound.md)
+covers the complete statement and the determinant/index realization
+of the source argument. All supporting norm and kernel assertions are
+proved internally; no literature premise is used.
+
+### Complete Lemma 3.2
+
+[PrimePowerGaussTheorem.lean](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean)
+proves the single source endpoint `prime_power_gauss`. Its hypotheses
+are a prime `p`, an exponent `k ≥ 1`, the actual integral symmetric
+matrix `A`, the literal condition `p ∤ quadraticBadPrimeModulus A`,
+and an arbitrary integral frequency `u`. The existing modulus is
+exactly `2 * A.det.natAbs`, so this is $p\nmid N_F=2|\det A|$.
+There is no extra diagonalization, recurrence, unit-permutation, or
+point-count hypothesis.
+
+Write $\alpha=\det A$, $\chi(p)=(\alpha/p)$, and
+$F^*(u)=u^{\mathsf T}\operatorname{adj}(A)u$. The theorem includes
+all three source conclusions:
+
+1. For every integer $a$ with $p\nmid a$,
+
+   $$\sum_{x\bmod p^k}e_{p^k}(aF(x)+u\cdot x)
+   =\chi(p)^k p^{2k}
+   e_{p^k}\!\left(-\overline{4a\alpha}\,F^*(u)\right).$$
+
+2. For the existing unweighted complete sum,
+
+   $$S_{p^k}(u)=\chi(p)^k p^{2k}R_{p^k}(F^*(u)).$$
+
+3. For the actual projective quadric over `ZMod p`,
+
+   $$\#\mathcal Q(\mathbb F_p)=p^2+(1+\chi(p))p+1.$$
+
+The complex coefficient is the cast of `legendreSym p A.det`, raised
+to `k`. The phase uses the native inverse in `ZMod (p^k)` of the
+reduced integer `4 * a * A.det`, multiplied by the reduction of
+`dotProduct u (A.adjugate.mulVec u)`. The cardinality identity is
+written in the integers so that the actual Legendre symbol can take
+either sign. These are the source's determinant, adjugate dual, and
+prime character.
+
+`QuadraticGaussSums.lean` defines the literal residue-vector sums.
+`IntegralGaussSums.lean` identifies reduction of the integral data with
+the canonical-lift representative formula and the actual inner sum
+in the existing `unweightedCompleteSum`. It also proves the
+modulus-one Gauss value for every matrix, scalar, and frequency.
+`PrimePowerUnits.lean` derives the required units for two, the
+determinant, and the scalar from the source divisibility conditions,
+without treating `ZMod (p^k)` as a field.
+
+`GeneralPrimeGauss.lean` constructs an actual orthogonal basis over
+`ZMod p` for the symmetric matrix. Its change-of-basis matrix `P`
+satisfies
+
+$$P^{\mathsf T}AP=\operatorname{diag}(d_i),\qquad
+\prod_i d_i=(\det P)^2\det A.$$
+
+Invertibility of the basis matrix and nonsingularity of `A` prove
+that every diagonal coefficient is nonzero. Reindexing the finite
+sum by this basis and applying the previously checked scalar Gauss
+identities gives $V_1(a)=\chi(p)p^2$ for every nonzero scalar. The
+zero-scalar value $p^4$ is retained for the later affine count. The
+prime theorem applies to a general matrix, with the basis and
+determinant-square relation proved internally.
+
+`PrimePowerResidues.lean` constructs actual digit bijections for
+positive product moduli, without a coprimality assumption. In
+`PrimePowerGaussRecurrence.lean`, the decomposition
+$x=r+p(w+mz)$, with $r,z\bmod p$ and $w\bmod m$, gives the exact
+phase expansion. Vector additive orthogonality forces the low digit
+$r$ to be zero, and the remaining character becomes $e_m(aF(w))$.
+For every positive `m`, including one, this proves the actual identity
+
+$$\sum_{x\bmod p^2m}e_{p^2m}(aF(x))
+=p^4\sum_{w\bmod m}e_m(aF(w)).$$
+
+Writing $V_k(a)$ for the pure sum at modulus $p^k$, specialization gives
+
+$$V_{k+2}(a)=p^4V_k(a)\qquad(k\ge0).$$
+
+`PrimePowerGauss.lean` combines this recurrence, $V_0(a)=1$, and the
+prime base case, using $\chi(p)^2=1$, to obtain
+$V_k(a)=\chi(p)^k p^{2k}$. `MatrixSquareCompletion.lean`,
+`QuadraticGaussShift.lean`, and `IntegralGaussShift.lean` supply the
+actual translation and exact adjugate phase. Both the pure and
+shifted integral formulas hold for every $k\ge0$; the final source
+endpoint states the requested range $k\ge1$.
+
+The pure formula also holds for every actual residue unit. Its
+canonical integral lift is proved nondivisible by `p` by reducing the
+unit to `ZMod p`; this step uses `k ≥ 1`.
+`RamanujanSums.lean` proves that the reciprocal coefficient map
+$a\mapsto-\overline{4a\alpha}$ permutes the actual units.
+`GaussRamanujan.lean` and `UnramifiedCompleteSum.lean` then identify
+the sum of the shifted phases with the literal Ramanujan unit sum.
+No formula for a substitute complete sum is used.
+
+Finally, `QuadricCounting.lean` proves additive orthogonality for the
+affine zero set and its relation to the existing projective quadric.
+`QuadricPointCount.lean` includes the zero scalar in the Gauss sum,
+obtaining
+
+$$\#\{x\in\mathbb F_p^4:F(x)=0\}
+=p^3+\chi(p)(p^2-p).$$
+
+Removing the actual origin and counting each projective ray by its
+$p-1$ nonzero representatives gives the source's exact projective
+count. The final integral wrapper derives symmetry and nonsingularity
+of the reduced matrix from the original source assumptions.
+
+The [correspondence review](certification/correspondence/prime_power_gauss.md)
+covers every clause of Lemma 3.2 and the source's arithmetic and
+geometric objects. This milestone adds no literature premise. It
+uses the already checked scalar Gauss identities and does not claim
+the separate global analytic conclusions or Lemma 3.3.
+
+### Complete Lemma 3.1
+
+`CompleteSumTheorem.lean` proves `complete_sum_crt` and the final source
+wrapper `source_complete_sum_crt`. They concern the existing actual
+mixed sum, with the source's integral matrix and frequency and the
+literal coprimality condition `(q₁c₁,q₂c₂)=1`. The source wrapper
+accepts a local function only for each prime `p ∤ N`, and assumes
+`(q₁q₂,N)=1`. Both conclusions are included:
+
+$$\mathcal S_{q_1q_2,c_1c_2}(u)=
+\mathcal S_{q_1,c_1}(u)\mathcal S_{q_2,c_2}(u),$$
+
+$$\mathcal S_{q,c}(tu)=\mathcal S_{q,c}(u)
+\qquad\text{for every integer }t\text{ with }\gcd(t,qc)=1.$$
+
+`CompositeWeights.lean` defines the actual product
+`ξ_q(x)=∏_{p∣q} ξ_p(x mod p)`, with `ξ_1=1`. It proves periodicity,
+compatibility with residue lifts and coefficient reduction, factorization
+on coprime moduli, and invariance under a unit scalar. The invariant
+predicate only concerns primes dividing the specified `q`.
+`SourceWeights.lean` extends the supplied good-prime family by zero at
+other indices and proves that this extension agrees with every factor
+used when `(q,N)=1`. No property at an excluded prime is assumed.
+
+`CompleteSums.lean` defines `mixedCompleteSum`,
+`unweightedCompleteSum`, and `constrainedFourierSum` as their literal
+finite sums. The mixed sum is over units modulo `c` and vectors modulo
+`qc`, constrained by `q ∣ F(x)`, with phase `e_{qc}(aF(x)+u·x)`.
+The quadratic value is `dotProduct x (A.mulVec x)`, proved equal to
+evaluation of the actual matrix quadratic polynomial.
+
+The canonical representatives in the definition introduce no extra
+choice hypothesis. Changing a vector lift modulo `qc` preserves the
+weight, congruence condition, and phase. Changing the representative
+of `a mod c` changes `aF(x)` by a multiple of `qc`, because the summation
+condition is `q ∣ F(x)`. The mixed-phase proof checks this divisibility
+before applying the actual standard additive character.
+
+`CRTArithmetic.lean` builds actual residue, unit, and vector bijections
+from mathlib's Chinese remainder equivalence. Their forward maps are
+the source's scaled coordinates `x=n₂x₁+n₁x₂` and
+`a=c₂a₁+c₁a₂`, where `n_i=q_i c_i`. `CRTCharacters.lean` proves
+`e_{mn}(nz)=e_m(z)` and
+`e_{mn}(na+mb)=e_m(a)e_n(b)` for positive arbitrary moduli, including
+one. `MixedPhase.lean` proves the exact source quadratic phase split.
+`CompleteSumCRT.lean` combines these with the prime-product weight and
+the quadratic-congruence split, then reindexes the local units by
+`c₂n₂` and `c₁n₁` to prove the actual double-sum product.
+
+The required coprimality is between the two complete CRT blocks.
+There is no assumption `(q,c)=1`; a prime may divide both `q_i` and
+`c_i` within a block. The argument in fact needs neither squarefreeness
+nor nonsingularity for the two main identities. The source's additional
+hypotheses therefore specialize the proved theorem without adding an
+unproved implication.
+
+`CompleteSumInvariance.lean` proves the second clause by reindexing
+vectors with an inverse of `t` modulo `qc` and units with multiplication
+by `t²` modulo `c`. Its final hypothesis is exactly
+`t.gcd ((q*c : ℕ) : ℤ)=1`. Negative scalars are included. At modulus
+`qc=1`, the residue and unit types are singletons, the sum equals one,
+and the same gcd condition permits `t=0`. No global assumption
+`t ≠ 0` is introduced.
+
+`CompleteSumSpecializations.lean` proves
+`𝒮_{1,c}=S_c`, `𝒮_{q,1}=C_q`, and
+`C_1=S_1=𝒮_{1,1}=1`. Its prime theorem identifies `C_p` with the
+actual sum on the finite-field quadratic cone. For a polynomial-character
+weight, this is exactly the already checked `integralFourierSum`, with
+matching coefficients, frequency, and standard additive character. The
+bridge itself needs no homogeneity or character-order hypothesis.
+
+`CompleteSumFactorization.lean` proves multiplicativity of `S_c` in
+coprime moduli and the squarefree formula
+
+$$C_q(u)=\prod_{p\mid q}C_p(u).$$
+
+The finite-product induction uses invariance only at primes dividing
+`q`, and the empty product handles `q=1`. These remain supporting
+exports; the separate auxiliary groups are not thereby certified.
+The [source correspondence review](certification/correspondence/complete_sum_crt.md)
+records both source clauses, the representative choices, modulus-one
+cases, source-family extension, and exact connection to the earlier
+Fourier branch. All 66 new exports use only standard Lean foundations.
+
+### Complete Lemma 4.6
+
+`DiagonalPencilTheorem.lean` proves the final all-clauses theorem
+`diagonal_pencil` for integral vectors `a,b,u` under the literal hypothesis
+`¬ (p : ℤ) ∣ 2 * (∏ i, a i) * diagonalPairProduct a b`. The actual
+sum is the existing `integralFourierSum` for `Matrix.diagonal a`, the
+complex quadratic character, and the polynomial of `Matrix.diagonal b`.
+The statement reduces the formal integral `Φ_u` polynomial and the
+integral `κ_i,ν_i` values into `ZMod p`; its singular filter uses literal
+integer divisibility `p ∣ u_i`.
+
+The exact formula is
+
+$$C_p(u)=p\sum_{t\notin\{t_1,t_2,t_3,t_4\}}\chi_p(-\Phi_u(t))
+ +p\sum_{i:\,p\mid u_i}\chi_p(\kappa_i)R_p(\nu_i(u)).$$
+
+`DiagonalPencil.lean` defines the source's actual pencil data, including
+`κ_i = −a_i ∏_{j≠i}(a_i b_j−a_j b_i)`, and proves their compatibility
+with coefficient maps. `DiagonalPencilCubic.lean` identifies the cubic
+coefficient with evaluation of the actual adjugate matrix polynomial
+and identifies `Φ_u(t)` with the dual form of `G+tF`.
+`DiagonalPencilAlgebra.lean` proves distinctness of the four singular
+parameters, deduces `5 ≤ p`, and proves the regular and singular
+identities. In particular,
+`−Δ_i = κ_i/a_i⁴` and `w_i = ν_i/(a_i²Δ_i)` have their literal source
+signs and denominators.
+
+`PrimeQuadraticGauss.lean` derives the scalar prime-field identities
+from proved mathlib Gauss-sum and square-root counting results. Its
+exports cover nonvanishing of `τ_p`, `τ_p²=χ_p(−1)p`, `τ_p⁴=p²`,
+Gauss inversion including zero, inversion over units, and the two
+square-completion branches. `PrimeRamanujan.lean` defines the actual
+finite sum and proves its values `p−1` and `−1`, together with the
+unit-scaling and reciprocal-parameter invariances. These statements
+use no registered external premise.
+
+`FourierOrthogonality.lean` and `FourierGaussExpansion.lean` express
+the actual constrained Fourier sum as the product of four scalar
+quadratic exponential sums. The Gauss parameter is a unit before the
+substitution `v=s t` or inversion. `DiagonalPencilEvaluation.lean`
+computes every regular and singular contribution.
+`DiagonalPencilFormula.lean` splits the finite parameter set and
+cancels the nonzero factor `p τ_p` to prove the exact formula. Singular
+terms with `ν_i(u)=0` remain present; no uniform size-`p` assertion is
+made for those terms.
+
+At zero frequency, the regular contribution vanishes and every
+Ramanujan value is `p−1`. `DiagonalPencilConsequences.lean` combines
+this with the existing exact zero-frequency identity and cancels
+`p−1` to obtain the actual complex trace and integer trace. The final
+integral identity is
+
+$$a_p(G)=p\sum_i\chi_p(\kappa_i).$$
+
+For the generic bound, `DiagonalPencilReduction.lean` derives all
+nonzero coordinate and dual-value hypotheses from
+`p ∤ F*(u)u₁u₂u₃u₄`, where `F*(u)` is the actual integral adjugate
+quadratic value. The singular sum is empty and `Φ_u` has degree three.
+`CubicCharacterSum.lean` handles the separable case using the existing
+Weil premise. Over the perfect prime field, a nonseparable cubic is
+factored as `c (X−a)²(X−b)` and its actual sum is evaluated internally.
+Thus no separability hypothesis is added. The sum over all parameters
+has norm at most `2√p`; deleting four parameters gives `2√p+4`, and
+multiplication by `p` gives the literal source bound
+
+$$|C_p(u)|\le2p^{3/2}+4p.$$
+
+The four exports in `DiagonalPencilTheorem.lean` give the integral exact
+formula, integral projective trace, generic estimate, and conjunction
+of all clauses. The formula and trace use only `Classical.choice`,
+`Quot.sound`, and `propext`. The generic estimate and all-clauses theorem
+add only `QuaternaryQuadraticForms.Trusted.weil_simple_roots`; they use
+no Katz, Lang, or Bertini premise. The
+[source correspondence review](certification/correspondence/diagonal_pencil.md)
+records the full source match. This completes all Section 4 lemmas;
+the global asymptotic in Theorem 1.3 remains Pending.
+
+### Complete Lemma 4.5
+
+`DiagonalBadPrimes.lean` proves the final all-clauses theorem
+`diagonal_bad_primes`. The integral coefficient vectors `a,b` define
+`A = Matrix.diagonal a` and the actual polynomial of `Matrix.diagonal b`.
+The hypotheses are `α = ∏ i, a_i ≠ 0` and
+`a_i b_j − a_j b_i ≠ 0` for each of the six pairs `i < j`.
+`DiagonalForms.lean` proves the formal polynomial identity with
+`∑ i, C(a_i) X_i²`, defines the literal product `M`, and proves the
+required coefficient-map, nonvanishing, and sign identities.
+
+`DiagonalGeometry.lean` calculates the actual gradient rows and their
+two-by-two minors `4 x_i x_j (a_i b_j − a_j b_i)`. In a field of odd
+characteristic with nonzero `a_i`, pairwise nonzero determinants imply
+the geometric rank-two condition. If the rank failed, the minors would
+force at most one nonzero coordinate, contrary to `F(x)=0`.
+
+Conversely, when a pair determinant vanishes, the proof constructs an
+actual nonzero point over the algebraic closure: `x_i=1`,
+`x_j²=−a_i/a_j`, and all other coordinates zero. An algebraic-closure
+square root supplies the coordinate. Both defining polynomials vanish,
+and the actual gradient rows are proportional, so their rank is not two.
+This establishes the exact field criterion, rather than assuming a
+geometric singularity from a numerical surrogate.
+
+`DiagonalReduction.lean` maps the actual equations to the algebraic
+closures of `ℚ` and `ZMod p`. It proves `SmoothCharacteristicZero` from
+the integral hypotheses and derives odd characteristic and nonzero
+reduced `a_i` directly from `p ∤ N_F`. The resulting equivalence is
+
+$$\neg\operatorname{GoodReductionAt}(p,A,G)
+\quad\Longleftrightarrow\quad p\mid M
+\qquad(p\nmid N_F).$$
+
+The primewise theorem does not additionally assume integral `M ≠ 0`.
+It includes `p=3`, zero coefficients `b_i`, and arbitrary signs of the
+integer data. No `p ≥ 5` condition enters Lemma 4.5.
+
+`BadPrimeRadical.lean` derives finiteness of the existing bad-prime set
+from a nonzero integer with this exact divisibility criterion. Its actual
+finset is `primeFactors(|M|) ∖ primeFactors(N_F)`. The disjoint union
+with the prime factors of `N_F` therefore proves
+`polynomialBadPrimeModulus = primeRadical(N_F * |M|)`. Shared prime
+divisors occur once, without a coprimality assumption.
+
+The final diagonal wrapper supplies `M ≠ 0` from the six source hypotheses
+and proves the literal identity
+
+$$N_G=\operatorname{rad}(|2\alpha M|).$$
+
+`diagonal_badPrimeModulus` holds for any proof of finiteness passed to
+the existing modulus. `diagonal_bad_primes` supplies that proof internally
+and combines the smoothness, primewise criterion, and modulus equality.
+All 24 new exports have only `Classical.choice`, `Quot.sound`, and
+`propext` among their inspected axioms. In particular, the direct
+finiteness argument uses no Lang elimination premise. The
+[source correspondence review](certification/correspondence/diagonal_bad_primes.md)
+records the hypotheses, algebraic-closure witness, signs, and all three clauses.
+
+### Complete Lemma 4.4
+
+`FourierTheorem.lean` proves the final uniform theorem
+`uniform_polynomial_fourier_bound`. For a fixed nonsingular symmetric
+integral matrix `A` and degree `n ≥ 2`, it chooses `E ≥ 1` before the
+integral polynomial `G` and prime `p`. Under the literal homogeneity,
+characteristic-zero smoothness, and `p ∤ N_G` assumptions, it chooses a
+nonzero `D_p` of degree at most `E`, with `D_p(0)=0` and the dual-form and
+geometric rank-three implications from Lemma 4.1(ii). This same polynomial
+then works for every nonprincipal character satisfying `ψ ^ n = 1`.
+
+The five conclusions are the three conditions on the actual weight
+`x ↦ ψ(G(x))` (value zero at the origin, norm at most one, and invariance
+under nonzero scalar multiplication), the bound at every integral frequency,
+
+$$|C_p(u)|\le 2n^2\bigl(p^{3/2}+p^2
+\mathbf 1_{D_p(\bar u)=0}\bigr),$$
+
+and the exact identity `C_p(0)=(p−1)a_p(G)`. Here $\bar u$ is the
+coordinatewise reduction of `u`; all sums and evaluations are the literal
+objects already used in the preceding checked Fourier identities.
+
+`PlaneRestriction.lean` proves the missing geometric step. For any nonzero
+normal, its plane has dimension three. If the quadratic restriction
+vanished everywhere, polarization in odd characteristic would make the
+plane a subspace of its orthogonal complement. Nonsingularity gives that
+complement dimension one, a contradiction. An actual linear equivalence
+with three coordinates supplies a nonzero ternary polynomial of total
+degree at most two and an exact evaluation identity.
+
+`PolynomialGridCount.lean` applies mathlib's proved Schwartz–Zippel theorem
+to that polynomial, giving at most `2p²` affine zeros.
+`PlaneSectionCardinality.lean` transports the actual zero set through the
+coordinate equivalence and proves its cardinality is `1+(p−1)M`, where
+`M` counts the actual projective plane-section points. The good-prime
+condition gives `p ≥ 3`, so `M ≤ 2p+2`. The proof requires only a nonzero
+normal, with no dual-form nonvanishing or section nonsingularity assumption.
+Character norms at most one give the literal section-trace bound `2p+2`.
+
+`FourierEstimates.lean` combines the exact ray identity with the checked
+Katz and transverse-section estimates. A generic frequency has bound
+`2n²p^(3/2)`; every nonzero exceptional frequency has bound `2n²p²`.
+The exact zero-frequency identity and Katz estimate give the same
+exceptional bound at zero. `FourierBoundConstants.lean` proves all required
+constant comparisons and `p^(3/2)=p√p`. `FourierBound.lean` assembles the
+indicator estimate and obtains odd characteristic, nonsingular reduction,
+and geometric good reduction from the literal `p ∤ N_G` hypothesis.
+
+The final uniform wrapper applies `exceptional_plane_polynomial` before
+quantifying over the character, so the exceptional set is independent of
+the character and frequency. No restriction `p ∤ n`, extra finiteness
+hypothesis, or new literature premise is added. The
+[source correspondence review](certification/correspondence/fourier_rays.md)
+records every clause, the three frequency cases, and the quantifier order.
+
+### Lang input and the actual bad-reduction system
+
+The previously registered external declaration is
+`QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants`, registered
+as `EXT.LANG_ELIMINATION`. It is the general generic-coefficient resultant
+system in Lang, *Algebra*, revised third edition, IX.4.1, printed p. 402.
+The geometric-zero convention follows IX.3.1, p. 389. The
+[input review](certification/correspondence/elimination_input.md) records
+the arbitrary-field specialization, zero specialized forms, and possibly
+empty output family.
+
+The premise chooses finitely many integer polynomials in the independent
+coefficients of homogeneous forms before quantifying over the field or
+coefficient assignment. Their simultaneous vanishing detects a nonzero
+common zero over the algebraic closure. It does not assert any of the
+manuscript's rank interpretations, reduction properties, finiteness, or
+height bounds.
+
+`HomogeneousForms.lean` proves reconstruction of a homogeneous polynomial
+from its literal coefficient vector. `EliminationFamily.lean` substitutes
+actual polynomial coefficients into the universal resultant family and
+proves that evaluation commutes with this substitution. This polynomial
+parameter version is an internal deduction from the generic input.
+
+`RankMinors.lean` and `BadReductionSystem.lean` identify failure of the
+rank-two condition with the nonzero common zeros of `F`, `G`, and the
+gradient minors. The implementation uses all sixteen ordered minors;
+diagonal zero entries and repeated negatives preserve the zero locus of
+the manuscript's six minors. The eighteen equations have assigned degrees
+`2,n,…,n`, including the zero minors. Homogeneity and coefficient-map
+identities are proved over arbitrary commutative rings.
+
+`GenericQuadricFamily.lean` fixes `A,n` and constructs the degree-`n` form
+with indeterminate coefficients. `GeometricReduction.lean` identifies the
+specializations with the literal rank conditions over the algebraic
+closures of `ℚ` and `ZMod p`. Thus `BadReductionResultants.lean` supplies
+one fixed integer family `R_j` in the coefficients of `G`: smoothness
+selects a nonzero value, and bad reduction at a prime forces every value
+to be divisible by that prime. The same selected nonzero integer is
+therefore divisible by every actual bad prime. This proves finiteness of
+the intrinsic bad-prime set.
+
+### Uniform height bound: complete Lemma 4.1(i)
+
+`PolynomialHeight.lean` defines the actual manuscript height
+`max 2 (max |coefficient of G|)` and bounds every integer polynomial
+evaluation by its coefficient sum times that height to its total degree.
+Taking maxima over the fixed resultant family produces positive constants
+`C,K` before `G` is chosen.
+
+`BadReductionHeight.lean` combines that estimate with the nonzero resultant
+value. The exact bad-prime product divides its absolute value, so
+`N_G ≤ rad(N_F) |z| ≤ K H_G^C`, after absorbing the fixed radical into `K`.
+The final theorem quantifies `∃ C K` before `∀ G`; the constants depend
+only on the fixed quadratic matrix and degree. It returns a proof that
+the actual bad-prime set is finite together with the bound for its literal
+modulus. A separate export proves the same bound for every supplied
+finiteness proof.
+
+The [source correspondence review](certification/correspondence/bad_reduction.md)
+covers the constants' quantifier order and the literal bad-prime modulus.
+The following construction completes part (ii), and hence the whole
+two-part Lemma 4.1.
+
+### General Bertini input and the geometric plane
+
+The fourth external Lean declaration is
+`QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent`, registered
+against both `EXT.HARTSHORNE_BERTINI` and `EXT.PROJECTIVE_JACOBIAN`.
+This is explicitly a composite interface, documented in the
+[source review](certification/correspondence/bertini_input.md).
+Hartshorne, *Algebraic Geometry*, II.8.18 and its proof, pp. 179–180,
+give the dense open set of regular hyperplane sections. The registered
+general projective Jacobian criterion, local dimension, component facts,
+and tangent-space interpretation supply its homogeneous-coordinate form.
+The corresponding primary-source locators are recorded in that review.
+
+The interface applies to any finite homogeneous system of positive
+assigned degrees in `N` coordinates, with `c + 2 ≤ N`, over an
+algebraically closed field. Its hypothesis is full rank `c` of the
+actual gradient rows at every nonzero common zero. Its conclusion is
+a nonzero normal `u` such that, at each common zero on its hyperplane,
+there is a common tangent vector `v` with `u·v ≠ 0`. No characteristic-degree
+coprimality, irreducibility, or nonemptiness hypothesis is added.
+
+`BertiniPlane.lean` checks the specialization to the actual quadratic
+polynomial and degree-`n` form. Pairing a putative linear dependence
+with the supplied tangent vector shows that the coefficient of `u`
+vanishes; rank two of the two gradients gives rank three after adjoining
+`u`. This linear-algebra deduction is internal. The premise contains no
+resultant, bad-prime modulus, exceptional polynomial, uniform degree
+bound, or Fourier estimate.
+
+### Second elimination system and complete Lemma 4.1(ii)
+
+`RankThreeMinors.lean` proves that rank failure for three rows in four
+coordinates is equivalent to vanishing of every ordered three-column
+minor. `PlaneReductionSystem.lean` constructs the literal system
+`F,G,u·x` and all 64 ordered minors. Zero and repeated minors preserve
+the zero locus of the four minors in the manuscript. The 67 equations
+have assigned degrees `2,n,1,n,…,n`; their homogeneity and compatibility
+with coefficient maps are proved over arbitrary commutative rings.
+The geometric common-zero condition is proved equivalent to failure of
+the actual `PlaneTransverseRank` predicate.
+
+`ExceptionalPlaneResultants.lean` fixes the integral quadratic matrix and
+degree before constructing the joint coefficient and normal parameter
+ring. The existing Lang premise, through the checked polynomial-parameter
+substitution, supplies one finite family `R_j(g,u)` over the integers.
+The same family detects geometric rank failure after every field and
+coefficient specialization.
+
+The good-reduction hypothesis permits the proved Bertini specialization
+over the algebraic closure. Its transverse-plane witness makes one
+resultant evaluation nonzero. `PlaneResultantSpecialization.lean` proves
+that an already algebraically closed field has exactly the same common
+zeros as its algebraic closure, and that partial coefficient
+specialization commutes with field extension. Thus
+`S(u)=R_j(G,u)` is a nonzero polynomial over the prime field itself.
+The witness need not be rational over that prime field; no such extra
+hypothesis is introduced.
+
+`ParameterSpecialization.lean` proves that substitution of polynomials
+of degree at most one does not increase total degree.
+`ExceptionalPlaneDegree.lean` applies this to specialization of the
+coefficients of `G`, retaining the four normal variables. Consequently
+`E = 2 + sup_j totalDegree(R_j)` is chosen before `G` and `p`, with
+the finite supremum defined to be zero for an empty family.
+
+`ExceptionalPlanePolynomial.lean` constructs the actual product
+`D_p = F* S`. Odd characteristic and nonsingularity prove the dual
+quadratic polynomial nonzero. The product is nonzero, has degree at most
+`E`, and vanishes at the zero normal. If it does not vanish at a normal
+`u`, then both `F*(u) ≠ 0` and the full geometric rank-three conclusion
+hold. The final theorem starts from characteristic-zero smoothness and
+the literal `p ∤ N_G` condition; part (i) supplies the finiteness proof,
+and the exact modulus gives odd characteristic, nonsingularity, and
+good reduction internally.
+
+These deductions complete every clause of Lemma 4.1(ii). The fixed
+resultant family and the uniform degree precede the variable form and
+prime in the final theorem types. Neither the generic Bertini premise
+nor the Lang premise alone asserts the manuscript's result.
+
+### Katz input and quadric specialization
+
+The previously registered external declaration is
+`QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data`. It is a
+composite interface for arbitrary smooth geometrically irreducible
+hypersurfaces in projective three-space and transverse positive-degree
+sections. Katz supplies cohomological concentration, purity, and the trace
+formula. The general projective geometry and Jacobian interpretation,
+hypersurface adjunction, and degree formula are explicitly included in the
+literature boundary, with Fulton and the primary geometric sources recorded
+in the [input review](certification/correspondence/katz_input.md).
+The interface is registered against `EXT.KATZ` and
+`EXT.HYPERSURFACE_CHERN`; these are two source components of one Lean premise.
+
+Its conclusion gives a finite family of complex numbers of norm `p` whose
+sum is the actual projective hypersurface character sum. The cardinality is
+an unevaluated general Chern coefficient. The premise contains no quadric
+specialization, no expanded coefficient `2n²−4n+4`, and no scalar norm bound.
+The earlier Weil premise remains separately registered.
+
+`QuadricSmooth.lean` proves that the actual formal gradient is `2 A x`, that
+it cannot vanish at a nonzero vector under the matrix hypotheses, and that
+these properties persist after coefficient extension. It also proves the
+quadratic polynomial irreducible over every extension. A putative product
+of affine-linear polynomials would restrict its gradient image to the span
+of two fixed vectors and contradict nonsingularity in four dimensions.
+
+`ProjectiveSurfaceTrace.lean` identifies the general hypersurface sum with
+the existing literal matrix-quadric trace. It also proves the transverse
+polynomial nonzero from an actual nonzero quadric point and the geometric
+rank-two hypothesis. Thus none of these required hypotheses is inserted
+into the final source theorem as an extra assumption.
+
+`SurfaceChern.lean` works in integer polynomials. From
+`coeff_j((1+m*T)*c) = coeff_j((1+T)^4)` for `j ≤ 2`, it proves
+`c₀ = 1`, `c₁ = 4−m`, and `c₂ = m²−4m+6`. For `m = 2` it verifies
+`c = 1+2T+2T²` and calculates the coefficient `2n²−4n+4`. The finite-sum
+triangle inequality then gives the exact bound in Lemma 2.7. No restriction
+`p ∤ n` or exact-order character hypothesis is introduced.
+
+### Complete quadratic trace theorem
+
+`QuadraticTraceBound.lean` specializes the Katz estimate to degree two and
+the actual quadratic character, proving the integer absolute bound `4p`.
+The result is combined with the existing integer/complex trace identity and
+prime divisibility. Integral input coefficients are handled using the
+literal `GoodReductionAt` condition.
+
+`GoodReduction.lean` defines the exact bad-prime set and the finite product
+`N_G = rad(N_F) * product(bad primes)`. It proves
+`p ∤ N_G ↔ p ∤ N_F ∧ GoodReductionAt p A G`, with the finiteness proof
+kept explicit. It also proves that any nonzero integer divisible by every
+bad prime supplies that finiteness, that the bad-prime product divides its
+absolute value, and that `N_G ≤ rad(N_F) * |z|`.
+
+`QuadraticTraceTheorem.lean` supplies the final source theorems. It obtains
+the finiteness proof from the proved characteristic-zero elimination
+argument, then derives odd characteristic, nonsingularity, and good
+reduction from `p ∤ N_G`. The integer theorem proves divisibility and the
+bound. The complex theorem gives an integer witness equal to the actual
+projective character sum, divisible by `p` and of absolute value at most
+`4p`. Its only geometric hypothesis is the manuscript's characteristic-zero
+rank condition; no finite-set or good-reduction premise is added.
+
+The [quadratic-trace review](certification/correspondence/quadratic_trace.md)
+records completion of Lemma 5.9. The final exports use the registered Lang
+and Katz inputs, without the separate Weil premise.
+
+### Uniform conic parametrization
+
+The integral wrapper starts from a symmetric integral matrix and the exact
+condition `p ∤ 2 |det A|`. The reduction lemmas deduce odd characteristic and
+nonsingularity of the reduced matrix, and identify its adjugate with the
+reduction of the integral adjugate. Thus the dual-form condition is the
+manuscript's `F*(u) ≠ 0`.
+
+The plane restriction is proved nondegenerate and three-dimensional. An
+isotropic vector is obtained using official Chevalley–Warning, and a
+hyperbolic basis gives the normal form `y₀ y₁ + a y₂²`, with `a ≠ 0`.
+The canonical parametrization `(-a s², t², st)` is then embedded into the
+original four coordinates as literal multivariate polynomials.
+
+The tuple is chosen over the prime field before quantifying over an extension
+field. Mapping its coefficients preserves the linear embedding, its range
+equal to the hyperplane, and the normal-form identity. This proves the
+required projective bijection over every field containing the prime field.
+The equivalence is explicitly identified with polynomial evaluation on every
+nonzero representative, and the two vectors of actual formal partial
+derivatives are proved linearly independent.
+
+The defining identities are polynomial identities. In particular, the
+quadratic coordinate identity is proved before substitution of the quadratic
+parametrization. The proof does not infer a degree-four polynomial identity
+solely from its values on a small finite field. No conic parametrization,
+isotropy, basis, or scalar-extension property is introduced as an external
+premise.
+
+### Transverse plane-section estimate
+
+The final theorem accepts rank three for the actual matrix with rows
+`∇F(x)`, `∇G(x)`, and `u`, at every nonzero geometric common zero. The formal
+chain rule shows that a singular projective zero of `G ∘ μ` would force all
+three rows to annihilate two independent derivative vectors. The dimension
+contradiction proves nonsingularity of the binary pullback.
+
+The pullback is homogeneous of degree `2n`. Its nonsingularity excludes the
+zero polynomial and proves exactly `2n` distinct projective zeros over the
+algebraic closure. The affine chart and the point at infinity are both
+handled. Euler's identity is used without division by the degree, so the
+argument does not require `p ∤ n` or `p ∤ 2n`.
+
+The literal projective section trace is transported along the constructed
+bijection. Homogeneity and `ψ ^ n = 1` prove that its character weight is
+independent of representative. Corollary 2.6, applied in degree `2n`, gives
+the manuscript's bound `(2n−1)√p+1`. The final wrapper constructs both the
+base-field and algebraic-closure parametrizations from Lemma 4.2; neither is
+an additional hypothesis of Lemma 4.3.
+
+### Previously checked Weil and projective-line input
+
+The registered source input is [K, equation (1.2)], verified against the
+matching multiplicative-character estimate on page 1 of Katz's author
+version. Its assumptions are a nonprincipal character extended by zero,
+a positive-degree polynomial, and degree-many distinct geometric roots.
+There is no condition that the degree be prime to p. This published estimate
+is assumed under the author's source-relative program, not reproved.
+
+The projective-line deduction constructs an actual equivalence between
+projective points and the affine chart together with infinity. Homogeneity
+and the character-order condition prove representative independence. The
+polynomial is the literal substitution g(X,1), with degree at most n and
+with top coefficient g(1,0).
+
+Counting the actual geometric projective zeros proves that the affine
+degree is n or n−1 according to whether infinity is a zero, and that all
+affine roots are distinct. Since n≥2, the affine degree is positive. Applying
+the registered Weil input and adding the character value at infinity gives
+the complete bound (n−1)√p+1.
+
+The counting argument replaces the manuscript's intermediate polynomial
+divisibility discussion. No simple-root condition or degree conclusion is
+assumed as an internal premise.
+
+### Checked exports and correspondence
+
+- [Both source clauses of Lemma 3.5](QuaternaryQuadraticForms/GoodGlobalTheorem.lean).
+- [Actual Jacobi coefficients and source-character agreement](QuaternaryQuadraticForms/GlobalQuadraticCharacter.lean).
+- [Actual Ramanujan multiplicativity and zero frequency](QuaternaryQuadraticForms/RamanujanMultiplicativity.lean).
+- [The literal squarefree gcd factors](QuaternaryQuadraticForms/SquarefreeGcdFactors.lean).
+- [The constructed bad/good modulus split](QuaternaryQuadraticForms/ModulusPrimeSplit.lean).
+- [Unweighted evaluation at every good modulus](QuaternaryQuadraticForms/GoodUnweightedCompleteSum.lean).
+- [The complete shared-support formula](QuaternaryQuadraticForms/SharedSupportCompleteSum.lean).
+- [The actual good-modulus global formula](QuaternaryQuadraticForms/GoodGlobalCompleteSum.lean).
+- [The dual-cone formula at every positive modulus](QuaternaryQuadraticForms/ConeCompleteSum.lean).
+- [The original source weight product](QuaternaryQuadraticForms/SourceCompositeWeights.lean).
+- [Good moduli from the source radical condition](QuaternaryQuadraticForms/SourceGoodModulus.lean).
+- [Complete Lemma 3.5 correspondence review](certification/correspondence/good_global_complete_sum.md).
+- [Complete ramified identity: Lemma 3.4](QuaternaryQuadraticForms/RamifiedCompleteSum.lean).
+- [Literal weighted inner and complete sums](QuaternaryQuadraticForms/WeightedGaussSums.lean).
+- [Actual weighted stationary expansion](QuaternaryQuadraticForms/WeightedGaussStationaryPhase.lean).
+- [Adjugate weight extraction](QuaternaryQuadraticForms/WeightedGaussExtraction.lean).
+- [Exact weighted complete-sum evaluation](QuaternaryQuadraticForms/WeightedCompleteSum.lean).
+- [Actual unit digits](QuaternaryQuadraticForms/PrimePowerUnitDigits.lean).
+- [The exact ramified unit-lift identity](QuaternaryQuadraticForms/RamifiedUnitLift.lean).
+- [Good primes from the source radical condition](QuaternaryQuadraticForms/SourceGoodPrime.lean).
+- [Complete ramified correspondence review](certification/correspondence/ramified_complete_sum.md).
+- [Complete uniform bound: Lemma 3.3](QuaternaryQuadraticForms/BadPrimeBound.lean).
+- [Actual Gauss norm and exact kernel phase](QuaternaryQuadraticForms/GaussNorm.lean).
+- [The actual residue kernel](QuaternaryQuadraticForms/MatrixResidueKernel.lean).
+- [Integer determinant and residue-kernel index bound](QuaternaryQuadraticForms/IntegerMatrixKernelBound.lean).
+- [Reduction of the doubled matrix and its kernel](QuaternaryQuadraticForms/DoubledMatrixKernel.lean).
+- [Exact determinant, square-root, and unit-count constants](QuaternaryQuadraticForms/GaussBoundConstants.lean).
+- [Uniform inner Gauss bound](QuaternaryQuadraticForms/BadPrimeGaussBound.lean).
+- [Summation over actual unit parameters](QuaternaryQuadraticForms/CompleteSumNorm.lean).
+- [Complete uniform-bound correspondence review](certification/correspondence/bad_prime_bound.md).
+- [Complete three-clause Lemma 3.2](QuaternaryQuadraticForms/PrimePowerGaussTheorem.lean).
+- [Closed pure and shifted prime-power Gauss formulas](QuaternaryQuadraticForms/PrimePowerGauss.lean).
+- [General-matrix prime base case](QuaternaryQuadraticForms/GeneralPrimeGauss.lean).
+- [Actual residue digits](QuaternaryQuadraticForms/PrimePowerResidues.lean).
+- [Prime-power Gauss recurrence](QuaternaryQuadraticForms/PrimePowerGaussRecurrence.lean).
+- [Exact integral adjugate phase](QuaternaryQuadraticForms/IntegralGaussShift.lean).
+- [Actual prime-power complete-sum formula](QuaternaryQuadraticForms/UnramifiedCompleteSum.lean).
+- [Exact affine and projective quadric counts](QuaternaryQuadraticForms/QuadricPointCount.lean).
+- [Complete prime-power Gauss correspondence review](certification/correspondence/prime_power_gauss.md).
+- [Complete Lemma 3.1 and its source-family wrapper](QuaternaryQuadraticForms/CompleteSumTheorem.lean).
+- [Actual complete sums and lift independence](QuaternaryQuadraticForms/CompleteSums.lean).
+- [Mixed CRT factorization](QuaternaryQuadraticForms/CompleteSumCRT.lean).
+- [Literal unit-frequency invariance](QuaternaryQuadraticForms/CompleteSumInvariance.lean).
+- [Source weight family outside the excluded primes](QuaternaryQuadraticForms/SourceWeights.lean).
+- [Modulus-one identities and exact prime Fourier bridge](QuaternaryQuadraticForms/CompleteSumSpecializations.lean).
+- [Prime factorization and unweighted multiplicativity](QuaternaryQuadraticForms/CompleteSumFactorization.lean).
+- [Complete local-sum CRT correspondence review](certification/correspondence/complete_sum_crt.md).
+- [Complete integral Lemma 4.6](QuaternaryQuadraticForms/DiagonalPencilTheorem.lean).
+- [Exact finite-field pencil formula](QuaternaryQuadraticForms/DiagonalPencilFormula.lean).
+- [Trace and generic Fourier bound](QuaternaryQuadraticForms/DiagonalPencilConsequences.lean).
+- [Scalar prime Gauss identities](QuaternaryQuadraticForms/PrimeQuadraticGauss.lean).
+- [Literal prime Ramanujan sums](QuaternaryQuadraticForms/PrimeRamanujan.lean).
+- [Cubic estimates with repeated roots](QuaternaryQuadraticForms/CubicCharacterSum.lean).
+- [Complete diagonal-pencil correspondence review](certification/correspondence/diagonal_pencil.md).
+- [Complete Lemma 4.5 and its exact modulus](QuaternaryQuadraticForms/DiagonalBadPrimes.lean).
+- [Literal diagonal data and six-factor product](QuaternaryQuadraticForms/DiagonalForms.lean).
+- [Diagonal rank criterion and geometric singular point](QuaternaryQuadraticForms/DiagonalGeometry.lean).
+- [Characteristic-zero and prime reduction wrappers](QuaternaryQuadraticForms/DiagonalReduction.lean).
+- [Direct bad-prime finiteness and radical formula](QuaternaryQuadraticForms/BadPrimeRadical.lean).
+- [Complete diagonal bad-prime correspondence review](certification/correspondence/diagonal_bad_primes.md).
+- [Complete Lemma 4.4 with uniform exceptional polynomial](QuaternaryQuadraticForms/FourierTheorem.lean).
+- [Integral Fourier bound and all five conclusions](QuaternaryQuadraticForms/FourierBound.lean).
+- [Actual generic, exceptional, and zero-frequency estimates](QuaternaryQuadraticForms/FourierEstimates.lean).
+- [Nonzero plane restriction](QuaternaryQuadraticForms/PlaneRestriction.lean).
+- [Affine and projective section counts](QuaternaryQuadraticForms/PlaneSectionCardinality.lean).
+- [Complete Fourier correspondence review](certification/correspondence/fourier_rays.md).
+- [Complete Lemma 4.1(i)](QuaternaryQuadraticForms/BadReductionHeight.lean).
+- [Complete Lemma 4.1(ii)](QuaternaryQuadraticForms/ExceptionalPlanePolynomial.lean).
+- [Second elimination system and fixed resultant family](QuaternaryQuadraticForms/ExceptionalPlaneResultants.lean).
+- [General Bertini and projective-Jacobian source review](certification/correspondence/bertini_input.md).
+- [Bad-reduction resultant family and finiteness](QuaternaryQuadraticForms/BadReductionResultants.lean).
+- [General Lang source review](certification/correspondence/elimination_input.md).
+- [Bad-reduction and height correspondence review](certification/correspondence/bad_reduction.md).
+- [Complete Lemma 5.9](QuaternaryQuadraticForms/QuadraticTraceTheorem.lean).
+- [Quadratic-trace correspondence review](certification/correspondence/quadratic_trace.md).
+- [Complete Lemma 2.7](QuaternaryQuadraticForms/KatzBound.lean).
+- [Composite Katz/Fulton source review](certification/correspondence/katz_input.md).
+- [Quadric Katz correspondence review](certification/correspondence/katz_quadric.md).
+- [Quadratic trace bounds](QuaternaryQuadraticForms/QuadraticTraceBound.lean).
+- [Exact good-reduction modulus](QuaternaryQuadraticForms/GoodReduction.lean).
+
+- [Complete Lemma 4.2](QuaternaryQuadraticForms/ConicParametrization.lean).
+- [Complete Lemma 4.3](QuaternaryQuadraticForms/PlaneSectionTheorem.lean).
+- [Uniform conic correspondence review](certification/correspondence/conic_parametrization.md).
+- [Plane-section correspondence review](certification/correspondence/plane_section.md).
+- [Complete Corollary 2.6](QuaternaryQuadraticForms/ProjectiveWeil.lean).
+- [Geometric-root deduction](QuaternaryQuadraticForms/BinaryFormRoots.lean).
+- [Projective-line correspondence review](certification/correspondence/projective_weil.md).
+- [Exact Weil input review](certification/correspondence/weil_input.md).
+- [Inventory with checked-export links](INVENTORY.md).
+- [Full dependency graph PNG](docs/dependency_graph.png).
+- [Overview PNG](docs/dependency_overview.png).
+
+## Current verification
+
+The current Lemma 3.6 milestone contains 637 theorem exports across
+151 project Lean modules and 20 mapped source groups: 39 new public
+theorem exports in twelve new modules. Its expected aggregate scope
+has 180 input hashes, adding those twelve modules and
+`certification/correspondence/generic_modulus_bound.md` to the 167-input
+baseline. Four registered literature premises and all nine pinned
+dependency revisions remain unchanged.
+
+All twelve modules passed strict compilation under official Lean
+4.24.0 and the pinned mathlib revision, with `warningAsError=true`
+and `autoImplicit=false`. The final source-theorem target build passed
+with 3,158 jobs. The unified inspection of all 39 actual theorem types
+and axiom lists passed. Every new export uses only standard logical
+foundations, without a literature premise.
+
+**The full aggregate verifier for this 637-export scope and the later
+exact-proof-commit GitHub check are pending.** The installed report
+still has the accepted preceding scope of 598 exports, 139 modules,
+and 167 inputs. Its 879,086 bytes have SHA-256
+`307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`.
+An exact copy was preserved before integration. The new aggregate
+comparison must preserve all 598 complete old export records, four
+premise records, nine revisions, and every unchanged input hash.
+No earlier run or partial-module checkpoint substitutes for that gate.
+
+## Earlier Lemma 3.5 execution
+
+The preceding Lemma 3.5 milestone contained 598 theorem exports across
+139 project Lean modules and 20 mapped source groups: 27 new public
+theorem exports in eleven new modules. The four registered literature
+premises and all nine pinned dependency revisions are unchanged.
+Source groups and Lean premise declarations remain separate counts.
+The completed aggregate report records 167 input hashes; its twelve
+added inputs are the eleven new Lean modules and
+`certification/correspondence/good_global_complete_sum.md`.
+
+All eleven modules and the root library passed strict targeted
+compilation under official Lean 4.24.0 and the pinned mathlib revision,
+with `warningAsError=true` and `autoImplicit=false` (3,180 build jobs).
+The combined inspection of all 27 actual theorem types and axiom
+lists passed before the aggregate run. Exactly 26 new exports use
+`Classical.choice`, `Quot.sound`, and `propext`;
+`gcd_mul_blocks_coprime` uses only `propext`. No new export uses a
+literature premise.
+
+### Global complete-sum local execution
+
+**The full local aggregate verifier passed for all 139 modules and
+598 theorem exports.** All 167 recorded input hashes match the checked
+files. All 27 new actual theorem types and axiom lists match their
+prior inspections. Exactly 26 exports use the standard foundation
+triplet and `gcd_mul_blocks_coprime` uses only `propext`.
+
+The independent comparison confirms that all 571 preceding complete
+theorem records remain identical, including actual types, axiom lists,
+Lean source hashes, and scopes. All four registered literature premise
+records and all nine pinned dependency revisions remain identical to
+the preceding report. The mapped source-group count remains 20.
+
+The exact twelve added inspected inputs are the eleven new Lean modules
+and `certification/correspondence/good_global_complete_sum.md`. The only
+changes to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 32 frozen
+changed-file hashes was preserved through the verification run,
+including the workflow, which is outside the report's 167 input hashes.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier. The installed local report preserves the exact
+bytes of the successfully compared verifier output.
+
+The [local verification report](certification/verification_report.json)
+contains 879,086 bytes and has SHA-256
+`307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`.
+It records 15 Certified and 27 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Global complete-sum GitHub execution
+
+**The full local and GitHub verifiers passed for all 139 modules,
+598 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[5d052dfa49810e4456dfb6de6e30577493658496](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/5d052dfa49810e4456dfb6de6e30577493658496),
+whose tree is `c1fc351aa09bac693b50db3d1f45d8f10efec08d`.
+The same verifier succeeded on the push of that exact proof commit.
+
+- [Successful run 43648807603, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43648807603).
+- Workflow: `417945069`; event: `push`; branch: `main`.
+- Verification job: `132612448839`; every step succeeded.
+- Verification completed `2026-11-14T22:46:29Z`; the job completed `2026-11-14T22:46:31Z`.
+- Artifact: `14134999045`, 103,724 bytes, created `2026-11-14T22:46:30Z`.
+- [Preserved CI report](certification/ci/run_43648807603_attempt_1.json), 889,339 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43648807603_attempt_1.zip).
+- ZIP SHA-256: `1e75bb6ef4db64e47b391e53cbc5f8751c402509364ed9fc9b30266fbc922a1f`.
+- CI report SHA-256: `a0c9710c3554aeb34b82cfbeb8c32e5ef6112833fb3cf28bfbd2e1d10e392119`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON and to the independently extracted report. Both strict
+comparisons confirm equality on all 18 verification-content fields:
+all 598 complete theorem records and their actual types and axiom
+lists, four registered premise records, 167 input hashes, nine pinned
+dependency revisions, the complete Lean export-inspection output,
+the Lean version, and every verification flag and scope count.
+Only `generated_at_utc` and `lake_build_output` differ.
+
+The 27 new exports retain their inspected axiom profiles: 26 use
+exactly `Classical.choice`, `Quot.sound`, and `propext`, while
+`gcd_mul_blocks_coprime` uses only `propext`. No new export uses a
+literature premise.
+
+All 167 input hashes match the current inspected files and the exact
+proof tree. All 30 frozen nondocument paths, including the workflow,
+remain unchanged and match their blobs in that same tree. The
+installed local report remains unchanged at
+879,086 bytes with SHA-256
+`307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb`,
+byte-identical to the report at the published proof commit. The frozen
+manuscript and PDF are unchanged. This evidence covers the complete
+598-export Lemma 3.5 milestone. The numbered status remains 15 Certified,
+zero Partial or Active, and 27 Pending; all 33 auxiliary/supplementary
+groups remain Pending and whole-paper certification remains false.
+The earlier local and CI reports below retain their original scopes.
+
+## Earlier checked checkpoints
+
+### Ramified milestone
+
+The preceding Lemma 3.4 milestone contained 571 theorem exports across
+128 project Lean modules and 20 mapped source groups: 18 new public
+theorem exports in eight new modules. The four registered literature
+premises and all nine pinned dependency revisions are unchanged.
+Source groups and Lean premise declarations remain separate counts.
+The completed aggregate report records 155 input hashes; its nine
+added inputs are the eight new Lean modules and
+`certification/correspondence/ramified_complete_sum.md`.
+
+All eight modules and the root library passed strict targeted
+compilation under official Lean 4.24.0 and the pinned mathlib revision,
+with `warningAsError=true` and `autoImplicit=false` (3,166 build jobs).
+The combined inspection of all 18 actual theorem types and axiom
+lists passed before the aggregate run. Each new export uses exactly
+`Classical.choice`, `Quot.sound`, and `propext`; no new theorem uses a
+literature premise.
+
+### Ramified local execution
+
+**The full local aggregate verifier passed for all 128 modules and
+571 theorem exports.** All 155 recorded input hashes match the checked
+files. All 18 new actual theorem types and axiom lists match their
+prior inspections, with only the three standard foundations in every
+new export.
+
+The independent comparison confirms that all 553 preceding complete
+theorem records remain identical, including actual types, axiom lists,
+Lean source hashes, and scopes. All four registered literature premise
+records and all nine pinned dependency revisions remain identical to
+the preceding report. The mapped source-group count remains 20.
+
+The exact nine added inspected inputs are the eight new Lean modules
+and `certification/correspondence/ramified_complete_sum.md`. The only
+changes to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 28 frozen
+changed-file hashes was preserved through the verification run.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier. The local report at that proof commit preserves
+the exact bytes of the successfully compared verifier output.
+
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/169218f4b525d0433c2b53fdd49483f47623c1e8/certification/verification_report.json)
+contains 833,730 bytes and has SHA-256
+`e0bac7dc8881c3d8837d89fcf5a2b1a37056275256d0f6c8b20a749278e9a734`.
+It records 14 Certified and 28 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Ramified GitHub execution
+
+**The full local and GitHub verifiers passed for all 128 modules,
+571 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[169218f4b525d0433c2b53fdd49483f47623c1e8](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/169218f4b525d0433c2b53fdd49483f47623c1e8),
+whose tree is `008f5c69b8e7d04c4345eea285aa1e571b90cb23`.
+The same verifier succeeded on the push of that exact proof commit.
+
+- [Successful run 43641041601, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43641041601).
+- Workflow: `417945069`; event: `push`; branch: `main`.
+- Verification job: `132588460975`; every step succeeded.
+- Verification completed `2026-11-14T21:16:36Z`; the job completed `2026-11-14T21:16:38Z`.
+- Artifact: `14131744612`, 98,115 bytes, created `2026-11-14T21:16:37Z`.
+- [Preserved CI report](certification/ci/run_43641041601_attempt_1.json), 843,140 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43641041601_attempt_1.zip).
+- ZIP SHA-256: `5544d79a2d678768bd00f19c8d55dd17b0dd60d7ec4010facee04f753fd1c2d2`.
+- CI report SHA-256: `d6df7af8763ac77898b40940c71b3905c7371b8483f23138a74f53c6a087d0b6`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON and to the independently extracted report. Both strict
+comparisons confirm equality on all 18 verification-content fields:
+all 571 complete theorem records and their actual types and axiom
+lists, four registered premise records, 155 input hashes, nine pinned
+dependency revisions, the complete Lean export-inspection output,
+the Lean version, and every verification flag and scope count.
+Only `generated_at_utc` and `lake_build_output` differ.
+
+All 155 input hashes match the files inspected at that checkpoint and
+the exact proof tree. The local report at that published proof commit
+contains the exact 833,730 bytes with SHA-256
+`e0bac7dc8881c3d8837d89fcf5a2b1a37056275256d0f6c8b20a749278e9a734`.
+The original artifact and report were preserved in
+[evidence commit 77acba81d1aa6024d8132500464fd66290b2665c](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/77acba81d1aa6024d8132500464fd66290b2665c),
+whose tree is `3c3eca9779da8b87d9b3ab844e6c09eb41ae419b`.
+The frozen manuscript and PDF are unchanged. This evidence covers the
+complete 571-export Lemma 3.4 milestone; it does not cover the current
+598-export Lemma 3.5 milestone. At that checkpoint the numbered status
+was 14 Certified, zero Partial or Active, and 28 Pending; all 33
+auxiliary/supplementary groups were Pending and whole-paper
+certification was false. The earlier local and CI reports below
+retain their original scopes.
+
+### Uniform bound milestone
+
+The preceding Lemma 3.3 milestone contained 553 theorem exports across
+120 project Lean modules and 20 mapped source groups: 17 new public
+theorem exports in eight new modules. The four registered literature
+premises and all nine pinned dependency revisions are unchanged.
+Source groups and Lean premise declarations remain separate counts.
+The completed aggregate report records 146 input hashes; its nine
+added inputs are the eight new Lean modules and the correspondence
+review.
+
+All eight modules and the root library passed strict targeted
+compilation under official Lean 4.24.0 and the pinned mathlib revision,
+with `warningAsError=true` and `autoImplicit=false` (3,158 build jobs).
+All 17 actual theorem types and axiom lists were inspected before the
+aggregate run. Each new export uses exactly `Classical.choice`,
+`Quot.sound`, and `propext`; no new theorem uses a literature premise.
+
+### Uniform bound local execution
+
+**The full local aggregate verifier passed for all 120 modules and
+553 theorem exports.** All 146 recorded input hashes match the checked
+files. All 17 new actual theorem types and axiom lists match their
+prior individual inspections, with only the three standard foundations
+in every new export.
+
+The independent comparison confirms that all 536 preceding complete
+theorem records remain identical, including actual types, axiom lists,
+Lean source hashes, and scopes. All four registered literature premise
+records and all nine pinned dependency revisions remain identical to
+the preceding report.
+
+The exact nine added inspected inputs are the eight new Lean modules
+and `certification/correspondence/bad_prime_bound.md`. The only changes
+to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 29 frozen
+changed-file hashes was preserved through the verification run.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier. The local report at that proof commit preserves
+the exact bytes of the successfully compared verifier output.
+
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/b38301f89b01e424e5cf656da88ea3b56916423d/certification/verification_report.json)
+contains 800,979 bytes and has SHA-256
+`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`.
+It records 13 Certified and 29 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Uniform bound GitHub execution
+
+**The full local and GitHub verifiers passed for all 120 modules,
+553 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[b38301f89b01e424e5cf656da88ea3b56916423d](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/b38301f89b01e424e5cf656da88ea3b56916423d),
+whose tree is `ebe28edb7e366b988bc88032f2525be7a507368c`.
+The same verifier succeeded on the push of that exact proof commit.
+
+- [Successful run 43637398379, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43637398379).
+- Workflow: `417945069`; event: `push`; branch: `main`.
+- Verification job: `132577106792`; every step succeeded.
+- Verification completed `2026-11-14T20:38:27Z`; the job completed `2026-11-14T20:38:29Z`.
+- Artifact: `14130567360`, 94,216 bytes, created `2026-11-14T20:38:28Z`.
+- [Preserved CI report](certification/ci/run_43637398379_attempt_1.json), 809,782 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43637398379_attempt_1.zip).
+- ZIP SHA-256: `6f13223d4ddc910357e052aee24454d2bfe9ba9e7d96db23a60bda989a9933cf`.
+- CI report SHA-256: `85aa7a67cc31680eca5197cfdb759e387076085cf69d54c9883b24dc097a33da`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON and to the independently extracted report. Both strict
+comparisons confirm equality on all 18 verification-content fields:
+all 553 complete theorem records and their actual types and axiom
+lists, four registered premise records, 146 input hashes, nine pinned
+dependency revisions, the complete Lean export-inspection output,
+the Lean version, and every verification flag and scope count.
+Only `generated_at_utc` and `lake_build_output` differ.
+
+All 146 input hashes match the files inspected at that checkpoint and
+the exact proof tree. The local report at that published proof commit
+contains the exact 800,979 bytes with SHA-256
+`7760c9e3731c56567d2b0bd83eb2f5a5045acc3b5f93f78693d32084bd3e022d`.
+The original artifact and report were preserved in
+[evidence commit 642a0c8064bc3287be3660f132325adab4534624](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/642a0c8064bc3287be3660f132325adab4534624),
+whose tree is `91ed8165569569a763e5e9fc364da5e4a17c8657`.
+The frozen manuscript and PDF are unchanged. This evidence covers the
+complete 553-export Lemma 3.3 milestone; it does not cover the subsequent
+571-export ramified milestone or the preceding 598-export Lemma 3.5
+milestone. At that checkpoint the numbered status
+was 13 Certified, zero Partial or Active, and 29 Pending; all 33
+auxiliary/supplementary groups were Pending and whole-paper
+certification was false. The earlier local and CI reports below
+retain their original scopes.
+
+### Gauss local execution
+
+The preceding Gauss milestone contained 536 theorem exports across 112
+project Lean modules and 20 mapped source groups: 54 new public theorem
+exports in 16 new modules. The four registered literature premises and
+all nine pinned dependency revisions are unchanged. Source groups and
+Lean premise declarations remain separate counts. The completed
+aggregate report records 137 input hashes; its 17 added inputs are
+the 16 new Lean modules and the source correspondence review.
+
+All 16 new modules passed strict targeted builds under official Lean
+4.24.0 and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 54 actual theorem types and axiom lists were
+inspected before the aggregate run. Each new export uses exactly
+`Classical.choice`, `Quot.sound`, and `propext`; no new theorem uses a
+literature premise.
+
+**The full local aggregate verifier passed for all 112 modules and
+536 theorem exports.** All 137 recorded input hashes match the checked
+files. The actual types and axiom lists of all 54 new exports match
+their prior individual inspections, with only the three standard
+foundations in every new export.
+
+The independent comparison preserves every mathematical field of all
+482 preceding exports, including their actual types, axiom lists, and
+Lean source hashes. Exactly 472 complete records remain identical.
+The other ten are the exports in `PrimeQuadraticGauss.lean`; only their
+scope strings change. Each replaces the obsolete sentence that full
+prime-power Lemma 3.2 remains Pending with the statement that its
+complete prime-power and counting clauses are proved separately.
+The comparator checks that exact suffix replacement and permits no
+other change to those ten records. All four registered literature
+premise records and all nine dependency revisions remain identical
+to the preceding report.
+
+The exact 17 added inspected inputs are the 16 new Lean modules and
+`certification/correspondence/prime_power_gauss.md`. The only changes
+to previously inspected inputs are the root Lean import module,
+`Checks/Exports.lean`, `certification/status.json`, and
+`certification/dependency_inventory.json`. Every one of the 37 frozen
+changed-file hashes was preserved through the verification run.
+The frozen manuscript and PDF remain byte-for-byte unchanged.
+These subsequent README and checkpoint updates record the successful
+local execution; the inspected proof inputs remain those checked by
+the aggregate verifier.
+
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7/certification/verification_report.json)
+contains 780,870 bytes and has SHA-256
+`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
+It records 12 Certified and 30 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Gauss GitHub execution
+
+**The full local and GitHub verifiers passed for all 112 modules,
+536 theorem exports, four registered premise records, and nine pinned
+dependency revisions.** The published proof commit is
+[2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/2b3caedb1d46cafcfdc7e47d678bcfc654ef39d7),
+whose tree is `dea151816197aafb69f94b3d9a7b885a24b63a5d`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43633148645, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43633148645).
+- Verification job: `132564011074`; every step succeeded.
+- Verification completed `2026-11-14T19:48:39Z`; the job completed `2026-11-14T19:48:43Z`.
+- Artifact: `14128654819`, 91,228 bytes, created `2026-11-14T19:48:40Z`.
+- [Preserved CI report](certification/ci/run_43633148645_attempt_1.json), 788,811 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43633148645_attempt_1.zip).
+- ZIP SHA-256: `0e46e53424a2264c3f0335a81bb9fbdff8bf25016342115213e5af3da6424d90`.
+- CI report SHA-256: `403930110d44417d11827c61441cfb4a7e52e4f05f8f56432e0b993e35e9ce71`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON. The local and CI reports agree exactly on all 18
+verification-content fields: all 536 complete theorem records and their
+actual types and axiom dependencies, four registered premise records,
+137 input hashes, nine pinned dependency revisions, the complete Lean
+export-inspection output, the Lean version, and every verification flag
+and scope count. Only `generated_at_utc` and `lake_build_output` differ.
+
+Every recorded input hash matches the inspected files at that checkpoint
+and the exact proof tree. The local report at that proof commit has
+780,870 bytes and SHA-256
+`824069fc67d6f55812e9c9928c1461bb580564b92ee0f7e4cf1b252e59cd0699`.
+The report and original artifact were preserved in
+[evidence commit cf3e902](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/cf3e90217e153d04ffd40a9636dceb29fc6fbc59),
+whose tree is `d13c6fd8f97143c159254d78c238eb8003ee4273`.
+That evidence commit changed only README, CHECKPOINT, and the two
+archived CI files; all 137 inspected inputs and the local report were
+unchanged. The frozen manuscript and PDF are unchanged. This evidence
+covers the preceding 536-export Gauss milestone; it does not cover the
+subsequent 553-export bound and 571-export ramified milestones or the
+preceding 598-export Lemma 3.5 milestone. At that checkpoint, the numbered status
+was 12 Certified, zero Partial or Active, and 30 Pending, with all 33
+auxiliary/supplementary groups Pending and whole-paper certification
+false. Earlier local and CI reports below retain their original scopes.
+
+### CRT local execution
+
+The preceding CRT milestone contained 482 theorem exports across 96 project
+Lean modules and 20 mapped source groups: 66 new exports in 12 new
+modules. The four registered literature premises and all nine pinned
+dependency revisions are unchanged. Source groups and Lean premise
+declarations remain separate counts. The completed aggregate report
+records 120 input hashes, including the new correspondence review.
+
+All 12 new modules have passed strict builds under official Lean 4.24.0
+and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 66 new actual theorem types and axiom lists
+have been inspected. Exactly 65 use `Classical.choice`, `Quot.sound`,
+and `propext`; `residueLift_cast` uses only `Quot.sound` and `propext`.
+No new theorem uses a registered literature premise. The frozen
+manuscript, PDF, and dependency pins remain unchanged.
+
+**The full aggregate local verifier passed for all 96 modules and 482
+theorem exports.** All 120 input hashes match the checked files. The
+independent baseline comparison confirms that all 416 preceding complete
+theorem records are identical, including actual types, axiom dependencies,
+source hashes, and scopes. All four registered premise records and all
+nine dependency revisions match the preceding report exactly. The 66
+new actual theorem types and axiom dependencies match their prior
+individual inspections, with no literature premise in any new export.
+
+All 33 changed-file hashes matched the frozen snapshot throughout the
+verification run. The 13 added inspected inputs are the 12 new Lean
+modules and the source correspondence review. The frozen manuscript
+and PDF remain byte-for-byte unchanged. The subsequent README and
+checkpoint edits record the successful execution; the inspected proof
+inputs remain those checked by the aggregate verifier.
+
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/0224dae194b48080f8af732dbf78580ffaab0c24/certification/verification_report.json)
+contains 708,765 bytes and has SHA-256
+`ec46cb57a7912faf2116faed95bc6021ed68a9ed78cfb28a05133c0df4515f0f`.
+It records 11 Certified and 31 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### CRT GitHub execution
+
+**The full local and GitHub verifiers passed for all 96 modules, 482 theorem
+exports, four registered premise records, and nine pinned dependency
+revisions.** The published proof commit is
+[`0224dae194b48080f8af732dbf78580ffaab0c24`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0224dae194b48080f8af732dbf78580ffaab0c24),
+whose tree is `62ac309aaa1aec3563b46f87e4a881d17a9bc474`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43626335642, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43626335642).
+- Verification job: `132542869983`; every step succeeded.
+- Verification completed `2026-11-14T18:31:45Z`; the job completed `2026-11-14T18:31:47Z`.
+- Artifact: `14127140616`, 82,657 bytes, created `2026-11-14T18:31:46Z`.
+- [Preserved CI report](certification/ci/run_43626335642_attempt_1.json), 715,749 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43626335642_attempt_1.zip).
+- ZIP SHA-256: `7f343e481201ecbd5d9759d0c97392d0a9104db7894c05226b0dd1d19c8344e3`.
+- CI report SHA-256: `72cb4961d00501e3e98a17a1871169548b7d8d70a7f479e9304bd0887a75b56b`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON. The local and CI reports agree exactly on all 18
+verification-content fields: all 482 complete theorem records and their
+actual types and axiom dependencies, four registered-premise records,
+120 input hashes, nine pinned dependency revisions, the complete Lean
+export-inspection output, the Lean version, and every verification flag
+and scope count. Only `generated_at_utc` and `lake_build_output` differ.
+
+Every recorded input hash matches the inspected files at that checkpoint
+and the exact proof tree. The local report is the 708,765-byte report
+identified above, byte-identical to the report in that proof commit.
+The frozen manuscript and PDF are unchanged. This evidence covers the
+preceding 482-export CRT milestone; it does not cover the new
+536-export Gauss milestone. The earlier local and CI reports below
+retain their original scopes. At the CRT checkpoint, the numbered
+status was 11 Certified, zero Partial or Active, and 31 Pending, with
+all 33 auxiliary/supplementary groups Pending and whole-paper
+certification false.
+
+### Pencil local execution
+
+The preceding pencil milestone contained 416 theorem exports across 84
+project Lean modules and 20 mapped source groups: 67 new exports in 13
+new modules. The four registered literature premises are unchanged,
+as are all nine pinned dependency revisions. Source groups and Lean
+premise declarations remain separate counts. The completed aggregate
+report records 107 input hashes, including the new correspondence review.
+
+All 13 new modules passed strict builds under official Lean 4.24.0
+and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 67 new actual theorem types and axiom
+dependencies were inspected. Of these, 59 use exactly
+`Classical.choice`, `Quot.sound`, and `propext`; one uses only `propext`;
+and seven additionally use the existing registered Weil premise.
+The exact pencil formula and both complex and integer trace identities
+use only standard foundations. The generic bound adds only Weil.
+No new external premise has been introduced, and the Lean, mathlib,
+manuscript, and PDF inputs remain fixed.
+
+**The full local and GitHub verifiers passed for all 84 modules, 416 theorem
+exports, four registered premise records, and nine pinned dependency
+revisions.** All 107 input
+hashes match the checked files. The independent baseline comparison
+confirmed that all 349 preceding complete theorem records are unchanged,
+including their actual types, axiom lists, source hashes, and scopes.
+All four registered premise records and all nine dependency revisions
+also match the preceding report exactly. The 67 new actual types and
+axiom lists match their earlier individual inspections.
+
+At the verification freeze, all 34 changed-file hashes matched the frozen
+snapshot. The 14 added inspected inputs are the 13 new Lean modules and
+the new source correspondence review. Among the preceding inspected
+inputs, only the root Lean imports, `Checks/Exports.lean`,
+`certification/status.json`, and `certification/dependency_inventory.json`
+changed. The frozen manuscript and PDF remain byte-for-byte unchanged.
+The subsequent edits record this successful execution in README and this
+checkpoint and preserve the exact report; the inspected proof inputs
+remain those checked by the successful aggregate run.
+
+The [local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/7da6aca687135b7c0f859873e69d5fe844b2cdac/certification/verification_report.json)
+contains 620,000 bytes and has SHA-256
+`d60c7a129061c59979ff52a1b79adca054ed97073fd0a527eb0a6d0663a1dca1`.
+It records 10 Certified and 32 Pending numbered results, with zero
+Partial or Active results. All 33 auxiliary/supplementary groups remain
+Pending, and whole-paper certification remains false.
+
+### Pencil GitHub execution
+
+The published proof commit is
+[`7da6aca687135b7c0f859873e69d5fe844b2cdac`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/7da6aca687135b7c0f859873e69d5fe844b2cdac),
+whose tree is `c78fd84236351f88baabd440f99fc5ca83fd2fc3`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43618745198, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43618745198).
+- Verification job: `132519443067`; every step succeeded.
+- Verification completed `2026-11-14T17:07:53Z`; the job and run completed `2026-11-14T17:07:56Z`.
+- Artifact: `14123891609`, 72,429 bytes, created `2026-11-14T17:07:54Z`.
+- [Preserved CI report](certification/ci/run_43618745198_attempt_1.json), 626,114 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43618745198_attempt_1.zip).
+- ZIP SHA-256: `f2ff89bd98196e6af865a617631c6a5ee2163c984e78d4834ea56871de895407`.
+- CI report SHA-256: `ba6f569e5bd2e93e6893034f2cd514779fd92536479d91ecac4e548ad0754b8c`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, byte-identical to the
+archived CI JSON. The local and CI reports agree exactly on all 18
+verification-content fields: all 416 complete theorem records and their
+actual types and axiom dependencies, four registered-premise records,
+107 input hashes, nine pinned dependency revisions, the complete Lean
+export-inspection output, the Lean version, and every verification flag
+and scope count. Only `generated_at_utc` and `lake_build_output` differ.
+
+Every recorded input hash matched both the inspected files at that
+checkpoint and the exact proof tree. Its proof sources, registries, source
+reviews, and local report were byte-identical to the checked proof commit.
+This evidence covers the complete preceding 416-export pencil milestone;
+it does not cover the new 482-export CRT scope. The older local and CI
+reports below retain their original scopes.
+
+
+### Diagonal bad-prime local execution
+
+The preceding diagonal bad-prime milestone registered 349 theorem exports across 71 project
+Lean modules and 20 mapped source groups. The four registered literature
+premises are unchanged, as are the nine pinned dependency revisions.
+Source groups and Lean premise declarations remain separate counts.
+
+Its five new modules passed strict builds under official Lean 4.24.0
+and the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. All 24 new actual theorem types and axiom dependencies
+were inspected. They use only the standard foundations
+`Classical.choice`, `Quot.sound`, and `propext`; no new external premise is
+introduced, and the diagonal finiteness proof does not use elimination.
+
+The full aggregate local verifier passed for all 71 modules, 349 theorem
+records, four registered literature-input records, and nine pinned
+dependency revisions. All 93 recorded input hashes matched the files
+checked. Every one of the 325 previously checked theorem records is
+unchanged, including the actual types, axiom lists, source hashes and
+scopes. The four registered premise records and all dependency revisions
+exactly match the preceding local report. The frozen manuscript and PDF
+remain unchanged.
+
+The [local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6/certification/verification_report.json)
+has SHA-256
+`50606c6ea147df96a5905de201f9263396e037299d8ef3a1743c6d325d81a0b8`
+and contains 525,699 bytes. It records 9 Certified and 33 Pending numbered
+results, with zero Partial or Active results. All 33 auxiliary/supplementary
+groups remain Pending, and whole-paper certification remains false.
+
+### Diagonal bad-prime GitHub execution
+
+The published proof commit is
+[`09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/09d7ea0c1d2ce193be6bfc9ee7c6bea62f90cea6),
+whose tree is `1930ec532bb7f03a949da69bc49cafb78634c380`.
+The same verifier succeeded in the independent GitHub execution.
+
+- [Successful run 43614640507, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43614640507).
+- Verification job: `132506910704`; every step succeeded.
+- Verification completed `2026-11-14T16:24:34Z`; the job completed `2026-11-14T16:24:36Z`.
+- Artifact: `14121901170`, 62,602 bytes, created `2026-11-14T16:24:34Z`.
+- [Preserved CI report](certification/ci/run_43614640507_attempt_1.json), 530,824 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43614640507_attempt_1.zip).
+- ZIP SHA-256: `a6ee78b674f2eb0d813e442e67b5d4d0ebac91ae98e26f2d9453db7c1b54dcc9`.
+- CI report SHA-256: `a9ca9c083e737b48257fbc01c3225782b61608e4a0ccc932de1d47e6d122cacd`.
+
+The original ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, and both archived files
+are byte-identical to the download and extracted member. The CI and
+local reports agree exactly on all 18 verification-content fields:
+all 349 full theorem records and their actual types and axiom dependencies,
+all four registered-premise records, all 93 input hashes, all nine pinned
+dependency revisions, the complete Lean export-inspection output, the
+Lean version, and all verification flags and scope counts. The only
+differing fields are `generated_at_utc` and `lake_build_output`.
+
+Every recorded input hash also matches the files at the proof commit and
+the checked source at that checkpoint. All 24 new export records have only
+`Classical.choice`, `Quot.sound`, and `propext` in their axiom lists.
+This evidence covers the complete 349-export diagonal bad-prime milestone.
+It does not cover the new 416-export pencil scope. The older runs below
+retain their original scopes.
+
+### Polynomial Fourier local execution
+
+The preceding polynomial Fourier milestone registered 325 theorem exports across 66 project
+Lean modules and 20 mapped source groups. There are four separately
+registered external Lean premises: Weil, the composite Katz/Fulton
+spectral interface, Lang's general resultants, and the composite Bertini
+and projective-Jacobian tangent interface. Source groups and Lean premise
+declarations are counted separately.
+
+Its seven new modules passed strict builds under official Lean 4.24.0 and
+the pinned mathlib revision, with `warningAsError=true` and
+`autoImplicit=false`. The final uniform wrapper compiled successfully
+without additional assumptions. All 23 new actual theorem types and axiom
+dependencies were inspected. Seventeen new helpers use only the
+standard foundations `propext`, `Classical.choice`, and `Quot.sound`.
+The generic and finite-field indicator bounds use Katz and Weil; the
+zero-frequency and nonzero-frequency bounds use Katz. The integral
+`fourier_bound` uses Katz, Lang, and Weil. The final
+`uniform_polynomial_fourier_bound` uses all four unchanged registered
+literature premises, including the construction of its exceptional
+polynomial.
+
+The full aggregate local verifier passed for all 66 modules, 325 theorem
+records, four registered literature-input records, and nine pinned
+dependency revisions. All 87 recorded input hashes matched the files checked
+at that checkpoint. Every one of the 302 previously checked theorem types
+and axiom lists was unchanged; their source hashes and scopes were also
+unchanged. The four registered premise records and all dependency revisions
+exactly matched the preceding local report. The frozen manuscript and PDF
+were unchanged.
+
+The [local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/25dea299d18e2a423404488ac1a923fded0cde7b/certification/verification_report.json)
+has SHA-256
+`88f51797dd5b426549a351f4cbc62dc24dd51b5d5c57005298b6ee691edcd003`.
+The report records 8 Certified and 34 Pending numbered results, with zero
+Partial or Active results; all 33 auxiliary/supplementary groups remain
+Pending. Whole-paper certification remains false.
+
+### Polynomial Fourier GitHub execution
+
+The same verifier succeeded at exact proof commit
+[`25dea299d18e2a423404488ac1a923fded0cde7b`](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/25dea299d18e2a423404488ac1a923fded0cde7b),
+whose tree is `0329196f131b11b8d416917ff417c4ceb90578b1`.
+
+- [Successful run 43611293071, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43611293071).
+- Verification job: `132496696818`; every step succeeded.
+- Artifact: `14120945036`, 58,271 bytes, created `2026-11-14T15:44:27Z`.
+- [Preserved CI report](certification/ci/run_43611293071_attempt_1.json), 492,952 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43611293071_attempt_1.zip).
+- ZIP SHA-256: `e2e4750b08ac9687568d726fe155f7a409573c1b71254b1b6f9edd26190cede7`.
+- CI report SHA-256: `482496c1212f5d366ebf1d54f8fd223bc58aa7cadf464582250931b60a6c060a`.
+
+The downloaded ZIP's digest matches GitHub's advertised artifact digest.
+Its sole member is `verification_report.json`, and both archived files are
+byte-identical to the download and extracted member. The CI and local
+reports agree exactly on all 18 verification-content fields: all 325 full
+theorem records and their actual types and axiom dependencies, all four
+registered-premise records, all 87 input hashes, all nine pinned dependency
+revisions, the complete Lean export-inspection output, the Lean version,
+and all verification flags and scope counts. The only differing fields are
+`generated_at_utc` and `lake_build_output`.
+
+Every recorded input hash also matched the files at that proof commit.
+This preserved evidence covers the original 325-export scope and its eight
+certified numbered results, before the diagonal milestone. The preserved
+earlier runs below retain their original scopes; whole-paper certification
+remains false.
+
+### Exceptional-plane local execution
+
+This preceding checkpoint contained 302 theorem exports across 59 project
+Lean modules, four registered literature premises, 80 verification input
+hashes, and 20 mapped source groups. Independent source reviews covered
+the exact composite Bertini interface and every clause of Lemma 4.1(ii),
+including the geometric witness, prime-field descent, uniform degree,
+and final `D_p` construction. Together with the earlier reviewed part (i),
+that completed Lemma 4.1.
+
+The aggregate local verifier passed for all 59 modules, 302 theorem
+exports, four registered literature premises and 80 input hashes. It
+checked each module directly with strict settings, inspected declaration
+kinds and actual types, verified the exact premise type hashes and allowed
+axiom dependencies, and checked all nine pinned dependency revisions.
+Every recorded input hash matched the files at that checked proof commit.
+All 261 preceding theorem types and axiom dependencies were unchanged.
+
+The [local verification report at that proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/afdaf2497bcd76fdff8b658efef8e28f0388f5b7/certification/verification_report.json)
+records that completed execution. Its SHA-256 is
+`36fe3c138da8345206a445c3968cf38c8e650916f8d7779fd7dbc11752a7b324`.
+
+### Exceptional-plane GitHub execution
+
+The independent GitHub verifier also passed for the exact proof commit
+[afdaf2497bcd76fdff8b658efef8e28f0388f5b7](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/afdaf2497bcd76fdff8b658efef8e28f0388f5b7),
+whose tree is `1bbf8bd0ddc4fb32d66871ed8424793cc21e0ffa`.
+
+- [Successful run 43608132418, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43608132418).
+- Verification job: `132487086734`; every step succeeded.
+- Artifact: `14118739233`, 53,297 bytes.
+- [Preserved CI report](certification/ci/run_43608132418_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43608132418_attempt_1.zip).
+- ZIP SHA-256: `63320ecada162fd33fda88598056eac35ed8e093461d030711e9cdd7f64e304d`.
+- Report SHA-256: `e33bff89ac7be8a07b7606b85d94d08d33613494995ce4c276a5239c8e2576e0`.
+
+The ZIP digest matched the one advertised by GitHub. Its extracted report
+matched the local report exactly on all 80 input hashes, 302 complete theorem
+records, four literature-input records, nine dependency revisions and all
+certification counts and flags. The only top-level differences were the
+generation timestamp and build log. All 80 checked hashes also matched the
+published proof files and source records at that checkpoint. That report
+records seven Certified, one Partial, and 34 Pending numbered results.
+The archived runs retain their original scopes.
+
+### Bad-reduction, height, and quadratic-trace local execution
+
+This preceding checkpoint contained 261 theorem exports across 50 project
+Lean modules, 70 verification input hashes, 19 mapped source groups, and
+three external Lean premises: Weil, Katz/Fulton, and Lang. Independent
+source reviews covered the exact Lang interface, all of Lemma 4.1(i),
+and completion of Lemma 5.9.
+
+The full verifier passed on 13 November 2026 at 23:05 CST. It checked the frozen
+manuscript and PDF, all 42 numbered statement identities, the dependency
+ledger, pinned dependency checkouts, all 50 project modules, and the actual
+types and axiom dependencies of all 261 registered theorem exports.
+Every module was also checked directly with `warningAsError=true` and
+`autoImplicit=false`.
+
+The three literature declarations were separately inspected as axioms, and
+their actual types match their reviewed type hashes. Of the theorem exports,
+236 use only the standard foundations `propext`, `Classical.choice`, and
+`Quot.sound`; seven additionally use Weil, eight Katz, eight Lang, and two
+both Katz and Lang. Those last two are the complete quadratic-trace exports.
+The two source components of the composite Katz premise remain separately
+registered and validated.
+
+All 70 input hashes matched the verified files at that proof commit, including ten correspondence
+records. The full Lemma 4.1(i) export places the positive constants before
+the form G. The final Lemma 5.9 types contain no separately assumed
+finiteness or good-reduction condition. Source review found no missing
+clause or strengthened hypothesis in these completed statements.
+
+- [Local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/cc87de7c88dc32339bb59636ac0127a19bbdde76/certification/verification_report.json).
+- Lean: official 4.24.0.
+- mathlib: `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
+- Manuscript SHA-256: `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`.
+
+### Bad-reduction, height, and quadratic-trace GitHub execution
+
+The same verifier passed at the exact proof commit
+[cc87de7c88dc32339bb59636ac0127a19bbdde76](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/cc87de7c88dc32339bb59636ac0127a19bbdde76).
+
+- [Successful run 43559876500, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43559876500).
+- Verification job: 132340944839.
+- Artifact: 14100255355.
+- [Preserved CI report](certification/ci/run_43559876500_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43559876500_attempt_1.zip).
+- ZIP SHA-256: `3ac9416897828dece4ccce6465aa58e0a2ceca5cdf29d4fe525277b4bbbf5ef5`.
+- Report SHA-256: `bbab231f27d91a2218f6d6abe4df0e99afeaf49e5dfb2756a79b3b3e535e5a48`.
+
+The original artifact was downloaded and its digest matched GitHub's recorded
+SHA-256. The ZIP contains the verification report alone. All 70 input hashes
+matched the files at that proof commit, including ten correspondence reviews.
+All 261 theorem records, all three separately inspected literature-input
+records, and all nine pinned dependency revisions matched the local report.
+The CI report records six Certified, two Partial, and 34 Pending numbered
+results, and leaves whole-paper certification false.
+
+This preserved evidence covers the original 261-export scope at `cc87de7`.
+The manuscript-name wording updates do not alter the frozen manuscript or
+the original verification artifacts; their new file hashes belong to a later
+verification report. The successful runs below retain their earlier scopes.
+
+### Katz local execution
+
+The Katz checkpoint covered 207 theorem exports across 38 project Lean
+modules, 56 verification input hashes, 19 mapped source groups, and two
+separately registered external Lean premises: the Weil input and the
+composite Katz/Fulton spectral input.
+
+The full verifier passed on 13 November 2026 at 22:39 CST. It checked the frozen
+manuscript and PDF, all 42 statement identities, the dependency ledger,
+pinned dependency checkouts, every project module, and all registered
+declarations. Direct Lean execution used `warningAsError=true` and
+`autoImplicit=false`.
+
+All 207 proved exports were inspected as theorem declarations, and both
+literature inputs were separately inspected as axioms with their reviewed
+type hashes. Of the theorem exports, 192 use only the standard foundations
+`propext`, `Classical.choice`, and `Quot.sound`; seven additionally use the
+registered Weil input, and eight additionally use the composite Katz input.
+No export uses both literature premises. The two source components of the
+Katz input are separately recorded and validated.
+
+All 56 input hashes matched the verified files at that checkpoint, including
+eight correspondence records. Independent source reviews found no missing clause or strengthened
+hypothesis in Lemma 2.7. At that checkpoint, the actual types of the
+Lemma 5.9 wrappers retained their explicit finite-set argument, as recorded
+in its then-Partial status.
+The metadata checks also rejected a composite registration with an omitted
+source component and one whose secondary source did not register the declaration.
+
+- [Local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/ef786b7f270a017dfce7ae702f1b720ff1084ef2/certification/verification_report.json).
+- Lean: official 4.24.0.
+- mathlib: `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
+- Manuscript SHA-256: `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`.
+
+### Katz GitHub execution
+
+The same verifier passed at the exact proof commit
+[ef786b7f270a017dfce7ae702f1b720ff1084ef2](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ef786b7f270a017dfce7ae702f1b720ff1084ef2).
+
+- [Successful run 43557804300, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43557804300).
+- Verification job: 132334510120.
+- Artifact: 14098914113.
+- [Preserved CI report](certification/ci/run_43557804300_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43557804300_attempt_1.zip).
+- ZIP SHA-256: `90174464799304606926d69cafb5eac9cda02a72d1340d4178f6015a0f80d611`.
+- Report SHA-256: `268626f13be0e8c998704cd0bc8da601b5cc8439a29009d580d5f08c2bf2c370`.
+
+The original artifact was downloaded and its digest matched GitHub's recorded
+SHA-256. The ZIP contains the verification report alone. All 56 input hashes
+matched the local verified files at that checkpoint, including the eight
+correspondence reviews.
+All 207 theorem records, both separately inspected literature-input records,
+and the pinned dependency revisions matched the local report. The CI report
+records five Certified, two Partial, and 35 Pending numbered results; it
+explicitly leaves whole-paper certification false.
+
+The subsequent evidence commit changed only README, this checkpoint, and the
+preserved CI JSON and ZIP. At that checkpoint, the Lean sources, verifier,
+statement ledger, and correspondence records remained identical to the
+checked proof commit.
+
+The actual quadric geometry, coefficient calculation, finite-sum inequality,
+and good-reduction arithmetic introduce no further external premises.
+The Katz bound and quadratic-trace size exports used the spectral
+input; they do not depend on the separate Weil estimate.
+
+### Conic and plane-section local execution
+
+The full verifier passed on 13 November 2026 at 21:50 CST. It checked the unchanged
+frozen manuscript and PDF, all 42 numbered statement identities, the dependency
+ledger, pinned dependency checkouts, all 31 local Lean modules, 162 registered
+theorem exports, and the one separately registered literature premise. The
+direct Lean checks use `warningAsError=true` and `autoImplicit=false`.
+
+The 155 geometric, algebraic, and earlier theorem exports that do not apply
+the Weil bound use only `propext`, `Classical.choice`, and `Quot.sound`.
+Seven character-sum exports additionally use the exact registered declaration
+`QuaternaryQuadraticForms.Trusted.weil_simple_roots`. Its actual type still
+matches the reviewed type hash. Every registered proved export was inspected
+as a theorem; the single literature input was inspected separately as an axiom.
+
+All 47 recorded input hashes matched the checked files at that checkpoint, including the six
+correspondence records. The final actual type of `conic_parametrization`
+chooses the tuple before quantifying over extension fields. The final type of
+`plane_section_bound` assumes the literal geometric matrix-rank condition
+and constructs the parametrizations internally. Independent source review
+found no missing clause or strengthened manuscript hypothesis.
+
+- [Local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/0fccf5379e067d349cb0f14b6dc226bc8096033b/certification/verification_report.json).
+- Lean: official 4.24.0.
+- mathlib: `f897ebcf72cd16f89ab4577d0c826cd14afaafc7`.
+- Manuscript SHA-256: `d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33`.
+
+### Conic and plane-section GitHub execution
+
+The same verifier passed at the exact proof commit
+[0fccf5379e067d349cb0f14b6dc226bc8096033b](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/0fccf5379e067d349cb0f14b6dc226bc8096033b).
+
+- [Successful run 43553749446, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43553749446).
+- Verification job: 132321811531.
+- Artifact: 14096304719.
+- [Preserved CI report](certification/ci/run_43553749446_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43553749446_attempt_1.zip).
+- ZIP SHA-256: `e9ce332145032f0079ca8bc538cb72cf77b9d242d157d618d1d8db68546bfe0c`.
+- Report SHA-256: `74cdccb5f5777b9d9460d7a560b47fc74661e1d35bed3784c80652e5a9a7001b`.
+
+The original artifact was downloaded and its digest matched GitHub's recorded
+SHA-256. The ZIP contains the verification report alone. All 47 input hashes
+matched the local verified files at that checkpoint, including the six correspondence reviews.
+All 162 theorem records, the separately inspected literature-input record,
+and the pinned dependency revisions matched the local report. The CI report
+records four Certified, two Partial, and 36 Pending numbered results; it
+explicitly leaves whole-paper certification false.
+
+The subsequent evidence commit changed only README, the checkpoint, and the
+preserved CI JSON and ZIP. At that checkpoint the Lean sources, verifier,
+statement ledger, and correspondence records remained identical to the
+checked proof commit.
+
+
+### Weil and projective-line local execution
+
+The full verifier passed on 13 November 2026 at 21:29 CST. It checked the unchanged frozen
+manuscript and PDF, all 42 numbered statement identities, the dependency
+ledger, pinned dependency checkouts, all 16 local Lean modules, 68 registered
+theorem exports, and the one separately registered literature premise.
+The direct Lean checks use warningAsError=true and autoImplicit=false.
+
+The 64 geometric, algebraic, and earlier theorem exports use only the
+standard foundations propext, Classical.choice, and Quot.sound. Four
+character-sum exports additionally use the exact registered declaration
+QuaternaryQuadraticForms.Trusted.weil_simple_roots. Its actual type is
+compared against the reviewed type hash, and the environment inspection
+checks that it is an axiom while every proved export is a theorem.
+
+The checker rejects unregistered axiom declarations, unexpected axiom
+dependencies, altered premise types, and proof placeholders. Negative source
+policy checks also rejected an additional axiom, an additional constant, a
+missing or duplicated premise, and a proof placeholder. All four
+correspondence records are included in the verification report's input hashes.
+
+- Lean: official 4.24.0.
+- mathlib: f897ebcf72cd16f89ab4577d0c826cd14afaafc7.
+- Frozen manuscript: d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33.
+- [Local verification report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/450ff678b56b0a32a76b848278b53ba697958939/certification/verification_report.json).
+
+### Weil and projective-line GitHub execution
+
+The same verifier passed in GitHub Actions at the exact proof commit
+[450ff678b56b0a32a76b848278b53ba697958939](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/450ff678b56b0a32a76b848278b53ba697958939).
+
+- [Successful run 43551946447, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43551946447).
+- Verification job: 132316195320.
+- Artifact: 14096052644.
+- [Preserved CI report](certification/ci/run_43551946447_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43551946447_attempt_1.zip).
+- ZIP SHA-256: e12b55a4ff9e680d68950cb410628f89b3319b2268b9e86361396c92e96fe73a.
+- Report SHA-256: ac477c5d4e3d1b48f242946e1228a83226e3690eaee1dbbc971f5ccebd48f8d5.
+
+The downloaded artifact was inspected. All 30 recorded input hashes matched
+the files at that checkpoint, including the four correspondence records.
+All 68 theorem records and the separately inspected literature-input record
+matched the local actual types and axiom dependencies. The CI report records two
+Certified, two Partial, and 38 Pending numbered results, with one registered
+external mathematical premise.
+
+The later commit that preserved this evidence changed documentation and
+evidence records only. At that checkpoint, the proof sources, checker,
+status ledger, and correspondence records remained those of the checked
+proof commit linked above.
+
+### Quadratic-trace divisibility
+
+The quadratic-trace divisibility checkpoint passed at proof commit
+[ee274f6752d5a28e875919349821518b297e3115](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/ee274f6752d5a28e875919349821518b297e3115),
+with [successful run 43550688913](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43550688913).
+Its [report](certification/ci/run_43550688913_attempt_1.json) and
+[original artifact](certification/ci/run_43550688913_attempt_1.zip) remain preserved.
+
+### Fourier ray identity
+
+The complete ray identity was checked at proof commit
+[9c9840ed04c90a22af480eec1e1fe6eee168487b](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/9c9840ed04c90a22af480eec1e1fe6eee168487b),
+with [successful run 43547207971](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43547207971).
+Its [report](certification/ci/run_43547207971_attempt_1.json) and
+[original artifact](certification/ci/run_43547207971_attempt_1.zip) remain preserved.
+The initial algebra-only report is also preserved as
+[run_43545694187_attempt_1.json](certification/ci/run_43545694187_attempt_1.json).
+
+## Next target
+
+The next bounded target is complete Lemma 3.7, `lem:conemod`:
+statement at source lines 1348–1354 and proof at 1356–1404. For
+positive squarefree $q=q_1q_2$ with $(q,N_F)=1$, an integral frequency
+on the dual cone $F^*(u)=0$, and $X\ge1$, the required estimate is
+
+$$
+\left|\sum_{\substack{1\le c\le X\\\gcd(c,q)=q_1}}S_c(u)\right|
+\ll_{F,\varepsilon} X^3(Xq)^\varepsilon.
+$$
+
+This is a cancellation estimate for the actual unweighted complete
+sums. Its hypotheses and constant must remain independent of the
+prime-weight family and the larger excluded-prime modulus `N`.
+The source uses the actual nonprincipal quadratic character supplied
+by the standing nonsquare determinant. Correctly deriving or
+instantiating that nonprincipality, rather than assuming an internal
+cancellation bound, is part of the next proof.
+
+The remaining steps include period-sum cancellation, the weighted
+partial-summation estimate for `Σ χ(j)j³`, Möbius detection of
+coprimality, and the precise totient divisor expansion for
+`φ(q₁n)`. The finite sum must be rearranged with its actual gcd
+restriction and the good-prime condition. The good-modulus identity,
+CRT factorization, uniform bad-prime bound, prime-support count, and
+uniform divisor/logarithm tools are already available. The final
+assembly must preserve the constant's dependence only on `F,ε`,
+including the factor arising from the character conductor and the
+subpower bound for the prime-support factor of `q`.
+
+Lemma 3.7 remains Pending. Lemmas 3.1–3.6 and all Section 4 lemmas
+are complete. Theorem 1.3's global asymptotic, the analytic assembly,
+Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
+Pending.

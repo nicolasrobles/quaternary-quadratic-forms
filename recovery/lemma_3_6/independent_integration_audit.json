@@ -1,0 +1,100 @@
+{
+  "baseline_commit": "4bc1de4e3d5e35c3482908a57f96b6ee465f5f4d",
+  "stage_plan_sha256": "899140654cd8aa1708b663dbfcfb47b0d15a4ddee723efc9cda4e9dff9cd0ba6",
+  "stage_manifest_sha256": "57ad794b07ef96de5678f5f61ebe996d42a90a4bc4b311db9d61c3e207178a9e",
+  "staged_files_validated": 21,
+  "new_source_hashes_validated": 12,
+  "new_exports": 39,
+  "preserved_export_records": 598,
+  "all_new_source_labels_exist": true,
+  "numbered_transition": {
+    "lem:genericmod": [
+      "Pending",
+      "Certified"
+    ]
+  },
+  "numbered_counts": {
+    "Pending": 26,
+    "Certified": 16
+  },
+  "preserved_auxiliary_groups": 33,
+  "preserved_accepted_premises": 4,
+  "preserved_mapped_reference_groups": 20,
+  "source_dependencies_preserved": true,
+  "preserved_dependency_pins": 9,
+  "previous_inspected_inputs_preserved_except_intended_four": true,
+  "exact_check_and_axiom_commands": 641,
+  "exact_root_imports": 151,
+  "workflow_readme_cache_roots": 76,
+  "workflow_change_only_official_cache_roots": true,
+  "all_three_graph_edge_sets_preserved": true,
+  "graph_numbered_statuses_match_ledger": true,
+  "svg_summary_matches_ledger": true,
+  "independent_render_identical_text_svg_png": 9,
+  "independent_pdf_text_identical": 2,
+  "graph_generation_summary": {
+    "source_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+    "numbered_nodes": 42,
+    "numbered_edges": 92,
+    "displayed_numbered_edges": 56,
+    "source_edges": 18,
+    "complete_ledger_nodes": 95,
+    "complete_ledger_edges": 159,
+    "outputs": [
+      "docs/dependency_overview.dot",
+      "docs/dependency_graph.dot",
+      "docs/dependency_complete.dot"
+    ]
+  },
+  "review_sha256": "e6842c7d989622a93f1990914aaba571df687e791c85d50a533a408c18269c6b",
+  "finding": "No staged or current frozen integration mismatch found. The only stage-to-frozen differences are the authorized terminal-newline trims in README.md and CHECKPOINT.md. Aggregate execution and exact-commit CI remain separate gates.",
+  "frozen_candidate_file_count": 33,
+  "stage_to_frozen_changes": {
+    "CHECKPOINT.md": {
+      "stage_sha256": "0777da933abb52ed0f36c0b2fdb895487f8a3c85d4f8a10b96b498b8a7fc037c",
+      "frozen_sha256": "242fc99aaa192e267f480846322d9388eb3cd2cc0c035174223cc3216c8c6758",
+      "difference": "One extra terminal newline removed; all preceding bytes unchanged."
+    },
+    "README.md": {
+      "stage_sha256": "41c82a26536cbe4b7ad3be4ed6f31a49ce572111413a50cd41df26b582976330",
+      "frozen_sha256": "523965134621e262b2ec2ed59f9f9ced50b405dbe1d58bef25db427bce1fc72a",
+      "difference": "One extra terminal newline removed; all preceding bytes unchanged."
+    }
+  },
+  "frozen_candidate_sha256": {
+    ".github/workflows/lean.yml": "3359b8541587a5d6a4ed706e8ab64f647ba9c48ff5227ff3b0f9f7f5a2350fa0",
+    "CHECKPOINT.md": "242fc99aaa192e267f480846322d9388eb3cd2cc0c035174223cc3216c8c6758",
+    "Checks/Exports.lean": "c626a65cb31a0a283fd3481d5885d4bc7079adfea8ceb221891fb6a561678802",
+    "DEPENDENCIES.md": "4e981153fffae54b0f28b1d6eb861069ee5f0c854de6caba53fa35aac732057a",
+    "INVENTORY.md": "69fc92b568296d303bad66facf80952f9331017a25e1cde661a2d5478c5f6784",
+    "QuaternaryQuadraticForms.lean": "0b185b9df234ecad81680d51456e05c87bbd7f0999a2718f9abc14d249091471",
+    "QuaternaryQuadraticForms/DivisorPowerBound.lean": "62c7db48e133d5680831952cae3b34183addded496fa5d899cb24eeb64b1c24a",
+    "QuaternaryQuadraticForms/FactorizationSumBound.lean": "a65e9929364763404961450bcfa8a25bf9610fe80bb75e40f1ea4ed9ea222db7",
+    "QuaternaryQuadraticForms/GcdHarmonicBound.lean": "d6fa5e6a3ab1eddf205dc6562072cdc39e77696fec9df7cd633ae1efcb244f15",
+    "QuaternaryQuadraticForms/GenericModulusBound.lean": "9a15242c46321a88c11e443b59c9abffea7a85094c068efd928cb65c5d543fc9",
+    "QuaternaryQuadraticForms/GenericModulusTheorem.lean": "fe4b9c202187cca829b262ddba2168ceaaefcd2bb66b4ce942f834acea3bee11",
+    "QuaternaryQuadraticForms/LogPowerBound.lean": "0da487f2f674d596190394e45414391959dcae64039777982f879ac6735a65b7",
+    "QuaternaryQuadraticForms/MixedSumGcdBound.lean": "121c796cfff2df18f4b6d82714f51a5ff027a399be4a58d329a4950103c4d8ae",
+    "QuaternaryQuadraticForms/MixedSumNormBounds.lean": "815445b0a378c87d5bc8aa94405c7580cc27dd5a9f2f021fc7c9b7d786081f2a",
+    "QuaternaryQuadraticForms/ModulusNormSum.lean": "30528b58e2983ceb39d9ee66c56cd421520c4d0a8d3bfc833b95c930009cbb4f",
+    "QuaternaryQuadraticForms/PrimeSupportCount.lean": "99d7603c55cf1a3b0c827f34be09baa2ce3a452364510e3ffff404a97d5c7f38",
+    "QuaternaryQuadraticForms/RamanujanGcdBound.lean": "c32a11db319efc494817b6055a0937dd65a77be85d1870b313e6d379759b2dc6",
+    "QuaternaryQuadraticForms/RamanujanPrimePower.lean": "74924d34ba48ccf27f04a81055f627a76315a4dde0848cad8ee919182cf520b3",
+    "README.md": "523965134621e262b2ec2ed59f9f9ced50b405dbe1d58bef25db427bce1fc72a",
+    "TRUSTED_INPUTS.md": "f618ff42099c1d219f71018ae2ac61124fa0f523fc2fe9c385688b6df626e554",
+    "certification/correspondence/generic_modulus_bound.md": "e6842c7d989622a93f1990914aaba571df687e791c85d50a533a408c18269c6b",
+    "certification/dependency_inventory.json": "f5ceadfc4130bcd89fc13bdc90cfca83baf641e2e27693836abbb073b0ebfc87",
+    "certification/status.json": "b722cd192177e346df82fb55ad2dfd66b3debc7b8070eabdafdf5a13a0e55824",
+    "docs/dependency_complete.dot": "52fd8d466564e09f4ba5f5342260272ee9d0d562192ad79dfe85f0cbe0ae9d67",
+    "docs/dependency_graph.dot": "c28f948e37a84d373b362637846ed6b40ea72acf967e8a5d9f5e89d449531a79",
+    "docs/dependency_graph.pdf": "89046a943acc17fdf2d3192498d08f744bc586d8c29768378bb9cef2e989ac9c",
+    "docs/dependency_graph.png": "cc01c4969c940cb1f39c5534c326eb351c847aebdfbc3f1b4a9556c25a438eea",
+    "docs/dependency_graph.svg": "edabc6a2f38c9ff7b12c8ebea8b7403ae273e6b0962e7f3dd63996097f7a5483",
+    "docs/dependency_overview.dot": "b4907bbba7489435e2cb76031cd6cc309f5b945ddea014d255e6039b9a89c103",
+    "docs/dependency_overview.pdf": "aa0eea0b0bec4c7353aa76ec286313e2d73ab8249f660f71284c33cdda3be646",
+    "docs/dependency_overview.png": "29125a8692e601f4fce2482ebff0cb77885a32141c5101f3919f131ee2e106c9",
+    "docs/dependency_overview.svg": "3e09c2fa6c2008a1f4e2ed1d7de07b389fba9207d0c2c3910f6f1abef63ab584",
+    "scripts/render_inventory.py": "0231a63f238a426267ee9594642c987e12303d15860065942286e17b597b920e"
+  },
+  "git_diff_check_passed": true
+}

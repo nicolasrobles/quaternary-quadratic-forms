@@ -1,0 +1,3887 @@
+{
+  "schema_version": 1,
+  "manuscript": "manuscript/quadratic_character_sums_github.tex",
+  "source_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "scope": "Reviewed manuscript proof dependencies. Source predicates and definitions are not assumed conclusions. Completion is governed by status.json, not this initial graph snapshot.",
+  "results": [
+    {
+      "label": "thm:polynomial",
+      "kind": "theorem",
+      "number": "1.1",
+      "display": "Theorem 1.1",
+      "page": 3,
+      "content": "Coefficient-uniform quadratic-character asymptotic; bad-prime height bound and local-factor bounds",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        320,
+        345
+      ],
+      "proof_ranges": [
+        [
+          2490,
+          2509
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:exceptional",
+        "lem:charsum"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Odd good primes have a nonprincipal quadratic character whose even power is principal.",
+        "Jacobi symbol is the product of the local Legendre symbols, including q=1.",
+        "For fixed c and every epsilon>0, c^omega(q) is O_epsilon(q^epsilon).",
+        "Uniform implied constants survive finite sums and polynomial substitutions."
+      ],
+      "clauses": [
+        "N_G finite and N_G << H_G^C(F,d).",
+        "Uniform asymptotic (1.13), including q=1.",
+        "Equality of both Euler-factor expressions (1.14).",
+        "Explicit |a_p(G)| <= (8d^2-8d+4)p.",
+        "|S_G(q)| << q^(-1+epsilon) and bound (1.15)."
+      ],
+      "notes": [],
+      "statement_tex": "\\begin{theorem}\\label{thm:polynomial}\nLet $d\\ge1$. There is a constant $C_{F,d}>0$ such that\n\\begin{equation}\\label{eq:badheight}\n N_G\\ll_{F,d}H_G^{C_{F,d}}\n\\end{equation}\nfor every form $G$ of degree $2d$ satisfying \\eqref{eq:smooth}. For\nevery such $G$, every squarefree $q\\ge1$ with $(q,N_G)=1$, and\n$B\\ge2$,\n\\begin{equation}\\label{eq:mainthm}\n T_{q,G}(B)=B^2\\sigma_\\infty(W,F)\\S_G(q)\n +O_{F,d,W,\\eps}\\big((Bq)^{1+\\eps}\\big),\n\\end{equation}\nwhere\n\\begin{equation}\\label{eq:Sgeneral}\n \\S_G(q)=\\S_F\\prod_{p\\mid q}\\frac{a_p(G)(p^2-1)}{p^2\\,\\#\\Qc(\\Fp)}\n =\\S_F\\prod_{p\\mid q}\\frac{a_p(G)(p-1)(p-\\chi(p))}{p^2(p^2-\\chi(p))}.\n\\end{equation}\nMoreover $\\abs{a_p(G)}\\le(8d^2-8d+4)p$ for every prime $p\\nmid N_G$,\nso that\n\\begin{equation}\\label{eq:mainbound}\n \\abs{\\S_G(q)}\\ll_{F,d,\\eps}q^{-1+\\eps},\n \\qquad\n T_{q,G}(B)\\ll_{F,d,W,\\eps}\\Big(\\frac{B^2}q+Bq\\Big)(Bq)^\\eps.\n\\end{equation}\nThe implied constants do not depend on the coefficients of $G$.\n\\end{theorem}\n",
+      "principal_internal_dependencies": [
+        "lem:exceptional",
+        "lem:charsum"
+      ],
+      "dependency_reasons": {
+        "lem:exceptional": "Part(i) makes N_G finite and bounds it by a power of H_G.",
+        "lem:charsum": "Specialize n=2d and every local character to the quadratic character; includes main term and a_p bounds."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2490,
+        2509
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Odd good primes have a nonprincipal quadratic character whose even power is principal.",
+        "Jacobi symbol is the product of the local Legendre symbols, including q=1.",
+        "For fixed c and every epsilon>0, c^omega(q) is O_epsilon(q^epsilon).",
+        "Uniform implied constants survive finite sums and polynomial substitutions."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "d209d7435693a3a5906a41216b27916913ece7ace2ee1b8d565f8382f1c835e6"
+    },
+    {
+      "label": "thm:uniformcount",
+      "kind": "theorem",
+      "number": "1.2",
+      "display": "Theorem 1.2",
+      "page": 4,
+      "content": "Uniform bound for nonzero square values on the integral quadric",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        363,
+        370
+      ],
+      "proof_ranges": [
+        [
+          2573,
+          2580
+        ],
+        [
+          2593,
+          2676
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:sieve"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Identify the two literal counting sets M_G and M_(G,2)."
+      ],
+      "clauses": [],
+      "notes": [
+        "No separate proof environment; the specialization is stated just before Lemma5.8. Do not add a dependency on Theorem1.4."
+      ],
+      "statement_tex": "\\begin{theorem}\\label{thm:uniformcount}\nLet $d\\ge1$, and let $G$ be a form of degree $2d$ satisfying\n\\eqref{eq:smooth}. For $B\\ge2$,\n\\begin{equation}\\label{eq:uniformcount}\n M_G(B)\\ll_{F,d,\\eps}B^{5/3+\\eps}+B^{1+\\eps}\\log^2(2H_GB).\n\\end{equation}\nThe implied constant does not depend on the coefficients of $G$.\n\\end{theorem}\n",
+      "principal_internal_dependencies": [
+        "lem:sieve"
+      ],
+      "dependency_reasons": {
+        "lem:sieve": "Instantiate the general power sieve with r=2 and n=2d."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2593,
+        2676
+      ],
+      "formalization_notes": [
+        "No separate proof environment; the specialization is stated just before Lemma5.8. Do not add a dependency on Theorem1.4."
+      ],
+      "foundation_requirements": [
+        "Identify the two literal counting sets M_G and M_(G,2)."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "419c1b009300f13ce29d779a3da3f44df8ed30adff9e1ae124458b97edf8d7d0"
+    },
+    {
+      "label": "thm:diagonal",
+      "kind": "theorem",
+      "number": "1.3",
+      "display": "Theorem 1.3",
+      "page": 4,
+      "content": "Exact bad-prime product and diagonal local traces/factors",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        388,
+        400
+      ],
+      "proof_ranges": [
+        [
+          1868,
+          1882
+        ],
+        [
+          1910,
+          1977
+        ],
+        [
+          2523,
+          2536
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:diagbad",
+        "lem:pencil",
+        "thm:polynomial"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Equality of coprimality conditions for a number and its radical.",
+        "Finite-product substitution and field algebra."
+      ],
+      "clauses": [
+        "N_G=rad(2 alpha M).",
+        "Exact trace (1.18).",
+        "Asymptotic with explicit factors (1.19)."
+      ],
+      "notes": [
+        "The product identity for the four kappa_i is proved in this proof but is a supplementary assertion immediately after the numbered statement."
+      ],
+      "statement_tex": "\\begin{theorem}\\label{thm:diagonal}\nLet $F$ and $G$ be as in \\eqref{eq:diagonal}. Then\n$N_G=\\rad(2\\alpha M)$, and for every prime $p\\nmid2\\alpha M$,\n\\begin{equation}\\label{eq:diagtrace}\n a_p(G)=p\\sum_{i=1}^4\\chi_p(\\kappa_i).\n\\end{equation}\nConsequently, for every squarefree $q\\ge1$ with $(q,2\\alpha M)=1$,\nthe formula \\eqref{eq:mainthm} holds with\n\\begin{equation}\\label{eq:diagmain}\n \\S_G(q)=\\S_F\\prod_{p\\mid q}\\bigg(\\frac{(p-1)(p-\\chi(p))}{p(p^2-\\chi(p))}\n \\sum_{i=1}^4\\chi_p(\\kappa_i)\\bigg).\n\\end{equation}\n\\end{theorem}\n",
+      "principal_internal_dependencies": [
+        "lem:diagbad",
+        "lem:pencil",
+        "thm:polynomial"
+      ],
+      "dependency_reasons": {
+        "lem:diagbad": "Smoothness and exact N_G=rad(2 alpha M).",
+        "lem:pencil": "Zero-frequency specialization gives a_p(G)=p sum_i chi_p(kappa_i).",
+        "thm:polynomial": "Apply d=1 and substitute the exact trace into the general asymptotic."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2523,
+        2536
+      ],
+      "formalization_notes": [
+        "The product identity for the four kappa_i is proved in this proof but is a supplementary assertion immediately after the numbered statement."
+      ],
+      "foundation_requirements": [
+        "Equality of coprimality conditions for a number and its radical.",
+        "Finite-product substitution and field algebra."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "a4dbd8b85eb64072a6ab57be42c502c2612dce8daa50c0157b1b456419df0f9e"
+    },
+    {
+      "label": "thm:cyclic",
+      "kind": "theorem",
+      "number": "1.4",
+      "display": "Theorem 1.4",
+      "page": 4,
+      "content": "Coefficient-uniform asymptotic for products of local characters of exact order r",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        420,
+        439
+      ],
+      "proof_ranges": [
+        [
+          2511,
+          2521
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:exceptional",
+        "lem:charsum"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Character exact order and divisibility r|n.",
+        "Identity 2n^2-4n+4=2(1+(rd-1)^2) at n=rd."
+      ],
+      "clauses": [
+        "Height bound for N_G.",
+        "Uniform asymptotic (1.21).",
+        "Local factor (1.22).",
+        "Explicit local trace bound independent of the choices of characters."
+      ],
+      "notes": [],
+      "statement_tex": "\\begin{theorem}\\label{thm:cyclic}\nLet $r\\ge3$ and $d\\ge1$. There is a constant $C_{F,r,d}>0$ such that\n$N_G\\ll_{F,r,d}H_G^{C_{F,r,d}}$ for every form $G$ of degree $rd$\nsatisfying \\eqref{eq:smooth}. For every such $G$, every $q$ and\n$\\psi_q$ as above, and $B\\ge2$,\n\\begin{equation}\\label{eq:cyclicmain}\n \\sum_{\\substack{x\\in\\Z^4\\\\F(x)=0}}W(x/B)\\psi_q(G(x))\n =B^2\\sigma_\\infty(W,F)\\S_{G,\\psi}(q)\n +O_{F,r,d,W,\\eps}\\big((Bq)^{1+\\eps}\\big),\n\\end{equation}\nwhere\n\\begin{equation}\\label{eq:cyclicfactor}\n \\S_{G,\\psi}(q)=\\S_F\\prod_{p\\mid q}\n \\frac{a_{p,\\psi}(G)(p^2-1)}{p^2\\,\\#\\Qc(\\Fp)}.\n\\end{equation}\nMoreover\n$\\abs{a_{p,\\psi}(G)}\\le2\\big(1+(rd-1)^2\\big)p$. The implied\nconstants do not depend on the coefficients of $G$ or on the choice\nof the characters $\\psi_p$.\n\\end{theorem}\n",
+      "principal_internal_dependencies": [
+        "lem:exceptional",
+        "lem:charsum"
+      ],
+      "dependency_reasons": {
+        "lem:exceptional": "Part(i) gives the finite bad-prime product and height bound for n=rd.",
+        "lem:charsum": "Specialize n=rd and the supplied local characters; exact order r implies nonprincipal and n-th power principal."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2511,
+        2521
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Character exact order and divisibility r|n.",
+        "Identity 2n^2-4n+4=2(1+(rd-1)^2) at n=rd."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "091d69bfc3c71312383515ca1fe417b3b725fb61aa60617708d05cd25c612154"
+    },
+    {
+      "label": "cor:powercount",
+      "kind": "corollary",
+      "number": "1.1",
+      "display": "Corollary 1.1",
+      "page": 4,
+      "content": "Uniform count of nonzero r-th powers, r>=3",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        441,
+        453
+      ],
+      "proof_ranges": [
+        [
+          2573,
+          2580
+        ],
+        [
+          2593,
+          2676
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:sieve"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Identify the literal count in Corollary1.1 with the count in Lemma5.8."
+      ],
+      "clauses": [],
+      "notes": [
+        "The sentence after the corollary gives an alternative deduction for even r from Theorem1.2; this is not a required edge for the all-r proof."
+      ],
+      "statement_tex": "\\begin{corollary}\\label{cor:powercount}\nLet $r\\ge3$ and $d\\ge1$, let $G$ be a form of degree $rd$ satisfying\n\\eqref{eq:smooth}, and let\n\\[\n M_{G,r}(B)=\\#\\{x\\in\\Z^4:\\lVert x\\rVert_\\infty\\le B,\\ F(x)=0,\\\n G(x)=k^r\\text{ for some integer }k\\ne0\\}.\n\\]\nFor $B\\ge2$,\n\\begin{equation}\\label{eq:powercount}\n M_{G,r}(B)\\ll_{F,r,d,\\eps}B^{5/3+\\eps}+B^{1+\\eps}\\log^2(2H_GB).\n\\end{equation}\nThe implied constant does not depend on the coefficients of $G$.\n\\end{corollary}\n",
+      "principal_internal_dependencies": [
+        "lem:sieve"
+      ],
+      "dependency_reasons": {
+        "lem:sieve": "Instantiate with n=rd; the proof uses the common general sieve directly."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2593,
+        2676
+      ],
+      "formalization_notes": [
+        "The sentence after the corollary gives an alternative deduction for even r from Theorem1.2; this is not a required edge for the all-r proof."
+      ],
+      "foundation_requirements": [
+        "Identify the literal count in Corollary1.1 with the count in Lemma5.8."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "0c0ca04414f77015e4694aa281da4a3ab9c0dbf196bfc02a0bbc8307443d574f"
+    },
+    {
+      "label": "lem:delta",
+      "number": "2.1",
+      "kind": "lemma",
+      "statement_lines": [
+        615,
+        626
+      ],
+      "proof_lines": [
+        628,
+        634
+      ],
+      "content": "Heath-Brown delta identity, normalization and support, for Q >= 3",
+      "principal_internal_dependencies": [],
+      "external_inputs": [
+        "EXT.HB_DELTA"
+      ],
+      "foundation_requirements": [
+        "foundation:real_analysis",
+        "foundation:finite_additive_characters"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "accepted-source instantiation",
+      "formalization_notes": [
+        "Retain Q >= 3. The normalization cited from HB (3.3) needs an integer strictly between Q/2 and Q; do not silently use the problematic endpoint Q = 2.",
+        "The numbered lemma remains a target: formalize the actual function/constant and instantiate the trusted input; a trusted source is not a completed Lean export."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:forms"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 6,
+      "explicit_source_references": [],
+      "explicit_source_citations": [
+        [
+          "Theorem~1",
+          "HB"
+        ],
+        [
+          "Section~3",
+          "HB"
+        ],
+        [
+          "(3.3)",
+          "HB"
+        ]
+      ],
+      "display": "Lemma 2.1",
+      "proof_ranges": [
+        [
+          628,
+          634
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:delta}\nThere are an infinitely differentiable function $h$ on\n$(0,\\infty)\\times\\R$ and, for every $Q\\ge3$, a constant $c_Q>0$, such\nthat for every integer $n$\n\\begin{equation}\\label{eq:delta}\n \\mathbf 1_{n=0}=\\frac{c_Q}{Q^2}\\sum_{c\\ge1}\\ \\sum_{a\\bmod c}^{*}\n \\e_c(an)\\,h\\Big(\\frac cQ,\\frac n{Q^2}\\Big).\n\\end{equation}\nMoreover $c_Q=1+O_j(Q^{-j})$ for every $j\\ge1$, one has\n$h(x,y)\\ll x^{-1}$ for all $x$ and $y$, and $h(x,y)=0$ unless\n$x\\le\\max\\{1,2\\abs y\\}$.\n\\end{lemma}\n",
+      "statement_sha256": "04b9aee43e0fe8623eb238fc4c9866c9edda2895ebe10590e322c2553745b403"
+    },
+    {
+      "label": "lem:integrals",
+      "number": "2.2",
+      "kind": "lemma",
+      "statement_lines": [
+        667,
+        688
+      ],
+      "proof_lines": [
+        690,
+        753
+      ],
+      "content": "Uniform localization and delta-integral estimates, including r derivative bounds",
+      "principal_internal_dependencies": [
+        "lem:delta"
+      ],
+      "external_inputs": [
+        "EXT.HB_WEIGHT_LOCALIZATION",
+        "EXT.HB_INTEGRAL_ESTIMATES"
+      ],
+      "foundation_requirements": [
+        "foundation:multivariable_calculus",
+        "foundation:orthogonal_change_of_variables",
+        "foundation:surface_integral"
+      ],
+      "auxiliary_dependencies": [
+        "aux:weight_pieces"
+      ],
+      "proof_character": "manuscript adaptation of accepted-source estimates",
+      "formalization_notes": [
+        "Preserve uniform derivative bounds across the entire family of weights, not merely individual constants.",
+        "Small-support membership requires finite signed coordinate permutations, gradient lower bound on the annulus, and invariance of norms/Jacobian under those maps.",
+        "The r derivative is taken with v fixed."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:Istar",
+        "eq:singint"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 7,
+      "explicit_source_references": [
+        "lem:delta",
+        "eq:Istar",
+        "eq:singint",
+        "eq:Izero",
+        "eq:Irapid",
+        "eq:Idecay",
+        "eq:Izero",
+        "eq:Izero",
+        "eq:Irapid",
+        "eq:Idecay"
+      ],
+      "explicit_source_citations": [
+        [
+          "",
+          "HB"
+        ],
+        [
+          "Sections~2 and~6",
+          "HB"
+        ],
+        [
+          "Section~1",
+          "HB"
+        ],
+        [
+          "Lemma~2",
+          "HB"
+        ],
+        [
+          "Lemma~12",
+          "HB"
+        ],
+        [
+          "Theorem~3",
+          "HB"
+        ],
+        [
+          "Lemma~13",
+          "HB"
+        ],
+        [
+          "Lemma~14",
+          "HB"
+        ],
+        [
+          "Lemmas~15, 18 and~22",
+          "HB"
+        ]
+      ],
+      "display": "Lemma 2.2",
+      "proof_ranges": [
+        [
+          690,
+          753
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:integrals}\nLet $0<\\rho_1<\\rho_2$, and let $\\mathcal W$ be a set of weights\nsupported in $\\rho_1\\le\\lVert x\\rVert\\le\\rho_2$, whose partial\nderivatives of each order are bounded on $\\R^4$ uniformly in\n$\\mathcal W$. There are numbers $\\delta\\in(0,1]$ and $r_0\\ge1$,\ndepending only on $F$ and $\\mathcal W$, with the following\nproperties. Let $W\\in\\mathcal W$ and $y\\in\\R^4$, and let $w=W_y$ be\nas in \\eqref{eq:pieces}. Then $I_r^*(v;w)=0$ for $r\\ge r_0$ and every\n$v\\in\\R^4$. Moreover, either $F(x)\\ne0$ for every $x$ in the support\nof $w$, or, for $r>0$,\n\\begin{align}\n I_r^*(0;w)&=\\sigma_\\infty(w,F)+O_j(r^j),\n \\qquad\\frac{\\partial I_r^*(0;w)}{\\partial r}\\ll r^{-1},\\label{eq:Izero}\\\\\n I_r^*(v;w)&\\ll_jr^{-1}\\lVert v\\rVert^{-j},\\label{eq:Irapid}\\\\\n \\abs{I_r^*(v;w)}+r\\,\\bigg|\\frac{\\partial I_r^*(v;w)}{\\partial r}\\bigg|\n &\\ll_\\eps r^{1-2\\eps}\\lVert v\\rVert^{-1+\\eps},\\label{eq:Idecay}\n\\end{align}\nfor every integer $j\\ge1$, every $0<\\eps<1/2$, and, in\n\\eqref{eq:Irapid} and \\eqref{eq:Idecay}, every $v\\ne0$. The\nderivatives are taken with $v$ fixed, and the implied constants\ndepend only on $F$, $\\mathcal W$ and the parameters shown.\n\\end{lemma}\n",
+      "statement_sha256": "448728e37871c3845400aa41cdaafffde2069a4b7214ff9f35b94408076ae686",
+      "dependency_reasons": {
+        "lem:delta": "Support of h gives the uniform cutoff r >= r0, and h(x,y) << x^-1 handles bounded r away from zero."
+      }
+    },
+    {
+      "label": "lem:quadriccount",
+      "number": "2.3",
+      "kind": "lemma",
+      "statement_lines": [
+        769,
+        776
+      ],
+      "proof_lines": [
+        778,
+        812
+      ],
+      "content": "O(U^(2+epsilon)) integral zeros of a nonsingular quaternary form with nonsquare rational determinant",
+      "principal_internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:hyperbolic_split",
+        "foundation:binary_quadratic_discriminant",
+        "foundation:divisor_bound",
+        "foundation:lattice_box_count"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "The rational isotropic split and clearing denominators are manuscript deductions.",
+        "Keep constants dependent on the fixed form J, including denominator-clearing and operator-norm constants.",
+        "The discriminant hypothesis makes the binary complement anisotropic; the zero binary-coordinate slice has only O(U) solutions."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:forms"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 8,
+      "explicit_source_references": [],
+      "explicit_source_citations": [],
+      "display": "Lemma 2.3",
+      "proof_ranges": [
+        [
+          778,
+          812
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:quadriccount}\nLet $J(z)=z^{\\mathsf T}Sz$, where $S$ is a nonsingular symmetric\n$4\\times4$ matrix with rational entries whose determinant is not the\nsquare of a rational number. Then, for $U\\ge1$,\n\\begin{equation}\\label{eq:quadriccount}\n \\#\\{z\\in\\Z^4:\\lVert z\\rVert\\le U,\\ J(z)=0\\}\\ll_{J,\\eps}U^{2+\\eps}.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "ff7cdd187fea757cd39e3fa54b5635e1fa03deafb648fc95504fbfaa00e294d8"
+    },
+    {
+      "label": "lem:polynomialbox",
+      "number": "2.4",
+      "kind": "lemma",
+      "statement_lines": [
+        832,
+        843
+      ],
+      "proof_lines": [
+        845,
+        898
+      ],
+      "content": "Coefficient-uniform simultaneous polynomial-congruence count for squarefree moduli, exact constant C_(n,E)",
+      "principal_internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:polynomial_root_bound",
+        "foundation:CRT",
+        "foundation:totient_divisor_sum",
+        "foundation:squarefree_divisor_products",
+        "foundation:interval_residue_count",
+        "foundation:induction"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Exact C_(n,E) = E + ... + E^n and m=1 case belong to the statement.",
+        "The polynomials may differ at different prime divisors; no common nonvanishing direction is assumed.",
+        "The induction is in n; degeneracy divisor g(y) is part of the proof, not an additional premise."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 9,
+      "explicit_source_references": [
+        "eq:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 2.4",
+      "proof_ranges": [
+        [
+          845,
+          898
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:polynomialbox}\nLet $n,E\\ge1$ be integers and let $m\\ge1$ be squarefree. For every\nprime $p\\mid m$ let $P_p\\in\\Fp[z_1,\\ldots,z_n]$ be a nonzero\npolynomial of total degree at most $E$. Let $I_1,\\ldots,I_n$ be\nintervals, each containing at most $Y$ integers, where $Y\\ge1$. Then\n\\begin{equation}\\label{eq:polynomialbox}\n \\#\\{z\\in\\Z^n:z_i\\in I_i\\ (1\\le i\\le n),\\ P_p(z)=0\\text{ in }\\Fp\n \\text{ for every }p\\mid m\\}\n \\le C_{n,E}^{\\omega(m)}\\Big(\\frac{Y^n}m+Y^{n-1}\\Big),\n\\end{equation}\nwhere $C_{n,E}=E+E^2+\\cdots+E^n$.\n\\end{lemma}\n",
+      "statement_sha256": "bae7173f895c5e6dc8eb16d6f34d497e741f76e8826c70ce4e59a834dfec6022"
+    },
+    {
+      "label": "lem:weil",
+      "number": "2.5",
+      "kind": "lemma",
+      "statement_lines": [
+        908,
+        915
+      ],
+      "proof_lines": [
+        917,
+        921
+      ],
+      "content": "Weil bound (m-1) sqrt(p) for a nonprincipal character and a degree-m polynomial with simple geometric roots",
+      "principal_internal_dependencies": [],
+      "external_inputs": [
+        "EXT.WEIL"
+      ],
+      "foundation_requirements": [
+        "foundation:multiplicative_characters",
+        "foundation:polynomial_factorization"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "accepted-source instantiation",
+      "formalization_notes": [
+        "The simple-root hypothesis must imply the no-perfect-power condition of the precise accepted input.",
+        "Use either Katz (1.2) or Iwaniec-Kowalski Theorem11.23 as the registered source, not two independent unexamined assumptions."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 10,
+      "explicit_source_references": [],
+      "explicit_source_citations": [
+        [
+          "(1.2)",
+          "K"
+        ],
+        [
+          "Theorem~11.23",
+          "IK"
+        ]
+      ],
+      "display": "Lemma 2.5",
+      "proof_ranges": [
+        [
+          917,
+          921
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:weil}\nLet $\\psi$ be a nonprincipal character modulo $p$, and let\n$g\\in\\Fp[z]$ be a polynomial of degree $m\\ge1$ with $m$ distinct\nzeros in $\\overline{\\Fp}$. Then\n\\begin{equation}\\label{eq:weil}\n \\bigg|\\sum_{z\\in\\Fp}\\psi(g(z))\\bigg|\\le(m-1)\\sqrt p.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "a34b009942f0c19685806af4003d5763bf2070223bcfd22c048a78af13a8e081"
+    },
+    {
+      "label": "cor:weilline",
+      "number": "2.6",
+      "kind": "corollary",
+      "statement_lines": [
+        926,
+        933
+      ],
+      "proof_lines": [
+        935,
+        945
+      ],
+      "content": "Projective-line character-sum bound (n-1) sqrt(p)+1",
+      "principal_internal_dependencies": [
+        "lem:weil"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:projective_coordinates",
+        "foundation:homogeneous_polynomial_dehomogenization",
+        "foundation:multiplicative_characters"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Prove invariance under scaling using psi^n principal.",
+        "The point at infinity contributes at most one; if it is a root its multiplicity is exactly one and the affine degree is n-1 >= 1."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 10,
+      "explicit_source_references": [
+        "lem:weil"
+      ],
+      "explicit_source_citations": [],
+      "display": "Corollary 2.6",
+      "proof_ranges": [
+        [
+          935,
+          945
+        ]
+      ],
+      "statement_tex": "\\begin{corollary}\\label{cor:weilline}\nLet $n\\ge2$, let $\\psi$ be a nonprincipal character modulo $p$ such\nthat $\\psi^n$ is principal, and let $g\\in\\Fp[s,t]$ be a form of\ndegree $n$ with $n$ distinct zeros in $\\PP^1(\\overline{\\Fp})$. Then\n\\begin{equation}\\label{eq:weilline}\n \\bigg|\\sum_{(s:t)\\in\\PP^1(\\Fp)}\\psi(g(s,t))\\bigg|\\le(n-1)\\sqrt p+1.\n\\end{equation}\n\\end{corollary}\n",
+      "statement_sha256": "a59112b4b0256d99baea6fc525f6ba98b390a25e83107ee1e253096f016eff2d",
+      "dependency_reasons": {
+        "lem:weil": "Bounds the dehomogenized affine polynomial, whose degree is n or n-1."
+      }
+    },
+    {
+      "label": "lem:katz",
+      "number": "2.7",
+      "kind": "lemma",
+      "statement_lines": [
+        951,
+        964
+      ],
+      "proof_lines": [
+        966,
+        989
+      ],
+      "content": "Quadric character-sum bound (2n^2-4n+4)p under smooth branch divisor",
+      "principal_internal_dependencies": [],
+      "external_inputs": [
+        "EXT.KATZ",
+        "EXT.HYPERSURFACE_CHERN"
+      ],
+      "foundation_requirements": [
+        "foundation:projective_smoothness",
+        "foundation:chern_class_computation",
+        "foundation:trace_norm_bound",
+        "foundation:multiplicative_characters"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript geometric specialization of accepted Katz input",
+      "formalization_notes": [
+        "The manuscript still proves smoothness/geometric irreducibility and verifies transversality and projective character invariance.",
+        "Do not accept the desired numerical quadric bound itself as an unexplained axiom. The coefficient 2(n^2-2n+2) is the paper's Chern-class specialization of the cited source.",
+        "Preserve characters of every order dividing n, including n divisible by p.",
+        "The generic spectral interface explicitly includes the general hypersurface adjunction/degree and coordinate-Jacobian interpretation; those literature components are separately attributed. Quadric-specific smoothness, geometric irreducibility, and the coefficient calculation remain internal proofs."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:smoothp",
+        "eq:forms",
+        "eq:NG"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 10,
+      "explicit_source_references": [
+        "eq:smoothp",
+        "eq:katz"
+      ],
+      "explicit_source_citations": [
+        [
+          "Theorem~8.1(1)",
+          "K"
+        ],
+        [
+          "(5.3)",
+          "K"
+        ]
+      ],
+      "display": "Lemma 2.7",
+      "proof_ranges": [
+        [
+          966,
+          989
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:katz}\nLet $p\\nmid N_F$ be a prime and $n\\ge2$. Let $\\psi$ be a nonprincipal\ncharacter modulo $p$ such that $\\psi^n$ is principal, and let\n$G\\in\\Fp[x_1,x_2,x_3,x_4]$ be a form of degree $n$ such that\n\\begin{equation}\\label{eq:smoothp}\n \\operatorname{rank}\\big(\\nabla F(x),\\nabla G(x)\\big)=2\n \\qquad\\text{for every }x\\in\\overline{\\Fp}^4\\setminus\\{0\\}\n \\text{ with }F(x)=G(x)=0.\n\\end{equation}\nThen\n\\begin{equation}\\label{eq:katz}\n \\bigg|\\sum_{P\\in\\Qc(\\Fp)}\\psi(G(P))\\bigg|\\le(2n^2-4n+4)p.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "82720be2841fb389b51dd90ac0af82fa9c55124e186e76b1feac1baa0b9b6079"
+    },
+    {
+      "label": "lem:crt",
+      "number": "3.1",
+      "kind": "lemma",
+      "statement_lines": [
+        1048,
+        1056
+      ],
+      "proof_lines": [
+        1058,
+        1087
+      ],
+      "content": "CRT multiplicativity of complete sums and invariance under unit scaling of frequency",
+      "principal_internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:CRT",
+        "foundation:finite_additive_characters",
+        "foundation:quadratic_polarization"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Complete Lean proof of both source clauses for the actual mixed sums, integral quadratic form and generic prime-product weights. The source family is supplied only at primes not dividing N, and its extension is proved to reproduce every factor when q is coprime to N.",
+        "The q-divisibility constraint proves independence of the lift of a modulo c. Scaled Chinese remainder bijections for both vectors and units, the exact factors c2*n2 and c1*n1 in the phase, and their removal by local unit permutations are checked.",
+        "Unit-frequency invariance uses the literal integer gcd(t,q*c)=1 condition. Modulus one and t=0 when q*c=1 are included; no coprimality between q and c is assumed.",
+        "The two main identities need no squarefreeness or size hypothesis beyond the source scalar invariance; the prime-product formula for C_q retains squarefreeness. The S_c multiplicativity, modulus-one specializations and exact bridge to the existing prime Fourier sum are separately checked supporting exports.",
+        "All new exports use only standard logical foundations; no literature premise is introduced or used."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:weightproperties",
+        "eq:Snewdef",
+        "eq:Sdef",
+        "eq:Cdef"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 11,
+      "explicit_source_references": [
+        "eq:weightproperties",
+        "eq:crt",
+        "eq:weightproperties"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.1",
+      "proof_ranges": [
+        [
+          1058,
+          1087
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:crt}\nLet $q=q'q''$ be squarefree with $(q,N)=1$, and let $c=c'c''$ with\n$(q'c',q''c'')=1$. Then\n\\begin{equation}\\label{eq:crt}\n \\mathcal S_{q,c}(u)=\\mathcal S_{q',c'}(u)\\mathcal S_{q'',c''}(u).\n\\end{equation}\nMoreover $\\mathcal S_{q,c}(tu)=\\mathcal S_{q,c}(u)$ for every integer\n$t$ with $(t,qc)=1$.\n\\end{lemma}\n",
+      "statement_sha256": "a0b9bc40f84fcae91a115fbca75f82d1f45edbb2eb332a8d19f57065bf5a19a6"
+    },
+    {
+      "label": "lem:gauss",
+      "number": "3.2",
+      "kind": "lemma",
+      "statement_lines": [
+        1092,
+        1108
+      ],
+      "proof_lines": [
+        1110,
+        1152
+      ],
+      "content": "Prime-power quadratic Gauss evaluation, unramified complete sum, and projective quadric point count",
+      "principal_internal_dependencies": [],
+      "external_inputs": [
+        "EXT.MV_GAUSS"
+      ],
+      "foundation_requirements": [
+        "foundation:matrix_adjugate",
+        "foundation:finite_additive_characters",
+        "foundation:quadratic_diagonalization",
+        "foundation:projective_ray_count"
+      ],
+      "auxiliary_dependencies": [
+        "aux:quadratic_gauss_1d"
+      ],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "All three source clauses are proved for the actual general symmetric integral matrix, the literal good-prime modulus N_F=2*abs(det A), every k>=1, and every integral frequency: the shifted Gauss evaluation, the exact S_(p^k) Ramanujan identity, and the actual projective quadric count.",
+        "The general prime-field calculation constructs an orthogonal basis and proves the determinant changes by a nonzero square. Actual residue-digit bijections and additive orthogonality prove V_(k+2)=p^4*V_k, including the literal V_0=1 base. The previously checked scalar prime Gauss identities supply the one-dimensional factors.",
+        "Adjugate square completion and the exact reciprocal permutation of the actual unit group produce the stated phase and Ramanujan factor. Affine additive orthogonality and the existing projective-ray equivalence give the projective cardinality. The integral formulas extend to k=0; the unit lift and final source conjunction retain k>=1. No internal evaluation or counting hypothesis survives, and no literature premise is introduced or used."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:dualform",
+        "eq:Sdef",
+        "eq:ramanujan"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 12,
+      "explicit_source_references": [
+        "eq:gauss0",
+        "eq:gauss",
+        "eq:gauss0"
+      ],
+      "explicit_source_citations": [
+        [
+          "Theorems~9.5 and~9.7",
+          "MV"
+        ]
+      ],
+      "display": "Lemma 3.2",
+      "proof_ranges": [
+        [
+          1110,
+          1152
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:gauss}\nLet $p\\nmid N_F$ be a prime and $k\\ge1$.\n\\begin{enumerate}\n\\item[\\textup{(i)}] For every integer $a$ with $p\\nmid a$,\n\\begin{equation}\\label{eq:gauss}\n \\sum_{x\\bmod p^k}\\e_{p^k}(aF(x)+u\\cdot x)\n =\\chi(p)^kp^{2k}\\e_{p^k}\\big(-\\overline{4a\\alpha}\\,F^*(u)\\big),\n\\end{equation}\nwhere the inverse is taken modulo $p^k$.\n\\item[\\textup{(ii)}] One has\n\\begin{equation}\\label{eq:unram}\n S_{p^k}(u)=\\chi(p)^kp^{2k}R_{p^k}(F^*(u)).\n\\end{equation}\n\\item[\\textup{(iii)}] The number of points of $\\PP^3(\\Fp)$ at which\n$F$ vanishes is $\\#\\Qc(\\Fp)=p^2+(1+\\chi(p))p+1$.\n\\end{enumerate}\n\\end{lemma}\n",
+      "statement_sha256": "55df904616a5da034c10e90cae97c8e1bd7d97f1cc3bc22829e756a7412ca16a"
+    },
+    {
+      "label": "lem:badprime",
+      "number": "3.3",
+      "kind": "lemma",
+      "statement_lines": [
+        1156,
+        1161
+      ],
+      "proof_lines": [
+        1163,
+        1177
+      ],
+      "content": "Uniform bound |S_c(u)| <= 4 sqrt(|alpha|) c^3, including bad primes",
+      "principal_internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:finite_additive_characters",
+        "foundation:smith_normal_form",
+        "foundation:complex_norm_square",
+        "foundation:matrix_determinant"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Complete Lean proof of the actual norm bound at every positive modulus and every integral frequency under the source standing symmetry and integer nonsingularity hypotheses. Modulus one and all bad-prime factors are included; no good-prime, oddness, or modular invertibility condition is used.",
+        "The exact product of the Gauss sum and its conjugate is reindexed by translation, polarized, and evaluated by composite-modulus additive orthogonality. Its norm is bounded by c^4 times the literal finite kernel cardinality of 2*A modulo c.",
+        "The actual integer matrix range has index equal to the absolute determinant by mathlib's proved Smith-normal-form determinant-index theorem. Surjective coordinate reduction identifies the residue range, whose index divides the integer index and equals its kernel cardinality. The factor 16 from det(2*A), square root factor 4, and cardinality bound on actual units give the full complete-sum estimate. No kernel bound or inner Gauss estimate remains assumed in the final theorem, and no literature premise is used."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:Sdef",
+        "eq:forms"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 13,
+      "explicit_source_references": [
+        "eq:badbound"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.3",
+      "proof_ranges": [
+        [
+          1163,
+          1177
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:badprime}\nFor every integer $c\\ge1$ and every $u\\in\\Z^4$,\n\\begin{equation}\\label{eq:badbound}\n \\abs{S_c(u)}\\le4\\abs\\alpha^{1/2}c^3.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "7c295e84598240e2a160b1f16d8831727bc257aeaaa9e703a636a9693be1454d"
+    },
+    {
+      "label": "lem:ramified",
+      "number": "3.4",
+      "kind": "lemma",
+      "statement_lines": [
+        1184,
+        1190
+      ],
+      "proof_lines": [
+        1192,
+        1232
+      ],
+      "content": "Exact shared-prime identity for S_(p,p^k)(u)",
+      "principal_internal_dependencies": [
+        "lem:gauss"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:finite_additive_characters",
+        "foundation:matrix_adjugate"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Complete Lean proof of the exact shared-prime formula for the existing mixed complete sum, every k>=1, and every integral frequency. The source wrapper uses the actual radical condition rad(N_F) divides N and the original local functions supplied only at primes not dividing N.",
+        "Actual vector digits preserve the weight modulo p and remove the quadratic high-digit term; additive orthogonality yields the stationary gradient condition and p^4. The adjugate identity gives adj(A)*u=-(2*a*det A)*y modulo p, whose nonzero scalar supplies the exact weight extraction. The proved Lemma 3.2 evaluation gives the literal weighted U_j formula for j>=2.",
+        "An actual unit-digit bijection with canonical lift a.val+c*t.val proves U_(k+1)=p*mixedCompleteSum by scalar orthogonality imposing precisely p divides F(x). Cancelling only the nonzero scalar p gives the exact factor p^(2*k+1) and Ramanujan modulus p^(k+1). Every inner-factor and unit-lifting deduction is proved, scalar invariance is the only weight hypothesis used, and no literature premise is added or used."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:weightproperties",
+        "eq:Snewdef",
+        "eq:ramanujan"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 13,
+      "explicit_source_references": [
+        "eq:weightproperties",
+        "eq:gauss",
+        "eq:gauss",
+        "lem:gauss",
+        "eq:Uj",
+        "eq:ramified",
+        "eq:Uj"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.4",
+      "proof_ranges": [
+        [
+          1192,
+          1232
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:ramified}\nLet $p\\nmid N$ be a prime and $k\\ge1$. Then\n\\begin{equation}\\label{eq:ramified}\n \\mathcal S_{p,p^k}(u)\n =\\chi(p)^{k+1}p^{2k+1}\\,\\xi_p(\\adj(A)u)\\,R_{p^{k+1}}(F^*(u)).\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "de81b16f9cbc5513815b0b16168ca10e184f349807ff8e14295a2e27a85edd12",
+      "dependency_reasons": {
+        "lem:gauss": "The unweighted stationary residue sum is the shifted Gauss sum (3.8), then summed over units."
+      }
+    },
+    {
+      "label": "lem:goodglobal",
+      "number": "3.5",
+      "kind": "lemma",
+      "statement_lines": [
+        1240,
+        1252
+      ],
+      "proof_lines": [
+        1254,
+        1280
+      ],
+      "content": "Global good-modulus formula and dual-cone ratio, including bad-prime factors in c",
+      "principal_internal_dependencies": [
+        "lem:crt",
+        "lem:gauss",
+        "lem:ramified"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:ramanujan_multiplicativity",
+        "foundation:totient_prime_powers"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Complete Lean proof of both Lemma 3.5 clauses for the existing complete sums and literal q1=gcd(q,c), q2=q/q1. Actual prime-power induction, gcd arithmetic, and CRT prove the good-modulus formula with the precise coefficient q1*c^2 and Ramanujan modulus q1*c.",
+        "The actual Jacobi coefficient is proved to equal the original supplied Dirichlet character on every needed good positive modulus, from precisely the source good-prime Legendre values. The right-hand composite weight is the literal product of the original supplied local functions. No composite-character agreement or global factorization conclusion is assumed.",
+        "Actual unit CRT proves Ramanujan multiplicativity, the unit count gives R_n(0)=phi(n), and the proved divisor identity gives phi(q1*c)=q1*phi(c). An actual positive coprime bad/good decomposition c=b*g extends the cone identity to every positive modulus; gcd(q,c)=gcd(q,g) is proved, and the possibly vanishing factor S_b is retained multiplicatively throughout.",
+        "All 27 new exports use only standard logical foundations, with no new literature premise. Modulus one and zero frequency are included. Scalar invariance is the only weight property used; primitivity, nonsquareness, the weight norm/zero/Fourier bounds, and N>=1 are unnecessary for these identities. N>=1 is not inferred from q coprime to N."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:q1q2",
+        "eq:weightproperties"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 14,
+      "explicit_source_references": [
+        "lem:crt",
+        "eq:unram",
+        "eq:ramified",
+        "eq:goodglobal",
+        "eq:unram",
+        "eq:coneratio",
+        "eq:goodglobal",
+        "lem:crt",
+        "eq:coneratio"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.5",
+      "proof_ranges": [
+        [
+          1254,
+          1280
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:goodglobal}\nLet $q\\ge1$ be squarefree with $(q,N)=1$, let $c\\ge1$, and let $q_1$\nand $q_2$ be as in \\eqref{eq:q1q2}. If $(c,N_F)=1$, then\n\\begin{equation}\\label{eq:goodglobal}\n \\mathcal S_{q,c}(u)\n =C_{q_2}(u)\\,q_1c^2\\chi(q_1c)\\,\\xi_{q_1}(\\adj(A)u)\\,R_{q_1c}(F^*(u)).\n\\end{equation}\nIf $F^*(u)=0$, then, for every $c\\ge1$,\n\\begin{equation}\\label{eq:coneratio}\n \\mathcal S_{q,c}(u)\n =C_{q_2}(u)\\,q_1^2\\chi(q_1)\\,\\xi_{q_1}(\\adj(A)u)\\,S_c(u).\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "dee8ac975fe4fc4117382ebf97062e9c6e6ef2f2dfe5c40557ec40462816cc88",
+      "dependency_reasons": {
+        "lem:crt": "Splits q and c into prime-power factors and separates bad-prime part of c.",
+        "lem:gauss": "Unramified factors are evaluated by (3.9).",
+        "lem:ramified": "Shared-prime factors are evaluated by (3.12)."
+      }
+    },
+    {
+      "label": "lem:genericmod",
+      "number": "3.6",
+      "kind": "lemma",
+      "statement_lines": [
+        1292,
+        1300
+      ],
+      "proof_lines": [
+        1302,
+        1342
+      ],
+      "content": "Off-dual-cone absolute sum over c, retaining q1 | F*(u)",
+      "principal_internal_dependencies": [
+        "lem:crt",
+        "lem:badprime",
+        "lem:goodglobal"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:divisor_bound",
+        "foundation:prime_supported_integer_count",
+        "foundation:harmonic_sum_bound"
+      ],
+      "auxiliary_dependencies": [
+        "aux:ramanujan"
+      ],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Complete source theorem for the literal positive-modulus sum with real cutoff and exact gcd condition. The positive constant is chosen after A and \u03b5, and before N, the original prime functions, q,q\u2081,q\u2082,u,X. It retains the actual constrained Fourier sum, q\u2081\u00b2, the exact divisibility indicator, and (X|F*(u)|)^\u03b5.",
+        "Actual unit-digit Ramanujan recurrences prove prime-power values. Actual CRT yields the global gcd bound and the multiplied-modulus estimate; repeated shared prime factors prove exact vanishing outside q\u2081\u2223F*(u). No internal character-sum estimate is assumed.",
+        "The proved bad/good split and uniform bad-prime bound give the pointwise mixed-sum estimate. Multiplication recovers each source modulus from its chosen factor pair, proving the injective transport to a finite rectangle. Actual factorization vectors supply the prime-support count.",
+        "The finite gcd/divisor/harmonic estimate gives one divisor-count factor and logarithm exponent 1+\u03c9(N_F), strengthening the source proof's two-divisor-factor intermediate bound. Uniform divisor and logarithm power bounds provide the full \u03b5 estimate. The displayed infinite local series in eq:ramsplit is not required or asserted by this alternative proof.",
+        "The source wrapper uses exactly rad(N_F)\u2223N, (q,N)=1, original prime-family invariance and norm bounds. It includes modulus one, X=1, |F*(u)|=1 and zero Fourier factors. No literature premise is added or used; all 39 new exports use standard logical foundations. Lemma 3.7, the broader auxiliary groups, and global analytic theorems remain Pending."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:q1q2",
+        "eq:weightproperties"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 14,
+      "explicit_source_references": [
+        "lem:crt",
+        "lem:badprime",
+        "eq:goodglobal",
+        "eq:weightproperties",
+        "eq:ramanujan",
+        "eq:ramsplit",
+        "eq:ramanujan",
+        "eq:genericmod"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.6",
+      "proof_ranges": [
+        [
+          1302,
+          1342
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:genericmod}\nLet $q=q_1q_2$ be squarefree with $(q,N)=1$, let $u\\in\\Z^4$ with\n$F^*(u)\\ne0$, and let $X\\ge1$. Then\n\\begin{equation}\\label{eq:genericmod}\n \\sum_{\\substack{c\\le X\\\\(c,q)=q_1}}\\frac{\\abs{\\mathcal S_{q,c}(u)}}{c^3}\n \\ll_{F,\\eps}\\abs{C_{q_2}(u)}\\,q_1^2\\,\\mathbf 1_{q_1\\mid F^*(u)}\n \\,(X\\abs{F^*(u)})^\\eps.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "102ff5dff4895dedf6843aad09bfd1a9fb9f93375b607c11697b4e87c4aec849",
+      "dependency_reasons": {
+        "lem:crt": "Separates c into its bad-prime and good-prime parts.",
+        "lem:badprime": "Controls the bad-prime part.",
+        "lem:goodglobal": "Supplies the exact Ramanujan-sum factor at good moduli."
+      }
+    },
+    {
+      "label": "lem:conemod",
+      "number": "3.7",
+      "kind": "lemma",
+      "statement_lines": [
+        1348,
+        1354
+      ],
+      "proof_lines": [
+        1356,
+        1404
+      ],
+      "content": "Cancellation bound for unweighted complete sums on the dual cone, with (c,q)=q1",
+      "principal_internal_dependencies": [
+        "lem:crt",
+        "lem:gauss",
+        "lem:badprime"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:dirichlet_character_period_sum",
+        "foundation:partial_summation",
+        "foundation:mobius_coprimality",
+        "foundation:totient_divisor_sum",
+        "foundation:prime_supported_integer_count",
+        "foundation:omega_subpower"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Cancellation uses nonprincipal chi, derived from alpha nonsquare in the global setup.",
+        "The statement assumes (q,N_F)=1, not the stronger (q,N)=1; keep this independent of xi.",
+        "It does not use the quaternary lattice-count statement of Lemma2.3."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:Sdef",
+        "eq:q1q2"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 15,
+      "explicit_source_references": [
+        "eq:chicube",
+        "eq:unram",
+        "lem:crt",
+        "eq:chicoprime",
+        "lem:badprime",
+        "eq:conegood",
+        "eq:conemod"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.7",
+      "proof_ranges": [
+        [
+          1356,
+          1404
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:conemod}\nLet $q=q_1q_2$ be squarefree with $(q,N_F)=1$, let $u\\in\\Z^4$ with\n$F^*(u)=0$, and let $X\\ge1$. Then\n\\begin{equation}\\label{eq:conemod}\n \\sum_{\\substack{c\\le X\\\\(c,q)=q_1}}S_c(u)\\ll_{F,\\eps}X^3(Xq)^\\eps.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "0b3d1535cb53869b8d063c07407e01072a217dc2f2d9871e6405cdde69e54645",
+      "dependency_reasons": {
+        "lem:crt": "Multiplicativity and bad-prime factorization of S_c.",
+        "lem:gauss": "On the cone, S_c = chi(c)c^2 phi(c) at good c.",
+        "lem:badprime": "Bounds bad-prime factors."
+      }
+    },
+    {
+      "label": "lem:density",
+      "number": "3.8",
+      "kind": "lemma",
+      "statement_lines": [
+        1410,
+        1420
+      ],
+      "proof_lines": [
+        1422,
+        1444
+      ],
+      "content": "Existence and series expression of local densities; explicit good-prime factor; absolute corrected Euler-product convergence",
+      "principal_internal_dependencies": [
+        "lem:badprime",
+        "lem:gauss"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:finite_additive_characters",
+        "foundation:geometric_series",
+        "foundation:euler_product_convergence"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "The absolutely convergent product is the corrected product appearing in definition (1.4), not an unqualified absolute product of sigma_p."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:singint",
+        "eq:SF"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 16,
+      "explicit_source_references": [
+        "lem:badprime",
+        "eq:densityseries",
+        "eq:unram",
+        "eq:SF"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.8",
+      "proof_ranges": [
+        [
+          1422,
+          1444
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:density}\nFor every prime $p$ the limit defining $\\sigma_p$ exists, and\n\\begin{equation}\\label{eq:densityseries}\n \\sigma_p=\\sum_{k\\ge0}\\frac{S_{p^k}(0)}{p^{4k}},\n\\end{equation}\nwhere the series converges absolutely. If $p\\nmid N_F$, then\n\\begin{equation}\\label{eq:sigmagood}\n \\sigma_p=\\frac{1-\\chi(p)p^{-2}}{1-\\chi(p)p^{-1}}.\n\\end{equation}\nIn particular the product in \\eqref{eq:SF} converges absolutely.\n\\end{lemma}\n",
+      "statement_sha256": "7ae71776ae7f3a3901d510b3ccf5fed4f8f352b9841b6ee7e1a1a0603b4d4527",
+      "dependency_reasons": {
+        "lem:badprime": "Absolute convergence of the local density series.",
+        "lem:gauss": "Good-prime coefficients S_(p^k)(0) for the geometric-series evaluation."
+      }
+    },
+    {
+      "label": "lem:singseries",
+      "number": "3.9",
+      "kind": "lemma",
+      "statement_lines": [
+        1446,
+        1457
+      ],
+      "proof_lines": [
+        1459,
+        1513
+      ],
+      "content": "Convergence, Euler-factor identity and uniform tail of the singular series excluding primes dividing q",
+      "principal_internal_dependencies": [
+        "lem:conemod",
+        "lem:badprime",
+        "lem:crt",
+        "lem:density",
+        "lem:gauss"
+      ],
+      "external_inputs": [
+        "EXT.MV_DIRICHLET_L"
+      ],
+      "foundation_requirements": [
+        "foundation:partial_summation",
+        "foundation:dominated_convergence",
+        "foundation:euler_product_convergence"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "The z=0 series need not converge absolutely. Do not replace the limiting argument by an unjustified absolute rearrangement.",
+        "Keep q^epsilon in the tail uniformly in q."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:SF"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 16,
+      "explicit_source_references": [
+        "lem:conemod",
+        "eq:seriestail",
+        "lem:badprime",
+        "lem:crt",
+        "lem:density",
+        "eq:densityseries",
+        "lem:badprime",
+        "eq:sigmagood",
+        "eq:SF",
+        "eq:seriesfactor"
+      ],
+      "explicit_source_citations": [
+        [
+          "Section~4.3",
+          "MV"
+        ]
+      ],
+      "display": "Lemma 3.9",
+      "proof_ranges": [
+        [
+          1459,
+          1513
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:singseries}\nLet $q\\ge1$ be squarefree with $(q,N_F)=1$. The series\n$\\sum_{(c,q)=1}S_c(0)c^{-4}$ converges, and\n\\begin{equation}\\label{eq:seriesfactor}\n \\sum_{\\substack{c\\ge1\\\\(c,q)=1}}\\frac{S_c(0)}{c^4}\n =\\S_F\\prod_{p\\mid q}\\sigma_p^{-1}.\n\\end{equation}\nMoreover, for $X\\ge1$,\n\\begin{equation}\\label{eq:seriestail}\n \\sum_{\\substack{c>X\\\\(c,q)=1}}\\frac{S_c(0)}{c^4}\\ll_{F,\\eps}q^\\eps X^{-1+\\eps}.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "9dcc223cfcf1b9ddc9f67c95bab84c2c771df972e155167bf454efd35a73a7c6",
+      "dependency_reasons": {
+        "lem:conemod": "Partial-summation control and continuity at z=0.",
+        "lem:badprime": "Absolute convergence for z>0 and uniform convergence of bad local factors.",
+        "lem:crt": "Euler-product factorization.",
+        "lem:density": "Identifies the limiting local factors and the corrected Euler product.",
+        "lem:gauss": "The prime-power calculation from the proof of Lemma3.8 is reused for sigma_p(z), not merely its value at z=0."
+      }
+    },
+    {
+      "label": "lem:box",
+      "number": "3.10",
+      "kind": "lemma",
+      "statement_lines": [
+        1539,
+        1552
+      ],
+      "proof_lines": [
+        1554,
+        1567
+      ],
+      "content": "Exceptional congruence count in four variables and its inverse-norm-weighted form",
+      "principal_internal_dependencies": [
+        "lem:polynomialbox"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:matrix_adjugate",
+        "foundation:dyadic_sum",
+        "foundation:lattice_box_count",
+        "foundation:omega_subpower"
+      ],
+      "auxiliary_dependencies": [
+        "aux:polynomialbox_epsilon"
+      ],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Nonzero reduction of F* follows from p odd and invertibility of adj(A), not from existence of a common good direction.",
+        "The abstract D_p polynomials are hypotheses supplied in Section3; Lemma4.1 is not a prerequisite for this abstract result."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:dualform",
+        "eq:Cstrata"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 18,
+      "explicit_source_references": [
+        "lem:polynomialbox",
+        "eq:box",
+        "eq:weightedbox",
+        "eq:box"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.10",
+      "proof_ranges": [
+        [
+          1554,
+          1567
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:box}\nLet $q_1$ and $h$ be coprime squarefree positive integers with\n$(q_1h,N)=1$, and let $U\\ge1$. Then\n\\begin{equation}\\label{eq:box}\n \\#\\{u\\in\\Z^4:\\lVert u\\rVert\\le U,\\ q_1\\mid F^*(u),\\ \\Delta_h(u)=1\\}\n \\ll_{E,\\eps}(q_1h)^\\eps\\Big(\\frac{U^4}{q_1h}+U^3\\Big),\n\\end{equation}\nand\n\\begin{equation}\\label{eq:weightedbox}\n \\sum_{\\substack{0<\\lVert u\\rVert\\le U\\\\q_1\\mid F^*(u)}}\n \\frac{\\Delta_h(u)}{\\lVert u\\rVert}\n \\ll_{E,\\eps}(q_1h)^\\eps\\Big(\\frac{U^3}{q_1h}+U^2\\Big).\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "e101938faf77963163602796f6b200f4b970814d710b720a7a6d3e0069599bd8",
+      "dependency_reasons": {
+        "lem:polynomialbox": "Applied with n=4, modulus q1*h, and possibly different polynomial at each prime."
+      }
+    },
+    {
+      "label": "lem:average",
+      "number": "3.11",
+      "kind": "lemma",
+      "statement_lines": [
+        1569,
+        1576
+      ],
+      "proof_lines": [
+        1578,
+        1591
+      ],
+      "content": "Average Fourier bound over exceptional frequencies with divisibility by q1",
+      "principal_internal_dependencies": [
+        "lem:crt",
+        "lem:box"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:finite_product_expansion",
+        "foundation:divisor_bound",
+        "foundation:omega_subpower"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Cfactor"
+      ],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "The local two-level Fourier estimate (3.3) is an explicit hypothesis of Section3, not an accepted external theorem or an assumed manuscript conclusion.",
+        "Expand over all h|q2; the final q2^(1/2) U^2 term retains the exceptional contribution."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:Cstrata"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 18,
+      "explicit_source_references": [
+        "lem:crt",
+        "eq:Cstrata",
+        "eq:average",
+        "eq:weightedbox"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 3.11",
+      "proof_ranges": [
+        [
+          1578,
+          1591
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:average}\nLet $q=q_1q_2$ be squarefree with $(q,N)=1$, and let $U\\ge1$. Then\n\\begin{equation}\\label{eq:average}\n \\sum_{\\substack{0<\\lVert u\\rVert\\le U\\\\q_1\\mid F^*(u)}}\n \\frac{\\abs{C_{q_2}(u)}}{\\lVert u\\rVert}\n \\ll_{E,K,\\eps}q^\\eps q_2^{3/2}\\Big(\\frac{U^3}{q_1}+q_2^{1/2}U^2\\Big).\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "826e89b1544e5222175b456cff88b4d6a47d09e95c34ec0b53ca6425c6a53410",
+      "dependency_reasons": {
+        "lem:crt": "Multiplicative factorization C_(q2) into local C_p.",
+        "lem:box": "Weighted congruence count (3.30) for each divisor h of q2."
+      }
+    },
+    {
+      "label": "lem:exceptional",
+      "number": "4.1",
+      "kind": "lemma",
+      "statement_lines": [
+        1615,
+        1632
+      ],
+      "proof_lines": [
+        1634,
+        1699
+      ],
+      "content": "Polynomial bound for bad-prime product and uniformly bounded-degree exceptional plane locus",
+      "principal_internal_dependencies": [],
+      "external_inputs": [
+        "EXT.LANG_ELIMINATION",
+        "EXT.HARTSHORNE_BERTINI",
+        "EXT.PROJECTIVE_JACOBIAN"
+      ],
+      "foundation_requirements": [
+        "foundation:jacobian_criterion",
+        "foundation:projective_dimension",
+        "foundation:polynomial_height_bound",
+        "foundation:finite_dense_open_intersection",
+        "foundation:matrix_adjugate"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Part (i) is proved: the fixed generic resultant family is substituted into the actual gradient-minor system, with identical specialization over Q and every prime field.",
+        "The constants in the height bound are chosen for fixed F,n before G. A single nonzero integer resultant value is divisible by every actual bad prime, proving finiteness and the literal N_G bound.",
+        "Part (ii) is proved: a fixed joint-parameter resultant family, the general composite Bertini input and internal rank/specialization/degree deductions give nonzero D_p with D_p(0)=0 and both the dual-form and geometric rank-three consequences.",
+        "The bound E is chosen for fixed F,n before the field, G and p. Bertini is used only over the algebraic closure; no F_p-rational transverse plane is assumed."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:smooth",
+        "eq:NG",
+        "eq:dualform"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 19,
+      "explicit_source_references": [
+        "eq:smooth",
+        "eq:smooth",
+        "eq:transverse"
+      ],
+      "explicit_source_citations": [
+        [
+          "Chapter~IX,\nTheorems~3.2 and~4.1",
+          "La"
+        ],
+        [
+          "Chapter~II, Theorem~8.18",
+          "Ha"
+        ]
+      ],
+      "display": "Lemma 4.1",
+      "proof_ranges": [
+        [
+          1634,
+          1699
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:exceptional}\nLet $n\\ge2$. There are numbers $C_{F,n}\\ge1$ and $E_{F,n}\\ge1$ with\nthe following properties, for every form $G\\in\\Z[x_1,x_2,x_3,x_4]$ of\ndegree $n$ satisfying \\eqref{eq:smooth}.\n\\begin{enumerate}\n\\item[\\textup{(i)}] The form $G$ has bad reduction at only finitely\nmany primes $p\\nmid N_F$, and $N_G\\ll_{F,n}H_G^{C_{F,n}}$.\n\\item[\\textup{(ii)}] For every prime $p\\nmid N_G$ there is a nonzero\npolynomial $D_p\\in\\Fp[u_1,u_2,u_3,u_4]$ of total degree at most\n$E_{F,n}$, with $D_p(0)=0$, such that every $u\\in\\Fp^4$ with\n$D_p(u)\\ne0$ satisfies $F^*(u)\\ne0$ and\n\\begin{equation}\\label{eq:transverse}\n \\operatorname{rank}\\big(\\nabla F(x),\\nabla G(x),u\\big)=3\n \\qquad\\text{for every }x\\in\\overline{\\Fp}^4\\setminus\\{0\\}\n \\text{ with }F(x)=G(x)=u\\cdot x=0.\n\\end{equation}\n\\end{enumerate}\n\\end{lemma}\n",
+      "statement_sha256": "7938f30e3daf3a59c0038a40a9523d4a9934a58b12bcaa31ea3274bec12e6fef"
+    },
+    {
+      "label": "lem:conic",
+      "number": "4.2",
+      "kind": "lemma",
+      "statement_lines": [
+        1712,
+        1724
+      ],
+      "proof_lines": [
+        1726,
+        1754
+      ],
+      "content": "Uniform conic parametrization by binary quadratics over every extension field, with independent derivative vectors",
+      "principal_internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:hyperbolic_split",
+        "foundation:quadratic_diagonalization",
+        "foundation:finite_field_ternary_isotropy",
+        "foundation:projective_coordinates",
+        "foundation:matrix_adjugate",
+        "foundation:polynomial_derivatives"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "The bijection is required over every extension field k/F_p, not only on F_p-points.",
+        "The reference to the proof of Lemma2.3 reuses a linear-algebra construction over F_p; the lattice-count theorem itself is not a dependency."
+      ],
+      "shared_proof_references": [
+        {
+          "label": "lem:quadriccount",
+          "kind": "shared proof construction only",
+          "helper": "foundation:hyperbolic_split",
+          "reason": "Construction of a hyperbolic plane and orthogonal complement; it is reproved or extracted over a general field of characteristic not two."
+        }
+      ],
+      "definition_dependencies": [
+        "eq:dualform"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 20,
+      "explicit_source_references": [
+        "lem:quadriccount"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 4.2",
+      "proof_ranges": [
+        [
+          1726,
+          1754
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:conic}\nLet $p\\nmid N_F$ be a prime and let $u\\in\\Fp^4$ with $F^*(u)\\ne0$.\nThere is a vector $\\mu=(\\mu_1,\\mu_2,\\mu_3,\\mu_4)$ of binary quadratic\nforms $\\mu_i\\in\\Fp[s,t]$ with the following properties.\n\\begin{enumerate}\n\\item[\\textup{(i)}] For every field $k$ containing $\\Fp$, the map\n$(s:t)\\mapsto\\mu(s,t)$ is a bijection from $\\PP^1(k)$ onto the set of\npoints $x$ of $\\PP^3(k)$ with $F(x)=u\\cdot x=0$.\n\\item[\\textup{(ii)}] For every $(s,t)\\in\\overline{\\Fp}^2$ other than\n$(0,0)$, the vectors $\\partial\\mu/\\partial s$ and\n$\\partial\\mu/\\partial t$ at $(s,t)$ are linearly independent.\n\\end{enumerate}\n\\end{lemma}\n",
+      "statement_sha256": "ca2e7c4d28a34232d77170ecf00a36a6f563bf22f5447bb077d258a8ede2c440"
+    },
+    {
+      "label": "lem:section",
+      "number": "4.3",
+      "kind": "lemma",
+      "statement_lines": [
+        1756,
+        1765
+      ],
+      "proof_lines": [
+        1767,
+        1792
+      ],
+      "content": "Transverse plane-section character-sum bound (2n-1) sqrt(p)+1",
+      "principal_internal_dependencies": [
+        "lem:conic",
+        "cor:weilline"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:polynomial_factorization",
+        "foundation:polynomial_chain_rule",
+        "foundation:linear_rank"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Transversality (4.2) is a hypothesis here. Lemma4.1 supplies it later in Lemma4.4; there is no direct proof dependency 4.1 -> 4.3.",
+        "The simple-root conclusion for the pullback is a manuscript deduction and must not be assumed."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:transverse"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 20,
+      "explicit_source_references": [
+        "lem:conic",
+        "lem:conic",
+        "eq:section",
+        "cor:weilline",
+        "lem:conic",
+        "eq:transverse"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 4.3",
+      "proof_ranges": [
+        [
+          1767,
+          1792
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:section}\nLet $p\\nmid N_F$ be a prime and $n\\ge2$. Let $\\psi$ be a nonprincipal\ncharacter modulo $p$ such that $\\psi^n$ is principal, let\n$G\\in\\Fp[x_1,x_2,x_3,x_4]$ be a form of degree $n$, and let\n$u\\in\\Fp^4$ with $F^*(u)\\ne0$ satisfy \\eqref{eq:transverse}. Then\n\\begin{equation}\\label{eq:section}\n \\bigg|\\sum_{\\substack{P\\in\\Qc(\\Fp)\\\\u\\cdot P=0}}\\psi(G(P))\\bigg|\n \\le(2n-1)\\sqrt p+1.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "7b96984c1f2948fc579bf9e090b6f9744ac0485d7e9a2e9df415f349f3ebb62c",
+      "dependency_reasons": {
+        "lem:conic": "Parametrizes the conic and provides independence of the two derivative vectors.",
+        "cor:weilline": "Applies to the degree-2n pullback after simplicity of geometric roots is proved."
+      }
+    },
+    {
+      "label": "lem:fourier",
+      "number": "4.4",
+      "kind": "lemma",
+      "statement_lines": [
+        1796,
+        1808
+      ],
+      "proof_lines": [
+        1810,
+        1848
+      ],
+      "content": "Coefficient-uniform Fourier bounds with exceptional-locus term and exact zero-frequency projective identity",
+      "principal_internal_dependencies": [
+        "lem:exceptional",
+        "lem:katz",
+        "lem:section"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:projective_ray_count",
+        "foundation:finite_additive_characters",
+        "foundation:plane_conic_trivial_count",
+        "foundation:complex_norm_bounds"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "The key internal ray identity is C_p(u)=p*a_u-a for u!=0 and C_p(0)=(p-1)*a.",
+        "The exceptional nonzero-frequency bound uses at most 2p+2 points in a plane section, including singular sections.",
+        "All three weight conditions (3.1) are part of the claimed result.",
+        "All clauses are now checked. The actual exceptional section count follows from the nonzero ternary quadratic restriction, proved Schwartz-Zippel bound and exact projective rays; the three Fourier cases yield the exact 2n^2 estimate. The final integral theorem derives good reduction from the literal N_G, and its uniform wrapper chooses E before G,p and D_p before psi. No new external premise is used."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:Cpsi",
+        "eq:weightproperties",
+        "eq:Cstrata"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 21,
+      "explicit_source_references": [
+        "eq:weightproperties",
+        "eq:Cpsi",
+        "lem:katz",
+        "lem:exceptional",
+        "lem:section"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 4.4",
+      "proof_ranges": [
+        [
+          1810,
+          1848
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:fourier}\nLet $n\\ge2$, let $G$ be as at the beginning of this section, and for\nevery prime $p\\nmid N_G$ let $D_p$ be the polynomial of\nLemma~\\ref{lem:exceptional}. Let $p\\nmid N_G$, and let $\\psi$ be a\nnonprincipal character modulo $p$ such that $\\psi^n$ is principal.\nThen the function $\\xi_p(x)=\\psi(G(x))$ satisfies\n\\eqref{eq:weightproperties}, and the sum \\eqref{eq:Cpsi} satisfies\n\\begin{equation}\\label{eq:fourier}\n \\abs{C_p(u)}\\le2n^2(p^{3/2}+p^2\\,\\mathbf 1_{D_p(u)=0})\n \\quad(u\\in\\Z^4),\\qquad\n C_p(0)=(p-1)\\sum_{P\\in\\Qc(\\Fp)}\\psi(G(P)).\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "a68bd04b8e1d03a156e463351e79e5e60bff104b4704cb918ce40352238b9b4a",
+      "dependency_reasons": {
+        "lem:exceptional": "Supplies D_p with bounded degree, vanishing at zero, and transversality away from D_p=0.",
+        "lem:katz": "Bounds the global projective character sum a by (2n^2-4n+4)p.",
+        "lem:section": "Bounds the transverse plane-section sum a_u."
+      }
+    },
+    {
+      "label": "lem:diagbad",
+      "number": "4.5",
+      "kind": "lemma",
+      "statement_lines": [
+        1862,
+        1866
+      ],
+      "proof_lines": [
+        1868,
+        1882
+      ],
+      "content": "Exact bad-prime criterion for diagonal quadratic G and N_G=rad(2 alpha M)",
+      "principal_internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:matrix_minors",
+        "foundation:algebraic_closure_square_root",
+        "foundation:polynomial_reduction"
+      ],
+      "auxiliary_dependencies": [],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Both directions of the literal geometric bad-prime criterion are proved. The converse constructs an actual nonzero common zero with rank failure over the algebraic closure.",
+        "The actual six-factor product M supplies finiteness directly. The additional bad-prime finset is primeFactors(|M|) minus primeFactors(N_F), yielding the exact existing modulus rad(|2 alpha M|) for every finiteness proof.",
+        "All clauses use only standard logical foundations, independently of the general elimination bound. Zero b_i, negative M, common prime factors of N_F and M, and p=3 outside N_F are included."
+      ],
+      "shared_proof_references": [],
+      "definition_dependencies": [
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:smooth",
+        "eq:NG"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 21,
+      "explicit_source_references": [
+        "eq:smooth"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 4.5",
+      "proof_ranges": [
+        [
+          1868,
+          1882
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:diagbad}\nThe form $G$ satisfies \\eqref{eq:smooth}, and it has bad reduction at\na prime $p\\nmid N_F$ if and only if $p\\mid M$. Hence\n$N_G=\\rad(2\\alpha M)$.\n\\end{lemma}\n",
+      "statement_sha256": "b20b8aed0982bd31a755350cf7a131ce655ccf185e35abbd76af70d6274c755d"
+    },
+    {
+      "label": "lem:pencil",
+      "number": "4.6",
+      "kind": "lemma",
+      "statement_lines": [
+        1897,
+        1908
+      ],
+      "proof_lines": [
+        1910,
+        1977
+      ],
+      "content": "Exact diagonal Fourier pencil formula, projective trace formula and generic 2p^(3/2)+4p bound",
+      "principal_internal_dependencies": [
+        "lem:diagbad",
+        "lem:fourier",
+        "lem:weil"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:finite_additive_characters",
+        "foundation:quadratic_completion_square",
+        "foundation:polynomial_repeated_cubic_root",
+        "foundation:ramanujan_prime_value"
+      ],
+      "auxiliary_dependencies": [
+        "aux:quadratic_gauss_1d"
+      ],
+      "proof_character": "manuscript proof",
+      "formalization_notes": [
+        "Complete Lean proof for all three clauses uses the actual integral Fourier sum and integer projective trace under the literal p not dividing 2 alpha M condition. Source coefficient maps and the integer singular-coordinate divisibility filter are proved explicitly.",
+        "The exact pencil formula and trace use no literature premise. Additive orthogonality, actual quadratic Gauss identities, removal of the zero Gauss term, the v=s*t substitution and all four singular members are internally proved; the nu_i=0 Ramanujan case is retained.",
+        "The actual cubic leading coefficient is the adjugate dual value F*(u), and the four distinct singular parameters give p>=5. Perfectness and polynomial factorization handle repeated-root cubics internally; only the separable cubic bound uses the unchanged registered Weil premise.",
+        "The new prime-field scalar Gauss helpers do not certify the separate general prime-power and counting clauses of Lemma 3.2. The global asymptotic clause of Theorem 1.3 remains Pending."
+      ],
+      "shared_proof_references": [
+        {
+          "label": "lem:gauss",
+          "kind": "shared one-dimensional Gauss helper",
+          "helper": "aux:quadratic_gauss_1d",
+          "reason": "The scalar Gauss evaluation and tau_p^2=chi_p(-1)p occur inside the proof of Lemma3.2."
+        }
+      ],
+      "definition_dependencies": [
+        "eq:diagonal",
+        "eq:kappadef",
+        "eq:pencilforms",
+        "eq:Cpsi"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "page": 22,
+      "explicit_source_references": [
+        "lem:gauss",
+        "eq:Cpsi",
+        "lem:gauss",
+        "eq:pencilsum",
+        "eq:gaussinv",
+        "lem:gauss",
+        "eq:exactpencil",
+        "eq:exactpencil",
+        "lem:diagbad",
+        "eq:fourier",
+        "eq:diagtrace",
+        "eq:exactpencil",
+        "lem:weil",
+        "eq:diagbound"
+      ],
+      "explicit_source_citations": [],
+      "display": "Lemma 4.6",
+      "proof_ranges": [
+        [
+          1910,
+          1977
+        ]
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:pencil}\nLet $p\\nmid2\\alpha M$ be a prime and $u\\in\\Z^4$. Then\n\\begin{equation}\\label{eq:exactpencil}\n C_p(u)=p\\sum_{\\substack{t\\bmod p\\\\t\\not\\equiv t_1,\\ldots,t_4}}\n \\chi_p\\big(-\\Phi_u(t)\\big)\n +p\\sum_{\\substack{1\\le i\\le4\\\\p\\mid u_i}}\\chi_p(\\kappa_i)R_p(\\nu_i(u)).\n\\end{equation}\nIn particular \\eqref{eq:diagtrace} holds, and\n\\begin{equation}\\label{eq:diagbound}\n \\abs{C_p(u)}\\le2p^{3/2}+4p\\qquad\\text{if }p\\nmid F^*(u)u_1u_2u_3u_4.\n\\end{equation}\n\\end{lemma}\n",
+      "statement_sha256": "618fd3c275a1ece6a926c92a41f25d0c9784b28c360e54c09481675bc376a5fd",
+      "dependency_reasons": {
+        "lem:diagbad": "Ensures p does not divide N_G when using the general zero-frequency identity.",
+        "lem:fourier": "The exact zero-frequency identity C_p(0)=(p-1)a_p converts the computed Fourier value into (1.18).",
+        "lem:weil": "Bounds the cubic pencil sum when its geometric roots are distinct."
+      }
+    },
+    {
+      "label": "prop:analytic",
+      "kind": "proposition",
+      "number": "5.1",
+      "display": "Proposition 5.1",
+      "page": 23,
+      "content": "Uniform weighted asymptotic for abstract projectively invariant local functions",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2030,
+        2039
+      ],
+      "proof_ranges": [
+        [
+          2041,
+          2420
+        ],
+        [
+          2357,
+          2420
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:annulus"
+      ],
+      "auxiliary_dependencies": [
+        "aux:singint_absolute",
+        "aux:Sxibound"
+      ],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Existence of a smooth radial cutoff constant near the origin.",
+        "Dyadic telescoping with finitely many lattice terms and bounded small-scale residue.",
+        "Uniform derivative bounds for dilated weights.",
+        "Surface-measure scaling on the homogeneous cone: dS scales cubically and gradient linearly.",
+        "Dominated convergence for the singular integral and geometric-series tail estimates."
+      ],
+      "clauses": [],
+      "notes": [
+        "First proof range is the whole supporting subsection; second is the explicit deferred proof of the proposition.",
+        "The abstract hypotheses (3.1),(3.3) are theorem assumptions; Lemma4.4 is not a dependency of this abstract proposition.",
+        "The exact q=1/origin contribution must remain in the correspondence review."
+      ],
+      "statement_tex": "\\begin{proposition}\\label{prop:analytic}\nLet $W$ be a weight. For every squarefree $q\\ge1$ with $(q,N)=1$ and\nevery $B\\ge2$,\n\\begin{equation}\\label{eq:analytic}\n T_q(B;W)=B^2\\sigma_\\infty(W,F)\\,\\S_\\xi(q)\n +O_{F,E,K,W,\\eps}\\big((Bq)^{1+\\eps}\\big).\n\\end{equation}\nIn particular the implied constant does not depend on $N$, on the\npolynomials $D_p$ or on the functions $\\xi_p$.\n\\end{proposition}\n",
+      "principal_internal_dependencies": [
+        "lem:annulus"
+      ],
+      "dependency_reasons": {
+        "lem:annulus": "Uniform annular asymptotics applied to the dyadic family W_j."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2357,
+        2420
+      ],
+      "formalization_notes": [
+        "First proof range is the whole supporting subsection; second is the explicit deferred proof of the proposition.",
+        "The abstract hypotheses (3.1),(3.3) are theorem assumptions; Lemma4.4 is not a dependency of this abstract proposition.",
+        "The exact q=1/origin contribution must remain in the correspondence review."
+      ],
+      "foundation_requirements": [
+        "Existence of a smooth radial cutoff constant near the origin.",
+        "Dyadic telescoping with finitely many lattice terms and bounded small-scale residue.",
+        "Uniform derivative bounds for dilated weights.",
+        "Surface-measure scaling on the homogeneous cone: dS scales cubically and gradient linearly.",
+        "Dominated convergence for the singular integral and geometric-series tail estimates."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "da9717dc399daeb7f1fc32a01234122dbb9987c6b8847e81335c12d526aeaf09"
+    },
+    {
+      "label": "lem:poisson",
+      "kind": "lemma",
+      "number": "5.1",
+      "display": "Lemma 5.1",
+      "page": 23,
+      "content": "Delta-symbol and Poisson identity with finite modulus sum and absolute frequency convergence",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2045,
+        2054
+      ],
+      "proof_ranges": [
+        [
+          2056,
+          2089
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:delta"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.POISSON_R4"
+      ],
+      "foundation_obligations": [
+        "Finite reindexing by residue classes.",
+        "Scaling change of variables x=By and B^4 Q^(-2) q^(-4)=B^2 q^(-3).",
+        "Character periodicity and the actual definition of S_(q,c)."
+      ],
+      "clauses": [
+        "Exact identity (5.3).",
+        "Only finitely many c contribute.",
+        "For each c, the sum over u is absolutely convergent."
+      ],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:poisson}\nLet $w$ be a weight, let $q\\ge1$ be squarefree with $(q,N)=1$, and\nlet $B>0$ be such that $Q=B/\\sqrt q\\ge3$. Then\n\\begin{equation}\\label{eq:poisson}\n T_q(B;w)=c_Q\\frac{B^2}{q^3}\\sum_{c\\ge1}\\frac1{c^4}\\sum_{u\\in\\Z^4}\n \\mathcal S_{q,c}(u)\\,I_{c/Q}^*\\Big(\\frac u{\\sqrt q};w\\Big),\n\\end{equation}\nwhere only finitely many $c$ contribute, and the sum over $u$\nconverges absolutely for each of them.\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:delta"
+      ],
+      "dependency_reasons": {
+        "lem:delta": "Apply the delta identity to F(x)/q with Q=B/sqrt(q); support truncates c."
+      },
+      "external_input_roles": {
+        "EXT.POISSON_R4": "Poisson summation on z+qc Z^4 for the literal compactly supported smooth g_c, with Fourier normalization and absolute convergence."
+      },
+      "proof_lines": [
+        2056,
+        2089
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Finite reindexing by residue classes.",
+        "Scaling change of variables x=By and B^4 Q^(-2) q^(-4)=B^2 q^(-3).",
+        "Character periodicity and the actual definition of S_(q,c)."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "d63bbb92cd20b85d83e90b8e757e60ff3033f6fdb34270ddf1a7baea54905342"
+    },
+    {
+      "label": "lem:offcone",
+      "kind": "lemma",
+      "number": "5.2",
+      "display": "Lemma 5.2",
+      "page": 24,
+      "content": "Frequency truncation and off-dual-cone contribution",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2126,
+        2130
+      ],
+      "proof_ranges": [
+        [
+          2132,
+          2180
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:poisson",
+        "lem:integrals",
+        "lem:genericmod",
+        "lem:average"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Ipiece"
+      ],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Integer lattice tail sum in dimension4: sum_(||u||>U)||u||^(-j) << U^(4-j).",
+        "Trivial complete-sum bound |S_(q,c)(u)|<=q^4 c^5.",
+        "Divisor epsilon bound and explicit exponent inequalities under q<=B, U=sqrt(q) B^eta."
+      ],
+      "clauses": [
+        "Frequencies ||u||>U contribute O(1).",
+        "Frequencies 0<||u||<=U, F*(u) !=0 contribute O((Bq)^(1+8eta))."
+      ],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:offcone}\nThe terms of \\eqref{eq:poissonpiece} with $\\lVert u\\rVert>U$\ncontribute $O(1)$, and those with $0<\\lVert u\\rVert\\le U$ and\n$F^*(u)\\ne0$ contribute $O((Bq)^{1+8\\eta})$.\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:poisson",
+        "lem:integrals",
+        "lem:genericmod",
+        "lem:average"
+      ],
+      "dependency_reasons": {
+        "lem:poisson": "The terms being estimated are those of the established Poisson expansion.",
+        "lem:integrals": "Rapid-decay bound (2.5) and the localized integral estimates.",
+        "lem:genericmod": "Absolute sum over c at fixed nonzero F*(u).",
+        "lem:average": "Average the exceptional Fourier factors subject to q1|F*(u)."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2132,
+        2180
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Integer lattice tail sum in dimension4: sum_(||u||>U)||u||^(-j) << U^(4-j).",
+        "Trivial complete-sum bound |S_(q,c)(u)|<=q^4 c^5.",
+        "Divisor epsilon bound and explicit exponent inequalities under q<=B, U=sqrt(q) B^eta."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "8a2d9811a673ce05db15ccd6adc0c0de81b7a5e0cdbc819589c10224b4bdc1dc"
+    },
+    {
+      "label": "lem:oncone",
+      "kind": "lemma",
+      "number": "5.3",
+      "display": "Lemma 5.3",
+      "page": 25,
+      "content": "Nonzero dual-cone contribution with cancellation in the modulus",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2185,
+        2188
+      ],
+      "proof_ranges": [
+        [
+          2190,
+          2232
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:poisson",
+        "lem:goodglobal",
+        "lem:conemod",
+        "lem:crt"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Ipiece",
+        "aux:conecount"
+      ],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Partial summation with differentiable compactly supported phi and explicit endpoints.",
+        "Derivative/product rule for t^(-4)I_(t/Q).",
+        "Counting weighted integral dual-cone vectors and divisor epsilon bounds."
+      ],
+      "clauses": [],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:oncone}\nThe terms of \\eqref{eq:poissonpiece} with $0<\\lVert u\\rVert\\le U$\nand $F^*(u)=0$ contribute $O(B\\sqrt q\\,(Bq)^{6\\eta})$.\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:poisson",
+        "lem:goodglobal",
+        "lem:conemod",
+        "lem:crt"
+      ],
+      "dependency_reasons": {
+        "lem:poisson": "Poisson expansion whose cone terms are estimated.",
+        "lem:goodglobal": "Use cone-ratio formula (3.16), including bad primes in c.",
+        "lem:conemod": "Partial sums of S_c(u) with gcd(c,q)=q1.",
+        "lem:crt": "Factor C_q2 and bound it by product of local O(p^2) bounds."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2190,
+        2232
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Partial summation with differentiable compactly supported phi and explicit endpoints.",
+        "Derivative/product rule for t^(-4)I_(t/Q).",
+        "Counting weighted integral dual-cone vectors and divisor epsilon bounds."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "1eb2bfd6f8ec6b087ff344868d08a12be75e8574398ead8304cc2d0fbbd943ca"
+    },
+    {
+      "label": "lem:zerofreq",
+      "kind": "lemma",
+      "number": "5.4",
+      "display": "Lemma 5.4",
+      "page": 25,
+      "content": "Zero-frequency main term and uniform error",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2234,
+        2239
+      ],
+      "proof_ranges": [
+        [
+          2241,
+          2311
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:poisson",
+        "lem:goodglobal",
+        "lem:integrals",
+        "lem:badprime",
+        "lem:singseries",
+        "lem:conemod",
+        "lem:delta"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Sxi",
+        "aux:Sxibound"
+      ],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Uniform boundedness of singular integral on localized annular weights.",
+        "Partial summation with X0=Q^(1-eta), including the lower boundary term.",
+        "Explicit algebra relating Q=B/sqrt(q), q>=1, and final error B(Bq)^(2eta)."
+      ],
+      "clauses": [],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:zerofreq}\nThe terms of \\eqref{eq:poissonpiece} with $u=0$ contribute\n\\[\n B^2\\sigma_\\infty(w,F)\\,\\S_\\xi(q)+O\\big(B(Bq)^{2\\eta}\\big).\n\\]\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:poisson",
+        "lem:goodglobal",
+        "lem:integrals",
+        "lem:badprime",
+        "lem:singseries",
+        "lem:conemod",
+        "lem:delta"
+      ],
+      "dependency_reasons": {
+        "lem:poisson": "Poisson zero-frequency contribution.",
+        "lem:goodglobal": "Cone ratio with u=0 eliminates all gcd(c,q)>1 terms because xi_p(0)=0.",
+        "lem:integrals": "Uniform zero-frequency approximation and derivative bound.",
+        "lem:badprime": "Absolute comparison for c<=X0.",
+        "lem:singseries": "Exact coprime singular series and tail estimate.",
+        "lem:conemod": "Partial sums for large-c partial summation.",
+        "lem:delta": "Replace c_Q by1 with controlled error."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2241,
+        2311
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Uniform boundedness of singular integral on localized annular weights.",
+        "Partial summation with X0=Q^(1-eta), including the lower boundary term.",
+        "Explicit algebra relating Q=B/sqrt(q), q>=1, and final error B(Bq)^(2eta)."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "8ae4294395a08c7d2f6ad43d15010adcb0b348385577c91b735e7be7d5426c05"
+    },
+    {
+      "label": "lem:annulus",
+      "kind": "lemma",
+      "number": "5.5",
+      "display": "Lemma 5.5",
+      "page": 26,
+      "content": "Uniform asymptotic for bounded families of annular weights",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2313,
+        2321
+      ],
+      "proof_ranges": [
+        [
+          2323,
+          2355
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:integrals",
+        "lem:offcone",
+        "lem:oncone",
+        "lem:zerofreq",
+        "lem:quadriccount"
+      ],
+      "auxiliary_dependencies": [
+        "aux:weight_pieces",
+        "aux:Sxibound"
+      ],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Fubini/interchange for bounded integrals on compact annular support.",
+        "Uniform support in the parameter y.",
+        "The trivial-bound treatment outside B>=9 and q<=B."
+      ],
+      "clauses": [],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:annulus}\nLet $\\mathcal W$ be a set of weights as in\nLemma~\\ref{lem:integrals}. For every $W\\in\\mathcal W$, every\nsquarefree $q\\ge1$ with $(q,N)=1$ and every $B\\ge2$,\n\\begin{equation}\\label{eq:annulus}\n T_q(B;W)=B^2\\sigma_\\infty(W,F)\\,\\S_\\xi(q)\n +O_{F,\\mathcal W,E,K,\\eps}\\big((Bq)^{1+\\eps}\\big).\n\\end{equation}\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:integrals",
+        "lem:offcone",
+        "lem:oncone",
+        "lem:zerofreq",
+        "lem:quadriccount"
+      ],
+      "dependency_reasons": {
+        "lem:integrals": "Common localization parameters and bounded-support family.",
+        "lem:offcone": "Truncation and off-cone errors with eta=epsilon/8.",
+        "lem:oncone": "Nonzero cone error.",
+        "lem:zerofreq": "Zero-frequency main term and error.",
+        "lem:quadriccount": "Trivial count for q>B or B<9."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2323,
+        2355
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Fubini/interchange for bounded integrals on compact annular support.",
+        "Uniform support in the parameter y.",
+        "The trivial-bound treatment outside B>=9 and q<=B."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "d637c3715019279f65859e2fe8ae8f7a91b534ad55bff290b04ca14f1ee2db80"
+    },
+    {
+      "label": "lem:charsum",
+      "kind": "lemma",
+      "number": "5.6",
+      "display": "Lemma 5.6",
+      "page": 28,
+      "content": "Uniform general character-sum asymptotic and explicit local factors",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2429,
+        2453
+      ],
+      "proof_ranges": [
+        [
+          2455,
+          2488
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:katz",
+        "lem:gauss",
+        "lem:exceptional",
+        "lem:fourier",
+        "lem:density",
+        "prop:analytic"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Sxi"
+      ],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Projective scaling invariance because psi^n is principal.",
+        "Set unused local functions to zero and D_p=1, without a coefficient-dependent constant.",
+        "Rational-function identity for beta_p and inequalities for chi(p)=+/-1."
+      ],
+      "clauses": [
+        "Three assertions of (5.12): trace bound, alternative beta formula, |beta_p| bound.",
+        "Uniform character-sum identity (5.13), including empty prime product q=1."
+      ],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:charsum}\nLet $n\\ge2$, and let $G\\in\\Z[x_1,x_2,x_3,x_4]$ be a form of degree\n$n$ satisfying \\eqref{eq:smooth}. Let $\\mathcal P$ be a set of primes\nnot dividing $N_G$, and for every $p\\in\\mathcal P$ let $\\psi_p$ be a\nnonprincipal character modulo $p$ such that $\\psi_p^n$ is principal.\nFor $p\\in\\mathcal P$ let $a_{p,\\psi}(G)$ be the sum\n\\eqref{eq:apsidef}, which does not depend on the coordinates chosen\nfor the points $P$ because $\\psi_p^n$ is principal, and set\n\\begin{equation}\\label{eq:localfactor}\n \\beta_p=\\frac{a_{p,\\psi}(G)(p^2-1)}{p^2\\,\\#\\Qc(\\Fp)}.\n\\end{equation}\nThen\n\\begin{equation}\\label{eq:betabound}\n \\abs{a_{p,\\psi}(G)}\\le(2n^2-4n+4)p,\\qquad\n \\beta_p=\\frac{a_{p,\\psi}(G)(p-1)(p-\\chi(p))}{p^2(p^2-\\chi(p))},\\qquad\n \\abs{\\beta_p}\\le\\frac{2n^2-4n+4}p.\n\\end{equation}\nMoreover, for every weight $W$, every squarefree $q\\ge1$ all of whose\nprime divisors lie in $\\mathcal P$, and every $B\\ge2$,\n\\begin{equation}\\label{eq:charsum}\n \\sum_{\\substack{x\\in\\Z^4\\\\F(x)=0}}W(x/B)\\prod_{p\\mid q}\\psi_p(G(x))\n =B^2\\sigma_\\infty(W,F)\\,\\S_F\\prod_{p\\mid q}\\beta_p\n +O_{F,n,W,\\eps}\\big((Bq)^{1+\\eps}\\big).\n\\end{equation}\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:katz",
+        "lem:gauss",
+        "lem:exceptional",
+        "lem:fourier",
+        "lem:density",
+        "prop:analytic"
+      ],
+      "dependency_reasons": {
+        "lem:katz": "Explicit trace bound (2n^2-4n+4)p.",
+        "lem:gauss": "Projective quadric point count, part(iii).",
+        "lem:exceptional": "Finiteness of N_G and coefficient-uniform exceptional polynomials.",
+        "lem:fourier": "Verifies abstract weight/Fourier hypotheses and C_p(0)=(p-1)a_p.",
+        "lem:density": "Good local density formula (3.24).",
+        "prop:analytic": "Apply the abstract uniform asymptotic."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2455,
+        2488
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "Projective scaling invariance because psi^n is principal.",
+        "Set unused local functions to zero and D_p=1, without a coefficient-dependent constant.",
+        "Rational-function identity for beta_p and inequalities for chi(p)=+/-1."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "3e1d79175d110b76892a80562d6566d84209089b35790cb30df2306ec611d0a8"
+    },
+    {
+      "label": "cor:centered",
+      "kind": "corollary",
+      "number": "5.7",
+      "display": "Corollary 5.7",
+      "page": 29,
+      "content": "Centered quadratic-character product has no main term",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2543,
+        2552
+      ],
+      "proof_ranges": [
+        [
+          2554,
+          2571
+        ]
+      ],
+      "internal_dependencies": [
+        "thm:polynomial",
+        "lem:charsum"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Expand the finite prime product into a squarefree divisor/Mobius sum.",
+        "Sum_(s|q)mu(s)=0 for q>1.",
+        "Convergence of product_p(1+c/p^2) for fixed c."
+      ],
+      "clauses": [],
+      "notes": [
+        "This is the numbered Corollary5.7, not a supplementary unnumbered result. The introductory centered-correlation sentence is only its preview."
+      ],
+      "statement_tex": "\\begin{corollary}\\label{cor:centered}\nLet $d\\ge1$, and let $G$ be a form of degree $2d$ satisfying\n\\eqref{eq:smooth}. For every weight $W$, every squarefree $q>1$ with\n$(q,N_G)=1$, and every $B\\ge2$,\n\\begin{equation}\\label{eq:centered}\n \\sum_{\\substack{x\\in\\Z^4\\\\F(x)=0}}W(x/B)\n \\prod_{p\\mid q}\\big(\\chi_p(G(x))-\\beta_p\\big)\n \\ll_{F,d,W,\\eps}(Bq)^{1+\\eps}.\n\\end{equation}\n\\end{corollary}\n",
+      "principal_internal_dependencies": [
+        "thm:polynomial",
+        "lem:charsum"
+      ],
+      "dependency_reasons": {
+        "thm:polynomial": "Apply the main asymptotic separately to every divisor t of q.",
+        "lem:charsum": "Use the explicit beta_p bound in the absolutely convergent error Euler product."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2554,
+        2571
+      ],
+      "formalization_notes": [
+        "This is the numbered Corollary5.7, not a supplementary unnumbered result. The introductory centered-correlation sentence is only its preview."
+      ],
+      "foundation_requirements": [
+        "Expand the finite prime product into a squarefree divisor/Mobius sum.",
+        "Sum_(s|q)mu(s)=0 for q>1.",
+        "Convergence of product_p(1+c/p^2) for fixed c."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "9d928cbfcd2ec047c1615b545048b5c6778e92eb9fc1fb164bbeb32ae8d6214f"
+    },
+    {
+      "label": "lem:sieve",
+      "kind": "lemma",
+      "number": "5.8",
+      "display": "Lemma 5.8",
+      "page": 29,
+      "content": "Square and power sieve with coefficient height retained",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2582,
+        2591
+      ],
+      "proof_ranges": [
+        [
+          2593,
+          2676
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:quadriccount",
+        "lem:exceptional",
+        "lem:charsum"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.MV_PNT_AP"
+      ],
+      "foundation_obligations": [
+        "Coefficient-count bound |G(x)|<=binomial(n+3,3)H_G B^n.",
+        "Count prime divisors >z by logarithms.",
+        "Existence of characters of exact order r when p=1 mod r.",
+        "Finite square expansion, nonnegative weights, and r-th power character values.",
+        "The large-height case L>=sqrt(B) and z=c4(B^(1/3)+L).",
+        "Uniformity in r follows because r is a divisor of fixed n, hence lies in a finite set."
+      ],
+      "clauses": [],
+      "notes": [
+        "HB2 and HBP Section2 are method attributions: the sieve inequality is proved in the manuscript, not imported as an axiom.",
+        "Reference to the cutoff in the proof of Prop5.1 is reuse of a standard bump construction, not a logical dependency on its asymptotic conclusion."
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:sieve}\nLet $n\\ge2$, let $r\\ge2$ be a divisor of $n$, and let\n$G\\in\\Z[x_1,x_2,x_3,x_4]$ be a form of degree $n$ satisfying\n\\eqref{eq:smooth}. Let $M_{G,r}(B)$ be the number of $x\\in\\Z^4$ with\n$\\lVert x\\rVert_\\infty\\le B$ and $F(x)=0$ for which $G(x)=k^r$ for\nsome integer $k\\ne0$. Then, for $B\\ge2$,\n\\begin{equation}\\label{eq:sieve}\n M_{G,r}(B)\\ll_{F,n,\\eps}B^{5/3+\\eps}+B^{1+\\eps}\\log^2(2H_GB).\n\\end{equation}\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:quadriccount",
+        "lem:exceptional",
+        "lem:charsum"
+      ],
+      "dependency_reasons": {
+        "lem:quadriccount": "Trivial overall bound and diagonal p=p-prime terms.",
+        "lem:exceptional": "Control log N_G in terms of log(2 H_G B).",
+        "lem:charsum": "Off-diagonal p != p-prime character-sum bound with conjugate second character."
+      },
+      "external_input_roles": {
+        "EXT.MV_PNT_AP": "For each fixed r|n, lower-bound primes p=1 mod r in (z,2z] by c_r z/log z beyond a fixed threshold."
+      },
+      "proof_lines": [
+        2593,
+        2676
+      ],
+      "formalization_notes": [
+        "HB2 and HBP Section2 are method attributions: the sieve inequality is proved in the manuscript, not imported as an axiom.",
+        "Reference to the cutoff in the proof of Prop5.1 is reuse of a standard bump construction, not a logical dependency on its asymptotic conclusion."
+      ],
+      "foundation_requirements": [
+        "Coefficient-count bound |G(x)|<=binomial(n+3,3)H_G B^n.",
+        "Count prime divisors >z by logarithms.",
+        "Existence of characters of exact order r when p=1 mod r.",
+        "Finite square expansion, nonnegative weights, and r-th power character values.",
+        "The large-height case L>=sqrt(B) and z=c4(B^(1/3)+L).",
+        "Uniformity in r follows because r is a divisor of fixed n, hence lies in a finite set."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "3029659e3f9254de815460e807fa4c5f982b4b8a12b61985daf04393d193c65f"
+    },
+    {
+      "label": "lem:divisible",
+      "kind": "lemma",
+      "number": "5.9",
+      "display": "Lemma 5.9",
+      "page": 30,
+      "content": "Quadratic local trace is integral, divisible by p, and bounded by4p",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2686,
+        2690
+      ],
+      "proof_ranges": [
+        [
+          2692,
+          2708
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:katz",
+        "lem:fourier",
+        "lem:exceptional"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Euler criterion for the quadratic character, including zero.",
+        "Finite-field zero indicator 1-F(x)^(p-1).",
+        "Sum over F_p of y^k vanishes for0<=k<p-1.",
+        "Polynomial total degree <=3(p-1) in four variables forces each monomial to have one exponent<p-1.",
+        "Separate multivariable monomial sums and reduce the integer trace modulo p.",
+        "Coprimality of p and p-1."
+      ],
+      "clauses": [],
+      "notes": [
+        "The dependency on Lem4.4 can be narrowed to its independently proved ray-identity helper. Do not assume the divisibility statement itself."
+      ],
+      "statement_tex": "\\begin{lemma}\\label{lem:divisible}\nLet $G$ be a quadratic form satisfying \\eqref{eq:smooth}, and let\n$p\\nmid N_G$ be a prime. Then $a_p(G)$ is an integer divisible by\n$p$, and $\\abs{a_p(G)}\\le4p$.\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:katz",
+        "lem:fourier",
+        "lem:exceptional"
+      ],
+      "dependency_reasons": {
+        "lem:katz": "Specialize n=2 for |a_p(G)|<=4p.",
+        "lem:fourier": "Use only the zero-frequency ray identity C_p(0)=(p-1)a_p(G).",
+        "lem:exceptional": "Part (i) proves finiteness of the actual bad-prime set, needed to instantiate the literal finite product N_G from the characteristic-zero smoothness hypothesis."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2692,
+        2708
+      ],
+      "formalization_notes": [
+        "The dependency on Lemma 4.4 uses only its independently proved zero-frequency ray identity, not its pending pointwise bound.",
+        "The required finiteness deduction in Lemma 4.1(i) is now proved from characteristic-zero smoothness. The final source-level theorem therefore uses the literal N_G without a separate finite-set or geometric good-reduction premise."
+      ],
+      "foundation_requirements": [
+        "Euler criterion for the quadratic character, including zero.",
+        "Finite-field zero indicator 1-F(x)^(p-1).",
+        "Sum over F_p of y^k vanishes for0<=k<p-1.",
+        "Polynomial total degree <=3(p-1) in four variables forces each monomial to have one exponent<p-1.",
+        "Separate multivariable monomial sums and reduce the integer trace modulo p.",
+        "Coprimality of p and p-1."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "2d1719e740f70d5706de0a186eebc4c07676fd757785657831168a7922c259f4"
+    },
+    {
+      "label": "lem:lowerbeta",
+      "kind": "lemma",
+      "number": "5.10",
+      "display": "Lemma 5.10",
+      "page": 31,
+      "content": "Lower bounds for nonzero local factors using integrality and cyclotomic norms",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2710,
+        2722
+      ],
+      "proof_ranges": [
+        [
+          2724,
+          2751
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:charsum",
+        "lem:divisible",
+        "lem:katz"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.LANG_CYCLOTOMIC"
+      ],
+      "foundation_obligations": [
+        "A nonzero rational integer has absolute value>=1.",
+        "Algebraic integers in Z[zeta_r] have nonzero integral norm when nonzero.",
+        "Complex conjugation is sigma_(-1), distinct from identity for r>=3.",
+        "Bound norm by |a|^2 times the remaining conjugate bounds, then take a square root.",
+        "Elementary inequalities for p>=3 and chi(p)=+/-1."
+      ],
+      "clauses": [
+        "Quadratic-character |beta_p|>=1/(2p^2).",
+        "Quadratic form stronger |beta_p|>=1/(2p).",
+        "Exact-order r>=3 bound (C_n p)^(1-phi(r)/2)/(2p^2)."
+      ],
+      "notes": [],
+      "statement_tex": "\\begin{lemma}\\label{lem:lowerbeta}\nLet $n$, $G$, $\\mathcal P$ and the characters $\\psi_p$ be as in\nLemma~\\ref{lem:charsum}, and let $p\\in\\mathcal P$ be a prime with\n$a_{p,\\psi}(G)\\ne0$.\n\\begin{enumerate}\n\\item[\\textup{(i)}] If $\\psi_p=\\chi_p$, then\n$\\abs{\\beta_p}\\ge1/(2p^2)$, and $\\abs{\\beta_p}\\ge1/(2p)$ if $n=2$.\n\\item[\\textup{(ii)}] If $\\psi_p$ has exact order $r\\ge3$, then\n\\[\n \\abs{\\beta_p}\\ge\\frac1{2p^2}\\big((2n^2-4n+4)p\\big)^{1-\\varphi(r)/2}.\n\\]\n\\end{enumerate}\n\\end{lemma}\n",
+      "principal_internal_dependencies": [
+        "lem:charsum",
+        "lem:divisible",
+        "lem:katz"
+      ],
+      "dependency_reasons": {
+        "lem:charsum": "Rational formula for beta_p and its constants.",
+        "lem:divisible": "Strengthen the quadratic degree2 lower trace bound to |a_p|>=p.",
+        "lem:katz": "Bound all Galois conjugates, corresponding to characters psi_p^t."
+      },
+      "external_input_roles": {
+        "EXT.LANG_CYCLOTOMIC": "Description and number phi(r) of automorphisms of Q(zeta_r), with sigma_t(zeta)=zeta^t."
+      },
+      "proof_lines": [
+        2724,
+        2751
+      ],
+      "formalization_notes": [],
+      "foundation_requirements": [
+        "A nonzero rational integer has absolute value>=1.",
+        "Algebraic integers in Z[zeta_r] have nonzero integral norm when nonzero.",
+        "Complex conjugation is sigma_(-1), distinct from identity for r>=3.",
+        "Bound norm by |a|^2 times the remaining conjugate bounds, then take a square root.",
+        "Elementary inequalities for p>=3 and chi(p)=+/-1."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "76db13744fa2922b0e7a1fe4c324a2960afc05689b9bdc51b13c3bafd990b1c3"
+    },
+    {
+      "label": "cor:relative",
+      "kind": "corollary",
+      "number": "5.11",
+      "display": "Corollary 5.11",
+      "page": 31,
+      "content": "Relative asymptotics in quadratic/general/cyclic cases",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2753,
+        2768
+      ],
+      "proof_ranges": [
+        [
+          2770,
+          2778
+        ]
+      ],
+      "internal_dependencies": [
+        "lem:lowerbeta",
+        "lem:charsum"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "foundation_obligations": [
+        "Finite product lower bound c^(-omega(q)) q^(1-gamma).",
+        "Absorb c^omega(q) into q^epsilon uniformly at fixed n.",
+        "Nonzero singular integral and singular series justify division."
+      ],
+      "clauses": [
+        "Gamma=2 for degree2 quadratic character.",
+        "Gamma=3 for higher even degree quadratic character.",
+        "Gamma=2+phi(r)/2 for local exact order r>=3."
+      ],
+      "notes": [
+        "Uniform convergence in the stated modulus ranges is a supplementary consequence after the corollary, not part of its environment."
+      ],
+      "statement_tex": "\\begin{corollary}\\label{cor:relative}\nLet $n$, $G$, $\\mathcal P$ and the characters $\\psi_p$ be as in\nLemma~\\ref{lem:charsum}. Let $W$ be a weight with\n$\\sigma_\\infty(W,F)\\,\\S_F\\ne0$, and let $q\\ge1$ be a squarefree\ninteger, all of whose prime divisors lie in $\\mathcal P$, such that\n$a_{p,\\psi}(G)\\ne0$ for every $p\\mid q$. Suppose that either\n$\\psi_p=\\chi_p$ for every $p\\mid q$, and set $\\gamma=2$ if $n=2$ and\n$\\gamma=3$ if $n>2$; or that, for some $r\\ge3$, the character\n$\\psi_p$ has exact order $r$ for every $p\\mid q$, and set\n$\\gamma=2+\\varphi(r)/2$. Then, for $B\\ge2$,\n\\begin{equation}\\label{eq:relative}\n \\sum_{\\substack{x\\in\\Z^4\\\\F(x)=0}}W(x/B)\\prod_{p\\mid q}\\psi_p(G(x))\n =B^2\\sigma_\\infty(W,F)\\,\\S_F\\prod_{p\\mid q}\\beta_p\\,\n \\bigg(1+O_{F,n,W,\\eps}\\Big(\\frac{q^\\gamma}B(Bq)^\\eps\\Big)\\bigg).\n\\end{equation}\n\\end{corollary}\n",
+      "principal_internal_dependencies": [
+        "lem:lowerbeta",
+        "lem:charsum"
+      ],
+      "dependency_reasons": {
+        "lem:lowerbeta": "Uniform nonzero local-factor lower bounds.",
+        "lem:charsum": "Divide the absolute error (5.13) by the nonzero main term."
+      },
+      "external_input_roles": {},
+      "proof_lines": [
+        2770,
+        2778
+      ],
+      "formalization_notes": [
+        "Uniform convergence in the stated modulus ranges is a supplementary consequence after the corollary, not part of its environment."
+      ],
+      "foundation_requirements": [
+        "Finite product lower bound c^(-omega(q)) q^(1-gamma).",
+        "Absorb c^omega(q) into q^epsilon uniformly at fixed n.",
+        "Nonzero singular integral and singular series justify division."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "a741591eea1c44a904fbb0a51ba6014f5f4c4e5f3a69cac9c7fefd505e2706f9"
+    },
+    {
+      "label": "prop:salberger",
+      "kind": "proposition",
+      "number": "6.1",
+      "display": "Proposition 6.1",
+      "page": 32,
+      "content": "Determinant-method bound for degree-r power values with explicit coefficient height",
+      "status": "Pending",
+      "checked_exports": [],
+      "statement_lines": [
+        2798,
+        2806
+      ],
+      "proof_ranges": [
+        [
+          2808,
+          2860
+        ]
+      ],
+      "internal_dependencies": [],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.SALBERGER_COUNT",
+        "EXT.SALBERGER_LINES"
+      ],
+      "foundation_obligations": [
+        "Jacobian criterion applied to F(x)=0 and y^r=G(x), including y=0 and x=0 exclusions.",
+        "Project a rational line on X to a rational line on the nonsplit quadric.",
+        "An isotropic rational2-plane forces det(A) to be a rational square via the2x2 block determinant identity.",
+        "Integer nonsquare determinant cannot be a rational square.",
+        "A line not defined over Q has at most one rational point.",
+        "Primitive gcd extraction x=g x-prime; rational k/g whose r-th power is integral is integral.",
+        "Projective primitive integral representatives differ by sign, at most two.",
+        "Height bound |k-prime|<=binomial(r+3,3)^(1/r)H_G^(1/r)B/g.",
+        "Convergence of sum_g g^(-m_r-epsilon) since m_r>=1."
+      ],
+      "clauses": [],
+      "notes": [
+        "Independent geometric branch; do not add Prop5.1, Lem5.8, or Theorem1.2 as proof dependencies merely because it bounds the same counting function.",
+        "The definition of the counted set is shared; alpha nonsquare remains essential."
+      ],
+      "statement_tex": "\\begin{proposition}\\label{prop:salberger}\nLet $r\\ge2$, and let $G\\in\\Z[x_1,x_2,x_3,x_4]$ be a form of degree\n$r$ satisfying \\eqref{eq:smooth}. Then, for $B\\ge1$,\n\\begin{equation}\\label{eq:salberger}\n M_{G,r}(B)\\ll_{r,\\eps}(H_G^{1/r}B)^{m_r+\\eps},\n \\qquad m_r=\\max\\Big\\{1,\\frac3{\\sqrt{2r}}\\Big\\}.\n\\end{equation}\nThe implied constant depends only on $r$ and $\\eps$.\n\\end{proposition}\n",
+      "principal_internal_dependencies": [],
+      "dependency_reasons": {},
+      "external_input_roles": {
+        "EXT.SALBERGER_COUNT": "Theorem0.6, second bound, d1=2,d2=r for the complement of the lines on a nonsingular complete intersection in P4; constant depends only on r and epsilon.",
+        "EXT.SALBERGER_LINES": "Bound the number of lines on such a surface in terms of r, as stated on published p1094."
+      },
+      "proof_lines": [
+        2808,
+        2860
+      ],
+      "formalization_notes": [
+        "Independent geometric branch; do not add Prop5.1, Lem5.8, or Theorem1.2 as proof dependencies merely because it bounds the same counting function.",
+        "The definition of the counted set is shared; alpha nonsquare remains essential."
+      ],
+      "foundation_requirements": [
+        "Jacobian criterion applied to F(x)=0 and y^r=G(x), including y=0 and x=0 exclusions.",
+        "Project a rational line on X to a rational line on the nonsplit quadric.",
+        "An isotropic rational2-plane forces det(A) to be a rational square via the2x2 block determinant identity.",
+        "Integer nonsquare determinant cannot be a rational square.",
+        "A line not defined over Q has at most one rational point.",
+        "Primitive gcd extraction x=g x-prime; rational k/g whose r-th power is integral is integral.",
+        "Projective primitive integral representatives differ by sign, at most two.",
+        "Height bound |k-prime|<=binomial(r+3,3)^(1/r)H_G^(1/r)B/g.",
+        "Convergence of sum_g g^(-m_r-epsilon) since m_r>=1."
+      ],
+      "proof_character": "paper deduction",
+      "statement_sha256": "daa38e4ca98e50685190588cea355164e912a287674d7b8e645876733a2d9182"
+    }
+  ],
+  "auxiliary_obligations": [
+    {
+      "id": "aux:weight_pieces",
+      "content": "Smooth bump theta of mass one and exact integral decomposition W=delta^-4 integral W_y dy, with support control",
+      "source_lines": [
+        647,
+        665
+      ],
+      "labels": [
+        "eq:pieces"
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:smooth_bump",
+        "foundation:change_of_variables",
+        "foundation:compact_support"
+      ],
+      "notes": [
+        "This is a proved/verify-library auxiliary identity, not a numbered result and not a new trusted axiom."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          647,
+          665
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:singint_absolute",
+      "content": "Absolute convergence of sigma_infty for arbitrary compactly supported smooth weight, including the cone vertex",
+      "source_lines": [
+        756,
+        761
+      ],
+      "labels": [
+        "eq:singint"
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:surface_measure_scaling",
+        "foundation:dyadic_sum",
+        "foundation:matrix_norm_lower_bound"
+      ],
+      "notes": [
+        "Uses annular surface measure O(rho^3) and gradient lower bound proportional to rho; preserve this for general weights in Proposition5.1."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          756,
+          761
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:conecount",
+      "content": "Dual-cone inverse-norm weighted lattice count O(U^(1+epsilon))",
+      "source_lines": [
+        814,
+        824
+      ],
+      "labels": [
+        "eq:dualform",
+        "eq:conecount"
+      ],
+      "internal_dependencies": [
+        "lem:quadriccount"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:matrix_adjugate",
+        "foundation:dyadic_sum"
+      ],
+      "notes": [
+        "Verify det(adj(A))=alpha^3 remains nonsquare, then specialize Lemma2.3 and sum dyadically."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          814,
+          824
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:polynomialbox_epsilon",
+      "content": "Replace C_(n,E)^omega(m) by O_(n,E,epsilon)(m^epsilon)",
+      "source_lines": [
+        900,
+        901
+      ],
+      "labels": [],
+      "internal_dependencies": [
+        "lem:polynomialbox"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:omega_subpower"
+      ],
+      "notes": [
+        "Uniformity in polynomial coefficients is retained."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          900,
+          901
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:ramanujan",
+      "content": "Ramanujan-sum exponential and divisor definitions agree; prime-power values and multiplicativity are derived/verified library facts",
+      "source_lines": [
+        1042,
+        1046
+      ],
+      "labels": [
+        "eq:ramanujan"
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        "EXT.MV_RAMANUJAN"
+      ],
+      "foundation_requirements": [
+        "foundation:mobius_arithmetic",
+        "foundation:CRT"
+      ],
+      "notes": [
+        "The divisor formula itself is cited and can be accepted as a precisely registered source input; its manuscript applications remain obligations."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1042,
+          1046
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:Cfactor",
+      "content": "C_q(u)=product_(p|q) C_p(u) and multiplicativity of S_c(u)",
+      "source_lines": [
+        1089,
+        1090
+      ],
+      "labels": [],
+      "internal_dependencies": [
+        "lem:crt"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:prime_factorization"
+      ],
+      "notes": [
+        "The scalar-frequency invariance is already a clause of Lemma3.1; do not count it as a second numbered result."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1089,
+          1090
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:quadratic_gauss_1d",
+      "content": "Scalar quadratic Gauss identity and tau_p^2=chi_p(-1)p, extracted from proof of Lemma3.2",
+      "source_lines": [
+        1127,
+        1137
+      ],
+      "labels": [],
+      "internal_dependencies": [],
+      "external_inputs": [
+        "EXT.MV_GAUSS"
+      ],
+      "foundation_requirements": [
+        "foundation:finite_additive_characters",
+        "foundation:quadratic_character"
+      ],
+      "notes": [
+        "A helper prerequisite to both the proof of Lemma3.2 and Lemma4.6; extracting it avoids a misleading claim that the four-variable statement alone supplies the scalar calculation."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1127,
+          1137
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:Sxi",
+      "content": "Identity between global-series and local-product definitions of the main coefficient S_xi(q)",
+      "source_lines": [
+        1515,
+        1521
+      ],
+      "labels": [
+        "eq:Sxi"
+      ],
+      "internal_dependencies": [
+        "lem:singseries",
+        "lem:crt"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:finite_products"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Cfactor"
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1515,
+          1521
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:Sxibound",
+      "content": "Uniform main-coefficient bound |S_xi(q)| <= |S_F|(4K)^omega(q)/q << q^(-1+epsilon)",
+      "source_lines": [
+        1522,
+        1527
+      ],
+      "labels": [
+        "eq:Sxibound"
+      ],
+      "internal_dependencies": [
+        "lem:density"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:omega_subpower"
+      ],
+      "auxiliary_dependencies": [
+        "aux:Sxi"
+      ],
+      "assumed_hypotheses": [
+        "eq:Cstrata"
+      ],
+      "notes": [
+        "Uses sigma_p^-1 <= 2 at good primes. The Fourier estimate is the abstract hypothesis (3.3); it is verified geometrically only at the later specialization."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1522,
+          1527
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:fourier_instantiation",
+      "content": "Geometric weights satisfy Section3 framework with N=N_G, E=E_(F,n), K=2n^2",
+      "source_lines": [
+        1850,
+        1853
+      ],
+      "labels": [],
+      "internal_dependencies": [
+        "lem:exceptional",
+        "lem:fourier"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [],
+      "notes": [
+        "This interface is the bridge into the abstract analytic proposition."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1850,
+          1853
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:diagonal_strata",
+      "content": "Diagonal weights satisfy two-level bound (3.3) with K=8 and D_p(u)=F*(u)u1u2u3u4",
+      "source_lines": [
+        1979,
+        1983
+      ],
+      "labels": [
+        "eq:Cstrata"
+      ],
+      "internal_dependencies": [
+        "lem:diagbad",
+        "lem:pencil",
+        "lem:fourier"
+      ],
+      "external_inputs": [],
+      "foundation_requirements": [
+        "foundation:polynomial_degree"
+      ],
+      "notes": [
+        "The generic part comes from Lemma4.6 and the globally valid p^2 bound from Lemma4.4 with n=2; the exceptional polynomial here has degree6."
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "source_ranges": [
+        [
+          1979,
+          1983
+        ]
+      ],
+      "classification": "load-bearing auxiliary result"
+    },
+    {
+      "id": "aux:Ipiece",
+      "content": "Localized scaled integral bound and differentiability used in the three frequency estimates",
+      "source_ranges": [
+        [
+          2091,
+          2124
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "load-bearing auxiliary result",
+      "internal_dependencies": [
+        "lem:integrals"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "Common r0 and localized weight setup.",
+        "For 1<=t and 0<||u||<=sqrt(q)B^eta, |I|+r|dI/dr| << t q/(B||u||) B^(3eta).",
+        "Differentiate in r with v fixed; boundary support vanishes at r0."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:matrix_representation",
+      "content": "Any integral quadratic polynomial becomes x^T A x with integral symmetric A after multiplying by2, without changing its zeros",
+      "source_ranges": [
+        [
+          158,
+          165
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "elementary preliminary claim",
+      "internal_dependencies": [],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [],
+      "notes": []
+    },
+    {
+      "id": "supp:smooth_equivalence",
+      "content": "Rank-two condition is equivalent to the smooth complete-intersection curve formulation",
+      "source_ranges": [
+        [
+          279,
+          293
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "geometric definition correspondence",
+      "internal_dependencies": [],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [],
+      "notes": [
+        "Use an existing reputable Jacobian-criterion theorem or prove the correspondence; do not silently make the polynomial rank condition and geometric condition interchangeable."
+      ]
+    },
+    {
+      "id": "supp:projective_values",
+      "content": "Projective well-definedness and local-cover point interpretation",
+      "source_ranges": [
+        [
+          307,
+          318
+        ],
+        [
+          411,
+          418
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "definition and geometric correspondence",
+      "internal_dependencies": [],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "Homogeneity and psi^deg(G)=1 make the local character value independent of representative.",
+        "For the quadratic cover, each projective point has 1+chi_p(G(P)) points above it.",
+        "Consequently a_p is the difference of the cover and quadric point counts."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:local_mean_factor",
+      "content": "The Euler factor equals (1-p^(-2)) times the projective character mean",
+      "source_ranges": [
+        [
+          347,
+          352
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:polynomial"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "Prove the algebraic equality from (1.14).",
+        "Justify the interpretation of the factor by excluding vectors divisible by p."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:nontrivial_range",
+      "content": "Power-saving range for quadratic-character sums relative to B^2",
+      "source_ranges": [
+        [
+          350,
+          353
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:polynomial"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "For fixed eta>0, B^eta<=q<=B^(1-eta), choose epsilon sufficiently small to obtain a uniform positive power saving."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:polynomial_height",
+      "content": "Polynomial coefficient heights recover the B^(5/3+epsilon) count uniformly",
+      "source_ranges": [
+        [
+          372,
+          374
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:uniformcount"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "For fixed K0>0 and H_G<=B^K0, absorb the logarithmic height term into the stated power bound."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:diagonal_signs",
+      "content": "Product identity for kappa_i and possible quadratic trace signs",
+      "source_ranges": [
+        [
+          402,
+          404
+        ],
+        [
+          2531,
+          2536
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:diagonal"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "Product_i kappa_i=alpha M^2.",
+        "At a good prime the sum of four Legendre signs is +/-2 if chi(p)=-1, and0 or+/-4 if chi(p)=1."
+      ],
+      "notes": [
+        "The elementary product calculation is written in the proof of Theorem1.3; do not assume its conclusion as a new premise."
+      ]
+    },
+    {
+      "id": "supp:even_power_reduction",
+      "content": "Even power counts follow from the square-value theorem",
+      "source_ranges": [
+        [
+          455,
+          457
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:uniformcount"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "For even r>=3, a nonzero integer r-th power is a nonzero square; apply the degree rd square theorem."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:im_bound_recovered",
+      "content": "Recover the valid Iwaniec-Munshi character-sum bound in the good-modulus range",
+      "source_ranges": [
+        [
+          234,
+          238
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:polynomial"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "Compare B^2/q+Bq with B^2/q+B^(3/2)+Bq^2 for B>=2,q>=1."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:mallesham_counterexample",
+      "content": "Diagonal sums have exact order B^2/q, contradicting the smaller proposed leading term in M Proposition2.1",
+      "source_ranges": [
+        [
+          238,
+          244
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "thm:diagonal",
+        "cor:relative"
+      ],
+      "auxiliary_dependencies": [
+        "supp:diagonal_signs"
+      ],
+      "external_inputs": [],
+      "clauses": [
+        "Under nonzero singular integral times singular series and good primes q with chi(q)=-1, the local factor has size comparable to1/q.",
+        "Uniform exact-order assertion for B^eta<=q<=B^(1/2-eta).",
+        "Compare with the claimed M bound as a statement to refute, not as a trusted premise."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:hss_comparison",
+      "content": "Summing HSS individual residue-class error bounds loses a power of q",
+      "source_ranges": [
+        [
+          254,
+          259
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "lem:gauss"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.HSS_RESIDUE_ERROR"
+      ],
+      "clauses": [
+        "Count good nonzero cone classes modulo each prime and assemble squarefree moduli.",
+        "On L=q and the matched scale, summing the per-class upper bounds costs approximately B^(1+epsilon)q^4 versus (Bq)^(1+epsilon)."
+      ],
+      "notes": [
+        "Only a comparison of the displayed upper bounds. No lower bound for actual errors and no no-go assertion about refinements of HSS."
+      ]
+    },
+    {
+      "id": "supp:remark41_zero",
+      "content": "Zero frequency gives genuinely p^2-sized C_p(0) in diagonal examples",
+      "source_ranges": [
+        [
+          1985,
+          1989
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "mathematical assertion in Remark4.1",
+      "internal_dependencies": [
+        "lem:pencil"
+      ],
+      "auxiliary_dependencies": [
+        "supp:diagonal_signs"
+      ],
+      "external_inputs": [],
+      "clauses": [],
+      "notes": []
+    },
+    {
+      "id": "supp:remark41_offcone",
+      "content": "Explicit off-dual-cone example with C_p(u)>=p(p-5)",
+      "source_ranges": [
+        [
+          1989,
+          2001
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "mathematical assertion in Remark4.1",
+      "internal_dependencies": [
+        "lem:pencil"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "Verify F,G,u, alpha=-2, M=1386, F*(u)=7 and Phi_u(t)=7(t+2)^2(t+3).",
+        "For every prime p>11 derive the displayed exact four-character expression.",
+        "Its lower bound refutes a frequency-uniform O(p^(3/2)) claim."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:remark41_im",
+      "content": "Convert the off-cone example into the IM complete-sum counterexample",
+      "source_ranges": [
+        [
+          2001,
+          2011
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "mathematical assertion in Remark4.1",
+      "internal_dependencies": [],
+      "auxiliary_dependencies": [
+        "supp:remark41_offcone"
+      ],
+      "external_inputs": [
+        "EXT.IM_FULL_TRANSFORM"
+      ],
+      "clauses": [
+        "Prove equality IM S_(p,p)=p C_p minus the full-space character transform.",
+        "Deduce magnitude at least p^2(p-6), refuting uniform O(p^(5/2))."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:remark41_ramified",
+      "content": "Explicit nonzero dual-cone example with ramified sum chi_p(2)p^4(p-1)",
+      "source_ranges": [
+        [
+          2011,
+          2015
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "mathematical assertion in Remark4.1",
+      "internal_dependencies": [
+        "lem:ramified"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "For the same forms and u=(1,1,0,2), verify F*(u)=0 and the exact sum.",
+        "The magnitude refutes uniform O(p^(9/2))."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:relative_ranges",
+      "content": "Uniform relative-error convergence in all three modulus ranges",
+      "source_ranges": [
+        [
+          2780,
+          2786
+        ],
+        [
+          464,
+          474
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "cor:relative"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "For fixed eta>0, q<=B^(1/gamma-eta) makes the relative error tend to zero uniformly.",
+        "Specialize gamma to2,3, and2+phi(r)/2."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:determinant_thresholds",
+      "content": "Compare determinant-method and logarithmic-height sieve bounds",
+      "source_ranges": [
+        [
+          2862,
+          2878
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "prop:salberger",
+        "thm:uniformcount",
+        "cor:powercount"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "For degree r, solve m_r(1+theta/r)=5/3.",
+        "Prove theta_r=r(5/(3m_r)-1), theta2=2/9, and theta_r=2r/3 for r>=5; verify stated decimal illustrations.",
+        "Make the comparisons with a fixed eta-margin, preserving epsilon and coefficient-height dependence."
+      ],
+      "notes": []
+    },
+    {
+      "id": "supp:frequency_error_summary",
+      "content": "Identify which frequency contribution produces each error scale",
+      "source_ranges": [
+        [
+          2889,
+          2901
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "supplementary mathematical claim",
+      "internal_dependencies": [
+        "lem:offcone",
+        "lem:oncone",
+        "lem:zerofreq",
+        "cor:relative"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [
+        "After epsilon renaming, zero-frequency error is O(B(Bq)^epsilon), cone error O(B sqrt(q)(Bq)^epsilon), and off-cone error O((Bq)^(1+epsilon)).",
+        "A suitably uniform improvement of the full error improves the allowable relative-asymptotic q-range."
+      ],
+      "notes": [
+        "The unknown cancellation question itself is not a theorem to prove."
+      ]
+    },
+    {
+      "id": "supp:conditional_sieve",
+      "content": "Conditional improvement of the exponent with the height term retained",
+      "source_ranges": [
+        [
+          2903,
+          2919
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "conditional mathematical claim",
+      "internal_dependencies": [
+        "lem:sieve",
+        "lem:quadriccount",
+        "lem:exceptional"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.MV_PNT_AP"
+      ],
+      "clauses": [
+        "Assume the full error of (5.13) is O(B^(1+epsilon)q^(theta+epsilon)) at the required pp-prime moduli with the same uniformity.",
+        "For1/2<=theta<1 choose z approximately B^(1/(1+2theta))+log(2H_G B).",
+        "Deduce M_(G,r)(B) << B^(2-1/(1+2theta)+epsilon)+B^(1+epsilon)log^2(2H_G B).",
+        "Theta=1/2 yields first exponent3/2."
+      ],
+      "notes": [
+        "The stronger error is an explicit antecedent of the conditional theorem, not a project axiom or a claimed proved improvement.",
+        "It is better to factor the proof of Lem5.8 into a parameterized sieve helper; the already-specialized conclusion of Lem5.8 alone does not prove this refinement."
+      ]
+    },
+    {
+      "id": "supp:abstract_weight_specialization",
+      "content": "Apply the abstract analytic proposition to other local functions satisfying its stated hypotheses",
+      "source_ranges": [
+        [
+          2933,
+          2939
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "scope consequence",
+      "internal_dependencies": [
+        "prop:analytic"
+      ],
+      "auxiliary_dependencies": [],
+      "external_inputs": [],
+      "clauses": [],
+      "notes": [
+        "This is theorem instantiation. New families of functions would require proving their Fourier hypotheses, not assuming a new theorem of the frozen github manuscript."
+      ]
+    },
+    {
+      "id": "supp:square_determinant",
+      "content": "Square-determinant untwisted count has B^2 log B and B^2 terms with the stated error",
+      "source_ranges": [
+        [
+          2944,
+          2947
+        ]
+      ],
+      "status": "Pending",
+      "checked_exports": [],
+      "classification": "trusted-source restatement",
+      "internal_dependencies": [],
+      "auxiliary_dependencies": [],
+      "external_inputs": [
+        "EXT.HB_SQUARE_DETERMINANT"
+      ],
+      "clauses": [],
+      "notes": []
+    }
+  ],
+  "external_input_catalog": {
+    "EXT.HB_DELTA": {
+      "reference": "HB",
+      "locator": "Theorem 1; Section 3, equation (3.3)",
+      "scope": "Delta-symbol identity, common smooth h, support and size, and c_Q=1+O_j(Q^-j); use the manuscript-safe range Q>=3.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.HB_DELTA",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HB_WEIGHT_LOCALIZATION": {
+      "reference": "HB",
+      "locator": "Sections 2 and 6; Lemmas 2 and 12",
+      "scope": "Uniform small-support localization of a bounded smooth family with gradient bounded below; coordinate permutations/sign changes and membership in the admissible local weight class.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.HB_WEIGHT_LOCALIZATION",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HB_INTEGRAL_ESTIMATES": {
+      "reference": "HB",
+      "locator": "Theorem 3; Lemmas 13, 14, 15, 18 and 22",
+      "scope": "Singular integral normalization, zero-frequency approximation, derivative reduction and decay estimates for the local oscillatory integrals.",
+      "status": "Trusted literature input; precise Lean interfaces pending",
+      "id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.WEIL": {
+      "reference": "K",
+      "locator": "Published equation (1.2); matching multiplicative-character bound in Section 1, page 1 of the author version dated April 19, 2001",
+      "scope": "For a prime p, a nonprincipal multiplicative character of F_p extended by zero, and a polynomial f of degree d>=1 with d distinct zeros in an algebraic closure, the norm of sum_{z in F_p} psi(f(z)) is at most (d-1)*sqrt(p). No condition p not dividing d is imposed.",
+      "status": "Trusted literature input; exact simple-root prime-field interface registered",
+      "id": "EXT.WEIL",
+      "trust": "The cited univariate Weil estimate is assumed under the author-approved source-relative scope. The projective-line deductions are proved independently from this interface.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.weil_simple_roots"
+      ],
+      "interface_status": "Registered; inspection in the verification report",
+      "source_url": "https://web.math.princeton.edu/~nmk/multp5.pdf",
+      "published_doi": "10.1155/S1073792802106088",
+      "correspondence_record": "certification/correspondence/weil_input.md",
+      "lean_statement": "For p : Nat with Fact p.Prime, psi : MulChar (ZMod p) Complex with psi != 1, f : Polynomial (ZMod p) with 0 < f.natDegree and Fintype.card (f.rootSet (AlgebraicClosure (ZMod p))) = f.natDegree, norm (sum z : ZMod p, psi (f.eval z)) <= (f.natDegree - 1 : Real) * Real.sqrt p."
+    },
+    "EXT.KATZ": {
+      "reference": "K",
+      "locator": "Published Theorem 8.1(1) and (5.3); directly inspected author-version Theorem 18(1), printed p.12, trace formula p.5; composite hypersurface interpretation uses EXT.HYPERSURFACE_CHERN",
+      "scope": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
+      "status": "Trusted literature input; general surface spectral interface registered",
+      "id": "EXT.KATZ",
+      "trust": "Composite literature premise: Katz cohomology and trace formula, together with the explicitly registered general hypersurface geometry and Chern/degree formulas. The actual quadric geometry, coefficient specialization, and scalar norm estimate remain proved deductions.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ],
+      "interface_status": "Registered composite literature interface; actual Lean axiom type inspected and hashed. Katz supplies the spectral theorem and EXT.HYPERSURFACE_CHERN supplies the general geometric/adjunction interpretation. The quadric specialization is proved in KatzBound.lean.",
+      "source_url": "https://web.math.princeton.edu/~nmk/multp5.pdf",
+      "published_doi": "10.1155/S1073792802106088",
+      "correspondence_record": "certification/correspondence/katz_input.md",
+      "lean_statement": "For prime p, nonzero homogeneous F,G in four variables over F_p of positive degrees m,n, assume the coefficient extension of F to the algebraic closure is irreducible and satisfies the nonvanishing-gradient condition, and the extended pair F,G satisfies the actual rank-two condition at every nonzero common geometric zero. For a nonprincipal multiplicative character psi with psi^n principal and any integer polynomial c satisfying coeff_j((1+m*T)*c)=coeff_j((1+T)^4) for j<=2, there exist r:Nat and lambda:Fin r->Complex such that (r:Int)=m*coeff_2(c*(1-n*T+n^2*T^2)), the actual projective hypersurface character sum equals sum lambda, and every lambda has norm p. This combines Katz spectral data with the general hypersurface adjunction and degree formulas; it contains no quadric specialization or scalar trace bound.",
+      "source_components": [
+        "EXT.KATZ",
+        "EXT.HYPERSURFACE_CHERN"
+      ]
+    },
+    "EXT.MV_GAUSS": {
+      "reference": "MV",
+      "locator": "Theorems 9.5 and 9.7",
+      "scope": "Quadratic Gauss-sum conjugation and norm identities, giving tau_p^2=chi_p(-1)p and tau_p^4=p^2 for odd p.",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.MV_GAUSS",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_RAMANUJAN": {
+      "reference": "MV",
+      "locator": "Theorem 4.1",
+      "scope": "R_n(t)=sum_{a mod n, gcd(a,n)=1} e_n(a*t)=sum_{h|gcd(n,t)} h*mu(n/h).",
+      "status": "Trusted literature input; precise Lean interface pending",
+      "id": "EXT.MV_RAMANUJAN",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_DIRICHLET_L": {
+      "reference": "MV",
+      "locator": "Section 4.3",
+      "scope": "Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums.",
+      "status": "Trusted literature input or verified library result; precise interface pending",
+      "id": "EXT.MV_DIRICHLET_L",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.LANG_ELIMINATION": {
+      "reference": "La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002",
+      "locator": "Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404\u2013405",
+      "scope": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included.",
+      "status": "Registered trusted literature input",
+      "id": "EXT.LANG_ELIMINATION",
+      "trust": "Exact published resultant-system statement under the author-approved source-relative scope; all parameter substitutions and manuscript-specific deductions are internal proofs.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants"
+      ],
+      "interface_status": "Registered generic homogeneous resultant-system interface; actual Lean axiom type inspected and hashed. Polynomial-parameter substitution is proved in EliminationFamily.lean. Both manuscript elimination systems, the bad-reduction integer witness, finiteness, uniform height bound, exceptional-plane resultant specialization and uniform degree are proved internally.",
+      "source_url": "https://link.springer.com/book/10.1007/978-1-4613-0041-0",
+      "correspondence_record": "certification/correspondence/elimination_input.md",
+      "lean_statement": "For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included."
+    },
+    "EXT.HARTSHORNE_BERTINI": {
+      "reference": "Ha",
+      "locator": "Chapter II, Theorem 8.18 and proof, printed pp. 179-180; inspected book PDF pp. 194-195. The generic coordinate interpretation uses EXT.PROJECTIVE_JACOBIAN. Stacks Lemma 33.47.3, tag 0FD6, independently gives the smooth-scheme version.",
+      "scope": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
+      "status": "Trusted literature input; general coordinate Bertini interface reviewed",
+      "id": "EXT.HARTSHORNE_BERTINI",
+      "trust": "Composite general geometric premise: Hartshorne Bertini plus the separately attributed projective Jacobian, component, dimension and tangent-space interpretation. All deductions for the actual F,G and the exceptional polynomial remain internal.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent"
+      ],
+      "interface_status": "Registered composite general coordinate Bertini interface; actual Lean axiom type inspected and hashed. The rank-three consequence, manuscript specialization, resultant descent, exceptional polynomial and uniform degree are proved internally.",
+      "source_url": "https://ebooks.karbust.me/Mathematics/Robin%20Hartshorne%20-%20Algebraic%20Geometry%20%281977%29%20%5B978-1-4757-3849-0%5D.pdf",
+      "supporting_source_urls": [
+        "https://stacks.math.columbia.edu/tag/0FD6",
+        "https://stacks.math.columbia.edu/tag/0FD4"
+      ],
+      "correspondence_record": "certification/correspondence/bertini_input.md",
+      "lean_statement": "For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted.",
+      "source_components": [
+        "EXT.HARTSHORNE_BERTINI",
+        "EXT.PROJECTIVE_JACOBIAN"
+      ]
+    },
+    "EXT.POISSON_R4": {
+      "reference": "HB and reputable analysis library",
+      "locator": "Poisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem",
+      "scope": "Schwartz/compactly supported smooth functions and affine-lattice scaling; exact signs and absolute convergence must be instantiated. Prefer the precise official mathlib theorem when available; otherwise register the exact cited Poisson input before use.",
+      "status": "Pending registration",
+      "used_by": [
+        "lem:poisson"
+      ],
+      "id": "EXT.POISSON_R4",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.MV_PNT_AP": {
+      "reference": "MV",
+      "locator": "Corollary11.21",
+      "scope": "Fixed-modulus prime-number theorem in arithmetic progressions, specialized to a lower bound in (z,2z] for p=1 mod r.",
+      "status": "Pending registration",
+      "used_by": [
+        "lem:sieve"
+      ],
+      "id": "EXT.MV_PNT_AP",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.LANG_CYCLOTOMIC": {
+      "reference": "La",
+      "locator": "ChapterVI, Theorem3.1",
+      "scope": "The phi(r) automorphisms of Q(zeta_r), indexed by reduced residues, with sigma_t(zeta_r)=zeta_r^t.",
+      "status": "Pending registration",
+      "used_by": [
+        "lem:lowerbeta"
+      ],
+      "id": "EXT.LANG_CYCLOTOMIC",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.SALBERGER_COUNT": {
+      "reference": "S",
+      "locator": "Theorem0.6, second bound, d1=2,d2=r",
+      "scope": "Uniform count outside lines on a smooth complete intersection in P4: O_(r,epsilon)(B^(3/sqrt(2r)+epsilon)+B).",
+      "status": "Pending registration",
+      "used_by": [
+        "prop:salberger"
+      ],
+      "id": "EXT.SALBERGER_COUNT",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.SALBERGER_LINES": {
+      "reference": "S",
+      "locator": "Published p1094, paragraph following Theorem0.6",
+      "scope": "Number of geometric lines bounded in terms of the fixed degrees for these smooth complete intersections.",
+      "status": "Pending registration",
+      "used_by": [
+        "prop:salberger"
+      ],
+      "id": "EXT.SALBERGER_LINES",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.IM_FULL_TRANSFORM": {
+      "reference": "IM",
+      "locator": "Lemma4.3",
+      "scope": "For the explicit good diagonal forms in Remark4.1, the full-space transform sum_x chi_p(G(x)) e_p(u.x) has absolute value at most p^2.",
+      "status": "Pending registration",
+      "used_by": [
+        "supp:remark41_im"
+      ],
+      "id": "EXT.IM_FULL_TRANSFORM",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HB_SQUARE_DETERMINANT": {
+      "reference": "HB",
+      "locator": "Theorem7",
+      "scope": "The untwisted count for square determinant has B^2 log B main term, B^2 secondary term and O(B^(3/2+epsilon)) remainder, under the source weight hypotheses.",
+      "status": "Pending registration",
+      "used_by": [
+        "supp:square_determinant"
+      ],
+      "id": "EXT.HB_SQUARE_DETERMINANT",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HSS_RESIDUE_ERROR": {
+      "reference": "HSS",
+      "locator": "Theorem4.1",
+      "scope": "Published per-residue-class upper error bound O(B^(2-tau+epsilon)/L), L^2=O(B^(1-tau)), -1<tau<1; comparison input, not the actual-error lower bound.",
+      "status": "Pending registration",
+      "used_by": [
+        "supp:hss_comparison"
+      ],
+      "id": "EXT.HSS_RESIDUE_ERROR",
+      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
+      "lean_declarations": [],
+      "interface_status": "Pending"
+    },
+    "EXT.HYPERSURFACE_CHERN": {
+      "id": "EXT.HYPERSURFACE_CHERN",
+      "reference": "Fulton; Stacks Project",
+      "locator": "Fulton, Intersection Theory, 2nd ed., Examples 2.5.1-2.5.2 (p.42), 3.2.11-3.2.12 (pp.59-60); Stacks tags 0FMH, 01V4, 02UF, 00T1, 089X",
+      "scope": "For a smooth degree-m hypersurface X in P^3, c(T_X)=(1+L)^4/(1+mL) through degree two and integral_X L^2=m, over arbitrary fields. The standard homogeneous hypersurface/Jacobian interpretation identifies actual geometric irreducibility and rank predicates with the scheme hypotheses of Katz.",
+      "status": "Explicit component of the registered general Katz surface interface",
+      "trust": "General published geometric translation and intersection formulas used jointly in EXT.KATZ. No separate Lean premise is introduced; no quadric-specific geometry, Chern coefficient, or scalar estimate is assumed.",
+      "lean_declarations": [],
+      "interface_status": "Used in composite EXT.KATZ interface",
+      "composite_declarations": [
+        "QuaternaryQuadraticForms.Trusted.katz_surface_spectral_data"
+      ],
+      "source_url": "https://link.springer.com/book/10.1007/978-1-4612-1700-8",
+      "supporting_source_urls": [
+        "https://stacks.math.columbia.edu/tag/0FMH",
+        "https://stacks.math.columbia.edu/tag/01V4",
+        "https://stacks.math.columbia.edu/tag/02UF",
+        "https://stacks.math.columbia.edu/tag/00T1",
+        "https://stacks.math.columbia.edu/tag/089X"
+      ],
+      "correspondence_record": "certification/correspondence/katz_input.md",
+      "lean_statement": "The general geometric and Chern/degree interpretation in Trusted.katz_surface_spectral_data, as detailed in the shared correspondence review."
+    },
+    "EXT.PROJECTIVE_JACOBIAN": {
+      "id": "EXT.PROJECTIVE_JACOBIAN",
+      "reference": "Hartshorne; Stacks Project",
+      "locator": "Hartshorne II.8.18 proof, p.180; Stacks Definition 10.137.5 (00T6), Lemma 10.137.6 (00T7), Theorem 10.34.1 (00FV), Lemmas 10.140.1 (00TR), 10.140.5 (00TV), 10.106.3 (00NQ), 28.9.4 (02IR), and 28.7.6 (033M).",
+      "scope": "For any finite homogeneous system in N variables over an algebraically closed field, full rank c of the Jacobian at every nonzero common zero gives a smooth projective closed subscheme locally of dimension N-1-c. Its cone tangent is the common kernel of the formal gradients, its projective tangent is the quotient by the radial line, and a proper regular hyperplane section has nonzero differential on that tangent. The smooth projective scheme has finitely many disjoint smooth integral components. Empty loci are handled vacuously. No characteristic restriction or divisibility hypothesis on the degrees is imposed.",
+      "status": "Explicit geometric source component of the general coordinate Bertini interface",
+      "trust": "General standard smooth-presentation, dimension, component and tangent-space facts used jointly with Hartshorne Bertini. This is not a separate Lean premise and contains no manuscript-specific form, elimination, degree-bound or arithmetic conclusion.",
+      "lean_declarations": [],
+      "interface_status": "Used in the reviewed composite EXT.HARTSHORNE_BERTINI interface",
+      "composite_declarations": [
+        "QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent"
+      ],
+      "source_url": "https://stacks.math.columbia.edu/tag/00T7",
+      "supporting_source_urls": [
+        "https://stacks.math.columbia.edu/tag/00T6",
+        "https://stacks.math.columbia.edu/tag/00FV",
+        "https://stacks.math.columbia.edu/tag/00TR",
+        "https://stacks.math.columbia.edu/tag/00TV",
+        "https://stacks.math.columbia.edu/tag/00NQ",
+        "https://stacks.math.columbia.edu/tag/02IR",
+        "https://stacks.math.columbia.edu/tag/033M"
+      ],
+      "correspondence_record": "certification/correspondence/bertini_input.md",
+      "lean_statement": "The general projective-Jacobian, dimension, component and tangent-space interpretation in Trusted.bertini_homogeneous_tangent, as derived in the shared source-correspondence review."
+    }
+  },
+  "excluded_comparison_claims": [
+    {
+      "reference": "IM",
+      "locator": "Lemma4.6",
+      "reason": "Uniform O(p^(5/2)) for S_(p,p)(u) is explicitly refuted by Remark4.1; comparison target only."
+    },
+    {
+      "reference": "M",
+      "locator": "Lemma5.3",
+      "reason": "Uniform O(p^(3/2)) for its S_(p,1)(u)=C_p(u) is explicitly refuted by Remark4.1."
+    },
+    {
+      "reference": "M",
+      "locator": "Lemma5.4",
+      "reason": "Uniform O(p^(9/2)) for the ramified sum is explicitly refuted by Remark4.1."
+    },
+    {
+      "reference": "M",
+      "locator": "Proposition2.1",
+      "reason": "Its B^2 q^(-3/2) leading bound is contradicted in the introduction by exact-order B^2/q examples; it is not an assumed input."
+    }
+  ],
+  "graph_notes": [
+    "Directed edges are prerequisites -> consumer.",
+    "Explicit references to an equation used as a hypothesis or definition are not proof-dependency edges.",
+    "The shared hyperbolic splitting construction from Lemma2.3 is required by Lemma4.2, but Lemma2.3's lattice-count conclusion is not.",
+    "The scalar Gauss helper in the proof of Lemma3.2 is also used by Lemma4.6; it should be exported separately or represented as a proof-helper edge.",
+    "No proof dependency from Lemma4.1 to abstract Lemma3.10 or3.11: the exceptional polynomials and Fourier estimate are hypotheses there.",
+    "The pointwise bounds in M Lemmas5.3/5.4 and IM Lemma4.6 are comparison targets contradicted by Remark4.1, not accepted premises.",
+    "Uncited standard facts listed as foundation requirements must be discharged by a verified reputable library declaration, proved in-project, or supplied with an explicit accepted literature interface; they are not automatically new axioms.",
+    "Principal logical dependencies, not mere textual cross-references.",
+    "Abstract Fourier hypotheses are theorem assumptions, not axioms and not edges from Lemma4.4 into Section3.",
+    "Trusted inputs require exact source interfaces before use; literature comparison claims known false in this manuscript are excluded."
+  ],
+  "first_actual_lean_targets": [
+    {
+      "target": "Local definitions and projective/ray identities",
+      "reason": "Direct finite-sum mathematics central to Lemma4.4 and5.9, before analytic infrastructure; verify literal definitions rather than an abstract inequality-only surrogate."
+    },
+    {
+      "target": "Polynomial power-sum divisibility supporting Lemma5.9",
+      "reason": "Initial target: concrete finite-field algebra using official mathlib Euler criterion and finite-field sum identities. The ray identity, accepted Katz specialization, and bad-prime finiteness deduction are now proved, completing Lemma 5.9."
+    },
+    {
+      "target": "Trusted-source interfaces Lemma2.1 and2.5",
+      "reason": "Shortest complete numbered source-relative instantiations after correct definitions; helpful infrastructure but accurately distinguish this from proving the paper new deductions."
+    }
+  ]
+}

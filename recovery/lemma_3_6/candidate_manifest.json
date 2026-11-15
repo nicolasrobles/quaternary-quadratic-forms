@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "target": "Complete Lemma 3.6 candidate",
+  "baseline_commit": "4bc1de4e3d5e35c3482908a57f96b6ee465f5f4d",
+  "baseline_report_sha256": "307a164465319d2b0009cc2f3210c6674fbd9783aff81f39c883b55218b3bdeb",
+  "strict_compilation_and_actual_inspection_passed": true,
+  "source_correspondence_review_accepted": true,
+  "registered_candidate_exports": 637,
+  "new_exports": 39,
+  "candidate_modules": 151,
+  "candidate_inputs": 180,
+  "full_aggregate_completed": false,
+  "exact_commit_ci_completed": false,
+  "published_main_lemma_status": "Pending",
+  "restore_instructions": "Start with baseline_commit. Restore every snapshot to restore_path only after checking sha256. These 33 files are the frozen complete proof/integration candidate. The installed baseline report must stay until a new full aggregate report and its independent preservation audit pass. Then publish and independently compare exact-commit CI. The .snapshot files do not change this recovery branch\u2019s active certification ledger.",
+  "files": [
+    {
+      "path": "recovery/lemma_3_6/candidate/.github/workflows/lean.yml.snapshot",
+      "restore_path": ".github/workflows/lean.yml",
+      "bytes": 5313,
+      "sha256": "3359b8541587a5d6a4ed706e8ab64f647ba9c48ff5227ff3b0f9f7f5a2350fa0",
+      "sha": "9b8f8bcbbdd4d62b463cb95054f4e925b936bde4"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/CHECKPOINT.md.snapshot",
+      "restore_path": "CHECKPOINT.md",
+      "bytes": 134718,
+      "sha256": "242fc99aaa192e267f480846322d9388eb3cd2cc0c035174223cc3216c8c6758",
+      "sha": "fbd0891112bab7c69f6ddf370d4d690603055700"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/Checks/Exports.lean.snapshot",
+      "restore_path": "Checks/Exports.lean",
+      "bytes": 128986,
+      "sha256": "c626a65cb31a0a283fd3481d5885d4bc7079adfea8ceb221891fb6a561678802",
+      "sha": "e935a944a9f9b1cfc126677656cb2509404e3d3b"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/DEPENDENCIES.md.snapshot",
+      "restore_path": "DEPENDENCIES.md",
+      "bytes": 71968,
+      "sha256": "4e981153fffae54b0f28b1d6eb861069ee5f0c854de6caba53fa35aac732057a",
+      "sha": "78eece4aff87abcb4163ab7e5180a5a61e2ef464"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/INVENTORY.md.snapshot",
+      "restore_path": "INVENTORY.md",
+      "bytes": 202794,
+      "sha256": "69fc92b568296d303bad66facf80952f9331017a25e1cde661a2d5478c5f6784",
+      "sha": "3887688c8a9d5a0dfee744df52b8ac4447ef5149"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms.lean",
+      "bytes": 7605,
+      "sha256": "0b185b9df234ecad81680d51456e05c87bbd7f0999a2718f9abc14d249091471",
+      "sha": "78e290f2f250bbfeb3b84d44e374389b66867d16"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/DivisorPowerBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/DivisorPowerBound.lean",
+      "bytes": 5085,
+      "sha256": "62c7db48e133d5680831952cae3b34183addded496fa5d899cb24eeb64b1c24a",
+      "sha": "f60124934380f0f1f9bf9acd177825ba2a6484a3"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/FactorizationSumBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/FactorizationSumBound.lean",
+      "bytes": 1927,
+      "sha256": "a65e9929364763404961450bcfa8a25bf9610fe80bb75e40f1ea4ed9ea222db7",
+      "sha": "a9a6326a710471b7d74ac375a5b6a67f8c5e4d00"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/GcdHarmonicBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/GcdHarmonicBound.lean",
+      "bytes": 4796,
+      "sha256": "d6fa5e6a3ab1eddf205dc6562072cdc39e77696fec9df7cd633ae1efcb244f15",
+      "sha": "1e62d25003515587f73010c4aa6c5be733e7ca1d"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/GenericModulusBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/GenericModulusBound.lean",
+      "bytes": 8416,
+      "sha256": "9a15242c46321a88c11e443b59c9abffea7a85094c068efd928cb65c5d543fc9",
+      "sha": "61eba3a6bba6efe2660232412f95bbe30a631071"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/GenericModulusTheorem.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/GenericModulusTheorem.lean",
+      "bytes": 5654,
+      "sha256": "fe4b9c202187cca829b262ddba2168ceaaefcd2bb66b4ce942f834acea3bee11",
+      "sha": "b95b15c95ae17e860bc89fc19344e07d1170120b"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/LogPowerBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/LogPowerBound.lean",
+      "bytes": 1782,
+      "sha256": "0da487f2f674d596190394e45414391959dcae64039777982f879ac6735a65b7",
+      "sha": "c665889b0df10406172a652e5cd10f61a690c913"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/MixedSumGcdBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/MixedSumGcdBound.lean",
+      "bytes": 5882,
+      "sha256": "121c796cfff2df18f4b6d82714f51a5ff027a399be4a58d329a4950103c4d8ae",
+      "sha": "8905285744ee1c4982d629105782b464eff702a1"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/MixedSumNormBounds.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/MixedSumNormBounds.lean",
+      "bytes": 7222,
+      "sha256": "815445b0a378c87d5bc8aa94405c7580cc27dd5a9f2f021fc7c9b7d786081f2a",
+      "sha": "d423c64441088235178b0682709abbdbfdda1b9c"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/ModulusNormSum.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/ModulusNormSum.lean",
+      "bytes": 3726,
+      "sha256": "30528b58e2983ceb39d9ee66c56cd421520c4d0a8d3bfc833b95c930009cbb4f",
+      "sha": "fba15440d1bd2d76cee6d3ca816775c691ecc81e"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/PrimeSupportCount.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/PrimeSupportCount.lean",
+      "bytes": 5599,
+      "sha256": "99d7603c55cf1a3b0c827f34be09baa2ce3a452364510e3ffff404a97d5c7f38",
+      "sha": "7940ebe3f45ed34e7ddf6580cbc8058e6af513f5"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/RamanujanGcdBound.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/RamanujanGcdBound.lean",
+      "bytes": 6536,
+      "sha256": "c32a11db319efc494817b6055a0937dd65a77be85d1870b313e6d379759b2dc6",
+      "sha": "3fe806554f743c9e4baaf0eed16e9e332aee93e0"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/QuaternaryQuadraticForms/RamanujanPrimePower.lean.snapshot",
+      "restore_path": "QuaternaryQuadraticForms/RamanujanPrimePower.lean",
+      "bytes": 5456,
+      "sha256": "74924d34ba48ccf27f04a81055f627a76315a4dde0848cad8ee919182cf520b3",
+      "sha": "7e188669143e93ffad2d4c94377c3d101a87bcea"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/README.md.snapshot",
+      "restore_path": "README.md",
+      "bytes": 102745,
+      "sha256": "523965134621e262b2ec2ed59f9f9ced50b405dbe1d58bef25db427bce1fc72a",
+      "sha": "685d88194583a1552abb93ab492560ec5791f175"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/TRUSTED_INPUTS.md.snapshot",
+      "restore_path": "TRUSTED_INPUTS.md",
+      "bytes": 22869,
+      "sha256": "f618ff42099c1d219f71018ae2ac61124fa0f523fc2fe9c385688b6df626e554",
+      "sha": "5d0201c48836704fe201c4e037bb243bd528653f"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/certification/correspondence/generic_modulus_bound.md.snapshot",
+      "restore_path": "certification/correspondence/generic_modulus_bound.md",
+      "bytes": 24972,
+      "sha256": "e6842c7d989622a93f1990914aaba571df687e791c85d50a533a408c18269c6b",
+      "sha": "78f18e01fa146adebf50c814dd229d6c8cc73868"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/certification/dependency_inventory.json.snapshot",
+      "restore_path": "certification/dependency_inventory.json",
+      "bytes": 167270,
+      "sha256": "f5ceadfc4130bcd89fc13bdc90cfca83baf641e2e27693836abbb073b0ebfc87",
+      "sha": "6d70e02feb7e3139a4ccabe344841bcde79d88fa"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/certification/status.json.snapshot",
+      "restore_path": "certification/status.json",
+      "bytes": 367341,
+      "sha256": "b722cd192177e346df82fb55ad2dfd66b3debc7b8070eabdafdf5a13a0e55824",
+      "sha": "1557633ea47a34ec6acd165c4446521ee4430c08"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_complete.dot.snapshot",
+      "restore_path": "docs/dependency_complete.dot",
+      "bytes": 37110,
+      "sha256": "52fd8d466564e09f4ba5f5342260272ee9d0d562192ad79dfe85f0cbe0ae9d67",
+      "sha": "a288ac5f4635bd80b3aac3cba5608af5b4cbef67"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_graph.dot.snapshot",
+      "restore_path": "docs/dependency_graph.dot",
+      "bytes": 24999,
+      "sha256": "c28f948e37a84d373b362637846ed6b40ea72acf967e8a5d9f5e89d449531a79",
+      "sha": "244378eb59c54b69248b14163d21edcdc85be373"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_graph.pdf.snapshot",
+      "restore_path": "docs/dependency_graph.pdf",
+      "bytes": 42950,
+      "sha256": "89046a943acc17fdf2d3192498d08f744bc586d8c29768378bb9cef2e989ac9c",
+      "sha": "50ec24d13fa8dc91d35d60fbecec47d708b13a5d"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_graph.png.snapshot",
+      "restore_path": "docs/dependency_graph.png",
+      "bytes": 737834,
+      "sha256": "cc01c4969c940cb1f39c5534c326eb351c847aebdfbc3f1b4a9556c25a438eea",
+      "sha": "209f20afb970746caadc65c917d9ae62d4f3f8a8"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_graph.svg.snapshot",
+      "restore_path": "docs/dependency_graph.svg",
+      "bytes": 85061,
+      "sha256": "edabc6a2f38c9ff7b12c8ebea8b7403ae273e6b0962e7f3dd63996097f7a5483",
+      "sha": "5fd155884696815753c50e1754a7ffdef64ace45"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_overview.dot.snapshot",
+      "restore_path": "docs/dependency_overview.dot",
+      "bytes": 5303,
+      "sha256": "b4907bbba7489435e2cb76031cd6cc309f5b945ddea014d255e6039b9a89c103",
+      "sha": "71aca4a23faa4f72f8cad05dfaba79c60a0ac042"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_overview.pdf.snapshot",
+      "restore_path": "docs/dependency_overview.pdf",
+      "bytes": 32608,
+      "sha256": "aa0eea0b0bec4c7353aa76ec286313e2d73ab8249f660f71284c33cdda3be646",
+      "sha": "5306ade99d2ab6c422e670ed22c100b1a433bfd3"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_overview.png.snapshot",
+      "restore_path": "docs/dependency_overview.png",
+      "bytes": 267650,
+      "sha256": "29125a8692e601f4fce2482ebff0cb77885a32141c5101f3919f131ee2e106c9",
+      "sha": "9c5250bdd33f73579dc8d7d48fae1e5f08d401ca"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/docs/dependency_overview.svg.snapshot",
+      "restore_path": "docs/dependency_overview.svg",
+      "bytes": 21425,
+      "sha256": "3e09c2fa6c2008a1f4e2ed1d7de07b389fba9207d0c2c3910f6f1abef63ab584",
+      "sha": "17daffd29871508eac5ea323f908fc164cdc9557"
+    },
+    {
+      "path": "recovery/lemma_3_6/candidate/scripts/render_inventory.py.snapshot",
+      "restore_path": "scripts/render_inventory.py",
+      "bytes": 35684,
+      "sha256": "0231a63f238a426267ee9594642c987e12303d15860065942286e17b597b920e",
+      "sha": "12e9ccdae3ef2df3ff796451f7a8153ab138bf1d"
+    }
+  ]
+}
