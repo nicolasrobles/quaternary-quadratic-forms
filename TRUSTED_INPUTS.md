@@ -77,7 +77,7 @@ The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruc
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 742 |
+| None (standard logical foundations only) | 791 |
 | Bertini with general projective geometry | 1 |
 | Katz with general hypersurface geometry | 10 |
 | Lang | 14 |

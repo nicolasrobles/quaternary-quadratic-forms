@@ -12,7 +12,7 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 19 · Partial: 0 · Active: 0 · Pending: 23** — 42 numbered results.
+**Complete: 20 · Partial: 0 · Active: 0 · Pending: 22** — 42 numbered results.
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** Lemma 2.5 is matched to the exact cited univariate Weil estimate.
@@ -169,12 +169,78 @@ at one and a finite corrected Euler comparison. Original bad-prime
 character values and possibly zero bad densities are retained.
 No literature premise is added or used.
 
-The current scope covers 789 theorem exports across 190 Lean modules,
+**Lemma 2.4 is Certified.** The literal simultaneous polynomial-congruence
+count in arbitrary real intervals satisfies the exact bound
+`(E+...+E^n)^omega(m)*(Y^n/m+Y^(n-1))` for every positive squarefree `m`.
+The polynomials are supplied independently at each prime divisor and have
+total degree at most `E`. The proof includes modulus one, empty intervals,
+constant polynomials, and every degenerate fibre. Its exact constant is
+independent of coefficients, interval endpoints, the modulus, and `Y`.
+No literature premise is added or used. The full source endpoint is
+[`source_polynomial_box`](QuaternaryQuadraticForms/PolynomialBoxTheorem.lean),
+with a [complete correspondence review](certification/correspondence/polynomial_box.md).
+
+The current scope covers 838 theorem exports across 199 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
 source groups. All 33 auxiliary/supplementary groups remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-### Current Lemma 3.9 verification
+### Current Lemma 2.4 verification
+
+<!-- BEGIN LEMMA_2_4_VERIFICATION -->
+
+The complete Lemma 2.4 milestone adds **49 public theorem exports in
+nine modules**, bringing the aggregate scope to **838 theorem exports,
+199 project Lean modules, and 232 inspected inputs**. The final source
+target compiled successfully with 1,450 jobs under the pinned official
+Lean 4.24.0 and mathlib revision.
+
+All 49 declaration kinds, complete actual theorem types, and axiom
+dependencies have passed strict inspection and independent review.
+Of these, 46 use exactly `Classical.choice`, `Quot.sound`, and `propext`;
+the dimension-one constant identity uses only `propext`, and the two
+definitional recurrence identities use no axioms. No new export uses
+any registered literature premise.
+
+Independent source review covers the exact constant, coefficient
+uniformity, all degenerate fibres, the source prime-divisor domain,
+arbitrary real intervals, and all boundary cases. The earlier 190
+proof modules, all 789 earlier export records, the manuscript and PDF,
+the verifier, four registered premises, and nine dependency pins remain
+unchanged.
+
+**The complete local aggregate verifier passed for all 838 theorem
+exports, 199 project Lean modules, and 232 inspected inputs.** It checked
+the frozen manuscript and PDF, all numbered statements and the dependency
+ledger, the full build, every project module under strict settings, and
+every actual theorem type and axiom dependency.
+
+The 789 earlier complete theorem records and all four literature-premise
+records are identical to the accepted Lemma 3.9 report. All 49 new complete
+types and axiom profiles match the independent export audit. The 232 input
+hashes match the frozen checked candidate, and all 28 changed files were
+preserved throughout verification. The earlier 190 proof modules and nine
+dependency pins are unchanged.
+
+- [Local verification report](certification/verification_report.json).
+- Local report SHA-256: `e39e55bfe2dbcd4358eb53deb691928fe19c94f1b26a74fb61c69cdc94b1ed63`.
+- Local report bytes: 1,238,027.
+- Locally checked candidate: `ccb9a0fe7a6119c9419cdd0051da9f2880c21108`.
+- Build: `Build completed successfully (3423 jobs).`.
+- Current inventory: 20 Certified, 0 Partial, 0 Active, 22 Pending.
+- All 33 supplementary groups remain Pending; whole-paper certification
+  remains false.
+
+The report's generation timestamp is its initialization before Lean
+execution, not the completion time.
+
+**Exact-commit GitHub verification is pending.** The successful run,
+original artifact, and exact comparison with the local report will be
+recorded here after inspection. Earlier evidence retains its historical scope.
+
+<!-- END LEMMA_2_4_VERIFICATION -->
+
+### Earlier Lemma 3.9 verification
 
 <!-- BEGIN LEMMA_3_9_VERIFICATION -->
 
@@ -2051,36 +2117,50 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Algebra.BigOperators.Intervals \
       Mathlib.Algebra.BigOperators.Module \
       Mathlib.Algebra.BigOperators.Ring.Finset \
+      Mathlib.Algebra.Field.ZMod \
       Mathlib.Algebra.Group.Units.Equiv \
       Mathlib.Algebra.MvPolynomial.Degrees \
+      Mathlib.Algebra.MvPolynomial.Equiv \
       Mathlib.Algebra.MvPolynomial.Eval \
       Mathlib.Algebra.MvPolynomial.PDeriv \
       Mathlib.Algebra.MvPolynomial.SchwartzZippel \
       Mathlib.Algebra.MvPolynomial.Variables \
       Mathlib.Algebra.Order.BigOperators.Group.Finset \
+      Mathlib.Algebra.Order.BigOperators.Ring.Finset \
       Mathlib.Algebra.Order.Floor.Ring \
       Mathlib.Algebra.Order.Ring.Pow \
       Mathlib.Algebra.Polynomial.BigOperators \
       Mathlib.Algebra.Polynomial.Coeff \
+      Mathlib.Algebra.Polynomial.Degree.Lemmas \
       Mathlib.Algebra.Polynomial.Homogenize \
+      Mathlib.Algebra.Polynomial.Roots \
       Mathlib.Algebra.Ring.Periodic \
       Mathlib.Algebra.Star.BigOperators \
       Mathlib.Analysis.Complex.Basic \
+      Mathlib.Analysis.Normed.Group.FunctionSeries \
       Mathlib.Analysis.PSeries \
       Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
       Mathlib.Analysis.SpecialFunctions.Log.Base \
       Mathlib.Analysis.SpecialFunctions.Log.Summable \
+      Mathlib.Analysis.SpecialFunctions.Pow.Continuity \
       Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
       Mathlib.Analysis.SpecialFunctions.Pow.Real \
+      Mathlib.Analysis.SpecificLimits.Basic \
       Mathlib.Analysis.SpecificLimits.Normed \
+      Mathlib.Data.Fin.Tuple.Finset \
       Mathlib.Data.Fin.VecNotation \
+      Mathlib.Data.Finset.Max \
       Mathlib.Data.Finset.Prod \
       Mathlib.Data.Finsupp.Weight \
       Mathlib.Data.Fintype.BigOperators \
+      Mathlib.Data.Int.Interval \
+      Mathlib.Data.Int.ModEq \
       Mathlib.Data.Matrix.Mul \
       Mathlib.Data.Nat.Factorization.Basic \
+      Mathlib.Data.Nat.Factorization.Defs \
       Mathlib.Data.Nat.Factorization.Induction \
       Mathlib.Data.Nat.GCD.Basic \
+      Mathlib.Data.Nat.GCD.BigOperators \
       Mathlib.Data.Nat.Prime.Basic \
       Mathlib.Data.Nat.PrimeFin \
       Mathlib.Data.Nat.Squarefree \
@@ -2088,6 +2168,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Data.Real.Archimedean \
       Mathlib.Data.Real.Basic \
       Mathlib.Data.Real.Sqrt \
+      Mathlib.Data.Set.Card \
       Mathlib.Data.ZMod.Basic \
       Mathlib.Data.ZMod.Coprime \
       Mathlib.FieldTheory.ChevalleyWarning \
@@ -2116,11 +2197,16 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.NumberTheory.DirichletCharacter.Basic \
       Mathlib.NumberTheory.DirichletCharacter.Bounds \
       Mathlib.NumberTheory.Divisors \
+      Mathlib.NumberTheory.EulerProduct.Basic \
       Mathlib.NumberTheory.GaussSum \
       Mathlib.NumberTheory.Harmonic.Bounds \
+      Mathlib.NumberTheory.LSeries.Dirichlet \
+      Mathlib.NumberTheory.LSeries.DirichletContinuation \
+      Mathlib.NumberTheory.LSeries.SumCoeff \
       Mathlib.NumberTheory.LegendreSymbol.Basic \
       Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
       Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
+      Mathlib.Order.Interval.Set.OrdConnected \
       Mathlib.RingTheory.MvPolynomial.EulerIdentity \
       Mathlib.RingTheory.MvPolynomial.Homogeneous \
       Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
@@ -2131,6 +2217,7 @@ With the official Lean toolchain manager and Python 3 available:
       Mathlib.Tactic.Linarith \
       Mathlib.Tactic.LinearCombination \
       Mathlib.Tactic.NormNum \
+      Mathlib.Tactic.Positivity \
       Mathlib.Tactic.Ring \
       Mathlib.Topology.Order.Basic
     python3 scripts/verify_certificate.py
@@ -2149,38 +2236,22 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next bounded target is complete Lemma 3.9, `lem:singseries`,
-source lines 1446–1513. For every positive squarefree $q$ with
-$(q,N_F)=1$, prove convergence of the actual restricted series and
-its identity
+The next step is the separately tracked consequence
+`aux:polynomialbox_epsilon`: prove uniformly that
+`C_(n,E)^omega(m) <= K_(n,E,epsilon) m^epsilon`, with one constant
+chosen before the varying modulus, polynomial family, intervals, and `Y`.
+This gives the epsilon form immediately after Lemma 2.4 in the manuscript.
 
-$$
-\sum_{\substack{c\ge1\\(c,q)=1}}\frac{S_c(0)}{c^4}
-=\mathfrak S_F\prod_{p\mid q}\sigma_p^{-1}.
-$$
+Then complete **Lemma 3.10** (`lem:box`), applying the checked polynomial
+box bound to the actual exceptional-frequency congruences and proving
+both the unweighted count and its inverse-norm-weighted form. The
+auxiliary polynomials in that lemma are the explicit Section 3 hypotheses;
+the completed Section 4 construction need not be reopened.
 
-Also prove, for every real $X\ge1$ and every $\varepsilon>0$,
+**Lemma 3.11** follows using the weighted count and the separately tracked
+finite factorization obligation `aux:Cfactor`. The supplementary
+`aux:Sxi` and `aux:Sxibound` consequences of Lemma 3.9 also remain Pending.
 
-$$
-\left|\sum_{\substack{c>X\\(c,q)=1}}\frac{S_c(0)}{c^4}\right|
-\le C_{F,\varepsilon}q^\varepsilon X^{-1+\varepsilon},
-$$
-
-with one constant chosen before the varying modulus and cutoff.
-The completed Lemma 3.7 supplies cancellation of the actual partial
-sums at zero frequency; the completed Lemma 3.8 supplies the actual
-local limits and corrected Euler factors. The next proof must carry
-these through partial summation, the absolutely convergent shifted
-Euler product, and the limit as the shift tends to zero. The factors
-inverted at primes dividing $q$ are good-prime densities, whose
-nonvanishing must be deduced from the proved formula.
-
-Any cited $L$-function continuity input must retain its exact source
-statement, hypotheses, and locator, including the manuscript's
-Montgomery–Vaughan Section 4.3 citation. Partial summation and the
-manuscript-specific Euler-product assembly remain internal deductions.
-
-Lemma 3.9 remains Pending. Lemmas 3.1–3.8 and all Section 4 lemmas
-are complete. Theorem 1.3's global asymptotic, the analytic assembly,
-Theorems 1.1 and 1.4, and all 33 auxiliary/supplementary groups remain
-Pending.
+Lemma 2.4, Lemmas 3.1–3.9, and every Section 4 lemma are complete.
+The global analytic assembly, main theorems, and all 33 separately tracked
+auxiliary/supplementary groups remain Pending. The whole paper is not certified.

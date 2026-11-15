@@ -792,7 +792,56 @@ run_cmd do
     `QuaternaryQuadraticForms.tendsto_singularSeriesTail_Ioc,
     `QuaternaryQuadraticForms.source_singular_series,
     `QuaternaryQuadraticForms.sourceDirichletCharacter_exists_neg_one,
-    `QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one]
+    `QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one,
+    `QuaternaryQuadraticForms.polynomialBoxConstant_zero,
+    `QuaternaryQuadraticForms.polynomialBoxConstant_succ,
+    `QuaternaryQuadraticForms.polynomialBoxConstant_one,
+    `QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_range,
+    `QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_Icc,
+    `QuaternaryQuadraticForms.polynomialBoxConstant_pos,
+    `QuaternaryQuadraticForms.polynomialBox_pow_add_one_le,
+    `QuaternaryQuadraticForms.sum_polynomialBox_bad_product_eq,
+    `QuaternaryQuadraticForms.polynomialBox_subset_ratio_sum_le,
+    `QuaternaryQuadraticForms.polynomialBox_subset_weight_sum_le,
+    `QuaternaryQuadraticForms.sum_polynomialBox_bad_product_le,
+    `QuaternaryQuadraticForms.polynomialBox_count_step,
+    `QuaternaryQuadraticForms.mem_integerPolynomialBox,
+    `QuaternaryQuadraticForms.mem_polynomialBoxSolutions,
+    `QuaternaryQuadraticForms.integerPolynomialBox_card,
+    `QuaternaryQuadraticForms.integerPolynomialBox_card_le,
+    `QuaternaryQuadraticForms.polynomialBoxSolutions_empty,
+    `QuaternaryQuadraticForms.polynomialBoxSolutions_card_le_box,
+    `QuaternaryQuadraticForms.cons_mem_integerPolynomialBox,
+    `QuaternaryQuadraticForms.integerPolynomialBox_zero,
+    `QuaternaryQuadraticForms.integerPolynomialBox_filter_card_succ,
+    `QuaternaryQuadraticForms.polynomialBoxSolutions_card_succ,
+    `QuaternaryQuadraticForms.polynomialBoxBadPrimes_subset,
+    `QuaternaryQuadraticForms.polynomialIntervalZeros_sdiff_bad,
+    `QuaternaryQuadraticForms.polynomialBox_fiber_card_le,
+    `QuaternaryQuadraticForms.polynomialBox_primeSet_card_le,
+    `QuaternaryQuadraticForms.integerInterval_eq_Icc,
+    `QuaternaryQuadraticForms.realInterval_integer_points_ordConnected,
+    `QuaternaryQuadraticForms.realInterval_integer_points_eq_Icc,
+    `QuaternaryQuadraticForms.realInterval_integer_membership_Icc,
+    `QuaternaryQuadraticForms.mem_polynomialIntervalZeros,
+    `QuaternaryQuadraticForms.polynomialIntervalZeros_card_le,
+    `QuaternaryQuadraticForms.mem_primeResidueInterval,
+    `QuaternaryQuadraticForms.primeProduct_modEq,
+    `QuaternaryQuadraticForms.primeResidueInterval_card_le_blocks,
+    `QuaternaryQuadraticForms.primeResidueInterval_card_le,
+    `QuaternaryQuadraticForms.polynomialBoxSlice_eval,
+    `QuaternaryQuadraticForms.polynomialBoxSlice_coeff,
+    `QuaternaryQuadraticForms.polynomialBoxSlice_eq_zero_iff,
+    `QuaternaryQuadraticForms.polynomialBoxSlice_natDegree_le,
+    `QuaternaryQuadraticForms.polynomialBoxCoefficient_totalDegree_le,
+    `QuaternaryQuadraticForms.exists_polynomialBoxCoefficient_ne_zero,
+    `QuaternaryQuadraticForms.exists_polynomialBox_degeneracy_polynomial,
+    `QuaternaryQuadraticForms.polynomialBoxSlice_empty_ne_zero,
+    `QuaternaryQuadraticForms.polynomialBox_primeFactors_card_eq_omega,
+    `QuaternaryQuadraticForms.polynomialBox_squarefree_card_le,
+    `QuaternaryQuadraticForms.extendPolynomialBoxFamily_apply,
+    `QuaternaryQuadraticForms.sourcePolynomialBoxSet_eq_integer,
+    `QuaternaryQuadraticForms.source_polynomial_box]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -3195,3 +3244,150 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one
 #print axioms QuaternaryQuadraticForms.sourceDirichletCharacter_ne_one
+
+#check @QuaternaryQuadraticForms.polynomialBoxConstant_zero
+#print axioms QuaternaryQuadraticForms.polynomialBoxConstant_zero
+
+#check @QuaternaryQuadraticForms.polynomialBoxConstant_succ
+#print axioms QuaternaryQuadraticForms.polynomialBoxConstant_succ
+
+#check @QuaternaryQuadraticForms.polynomialBoxConstant_one
+#print axioms QuaternaryQuadraticForms.polynomialBoxConstant_one
+
+#check @QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_range
+#print axioms QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_range
+
+#check @QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_Icc
+#print axioms QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_Icc
+
+#check @QuaternaryQuadraticForms.polynomialBoxConstant_pos
+#print axioms QuaternaryQuadraticForms.polynomialBoxConstant_pos
+
+#check @QuaternaryQuadraticForms.polynomialBox_pow_add_one_le
+#print axioms QuaternaryQuadraticForms.polynomialBox_pow_add_one_le
+
+#check @QuaternaryQuadraticForms.sum_polynomialBox_bad_product_eq
+#print axioms QuaternaryQuadraticForms.sum_polynomialBox_bad_product_eq
+
+#check @QuaternaryQuadraticForms.polynomialBox_subset_ratio_sum_le
+#print axioms QuaternaryQuadraticForms.polynomialBox_subset_ratio_sum_le
+
+#check @QuaternaryQuadraticForms.polynomialBox_subset_weight_sum_le
+#print axioms QuaternaryQuadraticForms.polynomialBox_subset_weight_sum_le
+
+#check @QuaternaryQuadraticForms.sum_polynomialBox_bad_product_le
+#print axioms QuaternaryQuadraticForms.sum_polynomialBox_bad_product_le
+
+#check @QuaternaryQuadraticForms.polynomialBox_count_step
+#print axioms QuaternaryQuadraticForms.polynomialBox_count_step
+
+#check @QuaternaryQuadraticForms.mem_integerPolynomialBox
+#print axioms QuaternaryQuadraticForms.mem_integerPolynomialBox
+
+#check @QuaternaryQuadraticForms.mem_polynomialBoxSolutions
+#print axioms QuaternaryQuadraticForms.mem_polynomialBoxSolutions
+
+#check @QuaternaryQuadraticForms.integerPolynomialBox_card
+#print axioms QuaternaryQuadraticForms.integerPolynomialBox_card
+
+#check @QuaternaryQuadraticForms.integerPolynomialBox_card_le
+#print axioms QuaternaryQuadraticForms.integerPolynomialBox_card_le
+
+#check @QuaternaryQuadraticForms.polynomialBoxSolutions_empty
+#print axioms QuaternaryQuadraticForms.polynomialBoxSolutions_empty
+
+#check @QuaternaryQuadraticForms.polynomialBoxSolutions_card_le_box
+#print axioms QuaternaryQuadraticForms.polynomialBoxSolutions_card_le_box
+
+#check @QuaternaryQuadraticForms.cons_mem_integerPolynomialBox
+#print axioms QuaternaryQuadraticForms.cons_mem_integerPolynomialBox
+
+#check @QuaternaryQuadraticForms.integerPolynomialBox_zero
+#print axioms QuaternaryQuadraticForms.integerPolynomialBox_zero
+
+#check @QuaternaryQuadraticForms.integerPolynomialBox_filter_card_succ
+#print axioms QuaternaryQuadraticForms.integerPolynomialBox_filter_card_succ
+
+#check @QuaternaryQuadraticForms.polynomialBoxSolutions_card_succ
+#print axioms QuaternaryQuadraticForms.polynomialBoxSolutions_card_succ
+
+#check @QuaternaryQuadraticForms.polynomialBoxBadPrimes_subset
+#print axioms QuaternaryQuadraticForms.polynomialBoxBadPrimes_subset
+
+#check @QuaternaryQuadraticForms.polynomialIntervalZeros_sdiff_bad
+#print axioms QuaternaryQuadraticForms.polynomialIntervalZeros_sdiff_bad
+
+#check @QuaternaryQuadraticForms.polynomialBox_fiber_card_le
+#print axioms QuaternaryQuadraticForms.polynomialBox_fiber_card_le
+
+#check @QuaternaryQuadraticForms.polynomialBox_primeSet_card_le
+#print axioms QuaternaryQuadraticForms.polynomialBox_primeSet_card_le
+
+#check @QuaternaryQuadraticForms.integerInterval_eq_Icc
+#print axioms QuaternaryQuadraticForms.integerInterval_eq_Icc
+
+#check @QuaternaryQuadraticForms.realInterval_integer_points_ordConnected
+#print axioms QuaternaryQuadraticForms.realInterval_integer_points_ordConnected
+
+#check @QuaternaryQuadraticForms.realInterval_integer_points_eq_Icc
+#print axioms QuaternaryQuadraticForms.realInterval_integer_points_eq_Icc
+
+#check @QuaternaryQuadraticForms.realInterval_integer_membership_Icc
+#print axioms QuaternaryQuadraticForms.realInterval_integer_membership_Icc
+
+#check @QuaternaryQuadraticForms.mem_polynomialIntervalZeros
+#print axioms QuaternaryQuadraticForms.mem_polynomialIntervalZeros
+
+#check @QuaternaryQuadraticForms.polynomialIntervalZeros_card_le
+#print axioms QuaternaryQuadraticForms.polynomialIntervalZeros_card_le
+
+#check @QuaternaryQuadraticForms.mem_primeResidueInterval
+#print axioms QuaternaryQuadraticForms.mem_primeResidueInterval
+
+#check @QuaternaryQuadraticForms.primeProduct_modEq
+#print axioms QuaternaryQuadraticForms.primeProduct_modEq
+
+#check @QuaternaryQuadraticForms.primeResidueInterval_card_le_blocks
+#print axioms QuaternaryQuadraticForms.primeResidueInterval_card_le_blocks
+
+#check @QuaternaryQuadraticForms.primeResidueInterval_card_le
+#print axioms QuaternaryQuadraticForms.primeResidueInterval_card_le
+
+#check @QuaternaryQuadraticForms.polynomialBoxSlice_eval
+#print axioms QuaternaryQuadraticForms.polynomialBoxSlice_eval
+
+#check @QuaternaryQuadraticForms.polynomialBoxSlice_coeff
+#print axioms QuaternaryQuadraticForms.polynomialBoxSlice_coeff
+
+#check @QuaternaryQuadraticForms.polynomialBoxSlice_eq_zero_iff
+#print axioms QuaternaryQuadraticForms.polynomialBoxSlice_eq_zero_iff
+
+#check @QuaternaryQuadraticForms.polynomialBoxSlice_natDegree_le
+#print axioms QuaternaryQuadraticForms.polynomialBoxSlice_natDegree_le
+
+#check @QuaternaryQuadraticForms.polynomialBoxCoefficient_totalDegree_le
+#print axioms QuaternaryQuadraticForms.polynomialBoxCoefficient_totalDegree_le
+
+#check @QuaternaryQuadraticForms.exists_polynomialBoxCoefficient_ne_zero
+#print axioms QuaternaryQuadraticForms.exists_polynomialBoxCoefficient_ne_zero
+
+#check @QuaternaryQuadraticForms.exists_polynomialBox_degeneracy_polynomial
+#print axioms QuaternaryQuadraticForms.exists_polynomialBox_degeneracy_polynomial
+
+#check @QuaternaryQuadraticForms.polynomialBoxSlice_empty_ne_zero
+#print axioms QuaternaryQuadraticForms.polynomialBoxSlice_empty_ne_zero
+
+#check @QuaternaryQuadraticForms.polynomialBox_primeFactors_card_eq_omega
+#print axioms QuaternaryQuadraticForms.polynomialBox_primeFactors_card_eq_omega
+
+#check @QuaternaryQuadraticForms.polynomialBox_squarefree_card_le
+#print axioms QuaternaryQuadraticForms.polynomialBox_squarefree_card_le
+
+#check @QuaternaryQuadraticForms.extendPolynomialBoxFamily_apply
+#print axioms QuaternaryQuadraticForms.extendPolynomialBoxFamily_apply
+
+#check @QuaternaryQuadraticForms.sourcePolynomialBoxSet_eq_integer
+#print axioms QuaternaryQuadraticForms.sourcePolynomialBoxSet_eq_integer
+
+#check @QuaternaryQuadraticForms.source_polynomial_box
+#print axioms QuaternaryQuadraticForms.source_polynomial_box

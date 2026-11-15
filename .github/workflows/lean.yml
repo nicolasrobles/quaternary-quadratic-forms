@@ -41,18 +41,23 @@ jobs:
             Mathlib.Algebra.BigOperators.Intervals \
             Mathlib.Algebra.BigOperators.Module \
             Mathlib.Algebra.BigOperators.Ring.Finset \
+            Mathlib.Algebra.Field.ZMod \
             Mathlib.Algebra.Group.Units.Equiv \
             Mathlib.Algebra.MvPolynomial.Degrees \
+            Mathlib.Algebra.MvPolynomial.Equiv \
             Mathlib.Algebra.MvPolynomial.Eval \
             Mathlib.Algebra.MvPolynomial.PDeriv \
             Mathlib.Algebra.MvPolynomial.SchwartzZippel \
             Mathlib.Algebra.MvPolynomial.Variables \
             Mathlib.Algebra.Order.BigOperators.Group.Finset \
+            Mathlib.Algebra.Order.BigOperators.Ring.Finset \
             Mathlib.Algebra.Order.Floor.Ring \
             Mathlib.Algebra.Order.Ring.Pow \
             Mathlib.Algebra.Polynomial.BigOperators \
             Mathlib.Algebra.Polynomial.Coeff \
+            Mathlib.Algebra.Polynomial.Degree.Lemmas \
             Mathlib.Algebra.Polynomial.Homogenize \
+            Mathlib.Algebra.Polynomial.Roots \
             Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Complex.Basic \
@@ -66,15 +71,20 @@ jobs:
             Mathlib.Analysis.SpecialFunctions.Pow.Real \
             Mathlib.Analysis.SpecificLimits.Basic \
             Mathlib.Analysis.SpecificLimits.Normed \
+            Mathlib.Data.Fin.Tuple.Finset \
             Mathlib.Data.Fin.VecNotation \
+            Mathlib.Data.Finset.Max \
             Mathlib.Data.Finset.Prod \
             Mathlib.Data.Finsupp.Weight \
             Mathlib.Data.Fintype.BigOperators \
+            Mathlib.Data.Int.Interval \
+            Mathlib.Data.Int.ModEq \
             Mathlib.Data.Matrix.Mul \
             Mathlib.Data.Nat.Factorization.Basic \
             Mathlib.Data.Nat.Factorization.Defs \
             Mathlib.Data.Nat.Factorization.Induction \
             Mathlib.Data.Nat.GCD.Basic \
+            Mathlib.Data.Nat.GCD.BigOperators \
             Mathlib.Data.Nat.Prime.Basic \
             Mathlib.Data.Nat.PrimeFin \
             Mathlib.Data.Nat.Squarefree \
@@ -82,6 +92,7 @@ jobs:
             Mathlib.Data.Real.Archimedean \
             Mathlib.Data.Real.Basic \
             Mathlib.Data.Real.Sqrt \
+            Mathlib.Data.Set.Card \
             Mathlib.Data.ZMod.Basic \
             Mathlib.Data.ZMod.Coprime \
             Mathlib.FieldTheory.ChevalleyWarning \
@@ -119,6 +130,7 @@ jobs:
             Mathlib.NumberTheory.LegendreSymbol.Basic \
             Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
             Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
+            Mathlib.Order.Interval.Set.OrdConnected \
             Mathlib.RingTheory.MvPolynomial.EulerIdentity \
             Mathlib.RingTheory.MvPolynomial.Homogeneous \
             Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
@@ -129,6 +141,7 @@ jobs:
             Mathlib.Tactic.Linarith \
             Mathlib.Tactic.LinearCombination \
             Mathlib.Tactic.NormNum \
+            Mathlib.Tactic.Positivity \
             Mathlib.Tactic.Ring \
             Mathlib.Topology.Order.Basic
       - name: Verify manuscript, dependencies, proofs, and status

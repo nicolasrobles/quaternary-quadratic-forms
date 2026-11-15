@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete ordered singular series, original-character Euler identity, and uniform real-cutoff tail",
+  "checkpoint": "Complete coefficient-uniform polynomial congruence box count with exact constant",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -35,8 +35,19 @@
       "checked_exports": []
     },
     "lem:polynomialbox": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_polynomial_box",
+        "QuaternaryQuadraticForms.polynomialBox_squarefree_card_le",
+        "QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_Icc"
+      ],
+      "correspondence_record": "certification/correspondence/polynomial_box.md",
+      "completed_clauses": [
+        "For every n,E>=1 and every positive squarefree m, independently supplied nonzero polynomials over each prime field of total degree at most E have at most (E+...+E^n)^omega(m)*(Y^n/m+Y^(n-1)) simultaneous integer solutions in the supplied real intervals, each containing at most Y integers, for every real Y>=1.",
+        "The source endpoint accepts polynomial data only at the actual prime divisors of m, proves finiteness of the literal solution set, retains arbitrary interval endpoints, and identifies the constant and distinct-prime exponent exactly."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 2.4 with the exact constant C(n,E)=E+...+E^n, independent of the coefficients, modulus, intervals, and Y. Actual multivariate polynomials are sliced in the first variable. A fixed nonzero coefficient polynomial at each prime detects every identically zero fibre and retains the total-degree bound. Actual polynomial roots, distinct-prime CRT uniqueness, and quotient blocks prove the one-dimensional interval estimate. The weighted expansion over subsets of degenerate primes is the squarefree version of the manuscript totient divisor sum. Its two product bounds and C^k+1<=(1+C)^k for k>=1 retain the exact dimension recurrence E*(1+C). The induction includes the empty prime set, m=1, n=1, empty intervals, nonzero constant polynomials, all degenerate fibres, and degrees at least the characteristic. The source wrapper uses independent polynomials only on the prime-divisor subtype and arbitrary order-connected real intervals with finite integer preimages of cardinality at most Y. The real-interval solution set is proved equal to the finite endpoint representation, and its finiteness is proved before its natural cardinality is used. No common nonvanishing direction, common polynomial, residue-distribution estimate, or degeneracy-count premise remains. The 49 new public theorem exports in nine modules use only standard logical foundations: 46 use Classical.choice, Quot.sound and propext, one uses propext alone, and two are axiom-free. No literature premise is added or used. All earlier numbered results and all 33 separately tracked supplementary obligations retain their statuses; the subsequent epsilon absorption is not included in this milestone."
     },
     "lem:weil": {
       "status": "Certified",
@@ -12723,6 +12734,741 @@
         "eq:seriesfactor"
       ],
       "scope": "Nonsquareness of the nonzero determinant and the stipulated good-prime values imply nonprincipality of the original supplied Dirichlet character, without imposing any additional condition on its bad-prime values.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxConstant_zero",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The auxiliary zero-dimensional exact constant is zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxConstant_succ",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The exact natural constant satisfies C(n+1,E)=E*(1+C(n,E)) for every n and E.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxConstant_one",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "In dimension one the exact constant is E.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_range",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The recursively defined constant equals the sum of E^(i+1) over 0<=i<n.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxConstant_eq_sum_Icc",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The recursively defined constant equals the literal source sum E+E^2+...+E^n.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxConstant_pos",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The exact constant is at least one whenever n>=1 and E>=1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_pow_add_one_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For C>=0 and a positive integer k, the two boundary contributions satisfy C^k+1<=(1+C)^k.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_polynomialBox_bad_product_eq",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For a finite base set and a subset of imposed indices at each base point, the sum of their actual integer products equals the powerset-weighted count of points containing each subset, with weight product(p-1).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_subset_ratio_sum_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For a finite set of integers at least two and C>=0, the sum over all subsets of product(p-1)*C^card/product(p) is at most (1+C)^card(S).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_subset_weight_sum_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For a finite set of integers at least two and C>=1, the sum over all subsets of product(p-1)*C^card is at most C^card(S)*product(S).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sum_polynomialBox_bad_product_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Uniform lower-dimensional bounds for every subset of degenerate indices imply the precise weighted bad-product bound, preserving both Y^d and Y^(d-1) contributions.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_count_step",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxCombinatorics.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For positive previous dimension, a nonempty imposed set, and E,C,Y>=1, the exact univariate fibre bound and lower-dimensional degeneracy bounds imply the next-dimension count with constant (E*(1+C))^card(S).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_integerPolynomialBox",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Membership of an actual integer tuple in the finite Cartesian box is exactly coordinatewise membership in the specified integer intervals.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_polynomialBoxSolutions",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Membership of an actual integer tuple in the solution set is exactly box membership together with literal evaluation-zero congruences at every imposed prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerPolynomialBox_card",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The actual finite Cartesian box cardinality is the product of its integer interval cardinalities.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerPolynomialBox_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "If every interval contains at most Y integers, the actual n-dimensional box has at most Y^n integer tuples, including empty intervals and dimension zero.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSolutions_empty",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The empty imposed prime set places no congruence restrictions on the integer box.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSolutions_card_le_box",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The actual polynomial congruence solution set has cardinality at most that of its ambient integer box.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.cons_mem_integerPolynomialBox",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Splitting an integer tuple into its first coordinate and tail preserves exact Cartesian box membership.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerPolynomialBox_zero",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The zero-dimensional integer box is the singleton containing the empty tuple.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerPolynomialBox_filter_card_succ",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For any predicate on an actual integer box, its exact cardinality is the sum of the one-coordinate fibre cardinalities over the tail box.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSolutions_card_succ",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxDefinitions.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The actual simultaneous polynomial congruence count decomposes exactly into univariate slice counts over all integer tails.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxBadPrimes_subset",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxFiber.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Every prime where a specialized univariate polynomial is identically zero belongs to the imposed prime set.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialIntervalZeros_sdiff_bad",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxFiber.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Removing the identically zero slice congruences preserves the actual set of integers in the fibre.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_fiber_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxFiber.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "At any integer tail, the actual fibre count is bounded by E^card(S)*(Y*product(degenerate primes)/product(S)+1), uniformly in coefficients and the tail.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_primeSet_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxInduction.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For n,E>=1, independent nonzero polynomials of total degree at most E at each prime in any finite prime set have at most C(n,E)^card(S)*(Y^n/product(S)+Y^(n-1)) simultaneous zero tuples in intervals containing at most Y integers; all degenerate fibres and the empty prime set are included.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerInterval_eq_Icc",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxIntervals.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Every finite order-connected set of integers, including the empty set, is exactly a closed interval with integer endpoints.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realInterval_integer_points_ordConnected",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxIntervals.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The integer points of every order-connected real interval form an order-connected integer set.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realInterval_integer_points_eq_Icc",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxIntervals.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The finite integer points of an arbitrary real interval equal a closed integer interval, regardless of endpoint openness.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realInterval_integer_membership_Icc",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxIntervals.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For a real interval with finitely many integer points, literal real-interval membership of each integer is equivalent to membership between suitable integer endpoints.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_polynomialIntervalZeros",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxOneVariable.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The actual one-variable solution set records literal interval membership and the possibly different polynomial congruence at every imposed prime.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialIntervalZeros_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxOneVariable.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For independent nonzero univariate polynomials of degree at most E at finitely many distinct primes, the actual integer interval zero count is at most E^card(S)*(Y/product(S)+1), including the empty prime set.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_primeResidueInterval",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Membership of the actual allowed-residue interval set is exactly integer endpoint membership and membership in each prescribed prime-residue set.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeProduct_modEq",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Equal integer residues at a finite set of distinct primes imply equality modulo their actual product, including the empty product.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeResidueInterval_card_le_blocks",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Encoding each actual interval integer by its allowed prime residues and quotient block bounds the count by the product of allowed residue cardinalities times floor((b-a)^+/product(S))+1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.primeResidueInterval_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxResidues.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "If each allowed prime-residue set has at most E elements, the actual count in an integer interval containing at most Y integers is at most E^card(S)*(Y/product(S)+1).",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSlice_eval",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Evaluation of the actual first-variable polynomial slice equals evaluation of the original multivariate polynomial on the corresponding cons tuple.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSlice_coeff",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Each univariate slice coefficient is exactly the evaluation of the corresponding coefficient polynomial in the remaining variables.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSlice_eq_zero_iff",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The actual slice is identically the zero polynomial if and only if all coefficient polynomials vanish at the fixed tail.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSlice_natDegree_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Specializing all but the first variable bounds the resulting univariate natural degree by the original multivariate total degree.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxCoefficient_totalDegree_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Each coefficient polynomial in the remaining variables has total degree at most the original polynomial total degree.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_polynomialBoxCoefficient_ne_zero",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Every nonzero multivariate polynomial has a nonzero coefficient polynomial when expanded in its first variable.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exists_polynomialBox_degeneracy_polynomial",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Every nonzero polynomial of total degree at most E admits a fixed nonzero lower-dimensional polynomial of degree at most E vanishing at every identically zero fibre.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBoxSlice_empty_ne_zero",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxSlices.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "In dimension one, specializing the unique empty tail preserves formal polynomial nonvanishing.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_primeFactors_card_eq_omega",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "The cardinality of the finite prime-factor set equals the usual arithmetic function counting distinct prime factors, including modulus one.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.polynomialBox_squarefree_card_le",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For every positive squarefree modulus and independent nonzero prime polynomials of degree at most E, the actual integer-box count satisfies C(n,E)^omega(m)*(Y^n/m+Y^(n-1)); squarefreeness identifies the product of distinct prime factors with m.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.extendPolynomialBoxFamily_apply",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Extension by zero outside the exact domain of prime divisors preserves every supplied source polynomial.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourcePolynomialBoxSet_eq_integer",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "For a nonzero modulus, the literal source set of integer tuples in real intervals satisfying the supplied prime-divisor congruences equals its exact finite integer-endpoint representation.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_polynomial_box",
+      "file": "QuaternaryQuadraticForms/PolynomialBoxTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:polynomialbox",
+        "eq:polynomialbox"
+      ],
+      "scope": "Complete Lemma 2.4 for arbitrary real intervals with at most Y integer points, n,E,Y>=1, and every positive squarefree m: the literal simultaneous-congruence solution set is finite and its cardinality is at most (E+...+E^n)^omega(m)*(Y^n/m+Y^(n-1)), with independent nonzero polynomials of total degree at most E supplied only at the primes dividing m.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",

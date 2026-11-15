@@ -1,9 +1,77 @@
-# Ordered singular series checkpoint
+# Coefficient-uniform polynomial box checkpoint
 
 ## Numbered-result status
 
-Complete: **19**. Partial: **0**. Active numbered targets: **0**.
-Pending: **23**. All 33 auxiliary/supplementary groups remain Pending.
+Complete: **20**. Partial: **0**. Active numbered targets: **0**.
+Pending: **22**. All 33 auxiliary/supplementary groups remain Pending.
+
+### Complete Lemma 2.4
+
+**Lemma 2.4 is Certified.** The literal simultaneous polynomial-congruence
+count in arbitrary real intervals satisfies the exact bound
+`(E+...+E^n)^omega(m)*(Y^n/m+Y^(n-1))` for every positive squarefree `m`.
+The polynomials are supplied independently at each prime divisor and have
+total degree at most `E`. The proof includes modulus one, empty intervals,
+constant polynomials, and every degenerate fibre. Its exact constant is
+independent of coefficients, interval endpoints, the modulus, and `Y`.
+No literature premise is added or used. The full source endpoint is
+[`source_polynomial_box`](QuaternaryQuadraticForms/PolynomialBoxTheorem.lean),
+with a [complete correspondence review](certification/correspondence/polynomial_box.md).
+
+### Current Lemma 2.4 verification
+
+<!-- BEGIN LEMMA_2_4_VERIFICATION -->
+
+The complete Lemma 2.4 milestone adds **49 public theorem exports in
+nine modules**, bringing the aggregate scope to **838 theorem exports,
+199 project Lean modules, and 232 inspected inputs**. The final source
+target compiled successfully with 1,450 jobs under the pinned official
+Lean 4.24.0 and mathlib revision.
+
+All 49 declaration kinds, complete actual theorem types, and axiom
+dependencies have passed strict inspection and independent review.
+Of these, 46 use exactly `Classical.choice`, `Quot.sound`, and `propext`;
+the dimension-one constant identity uses only `propext`, and the two
+definitional recurrence identities use no axioms. No new export uses
+any registered literature premise.
+
+Independent source review covers the exact constant, coefficient
+uniformity, all degenerate fibres, the source prime-divisor domain,
+arbitrary real intervals, and all boundary cases. The earlier 190
+proof modules, all 789 earlier export records, the manuscript and PDF,
+the verifier, four registered premises, and nine dependency pins remain
+unchanged.
+
+**The complete local aggregate verifier passed for all 838 theorem
+exports, 199 project Lean modules, and 232 inspected inputs.** It checked
+the frozen manuscript and PDF, all numbered statements and the dependency
+ledger, the full build, every project module under strict settings, and
+every actual theorem type and axiom dependency.
+
+The 789 earlier complete theorem records and all four literature-premise
+records are identical to the accepted Lemma 3.9 report. All 49 new complete
+types and axiom profiles match the independent export audit. The 232 input
+hashes match the frozen checked candidate, and all 28 changed files were
+preserved throughout verification. The earlier 190 proof modules and nine
+dependency pins are unchanged.
+
+- [Local verification report](certification/verification_report.json).
+- Local report SHA-256: `e39e55bfe2dbcd4358eb53deb691928fe19c94f1b26a74fb61c69cdc94b1ed63`.
+- Local report bytes: 1,238,027.
+- Locally checked candidate: `ccb9a0fe7a6119c9419cdd0051da9f2880c21108`.
+- Build: `Build completed successfully (3423 jobs).`.
+- Current inventory: 20 Certified, 0 Partial, 0 Active, 22 Pending.
+- All 33 supplementary groups remain Pending; whole-paper certification
+  remains false.
+
+The report's generation timestamp is its initialization before Lean
+execution, not the completion time.
+
+**Exact-commit GitHub verification is pending.** The successful run,
+original artifact, and exact comparison with the local report will be
+recorded here after inspection. Earlier evidence retains its historical scope.
+
+<!-- END LEMMA_2_4_VERIFICATION -->
 
 **Lemma 2.5 and Corollary 2.6 are Certified relative to the accepted literature
 inputs.** The first is matched to the cited simple-root univariate Weil bound.
@@ -148,7 +216,7 @@ at one and a finite corrected Euler comparison. Original bad-prime
 character values and possibly zero bad densities are retained.
 No literature premise is added or used.
 
-The next dependency to complete for Lemma 3.10 is Lemma 2.4, the coefficient-uniform polynomial-congruence box count.
+Lemma 2.4 is now complete; its separately tracked epsilon consequence and Lemma 3.10 are the next dependencies.
 
 ## Mathematical scope
 
@@ -3057,32 +3125,22 @@ The initial algebra-only report is also preserved as
 
 ## Next target
 
-The immediate supplementary follow-on to Lemma 3.9 is `aux:Sxi` and
-`aux:Sxibound`: identify the weighted main coefficient with its finite
-local product and prove its `q^(-1+epsilon)` bound. These also require
-closing the existing `aux:Cfactor` correspondence, and the bound uses
-the good-prime inequality `sigma_p^(-1)<=2`. They remain separately
-tracked Pending obligations and are not included in Lemma 3.9's status.
+The next step is the separately tracked consequence
+`aux:polynomialbox_epsilon`: prove uniformly that
+`C_(n,E)^omega(m) <= K_(n,E,epsilon) m^epsilon`, with one constant
+chosen before the varying modulus, polynomial family, intervals, and `Y`.
+This gives the epsilon form immediately after Lemma 2.4 in the manuscript.
 
-Lemma 3.10 (`lem:box`) is the next numbered result in Section 3, but its
-principal prerequisite, Lemma 2.4 (`lem:polynomialbox`), remains Pending.
-The next bounded proof target is therefore complete Lemma 2.4, source
-lines 832–898, followed by its separately tracked epsilon absorption
-`aux:polynomialbox_epsilon` and then complete Lemma 3.10.
+Then complete **Lemma 3.10** (`lem:box`), applying the checked polynomial
+box bound to the actual exceptional-frequency congruences and proving
+both the unweighted count and its inverse-norm-weighted form. The
+auxiliary polynomials in that lemma are the explicit Section 3 hypotheses;
+the completed Section 4 construction need not be reopened.
 
-Lemma 2.4 requires the literal coefficient-uniform count for simultaneous
-polynomial congruences at squarefree moduli. The polynomials may differ
-at different prime divisors. Its exact constant `C_(n,E)=E+...+E^n`,
-the case `m=1`, interval cardinalities, and degenerate fibers all belong
-to the proof obligation; a common nonvanishing direction cannot be assumed.
+**Lemma 3.11** follows using the weighted count and the separately tracked
+finite factorization obligation `aux:Cfactor`. The supplementary
+`aux:Sxi` and `aux:Sxibound` consequences of Lemma 3.9 also remain Pending.
 
-Lemma 3.10 then applies that count to the actual exceptional-frequency
-congruences and proves both the unweighted count and inverse-norm-weighted
-form. Its auxiliary polynomials are the explicit Section 3 hypotheses;
-it does not require reopening the completed Section 4 construction.
-Lemma 3.11 follows using the weighted estimate and the separately tracked
-finite factorization obligation `aux:Cfactor`.
-
-Lemmas 3.1–3.9 and every Section 4 lemma are complete. The global analytic
-assembly, Theorems 1.1, 1.3, and 1.4, and all 33 auxiliary/supplementary
-groups remain Pending. The whole paper is not certified.
+Lemma 2.4, Lemmas 3.1–3.9, and every Section 4 lemma are complete.
+The global analytic assembly, main theorems, and all 33 separately tracked
+auxiliary/supplementary groups remain Pending. The whole paper is not certified.

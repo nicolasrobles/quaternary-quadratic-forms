@@ -10,7 +10,7 @@
 <title>NumberedResults</title>
 <polygon fill="white" stroke="transparent" points="-20.16,20.16 -20.16,-1358.16 2304.66,-1358.16 2304.66,20.16 -20.16,20.16"/>
 <text text-anchor="middle" x="1142.25" y="-1315.6" font-family="DejaVu Serif" font-size="23.00">Dependency graph for the numbered results</text>
-<text text-anchor="middle" x="1142.25" y="-1290.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 19 certified; 23 pending</text>
+<text text-anchor="middle" x="1142.25" y="-1290.6" font-family="DejaVu Serif" font-size="23.00">Frozen github manuscript | 20 certified; 22 pending</text>
 <text text-anchor="middle" x="1142.25" y="-1265.6" font-family="DejaVu Serif" font-size="23.00">Literature inputs trusted; 4 Lean premises registered</text>
 <g id="clust1" class="cluster">
 <title>cluster_sources</title>
@@ -634,11 +634,11 @@
 <g id="node15" class="node">
 <title>lem:polynomialbox</title>
 <g id="a_node15"><a xlink:href="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L832-L843" xlink:title="Coefficient&#45;uniform simultaneous polynomial&#45;congruence count for squarefree moduli, exact constant C_(n,E)" target="_blank">
-<path fill="#fff4dc" stroke="#b88023" stroke-width="1.15" d="M1292.5,-1124C1292.5,-1124 1135.5,-1124 1135.5,-1124 1129.5,-1124 1123.5,-1118 1123.5,-1112 1123.5,-1112 1123.5,-1078 1123.5,-1078 1123.5,-1072 1129.5,-1066 1135.5,-1066 1135.5,-1066 1292.5,-1066 1292.5,-1066 1298.5,-1066 1304.5,-1072 1304.5,-1078 1304.5,-1078 1304.5,-1112 1304.5,-1112 1304.5,-1118 1298.5,-1124 1292.5,-1124"/>
+<path fill="#e1f5df" stroke="#408342" stroke-width="1.15" d="M1292.5,-1124C1292.5,-1124 1135.5,-1124 1135.5,-1124 1129.5,-1124 1123.5,-1118 1123.5,-1112 1123.5,-1112 1123.5,-1078 1123.5,-1078 1123.5,-1072 1129.5,-1066 1135.5,-1066 1135.5,-1066 1292.5,-1066 1292.5,-1066 1298.5,-1066 1304.5,-1072 1304.5,-1078 1304.5,-1078 1304.5,-1112 1304.5,-1112 1304.5,-1118 1298.5,-1124 1292.5,-1124"/>
 <text text-anchor="start" x="1176.5" y="-1109.4" font-family="DejaVu Serif" font-weight="bold" font-size="12.00">Lemma 2.4</text>
 <text text-anchor="start" x="1132.5" y="-1097.4" font-family="DejaVu Serif" font-size="12.00">Polynomial congruences in</text>
 <text text-anchor="start" x="1196.5" y="-1085.4" font-family="DejaVu Serif" font-size="12.00">boxes</text>
-<text text-anchor="start" x="1189" y="-1075" font-family="DejaVu Serif" font-size="10.00" fill="#b88023">[Pending]</text>
+<text text-anchor="start" x="1188" y="-1075" font-family="DejaVu Serif" font-size="10.00" fill="#408342">[Certified]</text>
 </a>
 </g>
 </g>
@@ -1021,7 +1021,7 @@
 <title>legend</title>
 <text text-anchor="middle" x="1742" y="-39.2" font-family="DejaVu Serif" font-size="11.00">Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.</text>
 <text text-anchor="middle" x="1742" y="-27.2" font-family="DejaVu Serif" font-size="11.00">Purple dashed: trusted source. Transitive numbered edges are omitted.</text>
-<text text-anchor="middle" x="1742" y="-15.2" font-family="DejaVu Serif" font-size="11.00">19 certified; 23 pending. Partial means identified clauses checked; the full result is unfinished.</text>
+<text text-anchor="middle" x="1742" y="-15.2" font-family="DejaVu Serif" font-size="11.00">20 certified; 22 pending. Partial means identified clauses checked; the full result is unfinished.</text>
 <text text-anchor="middle" x="1742" y="-3.2" font-family="DejaVu Serif" font-size="11.00">Click a result for its manuscript statement. Full details are in the dependency inventory.</text>
 </g>
 </g>
