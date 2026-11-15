@@ -878,7 +878,21 @@ run_cmd do
     `QuaternaryQuadraticForms.extendExceptionalPolynomials_ne_zero,
     `QuaternaryQuadraticForms.extendExceptionalPolynomials_totalDegree_le,
     `QuaternaryQuadraticForms.exceptionalIndicator_extend,
-    `QuaternaryQuadraticForms.sourceExceptionalIndicator_one]
+    `QuaternaryQuadraticForms.sourceExceptionalIndicator_one,
+    `QuaternaryQuadraticForms.squarefree_divisor_sum_eq_powerset,
+    `QuaternaryQuadraticForms.exceptional_prime_product_eq_divisor_sum,
+    `QuaternaryQuadraticForms.fourier_stratified_product_eq,
+    `QuaternaryQuadraticForms.constrainedFourierSum_norm_le_divisors,
+    `QuaternaryQuadraticForms.divisor_halfPower_shape_le,
+    `QuaternaryQuadraticForms.exceptional_divisor_sum_le,
+    `QuaternaryQuadraticForms.weightedSum_le_exceptional_divisors,
+    `QuaternaryQuadraticForms.averageFrequency_bound,
+    `QuaternaryQuadraticForms.constrainedFourierSum_extend_eq_source,
+    `QuaternaryQuadraticForms.sourceConstrainedFourierSum_prime,
+    `QuaternaryQuadraticForms.sourceConstrainedFourierSum_one,
+    `QuaternaryQuadraticForms.sourceConstrainedFourierSum_primeFactors,
+    `QuaternaryQuadraticForms.source_average_frequency_natDegree,
+    `QuaternaryQuadraticForms.source_average_frequency_bound]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -3539,3 +3553,45 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.sourceExceptionalIndicator_one
 #print axioms QuaternaryQuadraticForms.sourceExceptionalIndicator_one
+
+#check @QuaternaryQuadraticForms.squarefree_divisor_sum_eq_powerset
+#print axioms QuaternaryQuadraticForms.squarefree_divisor_sum_eq_powerset
+
+#check @QuaternaryQuadraticForms.exceptional_prime_product_eq_divisor_sum
+#print axioms QuaternaryQuadraticForms.exceptional_prime_product_eq_divisor_sum
+
+#check @QuaternaryQuadraticForms.fourier_stratified_product_eq
+#print axioms QuaternaryQuadraticForms.fourier_stratified_product_eq
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_norm_le_divisors
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_norm_le_divisors
+
+#check @QuaternaryQuadraticForms.divisor_halfPower_shape_le
+#print axioms QuaternaryQuadraticForms.divisor_halfPower_shape_le
+
+#check @QuaternaryQuadraticForms.exceptional_divisor_sum_le
+#print axioms QuaternaryQuadraticForms.exceptional_divisor_sum_le
+
+#check @QuaternaryQuadraticForms.weightedSum_le_exceptional_divisors
+#print axioms QuaternaryQuadraticForms.weightedSum_le_exceptional_divisors
+
+#check @QuaternaryQuadraticForms.averageFrequency_bound
+#print axioms QuaternaryQuadraticForms.averageFrequency_bound
+
+#check @QuaternaryQuadraticForms.constrainedFourierSum_extend_eq_source
+#print axioms QuaternaryQuadraticForms.constrainedFourierSum_extend_eq_source
+
+#check @QuaternaryQuadraticForms.sourceConstrainedFourierSum_prime
+#print axioms QuaternaryQuadraticForms.sourceConstrainedFourierSum_prime
+
+#check @QuaternaryQuadraticForms.sourceConstrainedFourierSum_one
+#print axioms QuaternaryQuadraticForms.sourceConstrainedFourierSum_one
+
+#check @QuaternaryQuadraticForms.sourceConstrainedFourierSum_primeFactors
+#print axioms QuaternaryQuadraticForms.sourceConstrainedFourierSum_primeFactors
+
+#check @QuaternaryQuadraticForms.source_average_frequency_natDegree
+#print axioms QuaternaryQuadraticForms.source_average_frequency_natDegree
+
+#check @QuaternaryQuadraticForms.source_average_frequency_bound
+#print axioms QuaternaryQuadraticForms.source_average_frequency_bound

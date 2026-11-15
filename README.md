@@ -12,7 +12,20 @@ included. The source SHA-256 is
 
 ## Current status
 
-**Complete: 21 · Partial: 0 · Active: 0 · Pending: 21** — 42 numbered results.
+**Complete: 22 · Partial: 0 · Active: 0 · Pending: 20** — 42 numbered results.
+
+**Lemma 3.11 is Certified in full.** For the literal positive squarefree
+factorization q=q1*q2 with (q,N)=1, the actual source Fourier sums satisfy
+`sum_(0<||u||<=U, q1|F*(u)) |C_q2(u)|/||u|| <= C q^epsilon q2^(3/2) (U^3/q1 + q2^(1/2) U^2)`.
+The positive constant depends only on the real degree bound E, the local
+bound K, and epsilon, before the matrix, source modulus, original local
+functions and polynomials, factorization, and real radius U>=1.
+The complete endpoint is
+[source_average_frequency_bound](QuaternaryQuadraticForms/SourceAverageFrequencyTheorem.lean).
+The exact prime-product identity for C_q and coprime multiplicativity of
+S_c also complete the separate aux:Cfactor obligation. No literature
+premise is added or used. See the
+[complete source review](certification/correspondence/average_frequency.md).
 
 **Lemma 3.10 is Certified in full.** For coprime positive squarefree
 q1,h with (q1*h,N)=1, both the actual Euclidean congruence count and
@@ -193,38 +206,82 @@ No literature premise is added or used. The full source endpoint is
 [`source_polynomial_box`](QuaternaryQuadraticForms/PolynomialBoxTheorem.lean),
 with a [complete correspondence review](certification/correspondence/polynomial_box.md).
 
-The current scope covers 875 theorem exports across 209 Lean modules,
+The current scope covers 889 theorem exports across 215 Lean modules,
 four unchanged separately registered external Lean premises, and 20 mapped
-source groups. One auxiliary/supplementary group is Certified and 32 remain Pending.
+source groups. Two auxiliary/supplementary groups are Certified and 31 remain Pending.
 This repository does not yet provide a certificate for the whole paper.
 
-### Current Lemma 3.10 verification
+### Current Lemma 3.11 verification
 
-<!-- BEGIN LEMMA_3_10_VERIFICATION -->
+<!-- BEGIN LEMMA_3_11_VERIFICATION -->
 
-This milestone adds **37 public theorem exports in ten modules**, bringing
-the aggregate scope to **875 theorem exports, 209 project Lean modules,
-and 243 inspected inputs**. The complete source target compiled
-successfully with 3,070 jobs under the pinned Lean 4.24.0 and mathlib.
+This milestone adds **14 public theorem exports in six modules**, bringing
+the aggregate scope to **889 theorem exports, 215 project Lean modules,
+and 250 inspected inputs**. The full source target compiled successfully
+with 3,082 jobs under the pinned Lean 4.24.0 and mathlib.
 
-All 37 declaration kinds, complete actual types, and axiom dependencies
-passed separate strict inspection. Every new export uses exactly
-Classical.choice, Quot.sound, and propext; no literature premise
-is used. Independent source review covers both inequalities, the literal
-Euclidean norm and product indicator, real degree bounds and radii,
-the source-only polynomial domain, all modulus-one cases, and the
-constant's complete coefficient uniformity.
+All fourteen actual declaration kinds, complete theorem types, and axiom
+dependencies passed separate strict inspection. Every new export uses
+exactly Classical.choice, Quot.sound, and propext; no literature premise
+is used. Independent source review covers the original Fourier sums,
+the actual adjugate form and Euclidean norm, both source-only prime
+families, the squarefree factorization, the exact divisor expansion,
+real degree bounds and radii, all modulus-one cases, and the constant's
+complete coefficient and weight uniformity. Three epsilon/3 factors
+combine to the exact q^epsilon; no U^epsilon or logarithm is introduced.
 
-The earlier 199 proof modules and all 838 earlier complete theorem records
-are preserved, as are the frozen manuscript and PDF, pinned verifier,
-four literature premises, nine dependency pins, and all earlier claim
-records except the two newly completed obligations. The current ledger
-has 21 Complete, 0 Partial, 0 Active, 21 Pending numbered results; one
-supplementary group is Certified and 32 remain Pending.
+The earlier 209 proof modules and all 875 earlier export records are
+preserved, together with the frozen manuscript and PDF, pinned verifier,
+four literature premises, nine dependency pins, and earlier claim records
+except lem:average and aux:Cfactor. The live ledger has 22 Complete,
+0 Partial, 0 Active, 20 Pending numbered results; two supplementary
+groups are Certified and 31 remain Pending.
 
 The complete local aggregate verifier and independent exact-commit
 GitHub verification are the remaining execution gates. Earlier reports
 and evidence retain their historical scopes.
+
+<!-- END LEMMA_3_11_VERIFICATION -->
+
+### Earlier Lemma 3.10 verification
+
+<!-- BEGIN LEMMA_3_10_VERIFICATION -->
+
+This milestone adds **37 public theorem exports in ten modules**, bringing
+the checked scope to **875 theorem exports, 209 project Lean modules,
+and 243 inspected inputs**. All 37 new exports have complete actual
+types and axiom profiles using exactly Classical.choice, Quot.sound,
+and propext; no literature premise is used. Source correspondence covers
+both Euclidean inequalities, the original polynomial domain, real degree
+bounds and radii, all modulus-one cases, and full coefficient uniformity.
+
+**Independent GitHub aggregate verification passed at the exact proof
+commit [44f50a736906](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/44f50a736906c4d5e12e1fb046cf010c0ad5497a).**
+[Run 43753519056, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43753519056)
+completed successfully at 19:55:14 UTC on 15 November 2026. Every job
+step succeeded, including the full build, strict rechecking of all 209
+project modules, and inspection of all actual theorem types and axioms.
+
+- Proof tree: `f0d23fc1051c697d08d79b3bbd339419a0c598fb`.
+- Verification job: `132932493681`; artifact: `14177304773`.
+- Build: `Build completed successfully (3433 jobs).`.
+- [Preserved CI report](certification/ci/run_43753519056_attempt_1.json), 1,300,335 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43753519056_attempt_1.zip), 151,747 bytes.
+- ZIP SHA-256: `7804efb9993047f46ea6ae988fe6c1a611098b137dffaaab6425bdf69dba09ac`.
+- CI report SHA-256: `e8ce0cec380ef779edd06cc504e0c548ea77a0e30f99dbba147a505a38e476c5`.
+
+The original ZIP digest matches GitHub's recorded digest. All 243 input
+hashes and all 875 export source hashes match the immutable proof tree.
+All 838 earlier complete theorem records, four literature-premise records,
+and nine dependency revisions are exactly preserved. At that checkpoint,
+the inventory was 21 Complete, 0 Partial, 0 Active, 21 Pending numbered
+results, with one Certified and 32 Pending supplementary groups.
+Whole-paper certification remained false.
+
+A fresh local reexecution of the complete verifier on this exact commit
+is also running. The successful independent CI evidence above is already
+preserved; its report initialization timestamp precedes execution and is
+not the completion time.
 
 <!-- END LEMMA_3_10_VERIFICATION -->
 
@@ -2296,16 +2353,17 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Next proof branch
 
-The next target is **Lemma 3.11** (lem:average), using the complete
-inverse-Euclidean-norm estimate in Lemma 3.10 and the separately tracked
-product-expansion obligation aux:Cfactor. The proof must retain the
-actual prime Fourier sums, their CRT product, and the original supplied
-D_p indicators, then sum over divisors of q2 and absorb the fixed-base
-prime-factor and divisor-count factors with a constant uniform in the
-coefficients and moduli.
+The next targets are the supplementary coefficient identity **aux:Sxi**
+and its uniform bound **aux:Sxibound**. They must retain the original
+local functions, actual zero-frequency Fourier sums, local densities,
+and singular-series constant while using the completed Lemmas 3.8–3.9.
+These two obligations remain Pending and are not implied solely by the
+certification of Lemma 3.9.
 
-The supplementary aux:Sxi and aux:Sxibound consequences of Lemma 3.9
-remain separate pending tasks. Lemma 2.4, Lemmas 3.1–3.10, and every
-Section 4 lemma are complete. The epsilon consequence after Lemma 2.4
-is the first Certified supplementary group; the other 32 remain Pending.
-The global analytic assembly and main theorems are not yet certified.
+Lemma 2.4, Lemmas 3.1–3.11, and all Section 4 lemmas are complete.
+The polynomial-box epsilon consequence and aux:Cfactor are the two
+Certified supplementary groups; the other 31 remain Pending. Subsequent
+analytic work requires the remaining preliminary Lemmas 2.1–2.3 and the
+explicit localization and integral obligations before the Poisson and
+three-frequency contributions can assemble Proposition 5.1. The global
+analytic proposition and main theorems are not yet certified.

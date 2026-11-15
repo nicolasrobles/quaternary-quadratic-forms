@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete Euclidean exceptional congruence count and inverse-norm weighted bound",
+  "checkpoint": "Complete exceptional-frequency average and source complete-sum factorization",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -228,8 +228,24 @@
       "scope_note": "Complete Lemma 3.10, with both original assertions and one coefficient-independent constant. The actual EuclideanSpace norm has the square-root sum-of-squares identity; its finite integer ball lies in coordinate intervals containing at most 3U integers. At primes dividing q1 the actual reduced adjugate quadratic polynomial is nonzero by the source radical and coprimality hypotheses; at primes dividing h the original D_p is used. The combined prime conditions are exactly integral dual divisibility and the literal product indicator. Lemma 2.4 and its separately completed epsilon consequence give the count with degree max(2,ceil(E)). Finite dyadic halving on actual nonzero solutions, whose Euclidean norms are at least one, gives the weighted bound with absolute factor three. The source endpoint accepts polynomials only at primes outside N, proves actual-set finiteness, and retains the original indicator in the weighted sum. Modulus one, U=1, real U and E, zero-vector inclusion only in the unweighted count, nonzero constant polynomials, and small characteristics are covered. No Fourier-bound hypothesis, D_p(0)=0, counting premise, or literature premise is used. All 37 new exports in ten modules use exactly the standard three logical axioms; only this numbered status and aux:polynomialbox_epsilon are promoted."
     },
     "lem:average": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_average_frequency_bound",
+        "QuaternaryQuadraticForms.source_average_frequency_natDegree",
+        "QuaternaryQuadraticForms.constrainedFourierSum_norm_le_divisors",
+        "QuaternaryQuadraticForms.fourier_stratified_product_eq",
+        "QuaternaryQuadraticForms.exceptional_prime_product_eq_divisor_sum",
+        "QuaternaryQuadraticForms.averageFrequency_bound",
+        "QuaternaryQuadraticForms.weightedSum_le_exceptional_divisors",
+        "QuaternaryQuadraticForms.exceptional_divisor_sum_le",
+        "QuaternaryQuadraticForms.divisor_halfPower_shape_le"
+      ],
+      "correspondence_record": "certification/correspondence/average_frequency.md",
+      "completed_clauses": [
+        "For every real E,K>=1 and epsilon>0, one positive constant is chosen before the symmetric nonsingular integral matrix, source modulus N>=1 with rad(N_F)|N, original nonzero prime polynomials of degree at most E, original scalar-invariant prime functions satisfying the explicit local stratified bound, positive squarefree factorization q=q1*q2 with (q,N)=1, and real U>=1. The literal sum of |C_q2(u)|/||u|| over 0<||u||<=U and q1|F*(u) is at most C*q^epsilon*q2^(3/2)*(U^3/q1+q2^(1/2)*U^2)."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 3.11 with the actual source Fourier sums, Euclidean norm, adjugate quadratic form and original exceptional-polynomial indicators. The proved CRT prime product and a proved subset-to-divisor reindexing yield the exact divisor majorant. The already checked Lemma 3.10 supplies the common weighted congruence bound at every h|q2. Each of the congruence, fixed-base prime-factor and divisor-count estimates uses epsilon/3, giving exactly q^epsilon without changing the U exponents. The final theorem derives the factors' squarefreeness, mutual coprimality and every divisor coprimality from the source squarefree factorization, and accepts the original function and polynomial families only at primes outside N. A real E is handled by its natural ceiling. Modulus one, U=1, nonintegral U, nonzero constant polynomials, and every nonzero frequency on or off the dual cone are included. The local Fourier estimate is the explicit hypothesis (3.3); the CRT identity, divisor expansion and counting estimate are proved internally. No use of Lemma 4.4, new literature premise, or additional characteristic-versus-degree condition is made. All fourteen new exports in six modules use exactly the standard three logical axioms."
     },
     "lem:exceptional": {
       "status": "Certified",
@@ -410,8 +426,19 @@
       "checked_exports": []
     },
     "aux:Cfactor": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.sourceConstrainedFourierSum_primeFactors",
+        "QuaternaryQuadraticForms.constrainedFourierSum_primeFactors",
+        "QuaternaryQuadraticForms.unweightedCompleteSum_mul"
+      ],
+      "correspondence_record": "certification/correspondence/average_frequency.md",
+      "completed_clauses": [
+        "For every positive squarefree q coprime to N, the literal source C_q(u) is the product over p|q of the original source prime sums C_p(u), using the supplied nonzero-scalar invariance and including the empty product at q=1.",
+        "For every pair of positive coprime moduli c1,c2 and every integral frequency, the actual unweighted complete sum satisfies S_(c1*c2)(u)=S_c1(u)*S_c2(u), including bad-prime factors and modulus one."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Both assertions immediately after Lemma 3.1 are complete. The new source-domain prime-product wrapper identifies the earlier proved constrained Fourier sum with the original supplied good-prime functions. The existing constrainedFourierSum_primeFactors and unweightedCompleteSum_mul proofs and export records are reused unchanged. No actual product identity is assumed and no literature premise is used. This is one supplementary group, not another numbered result."
     },
     "aux:quadratic_gauss_1d": {
       "status": "Pending",
@@ -14080,6 +14107,227 @@
         "eq:weightedbox"
       ],
       "scope": "The empty-prime product gives the source convention `Delta_1(u)=1`.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.squarefree_divisor_sum_eq_powerset",
+      "file": "QuaternaryQuadraticForms/FourierDivisorExpansion.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:Cexpand"
+      ],
+      "scope": "The actual divisors of a squarefree modulus are put in bijection with subsets of its prime divisors, with the empty subset corresponding to one; finite sums are reindexed exactly.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptional_prime_product_eq_divisor_sum",
+      "file": "QuaternaryQuadraticForms/FourierDivisorExpansion.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:Cexpand"
+      ],
+      "scope": "The product of 1+p^(1/2) times the supplied polynomial zero indicator is exactly the divisor sum of h^(1/2)*Delta_h(u), including modulus one, with no nonvanishing or degree premise needed for this identity.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.fourier_stratified_product_eq",
+      "file": "QuaternaryQuadraticForms/FourierProductBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:Cstrata",
+        "eq:Cexpand"
+      ],
+      "scope": "The product of the actual local majorants factors exactly as K^omega(q)*q^(3/2) times the exceptional-divisor sum for squarefree q.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_norm_le_divisors",
+      "file": "QuaternaryQuadraticForms/FourierProductBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:Cstrata",
+        "eq:Cexpand"
+      ],
+      "scope": "The actual constrained Fourier sum satisfies the divisor majorant (3.32), using its proved CRT prime product, local scalar invariance, and precisely the supplied local stratified bounds.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.divisor_halfPower_shape_le",
+      "file": "QuaternaryQuadraticForms/ExceptionalDivisorSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:average",
+        "eq:weightedbox"
+      ],
+      "scope": "For each positive divisor h of q2, h^(1/2)*(U^3/(q1*h)+U^2) is at most U^3/q1+q2^(1/2)*U^2, for real U>=0 and positive q1.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.exceptional_divisor_sum_le",
+      "file": "QuaternaryQuadraticForms/ExceptionalDivisorSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:average",
+        "eq:weightedbox"
+      ],
+      "scope": "The actual divisor sum, including the small-power factor (q1*h)^eta, is bounded by (q1*q2)^eta*tau(q2) times the common source shape, uniformly in the positive moduli and nonnegative real radius.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedSum_le_exceptional_divisors",
+      "file": "QuaternaryQuadraticForms/ExceptionalDivisorSum.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:average",
+        "eq:Cexpand"
+      ],
+      "scope": "A pointwise divisor majorant is inserted into the literal finite inverse-Euclidean-norm sum, and the two finite sums are interchanged exactly to give the original indicator-weighted congruence sums.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.averageFrequency_bound",
+      "file": "QuaternaryQuadraticForms/AverageFrequencyBound.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:average"
+      ],
+      "scope": "For a natural degree bound and K>=1, the actual weighted congruence estimate and a pointwise divisor majorant give the full q^epsilon*q2^(3/2)*(U^3/q1+q2^(1/2)*U^2) average, with one positive constant fixed before all matrix, polynomial, modulus, radius and function data.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.constrainedFourierSum_extend_eq_source",
+      "file": "QuaternaryQuadraticForms/SourceFourierSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Cfactor",
+        "eq:Cdef",
+        "lem:average"
+      ],
+      "scope": "The existing constrained Fourier sum for the extended good-prime function family is exactly the source sum formed from the original supplied function product.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceConstrainedFourierSum_prime",
+      "file": "QuaternaryQuadraticForms/SourceFourierSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Cfactor",
+        "eq:Cdef",
+        "eq:Cstrata"
+      ],
+      "scope": "At a prime outside N, the source sum is exactly the finite-field Fourier transform of the supplied function on the quadratic cone.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceConstrainedFourierSum_one",
+      "file": "QuaternaryQuadraticForms/SourceFourierSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Cfactor",
+        "eq:Cdef",
+        "lem:average"
+      ],
+      "scope": "The source empty-product convention gives C_1(u)=1 for every integral matrix and frequency.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceConstrainedFourierSum_primeFactors",
+      "file": "QuaternaryQuadraticForms/SourceFourierSums.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Cfactor",
+        "lem:crt",
+        "eq:Cdef"
+      ],
+      "scope": "For positive squarefree q coprime to N, the actual source Fourier sum equals the product of its actual prime sums, using only the original functions supplied at good primes and their nonzero-scalar invariance.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_average_frequency_natDegree",
+      "file": "QuaternaryQuadraticForms/SourceAverageFrequencyTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:average",
+        "eq:Cexpand"
+      ],
+      "scope": "Complete Lemma 3.11 for a natural degree bound, with the original source Fourier sums, actual Euclidean norm and adjugate divisibility, explicit squarefree factorization q=q1*q2, and one coefficient-independent constant fixed before all source data.",
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_average_frequency_bound",
+      "file": "QuaternaryQuadraticForms/SourceAverageFrequencyTheorem.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:average",
+        "eq:average",
+        "eq:Cexpand"
+      ],
+      "scope": "Complete Lemma 3.11 with the source real degree bound E>=1. One positive constant depending only on E,K,epsilon bounds the literal Fourier-norm average uniformly in the matrix, original good-prime polynomials and functions, all positive squarefree factorizations, and real U>=1.",
       "allowed_axioms": [
         "propext",
         "Classical.choice",
