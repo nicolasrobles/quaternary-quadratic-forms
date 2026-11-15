@@ -1,0 +1,22 @@
+QuaternaryQuadraticForms.mem_primeSupportModuliUpTo : ∀ (N T b : ℕ),
+  b ∈ QuaternaryQuadraticForms.primeSupportModuliUpTo N T ↔ 1 ≤ b ∧ b ≤ T ∧ ∀ (p : ℕ), Nat.Prime p → p ∣ b → p ∣ N
+'QuaternaryQuadraticForms.mem_primeSupportModuliUpTo' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le : ∀ (N T : ℕ),
+  N ≠ 0 → (QuaternaryQuadraticForms.primeSupportModuliUpTo N T).card ≤ (Nat.log 2 T + 1) ^ N.primeFactors.card
+'QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log : ∀ (N : ℕ),
+  N ≠ 0 →
+    ∀ (X : ℝ),
+      1 ≤ X →
+        ↑(QuaternaryQuadraticForms.primeSupportModuliUpTo N ⌊X⌋₊).card ≤
+          (1 + Real.log X / Real.log 2) ^ N.primeFactors.card
+'QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log_normalized : ∀ (N : ℕ),
+  N ≠ 0 →
+    ∀ (X : ℝ),
+      1 ≤ X →
+        ↑(QuaternaryQuadraticForms.primeSupportModuliUpTo N ⌊X⌋₊).card ≤
+          (1 + (Real.log 2)⁻¹) ^ N.primeFactors.card * (1 + Real.log X) ^ N.primeFactors.card
+'QuaternaryQuadraticForms.primeSupportModuliUpTo_card_le_log_normalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

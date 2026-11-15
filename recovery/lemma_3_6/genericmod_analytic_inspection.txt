@@ -1,0 +1,6 @@
+QuaternaryQuadraticForms.divisors_card_le_rpow : ∀ (ε : ℝ),
+  0 < ε → ∃ C, 0 < C ∧ ∀ (n : ℕ), 0 < n → ↑n.divisors.card ≤ C * ↑n ^ ε
+'QuaternaryQuadraticForms.divisors_card_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
+QuaternaryQuadraticForms.one_add_log_pow_le_rpow : ∀ (k : ℕ) (ε : ℝ),
+  0 < ε → ∃ C, 0 < C ∧ ∀ (X : ℝ), 1 ≤ X → (1 + Real.log X) ^ k ≤ C * X ^ ε
+'QuaternaryQuadraticForms.one_add_log_pow_le_rpow' depends on axioms: [propext, Classical.choice, Quot.sound]
