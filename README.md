@@ -193,15 +193,30 @@ and all nine pinned dependency revisions. The 677 earlier theorem
 records and four literature-input records are unchanged; the 30 new
 exports match their independent actual-type and source reviews.
 
-- [Local verification report](certification/verification_report.json).
+- [Local report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/eac4b4c9e82470cf142ecd2a4290cfa35a44bf35/certification/verification_report.json).
 - Report SHA-256: `0712a8eec668f9f44c87b1c318252ee424004af18f4f50d7bbbbbcc2b2659a56`.
 - Current numbered inventory: 18 Certified, 0 Partial, 0 Active,
   and 24 Pending; all 33 auxiliary groups remain Pending.
 
-**Exact-proof-commit GitHub verification remains pending.** Its run
-and preserved artifact will be recorded here and in the
-[execution checkpoint](CHECKPOINT.md) once verified. Earlier reports
-below retain their historical scopes.
+**Independent GitHub verification passed for the exact published
+proof commit [eac4b4c9e824](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/eac4b4c9e82470cf142ecd2a4290cfa35a44bf35).**
+[Run 43725792541, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43725792541) completed successfully,
+and every verification-job step succeeded.
+
+- [Preserved CI report](certification/ci/run_43725792541_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43725792541_attempt_1.zip).
+- Verification job: `132847314315`; artifact: `14166432952`.
+- ZIP SHA-256: `05f9416df22887b06fff84ab49d4a429569f35e8052f6775da1144c27f10cb2a`.
+- CI report SHA-256: `ff2b840c83a4604dbb1168a488a71091f8f0b403adeb5defdd82eac7ccaf530a`.
+
+The artifact digest matches GitHub's recorded SHA-256. Independent
+comparison matched the local and CI reports on all 18 verification-content
+fields, including all 707 complete theorem records, all 205 input hashes,
+the four literature-premise records, and nine dependency revisions.
+All inspected inputs also match the files at the published proof commit.
+The generation timestamp and build log are execution-specific fields.
+The [execution checkpoint](CHECKPOINT.md) records the complete evidence.
+Earlier reports below retain their historical scopes.
 
 <!-- END LEMMA_3_8_VERIFICATION -->
 

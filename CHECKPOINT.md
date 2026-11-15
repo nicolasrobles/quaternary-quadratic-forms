@@ -1664,10 +1664,10 @@ with the separately inspected final types and use exactly the three
 standard foundational axioms. Independent review of the source
 correspondence and preservation of the preceding proof scope passed.
 
-- [Local verification report](certification/verification_report.json).
+- [Local report at the checked proof commit](https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/eac4b4c9e82470cf142ecd2a4290cfa35a44bf35/certification/verification_report.json).
 - Report SHA-256: `0712a8eec668f9f44c87b1c318252ee424004af18f4f50d7bbbbbcc2b2659a56`.
-- Locally checked proof commit: `addc512e830aba4109a7ddf16a398622ec759dca`.
-- Proof tree: `26ed9749963393e36fabe99aeb2213aae9c82a9b`.
+- Published proof commit with identical checked inputs: [eac4b4c9e824](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/eac4b4c9e82470cf142ecd2a4290cfa35a44bf35).
+- Published proof tree: `fb189c84421b62195b9c69a0b5f8bf020b487eac`.
 - Numbered results: 18 Certified, 0 Partial, 0 Active, 24 Pending.
 - All 33 auxiliary/supplementary groups remain Pending.
 - Whole-paper certification remains false.
@@ -1682,11 +1682,38 @@ link below and retains its original scope.
 
 ### Local-density GitHub execution
 
-**The exact-proof-commit GitHub verification is pending for this
-milestone.** The published proof commit, successful run and attempt,
-job, original artifact, report hashes, and exact local/CI comparison
-will be recorded here when established. Earlier successful runs below
-do not certify the new aggregate.
+**The independent GitHub verifier passed for the exact published
+proof commit [eac4b4c9e82470cf142ecd2a4290cfa35a44bf35](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/eac4b4c9e82470cf142ecd2a4290cfa35a44bf35).** Its tree is
+`fb189c84421b62195b9c69a0b5f8bf020b487eac`, byte-identical to the prepared local
+checkpoint `fe2ee69231c00de4233daaaf57907ea73b028938`.
+
+- [Successful run 43725792541, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43725792541).
+- Verification job: `132847314315`; every step succeeded.
+- Artifact: `14166432952`, 123,921 bytes.
+- [Preserved CI report](certification/ci/run_43725792541_attempt_1.json).
+- [Preserved original artifact ZIP](certification/ci/run_43725792541_attempt_1.zip).
+- ZIP SHA-256: `05f9416df22887b06fff84ab49d4a429569f35e8052f6775da1144c27f10cb2a`.
+- CI report SHA-256: `ff2b840c83a4604dbb1168a488a71091f8f0b403adeb5defdd82eac7ccaf530a`.
+- Local report SHA-256: `0712a8eec668f9f44c87b1c318252ee424004af18f4f50d7bbbbbcc2b2659a56`.
+
+The original artifact was downloaded and its SHA-256 matches the
+digest recorded by GitHub. It contains the verification report alone;
+the archived ZIP and extracted JSON preserve their exact bytes.
+
+Both comparisons of the local and CI reports matched all 18
+verification-content fields, including every one of the 707 complete
+theorem records, all four inspected literature-input records, all nine
+dependency revisions, all 205 input hashes, and the complete actual-type
+and axiom-inspection output. Every input hash also matches the published
+proof commit. The generation timestamp and build output are the only
+execution-specific fields excluded from the content comparison.
+
+The report records 18 Certified, 0 Partial, 0 Active, and 24 Pending
+numbered results. All 33 auxiliary/supplementary groups remain Pending;
+whole-paper certification remains false. The evidence archive changes
+only README, CHECKPOINT, and the original CI JSON and ZIP. The Lean
+sources, status ledger, correspondence review, verifier, frozen
+manuscript, and local report remain those of the checked proof commit.
 
 <!-- END LEMMA_3_8_VERIFICATION -->
 
