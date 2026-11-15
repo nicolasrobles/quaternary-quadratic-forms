@@ -27,30 +27,65 @@ See the [complete source review](certification/correspondence/delta_symbol.md).
 <!-- BEGIN LEMMA_2_1_VERIFICATION -->
 
 This milestone adds **29 public theorem exports in five modules**, bringing
-the scope to **918 theorem exports, 220 project Lean modules, and 256
-inspected inputs**. The one new, separately registered Heath–Brown
-construction premise brings the total to five; the four earlier premises
-and 20 mapped source groups are preserved.
+the verified scope to **918 theorem exports, 220 project Lean modules,
+and 256 inspected inputs**. The complete source endpoint and independent
+source review cover the fixed common kernel, C-infinity smoothness,
+positive normalization at every real Q>=3, every real decay order j>=1,
+all integer frequencies, modulus one, actual residue phases, and finite
+outer support.
 
-All 29 new declarations passed strict actual-kind, full-type, and axiom
-inspection. Twenty generic normalization/support exports use exactly the
-three standard logical foundations. Nine source-specific exports use those
-foundations and only `Trusted.heathBrown_delta_data`. The axiom's actual
-type is separately inspected and hashed in `certification/status.json`.
-Independent source review covers the common fixed kernel, smoothness,
-real scales and decay orders, denominator positivity and uniformity,
-all integer frequencies, modulus one, literal phases, and finite support.
+**The complete local aggregate verifier passed**, including the full
+build, strict rechecking of every project module, and actual declaration
+kind, complete type, and axiom inspection of all registered exports.
 
-The metadata verifier passed for all 256 inspected inputs. A fresh full
-local aggregate verification is running on the frozen proof inputs.
-Independent GitHub verification of the exact published proof commit is
-still to be observed. Earlier aggregate reports retain their historical
-scope and are not presented as execution evidence for these new inputs.
+- Checked proof commit: [5f6eee91f968](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/5f6eee91f968a2fe855d2b18b7820ba4511c9245).
+- Proof tree: `c0c92a68668b04eda13c05d2e0506df1a65b99c5`.
+- [Preserved local report](certification/verification_report.json), 1,362,455 bytes.
+- Local report SHA-256: `f812afe8927558a565228abfb35002330e1fd30393c035e2d8921e949e57532e`.
+- Local build: `Build completed successfully (3445 jobs).`.
 
-The ledger has **23 Complete, 0 Partial, 0 Active, 19 Pending** numbered
-results. Supplementary groups remain **2 Certified and 31 Pending**.
-Whole-paper certification remains false. The next numbered target is
-Lemma 2.2, followed by Lemma 2.3.
+**Independent GitHub verification passed for the exact published proof
+commit.** [Run 43762915504, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43762915504)
+completed successfully at 2026-11-15T21:35:44Z; every job step succeeded.
+The reports' initialization timestamps precede execution and are not
+completion times.
+
+- Verification job: `132961498175`; artifact: `14182205232`.
+- CI build: `Build completed successfully (3445 jobs).`.
+- [Preserved CI report](certification/ci/run_43762915504_attempt_1.json), 1,378,890 bytes.
+- [Preserved original artifact ZIP](certification/ci/run_43762915504_attempt_1.zip), 161,671 bytes.
+- CI report SHA-256: `f33b9e9b9eb87d5b0f977c5e103d9a9cbb9428d4aaa9a935299b41d1959e9c64`.
+- ZIP SHA-256: `3dbb38321b23aa2cf287392389cb81c07d93c3466492cdcb6ea6ce2d21e42f13`.
+
+The original ZIP digest agrees with GitHub's recorded digest. The local
+and CI reports agree on **all 18 verification-content fields**, including
+918 complete theorem records and 256 input hashes. Every inspected input
+and export source hash matches the exact published proof tree. The only
+execution-specific differences are the generation timestamp and build log.
+
+All **889 earlier complete theorem records**, the four earlier literature
+premise records, and nine dependency revisions are exactly preserved.
+All 29 new complete types and axiom profiles match the separate strict
+inspection. Twenty generic normalization/support exports use exactly
+Classical.choice, Quot.sound, and propext. Nine source-specific exports
+add only the newly registered `Trusted.heathBrown_delta_data` input;
+its actual kind and complete type are inspected separately. There are
+five registered literature premises and 20 mapped source groups.
+
+The new input concerns the actual cited construction: its bump and kernel
+properties, unnormalized identity, and raw sampling error. The manuscript's
+uniform positive denominator bound, normalized rapid error, division in
+the delta identity, phase agreement, and finite support are internal
+deductions. In particular the proof divides by S(Q) only after proving
+positivity throughout Q>=3; no normalized formula at Q=2 is imported.
+
+The frozen manuscript and PDF, all earlier 215 project modules, and the
+pinned verifier remain unchanged. The live ledger has **23 Complete,
+0 Partial, 0 Active, 19 Pending** numbered results, with **2 Certified
+and 31 Pending** supplementary groups. Only lem:delta is promoted by
+this milestone; whole-paper certification remains false. Earlier evidence
+retains its historical scope. The next numbered target is Lemma 2.2,
+followed by Lemma 2.3.
 
 <!-- END LEMMA_2_1_VERIFICATION -->
 
