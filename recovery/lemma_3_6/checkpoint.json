@@ -1,11 +1,11 @@
 {
-  "schema": 2,
+  "schema": 3,
   "target": "Lemma 3.6 (lem:genericmod)",
   "lemma_complete": false,
   "published_main_status": "Pending",
   "baseline_commit": "4bc1de4e3d5e35c3482908a57f96b6ee465f5f4d",
-  "previous_checkpoint_commit": "6e1277edd2068b27b2c78cff802de506d3f60d93",
-  "scope": "35 strictly compiled and inspected supporting theorems in 10 modules; full modulus aggregation, source theorem and aggregate certification remain outstanding.",
+  "previous_checkpoint_commit": "c47933a85b93016b87915985616a430b5818b85a",
+  "scope": "All39 theorem exports in12 modules strictly compiled and inspected, including the complete uniform source assertion of Lemma3.6. Aggregate verification and exact-commit CI are not yet completed.",
   "axioms_for_all_exports": [
     "Classical.choice",
     "Quot.sound",
@@ -147,12 +147,44 @@
       ],
       "strict_compilation_passed": true,
       "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "GenericModulusBound.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/GenericModulusBound.lean",
+      "bytes": 8416,
+      "sha256": "9a15242c46321a88c11e443b59c9abffea7a85094c068efd928cb65c5d543fc9",
+      "public_exports": [
+        "modulusNormSum_eq_zero_of_not_dvd",
+        "modulusNormSum_le_divisor_log"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
+    },
+    {
+      "snapshot": "GenericModulusTheorem.lean.txt",
+      "restore_path": "QuaternaryQuadraticForms/GenericModulusTheorem.lean",
+      "bytes": 5654,
+      "sha256": "fe4b9c202187cca829b262ddba2168ceaaefcd2bb66b4ce942f834acea3bee11",
+      "public_exports": [
+        "modulusNormSum_le_rpow",
+        "source_generic_modulus_bound"
+      ],
+      "strict_compilation_passed": true,
+      "actual_type_and_axiom_inspection_passed": true
     }
   ],
   "remaining": [
-    "Actual finite modulus-sum aggregation and uniform source theorem",
-    "Final source correspondence review",
-    "Aggregate verifier and exact-commit GitHub CI"
+    "Finalize and register the accepted source correspondence review",
+    "Full aggregate verifier and baseline preservation audit",
+    "Exact-commit GitHub CI and original artifact comparison"
   ],
-  "recovery": "Restore each source snapshot to restore_path only after checking sha256; these snapshots are not registered certification exports yet."
+  "recovery": "Restore each source snapshot to restore_path only after checking sha256; these snapshots are not registered certification exports yet.",
+  "full_lemma_source_theorem_strictly_checked": true,
+  "certification_complete": false,
+  "unified_inspection": {
+    "snapshot": "genericmod_final_inspection.txt",
+    "bytes": 23725,
+    "sha256": "c930565abe1a7649caeccd7fd1a077e8870dd50f3d706561eaba4ca1c5b11302",
+    "exports": 39
+  }
 }
