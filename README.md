@@ -191,11 +191,35 @@ contains 996,216 bytes and has SHA-256
 It records 17 Certified, zero Partial or Active, and 25 Pending
 numbered results; all 33 auxiliary/supplementary groups remain Pending.
 
-**GitHub CI for the 677-export scope is pending.** The new local
-result covers the complete Lemma 3.7 scope. The exact proof commit and
-its independently compared GitHub report will be recorded in the
-[execution checkpoint](CHECKPOINT.md) when that separate gate passes.
-Earlier local and GitHub evidence below retains its historical scope.
+**The local and GitHub verifiers passed for the complete 677-export
+scope.** [GitHub Actions run 43680979628, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43680979628)
+succeeded at [proof commit 5918e83](https://github.com/nicolasrobles/quaternary-quadratic-forms/tree/5918e83d0705f4c0ab3b24a3324da18b0ab5e027),
+with verification job `132711319031`. Its artifact `14148294897`
+is preserved as the [original ZIP](certification/ci/run_43680979628_attempt_1.zip) and
+[downloaded report](certification/ci/run_43680979628_attempt_1.json).
+The ZIP contains 118,804 bytes and has SHA-256
+`df9534e5c6360fd3032ad5a82d8379362785cfb2c4d1c29c8551055b5d287424`;
+the report contains 1,008,362 bytes and has SHA-256
+`9a0621958cc3ad13be370a60dfa571ba777f0d7121160dba0d1346313fed3e0a`.
+
+The ZIP digest matches GitHub's advertised artifact digest, and its
+sole member is byte-identical to both independently inspected JSON
+copies and the archived report. The root and agent comparisons agree
+on all 18 verification-content fields: 677 complete theorem records,
+four premise records, 195 input hashes, nine dependency revisions,
+and the complete Lean inspection output. Only `generated_at_utc` and `lake_build_output` differ.
+
+All 195 hashes match the current inspected files and the exact proof
+tree `cf6ecf868ee9642f9d9f165091e1ef35152d9fff`. All 33 frozen nondocument paths, including
+the workflow, remain unchanged and match that proof tree. The installed
+local report remains unchanged at 996,216 bytes, with its
+SHA-256 recorded above. Of the 40 new exports, 39 use exactly
+`Classical.choice`, `Quot.sound`, and `propext`;
+`goodQuadraticChar_coprime_four_iff` uses only `propext`.
+No new export uses a literature premise.
+The [execution checkpoint](CHECKPOINT.md) records the proof, run, job,
+artifact, timestamps, and complete 677-export scope. Earlier evidence
+below retains its historical scope.
 
 ### Earlier Lemma 3.6 verification
 
