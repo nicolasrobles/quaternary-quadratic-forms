@@ -176,8 +176,10 @@ jobs:
             Mathlib.Tactic.NormNum \
             Mathlib.Tactic.Positivity \
             Mathlib.Tactic.Ring \
+            Mathlib.Topology.Algebra.InfiniteSum.Constructions \
             Mathlib.Topology.Algebra.InfiniteSum.NatInt \
             Mathlib.Topology.Algebra.InfiniteSum.Order \
+            Mathlib.Topology.Algebra.InfiniteSum.Ring \
             Mathlib.Topology.Instances.Real.Lemmas \
             Mathlib.Topology.Order.Basic \
             Mathlib.Topology.Order.Compact

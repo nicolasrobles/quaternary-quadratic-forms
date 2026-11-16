@@ -173,17 +173,23 @@
       ]
     },
     "EXT.POISSON_R4": {
-      "reference": "HB and reputable analysis library",
-      "locator": "Poisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem",
-      "scope": "Schwartz/compactly supported smooth functions and affine-lattice scaling; exact signs and absolute convergence must be instantiated. Prefer the precise official mathlib theorem when available; otherwise register the exact cited Poisson input before use.",
-      "status": "Pending registration",
+      "reference": "HB, Section 3, proof of Theorem 2; classical affine-lattice Poisson summation",
+      "locator": "Author manuscript pp.19–20, general n-dimensional Poisson formula and the substitution x=b+qy; n=4 with the standard absolute-convergence clause for smooth compact support.",
+      "scope": "The classical four-dimensional affine-lattice Poisson formula for arbitrary smooth compactly supported complex functions, with canonical Euclidean Lebesgue measure, negative Fourier sign, positive translation phase, covolume L^4, and absolute summability of sampled Fourier values. No quadratic form, delta kernel, arithmetic weight, complete sum, scale specialization, or manuscript counting identity is an input.",
+      "status": "Trusted literature input; general affine-lattice interface registered",
       "used_by": [
         "lem:poisson"
       ],
       "id": "EXT.POISSON_R4",
-      "trust": "Accepted literature input under the author-approved scope; no Lean interface has yet been registered.",
-      "lean_declarations": [],
-      "interface_status": "Pending"
+      "trust": "Accepted under the author-approved EXT.POISSON_R4 scope. All manuscript-specific functions, hypotheses, finite reindexings, phases, scale identities, and weighted convergence are internal deductions.",
+      "lean_declarations": [
+        "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional"
+      ],
+      "interface_status": "Exact general statement preregistered from an elaborated local hypothesis; actual declaration and manuscript specializations are inspected separately.",
+      "source_url": "https://ora.ox.ac.uk/objects/uuid%3Abbd3c62f-f010-44b5-8be5-87e903fb0084/files/m7ec02df6e1b8303a66e7a6015ecb6044",
+      "published_doi": "10.1515/crll.1996.481.149",
+      "correspondence_record": "certification/correspondence/poisson_summation.md",
+      "lean_statement": "∀ (g : QuaternaryQuadraticForms.RealVector4 → ℂ) (L : ℝ),\n    QuaternaryQuadraticForms.IsSmoothWeight g → 0 < L →\n    Summable (fun u : Fin 4 → ℤ =>\n      ‖QuaternaryQuadraticForms.poissonFourierIntegral g\n        (L⁻¹ • QuaternaryQuadraticForms.integerRealVector u)‖) ∧\n    ∀ z : QuaternaryQuadraticForms.RealVector4,\n      (∑' x : Fin 4 → ℤ,\n        g (z + L • QuaternaryQuadraticForms.integerRealVector x)) =\n      ((L : ℂ) ^ 4)⁻¹ * ∑' u : Fin 4 → ℤ,\n        Complex.exp (2 * (Real.pi : ℂ) * Complex.I *\n          ((inner ℝ (L⁻¹ • QuaternaryQuadraticForms.integerRealVector u) z : ℝ) : ℂ)) *\n        QuaternaryQuadraticForms.poissonFourierIntegral g\n          (L⁻¹ • QuaternaryQuadraticForms.integerRealVector u)"
     },
     "EXT.MV_PNT_AP": {
       "reference": "MV",

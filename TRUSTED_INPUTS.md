@@ -2,7 +2,7 @@
 
 The authors authorize source-relative certification: exact cited inputs used by the proofs are trusted and are not reproved. Their mathematical statements, hypotheses, source locators, and Lean declarations must be registered before use. All specializations, hypothesis checks, coefficient uniformity, and deductions made in this manuscript remain proof obligations.
 
-**21 input groups are mapped; 11 external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
+**21 input groups are mapped; 12 external premise declarations are currently registered in Lean.** Mapping an input is not the same as formalizing its interface. Use a suitable official mathlib result where available.
 
 | Input | Source locator | Accepted mathematical scope | Lean interface |
 |---|---|---|---|
@@ -16,7 +16,7 @@ The authors authorize source-relative certification: exact cited inputs used by 
 | `EXT.MV_DIRICHLET_L` | [MV], Section 4.3 | Euler products for Re(s)>1 and continuity at s=1 for the nonprincipal Dirichlet-character L-series; the needed boundary convergence follows from bounded partial sums. | Euler products, analytic continuation, and boundary continuity [supplied by official mathlib](QuaternaryQuadraticForms/SingularSeriesLFactors.lean); [source specialization and boundary assembly](certification/correspondence/singular_series.md) proved internally; no external premise declaration |
 | `EXT.LANG_ELIMINATION` | [La: S. Lang, Algebra, revised third edition, GTM 211, Springer, 2002], Chapter IX, Theorem 4.1, printed p. 402; generic coefficient convention and Theorem 3.2, p. 390; projective and algebraic-closure conventions following Theorem 3.1, p. 389; zero-form and empty-output cases, pp. 404–405 | For any positive number N of variables and finite nonempty family of positive assigned degrees d_i, there exists a finite family R_j of integer polynomials in all generic homogeneous coefficients, chosen before the coefficient field and coefficient assignment. Over every field K and every coefficient assignment w, the actual forms homogeneousSystem N d w have a common nonzero zero over AlgebraicClosure K if and only if every R_j evaluates to zero in K. The output family may be empty and specialized input forms may be zero. No characteristic restriction or manuscript-specific bad-reduction, witness, finiteness, or height conclusion is included. | [`QuaternaryQuadraticForms.Trusted.lang_homogeneous_resultants`](QuaternaryQuadraticForms/Trusted/Elimination.lean) |
 | `EXT.HARTSHORNE_BERTINI` | [Ha], Chapter II, Theorem 8.18 and proof, printed pp. 179-180; inspected book PDF pp. 194-195. The generic coordinate interpretation uses EXT.PROJECTIVE_JACOBIAN. Stacks Lemma 33.47.3, tag 0FD6, independently gives the smooth-scheme version. | For any algebraically closed field K, natural numbers N,c with c+2<=N, positive assigned degrees d_i and literal homogeneous polynomials P_i in N variables, assume that at every nonzero common zero x the matrix with rows the formal gradients of the P_i at x has rank c. Then there exists a nonzero vector u in K^N such that for every nonzero common zero x also satisfying u dot x=0 there is v in K^N with every gradient(P_i,x) dot v=0 and u dot v != 0. The geometric Jacobian, dimension and tangent interpretation is an explicit source component of this general coordinate Bertini interface. No rank increase, quadric specialization, finite-field rational hyperplane, elimination polynomial, or quantitative bound is asserted. | [`QuaternaryQuadraticForms.Trusted.bertini_homogeneous_tangent`](QuaternaryQuadraticForms/Trusted/Bertini.lean) |
-| `EXT.POISSON_R4` | [HB and reputable analysis library], Poisson formula used in the proof of HB Theorem2; standard R4 lattice Poisson theorem | Schwartz/compactly supported smooth functions and affine-lattice scaling; exact signs and absolute convergence must be instantiated. Prefer the precise official mathlib theorem when available; otherwise register the exact cited Poisson input before use. | Pending |
+| `EXT.POISSON_R4` | [HB, Section 3, proof of Theorem 2; classical affine-lattice Poisson summation], Author manuscript pp.19–20, general n-dimensional Poisson formula and the substitution x=b+qy; n=4 with the standard absolute-convergence clause for smooth compact support. | The classical four-dimensional affine-lattice Poisson formula for arbitrary smooth compactly supported complex functions, with canonical Euclidean Lebesgue measure, negative Fourier sign, positive translation phase, covolume L^4, and absolute summability of sampled Fourier values. No quadratic form, delta kernel, arithmetic weight, complete sum, scale specialization, or manuscript counting identity is an input. | [`QuaternaryQuadraticForms.Trusted.poisson_four_dimensional`](QuaternaryQuadraticForms/Trusted/Poisson.lean) |
 | `EXT.MV_PNT_AP` | [MV], Corollary11.21 | Fixed-modulus prime-number theorem in arithmetic progressions, specialized to a lower bound in (z,2z] for p=1 mod r. | Pending |
 | `EXT.LANG_CYCLOTOMIC` | [La], ChapterVI, Theorem3.1 | The phi(r) automorphisms of Q(zeta_r), indexed by reduced residues, with sigma_t(zeta_r)=zeta_r^t. | Pending |
 | `EXT.SALBERGER_COUNT` | [S], Theorem0.6, second bound, d1=2,d2=r | Uniform count outside lines on a smooth complete intersection in P4: O_(r,epsilon)(B^(3/sqrt(2r)+epsilon)+B). | Pending |
@@ -100,6 +100,12 @@ Expected type hash: `d1b64cc0364519a1bf7906160ab57fd0b49b45f2597ec7b9aab2f649476
 
 Expected type hash: `cd5d7f5bb0de555a7dc247da23e89919ff17a0128946cbac480c1820e2ef8f31`.
 
+### `EXT.POISSON_R4`
+
+[Exact source and correspondence review](certification/correspondence/poisson_summation.md). The verifier checks the declaration kind, inspected Lean type, type hash, and actual axiom dependencies separately from proved exports.
+
+Expected type hash: `40a16daa09a156fd73fe1f6bf8b7599210b25c0dd061b9746a4bd802d1402d88`.
+
 
 ## Cited claims excluded from the premise registry
 
@@ -116,18 +122,20 @@ Other citations used only for attribution, background, or a description of relat
 
 ## Dependencies of proved exports
 
-The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, finite-product arithmetic, prime-field Gauss calculations, exact diagonal pencil evaluations, composite weights, scaled CRT, complete-sum factorizations, general matrix Gauss evaluations, prime-power residue recurrences, quadric point counts, uniform norm bounds, actual residue kernels, determinant-index comparisons, weighted stationary expansions, adjugate weight extraction, shared-prime complete-sum evaluations, actual Ramanujan multiplicativity, source-character agreement, the global mixed-sum and dual-cone identities, and the generic delta-symbol normalization and finite-support deductions, actual normalized weight pieces and reconstruction, uniform derivative bounds, quadratic gradient and Hessian calculations, positive-root charts, surface transport, and finite-family bound assembly use only the standard logical foundations. The ledger records 18 exports with Weil; 16 exports with Katz with general hypersurface geometry; 20 exports with Lang; 4 exports with Bertini with general projective geometry; 16 exports with Heath–Brown fixed delta construction; 9 exports with Simon general graph area formula; 2 exports with Heath–Brown uniform weight localization; 5 exports with Heath–Brown thin-slab graph limit; 3 exports with Heath–Brown zero-frequency approximation; 3 exports with Heath–Brown fixed-frequency integral reduction; 3 exports with Heath–Brown auxiliary oscillatory bounds. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
+The matrix geometry, ordered gradient minors, homogeneous coefficient reconstruction, coefficient specialization, polynomial-height estimates, finite-product arithmetic, prime-field Gauss calculations, exact diagonal pencil evaluations, composite weights, scaled CRT, complete-sum factorizations, general matrix Gauss evaluations, prime-power residue recurrences, quadric point counts, uniform norm bounds, actual residue kernels, determinant-index comparisons, weighted stationary expansions, adjugate weight extraction, shared-prime complete-sum evaluations, actual Ramanujan multiplicativity, source-character agreement, the global mixed-sum and dual-cone identities, and the generic delta-symbol normalization and finite-support deductions, actual normalized weight pieces and reconstruction, uniform derivative bounds, quadratic gradient and Hessian calculations, positive-root charts, surface transport, and finite-family bound assembly use only the standard logical foundations. The ledger records 18 exports with Weil; 16 exports with Katz with general hypersurface geometry; 20 exports with Lang; 4 exports with Bertini with general projective geometry; 27 exports with Heath–Brown fixed delta construction; 9 exports with Simon general graph area formula; 2 exports with Heath–Brown uniform weight localization; 5 exports with Heath–Brown thin-slab graph limit; 3 exports with Heath–Brown zero-frequency approximation; 3 exports with Heath–Brown fixed-frequency integral reduction; 3 exports with Heath–Brown auxiliary oscillatory bounds; 4 exports with Four-dimensional Poisson summation. These counts overlap when an export uses more than one premise. The following table groups exports by their exact recorded allowance; actual axiom dependencies are inspected separately in the verification report.
 
 | Permitted literature premises | Proved exports |
 |---|---:|
-| None (standard logical foundations only) | 1044 |
+| None (standard logical foundations only) | 1077 |
 | Bertini with general projective geometry | 1 |
-| Heath–Brown fixed delta construction | 14 |
+| Heath–Brown fixed delta construction | 22 |
 | Katz with general hypersurface geometry | 10 |
 | Lang | 14 |
+| Four-dimensional Poisson summation | 1 |
 | Simon general graph area formula | 4 |
 | Weil | 14 |
 | Bertini with general projective geometry; Lang | 2 |
+| Heath–Brown fixed delta construction; Four-dimensional Poisson summation | 3 |
 | Heath–Brown thin-slab graph limit; Simon general graph area formula | 3 |
 | Katz with general hypersurface geometry; Lang | 2 |
 | Katz with general hypersurface geometry; Weil | 2 |

@@ -1,11 +1,57 @@
-# Lemma 2.3 checkpoint
+# Lemma 5.1 checkpoint
 
 ## Numbered-result status
 
-Complete: **25**. Partial: **0**. Active numbered targets: **0**.
-Pending: **17**. Supplementary groups: **5 Certified, 28 Pending**.
+Complete: **26**. Partial: **0**. Active numbered targets: **0**.
+Pending: **16**. Supplementary groups: **5 Certified, 28 Pending**.
 
-### Complete Lemma 2.3
+### Complete Lemma 5.1
+
+**Lemma 5.1 is Certified relative to the registered delta and Poisson inputs.**
+For the original supplied functions and a smooth compactly supported weight,
+with `Q=B/sqrt(q)>=3`, the exact identity is
+
+$$
+T_q(B;w)=c_Q\frac{B^2}{q^3}\sum_{c\ge1}\frac1{c^4}
+ \sum_{u\in\mathbb Z^4}\mathcal S_{q,c}(u)
+ I^*_{c/Q}\!\left(\frac{u}{\sqrt q};w\right).
+$$
+
+The lattice sum has finite support, only finitely many positive moduli
+contribute, and every frequency series converges absolutely. The endpoint
+[source_delta_poisson](QuaternaryQuadraticForms/PoissonTheorem.lean) retains
+the actual source weights, complete sums, fixed kernel, and Euclidean integral.
+See the [source review](certification/correspondence/delta_poisson.md).
+
+The general affine Poisson formula is newly registered in the
+[Poisson input review](certification/correspondence/poisson_summation.md).
+Lemma 2.1 already supplies the certified delta identity. Residue reindexing,
+phase signs, denominator cancellation, the `B^4` Jacobian, and the final
+`B^2/q^3` normalization are internal deductions. No pending proof obligation
+is assumed as a prerequisite for this lemma.
+
+This milestone adds **45 theorem exports in 14 modules**, bringing the
+registered totals to **1,160 exports, 270 modules, 312 inspected inputs,
+and 12 literature premises**, with 21 mapped source groups and nine pinned
+dependency revisions. The frozen manuscript is unchanged. **Proposition 5.1
+remains Pending**; its remaining analytic obligations are separate from
+this lemma. This session stops after Lemma 5.1.
+
+### Current Lemma 5.1 verification
+
+<!-- BEGIN LEMMA_5_1_VERIFICATION -->
+
+The targeted strict build and inspection of all 45 new theorem declarations
+have passed. Their actual types and axiom sets match the source review;
+the new Poisson premise also matches its preregistered complete type hash.
+Full local aggregate verification and exact-commit GitHub verification are
+the remaining execution gates. Their results, exact proof commit, report
+hashes, and comparison will be recorded here. Earlier evidence retains
+its checked commit and historical scope.
+
+<!-- END LEMMA_5_1_VERIFICATION -->
+
+### Earlier complete Lemma 2.3
 
 **Lemma 2.3 is Certified in full, with no literature premise.**
 For every nonsingular symmetric rational `4 x 4` matrix with nonsquare
@@ -26,7 +72,7 @@ exports use only the standard logical foundations. The frozen manuscript
 is unchanged. The separate weighted consequence **aux:conecount remains
 Pending**. Work stops after Lemma 2.3 for this session.
 
-### Current Lemma 2.3 verification
+### Earlier Lemma 2.3 verification
 
 <!-- BEGIN LEMMA_2_3_VERIFICATION -->
 
@@ -229,7 +275,7 @@ retains its historical scope.
 
 <!-- END LEMMA_2_2_VERIFICATION -->
 
-### Session boundary
+### Earlier session boundary after Lemma 2.3
 
 The requested Lemma 2.3 is the last proof target of this session. The separate
 weighted dual-cone estimate `aux:conecount` remains Pending for future work.
@@ -3590,17 +3636,18 @@ The initial algebra-only report is also preserved as
 
 ## Continuation status
 
-The requested **Lemma 2.3** is complete at the proof and source-review level.
-The current verification block records the aggregate execution evidence.
-This session stops here; no additional proof target is started.
+The requested **Lemma 5.1** is complete at the proof and source-review level.
+The current verification block tracks its execution gates. This session
+stops after Lemma 5.1; no further proof target is automatically selected.
 
-All numbered results in Section 2 (results 2.1–2.7), Lemmas 3.1–3.11,
-and all Section 4 lemmas are complete. The numbered inventory is
-**25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
-remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.
-The scaled-integral, Poisson, and three-frequency contributions and the
-general cone-vertex singular-integral obligation remain for the later
-analytic assembly. The global proposition and main theorems are not certified.
+The numbered inventory is **26 Complete, 0 Partial, 0 Active, 16 Pending**.
+All Section 2 results, Lemmas 3.1–3.11, all Section 4 lemmas, and Lemmas
+5.1 and 5.9 are complete. Supplementary groups remain **5 Certified,
+28 Pending**. **Proposition 5.1 remains Pending**, together with the separate
+scaled-integral obligation `aux:Ipiece`, weighted cone count `aux:conecount`,
+and absolute singular-integral convergence for weights whose support
+contains the origin. These are later analytic obligations, not prerequisites
+for the completed delta–Poisson lemma. The whole paper is not certified.
 
 ### Completed coefficient continuation
 

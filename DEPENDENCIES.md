@@ -28,7 +28,24 @@ detailed record. The overview additionally groups results. An arrow between
 groups means that a result in the first group supports a result in the second;
 it need not connect every member of the two groups.
 
-## Current Lemma 2.3 checkpoint
+## Current Lemma 5.1 checkpoint
+
+**Lemma 5.1 is Certified relative to the registered delta and Poisson inputs.**
+Its exact source formula has finite lattice support, a finite positive-modulus
+sum, and absolute convergence of every frequency series. The prerequisite
+Lemma 2.1 is already certified. General affine Poisson summation is newly
+registered; the actual residue classes, original source functions, phase
+normalization, changes of variables, and final `B^2/q^3` coefficient are
+proved internally. See the [source endpoint](QuaternaryQuadraticForms/PoissonTheorem.lean),
+[source correspondence](certification/correspondence/delta_poisson.md),
+[Poisson input review](certification/correspondence/poisson_summation.md),
+and [execution checkpoint](CHECKPOINT.md).
+
+Proposition 5.1, the scaled-integral bound, weighted cone count, and general
+singular-integral convergence remain separate Pending obligations. This
+session stops after Lemma 5.1; no further target is automatically started.
+
+## Earlier Lemma 2.3 checkpoint
 
 **Lemma 2.3 is Certified in full.** The actual finite set of integer zeros
 of a symmetric nonsingular rational quaternary form with nonsquare rational
@@ -160,8 +177,8 @@ of their bounds at the end of Section 6 is tracked separately.
 
 ## Auxiliary claims and coverage
 
-The numbered-result counts are **Complete: 25 · Partial: 0 · Active: 0 · Pending:
-17**. Results 2.1–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6 and 5.9
+The numbered-result counts are **Complete: 26 · Partial: 0 · Active: 0 · Pending:
+16**. Results 2.1–2.7, Lemmas 3.1–3.11, and Lemmas 4.1–4.6, 5.1 and 5.9
 have complete source-relative proofs (including Corollary 2.6). Lemma 4.1 includes finiteness of
 the actual bad-prime set, the uniform height bound, and the exceptional-plane
 polynomial with its uniform degree and geometric consequences.
@@ -277,8 +294,8 @@ The **33 auxiliary or supplementary groups** comprise **5 Certified and
 aux:weight_pieces, aux:Sxi, and aux:Sxibound are complete. These groups include
 proof steps needed by the main argument and mathematical assertions outside numbered theorem
 environments; they are not added to the numbered-result count. The current
-scope contains **1,115 theorem exports across 256 Lean modules**, counted
-separately from the **11 external Lean premises**. It includes **296 inspected
+scope contains **1,160 theorem exports across 270 Lean modules**, counted
+separately from the **12 external Lean premises**. It includes **312 inspected
 inputs**, nine pinned dependency revisions, and **21 mapped source groups**.
 Strict declaration inspection, source review, and current local aggregate
 and exact-commit CI execution evidence for the combined scope are recorded
@@ -1488,17 +1505,18 @@ commit is recorded separately from this mathematical scope.
 
 ## Continuation status
 
-The requested **Lemma 2.3** is complete at the proof and source-review level.
-The current verification block records the aggregate execution evidence.
-This session stops here; no additional proof target is started.
+The requested **Lemma 5.1** is complete at the proof and source-review level.
+The current verification block tracks its execution gates. This session
+stops after Lemma 5.1; no further proof target is automatically selected.
 
-All numbered results in Section 2 (results 2.1–2.7), Lemmas 3.1–3.11,
-and all Section 4 lemmas are complete. The numbered inventory is
-**25 Complete, 0 Partial, 0 Active, 17 Pending**. Supplementary groups
-remain **5 Certified, 28 Pending**, including Pending **aux:conecount**.
-The scaled-integral, Poisson, and three-frequency contributions and the
-general cone-vertex singular-integral obligation remain for the later
-analytic assembly. The global proposition and main theorems are not certified.
+The numbered inventory is **26 Complete, 0 Partial, 0 Active, 16 Pending**.
+All Section 2 results, Lemmas 3.1–3.11, all Section 4 lemmas, and Lemmas
+5.1 and 5.9 are complete. Supplementary groups remain **5 Certified,
+28 Pending**. **Proposition 5.1 remains Pending**, together with the separate
+scaled-integral obligation `aux:Ipiece`, weighted cone count `aux:conecount`,
+and absolute singular-integral convergence for weights whose support
+contains the origin. These are later analytic obligations, not prerequisites
+for the completed delta–Poisson lemma. The whole paper is not certified.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

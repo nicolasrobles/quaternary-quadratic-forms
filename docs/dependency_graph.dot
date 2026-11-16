@@ -1,7 +1,7 @@
 digraph NumberedResults {
 graph [rankdir=TB, newrank=true, compound=true, outputorder=edgesfirst,
   bgcolor="white", fontname="DejaVu Serif", fontsize=23, labelloc=t,
-  label="Dependency graph for the numbered results\nFrozen github manuscript | 25 certified; 17 pending\nLiterature inputs trusted; 11 Lean premises registered",
+  label="Dependency graph for the numbered results\nFrozen github manuscript | 26 certified; 16 pending\nLiterature inputs trusted; 12 Lean premises registered",
   nodesep=0.30, ranksep=0.58, pad=0.28, splines=polyline];
 node [shape=box, style="rounded,filled", fillcolor="#fff4dc", color="#b88023",
   fontname="DejaVu Serif", fontsize=12, penwidth=1.15, margin="0.12,0.09"];
@@ -11,7 +11,7 @@ subgraph cluster_sources { label="Trusted reference inputs (assumed, not reprove
 "source:EXT.PROJECTIVE_JACOBIAN" [label="EXT.PROJECTIVE_JACOBIAN\nMapped sources; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
 "source:FINITE" [label="Weil, Katz and Fulton\nFinite-field sums and surface geometry\nRegistered Lean: Weil; composite Katz", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
 "source:GEOMETRY" [label="Lang and Hartshorne\nElimination, Bertini, cyclotomic fields\nRegistered Lean: Lang elimination; composite\nBertini", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
-"source:HB" [label="Heath-Brown\nDelta symbol, integrals, Poisson\nRegistered Lean: HB delta construction; HB\nlocalization; HB integral inputs (4)", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
+"source:HB" [label="Heath-Brown\nDelta symbol, integrals, Poisson\nRegistered Lean: HB delta construction; HB\nlocalization; HB integral inputs (4);\nEXT.POISSON_R4", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
 "source:MV" [label="Montgomery-Vaughan\nGauss, Ramanujan, L-series, primes\nMapped sources; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
 "source:S" [label="Salberger\nComplete intersections and lines\nMapped sources; no registered Lean premise", fillcolor="#eeeafd", color="#7762b4", fontsize=11];
 }
@@ -45,7 +45,7 @@ subgraph cluster_sources { label="Trusted reference inputs (assumed, not reprove
 "lem:diagbad" [label=<<B>Lemma 4.5</B><BR/>Diagonal bad-prime<BR/>criterion<BR/><FONT POINT-SIZE="10" COLOR="#408342">[Certified]</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1862-L1866", target="_blank", tooltip="Exact bad-prime criterion for diagonal quadratic G and N_G=rad(2 alpha M)"];
 "lem:pencil" [label=<<B>Lemma 4.6</B><BR/>Exact diagonal pencil<BR/>formula<BR/><FONT POINT-SIZE="10" COLOR="#408342">[Certified]</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L1897-L1908", target="_blank", tooltip="Exact diagonal Fourier pencil formula, projective trace formula and generic 2p^(3/2)+4p bound"];
 "prop:analytic" [label=<<B>Proposition 5.1</B><BR/>Uniform analytic asymptotic<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2030-L2039", target="_blank", tooltip="Uniform weighted asymptotic for abstract projectively invariant local functions"];
-"lem:poisson" [label=<<B>Lemma 5.1</B><BR/>Delta-Poisson formula<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2045-L2054", target="_blank", tooltip="Delta-symbol and Poisson identity with finite modulus sum and absolute frequency convergence"];
+"lem:poisson" [label=<<B>Lemma 5.1</B><BR/>Delta-Poisson formula<BR/><FONT POINT-SIZE="10" COLOR="#408342">[Certified]</FONT>>, fillcolor="#e1f5df", color="#408342", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2045-L2054", target="_blank", tooltip="Delta-symbol and Poisson identity with finite modulus sum and absolute frequency convergence"];
 "lem:offcone" [label=<<B>Lemma 5.2</B><BR/>Off-cone contribution<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2126-L2130", target="_blank", tooltip="Frequency truncation and off-dual-cone contribution"];
 "lem:oncone" [label=<<B>Lemma 5.3</B><BR/>Nonzero cone contribution<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2185-L2188", target="_blank", tooltip="Nonzero dual-cone contribution with cancellation in the modulus"];
 "lem:zerofreq" [label=<<B>Lemma 5.4</B><BR/>Zero-frequency main term<BR/><FONT POINT-SIZE="10" COLOR="#b88023">[Pending]</FONT>>, fillcolor="#fff4dc", color="#b88023", URL="https://github.com/nicolasrobles/quaternary-quadratic-forms/blob/main/manuscript/quadratic_character_sums_github.tex#L2234-L2239", target="_blank", tooltip="Zero-frequency main term and uniform error"];
@@ -139,7 +139,7 @@ subgraph cluster_sources { label="Trusted reference inputs (assumed, not reprove
 "source:MV" -> "lem:sieve" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
 "source:MV" -> "lem:singseries" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
 "source:S" -> "prop:salberger" [style=dashed, color="#8d79bc", penwidth=0.9, tooltip="Trusted literature input (possibly through a registered auxiliary target)"];
-legend [shape=plain, style="", label="Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.\nPurple dashed: trusted source. Transitive numbered edges are omitted.\n25 certified; 17 pending. Partial means identified clauses checked; the full result is unfinished.\nClick a result for its manuscript statement. Full details are in the dependency inventory.", fontsize=11];
+legend [shape=plain, style="", label="Solid: numbered prerequisite. Gray dashed: through an unnumbered proof step.\nPurple dashed: trusted source. Transitive numbered edges are omitted.\n26 certified; 16 pending. Partial means identified clauses checked; the full result is unfinished.\nClick a result for its manuscript statement. Full details are in the dependency inventory.", fontsize=11];
 {rank=sink; legend;}
 "cor:centered" -> legend [style=invis];
 "cor:powercount" -> legend [style=invis];

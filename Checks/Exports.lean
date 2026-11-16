@@ -1118,7 +1118,52 @@ run_cmd do
     `QuaternaryQuadraticForms.splitQuadric_box_bound,
     `QuaternaryQuadraticForms.splitQuadric_mem_signedDivisors,
     `QuaternaryQuadraticForms.splitQuadric_signedDivisors_card_le,
-    `QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le]
+    `QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le,
+    `QuaternaryQuadraticForms.poissonTestFunction_isSmoothWeight,
+    `QuaternaryQuadraticForms.poissonTestFunction_eventually_zero,
+    `QuaternaryQuadraticForms.poissonDeltaIntegral_eventually_zero,
+    `QuaternaryQuadraticForms.mixedIntegerSummand_fourier_phase,
+    `QuaternaryQuadraticForms.poisson_mixed_fourier_coefficient,
+    `QuaternaryQuadraticForms.poisson_mixed_complete_sum,
+    `QuaternaryQuadraticForms.realQuadraticValue_integerRealVector,
+    `QuaternaryQuadraticForms.realQuadraticValue_scaled_integerRealVector,
+    `QuaternaryQuadraticForms.poisson_delta_scaled_argument,
+    `QuaternaryQuadraticForms.poisson_delta_phase,
+    `QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_weight_eq_zero,
+    `QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_of_dvd,
+    `QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_not_dvd,
+    `QuaternaryQuadraticForms.poissonDeltaLatticeTerm_summable,
+    `QuaternaryQuadraticForms.weightedQuadraticZeroSum_pointwise_delta,
+    `QuaternaryQuadraticForms.poisson_tsum_comm_of_finite_left,
+    `QuaternaryQuadraticForms.weightedQuadraticZeroSum_delta,
+    `QuaternaryQuadraticForms.poisson_test_function_complete_sum,
+    `QuaternaryQuadraticForms.poissonFrequencyTerm_eventually_zero,
+    `QuaternaryQuadraticForms.poissonModulusTerm_finite_support,
+    `QuaternaryQuadraticForms.compactSupport_integerRealVector_finite,
+    `QuaternaryQuadraticForms.scaledWeight_integerRealVector_finite,
+    `QuaternaryQuadraticForms.weightedQuadraticZeroSum_finite_support,
+    `QuaternaryQuadraticForms.poissonTestFunction_integerRealVector_finite,
+    `QuaternaryQuadraticForms.weightedQuadraticZeroSum_extend_eq_source,
+    `QuaternaryQuadraticForms.poisson_normalization_factor,
+    `QuaternaryQuadraticForms.poissonResidueVector_cast,
+    `QuaternaryQuadraticForms.poissonResidueVector_injective,
+    `QuaternaryQuadraticForms.poissonResidueVector_surjective,
+    `QuaternaryQuadraticForms.poissonResidueEquiv_apply,
+    `QuaternaryQuadraticForms.integerRealVector_poissonResidueVector,
+    `QuaternaryQuadraticForms.poisson_tsum_residue_classes,
+    `QuaternaryQuadraticForms.poisson_phase_mul_summable,
+    `QuaternaryQuadraticForms.poisson_residue_fourier_summable,
+    `QuaternaryQuadraticForms.poisson_periodic_weight,
+    `QuaternaryQuadraticForms.poisson_integral_comp_inv_smul,
+    `QuaternaryQuadraticForms.poissonFourierIntegral_testFunction_general,
+    `QuaternaryQuadraticForms.poisson_frequency_scale,
+    `QuaternaryQuadraticForms.poissonFourierIntegral_testFunction,
+    `QuaternaryQuadraticForms.integerRealVector_inner,
+    `QuaternaryQuadraticForms.poisson_affine_phase_eq_stdAddChar,
+    `QuaternaryQuadraticForms.poisson_affine_integer_lattice,
+    `QuaternaryQuadraticForms.mixedCompleteSum_extend_eq_source,
+    `QuaternaryQuadraticForms.weightedQuadraticZeroSum_poisson,
+    `QuaternaryQuadraticForms.source_delta_poisson]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -1134,7 +1179,8 @@ run_cmd do
     `QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph,
     `QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation,
     `QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction,
-    `QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds]
+    `QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds,
+    `QuaternaryQuadraticForms.Trusted.poisson_four_dimensional]
   for name in inputNames do
     match environment.find? name with
     | some (.axiomInfo _) => pure ()
@@ -4527,3 +4573,141 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le
 #print axioms QuaternaryQuadraticForms.splitQuadric_nonzero_fiber_card_le
+
+#check @QuaternaryQuadraticForms.poissonTestFunction_isSmoothWeight
+#print axioms QuaternaryQuadraticForms.poissonTestFunction_isSmoothWeight
+
+#check @QuaternaryQuadraticForms.poissonTestFunction_eventually_zero
+#print axioms QuaternaryQuadraticForms.poissonTestFunction_eventually_zero
+
+#check @QuaternaryQuadraticForms.poissonDeltaIntegral_eventually_zero
+#print axioms QuaternaryQuadraticForms.poissonDeltaIntegral_eventually_zero
+
+#check @QuaternaryQuadraticForms.mixedIntegerSummand_fourier_phase
+#print axioms QuaternaryQuadraticForms.mixedIntegerSummand_fourier_phase
+
+#check @QuaternaryQuadraticForms.poisson_mixed_fourier_coefficient
+#print axioms QuaternaryQuadraticForms.poisson_mixed_fourier_coefficient
+
+#check @QuaternaryQuadraticForms.poisson_mixed_complete_sum
+#print axioms QuaternaryQuadraticForms.poisson_mixed_complete_sum
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_integerRealVector
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_integerRealVector
+
+#check @QuaternaryQuadraticForms.realQuadraticValue_scaled_integerRealVector
+#print axioms QuaternaryQuadraticForms.realQuadraticValue_scaled_integerRealVector
+
+#check @QuaternaryQuadraticForms.poisson_delta_scaled_argument
+#print axioms QuaternaryQuadraticForms.poisson_delta_scaled_argument
+
+#check @QuaternaryQuadraticForms.poisson_delta_phase
+#print axioms QuaternaryQuadraticForms.poisson_delta_phase
+
+#check @QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_weight_eq_zero
+#print axioms QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_weight_eq_zero
+
+#check @QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_of_dvd
+#print axioms QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_of_dvd
+
+#check @QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_not_dvd
+#print axioms QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_not_dvd
+
+#check @QuaternaryQuadraticForms.poissonDeltaLatticeTerm_summable
+#print axioms QuaternaryQuadraticForms.poissonDeltaLatticeTerm_summable
+
+#check @QuaternaryQuadraticForms.weightedQuadraticZeroSum_pointwise_delta
+#print axioms QuaternaryQuadraticForms.weightedQuadraticZeroSum_pointwise_delta
+
+#check @QuaternaryQuadraticForms.poisson_tsum_comm_of_finite_left
+#print axioms QuaternaryQuadraticForms.poisson_tsum_comm_of_finite_left
+
+#check @QuaternaryQuadraticForms.weightedQuadraticZeroSum_delta
+#print axioms QuaternaryQuadraticForms.weightedQuadraticZeroSum_delta
+
+#check @QuaternaryQuadraticForms.poisson_test_function_complete_sum
+#print axioms QuaternaryQuadraticForms.poisson_test_function_complete_sum
+
+#check @QuaternaryQuadraticForms.poissonFrequencyTerm_eventually_zero
+#print axioms QuaternaryQuadraticForms.poissonFrequencyTerm_eventually_zero
+
+#check @QuaternaryQuadraticForms.poissonModulusTerm_finite_support
+#print axioms QuaternaryQuadraticForms.poissonModulusTerm_finite_support
+
+#check @QuaternaryQuadraticForms.compactSupport_integerRealVector_finite
+#print axioms QuaternaryQuadraticForms.compactSupport_integerRealVector_finite
+
+#check @QuaternaryQuadraticForms.scaledWeight_integerRealVector_finite
+#print axioms QuaternaryQuadraticForms.scaledWeight_integerRealVector_finite
+
+#check @QuaternaryQuadraticForms.weightedQuadraticZeroSum_finite_support
+#print axioms QuaternaryQuadraticForms.weightedQuadraticZeroSum_finite_support
+
+#check @QuaternaryQuadraticForms.poissonTestFunction_integerRealVector_finite
+#print axioms QuaternaryQuadraticForms.poissonTestFunction_integerRealVector_finite
+
+#check @QuaternaryQuadraticForms.weightedQuadraticZeroSum_extend_eq_source
+#print axioms QuaternaryQuadraticForms.weightedQuadraticZeroSum_extend_eq_source
+
+#check @QuaternaryQuadraticForms.poisson_normalization_factor
+#print axioms QuaternaryQuadraticForms.poisson_normalization_factor
+
+#check @QuaternaryQuadraticForms.poissonResidueVector_cast
+#print axioms QuaternaryQuadraticForms.poissonResidueVector_cast
+
+#check @QuaternaryQuadraticForms.poissonResidueVector_injective
+#print axioms QuaternaryQuadraticForms.poissonResidueVector_injective
+
+#check @QuaternaryQuadraticForms.poissonResidueVector_surjective
+#print axioms QuaternaryQuadraticForms.poissonResidueVector_surjective
+
+#check @QuaternaryQuadraticForms.poissonResidueEquiv_apply
+#print axioms QuaternaryQuadraticForms.poissonResidueEquiv_apply
+
+#check @QuaternaryQuadraticForms.integerRealVector_poissonResidueVector
+#print axioms QuaternaryQuadraticForms.integerRealVector_poissonResidueVector
+
+#check @QuaternaryQuadraticForms.poisson_tsum_residue_classes
+#print axioms QuaternaryQuadraticForms.poisson_tsum_residue_classes
+
+#check @QuaternaryQuadraticForms.poisson_phase_mul_summable
+#print axioms QuaternaryQuadraticForms.poisson_phase_mul_summable
+
+#check @QuaternaryQuadraticForms.poisson_residue_fourier_summable
+#print axioms QuaternaryQuadraticForms.poisson_residue_fourier_summable
+
+#check @QuaternaryQuadraticForms.poisson_periodic_weight
+#print axioms QuaternaryQuadraticForms.poisson_periodic_weight
+
+#check @QuaternaryQuadraticForms.poisson_integral_comp_inv_smul
+#print axioms QuaternaryQuadraticForms.poisson_integral_comp_inv_smul
+
+#check @QuaternaryQuadraticForms.poissonFourierIntegral_testFunction_general
+#print axioms QuaternaryQuadraticForms.poissonFourierIntegral_testFunction_general
+
+#check @QuaternaryQuadraticForms.poisson_frequency_scale
+#print axioms QuaternaryQuadraticForms.poisson_frequency_scale
+
+#check @QuaternaryQuadraticForms.poissonFourierIntegral_testFunction
+#print axioms QuaternaryQuadraticForms.poissonFourierIntegral_testFunction
+
+#check @QuaternaryQuadraticForms.integerRealVector_inner
+#print axioms QuaternaryQuadraticForms.integerRealVector_inner
+
+#check @QuaternaryQuadraticForms.poisson_affine_phase_eq_stdAddChar
+#print axioms QuaternaryQuadraticForms.poisson_affine_phase_eq_stdAddChar
+
+#check @QuaternaryQuadraticForms.poisson_affine_integer_lattice
+#print axioms QuaternaryQuadraticForms.poisson_affine_integer_lattice
+
+#check @QuaternaryQuadraticForms.mixedCompleteSum_extend_eq_source
+#print axioms QuaternaryQuadraticForms.mixedCompleteSum_extend_eq_source
+
+#check @QuaternaryQuadraticForms.weightedQuadraticZeroSum_poisson
+#print axioms QuaternaryQuadraticForms.weightedQuadraticZeroSum_poisson
+
+#check @QuaternaryQuadraticForms.source_delta_poisson
+#print axioms QuaternaryQuadraticForms.source_delta_poisson
+
+#check @QuaternaryQuadraticForms.Trusted.poisson_four_dimensional
+#print axioms QuaternaryQuadraticForms.Trusted.poisson_four_dimensional

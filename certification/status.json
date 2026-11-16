@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete Lemma 2.3: Euclidean count of integer zeros of nonsplit rational quaternary forms",
+  "checkpoint": "Complete Lemma 5.1: exact delta-Poisson identity, finite modulus support and absolute frequency convergence",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -429,8 +429,38 @@
       "checked_exports": []
     },
     "lem:poisson": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_delta_poisson",
+        "QuaternaryQuadraticForms.weightedQuadraticZeroSum_poisson",
+        "QuaternaryQuadraticForms.weightedQuadraticZeroSum_delta",
+        "QuaternaryQuadraticForms.poisson_test_function_complete_sum",
+        "QuaternaryQuadraticForms.poissonFrequencyTerm_eventually_zero",
+        "QuaternaryQuadraticForms.poissonModulusTerm_finite_support",
+        "QuaternaryQuadraticForms.poissonTestFunction_isSmoothWeight",
+        "QuaternaryQuadraticForms.poissonDeltaIntegral_eventually_zero",
+        "QuaternaryQuadraticForms.poisson_tsum_residue_classes",
+        "QuaternaryQuadraticForms.poisson_mixed_complete_sum",
+        "QuaternaryQuadraticForms.poisson_affine_integer_lattice",
+        "QuaternaryQuadraticForms.poissonFourierIntegral_testFunction",
+        "QuaternaryQuadraticForms.poisson_normalization_factor",
+        "QuaternaryQuadraticForms.weightedQuadraticZeroSum_extend_eq_source",
+        "QuaternaryQuadraticForms.mixedCompleteSum_extend_eq_source"
+      ],
+      "correspondence_record": "certification/correspondence/delta_poisson.md",
+      "completed_clauses": [
+        "The original good-prime functions are retained in the literal source lattice sum and mixed complete sums, with q coprime to the supplied excluded modulus.",
+        "For B>0 and Q=B/sqrt(q)>=3, the exact identity (5.3) holds with coefficient c_Q B^2/q^3 and frequency u/sqrt(q) in the existing delta integral.",
+        "The actual source lattice summand has finite support, including the origin and every integer coordinate sign.",
+        "The already Certified delta identity is applied to the integer quotient F(x)/q and all scaling and additive-character identities are proved internally.",
+        "The actual test function is smooth and compactly supported; the classical affine Poisson input is specialized internally to its qc-lattice.",
+        "The exact integer-lattice/residue-class bijection, arithmetic periodicity, finite Fourier coefficient, and original mixed complete sum are proved internally.",
+        "The B^4 Jacobian, positive residue phase, negative Fourier phase, and final B^2/q^3 normalization are checked in Lean.",
+        "A common finite positive-modulus cutoff annihilates every frequency term, so the outer series has actual finite support.",
+        "For every positive modulus, the series of norms of the actual complete-sum times delta-integral terms is summable."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 5.1 relative to the existing Heath-Brown delta-construction premise and one precisely preregistered general affine Poisson premise. The 45 new public theorem exports prove every manuscript-specific deduction. The endpoint is valid for every positive q and every integral matrix, hence specializes to the source squarefree q and fixed quadratic form; it needs no annular-support or Fourier-bound assumption. Its numbered prerequisite Lemma 2.1 is already Certified. Proposition 5.1, aux:Ipiece, aux:conecount and the general cone-vertex singular-integral obligation retain their separate Pending status."
     },
     "lem:offcone": {
       "status": "Pending",
@@ -18087,6 +18117,695 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonTestFunction_isSmoothWeight",
+      "file": "QuaternaryQuadraticForms/PoissonAnalytic.lean",
+      "scope": "For every positive scale, the actual Poisson test function is a smooth weight.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonTestFunction_eventually_zero",
+      "file": "QuaternaryQuadraticForms/PoissonAnalytic.lean",
+      "scope": "One natural modulus cutoff makes the entire test function vanish, uniformly over its Euclidean argument.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonDeltaIntegral_eventually_zero",
+      "file": "QuaternaryQuadraticForms/PoissonAnalytic.lean",
+      "scope": "The same compact-support cutoff annihilates the actual delta integral at every frequency, so the positive-modulus expansion is genuinely finite.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedIntegerSummand_fourier_phase",
+      "file": "QuaternaryQuadraticForms/PoissonCompleteSum.lean",
+      "scope": "Adding the positive Fourier phase converts the zero-frequency arithmetic summand into the literal mixed summand at frequency u.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_mixed_fourier_coefficient",
+      "file": "QuaternaryQuadraticForms/PoissonCompleteSum.lean",
+      "scope": "The Fourier coefficient after summing over all unit parameters is the existing literal mixed complete sum, including q=1 and c=1.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_mixed_complete_sum",
+      "file": "QuaternaryQuadraticForms/PoissonCompleteSum.lean",
+      "scope": "Poisson summation of the actual periodic arithmetic factors gives the literal mixed complete sum, and the frequency series is absolutely convergent.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_integerRealVector",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "The real quadratic form agrees with the actual integral form on the lattice.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.realQuadraticValue_scaled_integerRealVector",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "The exact scaled quadratic value at an integer point.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_delta_scaled_argument",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "With Q=B/sqrt(q), the source second kernel coordinate is exactly n/Q².",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_delta_phase",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "Cancelling q in the phase gives the original unit character modulo c.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_weight_eq_zero",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "Outside the scaled weight support the entire unit sum vanishes.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_of_dvd",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "On the cone congruence the unit sum is the exact delta-symbol summand.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonDeltaLatticeTerm_eq_zero_of_not_dvd",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaArithmetic.lean",
+      "scope": "Off the cone congruence every mixed summand is zero.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonDeltaLatticeTerm_summable",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaInsertion.lean",
+      "scope": "For each integer point the positive-modulus series is summable.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedQuadraticZeroSum_pointwise_delta",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaInsertion.lean",
+      "scope": "The delta identity at a single integer point, including points off the cone congruence and the origin.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_tsum_comm_of_finite_left",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaInsertion.lean",
+      "scope": "A finite common support in the first variable justifies the sum exchange.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedQuadraticZeroSum_delta",
+      "file": "QuaternaryQuadraticForms/PoissonDeltaInsertion.lean",
+      "scope": "The actual weighted zero sum after delta insertion, with the original unit-residue summation and the literal compactly supported functions g_c.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_test_function_complete_sum",
+      "file": "QuaternaryQuadraticForms/PoissonFormula.lean",
+      "scope": "For each modulus, the actual arithmetic lattice sum equals its scaled frequency series, and the latter is absolutely convergent.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonFrequencyTerm_eventually_zero",
+      "file": "QuaternaryQuadraticForms/PoissonFormula.lean",
+      "scope": "A single finite cutoff annihilates every actual frequency term.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonModulusTerm_finite_support",
+      "file": "QuaternaryQuadraticForms/PoissonFormula.lean",
+      "scope": "The positive-modulus series has actual finite support.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.compactSupport_integerRealVector_finite",
+      "file": "QuaternaryQuadraticForms/PoissonLatticeSupport.lean",
+      "scope": "A compactly supported function is nonzero at only finitely many integer points.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.scaledWeight_integerRealVector_finite",
+      "file": "QuaternaryQuadraticForms/PoissonLatticeSupport.lean",
+      "scope": "Dilation of a compactly supported weight still leaves finitely many lattice points.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedQuadraticZeroSum_finite_support",
+      "file": "QuaternaryQuadraticForms/PoissonLatticeSupport.lean",
+      "scope": "The literal weighted zero sum has finite support on the integer lattice.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonTestFunction_integerRealVector_finite",
+      "file": "QuaternaryQuadraticForms/PoissonLatticeSupport.lean",
+      "scope": "Every test function is supported on the same finite set of integer points.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedQuadraticZeroSum_extend_eq_source",
+      "file": "QuaternaryQuadraticForms/PoissonLatticeSupport.lean",
+      "scope": "The total-family representation is exactly the original source weighted sum.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_normalization_factor",
+      "file": "QuaternaryQuadraticForms/PoissonNormalization.lean",
+      "scope": "The exact scalar identity with Q=B/sqrt(q); the numerator k is arbitrary.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonResidueVector_cast",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "Reduction of the reassembled vector recovers its residue.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonResidueVector_injective",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "Reassembly is injective in the residue and quotient together.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonResidueVector_surjective",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "Every integer vector has its canonical residue and integer quotient.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonResidueEquiv_apply",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "The residue equivalence has the literal reassembly formula.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerRealVector_poissonResidueVector",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "Integer reassembly agrees with the affine real lattice used in Poisson summation.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_tsum_residue_classes",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "A finitely supported lattice summand is exactly the sum over all residue classes.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_phase_mul_summable",
+      "file": "QuaternaryQuadraticForms/PoissonResidueClasses.lean",
+      "scope": "A unit-modulus additive phase preserves absolute summability.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_residue_fourier_summable",
+      "file": "QuaternaryQuadraticForms/PoissonResidueSummation.lean",
+      "scope": "A finite arithmetic Fourier sum preserves absolute summability of the analytic factor.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_periodic_weight",
+      "file": "QuaternaryQuadraticForms/PoissonResidueSummation.lean",
+      "scope": "The exact weighted Poisson identity for any periodic lattice weight. The spatial sum is finite and the frequency sum is absolutely convergent.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_integral_comp_inv_smul",
+      "file": "QuaternaryQuadraticForms/PoissonScaling.lean",
+      "scope": "The four-dimensional Jacobian in the source change of variables.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonFourierIntegral_testFunction_general",
+      "file": "QuaternaryQuadraticForms/PoissonScaling.lean",
+      "scope": "The rescaled Fourier integral equals B^4 times the source delta integral at frequency r*B*v, for every positive radius r=c/Q.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_frequency_scale",
+      "file": "QuaternaryQuadraticForms/PoissonScaling.lean",
+      "scope": "The manuscript's frequency normalization uses Q=B/sqrt(q) exactly.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poissonFourierIntegral_testFunction",
+      "file": "QuaternaryQuadraticForms/PoissonScaling.lean",
+      "scope": "The Fourier integral on the lattice qc has the exact B^4 delta-integral normalization and frequency u/sqrt(q) from Lemma 5.1.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerRealVector_inner",
+      "file": "QuaternaryQuadraticForms/PoissonSummation.lean",
+      "scope": "The Euclidean inner product of integer vectors is the real cast of their literal integral dot product.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_affine_phase_eq_stdAddChar",
+      "file": "QuaternaryQuadraticForms/PoissonSummation.lean",
+      "scope": "The positive affine-lattice Fourier phase is the standard additive character modulo the integer lattice spacing.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.poisson_affine_integer_lattice",
+      "file": "QuaternaryQuadraticForms/PoissonSummation.lean",
+      "scope": "Classical four-dimensional Poisson summation on the exact affine integer lattice, with the source standard-character normalization.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mixedCompleteSum_extend_eq_source",
+      "file": "QuaternaryQuadraticForms/PoissonTheorem.lean",
+      "scope": "The total-family representation gives exactly the original source mixed sum.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.weightedQuadraticZeroSum_poisson",
+      "file": "QuaternaryQuadraticForms/PoissonTheorem.lean",
+      "scope": "The exact delta-Poisson identity with the literal total-family representation.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_delta_poisson",
+      "file": "QuaternaryQuadraticForms/PoissonTheorem.lean",
+      "scope": "Complete Lemma 5.1 for the original source functions. Besides the exact identity, the literal lattice sum has finite support, only finitely many positive moduli contribute, and every frequency series converges absolutely. The proof applies to every positive q, so in particular to the source's squarefree moduli, without a Fourier bound or annular-support assumption.",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:poisson",
+        "eq:poisson"
+      ],
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
@@ -18207,6 +18926,16 @@
       "scope": "For a fixed real coefficient quadratic form and fixed common C0/H controls and bounded positive scale range, the actual auxiliary integral satisfies the three separate estimates of HB Lemmas 15,18,22 uniformly in weight, amplitude, scale and frequency. The final estimate includes an explicit positive uniform lower bound on the actual derivative-defined Hessian determinant. The dimension-four power is -1. No Hessian identification, nondegeneracy proof, final frequency rescaling or combination with the actual delta derivative is imported.",
       "expected_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ) (K : ℕ → ℕ → ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            (∀ (j N : ℕ), 0 < K j N) →\n              (∃ C,\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                          ∀ (r : ℝ),\n                            0 < r →\n                              r ≤ R →\n                                ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                  ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                        (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                    C * r) ∧\n                (∀ (j : ℕ),\n                    1 ≤ j →\n                      ∃ C,\n                        0 < C ∧\n                          ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                            QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a\n                                lam w →\n                              QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                                ∀ (r : ℝ),\n                                  0 < r →\n                                    r ≤ R →\n                                      ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                        u ≠ 0 →\n                                          ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                            C * (r⁻¹ ^ j * ‖u‖⁻¹ ^ j)) ∧\n                  ∀ (η ε : ℝ),\n                    0 < η →\n                      0 < ε →\n                        ε < 1 / 2 →\n                          ∃ C,\n                            0 < C ∧\n                              ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                                QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D\n                                    a lam w →\n                                  QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                                    (∀ x ∈ tsupport w,\n                                        η ≤\n                                          |(QuaternaryQuadraticForms.realHessian\n                                                (QuaternaryQuadraticForms.realQuadraticValue A) x).det|) →\n                                      ∀ (r : ℝ),\n                                        0 < r →\n                                          r ≤ R →\n                                            ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                              u ≠ 0 →\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                      (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                                  C * ((r⁻¹ * ‖u‖) ^ ε * r * ‖u‖⁻¹)",
       "type_sha256": "cd5d7f5bb0de555a7dc247da23e89919ff17a0128946cbac480c1820e2ef8f31"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional",
+      "kind": "axiom",
+      "reference_id": "EXT.POISSON_R4",
+      "file": "QuaternaryQuadraticForms/Trusted/Poisson.lean",
+      "correspondence_record": "certification/correspondence/poisson_summation.md",
+      "scope": "The classical four-dimensional affine-lattice Poisson formula for arbitrary smooth compactly supported complex functions, with canonical Euclidean Lebesgue measure, negative Fourier sign, positive translation phase, covolume L^4, and absolute summability of sampled Fourier values. No quadratic form, delta kernel, arithmetic weight, complete sum, scale specialization, or manuscript counting identity is an input.",
+      "expected_type": "∀ (g : QuaternaryQuadraticForms.RealVector4 → ℂ) (L : ℝ),\n  QuaternaryQuadraticForms.IsSmoothWeight g →\n    0 < L →\n      (Summable fun u =>\n          ‖QuaternaryQuadraticForms.poissonFourierIntegral g (L⁻¹ • QuaternaryQuadraticForms.integerRealVector u)‖) ∧\n        ∀ (z : QuaternaryQuadraticForms.RealVector4),\n          ∑' (x : Fin 4 → ℤ), g (z + L • QuaternaryQuadraticForms.integerRealVector x) =\n            (↑L ^ 4)⁻¹ *\n              ∑' (u : Fin 4 → ℤ),\n                Complex.exp\n                    (2 * ↑Real.pi * Complex.I * ↑(inner ℝ (L⁻¹ • QuaternaryQuadraticForms.integerRealVector u) z)) *\n                  QuaternaryQuadraticForms.poissonFourierIntegral g (L⁻¹ • QuaternaryQuadraticForms.integerRealVector u)",
+      "type_sha256": "40a16daa09a156fd73fe1f6bf8b7599210b25c0dd061b9746a4bd802d1402d88"
     }
   ],
   "whole_paper_certified": false,
