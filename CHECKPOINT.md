@@ -41,13 +41,58 @@ this lemma. This session stops after Lemma 5.1.
 
 <!-- BEGIN LEMMA_5_1_VERIFICATION -->
 
-The targeted strict build and inspection of all 45 new theorem declarations
-have passed. Their actual types and axiom sets match the source review;
-the new Poisson premise also matches its preregistered complete type hash.
-Full local aggregate verification and exact-commit GitHub verification are
-the remaining execution gates. Their results, exact proof commit, report
-hashes, and comparison will be recorded here. Earlier evidence retains
-its checked commit and historical scope.
+**The complete local aggregate verifier and independent GitHub verification
+both passed for the exact Lemma 5.1 proof tree.** They check the frozen source,
+all project modules under strict options, declaration kinds, complete types,
+axiom dependencies, status accounting, and pinned dependency revisions.
+
+- Checked proof commit: [345e447a64bd](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/345e447a64bd10aa2b8cad7250e8c15fdad663b9).
+- Proof tree: `afe67eef39c75552a164b84f3644025c0205814d`.
+- [GitHub run 43780394948, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/43780394948), completed successfully at 2026-11-16T00:48:54Z.
+- Verification job: `133016026454`; artifact: `14189195565`.
+- Artifact name: `lean-verification-345e447a64bd10aa2b8cad7250e8c15fdad663b9-1`.
+- Local build: `Build completed successfully (3509 jobs).`.
+- CI build: `Build completed successfully (3509 jobs).`.
+
+| Preserved evidence | Bytes | SHA-256 |
+| --- | ---: | --- |
+| [Local report](certification/verification_report.json) | 1,758,056 | `df12c93de4f90f09b5fe7b1d7adfe31be8f53774cbc9eb69a895d6d450d32f35` |
+| [CI report](certification/ci/run_43780394948_attempt_1.json) | 1,778,385 | `597786643cd305b0b158b0014208b662b766f8ecd26c94b0907357755f62e783` |
+| [Original CI artifact ZIP](certification/ci/run_43780394948_attempt_1.zip) | 208,270 | `786a87b2d64c217548cb440992bfce3e27f8219123a3839c07959e883ab0ebfe` |
+
+The reports agree on **all 18 verification-content fields**, including
+**1,160 complete theorem records, 270 project modules, 312 inspected input
+hashes, 12 registered literature premises, 21 mapped source groups, and nine
+pinned dependency revisions**. Every inspected input and export source hash
+matches the exact proof commit. Only the generation timestamp and build log
+may differ; report initialization timestamps are not completion times. The
+original ZIP digest matches GitHub's digest.
+
+All **1,115 prior theorem records and all 11 prior premise records are
+unchanged**. The 45 new theorem types and axiom sets match their separate
+strict inspection. Beyond the standard logical foundations, **33 use no
+literature premise, eight use only the existing Heath–Brown delta input,
+one uses only general four-dimensional Poisson summation, and three use both**.
+The newly registered general Poisson premise has strict type SHA-256
+`40a16daa09a156fd73fe1f6bf8b7599210b25c0dd061b9746a4bd802d1402d88`; see its
+[input review](certification/correspondence/poisson_summation.md).
+
+The [source correspondence](certification/correspondence/delta_poisson.md)
+records the exact formula with the original supplied weights, finite lattice
+and positive-modulus support, and absolute convergence of every frequency
+series. Residue reindexing, phase signs, the `B^4` Jacobian, and the final
+`B^2/q^3` normalization are internal deductions. The required Lemma 2.1 is
+already complete; no pending manuscript obligation is assumed here.
+
+This evidence archive changes only the current verification blocks in README
+and CHECKPOINT, the local report, and the preserved CI report and original ZIP.
+All historical evidence blocks remain unchanged. The frozen manuscript, PDF,
+Lean proofs, verifier, inventory, and inspected metadata remain those of the
+checked proof commit. The numbered status is **26 Complete, 0 Partial,
+0 Active, 16 Pending**; supplementary status remains **5 Certified, 28 Pending**.
+The whole paper is not certified. Work stops after Lemma 5.1; Proposition 5.1,
+`aux:Ipiece`, `aux:conecount`, and the general cone-vertex singular-integral
+obligation remain Pending.
 
 <!-- END LEMMA_5_1_VERIFICATION -->
 
