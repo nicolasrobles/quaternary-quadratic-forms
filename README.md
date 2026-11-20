@@ -26,6 +26,31 @@ Historical verification reports and source reviews retain the exact manuscript
 identity they originally checked. The mathematical checkpoint below remains
 Lemma 5.1; the manuscript revision does not add a certified result.
 
+### Verification of the revised manuscript
+
+The full GitHub verifier passed on the exact manuscript-update commit
+[53df45a82252](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/53df45a82252855d6063c153bb7abd54edecd61d).
+[Run 44816756668, attempt 1](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44816756668)
+completed successfully on 20 November 2026; the verification job finished at
+21:31:55 UTC. The build completed successfully with 3,509 jobs.
+
+The new report preserves **all 1,160 complete theorem records, all 12 registered
+premise records, all nine pinned dependency revisions, and the certification
+status** from the preceding full run. All **312 inspected input hashes** match
+the checked commit. The only changed inspected inputs are the source identity
+record, dependency inventory, and verifier's manuscript SHA-256 constant.
+All 273 tracked Lean files remain byte-identical to the preceding checkpoint.
+
+- [Report comparison](certification/manuscript_revisions/2026-11-20_ci.json).
+- [Fresh full CI report](certification/ci/run_44816756668_attempt_1.json).
+- [Original CI artifact ZIP](certification/ci/run_44816756668_attempt_1.zip), whose SHA-256 matches GitHub's artifact digest.
+
+The local revision check was metadata-only. The full Lean execution above ran
+in GitHub Actions. Older local reports, CI archives and source reviews retain
+their original manuscript identities. This evidence archive changes documentation
+and adds the new reports; all inputs inspected by the successful run remain
+identical to the checked manuscript-update commit.
+
 ## Current status
 
 **Complete: 26 · Partial: 0 · Active: 0 · Pending: 16** — 42 numbered results.

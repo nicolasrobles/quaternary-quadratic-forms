@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "purpose": "Fresh full verification after the author-approved editorial manuscript revision.",
+  "checked_commit": "53df45a82252855d6063c153bb7abd54edecd61d",
+  "checked_tree": "f5139ab5a7cf4aa21209d57c9bc7d236fecdee54",
+  "workflow_run_id": 44816756668,
+  "workflow_run_url": "https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44816756668",
+  "artifact_id": 14670662608,
+  "artifact_name": "lean-verification-53df45a82252855d6063c153bb7abd54edecd61d-1",
+  "artifact_sha256": "922c9865cdfb1143d9f36a0df14ced913f5b7f31b678ad0967871b427cddd147",
+  "report_sha256": "7143347914d16af2916ef2586f2fdc1d79eedcb487865aa45fed1cd1a9b6488a",
+  "report_bytes": 1778384,
+  "archive_bytes": 208318,
+  "previous_ci_report": "certification/ci/run_43780394948_attempt_1.json",
+  "unchanged_verification_fields": [
+    "auxiliary_supplementary_groups",
+    "checked_exports",
+    "checked_external_inputs",
+    "dependency_revisions",
+    "internal_dependency_edges",
+    "lean_executed",
+    "lean_export_inspection_output",
+    "lean_version",
+    "metadata_checks_passed",
+    "numbered_results",
+    "numbered_total",
+    "registered_external_lean_inputs",
+    "schema_version",
+    "scope",
+    "trusted_reference_groups_mapped",
+    "whole_paper_certified"
+  ],
+  "changed_verification_inputs": [
+    "certification/dependency_inventory.json",
+    "certification/source.json",
+    "scripts/verify_certificate.py"
+  ],
+  "all_312_input_hashes_match_checked_commit": true,
+  "all_1160_checked_theorem_records_unchanged": true,
+  "all_12_checked_premise_records_unchanged": true,
+  "all_273_tracked_lean_files_unchanged": true,
+  "all_nine_dependency_revisions_unchanged": true,
+  "exact_uploaded_manuscript_bytes_preserved": true,
+  "numbered_results": {
+    "Complete": 26,
+    "Partial": 0,
+    "Active": 0,
+    "Pending": 16
+  },
+  "supplementary_groups": {
+    "Certified": 5,
+    "Pending": 28
+  },
+  "metadata_checks_passed": true,
+  "lean_executed": true,
+  "whole_paper_certified": false,
+  "build_summary": "Build completed successfully (3509 jobs).",
+  "execution_note": "This is a fresh GitHub execution. The local revision check used metadata-only mode. Earlier local and CI reports retain their original source hashes.",
+  "workflow_conclusion": "success",
+  "workflow_run_attempt": 1,
+  "verification_job_id": 136566961539,
+  "verification_job_completed_at_utc": "2026-11-20T21:31:55Z"
+}
