@@ -1487,15 +1487,15 @@ The following 33 groups retain their own correspondence review. The single numbe
 | `supp:remark41_ramified` | Explicit nonzero dual-cone example with ramified sum chi_p(2)p^4(p-1) [source](manuscript/quadratic_character_sums_github.tex#L2011-L2015) | Pending |
 | `supp:relative_ranges` | Uniform relative-error convergence in all three modulus ranges [source](manuscript/quadratic_character_sums_github.tex#L2780-L2786) [source](manuscript/quadratic_character_sums_github.tex#L464-L474) | Pending |
 | `supp:determinant_thresholds` | Compare determinant-method and logarithmic-height sieve bounds [source](manuscript/quadratic_character_sums_github.tex#L2862-L2878) | Pending |
-| `supp:frequency_error_summary` | Identify which frequency contribution produces each error scale [source](manuscript/quadratic_character_sums_github.tex#L2889-L2901) | Pending |
-| `supp:conditional_sieve` | Conditional improvement of the exponent with the height term retained [source](manuscript/quadratic_character_sums_github.tex#L2903-L2919) | Pending |
-| `supp:abstract_weight_specialization` | Apply the abstract analytic proposition to other local functions satisfying its stated hypotheses [source](manuscript/quadratic_character_sums_github.tex#L2933-L2939) | Pending |
-| `supp:square_determinant` | Square-determinant untwisted count has B^2 log B and B^2 terms with the stated error [source](manuscript/quadratic_character_sums_github.tex#L2944-L2947) | Pending |
+| `supp:frequency_error_summary` | Identify which frequency contribution produces each error scale [source](manuscript/quadratic_character_sums_github.tex#L2890-L2902) | Pending |
+| `supp:conditional_sieve` | Conditional improvement of the exponent with the height term retained [source](manuscript/quadratic_character_sums_github.tex#L2904-L2920) | Pending |
+| `supp:abstract_weight_specialization` | Apply the abstract analytic proposition to other local functions satisfying its stated hypotheses [source](manuscript/quadratic_character_sums_github.tex#L2934-L2940) | Pending |
+| `supp:square_determinant` | Square-determinant untwisted count has B^2 log B and B^2 terms with the stated error [source](manuscript/quadratic_character_sums_github.tex#L2945-L2948) | Pending |
 
 ## Frozen source and reproducibility
 
 ```text
-d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
+f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494
 ```
 
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.

@@ -168,9 +168,9 @@ $p\nmid N_F$, where $(\cdot/p)$ is the Legendre symbol.
 
 The zeros of $F$ in a region of size $B$ are counted, with a weight
 $W\in C_c^\infty(\R^4)$, by the sum of $W(x/B)$ over the $x\in\Z^4$
-with $F(x)=0$. Heath-Brown \cite[Theorem~6]{HB} proved, for a class
-of weights and by means of a form of the delta symbol of Duke,
-Friedlander and Iwaniec \cite{DFI}, that
+with $F(x)=0$.
+Heath-Brown \cite[Theorem~6]{HB} proved, for a class of weights,
+that
 \begin{equation}\label{eq:HB}
  \sum_{\substack{x\in\Z^4\\F(x)=0}}W(x/B)
  =B^2\sigma_\infty(W,F)\,\S_F+O_{F,W,\eps}(B^{3/2+\eps}).
@@ -186,9 +186,9 @@ the singular series is
 \begin{equation}\label{eq:SF}
  \S_F=L(1,\chi)\prod_p\Big(1-\frac{\chi(p)}p\Big)\sigma_p.
 \end{equation}
-The integral and the product converge absolutely, and the limits
-exist; see Sections~\ref{sec:delta} and~\ref{sec:moduli}. Getz
-\cite[Theorem~1.1]{G} improved the error term in \eqref{eq:HB} to
+The integral and the product converge absolutely, and the limits exist; see Sections~\ref{sec:delta} and~\ref{sec:moduli}.
+The proof of \eqref{eq:HB} uses the delta symbol of Duke, Friedlander and Iwaniec \cite{DFI}, a form of the circle method in which the condition $n=0$ on an integer $n$ is expressed by additive characters (Lemma~\ref{lem:delta}).
+Getz \cite[Theorem~1.1]{G} improved the error term in \eqref{eq:HB} to
 $O(B^{1+\eps})$.
 
 The present paper concerns the sums over the zeros of $F$ in which
@@ -609,8 +609,8 @@ contains some remarks and questions for future work.
 \subsection{The delta method and its integrals}\label{sec:delta}
 
 We detect the equation $F(x)=0$ by the delta symbol of Duke,
-Friedlander and Iwaniec \cite{DFI}, in the form given by Heath-Brown
-\cite{HB}.
+Friedlander and Iwaniec \cite{DFI}, an expansion of $\mathbf 1_{n=0}$
+in additive characters, in the form given by Heath-Brown \cite{HB}.
 
 \begin{lemma}\label{lem:delta}
 There are an infinitely differentiable function $h$ on
@@ -2884,7 +2884,8 @@ for the corresponding sums with characters of order $r\ge3$, in which
 the error term $(Bq)^{1+\eps}$ is uniform in the modulus $q$ and in
 the coefficients of $G$, and the local factors are explicit. As an
 application we have bounded the number of zeros of $F$ at which $G$
-is a nonzero square or $r$th power.
+is a nonzero square or $r$th power. We end with some remarks and
+questions.
 
 \subsection{The error term}\label{sec:conclusion-error}
 
@@ -2943,7 +2944,7 @@ when Lemma~\ref{lem:quadriccount} is applied to $F$ and to $F^*$, in
 Lemmas~\ref{lem:conemod} and~\ref{lem:singseries}, and in
 Section~\ref{sec:fixed}. When $\alpha$ is a square, the count
 \eqref{eq:HB} is the sum of a constant multiple of $B^2\log B$, a
-constant multiple of $B^2$ and $O(B^{3/2+\eps})$
+constant multiple of $B^2$ and an error term $O(B^{3/2+\eps})$
 \cite[Theorem~7]{HB}.
 
 \section*{Acknowledgement}
@@ -2959,8 +2960,8 @@ estimate \eqref{eq:analytic} in Proposition~\ref{prop:analytic}; and
 the comparison with the determinant method in
 Proposition~\ref{prop:salberger}. It also assisted with the
 translation of mathematical statements into Lean~\cite{NRZ}.
-Anthropic's Claude (Fable~5.2) was used for adversarial audits and
-to rewrite the authors' draft, which included
+Anthropic's Claude (Fable~5.2) was used for adversarial auditing and
+to help revise the authors' draft. This included
 checking the arguments and citations against the sources and
 reorganizing several proofs, notably those of
 Lemma~\ref{lem:divisible} and Proposition~\ref{prop:salberger}.

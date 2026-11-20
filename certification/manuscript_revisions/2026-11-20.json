@@ -1,0 +1,568 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "authorization": "Author requested replacement by the two uploaded manuscript files.",
+  "baseline_commit": "e2c84afb8267be8dd8d1098b0cb55452f105426e",
+  "previous_source": {
+    "sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+    "size_bytes": 132637,
+    "line_count": 3093,
+    "pdf_sha256": "2d57a6ca92175e2ab80a2ac37af56bc3dc6219254d844a5d55e4032d79db727d",
+    "pdf_size_bytes": 543225,
+    "pdf_pages": 34
+  },
+  "updated_source": {
+    "sha256": "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494",
+    "size_bytes": 132897,
+    "line_count": 3094,
+    "pdf_sha256": "9503440c9bca740c4e04df1dc74521eac82df8242e0b05cebdaa6e3a7f453d51",
+    "pdf_size_bytes": 546427,
+    "pdf_pages": 35
+  },
+  "comparison": {
+    "scope": "Editorial revision; no new theorem certification is claimed.",
+    "changes": [
+      "Introduction: explanation of the delta symbol.",
+      "Section 2.1: explanation before Lemma 2.1.",
+      "Conclusion: transition sentence and the words an error term.",
+      "Acknowledgement: description of assistance with revisions."
+    ],
+    "environments": {
+      "theorem": {
+        "count": 4,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "4273e4f0727cb71e53ba45c3fc17927d12b10881fd71e0106a4343ca2673cf90"
+      },
+      "lemma": {
+        "count": 32,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "3b72a73266ece0111c14f5b0ec3ed97bd8def0412b8c5b44d36d2a71fc043eba"
+      },
+      "proposition": {
+        "count": 2,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "1b1b4a95574e956c4659567e372dd08ed0ed5857c9f017b1c81d0e5f13bca889"
+      },
+      "corollary": {
+        "count": 4,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "a0d56ef223697102efb4a3655237233705365e5e9002117fcda9f1f8646155e9"
+      },
+      "remark": {
+        "count": 1,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "e40217f5c79944f642e49b0a9746a0a0b22c712a9a5aecb30995981f318c7dab"
+      },
+      "proof": {
+        "count": 40,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "648956af9c6a717a91f39823b088d6f9e43ab58cf978512b5a2f9c3b017cdbd2"
+      },
+      "equation": {
+        "count": 94,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "081ba9b977ab75d0cd6a016dbb112196864aae3b02a93f480c4c4a77dd5eafe5"
+      },
+      "align": {
+        "count": 2,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "5869215fec06ec19fee3ee9c26bfc67d178d8b122e58234ff003f0172082669a"
+      },
+      "gather": {
+        "count": 0,
+        "all_byte_identical": true,
+        "ordered_blocks_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "all_172_labels_and_their_order_unchanged": true,
+    "preamble_byte_identical": true,
+    "bibliography_byte_identical": true,
+    "all_42_statement_line_ranges_and_hashes_unchanged": [
+      {
+        "label": "thm:polynomial",
+        "lines": [
+          320,
+          345
+        ],
+        "sha256": "d209d7435693a3a5906a41216b27916913ece7ace2ee1b8d565f8382f1c835e6"
+      },
+      {
+        "label": "thm:uniformcount",
+        "lines": [
+          363,
+          370
+        ],
+        "sha256": "419c1b009300f13ce29d779a3da3f44df8ed30adff9e1ae124458b97edf8d7d0"
+      },
+      {
+        "label": "thm:diagonal",
+        "lines": [
+          388,
+          400
+        ],
+        "sha256": "a4dbd8b85eb64072a6ab57be42c502c2612dce8daa50c0157b1b456419df0f9e"
+      },
+      {
+        "label": "thm:cyclic",
+        "lines": [
+          420,
+          439
+        ],
+        "sha256": "091d69bfc3c71312383515ca1fe417b3b725fb61aa60617708d05cd25c612154"
+      },
+      {
+        "label": "cor:powercount",
+        "lines": [
+          441,
+          453
+        ],
+        "sha256": "0c0ca04414f77015e4694aa281da4a3ab9c0dbf196bfc02a0bbc8307443d574f"
+      },
+      {
+        "label": "lem:delta",
+        "lines": [
+          615,
+          626
+        ],
+        "sha256": "04b9aee43e0fe8623eb238fc4c9866c9edda2895ebe10590e322c2553745b403"
+      },
+      {
+        "label": "lem:integrals",
+        "lines": [
+          667,
+          688
+        ],
+        "sha256": "448728e37871c3845400aa41cdaafffde2069a4b7214ff9f35b94408076ae686"
+      },
+      {
+        "label": "lem:quadriccount",
+        "lines": [
+          769,
+          776
+        ],
+        "sha256": "ff7cdd187fea757cd39e3fa54b5635e1fa03deafb648fc95504fbfaa00e294d8"
+      },
+      {
+        "label": "lem:polynomialbox",
+        "lines": [
+          832,
+          843
+        ],
+        "sha256": "bae7173f895c5e6dc8eb16d6f34d497e741f76e8826c70ce4e59a834dfec6022"
+      },
+      {
+        "label": "lem:weil",
+        "lines": [
+          908,
+          915
+        ],
+        "sha256": "a34b009942f0c19685806af4003d5763bf2070223bcfd22c048a78af13a8e081"
+      },
+      {
+        "label": "cor:weilline",
+        "lines": [
+          926,
+          933
+        ],
+        "sha256": "a59112b4b0256d99baea6fc525f6ba98b390a25e83107ee1e253096f016eff2d"
+      },
+      {
+        "label": "lem:katz",
+        "lines": [
+          951,
+          964
+        ],
+        "sha256": "82720be2841fb389b51dd90ac0af82fa9c55124e186e76b1feac1baa0b9b6079"
+      },
+      {
+        "label": "lem:crt",
+        "lines": [
+          1048,
+          1056
+        ],
+        "sha256": "a0b9bc40f84fcae91a115fbca75f82d1f45edbb2eb332a8d19f57065bf5a19a6"
+      },
+      {
+        "label": "lem:gauss",
+        "lines": [
+          1092,
+          1108
+        ],
+        "sha256": "55df904616a5da034c10e90cae97c8e1bd7d97f1cc3bc22829e756a7412ca16a"
+      },
+      {
+        "label": "lem:badprime",
+        "lines": [
+          1156,
+          1161
+        ],
+        "sha256": "7c295e84598240e2a160b1f16d8831727bc257aeaaa9e703a636a9693be1454d"
+      },
+      {
+        "label": "lem:ramified",
+        "lines": [
+          1184,
+          1190
+        ],
+        "sha256": "de81b16f9cbc5513815b0b16168ca10e184f349807ff8e14295a2e27a85edd12"
+      },
+      {
+        "label": "lem:goodglobal",
+        "lines": [
+          1240,
+          1252
+        ],
+        "sha256": "dee8ac975fe4fc4117382ebf97062e9c6e6ef2f2dfe5c40557ec40462816cc88"
+      },
+      {
+        "label": "lem:genericmod",
+        "lines": [
+          1292,
+          1300
+        ],
+        "sha256": "102ff5dff4895dedf6843aad09bfd1a9fb9f93375b607c11697b4e87c4aec849"
+      },
+      {
+        "label": "lem:conemod",
+        "lines": [
+          1348,
+          1354
+        ],
+        "sha256": "0b3d1535cb53869b8d063c07407e01072a217dc2f2d9871e6405cdde69e54645"
+      },
+      {
+        "label": "lem:density",
+        "lines": [
+          1410,
+          1420
+        ],
+        "sha256": "7ae71776ae7f3a3901d510b3ccf5fed4f8f352b9841b6ee7e1a1a0603b4d4527"
+      },
+      {
+        "label": "lem:singseries",
+        "lines": [
+          1446,
+          1457
+        ],
+        "sha256": "9dcc223cfcf1b9ddc9f67c95bab84c2c771df972e155167bf454efd35a73a7c6"
+      },
+      {
+        "label": "lem:box",
+        "lines": [
+          1539,
+          1552
+        ],
+        "sha256": "e101938faf77963163602796f6b200f4b970814d710b720a7a6d3e0069599bd8"
+      },
+      {
+        "label": "lem:average",
+        "lines": [
+          1569,
+          1576
+        ],
+        "sha256": "826e89b1544e5222175b456cff88b4d6a47d09e95c34ec0b53ca6425c6a53410"
+      },
+      {
+        "label": "lem:exceptional",
+        "lines": [
+          1615,
+          1632
+        ],
+        "sha256": "7938f30e3daf3a59c0038a40a9523d4a9934a58b12bcaa31ea3274bec12e6fef"
+      },
+      {
+        "label": "lem:conic",
+        "lines": [
+          1712,
+          1724
+        ],
+        "sha256": "ca2e7c4d28a34232d77170ecf00a36a6f563bf22f5447bb077d258a8ede2c440"
+      },
+      {
+        "label": "lem:section",
+        "lines": [
+          1756,
+          1765
+        ],
+        "sha256": "7b96984c1f2948fc579bf9e090b6f9744ac0485d7e9a2e9df415f349f3ebb62c"
+      },
+      {
+        "label": "lem:fourier",
+        "lines": [
+          1796,
+          1808
+        ],
+        "sha256": "a68bd04b8e1d03a156e463351e79e5e60bff104b4704cb918ce40352238b9b4a"
+      },
+      {
+        "label": "lem:diagbad",
+        "lines": [
+          1862,
+          1866
+        ],
+        "sha256": "b20b8aed0982bd31a755350cf7a131ce655ccf185e35abbd76af70d6274c755d"
+      },
+      {
+        "label": "lem:pencil",
+        "lines": [
+          1897,
+          1908
+        ],
+        "sha256": "618fd3c275a1ece6a926c92a41f25d0c9784b28c360e54c09481675bc376a5fd"
+      },
+      {
+        "label": "prop:analytic",
+        "lines": [
+          2030,
+          2039
+        ],
+        "sha256": "da9717dc399daeb7f1fc32a01234122dbb9987c6b8847e81335c12d526aeaf09"
+      },
+      {
+        "label": "lem:poisson",
+        "lines": [
+          2045,
+          2054
+        ],
+        "sha256": "d63bbb92cd20b85d83e90b8e757e60ff3033f6fdb34270ddf1a7baea54905342"
+      },
+      {
+        "label": "lem:offcone",
+        "lines": [
+          2126,
+          2130
+        ],
+        "sha256": "8a2d9811a673ce05db15ccd6adc0c0de81b7a5e0cdbc819589c10224b4bdc1dc"
+      },
+      {
+        "label": "lem:oncone",
+        "lines": [
+          2185,
+          2188
+        ],
+        "sha256": "1eb2bfd6f8ec6b087ff344868d08a12be75e8574398ead8304cc2d0fbbd943ca"
+      },
+      {
+        "label": "lem:zerofreq",
+        "lines": [
+          2234,
+          2239
+        ],
+        "sha256": "8ae4294395a08c7d2f6ad43d15010adcb0b348385577c91b735e7be7d5426c05"
+      },
+      {
+        "label": "lem:annulus",
+        "lines": [
+          2313,
+          2321
+        ],
+        "sha256": "d637c3715019279f65859e2fe8ae8f7a91b534ad55bff290b04ca14f1ee2db80"
+      },
+      {
+        "label": "lem:charsum",
+        "lines": [
+          2429,
+          2453
+        ],
+        "sha256": "3e1d79175d110b76892a80562d6566d84209089b35790cb30df2306ec611d0a8"
+      },
+      {
+        "label": "cor:centered",
+        "lines": [
+          2543,
+          2552
+        ],
+        "sha256": "9d928cbfcd2ec047c1615b545048b5c6778e92eb9fc1fb164bbeb32ae8d6214f"
+      },
+      {
+        "label": "lem:sieve",
+        "lines": [
+          2582,
+          2591
+        ],
+        "sha256": "3029659e3f9254de815460e807fa4c5f982b4b8a12b61985daf04393d193c65f"
+      },
+      {
+        "label": "lem:divisible",
+        "lines": [
+          2686,
+          2690
+        ],
+        "sha256": "2d1719e740f70d5706de0a186eebc4c07676fd757785657831168a7922c259f4"
+      },
+      {
+        "label": "lem:lowerbeta",
+        "lines": [
+          2710,
+          2722
+        ],
+        "sha256": "76db13744fa2922b0e7a1fe4c324a2960afc05689b9bdc51b13c3bafd990b1c3"
+      },
+      {
+        "label": "cor:relative",
+        "lines": [
+          2753,
+          2768
+        ],
+        "sha256": "a741591eea1c44a904fbb0a51ba6014f5f4c4e5f3a69cac9c7fefd505e2706f9"
+      },
+      {
+        "label": "prop:salberger",
+        "lines": [
+          2798,
+          2806
+        ],
+        "sha256": "daa38e4ca98e50685190588cea355164e912a287674d7b8e645876733a2d9182"
+      }
+    ],
+    "all_numbered_proof_ranges_unchanged": true,
+    "tracked_lean_file_count_unchanged": 273,
+    "tracked_lean_files_byte_identical": true,
+    "toolchain_dependencies_premises_exports_and_status_unchanged": true,
+    "unnumbered_displays": {
+      "count": 103,
+      "all_byte_identical": true,
+      "ordered_blocks_sha256": "cece20146e3dbc4bfa472304244e5ba4d9b4e0562d1c2ef6ee4c093e2124465a"
+    }
+  },
+  "pdf_page_reference_method": "169 named destinations agree with baseline source.json and locate the new labels; equations 3.8, 3.9 and 4.2 were checked by unique printed numbers and rendered pages.",
+  "pdf_label_page_changes": [
+    {
+      "label": "cor:powercount",
+      "old_page": 4,
+      "new_page": 5
+    },
+    {
+      "label": "eq:powercount",
+      "old_page": 4,
+      "new_page": 5
+    },
+    {
+      "label": "eq:Istar",
+      "old_page": 6,
+      "new_page": 7
+    },
+    {
+      "label": "eq:dualform",
+      "old_page": 8,
+      "new_page": 9
+    },
+    {
+      "label": "eq:conecount",
+      "old_page": 8,
+      "new_page": 9
+    },
+    {
+      "label": "eq:q1q2",
+      "old_page": 13,
+      "new_page": 14
+    },
+    {
+      "label": "eq:conegood",
+      "old_page": 15,
+      "new_page": 16
+    },
+    {
+      "label": "eq:seriestail",
+      "old_page": 16,
+      "new_page": 17
+    },
+    {
+      "label": "eq:Sxibound",
+      "old_page": 17,
+      "new_page": 18
+    },
+    {
+      "label": "eq:Cpsi",
+      "old_page": 18,
+      "new_page": 19
+    },
+    {
+      "label": "eq:pencilforms",
+      "old_page": 21,
+      "new_page": 22
+    },
+    {
+      "label": "lem:zerofreq",
+      "old_page": 25,
+      "new_page": 26
+    },
+    {
+      "label": "lem:annulus",
+      "old_page": 26,
+      "new_page": 27
+    },
+    {
+      "label": "eq:annulus",
+      "old_page": 26,
+      "new_page": 27
+    },
+    {
+      "label": "sec:relative",
+      "old_page": 30,
+      "new_page": 31
+    },
+    {
+      "label": "lem:divisible",
+      "old_page": 30,
+      "new_page": 31
+    }
+  ],
+  "supplementary_source_range_changes": [
+    {
+      "id": "supp:frequency_error_summary",
+      "old_range": [
+        2889,
+        2901
+      ],
+      "new_range": [
+        2890,
+        2902
+      ]
+    },
+    {
+      "id": "supp:conditional_sieve",
+      "old_range": [
+        2903,
+        2919
+      ],
+      "new_range": [
+        2904,
+        2920
+      ]
+    },
+    {
+      "id": "supp:abstract_weight_specialization",
+      "old_range": [
+        2933,
+        2939
+      ],
+      "new_range": [
+        2934,
+        2940
+      ]
+    },
+    {
+      "id": "supp:square_determinant",
+      "old_range": [
+        2944,
+        2947
+      ],
+      "new_range": [
+        2945,
+        2948
+      ]
+    }
+  ],
+  "numbered_status": {
+    "Certified": 26,
+    "Partial": 0,
+    "Active": 0,
+    "Pending": 16
+  },
+  "supplementary_status": {
+    "Certified": 5,
+    "Pending": 28
+  },
+  "historical_evidence": "Existing local reports, CI archives and correspondence records retain their original source identities. Exact statement/proof equality above transports their source correspondence; fresh full execution is recorded separately."
+}

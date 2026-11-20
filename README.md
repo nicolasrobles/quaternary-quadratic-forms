@@ -5,10 +5,26 @@ and Alexandru Zaharescu.
 
 The mathematical source is the audited frozen manuscript
 [quadratic_character_sums_github.tex](manuscript/quadratic_character_sums_github.tex).
-The associated [34-page PDF](manuscript/quadratic_character_sums_github.pdf) is
+The associated [35-page PDF](manuscript/quadratic_character_sums_github.pdf) is
 included. The source SHA-256 is
 
-    d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33
+    f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494
+
+## Manuscript revision of 20 November 2026
+
+The author's updated TeX and PDF replace the preceding snapshot. All 42 numbered
+statements, all 40 proof blocks, and the displayed equations are byte-identical.
+The changes concern exposition in the introduction, Section 2.1 and conclusion,
+and the acknowledgement. The source identities, PDF page references and four
+supplementary source links have been updated. All Lean files, dependency pins,
+registered premises, theorem exports and certification statuses are unchanged.
+The numbered status remains **26 Complete, 0 Partial, 0 Active, 16 Pending**.
+
+The [revision comparison](certification/manuscript_revisions/2026-11-20.json)
+records the old and new file identities and the unchanged statement hashes.
+Historical verification reports and source reviews retain the exact manuscript
+identity they originally checked. The mathematical checkpoint below remains
+Lemma 5.1; the manuscript revision does not add a certified result.
 
 ## Current status
 

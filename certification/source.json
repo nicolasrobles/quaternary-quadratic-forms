@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "original_filename": "quadratic_character_sums_v35.tex",
+  "original_filename": "quadratic_character_sums_github.tex",
   "repository_filename": "manuscript/quadratic_character_sums_github.tex",
-  "sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
-  "size_bytes": 132637,
-  "line_count": 3093,
+  "sha256": "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494",
+  "size_bytes": 132897,
+  "line_count": 3094,
   "pdf_path": "manuscript/quadratic_character_sums_github.pdf",
-  "pdf_sha256": "2d57a6ca92175e2ab80a2ac37af56bc3dc6219254d844a5d55e4032d79db727d",
-  "pdf_pages": 34,
+  "pdf_sha256": "9503440c9bca740c4e04df1dc74521eac82df8242e0b05cebdaa6e3a7f453d51",
+  "pdf_pages": 35,
   "numbered_result_count": 42,
   "compiled_labels": {
     "sec:intro": {
@@ -128,11 +128,11 @@
     },
     "cor:powercount": {
       "number": "1.1",
-      "page": 4
+      "page": 5
     },
     "eq:powercount": {
       "number": "1.23",
-      "page": 4
+      "page": 5
     },
     "sec:outline": {
       "number": "1.3",
@@ -164,7 +164,7 @@
     },
     "eq:Istar": {
       "number": "2.2",
-      "page": 6
+      "page": 7
     },
     "eq:pieces": {
       "number": "2.3",
@@ -200,11 +200,11 @@
     },
     "eq:dualform": {
       "number": "2.8",
-      "page": 8
+      "page": 9
     },
     "eq:conecount": {
       "number": "2.9",
-      "page": 8
+      "page": 9
     },
     "lem:polynomialbox": {
       "number": "2.4",
@@ -328,7 +328,7 @@
     },
     "eq:q1q2": {
       "number": "3.14",
-      "page": 13
+      "page": 14
     },
     "lem:goodglobal": {
       "number": "3.5",
@@ -376,7 +376,7 @@
     },
     "eq:conegood": {
       "number": "3.22",
-      "page": 15
+      "page": 16
     },
     "lem:density": {
       "number": "3.8",
@@ -400,7 +400,7 @@
     },
     "eq:seriestail": {
       "number": "3.26",
-      "page": 16
+      "page": 17
     },
     "eq:Sxi": {
       "number": "3.27",
@@ -408,7 +408,7 @@
     },
     "eq:Sxibound": {
       "number": "3.28",
-      "page": 17
+      "page": 18
     },
     "sec:average": {
       "number": "3.4",
@@ -444,7 +444,7 @@
     },
     "eq:Cpsi": {
       "number": "4.1",
-      "page": 18
+      "page": 19
     },
     "sec:cover": {
       "number": "4.1",
@@ -496,7 +496,7 @@
     },
     "eq:pencilforms": {
       "number": "4.6",
-      "page": 21
+      "page": 22
     },
     "lem:pencil": {
       "number": "4.6",
@@ -572,7 +572,7 @@
     },
     "lem:zerofreq": {
       "number": "5.4",
-      "page": 25
+      "page": 26
     },
     "eq:zeroterm": {
       "number": "5.7",
@@ -580,11 +580,11 @@
     },
     "lem:annulus": {
       "number": "5.5",
-      "page": 26
+      "page": 27
     },
     "eq:annulus": {
       "number": "5.8",
-      "page": 26
+      "page": 27
     },
     "eq:dyadic": {
       "number": "5.9",
@@ -644,11 +644,11 @@
     },
     "sec:relative": {
       "number": "5.4",
-      "page": 30
+      "page": 31
     },
     "lem:divisible": {
       "number": "5.9",
-      "page": 30
+      "page": 31
     },
     "lem:lowerbeta": {
       "number": "5.10",
@@ -698,5 +698,6 @@
       "number": "7.4",
       "page": 33
     }
-  }
+  },
+  "revision_record": "certification/manuscript_revisions/2026-11-20.json"
 }

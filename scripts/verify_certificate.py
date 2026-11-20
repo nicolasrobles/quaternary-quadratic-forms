@@ -21,7 +21,7 @@ import sys
 from graphlib import TopologicalSorter
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_SHA = "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33"
+SOURCE_SHA = "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494"
 TOOLCHAIN = "leanprover/lean4:v4.24.0"
 MATHLIB_REV = "f897ebcf72cd16f89ab4577d0c826cd14afaafc7"
 LOCK_SHA = "08645a4980232706e7e92fcde4cbab1a9003d623f9c9fefb086de9eebbb4a937"

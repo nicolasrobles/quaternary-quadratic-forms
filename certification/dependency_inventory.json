@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "manuscript": "manuscript/quadratic_character_sums_github.tex",
-  "source_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "source_sha256": "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494",
   "scope": "Reviewed manuscript proof dependencies. Source predicates and definitions are not assumed conclusions. Completion is governed by status.json, not this initial graph snapshot.",
   "results": [
     {
@@ -258,7 +258,7 @@
       "kind": "corollary",
       "number": "1.1",
       "display": "Corollary 1.1",
-      "page": 4,
+      "page": 5,
       "content": "Uniform count of nonzero r-th powers, r>=3",
       "status": "Pending",
       "checked_exports": [],
@@ -2122,7 +2122,7 @@
       "kind": "lemma",
       "number": "5.4",
       "display": "Lemma 5.4",
-      "page": 25,
+      "page": 26,
       "content": "Zero-frequency main term and uniform error",
       "status": "Pending",
       "checked_exports": [],
@@ -2195,7 +2195,7 @@
       "kind": "lemma",
       "number": "5.5",
       "display": "Lemma 5.5",
-      "page": 26,
+      "page": 27,
       "content": "Uniform asymptotic for bounded families of annular weights",
       "status": "Pending",
       "checked_exports": [],
@@ -2467,7 +2467,7 @@
       "kind": "lemma",
       "number": "5.9",
       "display": "Lemma 5.9",
-      "page": 30,
+      "page": 31,
       "content": "Quadratic local trace is integral, divisible by p, and bounded by4p",
       "status": "Pending",
       "checked_exports": [],
@@ -3554,8 +3554,8 @@
       "content": "Identify which frequency contribution produces each error scale",
       "source_ranges": [
         [
-          2889,
-          2901
+          2890,
+          2902
         ]
       ],
       "status": "Pending",
@@ -3582,8 +3582,8 @@
       "content": "Conditional improvement of the exponent with the height term retained",
       "source_ranges": [
         [
-          2903,
-          2919
+          2904,
+          2920
         ]
       ],
       "status": "Pending",
@@ -3614,8 +3614,8 @@
       "content": "Apply the abstract analytic proposition to other local functions satisfying its stated hypotheses",
       "source_ranges": [
         [
-          2933,
-          2939
+          2934,
+          2940
         ]
       ],
       "status": "Pending",
@@ -3636,8 +3636,8 @@
       "content": "Square-determinant untwisted count has B^2 log B and B^2 terms with the stated error",
       "source_ranges": [
         [
-          2944,
-          2947
+          2945,
+          2948
         ]
       ],
       "status": "Pending",

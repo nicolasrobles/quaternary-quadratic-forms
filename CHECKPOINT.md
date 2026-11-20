@@ -1,5 +1,21 @@
 # Lemma 5.1 checkpoint
 
+## Manuscript revision of 20 November 2026
+
+The author's updated TeX and PDF replace the preceding snapshot. All 42 numbered
+statements, all 40 proof blocks, and the displayed equations are byte-identical.
+The changes concern exposition in the introduction, Section 2.1 and conclusion,
+and the acknowledgement. The source identities, PDF page references and four
+supplementary source links have been updated. All Lean files, dependency pins,
+registered premises, theorem exports and certification statuses are unchanged.
+The numbered status remains **26 Complete, 0 Partial, 0 Active, 16 Pending**.
+
+The [revision comparison](certification/manuscript_revisions/2026-11-20.json)
+records the old and new file identities and the unchanged statement hashes.
+Historical verification reports and source reviews retain the exact manuscript
+identity they originally checked. The mathematical checkpoint below remains
+Lemma 5.1; the manuscript revision does not add a certified result.
+
 ## Numbered-result status
 
 Complete: **26**. Partial: **0**. Active numbered targets: **0**.
