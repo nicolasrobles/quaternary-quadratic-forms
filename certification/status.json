@@ -659,8 +659,9 @@
       "checked_exports": []
     },
     "aux:Ipiece": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Active",
+      "checked_exports": [],
+      "scope_note": "The three uploaded modules and source correspondence are under focused execution review; no numbered result is promoted."
     },
     "supp:matrix_representation": {
       "status": "Pending",
@@ -18803,6 +18804,99 @@
         "Classical.choice",
         "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
         "QuaternaryQuadraticForms.Trusted.poisson_four_dimensional",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.scaledFrequency",
+      "file": "QuaternaryQuadraticForms/FrequencyIntegralBounds.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Ipiece"
+      ],
+      "scope": "Rescale the localized decay estimate from Lemma 2.2 at u/√q and t/Q.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.uniform_singularIntegral_norm",
+      "file": "QuaternaryQuadraticForms/FrequencyIntegralBounds.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Ipiece"
+      ],
+      "scope": "The common kernel cutoff and the zero-frequency estimate in Lemma 2.2 bound the actual singular integral uniformly on the localized family.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.small_modulus_zero_error",
+      "file": "QuaternaryQuadraticForms/FrequencyIntegralBounds.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "lem:zerofreq"
+      ],
+      "scope": "The small-modulus estimate in Lemma 5.4, with one constant for all Q,c and weights.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_localized_frequency_integrals",
+      "file": "QuaternaryQuadraticForms/LocalizedFrequencyIntegrals.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Ipiece"
+      ],
+      "scope": "Equations (5.4)–(5.5) use the same weights, cutoff and constants for each q and B. The zero-frequency bounds also apply to the singular integral used in Lemma 5.4.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.deltaIntegral_contDiffOn_scale",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRegularity.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Ipiece"
+      ],
+      "scope": "At fixed frequency the oscillatory integral is smooth for every positive scale. The integrand has a common compact support in its Euclidean integration variable.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale",
+      "file": "QuaternaryQuadraticForms/DeltaIntegralRegularity.lean",
+      "status": "Checked locally",
+      "source_labels": [
+        "aux:Ipiece"
+      ],
+      "scope": "The regularity assertion in the setup for (5.5), on the original quadratic form for every smooth weight, including all the localized pieces of Lemma 2.2.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
         "Quot.sound",
         "propext"
       ]

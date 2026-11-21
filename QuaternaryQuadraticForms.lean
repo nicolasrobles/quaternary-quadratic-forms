@@ -268,3 +268,6 @@ import QuaternaryQuadraticForms.PoissonScaling
 import QuaternaryQuadraticForms.PoissonSummation
 import QuaternaryQuadraticForms.PoissonTheorem
 import QuaternaryQuadraticForms.Trusted.Poisson
+import QuaternaryQuadraticForms.FrequencyIntegralBounds
+import QuaternaryQuadraticForms.LocalizedFrequencyIntegrals
+import QuaternaryQuadraticForms.DeltaIntegralRegularity
