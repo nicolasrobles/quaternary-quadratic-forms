@@ -19186,6 +19186,63 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_dual_cone_count",
+      "file": "QuaternaryQuadraticForms/DualConeCounting.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "aux:conecount",
+        "lem:oncone"
+      ],
+      "scope": "The bound in equation conecount for the adjugate of the source matrix. The constant depends only on the integral form and the positive exponent.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.cone_modulus_abel_bound",
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:oncone"
+      ],
+      "scope": "Abel summation up to the common support endpoint. Cancellation in the unweighted complete sums is taken before the absolute value.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coneIntegralWeight_derivative",
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:oncone"
+      ],
+      "scope": "The derivative bound for the partial-summation weight follows at the real scale t/Q. Its complex delta integral is differentiated at fixed v.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum",
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:oncone"
+      ],
+      "scope": "The inner modulus sum of Lemma 5.3, for each individual gcd class and nonzero dual-cone frequency. The constant is uniform in all arithmetic data.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
