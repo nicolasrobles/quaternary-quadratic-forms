@@ -28,7 +28,42 @@ detailed record. The overview additionally groups results. An arrow between
 groups means that a result in the first group supports a result in the second;
 it need not connect every member of the two groups.
 
-## Current Lemma 5.1 checkpoint
+## Current auxiliary checkpoint: equation (5.5)
+
+This step is confined to `aux:Ipiece`: the scaled-integral estimate, smoothness
+in the positive scale with frequency fixed, and the common localization and
+cutoff used immediately before Lemma 5.2. The three supplied modules add six
+supporting theorem exports and no literature premise. See the
+[focused source review](certification/correspondence/scaled_frequency_integrals.md).
+
+The integrated scope contains **1,166 theorem exports, 273 proof modules, and
+316 verifier input files**, with the same **12 registered literature premises**
+and nine pinned dependency revisions. The numbered status remains
+**26 Complete, 0 Partial, 0 Active, 16 Pending**. This auxiliary obligation is now **Certified**, bringing supplementary
+coverage to **6 Certified, 27 Pending**. The
+[live ledger](certification/status.json) records the accepted scope;
+Lemma 5.2 remains Pending.
+
+Checked proof commit: [fef53391ba75](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/fef53391ba75f764ebe891441362ce73c8af6d52)
+on `verify/ipiece-2026-11-20`.
+
+The [focused GitHub run 44848399842](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44848399842)
+passed at commit [fef53391ba75](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/fef53391ba75f764ebe891441362ce73c8af6d52).
+The three supplied modules built successfully and passed strict compilation;
+all six actual theorem types and axiom sets matched the supplied records.
+The seven used literature-premise types and all nine pinned dependency
+revisions also passed inspection. All 59 recorded proof/checker input hashes
+match the integrated files. The [preserved execution report](certification/ci/ipiece_run_44848399842_attempt_1.json)
+records the precise scope and results. Its SHA-256 is
+`64224914265624b5775a0fe480792ec7f4ac17776c00ed2d6637b7f66fb61384`.
+This focused execution certifies only `aux:Ipiece` and its supporting exports;
+the ordinary full-repository workflow remains an additional regression check.
+
+The manuscript, PDF, source fingerprints, and earlier certificates are
+unchanged. The editorial-revision and Lemma 5.1 records below retain their
+historical scope and execution evidence.
+
+## Historical Lemma 5.1 checkpoint
 
 **Lemma 5.1 is Certified relative to the registered delta and Poisson inputs.**
 Its exact source formula has finite lattice support, a finite positive-modulus
@@ -293,18 +328,17 @@ The **33 auxiliary or supplementary groups** comprise **5 Certified and
 28 Pending** claims. The polynomial-box epsilon consequence, aux:Cfactor,
 aux:weight_pieces, aux:Sxi, and aux:Sxibound are complete. These groups include
 proof steps needed by the main argument and mathematical assertions outside numbered theorem
-environments; they are not added to the numbered-result count. The current
-scope contains **1,160 theorem exports across 270 Lean modules**, counted
-separately from the **12 external Lean premises**. It includes **312 inspected
+environments; they are not added to the numbered-result count. The integrated
+scope contains **1,166 theorem exports across 273 Lean modules**, counted
+separately from the **12 external Lean premises**. It includes **316 verifier
 inputs**, nine pinned dependency revisions, and **21 mapped source groups**.
-Strict declaration inspection, source review, and current local aggregate
-and exact-commit CI execution evidence for the combined scope are recorded
-separately in the checkpoint. Historical aggregate evidence retains
-its original scope. The whole-paper
-certification flag remains false.
+The focused execution and source review for `aux:Ipiece` are recorded in the
+checkpoint. Historical aggregate evidence retains its original scope and
+input hashes. The whole-paper certification flag remains false.
 
-The scaled integral estimate (5.5), recorded as `aux:Ipiece`, remains a
-deduction to establish. The weighted singular-series identity and bound
+The scaled integral estimate (5.5), recorded as `aux:Ipiece`, is the current
+auxiliary checkpoint. Its acceptance follows the live ledger and focused
+execution record above. The weighted singular-series identity and bound
 (3.27)–(3.28), recorded as `aux:Sxi` and `aux:Sxibound`, are now proved
 internally from the completed Fourier-product and singular-series results. The detailed
 record also retains the counterexamples in Remark 4.1, the modulus-range
@@ -1505,18 +1539,15 @@ commit is recorded separately from this mathematical scope.
 
 ## Continuation status
 
-The requested **Lemma 5.1** is complete at the proof and source-review level.
-The current verification block tracks its execution gates. This session
-stops after Lemma 5.1; no further proof target is automatically selected.
+This step ends with the `aux:Ipiece` checkpoint. Its acceptance is governed
+by the live ledger and focused execution record above; completion gives
+**6 Certified, 27 Pending** supplementary groups. The numbered inventory
+remains **26 Complete, 0 Partial, 0 Active, 16 Pending**.
 
-The numbered inventory is **26 Complete, 0 Partial, 0 Active, 16 Pending**.
-All Section 2 results, Lemmas 3.1–3.11, all Section 4 lemmas, and Lemmas
-5.1 and 5.9 are complete. Supplementary groups remain **5 Certified,
-28 Pending**. **Proposition 5.1 remains Pending**, together with the separate
-scaled-integral obligation `aux:Ipiece`, weighted cone count `aux:conecount`,
-and absolute singular-integral convergence for weights whose support
-contains the origin. These are later analytic obligations, not prerequisites
-for the completed delta–Poisson lemma. The whole paper is not certified.
+**Lemma 5.2 is the next numbered target and remains Pending.** Proposition 5.1,
+the weighted cone count `aux:conecount`, and absolute singular-integral
+convergence for weights whose support contains the origin also remain Pending.
+The whole paper is not certified.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

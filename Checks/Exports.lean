@@ -1163,7 +1163,13 @@ run_cmd do
     `QuaternaryQuadraticForms.poisson_affine_integer_lattice,
     `QuaternaryQuadraticForms.mixedCompleteSum_extend_eq_source,
     `QuaternaryQuadraticForms.weightedQuadraticZeroSum_poisson,
-    `QuaternaryQuadraticForms.source_delta_poisson]
+    `QuaternaryQuadraticForms.source_delta_poisson,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.scaledFrequency,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.uniform_singularIntegral_norm,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.small_modulus_zero_error,
+    `QuaternaryQuadraticForms.source_localized_frequency_integrals,
+    `QuaternaryQuadraticForms.deltaIntegral_contDiffOn_scale,
+    `QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -4711,3 +4717,21 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.Trusted.poisson_four_dimensional
 #print axioms QuaternaryQuadraticForms.Trusted.poisson_four_dimensional
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.scaledFrequency
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.scaledFrequency
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.uniform_singularIntegral_norm
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.uniform_singularIntegral_norm
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.small_modulus_zero_error
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.small_modulus_zero_error
+
+#check @QuaternaryQuadraticForms.source_localized_frequency_integrals
+#print axioms QuaternaryQuadraticForms.source_localized_frequency_integrals
+
+#check @QuaternaryQuadraticForms.deltaIntegral_contDiffOn_scale
+#print axioms QuaternaryQuadraticForms.deltaIntegral_contDiffOn_scale
+
+#check @QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale
+#print axioms QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale

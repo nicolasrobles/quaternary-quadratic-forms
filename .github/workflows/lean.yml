@@ -69,6 +69,7 @@ jobs:
             Mathlib.Analysis.Calculus.Gradient.Basic \
             Mathlib.Analysis.Calculus.IteratedDeriv.Defs \
             Mathlib.Analysis.Complex.Basic \
+            Mathlib.Analysis.Convolution \
             Mathlib.Analysis.InnerProductSpace.Calculus \
             Mathlib.Analysis.InnerProductSpace.PiL2 \
             Mathlib.Analysis.Normed.Group.Bounded \

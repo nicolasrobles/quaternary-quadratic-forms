@@ -3129,8 +3129,12 @@
           2124
         ]
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_localized_frequency_integrals",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.scaledFrequency",
+        "QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale"
+      ],
       "classification": "load-bearing auxiliary result",
       "internal_dependencies": [
         "lem:integrals"
