@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Lemma 5.2 supporting off-cone reduction: six checked gcd and scale exports; first clause complete and bounded off-cone clause Pending",
+  "checkpoint": "Complete Lemma 5.2: normalized large-frequency O(1) and bounded off-cone O((Bq)^(1+8eta)) estimates with one common localization and cutoff",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -463,7 +463,7 @@
       "scope_note": "Complete Lemma 5.1 relative to the existing Heath-Brown delta-construction premise and one precisely preregistered general affine Poisson premise. The 45 new public theorem exports prove every manuscript-specific deduction. The endpoint is valid for every positive q and every integral matrix, hence specializes to the source squarefree q and fixed quadratic form; it needs no annular-support or Fourier-bound assumption. Its numbered prerequisite Lemma 2.1 is already Certified. Proposition 5.1, aux:conecount and the general cone-vertex singular-integral obligation retain their separate Pending status. The separate aux:Ipiece obligation was subsequently Certified in its focused integration."
     },
     "lem:offcone": {
-      "status": "Partial",
+      "status": "Certified",
       "checked_exports": [
         "QuaternaryQuadraticForms.source_large_frequency_truncation",
         "QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency",
@@ -474,16 +474,18 @@
         "QuaternaryQuadraticForms.dualQuadraticValue_ball_bound",
         "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction",
         "QuaternaryQuadraticForms.offCone_dual_growth",
-        "QuaternaryQuadraticForms.offCone_average_scale"
+        "QuaternaryQuadraticForms.offCone_average_scale",
+        "QuaternaryQuadraticForms.source_offCone_modulus_average",
+        "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone",
+        "QuaternaryQuadraticForms.source_offcone"
       ],
-      "correspondence_record": "certification/correspondence/large_frequency_truncation.md",
+      "correspondence_record": "certification/correspondence/offcone_completion.md",
       "completed_clauses": [
-        "Frequencies with Euclidean norm greater than U=sqrt(q)*B^eta contribute O(1) to the actual normalized Poisson expression, with the common source localization and a constant uniform in the individual weight, q, B and prime functions."
+        "Frequencies with Euclidean norm greater than U=sqrt(q)*B^eta contribute O(1) to the actual normalized Poisson expression.",
+        "Frequencies 0<norm(u)<=U with F*(u) nonzero contribute O((Bq)^(1+8eta)) to the actual normalized Poisson expression, uniformly in the arithmetic data and individual localized weight."
       ],
-      "remaining_clauses": [
-        "Frequencies 0<norm(u)<=U with F*(u) nonzero contribute O((Bq)^(1+8eta))."
-      ],
-      "scope_note": "Only the first, large-frequency clause is complete. The bounded off-cone clause remains Pending. The shared arithmetic module also supplies checked zero-frequency helpers; Lemma 5.4 remains Pending. No new literature premise is introduced. The six supporting gcd-reduction, dual-growth and average-scale exports are now checked; see the [off-cone reduction review](certification/correspondence/offcone_reduction.md). These estimates precede the final arithmetic averaging and Poisson normalization; the bounded off-cone clause remains Pending."
+      "remaining_clauses": [],
+      "scope_note": "Complete Lemma 5.2 for the original source weights and mixed complete sums. The source_offcone endpoint returns both estimates with one common localization delta and modulus cutoff r_0, chosen before E, K, eta and the varying arithmetic data. The final bound retains the actual c_Q B^2/q^3 normalization and the source range B>=9, squarefree 1<=q<=B, (q,N)=1, and 0<eta<=1/4. No new literature premise is introduced; no other numbered or auxiliary status is promoted."
     },
     "lem:oncone": {
       "status": "Pending",
@@ -19131,6 +19133,56 @@
       "scope": "The two terms in Lemma 3.11, including the divisibility factor d², contribute at most 2 q³ B^(3η) for each factorization q=d e.",
       "allowed_axioms": [
         "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_offCone_modulus_average",
+      "file": "QuaternaryQuadraticForms/OffConeModulusAverage.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "Apply Lemmas 3.6 and 3.11 with their constants chosen before the source data, and sum the estimates over every divisor of q.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "ScaledFrequencyIntegralBound.boundedOffCone",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_offcone",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "Complete Lemma 5.2. The two estimates use the very same localization and modulus cutoff.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
         "Quot.sound",
         "propext"
       ]

@@ -28,7 +28,49 @@ detailed record. The overview additionally groups results. An arrow between
 groups means that a result in the first group supports a result in the second;
 it need not connect every member of the two groups.
 
-## Current checkpoint: Lemma 5.2, off-cone reduction
+## Current checkpoint: Lemma 5.2 complete
+
+This step assembles the actual averaged mixed complete sums and restores the
+Poisson factor $c_Q B^2/q^3$. The `source_offcone` endpoint returns both source
+clauses with the same localization $\delta$ and cutoff $r_0$: for
+$U=\sqrt q B^\eta$, frequencies $\|u\|>U$ contribute $O(1)$, and frequencies
+$0<\|u\|\le U$ with $F^*(u)\ne0$ contribute $O((Bq)^{1+8\eta})$.
+See the [focused source review](certification/correspondence/offcone_completion.md).
+
+The three exact supplied modules total 247 lines and add three theorem exports
+with no new literature premise.
+
+| Supplied module | Lines | Theorem exports |
+| --- | ---: | ---: |
+| `FrequencySourceData.lean` | 26 | 0 (definition) |
+| `OffConeModulusAverage.lean` | 123 | 1 |
+| `OffConeFrequencyTheorem.lean` | 98 | 2 |
+
+Focused verification passed. **Lemma 5.2 is Complete**.
+No other numbered result or supplementary status is promoted.
+
+The accepted scope is **1,183 theorem exports, 281 proof modules,
+and 325 verifier input files**, with the same **12 registered literature
+premises** and nine pinned dependency revisions. The resulting numbered
+inventory is **27 Complete, 0 Partial, 0 Active, 15 Pending**; supplementary
+coverage remains **6 Certified, 27 Pending**.
+
+The [focused GitHub run 44854581990](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44854581990)
+passed at proof commit [d53d0676bd86](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/d53d0676bd861b79c319f75134ea75ec675f74b8).
+All three supplied modules built successfully and passed strict compilation;
+the three actual theorem types and axiom sets matched the supplied records.
+The seven used literature-premise types and all nine pinned dependency
+revisions also passed inspection. All 181 recorded proof/checker/review
+input hashes match the integrated files, including the 170-module project
+import closure and all three source correspondence reviews.
+The [preserved execution report](certification/ci/offcone_completion_run_44854581990_attempt_1.json) records the precise scope
+and results. Its SHA-256 is
+`64aa693eceda16736944b0bf1a7a5c18511a7626aa21470d865796cb0bea6027`.
+This focused execution and the source review establish both clauses of
+Lemma 5.2. The ordinary full-repository workflow remains an additional
+regression check.
+
+## Historical checkpoint: Lemma 5.2, off-cone reduction
 
 This step covers supporting gcd reduction, dual-form growth bounds, and
 average-scale bounds for the bounded off-cone clause of Lemma 5.2. The two
@@ -1613,19 +1655,15 @@ commit is recorded separately from this mathematical scope.
 
 ## Continuation status
 
-This step stops after the supporting gcd reduction, dual-form growth, and
-average-scale bounds. Acceptance of these supporting exports is governed by
-the live ledger and focused execution record above. The numbered inventory
-remains **26 Complete, 1 Partial, 0 Active, 15 Pending**; supplementary coverage
-remains **6 Certified, 27 Pending**.
+This step is confined to completion of Lemma 5.2. Acceptance is governed by
+the live ledger and focused execution record above. The current numbered
+inventory is **27 Complete, 0 Partial, 0 Active, 15 Pending**; supplementary
+coverage remains **6 Certified, 27 Pending**.
 
-**The next target is the final averaging and normalization assembly for the
-bounded off-cone clause of Lemma 5.2**: $0<\|u\|\le U$, $F^*(u)\ne0$,
-with contribution $O((Bq)^{1+8\eta})$. That clause remains Pending;
-Lemma 5.2 remains Partial. Proposition 5.1, the weighted cone count
-`aux:conecount`, and absolute singular-integral convergence for weights whose
-support contains the origin also remain Pending. The whole paper is not
-certified.
+**The next target is the bounded on-cone contribution in Lemma 5.3**, which
+remains Pending. Proposition 5.1, the weighted cone count `aux:conecount`,
+and absolute singular-integral convergence for weights whose support contains
+the origin also remain Pending. The whole paper is not certified.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;
