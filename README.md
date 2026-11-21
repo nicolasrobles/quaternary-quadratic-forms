@@ -10,7 +10,47 @@ included. The source SHA-256 is
 
     e3cd28b361ec143d043d4d9ced55939c234648f73f23a05377af4aaefa98b49a
 
-## Current checkpoint: Lemma 5.2 complete
+## Current checkpoint: Dual-cone count and modulus partial summation
+
+This step supplies two prerequisites for Lemma 5.3: the reciprocal Euclidean
+norm sum on the dual cone, and Abel partial summation for the inner modulus
+sum. The `source_dual_cone_count` endpoint gives the source estimate
+$\sum_{0<\|u\|\le U,\ F^*(u)=0}\|u\|^{-1}\ll U^{1+\epsilon}$.
+See the [focused source review](certification/correspondence/oncone_prerequisites.md).
+
+The two exact supplied modules total 280 lines and add four supporting theorem
+exports with no new literature premise.
+
+| Supplied module | Lines | Supporting exports |
+| --- | ---: | ---: |
+| `DualConeCounting.lean` | 118 | 1 |
+| `ConeFrequencyAbel.lean` | 162 | 3 |
+
+Focused verification passed. **`aux:conecount` is Certified**. **Lemma 5.3 remains Pending**: its final mixed-sum factors,
+Poisson normalization, and count assembly still require certification.
+No numbered result is promoted in this batch.
+
+The accepted scope is **1,187 theorem exports, 283 proof modules,
+and 328 verifier input files**, with the same **12 registered literature
+premises** and nine pinned dependency revisions. The numbered inventory stays
+**27 Complete, 0 Partial, 0 Active, 15 Pending**; the supplementary coverage is **7 Certified, 26 Pending**.
+
+The [focused GitHub run 44856104093](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44856104093)
+passed at proof commit [7e0697d2a908](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/7e0697d2a908b501e2030a1803bc25fd8e42def6).
+Both supplied modules built successfully and passed strict compilation;
+all four actual theorem types and axiom sets matched the supplied records.
+Each export uses only `Classical.choice`, `Quot.sound`, and `propext`.
+All nine pinned dependency revisions passed inspection, and all
+144 recorded proof/checker/review input hashes match the integrated files,
+including the 132-module project import closure.
+The [preserved execution report](certification/ci/oncone_prerequisites_run_44856104093_attempt_1.json) records the precise scope
+and results. Its SHA-256 is
+`405d09a62468385521d8783f8353bee40c34ec27861f14295214e968cdfd367a`.
+This execution and the source reviews complete `aux:conecount` and check
+the supporting inner-modulus estimates. Lemma 5.3 remains Pending. The
+ordinary full-repository workflow remains an additional regression check.
+
+## Historical checkpoint: Lemma 5.2 complete
 
 This step assembles the actual averaged mixed complete sums and restores the
 Poisson factor $c_Q B^2/q^3$. The `source_offcone` endpoint returns both source
@@ -3025,12 +3065,13 @@ Graph rendering requires Graphviz. It is not needed to check the Lean proofs.
 
 ## Continuation status
 
-This step is confined to completion of Lemma 5.2. Acceptance is governed by
-the live ledger and focused execution record above. The current numbered
-inventory is **27 Complete, 0 Partial, 0 Active, 15 Pending**; supplementary
-coverage remains **6 Certified, 27 Pending**.
+This step stops after the dual-cone count and inner-modulus partial summation.
+Acceptance is governed by the live ledger and focused execution record above.
+The numbered inventory remains **27 Complete, 0 Partial, 0 Active, 15 Pending**;
+the supplementary coverage is **7 Certified, 26 Pending**.
 
-**The next target is the bounded on-cone contribution in Lemma 5.3**, which
-remains Pending. Proposition 5.1, the weighted cone count `aux:conecount`,
-and absolute singular-integral convergence for weights whose support contains
-the origin also remain Pending. The whole paper is not certified.
+**The next target is the remaining assembly of Lemma 5.3**: the mixed-sum
+factors, Poisson normalization, and dual-cone count must be combined for the
+bounded on-cone contribution. Lemma 5.3 remains Pending. Proposition 5.1 and
+absolute singular-integral convergence for weights whose support contains the
+origin also remain Pending. The whole paper is not certified.

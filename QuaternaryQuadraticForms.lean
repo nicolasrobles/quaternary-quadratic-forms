@@ -279,3 +279,5 @@ import QuaternaryQuadraticForms.OffConeFrequencyScales
 import QuaternaryQuadraticForms.FrequencySourceData
 import QuaternaryQuadraticForms.OffConeModulusAverage
 import QuaternaryQuadraticForms.OffConeFrequencyTheorem
+import QuaternaryQuadraticForms.DualConeCounting
+import QuaternaryQuadraticForms.ConeFrequencyAbel

@@ -2078,7 +2078,12 @@
       "page": 25,
       "content": "Nonzero dual-cone contribution with cancellation in the modulus",
       "status": "Pending",
-      "checked_exports": [],
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_dual_cone_count",
+        "QuaternaryQuadraticForms.cone_modulus_abel_bound",
+        "QuaternaryQuadraticForms.coneIntegralWeight_derivative",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum"
+      ],
       "statement_lines": [
         2185,
         2188
@@ -2106,7 +2111,9 @@
         "Counting weighted integral dual-cone vectors and divisor epsilon bounds."
       ],
       "clauses": [],
-      "notes": [],
+      "notes": [
+        "The weighted dual-cone count and inner-modulus Abel estimates are checked supporting results. The full normalized mixed-sum contribution remains Pending. Review: certification/correspondence/oncone_prerequisites.md."
+      ],
       "statement_tex": "\\begin{lemma}\\label{lem:oncone}\nThe terms of \\eqref{eq:poissonpiece} with $0<\\lVert u\\rVert\\le U$\nand $F^*(u)=0$ contribute $O(B\\sqrt q\\,(Bq)^{6\\eta})$.\n\\end{lemma}\n",
       "principal_internal_dependencies": [
         "lem:poisson",
@@ -2867,10 +2874,12 @@
         "foundation:dyadic_sum"
       ],
       "notes": [
-        "Verify det(adj(A))=alpha^3 remains nonsquare, then specialize Lemma2.3 and sum dyadically."
+        "The proof checks det(adj(A))=det(A)^3 and rational nonsquareness, specializes Lemma 2.3, and proves the reciprocal-norm sum by finite radius splitting. Review: certification/correspondence/oncone_prerequisites.md."
       ],
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_dual_cone_count"
+      ],
       "source_ranges": [
         [
           814,

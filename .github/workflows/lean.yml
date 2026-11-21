@@ -77,6 +77,7 @@ jobs:
             Mathlib.Analysis.Normed.Module.FiniteDimension \
             Mathlib.Analysis.PSeries \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
+            Mathlib.Analysis.SpecialFunctions.Integrals.Basic \
             Mathlib.Analysis.SpecialFunctions.Log.Base \
             Mathlib.Analysis.SpecialFunctions.Log.Summable \
             Mathlib.Analysis.SpecialFunctions.Pow.Continuity \
@@ -107,6 +108,7 @@ jobs:
             Mathlib.Data.Nat.Totient \
             Mathlib.Data.PNat.Basic \
             Mathlib.Data.PNat.Interval \
+            Mathlib.Data.Rat.Lemmas \
             Mathlib.Data.Real.Archimedean \
             Mathlib.Data.Real.Basic \
             Mathlib.Data.Real.Sqrt \

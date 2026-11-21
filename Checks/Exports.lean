@@ -1186,7 +1186,11 @@ run_cmd do
     `QuaternaryQuadraticForms.offCone_average_scale,
     `QuaternaryQuadraticForms.source_offCone_modulus_average,
     `QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone,
-    `QuaternaryQuadraticForms.source_offcone]
+    `QuaternaryQuadraticForms.source_offcone,
+    `QuaternaryQuadraticForms.source_dual_cone_count,
+    `QuaternaryQuadraticForms.cone_modulus_abel_bound,
+    `QuaternaryQuadraticForms.coneIntegralWeight_derivative,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -4803,3 +4807,15 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.source_offcone
 #print axioms QuaternaryQuadraticForms.source_offcone
+
+#check @QuaternaryQuadraticForms.source_dual_cone_count
+#print axioms QuaternaryQuadraticForms.source_dual_cone_count
+
+#check @QuaternaryQuadraticForms.cone_modulus_abel_bound
+#print axioms QuaternaryQuadraticForms.cone_modulus_abel_bound
+
+#check @QuaternaryQuadraticForms.coneIntegralWeight_derivative
+#print axioms QuaternaryQuadraticForms.coneIntegralWeight_derivative
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum

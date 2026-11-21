@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete Lemma 5.2: normalized large-frequency O(1) and bounded off-cone O((Bq)^(1+8eta)) estimates with one common localization and cutoff",
+  "checkpoint": "Complete auxiliary dual-cone reciprocal-norm count and supporting inner-modulus partial-summation estimates; Lemma 5.3 remains Pending",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -120,7 +120,7 @@
         "Fixed coordinate rescaling is absorbed into the constant before the radius is chosen."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 2.3 using only official mathlib and the standard logical foundations. All 28 new public theorem exports are internally proved; no literature premise is added or used. The rational form, integer lattice, Euclidean norm, finiteness, cardinality and constant quantifiers are literal. The subsequent weighted dual-cone consequence aux:conecount remains separately Pending and is not implemented in this checkpoint."
+      "scope_note": "Complete Lemma 2.3 using only official mathlib and the standard logical foundations. All 28 new public theorem exports are internally proved; no literature premise is added or used. The rational form, integer lattice, Euclidean norm, finiteness, cardinality and constant quantifiers are literal. The weighted dual-cone consequence aux:conecount was separately Pending at that checkpoint and was subsequently Certified in its focused integration."
     },
     "lem:polynomialbox": {
       "status": "Certified",
@@ -460,7 +460,7 @@
         "For every positive modulus, the series of norms of the actual complete-sum times delta-integral terms is summable."
       ],
       "remaining_clauses": [],
-      "scope_note": "Complete Lemma 5.1 relative to the existing Heath-Brown delta-construction premise and one precisely preregistered general affine Poisson premise. The 45 new public theorem exports prove every manuscript-specific deduction. The endpoint is valid for every positive q and every integral matrix, hence specializes to the source squarefree q and fixed quadratic form; it needs no annular-support or Fourier-bound assumption. Its numbered prerequisite Lemma 2.1 is already Certified. Proposition 5.1, aux:conecount and the general cone-vertex singular-integral obligation retain their separate Pending status. The separate aux:Ipiece obligation was subsequently Certified in its focused integration."
+      "scope_note": "Complete Lemma 5.1 relative to the existing Heath-Brown delta-construction premise and one precisely preregistered general affine Poisson premise. The 45 new public theorem exports prove every manuscript-specific deduction. The endpoint is valid for every positive q and every integral matrix, hence specializes to the source squarefree q and fixed quadratic form; it needs no annular-support or Fourier-bound assumption. Its numbered prerequisite Lemma 2.1 is already Certified. Proposition 5.1 and the general cone-vertex singular-integral obligation retain their separate Pending status. The separate aux:conecount obligation was subsequently Certified in its focused integration. The separate aux:Ipiece obligation was subsequently Certified in its focused integration."
     },
     "lem:offcone": {
       "status": "Certified",
@@ -489,7 +489,13 @@
     },
     "lem:oncone": {
       "status": "Pending",
-      "checked_exports": []
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_dual_cone_count",
+        "QuaternaryQuadraticForms.cone_modulus_abel_bound",
+        "QuaternaryQuadraticForms.coneIntegralWeight_derivative",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum"
+      ],
+      "scope_note": "The auxiliary dual-cone reciprocal-norm count and the inner unweighted gcd-class modulus estimate are checked. The latter preserves cancellation, the cutoff endpoint and differentiation at fixed frequency. These are supporting exports; the final mixed-sum factors, Poisson normalization and summation for the complete Lemma 5.3 remain Pending. [Supporting source review](certification/correspondence/oncone_prerequisites.md)."
     },
     "lem:zerofreq": {
       "status": "Pending",
@@ -587,8 +593,16 @@
       "checked_exports": []
     },
     "aux:conecount": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Certified",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_dual_cone_count"
+      ],
+      "correspondence_record": "certification/correspondence/oncone_prerequisites.md",
+      "completed_clauses": [
+        "For the actual integral adjugate form, the reciprocal Euclidean norm sum over nonzero integer zeros with norm at most U is O(U^(1+epsilon)), with one positive constant before every real U>=1."
+      ],
+      "remaining_clauses": [],
+      "scope_note": "The adjugate determinant and its rational nonsquareness are proved internally. Certified Lemma 2.3 and a finite inverse-radius argument give the exact weighted dual-cone count, with no literature premise."
     },
     "aux:polynomialbox_epsilon": {
       "status": "Certified",
@@ -19183,6 +19197,63 @@
         "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
         "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
         "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_dual_cone_count",
+      "file": "QuaternaryQuadraticForms/DualConeCounting.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "aux:conecount",
+        "lem:oncone"
+      ],
+      "scope": "The bound in equation conecount for the adjugate of the source matrix. The constant depends only on the integral form and the positive exponent.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.cone_modulus_abel_bound",
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:oncone"
+      ],
+      "scope": "Abel summation up to the common support endpoint. Cancellation in the unweighted complete sums is taken before the absolute value.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coneIntegralWeight_derivative",
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:oncone"
+      ],
+      "scope": "The derivative bound for the partial-summation weight follows at the real scale t/Q. Its complex delta integral is differentiated at fixed v.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum",
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:oncone"
+      ],
+      "scope": "The inner modulus sum of Lemma 5.3, for each individual gcd class and nonzero dual-cone frequency. The constant is uniform in all arithmetic data.",
+      "allowed_axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]

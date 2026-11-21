@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "scope": "Exact four supplied theorem records for the complete dual-cone reciprocal-norm count and supporting inner-modulus estimates for Lemma 5.3. Extracted package evidence, not a fresh execution report.",
+  "archive_filename": "quaternary-quadratic-forms-verified(1).zip",
+  "archive_sha256": "a432759f28990e839d714b38b4e5905ed27e06206ba5f23b16089e33bc116ed4",
+  "package_report_path": "certification/local/all_numbered_results.json",
+  "package_report_sha256": "d0512cd8fe7dc457ea0d081e89cb607cc176d0c3ebccb5dbfd9a21cf8dafca92",
+  "package_report_generated_at_utc": "2026-11-20T01:48:56.223647+00:00",
+  "package_manuscript_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "files": [
+    "QuaternaryQuadraticForms/DualConeCounting.lean",
+    "QuaternaryQuadraticForms/ConeFrequencyAbel.lean"
+  ],
+  "file_sha256": {
+    "QuaternaryQuadraticForms/DualConeCounting.lean": "730355fff938d4824357276bd1fd52035ae048cff9a0dd71309ee744576f5cae",
+    "QuaternaryQuadraticForms/ConeFrequencyAbel.lean": "412663d007b0fcc90e402190bc08ac205dc945e7f08ba20504ed986af3b994ee"
+  },
+  "checked_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.source_dual_cone_count",
+      "kind": "theorem",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      ¬IsSquare A.det →\n        ∀ (ε : ℝ),\n          0 < ε →\n            ∃ C,\n              0 < C ∧\n                ∀ (U : ℝ),\n                  1 ≤ U →\n                    ∑ u ∈ QuaternaryQuadraticForms.dualConeFrequencies A U,\n                        (QuaternaryQuadraticForms.integerEuclideanNorm u)⁻¹ ≤\n                      C * U ^ (1 + ε)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/DualConeCounting.lean",
+      "source_sha256": "730355fff938d4824357276bd1fd52035ae048cff9a0dd71309ee744576f5cae",
+      "scope": "The bound in equation conecount for the adjugate of the source matrix. The constant depends only on the integral form and the positive exponent."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.cone_modulus_abel_bound",
+      "kind": "theorem",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ) (q d : ℕ) (u : Fin 4 → ℤ)\n  (f : ℝ → ℂ) {X η K L : ℝ},\n  1 ≤ X →\n    0 < η →\n      0 ≤ K →\n        0 ≤ L →\n          f X = 0 →\n            (∀ t ∈ Set.Icc 1 X, DifferentiableAt ℝ f t) →\n              (∀ t ∈ Set.Icc 1 X, ‖deriv f t‖ ≤ L / t ^ 4) →\n                (∀ t ∈ Set.Icc 1 X, ‖QuaternaryQuadraticForms.unweightedModulusSum q d A u t‖ ≤ K * t ^ (3 + η)) →\n                  ‖∑ k ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d ⌊X⌋₊,\n                        f ↑k * QuaternaryQuadraticForms.unweightedCompleteSumValue k A u‖ ≤\n                    L * K * X ^ η / η",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "source_sha256": "412663d007b0fcc90e402190bc08ac205dc945e7f08ba20504ed986af3b994ee",
+      "scope": "Abel summation up to the common support endpoint. Cancellation in the unweighted complete sums is taken before the absolute value."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.coneIntegralWeight_derivative",
+      "kind": "theorem",
+      "actual_type": "∀ (I : ℝ → ℂ) {t Q L : ℝ},\n  0 < t →\n    0 < Q →\n      DifferentiableAt ℝ I (t / Q) →\n        ‖I (t / Q)‖ + t / Q * ‖deriv I (t / Q)‖ ≤ L * t →\n          DifferentiableAt ℝ (QuaternaryQuadraticForms.coneIntegralWeight I Q) t ∧\n            ‖deriv (QuaternaryQuadraticForms.coneIntegralWeight I Q) t‖ ≤ 4 * L / t ^ 4",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "source_sha256": "412663d007b0fcc90e402190bc08ac205dc945e7f08ba20504ed986af3b994ee",
+      "scope": "The derivative bound for the partial-summation weight follows at the real scale t/Q. Its complex delta integral is differentiated at fixed v."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.onCone_modulus_sum",
+      "kind": "theorem",
+      "actual_type": "∀ {A : Matrix (Fin 4) (Fin 4) ℤ},\n  A.transpose = A →\n    A.det ≠ 0 →\n      ¬IsSquare A.det →\n        ∀ {weights : Set (QuaternaryQuadraticForms.RealVector4 → ℂ)}\n          {σ : (QuaternaryQuadraticForms.RealVector4 → ℂ) → ℂ} {r₀ η : ℝ},\n          1 ≤ r₀ →\n            0 < η →\n              η ≤ 1 / 4 →\n                QuaternaryQuadraticForms.DeltaIntegralBounds\n                    (QuaternaryQuadraticForms.realQuadraticValue (A.map ⇑(Int.castRingHom ℝ))) σ weights (Set.Ioi 0) →\n                  (∀ w ∈ weights,\n                      ∀ (v : QuaternaryQuadraticForms.RealVector4),\n                        QuaternaryQuadraticForms.deltaIntegral\n                            (QuaternaryQuadraticForms.realQuadraticValue (A.map ⇑(Int.castRingHom ℝ))) w r₀ v =\n                          0) →\n                    ∃ C,\n                      0 < C ∧\n                        ∀ w ∈ weights,\n                          ∀ (q d e : ℕ) [NeZero q] [NeZero d] [NeZero e],\n                            Squarefree q →\n                              q = d * e →\n                                q.Coprime (QuaternaryQuadraticForms.quadraticBadPrimeModulus A) →\n                                  ∀ (B : ℝ),\n                                    1 ≤ B →\n                                      1 ≤ B / √↑q →\n                                        ∀ (u : Fin 4 → ℤ),\n                                          u ⬝ᵥ A.adjugate.mulVec u = 0 →\n                                            0 < QuaternaryQuadraticForms.integerEuclideanNorm u →\n                                              QuaternaryQuadraticForms.integerEuclideanNorm u ≤ √↑q * B ^ η →\n                                                have Q := B / √↑q;\n                                                have I := fun r =>\n                                                  QuaternaryQuadraticForms.deltaIntegral\n                                                    (QuaternaryQuadraticForms.realQuadraticValue\n                                                      (A.map ⇑(Int.castRingHom ℝ)))\n                                                    w r ((√↑q)⁻¹ • QuaternaryQuadraticForms.integerRealVector u);\n                                                ‖∑ c ∈ QuaternaryQuadraticForms.gcdModuliUpTo q d ⌊r₀ * Q⌋₊,\n                                                      QuaternaryQuadraticForms.coneIntegralWeight I Q ↑c *\n                                                        QuaternaryQuadraticForms.unweightedCompleteSumValue c A u‖ ≤\n                                                  C * (↑q / (B * QuaternaryQuadraticForms.integerEuclideanNorm u)) *\n                                                      B ^ (3 * η) *\n                                                    (B * ↑q) ^ η",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/ConeFrequencyAbel.lean",
+      "source_sha256": "412663d007b0fcc90e402190bc08ac205dc945e7f08ba20504ed986af3b994ee",
+      "scope": "The inner modulus sum of Lemma 5.3, for each individual gcd class and nonzero dual-cone frequency. The constant is uniform in all arithmetic data."
+    }
+  ],
+  "checked_external_inputs": []
+}
