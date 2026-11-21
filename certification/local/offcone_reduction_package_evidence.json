@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "scope": "Exact six supplied theorem records for supporting reductions in the bounded off-cone clause of Lemma 5.2. Extracted package evidence, not a fresh execution report.",
+  "archive_filename": "quaternary-quadratic-forms-verified(1).zip",
+  "archive_sha256": "a432759f28990e839d714b38b4e5905ed27e06206ba5f23b16089e33bc116ed4",
+  "package_report_path": "certification/local/all_numbered_results.json",
+  "package_report_sha256": "d0512cd8fe7dc457ea0d081e89cb607cc176d0c3ebccb5dbfd9a21cf8dafca92",
+  "package_report_generated_at_utc": "2026-11-20T01:48:56.223647+00:00",
+  "package_manuscript_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "files": [
+    "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+    "QuaternaryQuadraticForms/OffConeFrequencyScales.lean"
+  ],
+  "checked_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_offConeFrequencies",
+      "kind": "theorem",
+      "actual_type": "∀ {A : Matrix (Fin 4) (Fin 4) ℤ} {U : ℝ} {u : Fin 4 → ℤ},\n  u ∈ QuaternaryQuadraticForms.offConeFrequencies A U ↔\n    0 < QuaternaryQuadraticForms.integerEuclideanNorm u ∧\n      QuaternaryQuadraticForms.integerEuclideanNorm u ≤ U ∧\n        QuaternaryQuadraticForms.integralQuadraticValue A.adjugate u ≠ 0",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "source_sha256": "72a79b1d3b85b82b985042ed8c4b0cdf99599c9816eb78712d9c6154c86cd066",
+      "scope": "mem offConeFrequencies"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMixedCompleteSum_sum_le_gcd_classes",
+      "kind": "theorem",
+      "actual_type": "∀ (N : ℕ)\n  (ξ : (p : ℕ) → Nat.Prime p → ¬p ∣ N → (Fin 4 → ZMod p) → ℂ) (q : ℕ) [inst : NeZero q] (hqN : q.Coprime N)\n  (A : Matrix (Fin 4) (Fin 4) ℤ) (u : Fin 4 → ℤ) (X : ℝ),\n  ∑ c ∈ QuaternaryQuadraticForms.poissonModuliBelow X,\n      ‖QuaternaryQuadraticForms.sourceMixedCompleteSum N ξ q hqN (↑c) A u‖ / ↑↑c ^ 3 ≤\n    ∑ d ∈ q.divisors,\n      QuaternaryQuadraticForms.modulusNormSum (QuaternaryQuadraticForms.extendPrimeWeights N ξ) q d A u X",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "source_sha256": "72a79b1d3b85b82b985042ed8c4b0cdf99599c9816eb78712d9c6154c86cd066",
+      "scope": "All positive c in the strict cutoff occur in their gcd class in the inclusive modulus sums of Lemma 3.6. Enlarging the cutoff at an integer endpoint is harmless."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dualQuadraticValue_ball_bound",
+      "kind": "theorem",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ),\n  ∃ M,\n    0 < M ∧\n      ∀ (U : ℝ),\n        0 < U →\n          ∀ (u : Fin 4 → ℤ),\n            QuaternaryQuadraticForms.integerEuclideanNorm u ≤ U →\n              |↑(QuaternaryQuadraticForms.integralQuadraticValue A.adjugate u)| ≤ M * U ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "source_sha256": "72a79b1d3b85b82b985042ed8c4b0cdf99599c9816eb78712d9c6154c86cd066",
+      "scope": "The integral dual quadratic polynomial is uniformly O(U²) on the ball."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction",
+      "kind": "theorem",
+      "actual_type": "∀ {A : Matrix (Fin 4) (Fin 4) ℤ}\n  {weights : Set (QuaternaryQuadraticForms.RealVector4 → ℂ)} {η : ℝ},\n  QuaternaryQuadraticForms.ScaledFrequencyIntegralBound\n      (QuaternaryQuadraticForms.realQuadraticValue (A.map ⇑(Int.castRingHom ℝ))) weights η →\n    ∃ J,\n      0 < J ∧\n        ∀ (N : ℕ) (ξ : (p : ℕ) → Nat.Prime p → ¬p ∣ N → (Fin 4 → ZMod p) → ℂ) (q : ℕ) [inst : NeZero q]\n          (hqN : q.Coprime N) (B X : ℝ),\n          1 ≤ B →\n            ∀ w ∈ weights,\n              have U := √↑q * B ^ η;\n              ‖QuaternaryQuadraticForms.sourceBoundedOffConeSum N ξ q hqN A w X (B / √↑q) U‖ ≤\n                J * ↑q / B * B ^ (3 * η) *\n                  ∑ d ∈ q.divisors,\n                    ∑ u ∈ QuaternaryQuadraticForms.offConeFrequencies A U,\n                      QuaternaryQuadraticForms.modulusNormSum (QuaternaryQuadraticForms.extendPrimeWeights N ξ) q d A u\n                          X /\n                        QuaternaryQuadraticForms.integerEuclideanNorm u",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "source_sha256": "72a79b1d3b85b82b985042ed8c4b0cdf99599c9816eb78712d9c6154c86cd066",
+      "scope": "Apply (5.5) to every summand and regroup the nonnegative terms by gcd."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.offCone_dual_growth",
+      "kind": "theorem",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ) (r₀ η : ℝ),\n  1 ≤ r₀ →\n    0 < η →\n      η ≤ 1 / 4 →\n        ∃ L,\n          0 < L ∧\n            ∀ (B q : ℝ),\n              1 ≤ B →\n                1 ≤ q →\n                  ∀ u ∈ QuaternaryQuadraticForms.offConeFrequencies A (√q * B ^ η),\n                    (r₀ * (B / √q) * |↑(QuaternaryQuadraticForms.integralQuadraticValue A.adjugate u)|) ^ η ≤\n                      L * (B * q) ^ (2 * η)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyScales.lean",
+      "source_sha256": "3956b6753e5cdcbaa10646494d935be0abef5a9adfbe67f28e908b9bdc36166d",
+      "scope": "The growth of the integral dual form at all the off-cone frequencies is absorbed uniformly into the divisor-epsilon factor in Lemma 3.6."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.offCone_average_scale",
+      "kind": "theorem",
+      "actual_type": "∀ (d e B η : ℝ),\n  1 ≤ d →\n    1 ≤ e →\n      1 ≤ B →\n        0 ≤ η →\n          have q := d * e;\n          have U := √q * B ^ η;\n          d ^ 2 * e ^ (3 / 2) * (U ^ 3 / d + e ^ (1 / 2) * U ^ 2) ≤ 2 * q ^ 3 * B ^ (3 * η)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyScales.lean",
+      "source_sha256": "3956b6753e5cdcbaa10646494d935be0abef5a9adfbe67f28e908b9bdc36166d",
+      "scope": "The two terms in Lemma 3.11, including the divisibility factor d², contribute at most 2 q³ B^(3η) for each factorization q=d e."
+    }
+  ],
+  "checked_external_inputs": []
+}

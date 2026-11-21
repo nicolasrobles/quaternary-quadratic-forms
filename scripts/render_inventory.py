@@ -92,13 +92,16 @@ lines = [
     f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
     "The [second editorial manuscript revision](certification/manuscript_revisions/2026-11-20-editorial-2.json) preserves all 42 statement texts and hashes, all source ranges and label pages, and the existing certification scope. Eleven proof blocks have punctuation or prose edits only. The manuscript fingerprints were refreshed and metadata verification passed; the fresh GitHub Actions run is separate from earlier archived execution evidence.", "",
-    "## Current checkpoint: Lemma 5.2, large-frequency clause", "",
-    "This checkpoint is limited to the first clause of Lemma 5.2: frequencies with norm greater than U contribute O(1). Three exact supplied modules (403 lines) add eight supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/large_frequency_truncation.md).", "",
+    "## Current checkpoint: Lemma 5.2, off-cone reduction", "",
+    "This checkpoint covers supporting gcd reduction, dual-form growth bounds, and average-scale bounds for the bounded off-cone clause of Lemma 5.2. The two exact supplied modules, OffConeFrequencyReduction.lean (130 lines, four exports) and OffConeFrequencyScales.lean (91 lines, two exports), total 221 lines and add six supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/offcone_reduction.md).", "",
     f"The live status of Lemma 5.2 is **{status['numbered_results']['lem:offcone']['status']}**. "
     f"The ledger contains **{len(status['supporting_exports']):,} theorem exports, {len(proof_files)} proof modules, and {len(verification_inputs)} verifier input files**, with **{premise_total} registered literature premises**. "
     f"The numbered inventory is **{counts['Certified']} Complete, {counts['Partial']} Partial, {counts['Active']} Active, {counts['Pending']} Pending**; "
     f"supplementary coverage is **{auxiliary_counts['Certified']} Certified, {auxiliary_counts['Partial']} Partial, {auxiliary_counts['Active']} Active, {auxiliary_counts['Pending']} Pending**. "
-    "First-clause acceptance and focused execution evidence are recorded in [CHECKPOINT.md](CHECKPOINT.md). The bounded off-cone clause, 0 < norm(u) <= U with F*(u) nonzero and contribution O((Bq)^(1+8 eta)), remains Pending. No other numbered result is promoted.", "",
+    "Supporting-export acceptance and focused execution evidence are recorded in [CHECKPOINT.md](CHECKPOINT.md). No numbered clause, numbered status, or supplementary status is promoted. The large-frequency O(1) clause remains complete; the bounded off-cone O((Bq)^(1+8 eta)) clause remains Pending until the final averaging and normalization assembly.", "",
+    "## Historical checkpoint: Lemma 5.2, large-frequency clause", "",
+    "That checkpoint was limited to the first clause of Lemma 5.2: frequencies with norm greater than U contribute O(1). Three exact supplied modules (403 lines) added eight supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/large_frequency_truncation.md).", "",
+    "At that checkpoint, Lemma 5.2 became **Partial**. Its historical ledger contained **1,174 theorem exports, 276 proof modules, and 320 verifier input files**, with **12 registered literature premises**. The numbered inventory was **26 Complete, 1 Partial, 0 Active, 15 Pending**; supplementary coverage was **6 Certified, 0 Partial, 0 Active, 27 Pending**. First-clause acceptance and focused execution evidence are retained in [CHECKPOINT.md](CHECKPOINT.md). The bounded off-cone clause, 0 < norm(u) <= U with F*(u) nonzero and contribution O((Bq)^(1+8 eta)), remained Pending. No other numbered result was promoted.", "",
     "## Earlier auxiliary checkpoint: equation (5.5)", "",
     "That checkpoint was limited to `aux:Ipiece`: the scaled-integral estimate, smoothness in the positive scale with frequency fixed, and the common localization and cutoff. Three supplied modules added six supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/scaled_frequency_integrals.md).", "",
     "That auxiliary obligation became Certified, with six Certified and 27 Pending supplementary groups and no numbered-result promotion. Its historical scope was 1,166 theorem exports, 273 proof modules, and 316 verifier inputs; the numbered inventory was 26 Complete, 0 Partial, 0 Active, and 16 Pending. The checked proof commit is [fef53391ba75](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/fef53391ba75f764ebe891441362ce73c8af6d52); execution evidence is retained in [CHECKPOINT.md](CHECKPOINT.md). Lemma 5.2 remained Pending at that checkpoint.", "",
@@ -297,8 +300,8 @@ lines += [
     "", "The allowed dependencies are the standard logical foundations "
     f'{BT}propext{BT}, {BT}Classical.choice{BT}, and {BT}Quot.sound{BT}. '
     "Individual exports may additionally use only the exact literature "
-    "premises named in their ledger entry. Their actual Lean types and axiom dependencies are in the "
-    "[verification report](certification/verification_report.json). "
+    "premises named in their ledger entry. Their actual Lean types and axiom dependencies are preserved in the "
+    "[execution records](CHECKPOINT.md). "
     f'{premise_total} external Lean {premise_phrase} registered '
     "separately from these proved exports; see [Trusted inputs](TRUSTED_INPUTS.md).", "",
     "## Auxiliary and supplementary obligations", "",
@@ -330,10 +333,10 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Continuation status", "",
-    "This step stops after the large-frequency clause of Lemma 5.2. Its current status and focused execution evidence are recorded in the live ledger and CHECKPOINT.md.",
+    "This step stops after the supporting gcd reduction, dual-form growth, and average-scale bounds. Acceptance of these supporting exports and focused execution evidence are recorded in the live ledger and CHECKPOINT.md.",
     f"The numbered inventory is **{counts['Certified']} Complete, {counts['Partial']} Partial, {counts['Active']} Active, {counts['Pending']} Pending**; "
     f"supplementary coverage is **{auxiliary_counts['Certified']} Certified, {auxiliary_counts['Partial']} Partial, {auxiliary_counts['Active']} Active, {auxiliary_counts['Pending']} Pending**. "
-    f"Lemma 5.2 is {status['numbered_results']['lem:offcone']['status']}; its bounded off-cone clause, 0 < norm(u) <= U with F*(u) nonzero and contribution O((Bq)^(1+8 eta)), remains Pending and is the next target. "
+    f"Lemma 5.2 is {status['numbered_results']['lem:offcone']['status']}; its bounded off-cone clause, 0 < norm(u) <= U with F*(u) nonzero and contribution O((Bq)^(1+8 eta)), remains Pending. The next target is the final averaging and normalization assembly for that clause. "
     "Proposition 5.1, the weighted cone count `aux:conecount`, and absolute singular-integral convergence for weights whose support contains the origin remain Pending. The whole paper is not certified.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))

@@ -1999,7 +1999,13 @@
         "QuaternaryQuadraticForms.source_large_frequency_truncation",
         "QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency",
         "QuaternaryQuadraticForms.integerEuclidean_frequency_tail",
-        "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound"
+        "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound",
+        "QuaternaryQuadraticForms.mem_offConeFrequencies",
+        "QuaternaryQuadraticForms.sourceMixedCompleteSum_sum_le_gcd_classes",
+        "QuaternaryQuadraticForms.dualQuadraticValue_ball_bound",
+        "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction",
+        "QuaternaryQuadraticForms.offCone_dual_growth",
+        "QuaternaryQuadraticForms.offCone_average_scale"
       ],
       "statement_lines": [
         2126,
@@ -2030,7 +2036,9 @@
         "Frequencies ||u||>U contribute O(1).",
         "Frequencies 0<||u||<=U, F*(u) !=0 contribute O((Bq)^(1+8eta))."
       ],
-      "notes": [],
+      "notes": [
+        "Six supporting gcd-reduction and scale exports are checked. The bounded off-cone clause remains Pending until arithmetic averaging and final normalization. Review: certification/correspondence/offcone_reduction.md."
+      ],
       "statement_tex": "\\begin{lemma}\\label{lem:offcone}\nThe terms of \\eqref{eq:poissonpiece} with $\\lVert u\\rVert>U$\ncontribute $O(1)$, and those with $0<\\lVert u\\rVert\\le U$ and\n$F^*(u)\\ne0$ contribute $O((Bq)^{1+8\\eta})$.\n\\end{lemma}\n",
       "principal_internal_dependencies": [
         "lem:poisson",

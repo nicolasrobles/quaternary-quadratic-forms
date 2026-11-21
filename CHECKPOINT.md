@@ -1,6 +1,46 @@
-# Verification checkpoint: Lemma 5.2, large-frequency clause
+# Verification checkpoint: Lemma 5.2, off-cone reduction
 
-## Current checkpoint: Lemma 5.2, large-frequency clause
+## Current checkpoint: Lemma 5.2, off-cone reduction
+
+This step covers supporting gcd reduction, dual-form growth bounds, and
+average-scale bounds for the bounded off-cone clause of Lemma 5.2. The two
+exact supplied modules (221 lines) add six supporting theorem exports and no
+literature premise. See the
+[focused source review](certification/correspondence/offcone_reduction.md).
+
+| Supplied module | Lines | Supporting exports |
+| --- | ---: | ---: |
+| `OffConeFrequencyReduction.lean` | 130 | 4 |
+| `OffConeFrequencyScales.lean` | 91 | 2 |
+
+Focused verification passed. This is supporting progress only:
+**Lemma 5.2 remains Partial**. Its large-frequency $O(1)$ clause is complete;
+the bounded off-cone contribution $O((Bq)^{1+8\eta})$ remains **Pending**
+until the final averaging and normalization assembly. No numbered clause,
+numbered status, or supplementary status is promoted in this batch.
+
+The accepted scope is **1,180 theorem exports, 278 proof modules,
+and 322 verifier input files**, with the same **12 registered literature
+premises** and nine pinned dependency revisions. The numbered inventory stays
+**26 Complete, 1 Partial, 0 Active, 15 Pending**; supplementary coverage stays
+**6 Certified, 27 Pending**.
+
+The [focused GitHub run 44852824398](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44852824398)
+passed at proof commit [484116fd9065](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/484116fd906503b85fd1f87d3e5e6e43e4ee1263).
+Both supplied modules built successfully and passed strict compilation;
+all six actual theorem types and axiom sets matched the supplied records.
+Each export uses only `Classical.choice`, `Quot.sound`, and `propext`.
+All nine pinned dependency revisions passed inspection, and all
+176 recorded proof/checker/review input hashes match the integrated files,
+including the 167-module project import closure.
+The [preserved execution report](certification/ci/offcone_reduction_run_44852824398_attempt_1.json) records the precise scope
+and results. Its SHA-256 is
+`745f500441246744316c46dfaed03852376304a08fbc7f5894a3c6a38b471ac8`.
+This focused execution checks the six supporting reductions; it does not
+complete the bounded off-cone clause. The ordinary full-repository workflow
+remains an additional regression check.
+
+## Historical checkpoint: Lemma 5.2, large-frequency clause
 
 This step is confined to the first clause of Lemma 5.2: frequencies with
 $\|u\|>U$ contribute $O(1)$. Three exact supplied modules (403 lines) add
@@ -3809,14 +3849,16 @@ The initial algebra-only report is also preserved as
 
 ## Continuation status
 
-This step stops after the large-frequency clause of Lemma 5.2. Acceptance is
-governed by the live ledger and focused execution record above. The current
-numbered inventory is **26 Complete, 1 Partial, 0 Active, 15 Pending**;
-supplementary coverage remains **6 Certified, 27 Pending**.
+This step stops after the supporting gcd reduction, dual-form growth, and
+average-scale bounds. Acceptance of these supporting exports is governed by
+the live ledger and focused execution record above. The numbered inventory
+remains **26 Complete, 1 Partial, 0 Active, 15 Pending**; supplementary coverage
+remains **6 Certified, 27 Pending**.
 
-**The next target is the bounded off-cone clause of Lemma 5.2**:
-$0<\|u\|\le U$, $F^*(u)\ne0$, with contribution $O((Bq)^{1+8\eta})$.
-That clause remains Pending. Proposition 5.1, the weighted cone count
+**The next target is the final averaging and normalization assembly for the
+bounded off-cone clause of Lemma 5.2**: $0<\|u\|\le U$, $F^*(u)\ne0$,
+with contribution $O((Bq)^{1+8\eta})$. That clause remains Pending;
+Lemma 5.2 remains Partial. Proposition 5.1, the weighted cone count
 `aux:conecount`, and absolute singular-integral convergence for weights whose
 support contains the origin also remain Pending. The whole paper is not
 certified.

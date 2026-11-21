@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Lemma 5.2, first clause: the normalized large-frequency contribution is uniformly O(1); bounded off-cone clause remains Pending",
+  "checkpoint": "Lemma 5.2 supporting off-cone reduction: six checked gcd and scale exports; first clause complete and bounded off-cone clause Pending",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -468,7 +468,13 @@
         "QuaternaryQuadraticForms.source_large_frequency_truncation",
         "QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency",
         "QuaternaryQuadraticForms.integerEuclidean_frequency_tail",
-        "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound"
+        "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound",
+        "QuaternaryQuadraticForms.mem_offConeFrequencies",
+        "QuaternaryQuadraticForms.sourceMixedCompleteSum_sum_le_gcd_classes",
+        "QuaternaryQuadraticForms.dualQuadraticValue_ball_bound",
+        "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction",
+        "QuaternaryQuadraticForms.offCone_dual_growth",
+        "QuaternaryQuadraticForms.offCone_average_scale"
       ],
       "correspondence_record": "certification/correspondence/large_frequency_truncation.md",
       "completed_clauses": [
@@ -477,7 +483,7 @@
       "remaining_clauses": [
         "Frequencies 0<norm(u)<=U with F*(u) nonzero contribute O((Bq)^(1+8eta))."
       ],
-      "scope_note": "Only the first, large-frequency clause is complete. The bounded off-cone clause remains Pending. The shared arithmetic module also supplies checked zero-frequency helpers; Lemma 5.4 remains Pending. No new literature premise is introduced."
+      "scope_note": "Only the first, large-frequency clause is complete. The bounded off-cone clause remains Pending. The shared arithmetic module also supplies checked zero-frequency helpers; Lemma 5.4 remains Pending. No new literature premise is introduced. The six supporting gcd-reduction, dual-growth and average-scale exports are now checked; see the [off-cone reduction review](certification/correspondence/offcone_reduction.md). These estimates precede the final arithmetic averaging and Poisson normalization; the bounded off-cone clause remains Pending."
     },
     "lem:oncone": {
       "status": "Pending",
@@ -19041,6 +19047,90 @@
         "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
         "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
         "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_offConeFrequencies",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "mem offConeFrequencies",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMixedCompleteSum_sum_le_gcd_classes",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "All positive c in the strict cutoff occur in their gcd class in the inclusive modulus sums of Lemma 3.6. Enlarging the cutoff at an integer endpoint is harmless.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dualQuadraticValue_ball_bound",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The integral dual quadratic polynomial is uniformly O(U²) on the ball.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "Apply (5.5) to every summand and regroup the nonnegative terms by gcd.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.offCone_dual_growth",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyScales.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The growth of the integral dual form at all the off-cone frequencies is absorbed uniformly into the divisor-epsilon factor in Lemma 3.6.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.offCone_average_scale",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyScales.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The two terms in Lemma 3.11, including the divisibility factor d², contribute at most 2 q³ B^(3η) for each factorization q=d e.",
+      "allowed_axioms": [
+        "Classical.choice",
         "Quot.sound",
         "propext"
       ]
