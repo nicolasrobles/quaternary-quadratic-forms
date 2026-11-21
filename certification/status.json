@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checkpoint": "Complete Lemma 5.1: exact delta-Poisson identity, finite modulus support and absolute frequency convergence",
+  "checkpoint": "Lemma 5.2, first clause: the normalized large-frequency contribution is uniformly O(1); bounded off-cone clause remains Pending",
   "numbered_results": {
     "thm:polynomial": {
       "status": "Pending",
@@ -463,8 +463,21 @@
       "scope_note": "Complete Lemma 5.1 relative to the existing Heath-Brown delta-construction premise and one precisely preregistered general affine Poisson premise. The 45 new public theorem exports prove every manuscript-specific deduction. The endpoint is valid for every positive q and every integral matrix, hence specializes to the source squarefree q and fixed quadratic form; it needs no annular-support or Fourier-bound assumption. Its numbered prerequisite Lemma 2.1 is already Certified. Proposition 5.1, aux:conecount and the general cone-vertex singular-integral obligation retain their separate Pending status. The separate aux:Ipiece obligation was subsequently Certified in its focused integration."
     },
     "lem:offcone": {
-      "status": "Pending",
-      "checked_exports": []
+      "status": "Partial",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_large_frequency_truncation",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency",
+        "QuaternaryQuadraticForms.integerEuclidean_frequency_tail",
+        "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound"
+      ],
+      "correspondence_record": "certification/correspondence/large_frequency_truncation.md",
+      "completed_clauses": [
+        "Frequencies with Euclidean norm greater than U=sqrt(q)*B^eta contribute O(1) to the actual normalized Poisson expression, with the common source localization and a constant uniform in the individual weight, q, B and prime functions."
+      ],
+      "remaining_clauses": [
+        "Frequencies 0<norm(u)<=U with F*(u) nonzero contribute O((Bq)^(1+8eta))."
+      ],
+      "scope_note": "Only the first, large-frequency clause is complete. The bounded off-cone clause remains Pending. The shared arithmetic module also supplies checked zero-frequency helpers; Lemma 5.4 remains Pending. No new literature premise is introduced."
     },
     "lem:oncone": {
       "status": "Pending",
@@ -18908,6 +18921,126 @@
       "allowed_axioms": [
         "Classical.choice",
         "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.integerEuclidean_frequency_tail",
+      "file": "QuaternaryQuadraticForms/EuclideanFrequencyTail.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "For every exponent j=k+4 with k≥1, the absolute tail is at most 2592 U⁻ᵏ.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyArithmetic.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The trivial complete-sum estimate in the large-frequency tail of Lemma 5.2.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceCompositeWeight_zero_of_one_lt",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyArithmetic.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:zerofreq"
+      ],
+      "scope": "The composite source weight vanishes at the origin for every modulus greater than one.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMixedCompleteSum_zero_frequency",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyArithmetic.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:zerofreq"
+      ],
+      "scope": "The zero-frequency mixed sum in Lemma 5.4, including the coprime case q=1.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_zero_frequency_contribution",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyArithmetic.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:zerofreq"
+      ],
+      "scope": "Equation (5.7) for the literal zero-frequency portion of the truncated Poisson sum.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_poissonModuliBelow",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyTail.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "mem poissonModuliBelow",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyTail.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "DeltaIntegralBounds.largeFrequency",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_large_frequency_truncation",
+      "file": "QuaternaryQuadraticForms/PoissonFrequencyTail.lean",
+      "status": "Checked in GitHub Actions",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "First clause of Lemma 5.2, for the actual common localization of Lemma 2.2.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
         "Quot.sound",
         "propext"
       ]

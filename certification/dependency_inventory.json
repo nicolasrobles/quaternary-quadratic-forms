@@ -1994,8 +1994,13 @@
       "display": "Lemma 5.2",
       "page": 24,
       "content": "Frequency truncation and off-dual-cone contribution",
-      "status": "Pending",
-      "checked_exports": [],
+      "status": "Partial",
+      "checked_exports": [
+        "QuaternaryQuadraticForms.source_large_frequency_truncation",
+        "QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency",
+        "QuaternaryQuadraticForms.integerEuclidean_frequency_tail",
+        "QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound"
+      ],
       "statement_lines": [
         2126,
         2130

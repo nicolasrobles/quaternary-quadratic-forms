@@ -92,11 +92,16 @@ lines = [
     f'{counts["Active"]} are active numbered targets, '
     f'and {counts["Pending"]} are pending.', "",
     "The [second editorial manuscript revision](certification/manuscript_revisions/2026-11-20-editorial-2.json) preserves all 42 statement texts and hashes, all source ranges and label pages, and the existing certification scope. Eleven proof blocks have punctuation or prose edits only. The manuscript fingerprints were refreshed and metadata verification passed; the fresh GitHub Actions run is separate from earlier archived execution evidence.", "",
-    "## Current auxiliary checkpoint: equation (5.5)", "",
-    "This checkpoint is limited to `aux:Ipiece`: the scaled-integral estimate, smoothness in the positive scale with frequency fixed, and the common localization and cutoff. Three supplied modules add six supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/scaled_frequency_integrals.md).", "",
-    f"The live auxiliary status is **{status['supplementary_groups']['aux:Ipiece']['status']}**. "
-    f"Supplementary coverage is **{auxiliary_counts['Certified']} Certified, {auxiliary_counts['Partial']} Partial, {auxiliary_counts['Active']} Active, {auxiliary_counts['Pending']} Pending**. "
-    "This completes one auxiliary obligation, with six Certified and 27 Pending groups and no numbered-result promotion. The checked proof commit is [fef53391ba75](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/fef53391ba75f764ebe891441362ce73c8af6d52); execution evidence is recorded in [CHECKPOINT.md](CHECKPOINT.md). Lemma 5.2 remains Pending.", "",
+    "## Current checkpoint: Lemma 5.2, large-frequency clause", "",
+    "This checkpoint is limited to the first clause of Lemma 5.2: frequencies with norm greater than U contribute O(1). Three exact supplied modules (403 lines) add eight supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/large_frequency_truncation.md).", "",
+    f"The live status of Lemma 5.2 is **{status['numbered_results']['lem:offcone']['status']}**. "
+    f"The ledger contains **{len(status['supporting_exports']):,} theorem exports, {len(proof_files)} proof modules, and {len(verification_inputs)} verifier input files**, with **{premise_total} registered literature premises**. "
+    f"The numbered inventory is **{counts['Certified']} Complete, {counts['Partial']} Partial, {counts['Active']} Active, {counts['Pending']} Pending**; "
+    f"supplementary coverage is **{auxiliary_counts['Certified']} Certified, {auxiliary_counts['Partial']} Partial, {auxiliary_counts['Active']} Active, {auxiliary_counts['Pending']} Pending**. "
+    "First-clause acceptance and focused execution evidence are recorded in [CHECKPOINT.md](CHECKPOINT.md). The bounded off-cone clause, 0 < norm(u) <= U with F*(u) nonzero and contribution O((Bq)^(1+8 eta)), remains Pending. No other numbered result is promoted.", "",
+    "## Earlier auxiliary checkpoint: equation (5.5)", "",
+    "That checkpoint was limited to `aux:Ipiece`: the scaled-integral estimate, smoothness in the positive scale with frequency fixed, and the common localization and cutoff. Three supplied modules added six supporting theorem exports and no literature premise. [Focused source review](certification/correspondence/scaled_frequency_integrals.md).", "",
+    "That auxiliary obligation became Certified, with six Certified and 27 Pending supplementary groups and no numbered-result promotion. Its historical scope was 1,166 theorem exports, 273 proof modules, and 316 verifier inputs; the numbered inventory was 26 Complete, 0 Partial, 0 Active, and 16 Pending. The checked proof commit is [fef53391ba75](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/fef53391ba75f764ebe891441362ce73c8af6d52); execution evidence is retained in [CHECKPOINT.md](CHECKPOINT.md). Lemma 5.2 remained Pending at that checkpoint.", "",
     "## Historical proof checkpoints", "",
     "The historical Lemma 5.1 checkpoint completed with the exact source delta–Poisson identity. The original supplied weights and mixed complete sums are retained, the lattice sum has finite support, only finitely many positive moduli contribute, and each frequency series converges absolutely. The prerequisite Lemma 2.1 is already certified. General affine Poisson summation is newly registered; residue reindexing, phase signs, delta insertion, Euclidean scaling, and the final B^2/q^3 factor are internal deductions. This milestone adds 45 theorem exports in 14 modules, for totals of 1,160 exports, 270 modules, 312 inspected inputs, 12 registered literature premises, 21 mapped source groups and nine pinned dependency revisions. Numbered status is 26 Certified and 16 Pending; supplementary status remains five Certified and 28 Pending. Proposition 5.1 and its separate remaining analytic obligations are Pending. Work stops after Lemma 5.1; the counts and pending obligations in this paragraph belong to that historical checkpoint, whose execution evidence is retained in CHECKPOINT.md.", "",
     "The preceding checkpoint completed Lemma 2.3 with the literal finite set of integer zeros in the Euclidean ball. For a fixed symmetric nonsingular rational 4-by-4 matrix with nonsquare rational determinant and every epsilon>0, one positive constant precedes all real U>=1 in the U^(2+epsilon) estimate. The rational normal form, discriminant obstruction, positive denominator clearing, injective lattice map, signed-divisor fibres, and zero binary-coordinate slice are proved internally. The 28 new exports use no literature premise. The registered totals are 1,115 theorem exports, 256 project modules, 296 inspected inputs and 11 unchanged registered literature premises; the numbered inventory is 25 Certified and 17 Pending. The five Certified supplementary groups are unchanged, and aux:conecount remains Pending. Work stops after Lemma 2.3; execution evidence is recorded separately in CHECKPOINT.md.", "",
@@ -220,8 +225,8 @@ lines = [
     "external premise; that bound uses only the existing Weil premise, "
     "with repeated-root cubics handled internally. The prime-field Gauss "
     "identities are proved using official mathlib results, so that milestone "
-    "added no premise to the four earlier algebraic/geometric inputs. No numbered result "
-    "remains Partial. Theorems 1.1, 1.3 and 1.4 remain Pending: the "
+    "added no premise to the four earlier algebraic/geometric inputs. At that checkpoint, no numbered result "
+    "remained Partial. Theorems 1.1, 1.3 and 1.4 remain Pending: the "
     "asymptotic clause of Theorem 1.3 still depends on Theorem 1.1. "
     f"The {auxiliary_total} auxiliary and supplementary groups are tracked separately: "
     f"{auxiliary_counts['Certified']} Certified, {auxiliary_counts['Partial']} Partial, "
@@ -325,10 +330,11 @@ lines += [
     "The frozen definitions and uniformity in varying coefficients must be preserved "
     "in every later export.", "",
     "## Continuation status", "",
-    "This step ends with the `aux:Ipiece` checkpoint. Its current status and execution evidence are recorded in the live ledger and CHECKPOINT.md.",
+    "This step stops after the large-frequency clause of Lemma 5.2. Its current status and focused execution evidence are recorded in the live ledger and CHECKPOINT.md.",
     f"The numbered inventory is **{counts['Certified']} Complete, {counts['Partial']} Partial, {counts['Active']} Active, {counts['Pending']} Pending**; "
     f"supplementary coverage is **{auxiliary_counts['Certified']} Certified, {auxiliary_counts['Partial']} Partial, {auxiliary_counts['Active']} Active, {auxiliary_counts['Pending']} Pending**. "
-    "Lemma 5.2 remains Pending and is the next numbered target. Proposition 5.1, the weighted cone count `aux:conecount`, and absolute singular-integral convergence for weights whose support contains the origin remain Pending. The whole paper is not certified.", "",
+    f"Lemma 5.2 is {status['numbered_results']['lem:offcone']['status']}; its bounded off-cone clause, 0 < norm(u) <= U with F*(u) nonzero and contribution O((Bq)^(1+8 eta)), remains Pending and is the next target. "
+    "Proposition 5.1, the weighted cone count `aux:conecount`, and absolute singular-integral convergence for weights whose support contains the origin remain Pending. The whole paper is not certified.", "",
 ]
 (ROOT / "INVENTORY.md").write_text("\n".join(lines))
 

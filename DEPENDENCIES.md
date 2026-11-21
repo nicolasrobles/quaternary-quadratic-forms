@@ -28,21 +28,55 @@ detailed record. The overview additionally groups results. An arrow between
 groups means that a result in the first group supports a result in the second;
 it need not connect every member of the two groups.
 
-## Current auxiliary checkpoint: equation (5.5)
+## Current checkpoint: Lemma 5.2, large-frequency clause
 
-This step is confined to `aux:Ipiece`: the scaled-integral estimate, smoothness
+This step is confined to the first clause of Lemma 5.2: frequencies with
+$\|u\|>U$ contribute $O(1)$. Three exact supplied modules (403 lines) add
+eight supporting theorem exports and no literature premise. See the
+[focused source review](certification/correspondence/large_frequency_truncation.md).
+
+Focused verification passed. Lemma 5.2 is **Partial**:
+its large-frequency clause is complete, while the bounded off-cone clause
+$0<\|u\|\le U$, $F^*(u)\ne0$, with contribution $O((Bq)^{1+8\eta})$,
+remains **Pending**. No other numbered result is promoted.
+
+The accepted scope is **1,174 theorem exports, 276 proof modules,
+and 320 verifier input files**, with the same **12 registered literature
+premises** and nine pinned dependency revisions. The resulting numbered
+inventory is **26 Complete, 1 Partial, 0 Active, 15 Pending**; supplementary
+coverage remains **6 Certified, 27 Pending**.
+
+The [focused GitHub run 44850308809](https://github.com/nicolasrobles/quaternary-quadratic-forms/actions/runs/44850308809)
+passed at proof commit [bc62790b3f58](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/bc62790b3f582b149d3fd8ab9a21f26d56f8f33c).
+The three supplied modules built successfully and passed strict compilation;
+all eight actual theorem types and axiom sets matched the supplied records.
+The seven used literature-premise types and all nine pinned dependency
+revisions also passed inspection. All 141 recorded proof/checker input hashes
+match the integrated files, including the 134-module project import closure.
+The [preserved execution report](certification/ci/large_frequency_run_44850308809_attempt_1.json) records the precise scope and
+results. Its SHA-256 is
+`1dea571ecdd1dc04476a17ab35d6aad0243e9ec076327b833dd5d7ffe0e57c1d`.
+This focused execution covers only the first clause of Lemma 5.2 and its
+supporting exports; the ordinary full-repository workflow remains an
+additional regression check.
+
+The manuscript, PDF, and source fingerprints are unchanged. Earlier execution
+records retain their original scope. The shared arithmetic module also contains
+zero-frequency helpers; this checkpoint covers only the large-frequency clause.
+
+## Earlier auxiliary checkpoint: equation (5.5)
+
+That step was confined to `aux:Ipiece`: the scaled-integral estimate, smoothness
 in the positive scale with frequency fixed, and the common localization and
 cutoff used immediately before Lemma 5.2. The three supplied modules add six
 supporting theorem exports and no literature premise. See the
 [focused source review](certification/correspondence/scaled_frequency_integrals.md).
 
-The integrated scope contains **1,166 theorem exports, 273 proof modules, and
+The integrated scope then contained **1,166 theorem exports, 273 proof modules, and
 316 verifier input files**, with the same **12 registered literature premises**
-and nine pinned dependency revisions. The numbered status remains
-**26 Complete, 0 Partial, 0 Active, 16 Pending**. This auxiliary obligation is now **Certified**, bringing supplementary
-coverage to **6 Certified, 27 Pending**. The
-[live ledger](certification/status.json) records the accepted scope;
-Lemma 5.2 remains Pending.
+and nine pinned dependency revisions. The numbered status was
+**26 Complete, 0 Partial, 0 Active, 16 Pending**. This auxiliary obligation became **Certified**, bringing supplementary
+coverage to **6 Certified, 27 Pending**. Lemma 5.2 remained Pending at that checkpoint.
 
 Checked proof commit: [fef53391ba75](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/fef53391ba75f764ebe891441362ce73c8af6d52)
 on `verify/ipiece-2026-11-20`.
@@ -1539,15 +1573,17 @@ commit is recorded separately from this mathematical scope.
 
 ## Continuation status
 
-This step ends with the `aux:Ipiece` checkpoint. Its acceptance is governed
-by the live ledger and focused execution record above; completion gives
-**6 Certified, 27 Pending** supplementary groups. The numbered inventory
-remains **26 Complete, 0 Partial, 0 Active, 16 Pending**.
+This step stops after the large-frequency clause of Lemma 5.2. Acceptance is
+governed by the live ledger and focused execution record above. The current
+numbered inventory is **26 Complete, 1 Partial, 0 Active, 15 Pending**;
+supplementary coverage remains **6 Certified, 27 Pending**.
 
-**Lemma 5.2 is the next numbered target and remains Pending.** Proposition 5.1,
-the weighted cone count `aux:conecount`, and absolute singular-integral
-convergence for weights whose support contains the origin also remain Pending.
-The whole paper is not certified.
+**The next target is the bounded off-cone clause of Lemma 5.2**:
+$0<\|u\|\le U$, $F^*(u)\ne0$, with contribution $O((Bq)^{1+8\eta})$.
+That clause remains Pending. Proposition 5.1, the weighted cone count
+`aux:conecount`, and absolute singular-integral convergence for weights whose
+support contains the origin also remain Pending. The whole paper is not
+certified.
 
 The graphs can be regenerated from the detailed inventory with
 `python3 scripts/build_dependency_graph.py`. Graph rendering needs Graphviz;

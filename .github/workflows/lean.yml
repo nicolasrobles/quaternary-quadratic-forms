@@ -180,6 +180,7 @@ jobs:
             Mathlib.Topology.Algebra.InfiniteSum.Constructions \
             Mathlib.Topology.Algebra.InfiniteSum.NatInt \
             Mathlib.Topology.Algebra.InfiniteSum.Order \
+            Mathlib.Topology.Algebra.InfiniteSum.Real \
             Mathlib.Topology.Algebra.InfiniteSum.Ring \
             Mathlib.Topology.Instances.Real.Lemmas \
             Mathlib.Topology.Order.Basic \
