@@ -19044,6 +19044,90 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.mem_offConeFrequencies",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "mem offConeFrequencies",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.sourceMixedCompleteSum_sum_le_gcd_classes",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "All positive c in the strict cutoff occur in their gcd class in the inclusive modulus sums of Lemma 3.6. Enlarging the cutoff at an integer endpoint is harmless.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.dualQuadraticValue_ball_bound",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The integral dual quadratic polynomial is uniformly O(U²) on the ball.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyReduction.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "Apply (5.5) to every summand and regroup the nonnegative terms by gcd.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.offCone_dual_growth",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyScales.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The growth of the integral dual form at all the off-cone frequencies is absorbed uniformly into the divisor-epsilon factor in Lemma 3.6.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.offCone_average_scale",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyScales.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "The two terms in Lemma 3.11, including the divisibility factor d², contribute at most 2 q³ B^(3η) for each factorization q=d e.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [
