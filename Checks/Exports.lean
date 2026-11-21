@@ -233,7 +233,7 @@ run_cmd do
     `QuaternaryQuadraticForms.eval_gradientMinor,
     `QuaternaryQuadraticForms.badReductionSystem_zero_iff,
     `QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff,
-    `QuaternaryQuadraticForms.exists_badReductionSystem_eval₂_zero_iff,
+    `QuaternaryQuadraticForms.exists_badReductionSystem_eval,
     `QuaternaryQuadraticForms.exists_badReductionSystem_zero_iff_not_goodReductionAt,
     `QuaternaryQuadraticForms.exists_badReductionSystem_intCast_zero_iff_not_goodReductionAt,
     `QuaternaryQuadraticForms.two_le_polynomialCoefficientHeight,
@@ -245,9 +245,9 @@ run_cmd do
     `QuaternaryQuadraticForms.finite_polynomial_family_coeff_eval_bound,
     `QuaternaryQuadraticForms.genericDegreeForm_homogeneous,
     `QuaternaryQuadraticForms.genericBadReductionSystem_homogeneous,
-    `QuaternaryQuadraticForms.genericQuadricMatrix_map_eval₂Hom,
-    `QuaternaryQuadraticForms.genericDegreeForm_map_eval₂Hom,
-    `QuaternaryQuadraticForms.genericBadReductionSystem_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericQuadricMatrix_map_eval,
+    `QuaternaryQuadraticForms.genericDegreeForm_map_eval,
+    `QuaternaryQuadraticForms.genericBadReductionSystem_map_eval,
     `QuaternaryQuadraticForms.genericBadReductionSystem_specialize,
     `QuaternaryQuadraticForms.genericBadReductionSystem_specialize_integral,
     `QuaternaryQuadraticForms.genericBadReductionSystem_specialize_map,
@@ -286,10 +286,10 @@ run_cmd do
     `QuaternaryQuadraticForms.hasNonzeroGeometricZero_planeReductionSystem_iff,
     `QuaternaryQuadraticForms.genericPlaneDegreeForm_homogeneous,
     `QuaternaryQuadraticForms.genericPlaneReductionSystem_homogeneous,
-    `QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval₂Hom,
-    `QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval₂Hom,
-    `QuaternaryQuadraticForms.genericPlaneNormal_eval₂Hom,
-    `QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval₂Hom,
+    `QuaternaryQuadraticForms.genericPlaneQuadricMatrix_map_eval,
+    `QuaternaryQuadraticForms.genericPlaneDegreeForm_map_eval,
+    `QuaternaryQuadraticForms.genericPlaneNormal_eval,
+    `QuaternaryQuadraticForms.genericPlaneReductionSystem_map_eval,
     `QuaternaryQuadraticForms.genericPlaneReductionSystem_specialize,
     `QuaternaryQuadraticForms.exceptionalPlane_resultants_over_fields,
     `QuaternaryQuadraticForms.exceptionalPlane_resultant_family,
@@ -301,7 +301,7 @@ run_cmd do
     `QuaternaryQuadraticForms.exceptionalPlane_resultants_nonzero_of_transverse_witness,
     `QuaternaryQuadraticForms.rank_three_of_rank_two_of_tangent,
     `QuaternaryQuadraticForms.exists_transverse_plane_of_smooth_intersection,
-    `QuaternaryQuadraticForms.totalDegree_eval₂_le_of_degree_one,
+    `QuaternaryQuadraticForms.totalDegree_eval,
     `QuaternaryQuadraticForms.totalDegree_specializePlaneResultant_le,
     `QuaternaryQuadraticForms.exceptionalPlane_bounded_resultant_family,
     `QuaternaryQuadraticForms.exceptional_plane_polynomial_over_fields,
@@ -1169,7 +1169,15 @@ run_cmd do
     `QuaternaryQuadraticForms.DeltaIntegralBounds.small_modulus_zero_error,
     `QuaternaryQuadraticForms.source_localized_frequency_integrals,
     `QuaternaryQuadraticForms.deltaIntegral_contDiffOn_scale,
-    `QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale]
+    `QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale,
+    `QuaternaryQuadraticForms.integerEuclidean_frequency_tail,
+    `QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound,
+    `QuaternaryQuadraticForms.sourceCompositeWeight_zero_of_one_lt,
+    `QuaternaryQuadraticForms.sourceMixedCompleteSum_zero_frequency,
+    `QuaternaryQuadraticForms.source_zero_frequency_contribution,
+    `QuaternaryQuadraticForms.mem_poissonModuliBelow,
+    `QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency,
+    `QuaternaryQuadraticForms.source_large_frequency_truncation]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -4735,3 +4743,27 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale
 #print axioms QuaternaryQuadraticForms.source_delta_integral_contDiffOn_scale
+
+#check @QuaternaryQuadraticForms.integerEuclidean_frequency_tail
+#print axioms QuaternaryQuadraticForms.integerEuclidean_frequency_tail
+
+#check @QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound
+#print axioms QuaternaryQuadraticForms.sourceMixedCompleteSum_trivial_bound
+
+#check @QuaternaryQuadraticForms.sourceCompositeWeight_zero_of_one_lt
+#print axioms QuaternaryQuadraticForms.sourceCompositeWeight_zero_of_one_lt
+
+#check @QuaternaryQuadraticForms.sourceMixedCompleteSum_zero_frequency
+#print axioms QuaternaryQuadraticForms.sourceMixedCompleteSum_zero_frequency
+
+#check @QuaternaryQuadraticForms.source_zero_frequency_contribution
+#print axioms QuaternaryQuadraticForms.source_zero_frequency_contribution
+
+#check @QuaternaryQuadraticForms.mem_poissonModuliBelow
+#print axioms QuaternaryQuadraticForms.mem_poissonModuliBelow
+
+#check @QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency
+#print axioms QuaternaryQuadraticForms.DeltaIntegralBounds.largeFrequency
+
+#check @QuaternaryQuadraticForms.source_large_frequency_truncation
+#print axioms QuaternaryQuadraticForms.source_large_frequency_truncation
