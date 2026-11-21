@@ -1183,7 +1183,10 @@ run_cmd do
     `QuaternaryQuadraticForms.dualQuadraticValue_ball_bound,
     `QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.offCone_modulus_reduction,
     `QuaternaryQuadraticForms.offCone_dual_growth,
-    `QuaternaryQuadraticForms.offCone_average_scale]
+    `QuaternaryQuadraticForms.offCone_average_scale,
+    `QuaternaryQuadraticForms.source_offCone_modulus_average,
+    `QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone,
+    `QuaternaryQuadraticForms.source_offcone]
   for name in names do
     match environment.find? name with
     | some (.thmInfo _) => pure ()
@@ -4791,3 +4794,12 @@ run_cmd do
 
 #check @QuaternaryQuadraticForms.offCone_average_scale
 #print axioms QuaternaryQuadraticForms.offCone_average_scale
+
+#check @QuaternaryQuadraticForms.source_offCone_modulus_average
+#print axioms QuaternaryQuadraticForms.source_offCone_modulus_average
+
+#check @QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone
+#print axioms QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone
+
+#check @QuaternaryQuadraticForms.source_offcone
+#print axioms QuaternaryQuadraticForms.source_offcone

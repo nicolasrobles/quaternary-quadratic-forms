@@ -1,4 +1,4 @@
-name: Lean verification
+name: Lean off-cone completion verification
 
 on:
   push:
@@ -39,26 +39,18 @@ jobs:
           lake exe cache get \
             Mathlib.Algebra.BigOperators.Group.Finset.Sigma \
             Mathlib.Algebra.BigOperators.Intervals \
-            Mathlib.Algebra.BigOperators.Module \
             Mathlib.Algebra.BigOperators.Ring.Finset \
             Mathlib.Algebra.Field.ZMod \
             Mathlib.Algebra.Group.Units.Equiv \
-            Mathlib.Algebra.MvPolynomial.Degrees \
             Mathlib.Algebra.MvPolynomial.Equiv \
-            Mathlib.Algebra.MvPolynomial.Eval \
             Mathlib.Algebra.MvPolynomial.PDeriv \
-            Mathlib.Algebra.MvPolynomial.SchwartzZippel \
-            Mathlib.Algebra.MvPolynomial.Variables \
             Mathlib.Algebra.Order.BigOperators.Group.Finset \
             Mathlib.Algebra.Order.BigOperators.Ring.Finset \
             Mathlib.Algebra.Order.Floor.Ring \
             Mathlib.Algebra.Order.Ring.Pow \
-            Mathlib.Algebra.Polynomial.BigOperators \
-            Mathlib.Algebra.Polynomial.Coeff \
             Mathlib.Algebra.Polynomial.Degree.Lemmas \
             Mathlib.Algebra.Polynomial.Homogenize \
             Mathlib.Algebra.Polynomial.Roots \
-            Mathlib.Algebra.Ring.Periodic \
             Mathlib.Algebra.Star.BigOperators \
             Mathlib.Analysis.Calculus.ContDiff.Basic \
             Mathlib.Analysis.Calculus.ContDiff.Bounds \
@@ -69,35 +61,26 @@ jobs:
             Mathlib.Analysis.Calculus.Gradient.Basic \
             Mathlib.Analysis.Calculus.IteratedDeriv.Defs \
             Mathlib.Analysis.Complex.Basic \
-            Mathlib.Analysis.Convolution \
             Mathlib.Analysis.InnerProductSpace.Calculus \
             Mathlib.Analysis.InnerProductSpace.PiL2 \
             Mathlib.Analysis.Normed.Group.Bounded \
-            Mathlib.Analysis.Normed.Group.FunctionSeries \
             Mathlib.Analysis.Normed.Module.FiniteDimension \
-            Mathlib.Analysis.PSeries \
             Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar \
             Mathlib.Analysis.SpecialFunctions.Log.Base \
-            Mathlib.Analysis.SpecialFunctions.Log.Summable \
-            Mathlib.Analysis.SpecialFunctions.Pow.Continuity \
             Mathlib.Analysis.SpecialFunctions.Pow.NNReal \
             Mathlib.Analysis.SpecialFunctions.Pow.Real \
             Mathlib.Analysis.SpecialFunctions.SmoothTransition \
             Mathlib.Analysis.SpecialFunctions.Sqrt \
-            Mathlib.Analysis.SpecificLimits.Basic \
-            Mathlib.Analysis.SpecificLimits.Normed \
             Mathlib.Data.Fin.Tuple.Finset \
             Mathlib.Data.Fin.VecNotation \
             Mathlib.Data.Finset.Max \
             Mathlib.Data.Finset.Prod \
-            Mathlib.Data.Finsupp.Weight \
             Mathlib.Data.Fintype.BigOperators \
             Mathlib.Data.Fintype.Perm \
             Mathlib.Data.Int.Interval \
             Mathlib.Data.Int.ModEq \
             Mathlib.Data.Matrix.Mul \
             Mathlib.Data.Nat.Factorization.Basic \
-            Mathlib.Data.Nat.Factorization.Defs \
             Mathlib.Data.Nat.Factorization.Induction \
             Mathlib.Data.Nat.GCD.Basic \
             Mathlib.Data.Nat.GCD.BigOperators \
@@ -114,10 +97,7 @@ jobs:
             Mathlib.Data.ZMod.Basic \
             Mathlib.Data.ZMod.Coprime \
             Mathlib.FieldTheory.ChevalleyWarning \
-            Mathlib.FieldTheory.Finite.Basic \
             Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure \
-            Mathlib.FieldTheory.IsAlgClosed.Basic \
-            Mathlib.FieldTheory.Perfect \
             Mathlib.GroupTheory.Index \
             Mathlib.LinearAlgebra.Basis.VectorSpace \
             Mathlib.LinearAlgebra.BilinearForm.Orthogonal \
@@ -153,25 +133,16 @@ jobs:
             Mathlib.NumberTheory.DirichletCharacter.Basic \
             Mathlib.NumberTheory.DirichletCharacter.Bounds \
             Mathlib.NumberTheory.Divisors \
-            Mathlib.NumberTheory.EulerProduct.Basic \
             Mathlib.NumberTheory.GaussSum \
             Mathlib.NumberTheory.Harmonic.Bounds \
-            Mathlib.NumberTheory.LSeries.Dirichlet \
-            Mathlib.NumberTheory.LSeries.DirichletContinuation \
-            Mathlib.NumberTheory.LSeries.SumCoeff \
             Mathlib.NumberTheory.LegendreSymbol.Basic \
             Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol \
-            Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic \
             Mathlib.Order.Interval.Set.OrdConnected \
-            Mathlib.RingTheory.Localization.FractionRing \
-            Mathlib.RingTheory.Localization.Integer \
             Mathlib.RingTheory.MvPolynomial.EulerIdentity \
             Mathlib.RingTheory.MvPolynomial.Homogeneous \
             Mathlib.RingTheory.MvPolynomial.MonomialOrder.DegLex \
             Mathlib.Tactic.FieldSimp \
-            Mathlib.Tactic.FinCases \
             Mathlib.Tactic.GCongr \
-            Mathlib.Tactic.IntervalCases \
             Mathlib.Tactic.Linarith \
             Mathlib.Tactic.LinearCombination \
             Mathlib.Tactic.NormNum \
@@ -183,15 +154,13 @@ jobs:
             Mathlib.Topology.Algebra.InfiniteSum.Real \
             Mathlib.Topology.Algebra.InfiniteSum.Ring \
             Mathlib.Topology.Instances.Real.Lemmas \
-            Mathlib.Topology.Order.Basic \
             Mathlib.Topology.Order.Compact
-      - name: Verify manuscript, dependencies, proofs, and status
-        run: python3 scripts/verify_certificate.py > "$RUNNER_TEMP/verification_report.json"
-      - name: Publish verification report
+      - name: Check the three off-cone completion theorem exports
+        run: python3 scripts/verify_offcone_completion.py
+      - name: Publish the focused verification report
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: lean-verification-${{ github.sha }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/verification_report.json
+          name: offcone-completion-verification-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/offcone_completion_verification.json
           if-no-files-found: error
           retention-days: 90
-

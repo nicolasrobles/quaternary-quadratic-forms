@@ -19134,6 +19134,56 @@
         "Quot.sound",
         "propext"
       ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_offCone_modulus_average",
+      "file": "QuaternaryQuadraticForms/OffConeModulusAverage.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "Apply Lemmas 3.6 and 3.11 with their constants chosen before the source data, and sum the estimates over every divisor of q.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "ScaledFrequencyIntegralBound.boundedOffCone",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_offcone",
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean",
+      "status": "Supplied package record; focused verification pending",
+      "source_labels": [
+        "lem:offcone"
+      ],
+      "scope": "Complete Lemma 5.2. The two estimates use the very same localization and modulus cutoff.",
+      "allowed_axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ]
     }
   ],
   "accepted_lean_inputs": [

@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "scope": "Exact three supplied theorem records for completion of both clauses of Lemma 5.2. Extracted package evidence, not a fresh execution report.",
+  "archive_filename": "quaternary-quadratic-forms-verified(1).zip",
+  "archive_sha256": "a432759f28990e839d714b38b4e5905ed27e06206ba5f23b16089e33bc116ed4",
+  "package_report_path": "certification/local/all_numbered_results.json",
+  "package_report_sha256": "d0512cd8fe7dc457ea0d081e89cb607cc176d0c3ebccb5dbfd9a21cf8dafca92",
+  "package_report_generated_at_utc": "2026-11-20T01:48:56.223647+00:00",
+  "package_manuscript_sha256": "d4f42a201ae4af89b6884606d94480429a26cfa57332dca6a1547622a3acff33",
+  "files": [
+    "QuaternaryQuadraticForms/FrequencySourceData.lean",
+    "QuaternaryQuadraticForms/OffConeModulusAverage.lean",
+    "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean"
+  ],
+  "file_sha256": {
+    "QuaternaryQuadraticForms/FrequencySourceData.lean": "ab7418ac7b68b9fb72d6b6c2962ba38117868212b36716819fc6bff27387bc37",
+    "QuaternaryQuadraticForms/OffConeModulusAverage.lean": "fb83448ce4e5dae7005d83fc6a2109c9a706a2077554950b0d6f58233b0f3980",
+    "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean": "dd9141164341400c96efb55475573d8daf8e016b49c5b40c6d2f3be3ece633b9"
+  },
+  "checked_exports": [
+    {
+      "declaration": "QuaternaryQuadraticForms.source_offCone_modulus_average",
+      "kind": "theorem",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      ∀ (E K r₀ η : ℝ),\n        1 ≤ E →\n          1 ≤ K →\n            1 ≤ r₀ →\n              0 < η →\n                η ≤ 1 / 4 →\n                  ∃ C,\n                    0 < C ∧\n                      ∀ (data : QuaternaryQuadraticForms.FrequencySourceData A E K) (q : ℕ) [inst : NeZero q],\n                        Squarefree q →\n                          q.Coprime data.N →\n                            ∀ (B : ℝ),\n                              9 ≤ B →\n                                ↑q ≤ B →\n                                  have X := r₀ * (B / √↑q);\n                                  have U := √↑q * B ^ η;\n                                  ∑ d ∈ q.divisors,\n                                      ∑ u ∈ QuaternaryQuadraticForms.offConeFrequencies A U,\n                                        QuaternaryQuadraticForms.modulusNormSum\n                                            (QuaternaryQuadraticForms.extendPrimeWeights data.N data.ξ) q d A u X /\n                                          QuaternaryQuadraticForms.integerEuclideanNorm u ≤\n                                    C * (B * ↑q) ^ (2 * η) * ↑q ^ 3 * B ^ (3 * η) * (↑q ^ η) ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeModulusAverage.lean",
+      "source_sha256": "fb83448ce4e5dae7005d83fc6a2109c9a706a2077554950b0d6f58233b0f3980",
+      "scope": "Apply Lemmas 3.6 and 3.11 with their constants chosen before the source data, and sum the estimates over every divisor of q."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.ScaledFrequencyIntegralBound.boundedOffCone",
+      "kind": "theorem",
+      "actual_type": "∀ {A : Matrix (Fin 4) (Fin 4) ℤ},\n  A.transpose = A →\n    A.det ≠ 0 →\n      ∀ (E K : ℝ),\n        1 ≤ E →\n          1 ≤ K →\n            ∀ {weights : Set (QuaternaryQuadraticForms.RealVector4 → ℂ)} {r₀ η : ℝ},\n              1 ≤ r₀ →\n                0 < η →\n                  η ≤ 1 / 4 →\n                    QuaternaryQuadraticForms.ScaledFrequencyIntegralBound\n                        (QuaternaryQuadraticForms.realQuadraticValue (A.map ⇑(Int.castRingHom ℝ))) weights η →\n                      QuaternaryQuadraticForms.BoundedOffConeBound A E K weights r₀ η",
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean",
+      "source_sha256": "dd9141164341400c96efb55475573d8daf8e016b49c5b40c6d2f3be3ece633b9",
+      "scope": "ScaledFrequencyIntegralBound.boundedOffCone"
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.source_offcone",
+      "kind": "theorem",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℤ),\n  A.transpose = A →\n    A.det ≠ 0 →\n      ∀ (ρ₁ ρ₂ : ℝ),\n        0 < ρ₁ →\n          ρ₁ < ρ₂ →\n            ∀ (weights : Set (QuaternaryQuadraticForms.RealVector4 → ℂ)),\n              (∀ w ∈ weights, QuaternaryQuadraticForms.IsSmoothWeight w) →\n                (∀ w ∈ weights, ∀ x ∈ tsupport w, ρ₁ ≤ ‖x‖ ∧ ‖x‖ ≤ ρ₂) →\n                  QuaternaryQuadraticForms.UniformCoordinateDerivatives weights →\n                    have F := QuaternaryQuadraticForms.realQuadraticValue (A.map ⇑(Int.castRingHom ℝ));\n                    ∃ δ r₀,\n                      0 < δ ∧\n                        δ ≤ 1 ∧\n                          1 ≤ r₀ ∧\n                            (∀ w ∈ QuaternaryQuadraticForms.localizedWeightFamily weights δ,\n                                ∀ r ≥ r₀,\n                                  ∀ (v : QuaternaryQuadraticForms.RealVector4),\n                                    QuaternaryQuadraticForms.deltaIntegral F w r v = 0) ∧\n                              ∀ (E K η : ℝ),\n                                1 ≤ E →\n                                  1 ≤ K →\n                                    0 < η →\n                                      η ≤ 1 / 4 →\n                                        QuaternaryQuadraticForms.LargeFrequencyBound A\n                                            (QuaternaryQuadraticForms.localizedZeroWeightFamily F weights δ) r₀ η ∧\n                                          QuaternaryQuadraticForms.BoundedOffConeBound A E K\n                                            (QuaternaryQuadraticForms.localizedZeroWeightFamily F weights δ) r₀ η",
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/OffConeFrequencyTheorem.lean",
+      "source_sha256": "dd9141164341400c96efb55475573d8daf8e016b49c5b40c6d2f3be3ece633b9",
+      "scope": "Complete Lemma 5.2. The two estimates use the very same localization and modulus cutoff."
+    }
+  ],
+  "checked_external_inputs": [
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+      "kind": "axiom",
+      "actual_type": "Continuous QuaternaryQuadraticForms.heathBrownBump ∧\n  (∀ (t : ℝ), 0 ≤ QuaternaryQuadraticForms.heathBrownBump t) ∧\n    (∀ (t : ℝ), 1 / 2 < t → t < 1 → 0 < QuaternaryQuadraticForms.heathBrownBump t) ∧\n      (∀ (t : ℝ), ¬(1 / 2 < t ∧ t < 1) → QuaternaryQuadraticForms.heathBrownBump t = 0) ∧\n        ContDiffOn ℝ (↑⊤) QuaternaryQuadraticForms.heathBrownDeltaKernel {z | 0 < z.1} ∧\n          (∃ B, 0 < B ∧ ∀ (x y : ℝ), 0 < x → |QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y)| ≤ B / x) ∧\n            (∀ (x y : ℝ), 0 < x → max 1 (2 * |y|) < x → QuaternaryQuadraticForms.heathBrownDeltaKernel (x, y) = 0) ∧\n              (∀ (Q : ℝ),\n                  1 < Q →\n                    ∀ (n : ℤ),\n                      ∑' (c : ℕ+),\n                          QuaternaryQuadraticForms.deltaSymbolTerm QuaternaryQuadraticForms.heathBrownDeltaKernel Q n\n                            c =\n                        ↑(Q * QuaternaryQuadraticForms.heathBrownSamplingSum Q) * if n = 0 then 1 else 0) ∧\n                ∀ (m : ℕ),\n                  2 ≤ m →\n                    ∃ A,\n                      0 < A ∧ ∀ (Q : ℝ), 1 < Q → |QuaternaryQuadraticForms.heathBrownSamplingSum Q - Q| ≤ A * Q / Q ^ m",
+      "type_sha256": "24ef58f136425e7a4557d8d3e5a240690a9378d1223986d58a0eb08f5b8939b7",
+      "reference_id": "EXT.HB_DELTA",
+      "source_components": [
+        "EXT.HB_DELTA"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_delta_data",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrown.lean",
+      "source_sha256": "5a15a0556d66627833165331bf724bd6588021f0b84c4c4909e12bf102d7e152",
+      "scope": "For the actual fixed Heath-Brown bump, sampling sum and kernel defined from Sections 2-3, the bump is continuous, nonnegative, positive on (1/2,1), and zero outside; the kernel is C-infinity on x>0, bounded by B/x, and has the stated support; its unnormalized unit-residue sum equals Q*S(Q)*1_(n=0) for Q>1; for each integer m>=2 the raw error |S(Q)-Q| is at most A_m*Q/Q^m uniformly for Q>1. Positivity and uniform rapid approximation of Q/S(Q) on Q>=3, normalized delta identity, phase conversion and finite outer support are internal deductions."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+      "kind": "axiom",
+      "actual_type": "∀ (U : Set QuaternaryQuadraticForms.RealVector3)\n  (φ : QuaternaryQuadraticForms.RealVector3 → ℝ),\n  IsOpen U →\n    Measurable φ →\n      ContDiffOn ℝ 1 φ U →\n        QuaternaryQuadraticForms.euclideanSurfaceMeasure.restrict (QuaternaryQuadraticForms.surfaceGraph φ '' U) =\n          MeasureTheory.Measure.map (QuaternaryQuadraticForms.surfaceGraph φ)\n            ((MeasureTheory.volume.restrict U).withDensity fun y =>\n              ENNReal.ofReal (QuaternaryQuadraticForms.graphAreaFactor φ y))",
+      "type_sha256": "0322e06668e4ff716e9c0a72217d256fdb955e157bd8189df3d2b3b65a06f7f6",
+      "reference_id": "EXT.SIMON_GRAPH_AREA",
+      "source_components": [
+        "EXT.SIMON_GRAPH_AREA"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.simon_graph_area",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/SimonArea.lean",
+      "source_sha256": "abe752638e954e458e665e054aa32811bb52f4ac5a90231da8f38de7506834b1",
+      "scope": "General measure identity for a C1 scalar graph on an open subset of Euclidean three-space, embedded in Euclidean four-space. Normalized Hausdorff measure restricted to the graph equals pushforward of Lebesgue measure weighted by sqrt(1+norm(gradient phi)^2). The function is globally measurable, and C1 only on the open domain. No quadratic form, weight, delta kernel, thin-slab limit, or manuscript singular integral is mentioned."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+      "kind": "axiom",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (L : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < L →\n        ∃ δ a lam,\n          0 < δ ∧\n            δ ≤ 1 ∧\n              0 < a ∧\n                0 < lam ∧\n                  ∀ (W : QuaternaryQuadraticForms.RealVector4 → ℂ),\n                    QuaternaryQuadraticForms.HBWeightControl B D W →\n                      (∀ x ∈ tsupport W, L ≤ ‖gradient (QuaternaryQuadraticForms.realQuadraticValue A) x‖) →\n                        ∀ (y : QuaternaryQuadraticForms.RealVector4),\n                          (∀ x ∈ tsupport (QuaternaryQuadraticForms.localizedWeight W δ y),\n                              QuaternaryQuadraticForms.realQuadraticValue A x ≠ 0) ∨\n                            ∃ s,\n                              QuaternaryQuadraticForms.HBC0Geometry\n                                (fun x =>\n                                  QuaternaryQuadraticForms.realQuadraticValue A\n                                    ((QuaternaryQuadraticForms.signedCoordinateIsometry s) x))\n                                a lam fun x =>\n                                QuaternaryQuadraticForms.localizedWeight W δ y\n                                  ((QuaternaryQuadraticForms.signedCoordinateIsometry s) x)",
+      "type_sha256": "c82b827b6526c2d7504b76fb08348bbac5e8a0e14cfaa3e7f7aa050c4f66f63d",
+      "reference_id": "EXT.HB_WEIGHT_LOCALIZATION",
+      "source_components": [
+        "EXT.HB_WEIGHT_LOCALIZATION"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_weight_localization",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "source_sha256": "353ef68bb54b8cbed619bffb61c60a32884218fe3ea3252b9bef4f67c8c39836",
+      "scope": "For a fixed real coefficient quadratic form and fixed common support, coordinate-partial and positive gradient bounds, choose one positive delta<=1, interval radius and positive first-derivative bound before the weight and center. Every actual localized piece is away from the zero set or satisfies the literal C0 interval geometry after a finite signed coordinate permutation. No global root, singular integral, oscillatory estimate, annular nondegeneracy proof or weight reconstruction is imported."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+      "kind": "axiom",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ),\n            QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n              ∀ (φ : QuaternaryQuadraticForms.RealVector3 → ℝ),\n                QuaternaryQuadraticForms.HBGraphSelector (QuaternaryQuadraticForms.realQuadraticValue A) w a φ →\n                  MeasureTheory.IntegrableOn\n                      (fun y =>\n                        w (QuaternaryQuadraticForms.surfaceGraph φ y) /\n                          ↑(gradient (QuaternaryQuadraticForms.realQuadraticValue A)\n                              (QuaternaryQuadraticForms.surfaceGraph φ y) 0))\n                      (QuaternaryQuadraticForms.weightTailSupport w) MeasureTheory.volume ∧\n                    Filter.Tendsto\n                      (QuaternaryQuadraticForms.thinSlabIntegral (QuaternaryQuadraticForms.realQuadraticValue A) w)\n                      (nhdsWithin 0 (Set.Ioi 0))\n                      (nhds\n                        (QuaternaryQuadraticForms.hbGraphIntegral (QuaternaryQuadraticForms.realQuadraticValue A) w φ))",
+      "type_sha256": "3a8dc2089c2b4f98a926363ebfb23f8bbf032ecc5b95a0e09aa2aaff75ea6d80",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "source_components": [
+        "EXT.HB_INTEGRAL_ESTIMATES"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_singular_graph",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "source_sha256": "353ef68bb54b8cbed619bffb61c60a32884218fe3ea3252b9bef4f67c8c39836",
+      "scope": "For the fixed quadratic form and a quantitatively controlled C0 weight, every consistent selector of the prescribed interval roots gives an integrable graph-coordinate density and the actual thin-slab limit converges to its integral. The source functional is not identified with Euclidean surface measure by this premise."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+      "kind": "axiom",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            ∀ (j : ℕ),\n              1 ≤ j →\n                ∃ C,\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        ∀ (r : ℝ),\n                          0 < r →\n                            r ≤ R →\n                              ‖QuaternaryQuadraticForms.deltaIntegral (QuaternaryQuadraticForms.realQuadraticValue A) w\n                                      r 0 -\n                                    QuaternaryQuadraticForms.thinSlabSingularIntegral\n                                      (QuaternaryQuadraticForms.realQuadraticValue A) w‖ ≤\n                                C * r ^ j",
+      "type_sha256": "6f20a05a7938c8bad5c7e871952e85a2d689e447cce79906247fc4b12d622db2",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "source_components": [
+        "EXT.HB_INTEGRAL_ESTIMATES"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_zero_approximation",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "source_sha256": "353ef68bb54b8cbed619bffb61c60a32884218fe3ea3252b9bef4f67c8c39836",
+      "scope": "For the fixed quadratic form and common C0 control, each positive natural order has one error constant before the weight and scale. On every fixed bounded range 0<r<=R the actual zero-frequency delta integral differs from its actual thin-slab limit by at most C*r^j. No unbounded-scale extension or surface-integral identification is imported."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+      "kind": "axiom",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            ∃ D' K C,\n              (∀ (k : ℕ), 0 < D' k) ∧\n                (∀ (j N : ℕ), 0 < K j N) ∧\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        ∀ (r : ℝ),\n                          0 < r →\n                            r ≤ R →\n                              ∀ (v : QuaternaryQuadraticForms.RealVector4),\n                                DifferentiableAt ℝ\n                                    (fun t =>\n                                      QuaternaryQuadraticForms.deltaIntegral\n                                        (QuaternaryQuadraticForms.realQuadraticValue A) w t v)\n                                    r ∧\n                                  (∃ w₁ f₁,\n                                      QuaternaryQuadraticForms.HBC0Control\n                                          (QuaternaryQuadraticForms.realQuadraticValue A) B D' a lam w₁ ∧\n                                        tsupport w₁ ⊆ tsupport w ∧\n                                          QuaternaryQuadraticForms.HBAmplitudeControl K f₁ ∧\n                                            ‖QuaternaryQuadraticForms.deltaIntegral\n                                                  (QuaternaryQuadraticForms.realQuadraticValue A) w r v‖ ≤\n                                              C * r⁻¹ *\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                    (QuaternaryQuadraticForms.realQuadraticValue A) w₁ f₁ r\n                                                    (r⁻¹ • v)‖) ∧\n                                    ∃ w₂ f₂,\n                                      QuaternaryQuadraticForms.HBC0Control\n                                          (QuaternaryQuadraticForms.realQuadraticValue A) B D' a lam w₂ ∧\n                                        tsupport w₂ ⊆ tsupport w ∧\n                                          QuaternaryQuadraticForms.HBAmplitudeControl K f₂ ∧\n                                            ‖deriv\n                                                  (fun t =>\n                                                    QuaternaryQuadraticForms.deltaIntegral\n                                                      (QuaternaryQuadraticForms.realQuadraticValue A) w t v)\n                                                  r‖ ≤\n                                              C * r⁻¹ ^ 2 *\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                    (QuaternaryQuadraticForms.realQuadraticValue A) w₂ f₂ r (r⁻¹ • v)‖",
+      "type_sha256": "d1b64cc0364519a1bf7906160ab57fd0b49b45f2597ec7b9aab2f6494765251d",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "source_components": [
+        "EXT.HB_INTEGRAL_ESTIMATES"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_integral_reduction",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "source_sha256": "353ef68bb54b8cbed619bffb61c60a32884218fe3ea3252b9bef4f67c8c39836",
+      "scope": "For the fixed quadratic form and common C0 control on a fixed bounded positive scale range, choose modified derivative controls, amplitude controls and a positive constant before the weight, r and v. The actual integral is differentiable with the original v fixed. Separate modified weight/amplitude witnesses, supported in the original weight, bound the actual value by C/r times the actual auxiliary integral and the actual derivative by C/r^2 times such an integral. The homogeneity used by the source is satisfied by the quadratic expression; no rescaled final estimate is assumed."
+    },
+    {
+      "declaration": "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+      "kind": "axiom",
+      "actual_type": "∀ (A : Matrix (Fin 4) (Fin 4) ℝ) (B : ℝ) (D : ℕ → ℝ)\n  (a lam R : ℝ) (K : ℕ → ℕ → ℝ),\n  0 < B →\n    (∀ (k : ℕ), 0 < D k) →\n      0 < a →\n        0 < lam →\n          0 < R →\n            (∀ (j N : ℕ), 0 < K j N) →\n              (∃ C,\n                  0 < C ∧\n                    ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                      QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a lam w →\n                        QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                          ∀ (r : ℝ),\n                            0 < r →\n                              r ≤ R →\n                                ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                  ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                        (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                    C * r) ∧\n                (∀ (j : ℕ),\n                    1 ≤ j →\n                      ∃ C,\n                        0 < C ∧\n                          ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                            QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D a\n                                lam w →\n                              QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                                ∀ (r : ℝ),\n                                  0 < r →\n                                    r ≤ R →\n                                      ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                        u ≠ 0 →\n                                          ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                            C * (r⁻¹ ^ j * ‖u‖⁻¹ ^ j)) ∧\n                  ∀ (η ε : ℝ),\n                    0 < η →\n                      0 < ε →\n                        ε < 1 / 2 →\n                          ∃ C,\n                            0 < C ∧\n                              ∀ (w : QuaternaryQuadraticForms.RealVector4 → ℂ) (f : ℝ × ℝ → ℂ),\n                                QuaternaryQuadraticForms.HBC0Control (QuaternaryQuadraticForms.realQuadraticValue A) B D\n                                    a lam w →\n                                  QuaternaryQuadraticForms.HBAmplitudeControl K f →\n                                    (∀ x ∈ tsupport w,\n                                        η ≤\n                                          |(QuaternaryQuadraticForms.realHessian\n                                                (QuaternaryQuadraticForms.realQuadraticValue A) x).det|) →\n                                      ∀ (r : ℝ),\n                                        0 < r →\n                                          r ≤ R →\n                                            ∀ (u : QuaternaryQuadraticForms.RealVector4),\n                                              u ≠ 0 →\n                                                ‖QuaternaryQuadraticForms.hbOscillatoryIntegral\n                                                      (QuaternaryQuadraticForms.realQuadraticValue A) w f r u‖ ≤\n                                                  C * ((r⁻¹ * ‖u‖) ^ ε * r * ‖u‖⁻¹)",
+      "type_sha256": "cd5d7f5bb0de555a7dc247da23e89919ff17a0128946cbac480c1820e2ef8f31",
+      "reference_id": "EXT.HB_INTEGRAL_ESTIMATES",
+      "source_components": [
+        "EXT.HB_INTEGRAL_ESTIMATES"
+      ],
+      "axioms": [
+        "Classical.choice",
+        "QuaternaryQuadraticForms.Trusted.heathBrown_oscillatory_bounds",
+        "Quot.sound",
+        "propext"
+      ],
+      "file": "QuaternaryQuadraticForms/Trusted/HeathBrownIntegrals.lean",
+      "source_sha256": "353ef68bb54b8cbed619bffb61c60a32884218fe3ea3252b9bef4f67c8c39836",
+      "scope": "For a fixed real coefficient quadratic form and fixed common C0/H controls and bounded positive scale range, the actual auxiliary integral satisfies the three separate estimates of HB Lemmas 15,18,22 uniformly in weight, amplitude, scale and frequency. The final estimate includes an explicit positive uniform lower bound on the actual derivative-defined Hessian determinant. The dimension-four power is -1. No Hessian identification, nondegeneracy proof, final frequency rescaling or combination with the actual delta derivative is imported."
+    }
+  ]
+}
