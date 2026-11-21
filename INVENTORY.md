@@ -4,6 +4,8 @@ Frozen manuscript: [quadratic_character_sums_github.tex](manuscript/quadratic_ch
 
 **26 of 42 numbered results are certified.** 0 are partial, 0 are active numbered targets, and 16 are pending.
 
+The [second editorial manuscript revision](certification/manuscript_revisions/2026-11-20-editorial-2.json) preserves all 42 statement texts and hashes, all source ranges and label pages, and the existing certification scope. Eleven proof blocks have punctuation or prose edits only. The manuscript fingerprints were refreshed and metadata verification passed; the fresh GitHub Actions run is separate from earlier archived execution evidence.
+
 The current checkpoint completes Lemma 5.1 with the exact source delta–Poisson identity. The original supplied weights and mixed complete sums are retained, the lattice sum has finite support, only finitely many positive moduli contribute, and each frequency series converges absolutely. The prerequisite Lemma 2.1 is already certified. General affine Poisson summation is newly registered; residue reindexing, phase signs, delta insertion, Euclidean scaling, and the final B^2/q^3 factor are internal deductions. This milestone adds 45 theorem exports in 14 modules, for totals of 1,160 exports, 270 modules, 312 inspected inputs, 12 registered literature premises, 21 mapped source groups and nine pinned dependency revisions. Numbered status is 26 Certified and 16 Pending; supplementary status remains five Certified and 28 Pending. Proposition 5.1 and its separate remaining analytic obligations are Pending. Work stops after Lemma 5.1; current execution evidence is tracked in CHECKPOINT.md.
 
 The preceding checkpoint completed Lemma 2.3 with the literal finite set of integer zeros in the Euclidean ball. For a fixed symmetric nonsingular rational 4-by-4 matrix with nonsquare rational determinant and every epsilon>0, one positive constant precedes all real U>=1 in the U^(2+epsilon) estimate. The rational normal form, discriminant obstruction, positive denominator clearing, injective lattice map, signed-divisor fibres, and zero binary-coordinate slice are proved internally. The 28 new exports use no literature premise. The registered totals are 1,115 theorem exports, 256 project modules, 296 inspected inputs and 11 unchanged registered literature premises; the numbered inventory is 25 Certified and 17 Pending. The five Certified supplementary groups are unchanged, and aux:conecount remains Pending. Work stops after Lemma 2.3; execution evidence is recorded separately in CHECKPOINT.md.
@@ -1495,7 +1497,7 @@ The following 33 groups retain their own correspondence review. The single numbe
 ## Frozen source and reproducibility
 
 ```text
-f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494
+e3cd28b361ec143d043d4d9ced55939c234648f73f23a05377af4aaefa98b49a
 ```
 
 Official Lean 4.24.0 and official mathlib4 commit `f897ebcf72cd16f89ab4577d0c826cd14afaafc7` are pinned; the Lake manifest locks the transitive dependencies.

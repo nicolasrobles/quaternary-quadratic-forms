@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "revision_date": "2026-11-20",
+  "purpose": "Second author-requested editorial manuscript replacement; mathematical content and existing certification scope preserved.",
+  "base_commit": "6b6be2868442c24cd502fc2916720e63b59be8c6",
+  "previous_revision_record": "certification/manuscript_revisions/2026-11-20.json",
+  "old_source": {
+    "sha256": "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494",
+    "size_bytes": 132897,
+    "line_count": 3094,
+    "pdf_sha256": "9503440c9bca740c4e04df1dc74521eac82df8242e0b05cebdaa6e3a7f453d51",
+    "pdf_size_bytes": 546427,
+    "pdf_pages": 35
+  },
+  "updated_source": {
+    "uploaded_tex_filename": "quadratic_character_sums_github(1).tex",
+    "uploaded_pdf_filename": "quadratic_character_sums_github(1).pdf",
+    "sha256": "e3cd28b361ec143d043d4d9ced55939c234648f73f23a05377af4aaefa98b49a",
+    "size_bytes": 132910,
+    "line_count": 3094,
+    "pdf_sha256": "92c5f6aa8ad87cb2b9433e1c25d146734baf93bb84f6ba31999186db5696d324",
+    "pdf_size_bytes": 546326,
+    "pdf_pages": 35
+  },
+  "comparison": {
+    "replacement_groups": 44,
+    "changed_source_lines": 52,
+    "line_insertions_or_deletions": false,
+    "changes": [
+      "Semicolons replaced with sentence breaks or parenthetical references throughout the prose, including eleven proof environments.",
+      "The pronoun it is replaced with its explicit referent M_G(B) in the introduction.",
+      "The notation paragraph is rephrased without changing definitions.",
+      "The acknowledgement uses parallel wording for assistance with the derivation and the comparison."
+    ],
+    "numbered_statements": 42,
+    "all_statement_texts_hashes_and_ranges_unchanged": true,
+    "environments": {
+      "theorem": {
+        "count": 4,
+        "byte_identical_count": 4,
+        "all_byte_identical": true
+      },
+      "lemma": {
+        "count": 32,
+        "byte_identical_count": 32,
+        "all_byte_identical": true
+      },
+      "proposition": {
+        "count": 2,
+        "byte_identical_count": 2,
+        "all_byte_identical": true
+      },
+      "corollary": {
+        "count": 4,
+        "byte_identical_count": 4,
+        "all_byte_identical": true
+      },
+      "remark": {
+        "count": 1,
+        "byte_identical_count": 1,
+        "all_byte_identical": true
+      },
+      "proof": {
+        "count": 40,
+        "byte_identical_count": 29,
+        "all_byte_identical": false
+      },
+      "equation": {
+        "count": 94,
+        "byte_identical_count": 94,
+        "all_byte_identical": true
+      },
+      "align": {
+        "count": 2,
+        "byte_identical_count": 2,
+        "all_byte_identical": true
+      }
+    },
+    "proof_changes": [
+      {
+        "source_lines": [
+          628,
+          634
+        ],
+        "old_sha256": "7e0bc70ecbb283902159fac0adb4188ba2082fee242a29d06e01c03e1f93ebca",
+        "new_sha256": "7e5bdef3a59ac1170688f135d0983dbae3d806ada73e7b0e6530ebeed7ce18db",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          690,
+          753
+        ],
+        "old_sha256": "973ac494bbaec92732b5ec5975a748b3acc49e497f14c8128fdf43b7e6b99518",
+        "new_sha256": "203f56794883c7cb55119227c3e845738b5dc0ef503daf2511126bbda9b96067",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          845,
+          898
+        ],
+        "old_sha256": "1a70e0a1e7ae78ae0f00dd9c6181efe58c090cc287f5faca6dae057abb9acaac",
+        "new_sha256": "59e5d3dc6155ee6d268a744558f9f0bcf071b40d4a303d1203f36219cec9826d",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          1459,
+          1513
+        ],
+        "old_sha256": "5ef695b5a3a7f346126b76ea3f05212a7d3e8d98f13921b3961603e7a9b32663",
+        "new_sha256": "b19458019aa9fe8b401da907f66d254db866ccafee45335d620d78cc30821b6c",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          1767,
+          1792
+        ],
+        "old_sha256": "b071c5cbed72b99d72fb597eaa4d3213b7dc6fc4eeb61d281020994b63a5a59c",
+        "new_sha256": "1d1e109fd938143c1242dd10804cff36797118fb0014d01e893748a14649dd76",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          2323,
+          2355
+        ],
+        "old_sha256": "c67f3e661305d8849d454eba4d805a7154b47fa73b5a03b01250366bd80e12c2",
+        "new_sha256": "9168ff1d40d69e48c820ae8603eb34bb3492601d04da07ef55fe372ad18de55a",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          2357,
+          2420
+        ],
+        "old_sha256": "1b563102e0f50cc04c832a80ef9ff4ada311d8d452a9d74d4aed8044eda0b6b8",
+        "new_sha256": "1ca4b1d00be7b98e05568dfb96cb89643508b051e674ce3faf2b7e0f45c47270",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          2455,
+          2488
+        ],
+        "old_sha256": "d8e3131ed1f326a49761346706e74176258cda7794f89a938acdc48c6c982f98",
+        "new_sha256": "f1d3f1b2dd53301734070c2b6a9ccef2945807e9283e4f9cfb549ffd4f08005d",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          2593,
+          2676
+        ],
+        "old_sha256": "448b1448233354b4a96fda36af13c257f66b084cb8d3c2cf58bafeb35553407a",
+        "new_sha256": "4e53e6f30aa3c9e18db3c56f0332941810a7a3966bfadd5f13f6ad9e89fda6bf",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          2770,
+          2778
+        ],
+        "old_sha256": "529a7956f9ac28deadd594b682ecbb2aba7a57d4c7a4a025e29c6b2a93157d1a",
+        "new_sha256": "fbf7f93de7ef7ae9406ea98467917c575a6d3883773e996a0729ab8b10cb45d9",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      },
+      {
+        "source_lines": [
+          2808,
+          2860
+        ],
+        "old_sha256": "9a52a4f991f9a159bb5adc25c29a3e9a6e434dda11496d572c5ae390a68524ce",
+        "new_sha256": "9c8920a4ada27806860c92fd6fc08d3407040d4eb2fd10804e676221a2932be4",
+        "change": "Punctuation or prose only; mathematical expressions and proof argument unchanged."
+      }
+    ],
+    "all_proof_mathematical_expressions_unchanged": true,
+    "all_proof_arguments_unchanged": true,
+    "unnumbered_displays": {
+      "count": 103,
+      "all_byte_identical": true
+    },
+    "total_displayed_formulas": 199,
+    "all_172_labels_order_and_source_lines_unchanged": true,
+    "all_83_citations_and_470_cross_references_unchanged": true,
+    "preamble_and_bibliography_byte_identical": true,
+    "pdf_named_destinations": {
+      "count": 233,
+      "identical_names_and_pages": true,
+      "compiled_label_numbers_and_pages_unchanged": true
+    },
+    "all_source_line_locators_unchanged": true,
+    "tracked_lean_files_unchanged": 273,
+    "toolchain_dependency_pins_premises_exports_and_status_unchanged": true
+  },
+  "numbered_status": {
+    "Complete": 26,
+    "Partial": 0,
+    "Active": 0,
+    "Pending": 16
+  },
+  "supplementary_status": {
+    "Certified": 5,
+    "Pending": 28
+  },
+  "supporting_export_count": 1160,
+  "registered_literature_input_count": 12,
+  "historical_evidence": "Earlier source-correspondence reviews and verification reports retain their original hashes. The unchanged statements and mathematical proof content preserve their correspondence; the changed proof prose is recorded above.",
+  "verification": {
+    "metadata_only": true,
+    "metadata_checks_passed": true,
+    "fresh_lean_execution": false,
+    "note": "The existing Lean sources are unchanged. The push triggers the repository full GitHub Actions verifier; no new execution result is asserted by this comparison record.",
+    "inspected_input_count": 312,
+    "changed_inspected_inputs": [
+      "certification/source.json",
+      "certification/dependency_inventory.json",
+      "scripts/verify_certificate.py"
+    ]
+  }
+}

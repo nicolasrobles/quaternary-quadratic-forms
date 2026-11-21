@@ -8,9 +8,27 @@ The mathematical source is the audited frozen manuscript
 The associated [35-page PDF](manuscript/quadratic_character_sums_github.pdf) is
 included. The source SHA-256 is
 
-    f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494
+    e3cd28b361ec143d043d4d9ced55939c234648f73f23a05377af4aaefa98b49a
 
-## Manuscript revision of 20 November 2026
+## Current editorial revision of 20 November 2026
+
+The second uploaded TeX and PDF replace the preceding manuscript snapshot. All
+42 numbered statements and all 199 displayed formulas are byte-identical. Of
+the 40 proof blocks, 29 are byte-identical; eleven contain punctuation or prose
+edits, with unchanged mathematical expressions and proof arguments. All source
+line locators, result numbers and PDF label pages remain unchanged. The PDF
+still has 35 pages.
+
+The [comparison record](certification/manuscript_revisions/2026-11-20-editorial-2.json)
+records the exact uploaded file identities and the changed proof prose. The
+source fingerprints have been refreshed without changing the verification
+rules. Metadata verification passed. All 273 tracked Lean files, dependency
+pins, literature premises, theorem exports and certification statuses are
+unchanged: **26 Complete, 0 Partial, 0 Active, 16 Pending**. This editorial
+update adds no certified result. The push triggers a fresh full GitHub Actions
+run; the completed run documented below belongs to the preceding revision.
+
+## Earlier manuscript revision of 20 November 2026
 
 The author's updated TeX and PDF replace the preceding snapshot. All 42 numbered
 statements, all 40 proof blocks, and the displayed equations are byte-identical.
@@ -26,7 +44,7 @@ Historical verification reports and source reviews retain the exact manuscript
 identity they originally checked. The mathematical checkpoint below remains
 Lemma 5.1; the manuscript revision does not add a certified result.
 
-### Verification of the revised manuscript
+### Verification of the earlier manuscript revision
 
 The full GitHub verifier passed on the exact manuscript-update commit
 [53df45a82252](https://github.com/nicolasrobles/quaternary-quadratic-forms/commit/53df45a82252855d6063c153bb7abd54edecd61d).

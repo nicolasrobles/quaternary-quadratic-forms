@@ -2,11 +2,11 @@
   "schema_version": 1,
   "original_filename": "quadratic_character_sums_github.tex",
   "repository_filename": "manuscript/quadratic_character_sums_github.tex",
-  "sha256": "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494",
-  "size_bytes": 132897,
+  "sha256": "e3cd28b361ec143d043d4d9ced55939c234648f73f23a05377af4aaefa98b49a",
+  "size_bytes": 132910,
   "line_count": 3094,
   "pdf_path": "manuscript/quadratic_character_sums_github.pdf",
-  "pdf_sha256": "9503440c9bca740c4e04df1dc74521eac82df8242e0b05cebdaa6e3a7f453d51",
+  "pdf_sha256": "92c5f6aa8ad87cb2b9433e1c25d146734baf93bb84f6ba31999186db5696d324",
   "pdf_pages": 35,
   "numbered_result_count": 42,
   "compiled_labels": {
@@ -699,5 +699,5 @@
       "page": 33
     }
   },
-  "revision_record": "certification/manuscript_revisions/2026-11-20.json"
+  "revision_record": "certification/manuscript_revisions/2026-11-20-editorial-2.json"
 }

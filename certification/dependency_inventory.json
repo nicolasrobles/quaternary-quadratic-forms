@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "manuscript": "manuscript/quadratic_character_sums_github.tex",
-  "source_sha256": "f5b1416b2134d8ff988a72b5a635b33bbfabda365d0a61911bdd9fc8586a9494",
+  "source_sha256": "e3cd28b361ec143d043d4d9ced55939c234648f73f23a05377af4aaefa98b49a",
   "scope": "Reviewed manuscript proof dependencies. Source predicates and definitions are not assumed conclusions. Completion is governed by status.json, not this initial graph snapshot.",
   "results": [
     {
